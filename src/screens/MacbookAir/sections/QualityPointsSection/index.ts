@@ -1,0 +1,1 @@
+export { QualityPointsSection } from "./QualityPointsSection";
