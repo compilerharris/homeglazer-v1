@@ -31,7 +31,7 @@ import { WhyChooseUsSection } from "./sections/WhyChooseUsSection";
 export const MacbookAir = (): JSX.Element => {
   // Navigation menu items
   const navItems = [
-    "Home",
+    "Home Page",
     "Our Services",
     "Painting Blogs",
     "About Us",
