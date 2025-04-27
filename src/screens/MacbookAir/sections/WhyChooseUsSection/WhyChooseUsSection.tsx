@@ -39,7 +39,7 @@ export const WhyChooseUsSection = (): JSX.Element => {
       {featureCards.map((card) => (
         <Card
           key={card.id}
-          className="w-[277.5px] h-[219px] bg-[#d8d8d880] rounded-[22.5px] shadow-[0px_6px_6px_#0000000f] relative"
+          className="w-[23%] h-[219px] bg-[#d8d8d880] rounded-[22.5px] shadow-[0px_6px_6px_#0000000f] relative"
         >
           <CardContent className="p-0">
             {card.id === 3 ? (

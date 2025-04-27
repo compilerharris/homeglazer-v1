@@ -86,7 +86,7 @@ export const MacbookAir = (): JSX.Element => {
                       </h1>
 
                       <Button className="h-[60px] gap-[15px] px-[21px] py-[12px] bg-[#dbe7ec] rounded-[39.25px] text-black hover:bg-[#c5d6de]">
-                        <span className="font-['Quicksand',Helvetica] font-normal text-[24.2px]">
+                        <span className="font-['Quicksand',Helvetica] font-[200] text-[24.2px]">
                           {slide.buttonText}
                         </span>
                         <div className="relative w-[39.25px] h-[39.25px]">
@@ -297,7 +297,7 @@ export const MacbookAir = (): JSX.Element => {
         <FooterSection />
 
         {/* Fixed Color Picker */}
-        <div className="fixed w-[55px] h-[55px] top-[728px] right-[100px] z-50">
+        <div className="fixed w-[55px] h-[55px] right-[50px] bottom-[50px] z-50">
           <div className="relative h-[55px]">
             <div className="absolute w-[35px] h-[35px] top-2.5 left-2.5 bg-white" />
             <div className="absolute w-[55px] h-[55px] top-0 left-0 bg-[url(/assets/images/color-.png)] bg-[100%_100%]" />

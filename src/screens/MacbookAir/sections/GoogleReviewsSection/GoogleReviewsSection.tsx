@@ -27,7 +27,7 @@ export const GoogleReviewsSection = (): JSX.Element => {
 
   return (
     <section className="flex flex-wrap w-full items-center gap-[42.43px] px-[84.86px] py-[35px] bg-[#dedede45]">
-      <div className="w-[709px] justify-center relative flex items-center">
+      <div className="w-[60%] justify-center relative flex items-center">
         <Carousel className="w-full" opts={{ align: "start" }}>
           <CarouselPrevious className="absolute left-[-30px] w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]">
             <ChevronLeftIcon className="w-7 h-7" />
@@ -35,12 +35,12 @@ export const GoogleReviewsSection = (): JSX.Element => {
 
           <CarouselContent>
             {carouselImages.map((slide, index) => (
-              <CarouselItem key={index} className="flex justify-center gap-4">
+              <CarouselItem key={index} className="flex justify-center gap-[0] p-[10%]">
                 {slide.images.map((image: {src: string, alt:string}, imgIndex: number) => (
-                  <Card key={imgIndex} className="border-none bg-transparent">
+                  <Card key={imgIndex} className="border-none bg-transparent w-[50%]">
                     <CardContent className="p-0">
                       <img
-                        className="w-[320.41px] h-[350.26px]"
+                        className="w-[100%]"
                         alt={image.alt}
                         src={image.src}
                       />

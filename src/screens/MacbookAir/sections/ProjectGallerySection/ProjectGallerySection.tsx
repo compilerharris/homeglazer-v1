@@ -25,7 +25,7 @@ export const ProjectGallerySection = (): JSX.Element => {
   };
 
   return (
-    <section className="w-full py-[35px] px-[84.86px] bg-[#dedede45] flex flex-wrap items-center gap-[42.43px] relative">
+    <section className="container w-full py-[35px] px-[84.86px] bg-[#dedede45] flex flex-wrap items-center gap-[42.43px] relative">
       {/* Left content - Text and CTA */}
       <div className="flex flex-col items-start gap-7">
         <div className="flex flex-col max-w-[353.59px] items-start gap-[18px]">
