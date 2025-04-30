@@ -5,9 +5,10 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta charSet="utf-8" />
-        <style>
-          {`@import url(https://fonts.googleapis.com/css?family=Quicksand:300,500,400,600|Inter:300,400,600|Epilogue:500,400|Poppins:400,var(--body-caption-s-regular-font-weight));`}
-        </style>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />

@@ -26,16 +26,16 @@ export const GoogleReviewsSection = (): JSX.Element => {
   });
 
   return (
-    <section className="flex flex-wrap w-full items-center gap-[42.43px] px-[84.86px] py-[35px] bg-[#dedede45]">
-      <div className="w-[60%] justify-center relative flex items-center">
+    <section className="flex flex-wrap w-full items-center gap-[42.43px] px-[84.86px] py-16 bg-[#dedede45]">
+      <div className="w-[60%] justify-center relative flex items-center px-[50px]">
         <Carousel className="w-full" opts={{ align: "start" }}>
-          <CarouselPrevious className="absolute left-[-30px] w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]">
+          <CarouselPrevious className="absolute left-[-58px] w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]">
             <ChevronLeftIcon className="w-7 h-7" />
           </CarouselPrevious>
 
           <CarouselContent>
             {carouselImages.map((slide, index) => (
-              <CarouselItem key={index} className="flex justify-center gap-[0] p-[10%]">
+              <CarouselItem key={index} className="flex justify-center gap-[0]">
                 {slide.images.map((image: {src: string, alt:string}, imgIndex: number) => (
                   <Card key={imgIndex} className="border-none bg-transparent w-[50%]">
                     <CardContent className="p-0">
@@ -51,7 +51,7 @@ export const GoogleReviewsSection = (): JSX.Element => {
             ))}
           </CarouselContent>
 
-          <CarouselNext className="absolute right-[-30px] w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]">
+          <CarouselNext className="absolute right-[-58px] w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]">
             <ChevronRightIcon className="w-7 h-7" />
           </CarouselNext>
         </Carousel>

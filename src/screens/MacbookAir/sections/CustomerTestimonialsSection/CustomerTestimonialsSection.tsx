@@ -19,7 +19,7 @@ export const CustomerTestimonialsSection = (): JSX.Element => {
   });
 
   return (
-    <section className="flex flex-wrap w-full py-[35px] px-[84.86px] bg-[#dedede45] gap-[42.43px]">
+    <section className="flex flex-wrap w-full py-24 px-[84.86px] mt-16 bg-[#dedede45] gap-[100px]">
       <div className="flex items-center justify-center relative">
         <Carousel className="w-[709px]" opts={{ slidesToScroll: 3 }}>
           <CarouselPrevious className="absolute left-[-30px] w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d] border-none">
@@ -29,8 +29,8 @@ export const CustomerTestimonialsSection = (): JSX.Element => {
           <CarouselContent className="flex items-center">
             {paintBrands.map((brand, index) => (
               <CarouselItem key={index} className="basis-1/3 pl-[27px]">
-                <Card className="border-none">
-                  <CardContent className="p-0">
+                <Card className="border-none shadow-none">
+                  <CardContent className="p-0 flex items-center justify-center">
                     <div
                       className="relative w-[143.23px] h-[197.16px] bg-cover bg-[50%_50%]"
                       style={{

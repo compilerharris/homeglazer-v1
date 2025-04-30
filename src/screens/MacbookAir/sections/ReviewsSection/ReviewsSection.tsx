@@ -22,35 +22,35 @@ export const ReviewsSection = (): JSX.Element => {
     },
     {
       id: 2,
-      text: '"The attention to detail and professionalism shown by the team was outstanding. They transformed our space completely!"',
+      text: '"I\'ve been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"',
       author: "Emma Collins",
       position: "HR Specialist",
       avatar: "/assets/images/icon-strategy-1.png",
     },
     {
       id: 3,
-      text: '"Exceptional service from start to finish. The team was professional, punctual, and the results exceeded our expectations!"',
+      text: '"I\'ve been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"',
       author: "Michael Chen",
       position: "Business Owner",
       avatar: "/assets/images/icon-strategy.png",
     },
     {
       id: 4,
-      text: '"Their expertise in color selection and application techniques made all the difference. Our office looks amazing now!"',
+      text: '"I\'ve been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"',
       author: "Sarah Johnson",
       position: "Office Manager",
       avatar: "/assets/images/icon-strategy-1.png",
     },
     {
       id: 5,
-      text: '"Great communication throughout the project and impeccable attention to detail. Would definitely recommend!"',
+      text: '"I\'ve been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"',
       author: "David Wilson",
       position: "Property Developer",
       avatar: "/assets/images/icon-strategy.png",
     },
     {
       id: 6,
-      text: '"The team was incredibly professional and efficient. They completed the project ahead of schedule!"',
+      text: '"I\'ve been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"',
       author: "Lisa Anderson",
       position: "Interior Designer",
       avatar: "/assets/images/icon-strategy-1.png",
@@ -85,14 +85,14 @@ export const ReviewsSection = (): JSX.Element => {
       </div>
 
       <div className="flex-1 min-w-[265.19px]">
-        <Carousel className="w-full" opts={{ slidesToScroll: 2 }}>
+        <Carousel className="w-full px-8" opts={{ slidesToScroll: 2 }}>
           <CarouselPrevious className="absolute left-[-30px] w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]">
             <ChevronLeftIcon className="h-7 w-7" />
           </CarouselPrevious>
 
-          <CarouselContent className="gap-[28.29px] py-[7.07px]">
+          <CarouselContent className="gap-[28.29px] py-[7.07px] mx-0">
             {reviews.map((review, index) => (
-              <CarouselItem key={review.id} className="basis-1/2 pl-0">
+              <CarouselItem key={review.id} className="basis-[48%] pl-0">
                 <Card className="min-w-[265.19px] bg-white rounded-[35.36px] shadow-[0px_3.54px_8.84px_#5252521a]">
                   <CardContent className="flex flex-col items-start justify-center gap-[14.14px] p-[28.29px]">
                     <img
@@ -130,7 +130,7 @@ export const ReviewsSection = (): JSX.Element => {
           </CarouselNext>
         </Carousel>
 
-        <div className="flex justify-center mt-[26px] gap-[10.61px]">
+        {/* <div className="flex justify-center mt-[26px] gap-[10.61px]">
           {Array.from({ length: Math.ceil(reviews.length / 2) }).map((_, index) => (
             <div
               key={index}
@@ -139,7 +139,7 @@ export const ReviewsSection = (): JSX.Element => {
               }`}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -13,7 +13,7 @@ export const ProjectGallerySection = (): JSX.Element => {
     { src: "/assets/images/image-5.png", alt: "Thumbnail 1" },
     { src: "/assets/images/image-6.png", alt: "Thumbnail 2" },
     { src: "/assets/images/untitled-design--3--removebg-preview.png", alt: "Thumbnail 3" },
-    { src: "/assets/images/untitled-design--3--removebg-preview.png", alt: "Thumbnail 4" },
+    { src: "/assets/images/untitled-design--1--removebg-preview.png", alt: "Thumbnail 4" },
   ];
 
   const handlePrevious = () => {
@@ -25,7 +25,7 @@ export const ProjectGallerySection = (): JSX.Element => {
   };
 
   return (
-    <section className="container w-full py-[35px] px-[84.86px] bg-[#dedede45] flex flex-wrap items-center gap-[42.43px] relative">
+    <section className="container w-full py-16 px-[84.86px] mt-16 bg-[#dedede45] flex flex-wrap items-center gap-[42.43px] relative">
       {/* Left content - Text and CTA */}
       <div className="flex flex-col items-start gap-7">
         <div className="flex flex-col max-w-[353.59px] items-start gap-[18px]">
@@ -53,7 +53,7 @@ export const ProjectGallerySection = (): JSX.Element => {
       </div>
 
       {/* Right content - Image carousel */}
-      <div className="w-[709px] h-[283px] flex items-center justify-center relative">
+      <div className="w-[709px] flex items-center justify-center relative">
         <Button
           variant="outline"
           size="icon"
@@ -87,14 +87,14 @@ export const ProjectGallerySection = (): JSX.Element => {
       </div>
 
       {/* Thumbnail navigation */}
-      <div className="absolute bottom-[55px] left-1/2 transform -translate-x-1/2 flex gap-4">
+      <div className="absolute bottom-[35px] left-[63%] px-[20px] py-[10px] bg-[#F6F6F6] rounded-[16px] transform -translate-x-1/2 flex gap-4">
         {thumbnailImages.map((thumb, index) => (
           <button
             key={index}
             onClick={() => setActiveIndex(index)}
-            className={`relative w-12 h-12 rounded-lg overflow-hidden ${
+            className={`relative w-14 h-14 rounded-lg overflow-hidden ${
               index === activeIndex
-                ? "ring-2 ring-[#777777] after:content-[''] after:absolute after:top-[-6px] after:left-1/2 after:-translate-x-1/2 after:border-l-[6px] after:border-r-[6px] after:border-b-[6px] after:border-transparent after:border-b-[#777777]"
+                ? "border border-solid border-[#CBCBCB] shadow-[0px_2px_4px_0px_#00000040] after:content-[''] after:absolute after:top-[-6px] after:left-1/2 after:-translate-x-1/2 after:border-l-[6px] after:border-r-[6px] after:border-b-[6px] after:border-transparent after:border-b-[#777777]"
                 : "opacity-50"
             }`}
           >

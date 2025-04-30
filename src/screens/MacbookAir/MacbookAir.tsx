@@ -81,12 +81,12 @@ export const MacbookAir = (): JSX.Element => {
                       />
                     </div>
                     <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-                      <h1 className="font-['Quicksand',Helvetica] font-semibold text-white text-[56px] text-center tracking-[0] leading-normal [-webkit-text-stroke:2px_#00000033] mb-12">
+                      <h1 className="font-['Quicksand',Helvetica] font-semibold text-white text-[56px] text-center tracking-[0] leading-normal mb-12 w-full max-w-[600px]">
                         {slide.title}
                       </h1>
 
                       <Button className="h-[60px] gap-[15px] px-[21px] py-[12px] bg-[#dbe7ec] rounded-[39.25px] text-black hover:bg-[#c5d6de]">
-                        <span className="font-['Quicksand',Helvetica] font-[200] text-[24.2px]">
+                        <span className="font-['Quicksand',Helvetica] font-[400] text-[24.2px]">
                           {slide.buttonText}
                         </span>
                         <div className="relative w-[39.25px] h-[39.25px]">
@@ -135,49 +135,13 @@ export const MacbookAir = (): JSX.Element => {
           </div>
 
           {/* Bottom Image */}
-          <div className="absolute w-[700px] h-[65px] bottom-0 left-1/2 -translate-x-1/2 shadow-[0px_3.76px_8.77px_#00000040]">
-            <div className="relative w-full h-full">
-              <div className="relative w-[277px] h-[65px]">
-                <Image
-                  className="object-cover"
-                  alt="Rectangle"
-                  src="/assets/images/rectangle.png"
-                  fill
-                />
-              </div>
-              <div className="relative w-[449px] h-[38px] top-0 left-[251px]">
-                <Image
-                  className="object-contain"
-                  alt="Vector"
-                  src="/assets/images/vector-3.svg"
-                  fill
-                />
-              </div>
-              <div className="relative w-[283px] h-[15px] top-0 left-0.5">
-                <Image
-                  className="object-contain"
-                  alt="Group"
-                  src="/assets/images/group.png"
-                  fill
-                />
-              </div>
-              <div className="relative w-[49px] h-4 top-11 left-[129px] bg-blend-hard-light">
-                <Image
-                  className="object-contain"
-                  alt="Vector"
-                  src="/assets/images/vector-1.svg"
-                  fill
-                />
-              </div>
-              <div className="relative w-[34px] h-[26px] top-[34px] left-[85px] bg-blend-hard-light">
-                <Image
-                  className="object-contain"
-                  alt="Vector"
-                  src="/assets/images/vector.svg"
-                  fill
-                />
-              </div>
-            </div>
+          <div className="absolute w-[700px] h-[80px] bottom-[-75px] left-[36.6%] -translate-x-1/2">
+            <Image
+              className="object-cover"
+              alt="Rectangle"
+              src="/assets/images/banner-color.png"
+              fill
+            />
           </div>
         </div>
 
@@ -274,7 +238,7 @@ export const MacbookAir = (): JSX.Element => {
             </p>
           </div>
 
-          <div className="relative container mx-auto">
+          <div className="relative container mx-auto px-0">
             <DesignInsightsSection />
           </div>
         </div>

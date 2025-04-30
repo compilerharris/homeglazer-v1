@@ -24,7 +24,7 @@ export const DesignInsightsSection = (): JSX.Element => {
             <CarouselItem key={index}>
               <Card className="w-full h-[450px] bg-cover bg-center border-0 rounded-none overflow-hidden">
                 <CardContent
-                  className="p-0 h-full relative"
+                  className="p-0 h-full relative bg-center bg-cover before:content-[''] before:absolute before:left-0 before:bottom-0  before:w-full before:h-1/2 before:bg-gradient-to-t before:from-black/75 before:to-transparent"
                   style={{ backgroundImage: `url(${slide.image})` }}
                 >
                   <div className="absolute bottom-14 left-[54px]">
@@ -42,10 +42,10 @@ export const DesignInsightsSection = (): JSX.Element => {
           ))}
         </CarouselContent>
 
-        <CarouselPrevious className="absolute left-[-30px] top-1/2 transform -translate-y-1/2 w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]" />
-        <CarouselNext className="absolute right-[-30px] top-1/2 transform -translate-y-1/2 w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]" />
+        <CarouselPrevious className="absolute left-[40px] top-1/2 transform -translate-y-1/2 w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]" />
+        <CarouselNext className="absolute right-[40px] top-1/2 transform -translate-y-1/2 w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]" />
 
-        <div className="flex items-center gap-2.5 absolute bottom-[55px] left-1/2 transform -translate-x-1/2">
+        {/* <div className="flex items-center gap-2.5 absolute bottom-[55px] left-1/2 transform -translate-x-1/2">
           {slides.map((_, index) => (
             <div
               key={index}
@@ -54,7 +54,7 @@ export const DesignInsightsSection = (): JSX.Element => {
               }`}
             />
           ))}
-        </div>
+        </div> */}
       </Carousel>
     </div>
   );

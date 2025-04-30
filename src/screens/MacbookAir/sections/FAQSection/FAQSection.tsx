@@ -16,20 +16,20 @@ export const FAQSection = (): JSX.Element => {
     },
     {
       question: "What are your working hours?",
-      answer: "",
+      answer: "The size of our crew strongly depends on the scope of work and timeline within the project needs to be completed. We usually utilise team of 2-6 professional painter to maximise the productivity.",
     },
     {
       question:
         "What is the difference between painting services of local painter and Home Glazer?",
-      answer: "",
+      answer: "The size of our crew strongly depends on the scope of work and timeline within the project needs to be completed. We usually utilise team of 2-6 professional painter to maximise the productivity.",
     },
     {
       question: "What are the prices? Is the price negotiable?",
-      answer: "",
+      answer: "The size of our crew strongly depends on the scope of work and timeline within the project needs to be completed. We usually utilise team of 2-6 professional painter to maximise the productivity.",
     },
     {
       question: "Will my house be cleaned after the painting job?",
-      answer: "",
+      answer: "The size of our crew strongly depends on the scope of work and timeline within the project needs to be completed. We usually utilise team of 2-6 professional painter to maximise the productivity.",
     },
   ];
 

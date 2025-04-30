@@ -20,10 +20,10 @@ export const QualityPointsSection = (): JSX.Element => {
   });
 
   return (
-    <section className="w-full py-[35px] px-[84.86px] bg-[#dedede45] flex flex-wrap items-center gap-[42.43px]">
+    <section className="w-full py-16 px-[84.86px] mt-16 bg-[#dedede45] flex flex-wrap items-center gap-[42.43px]">
       {/* Image Carousel */}
       <div className="flex items-center justify-center relative">
-        <Carousel className="w-[709px]">
+        <Carousel className="w-[709px] px-8">
           <CarouselPrevious className="absolute left-[-30px] w-[53.04px] h-[53.04px] bg-[#ffffffb2] rounded-[26.52px] shadow-[0px_3.54px_3.54px_#7878780d]">
             <ChevronLeftIcon className="w-7 h-7" />
           </CarouselPrevious>
@@ -31,7 +31,7 @@ export const QualityPointsSection = (): JSX.Element => {
           <CarouselContent>
             {carouselData.map((slide, index) => (
               <CarouselItem key={index}>
-                <Card className="w-[644px] h-[350px] border-none bg-transparent">
+                <Card className="w-full h-[350px] border-none bg-transparent">
                   <CardContent className="p-0 h-full">
                     <img
                       className="w-full h-[340px] object-cover mt-2.5"

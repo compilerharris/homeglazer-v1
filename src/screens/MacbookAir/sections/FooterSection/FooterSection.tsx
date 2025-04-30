@@ -145,7 +145,7 @@ export const FooterSection = (): JSX.Element => {
           </div>
 
           <img
-            className="absolute w-[351px] h-1.5 top-[70px] left-[46px]"
+            className="absolute w-[351px] h-1.5 top-[130px] left-[100px]"
             alt="Vector"
             src="/assets/images/vector-2.svg"
           />
