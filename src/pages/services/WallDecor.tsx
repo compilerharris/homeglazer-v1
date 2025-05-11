@@ -4,7 +4,7 @@ import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -49,7 +49,7 @@ const WallDecor: React.FC = () => {
                 <h3 className="text-xl font-medium mb-2">Graffiti Painting</h3>
                 <p className="text-gray-600 mb-4">Bold, artistic statements that make your walls stand out.</p>
                 <Link 
-                  to="/services/wall-decor/graffiti-painting"
+                  href="/services/wall-decor/graffiti-painting"
                   className="flex items-center justify-center bg-[#ed276e] hover:bg-[#3b82f6] text-white rounded-full py-3 px-6 transition-colors"
                 >
                   Learn More
@@ -68,7 +68,7 @@ const WallDecor: React.FC = () => {
                 <h3 className="text-xl font-medium mb-2">Texture Painting</h3>
                 <p className="text-gray-600 mb-4">Add depth and dimension with stylish textured finishes.</p>
                 <Link 
-                  to="/services/wall-decor/texture-painting"
+                  href="/services/wall-decor/texture-painting"
                   className="flex items-center justify-center bg-[#ed276e] hover:bg-[#3b82f6] text-white rounded-full py-3 px-6 transition-colors"
                 >
                   Learn More
@@ -87,7 +87,7 @@ const WallDecor: React.FC = () => {
                 <h3 className="text-xl font-medium mb-2">Stencil Art</h3>
                 <p className="text-gray-600 mb-4">Clean, creative patterns for a sharp, modern look.</p>
                 <Link 
-                  to="/services/wall-decor/stencil-art"
+                  href="/services/wall-decor/stencil-art"
                   className="flex items-center justify-center bg-[#ed276e] hover:bg-[#3b82f6] text-white rounded-full py-3 px-6 transition-colors"
                 >
                   Learn More
@@ -106,7 +106,7 @@ const WallDecor: React.FC = () => {
                 <h3 className="text-xl font-medium mb-2">Wallpaper</h3>
                 <p className="text-gray-600 mb-4">Elegant designs with a flawless, bubble-free finish.</p>
                 <Link 
-                  to="/services/wall-decor/wallpaper"
+                  href="/services/wall-decor/wallpaper"
                   className="flex items-center justify-center bg-[#ed276e] hover:bg-[#3b82f6] text-white rounded-full py-3 px-6 transition-colors"
                 >
                   Learn More

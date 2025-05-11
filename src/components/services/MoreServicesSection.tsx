@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from "next/link";
 
 const MoreServicesSection = () => {
   const services = [
@@ -51,7 +51,7 @@ const MoreServicesSection = () => {
                 <h3 className="text-gray-800 font-medium text-xl mb-2">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <Link 
-                  to={service.path} 
+                  href={service.path} 
                   className="inline-flex items-center text-[rgba(237,39,110,1)] hover:text-[rgba(59,130,246,1)] transition-colors"
                 >
                   Learn more

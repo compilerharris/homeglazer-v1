@@ -4,7 +4,7 @@ import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -49,7 +49,7 @@ const WoodServices: React.FC = () => {
                 <h3 className="text-xl font-medium mb-2">Wood Coating</h3>
                 <p className="text-gray-600 mb-4">Protect and enhance wood with long-lasting finishes.</p>
                 <Link 
-                  to="/services/wood/wood-coating"
+                  href="/services/wood/wood-coating"
                   className="flex items-center justify-center bg-[#ed276e] hover:bg-[#3b82f6] text-white rounded-full py-3 px-6 transition-colors"
                 >
                   Learn More
@@ -68,7 +68,7 @@ const WoodServices: React.FC = () => {
                 <h3 className="text-xl font-medium mb-2">Wood Polishing</h3>
                 <p className="text-gray-600 mb-4">Bring out the shine of your wood surfaces.</p>
                 <Link 
-                  to="/services/wood/wood-polishing"
+                  href="/services/wood/wood-polishing"
                   className="flex items-center justify-center bg-[#ed276e] hover:bg-[#3b82f6] text-white rounded-full py-3 px-6 transition-colors"
                 >
                   Learn More
@@ -87,7 +87,7 @@ const WoodServices: React.FC = () => {
                 <h3 className="text-xl font-medium mb-2">Carpentry</h3>
                 <p className="text-gray-600 mb-4">Custom woodwork crafted with precision and care.</p>
                 <Link 
-                  to="/services/wood/carpentry"
+                  href="/services/wood/carpentry"
                   className="flex items-center justify-center bg-[#ed276e] hover:bg-[#3b82f6] text-white rounded-full py-3 px-6 transition-colors"
                 >
                   Learn More
