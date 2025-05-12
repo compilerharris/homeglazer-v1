@@ -43,28 +43,28 @@ const Services: React.FC = () => {
       description: "Transform your home with our premium residential painting services tailored to your style and preferences.",
       imageUrl: "https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/feb90153e0e003c64ec5c51f88adb9c53c5665d0?placeholderIfAbsent=true",
       icon: <House size={24} />,
-      path: "/services/residential"
+      path: "/services/painting/residential"
     },
     {
       title: "Commercial",
       description: "Professional painting solutions for offices, retail spaces, and commercial buildings to enhance your business image.",
       imageUrl: "https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/3abc0d3433dc7ccb1a71887419241b5ee4eca153?placeholderIfAbsent=true",
       icon: <Building2 size={24} />,
-      path: "/services/commercial"
+      path: "/services/painting/commercial"
     },
     {
       title: "Wood Coating",
       description: "Preserve and beautify your wooden surfaces with our specialized wood coating and finishing techniques.",
       imageUrl: "https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/d7c8dd1a8cd5163299aa1b5d6926da8cc6670bdc?placeholderIfAbsent=true",
       icon: <Brush size={24} />,
-      path: "/services/wood-coating"
+      path: "/services/wood/wood-coating"
     },
     {
       title: "Kids Room",
       description: "Create magical spaces for children with our themed designs, safe paints, and creative wall treatments.",
       imageUrl: "https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/cf15213242b2344e311ec56bf353a7bf7802b92f?placeholderIfAbsent=true",
       icon: <Bed size={24} />,
-      path: "/services/kids-room"
+      path: "/services/painting/kids-room"
     },
     {
       title: "Wall Decor",
@@ -78,7 +78,7 @@ const Services: React.FC = () => {
       description: "Bring your vision to life with personalized painting solutions tailored to your unique requirements.",
       imageUrl: "https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/3d065c1c5f706ca914effd1e3edf4b8121b322ce?placeholderIfAbsent=true",
       icon: <PaintBucket size={24} />,
-      path: "/services/customised-painting"
+      path: "/services/customized-painting"
     }
   ];
 

@@ -41,7 +41,7 @@ const ServiceCardsGrid: React.FC = () => {
       title: "Painting Services",
       description: "From interiors to exteriors, flawless finishes that last.",
       image: "https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/feb90153e0e003c64ec5c51f88adb9c53c5665d0",
-      path: "/services/painting-services"
+      path: "/services/painting"
     }, 
     {
       title: "Customized Painting",
@@ -59,7 +59,7 @@ const ServiceCardsGrid: React.FC = () => {
       title: "Wood Services",
       description: "Coating, polishing, and carpentry for timeless woodwork.",
       image: "https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/3d065c1c5f706ca914effd1e3edf4b8121b322ce",
-      path: "/services/wood"
+      path: "/services/wood-services"
     }
   ];
 

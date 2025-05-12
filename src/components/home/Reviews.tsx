@@ -45,7 +45,7 @@ const Reviews: React.FC = () => {
             </p>
             <CTAButton to="/reviews" className="bg-[rgba(219,231,236,1)] flex min-h-[60px] w-60 max-w-full items-center gap-[13px] text-[21px] text-black font-normal text-center justify-center mt-7 pl-[18px] pr-[11px] py-[13px] rounded-[35px]">
               <span className="self-stretch my-auto">View All Reviews</span>
-              <img alt="Arrow Icon" className="aspect-[1] object-contain w-[34px] self-stretch shrink-0 my-auto" src="https://09994e17-aa9d-4489-b186-55f5694947d6.lovableproject.com/lovable-uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />
+              <img alt="Arrow Icon" className="aspect-[1] object-contain w-[34px] self-stretch shrink-0 my-auto" src="/lovable-uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />
             </CTAButton>
           </div>
         </div>

@@ -1,18 +1,18 @@
 import * as React from "react"
-
-import type {
-  ToastActionElement,
-  ToastProps,
-} from "@/components/ui/toast"
+import type { ReactNode, ReactElement } from "react"
 
 const TOAST_LIMIT = 1
 const TOAST_REMOVE_DELAY = 1000000
 
-type ToasterToast = ToastProps & {
-  id: string
-  title?: React.ReactNode
-  description?: React.ReactNode
+export type ToastActionElement = ReactElement
+
+export type ToastProps = {
+  id?: string
+  title?: ReactNode
+  description?: ReactNode
   action?: ToastActionElement
+  duration?: number
+  variant?: "default" | "success" | "destructive"
 }
 
 const actionTypes = {
@@ -27,6 +27,12 @@ let count = 0
 function genId() {
   count = (count + 1) % Number.MAX_SAFE_INTEGER
   return count.toString()
+}
+
+type ToasterToast = ToastProps & {
+  id: string
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }
 
 type ActionType = typeof actionTypes

@@ -107,7 +107,7 @@ const Header: React.FC = () => {
     {
       title: 'Painting Services',
       description: 'From interiors to exteriors, flawless finishes that last.',
-      path: '/services/painting-services'
+      path: '/services/painting'
     },
     {
       title: 'Customized Painting',
@@ -122,7 +122,7 @@ const Header: React.FC = () => {
     {
       title: 'Wood Services',
       description: 'Coating, polishing, and carpentry for timeless woodwork.',
-      path: '/services/wood'
+      path: '/services/wood-services'
     }
   ];
   
