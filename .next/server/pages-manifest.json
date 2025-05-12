@@ -1,1 +1,9 @@
-{"/_app":"pages/_app.js","/about":"pages/about.html","/_document":"pages/_document.js","/404":"pages/404.html","/":"pages/index.html","/services/customized-painting":"pages/services/customized-painting.html","/services":"pages/services.html","/services/customized-painting/exterior-painting":"pages/services/customized-painting/exterior-painting.html","/services/customized-painting/interior-painting":"pages/services/customized-painting/interior-painting.html","/services/customized-painting/one-day-painting":"pages/services/customized-painting/one-day-painting.html","/services/customized-painting/per-day-painting":"pages/services/customized-painting/per-day-painting.html","/services/painting":"pages/services/painting.html","/services/painting/commercial":"pages/services/painting/commercial.html","/services/painting/kids-room":"pages/services/painting/kids-room.html","/services/wall-decor":"pages/services/wall-decor.html","/services/painting/residential":"pages/services/painting/residential.html","/services/wall-decor/stencil-art":"pages/services/wall-decor/stencil-art.html","/services/wall-decor/texture-painting":"pages/services/wall-decor/texture-painting.html","/services/wall-decor/wallpaper":"pages/services/wall-decor/wallpaper.html","/services/wood-services":"pages/services/wood-services.html","/services/wood/carpentry":"pages/services/wood/carpentry.html","/services/wall-decor/graffiti-painting":"pages/services/wall-decor/graffiti-painting.html","/services/wood/wood-coating":"pages/services/wood/wood-coating.html","/_error":"pages/_error.js","/services/wood/wood-polishing":"pages/services/wood/wood-polishing.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/services/wall-decor": "pages/services/wall-decor.js",
+  "/services/wood-services": "pages/services/wood-services.js",
+  "/services/wood/wood-coating": "pages/services/wood/wood-coating.js",
+  "/": "pages/index.js"
+}

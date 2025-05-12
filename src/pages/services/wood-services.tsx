@@ -36,7 +36,7 @@ const WoodServices: React.FC = () => {
           </Breadcrumb>
         </div>
         
-        <section className="w-[90%] lg:w-[80%] mx-auto my-12">
+        <section className="w-[90%] lg:w-[80%] mx-auto py-1">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">

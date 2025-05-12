@@ -14,7 +14,7 @@ const ProcessSection = () => {
           <div className="bg-white shadow-sm rounded-lg overflow-hidden">
             <div className="h-56">
               <img 
-                src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3" 
+                src="/lovable-uploads/consultation.png" 
                 alt="Consultation" 
                 className="w-full h-full object-cover"
               />
@@ -31,7 +31,7 @@ const ProcessSection = () => {
           <div className="bg-white shadow-sm rounded-lg overflow-hidden">
             <div className="h-56">
               <img 
-                src="https://images.unsplash.com/photo-1608829602629-d2a5399c4f55?ixlib=rb-4.0.3" 
+                src="/lovable-uploads/scope-of-work.png" 
                 alt="Scope of Work" 
                 className="w-full h-full object-cover"
               />
@@ -48,7 +48,7 @@ const ProcessSection = () => {
           <div className="bg-white shadow-sm rounded-lg overflow-hidden">
             <div className="h-56">
               <img 
-                src="https://images.unsplash.com/photo-1572891086295-6c1c7c476549?ixlib=rb-4.0.3" 
+                src="/lovable-uploads/actual-residential-painting.png" 
                 alt="Painting Work" 
                 className="w-full h-full object-cover"
               />
