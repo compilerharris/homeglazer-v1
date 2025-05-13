@@ -42,20 +42,41 @@ BreadcrumbItem.displayName = "BreadcrumbItem"
 const BreadcrumbLink = React.forwardRef<
   HTMLAnchorElement,
   React.ComponentPropsWithoutRef<"a"> & {
-    asChild?: boolean
+    asChild?: boolean;
+    href?: string;
   }
->(({ asChild, className, ...props }, ref) => {
-  const Comp = asChild ? Slot : "a"
+>(({ asChild, className, href, children, ...props }, ref) => {
+  const label =
+    typeof children === "string" ? children.trim().toLowerCase() : "";
+
+  const isNonClickable = label === "services"; // You can make this case-insensitive
+
+  if (isNonClickable) {
+    return (
+      <span
+        className={cn("font-normal")}
+        aria-disabled="true"
+        aria-current="page"
+      >
+        {children}
+      </span>
+    );
+  }
+
+  const Comp = asChild ? Slot : "a";
 
   return (
     <Comp
       ref={ref}
       className={cn("transition-colors hover:text-foreground", className)}
+      href={href}
       {...props}
-    />
-  )
-})
-BreadcrumbLink.displayName = "BreadcrumbLink"
+    >
+      {children}
+    </Comp>
+  );
+});
+BreadcrumbLink.displayName = "BreadcrumbLink";
 
 const BreadcrumbPage = React.forwardRef<
   HTMLSpanElement,
