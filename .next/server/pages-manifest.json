@@ -2,9 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/services/wall-decor/graffiti-painting": "pages/services/wall-decor/graffiti-painting.js",
-  "/services/painting": "pages/services/painting.js",
-  "/services/painting/residential": "pages/services/painting/residential.js",
-  "/": "pages/index.js",
-  "/404": "pages/404.js"
+  "/": "pages/index.js"
 }

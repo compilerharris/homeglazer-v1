@@ -1,5 +1,4 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   Carousel, 
   CarouselContent, 
@@ -39,6 +38,8 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
   
   // Create an API ref
   const [api, setApi] = React.useState<any>(null);
+  // State to track if the delay has passed
+  const [delayedBasis, setDelayedBasis] = useState<string | null>(null);
 
   // When activeSlideIndex changes externally (e.g., from color buttons), update the carousel
   useEffect(() => {
@@ -81,8 +82,12 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     // For Team section showing 3 at a time above 1023px and centering
     if (teamSection && window.innerWidth >= 1023) return 3;
     
-    // For Paint Brands section showing 3 at a time above 1023px
-    if (paintBrandsSection && window.innerWidth >= 1023) return 3;
+    // For Paint Brands section showing 3 on desktop, 2 on tablet, 1 on phone
+    if (paintBrandsSection) {
+      if (window.innerWidth >= 1024) return 3; // desktop
+      if (window.innerWidth >= 768) return 2;  // tablet
+      return 1; // phone
+    }
     
     // Default responsive behavior
     if (window.innerWidth >= 1367) return 2;
@@ -90,6 +95,23 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     if (window.innerWidth >= 768) return 2;
     return 1;
   };
+
+  // Calculate basis with delay
+  useEffect(() => {
+    const perView = getPerView();
+    const basis = `${100 / perView}%`;
+    
+    // Set basis to null initially
+    setDelayedBasis(null);
+    
+    // Apply the basis after a 1-second delay
+    const timer = setTimeout(() => {
+      setDelayedBasis(basis);
+    }, 1000);
+    
+    // Clean up timer on unmount or when dependencies change
+    return () => clearTimeout(timer);
+  }, [isMobile, paintBrandsSection, reviewsSection, teamSection, roomMakeoverSection, colorVisualizerSection]);
 
   const carouselOptions: EmblaOptionsType = {
     align: "start",
@@ -106,9 +128,8 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     >
       <CarouselContent className={`-ml-4`}>
         {React.Children.map(children, (child, index) => {
-          // Clone each child and add the correct flex basis styling based on getPerView()
-          const perView = getPerView();
-          const basis = `${100 / perView}%`;
+          // Use the delayed basis if available, otherwise default to 100%
+          const basis = delayedBasis || '100%';
           
           return React.isValidElement(child) 
             ? React.cloneElement(child as React.ReactElement<any>, {
