@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
@@ -147,7 +146,7 @@ const Header: React.FC = () => {
     }, 
     {
       label: 'Painting Blogs',
-      path: '/blogs'
+      path: '/blog'
     }, 
     {
       label: 'About Us',
@@ -213,7 +212,7 @@ const Header: React.FC = () => {
                 </div>
               </details>
             </div>
-            <Link href="/blogs" onClick={closeMenu} className="py-2">Painting Blogs</Link>
+            <Link href="/blog" onClick={closeMenu} className="py-2">Painting Blogs</Link>
             <Link href="/about" onClick={closeMenu} className="py-2">About Us</Link>
             <Link href="/contact" onClick={closeMenu} className="py-2">Enquire Now</Link>
             <Link href="/calculator" onClick={closeMenu} className="py-2">Budget Calculator</Link>
