@@ -1,46 +1,227 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills.js"
+    "static/chunks/polyfills-42372ed130431b0a.js"
   ],
-  "devFiles": [
-    "static/chunks/react-refresh.js"
-  ],
+  "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/development/_buildManifest.js",
-    "static/development/_ssgManifest.js"
+    "static/ez94MxD3LdzOcRgzON4Wk/_buildManifest.js",
+    "static/ez94MxD3LdzOcRgzON4Wk/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
     "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/964-615074719b41b573.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/189-fd283b45add68f4d.js",
+      "static/chunks/pages/index-c736cd8d0b98a53a.js"
     ],
     "/404": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/404.js"
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/pages/404-572e3bf9919c22b5.js"
     ],
     "/_app": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_app.js"
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/css/4773cc69d7c2bc37.css",
+      "static/chunks/pages/_app-b7bdc7dd82c73829.js"
     ],
     "/_error": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_error.js"
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/pages/_error-7a92967bea80186d.js"
+    ],
+    "/about": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/964-615074719b41b573.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/189-fd283b45add68f4d.js",
+      "static/chunks/pages/about-fbd56cd93feb01b2.js"
     ],
     "/blog": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/blog.js"
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/pages/blog-ef45c9c2d39f75e5.js"
     ],
     "/blog/[slug]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/blog/[slug].js"
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/pages/blog/[slug]-345e49e707c8e122.js"
+    ],
+    "/services/customized-painting": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/pages/services/customized-painting-f7257c2d5a167591.js"
+    ],
+    "/services/customized-painting/exterior-painting": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/customized-painting/exterior-painting-51aa265dc2488d82.js"
+    ],
+    "/services/customized-painting/interior-painting": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/customized-painting/interior-painting-4079e6129089976a.js"
+    ],
+    "/services/customized-painting/one-day-painting": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/customized-painting/one-day-painting-882ff0ef7cfde02a.js"
+    ],
+    "/services/customized-painting/per-day-painting": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/customized-painting/per-day-painting-4a239b512669c247.js"
+    ],
+    "/services/painting": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/pages/services/painting-3045f906dd4bf7ba.js"
+    ],
+    "/services/painting/commercial": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/painting/commercial-1324aa52eefe8492.js"
+    ],
+    "/services/painting/kids-room": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/painting/kids-room-1a7848762cb9294f.js"
+    ],
+    "/services/painting/residential": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/painting/residential-68885f92a82267c9.js"
+    ],
+    "/services/wall-decor": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/pages/services/wall-decor-09126383a61463e2.js"
+    ],
+    "/services/wall-decor/graffiti-painting": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/wall-decor/graffiti-painting-0ec3d941face0e66.js"
+    ],
+    "/services/wall-decor/stencil-art": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/wall-decor/stencil-art-1b1f83788846eae6.js"
+    ],
+    "/services/wall-decor/texture-painting": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/wall-decor/texture-painting-1cafadcf9143a6f7.js"
+    ],
+    "/services/wall-decor/wallpaper": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/wall-decor/wallpaper-de3db4b60d03666b.js"
+    ],
+    "/services/wood-services": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/pages/services/wood-services-bdab9df7141b4e30.js"
+    ],
+    "/services/wood/carpentry": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/wood/carpentry-accf9ec9793fea19.js"
+    ],
+    "/services/wood/wood-coating": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/wood/wood-coating-3f8bda20d23350b0.js"
+    ],
+    "/services/wood/wood-polishing": [
+      "static/chunks/webpack-0b5d8249fb15f5f3.js",
+      "static/chunks/framework-64ad27b21261a9ce.js",
+      "static/chunks/main-ac2ed6cc94b06971.js",
+      "static/chunks/531-cb961fe2d14cf800.js",
+      "static/chunks/141-e3855a9aa73ac68b.js",
+      "static/chunks/452-bdcd990fc81f149b.js",
+      "static/chunks/pages/services/wood/wood-polishing-6cd52b7afd6fc106.js"
     ]
   },
   "ampFirstPages": []
