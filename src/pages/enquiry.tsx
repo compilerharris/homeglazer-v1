@@ -127,7 +127,7 @@ const EnquirePage: React.FC = () => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="/enquire">Enquire Now</BreadcrumbLink>
+              <BreadcrumbLink href="/enquiry">Enquire Now</BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -508,7 +508,7 @@ const EnquirePage: React.FC = () => {
               </div>
               <div className="flex items-center">
                 <Clock className="h-5 w-5 mr-2" />
-                <span>Mon-Sat: 9:00 AM - 7:00 PM</span>
+                <span>Mon-Sat:.9:00 AM - 7:00 PM</span>
               </div>
             </div>
           </div>

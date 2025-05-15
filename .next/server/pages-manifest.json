@@ -2,9 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/contact": "pages/contact.js",
-  "/about": "pages/about.js",
+  "/enquiry": "pages/enquiry.js",
   "/calculator": "pages/calculator.js",
-  "/calculator/painting": "pages/calculator/painting.js",
-  "/": "pages/index.js"
+  "/contact": "pages/contact.js",
+  "/calculator/painting": "pages/calculator/painting.js"
 }

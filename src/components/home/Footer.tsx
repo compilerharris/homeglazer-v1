@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Facebook, X, Youtube } from 'lucide-react';
 
@@ -34,7 +33,7 @@ const Footer: React.FC = () => {
             {/* Layout for the columns at different breakpoints */}
             <div className="w-full sm:w-1/2 lg:w-auto lg:flex-1 px-4 mb-8">
               <h3 className="text-[rgba(150,150,150,1)] text-sm font-medium tracking-[0.28px] self-stretch">
-                Contact
+                <a href="/contact" className="hover:text-white transition-all duration-250">Contact</a>
               </h3>
               <div className="flex items-center gap-1.5 whitespace-nowrap mt-2">
                 <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] self-stretch my-auto hover:text-white transition-all duration-250">

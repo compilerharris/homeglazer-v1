@@ -154,7 +154,7 @@ const Header: React.FC = () => {
     }, 
     {
       label: 'Enquire Now',
-      path: '/contact'
+      path: '/enquiry'
     }, 
     {
       label: 'Budget Calculator',
@@ -214,7 +214,7 @@ const Header: React.FC = () => {
             </div>
             <Link href="/blog" onClick={closeMenu} className="py-2">Painting Blogs</Link>
             <Link href="/about" onClick={closeMenu} className="py-2">About Us</Link>
-            <Link href="/contact" onClick={closeMenu} className="py-2">Enquire Now</Link>
+            <Link href="/enquiry" onClick={closeMenu} className="py-2">Enquire Now</Link>
             <Link href="/calculator" onClick={closeMenu} className="py-2">Budget Calculator</Link>
           </nav>
         </div>
@@ -222,7 +222,7 @@ const Header: React.FC = () => {
 
       {/* Mobile bottom buttons (below 1023px) */}
       <div className="fixed bottom-0 left-0 right-0 lg:hidden flex z-40">
-        <Link href="/contact" className="w-1/2 bg-[rgba(237,39,110,1)] text-white font-medium py-5 text-center text-xl rounded-tl-[30px]">
+        <Link href="/enquiry" className="w-1/2 bg-[rgba(237,39,110,1)] text-white font-medium py-5 text-center text-xl rounded-tl-[30px]">
           Enquire Now
         </Link>
         <Link href="/calculator" className="w-1/2 bg-[rgba(59,130,246,1)] text-white font-medium py-5 text-center text-xl rounded-tr-[30px]">
