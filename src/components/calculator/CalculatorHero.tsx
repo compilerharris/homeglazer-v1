@@ -3,15 +3,15 @@ import React from 'react';
 const CalculatorHero: React.FC = () => {
   return (
     <section className="relative bg-cover bg-center h-[500px] w-full flex items-center justify-center overflow-hidden">
-      {/* Overlay with semi-transparent background */}
-      <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
-      
       {/* Background image */}
       <img 
         src="https://images.unsplash.com/photo-1562259949-e8e7689d7828" 
         alt="Budget Calculator Hero Background"
         className="absolute inset-0 w-full h-full object-cover"
       />
+      
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-85 z-0"></div>
       
       {/* Content */}
       <div className="container mx-auto px-4 z-10 text-center">
