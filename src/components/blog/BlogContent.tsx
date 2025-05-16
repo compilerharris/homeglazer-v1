@@ -8,7 +8,7 @@ interface BlogContentProps {
 const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
   return (
     <article className="prose prose-lg max-w-none">
-      <h1 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">{post.title}</h1>
+      <h1 className="text-3xl md:text-4xl font-medium text-[#ED276E] mb-6">{post.title}</h1>
       
       <div className="flex flex-wrap items-center gap-4 mb-8 pb-6 border-b border-gray-200">
         <div className="flex items-center">
