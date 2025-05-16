@@ -20,7 +20,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         <div className="flex items-center">
           <span className="text-gray-500">{post.readTime} min read</span>
         </div>
-        <div className="flex flex-wrap gap-2 ml-auto">
+        <div className="flex flex-wrap gap-2 mt-2 sm:mt-0 sm:ml-auto">
           {post.categories.map((category, index) => (
             <span 
               key={index} 
@@ -36,49 +36,49 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         <img 
           src={post.coverImage} 
           alt={post.title} 
-          className="w-full h-[400px] object-cover rounded-lg" 
+          className="w-full h-auto max-h-[400px] object-cover rounded-lg shadow-sm" 
         />
       </div>
 
       {/* This would be the actual blog content */}
       <div className="blog-content">
-        <p>
+        <p className="text-gray-700">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, 
           urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl. Sed euismod, velit vel bibendum bibendum, 
           urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
         </p>
         
-        <p>
+        <p className="text-gray-700">
           Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl. 
           Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
         </p>
         
-        <h2>Key Points to Consider</h2>
+        <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">Key Points to Consider</h2>
         
-        <p>
+        <p className="text-gray-700">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, 
           urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
         </p>
         
-        <ul>
-          <li>First important point about painting</li>
-          <li>Second crucial consideration for your project</li>
-          <li>Third tip from our professional painters</li>
-          <li>Fourth recommendation for best results</li>
+        <ul className="list-disc pl-5 mt-4 mb-6 text-gray-700">
+          <li className="mb-2">First important point about painting</li>
+          <li className="mb-2">Second crucial consideration for your project</li>
+          <li className="mb-2">Third tip from our professional painters</li>
+          <li className="mb-2">Fourth recommendation for best results</li>
         </ul>
         
-        <h2>Why This Matters</h2>
+        <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">Why This Matters</h2>
         
-        <p>
+        <p className="text-gray-700">
           Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl. 
           Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
         </p>
         
-        <blockquote>
+        <blockquote className="border-l-4 border-[#ED276E] pl-4 italic my-6 text-gray-600">
           "The right color choice can completely transform a space and influence how you feel when you're in it."
         </blockquote>
         
-        <p>
+        <p className="text-gray-700">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, 
           urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
         </p>

@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import BlogContent from '@/components/blog/BlogContent';
-import RelatedPosts from '@/components/blog/RelatedPosts';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
 import CTAButton from '@/components/home/CTAButton';
 import { blogPosts, getPostBySlug, getRelatedPosts } from '@/data/blogPosts';
@@ -14,6 +13,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
+import BlogSidebar from '@/components/blog/BlogSidebar';
 
 const BlogPost: React.FC = () => {
   const router = useRouter();
@@ -67,13 +67,19 @@ const BlogPost: React.FC = () => {
       
       <main className="w-full py-12">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <BlogContent post={post} />
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Main content column (left, larger) */}
+            <div className="w-full lg:w-2/3">
+              <BlogContent post={post} />
+            </div>
+            
+            {/* Sidebar column (right, smaller) */}
+            <div className="w-full lg:w-1/3 mt-8 lg:mt-0">
+              <BlogSidebar currentPostId={post.id} />
+            </div>
           </div>
         </div>
       </main>
-      
-      <RelatedPosts currentPostId={post.id} posts={blogPosts} />
       
       {/* CTA Section with pink background and white text/buttons */}
       <section className="py-16 bg-gradient-to-br from-[#ED276E] to-[#299dd7] w-full">

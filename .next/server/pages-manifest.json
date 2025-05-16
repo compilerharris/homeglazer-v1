@@ -2,8 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/enquiry": "pages/enquiry.js",
-  "/calculator": "pages/calculator.js",
-  "/contact": "pages/contact.js",
-  "/calculator/painting": "pages/calculator/painting.js"
+  "/blog": "pages/blog.js",
+  "/blog/[slug]": "pages/blog/[slug].js",
+  "/": "pages/index.js"
 }
