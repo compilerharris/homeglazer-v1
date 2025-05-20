@@ -2,11 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/about": "pages/about.js",
-  "/calculator": "pages/calculator.js",
-  "/services/painting": "pages/services/painting.js",
   "/services/customized-painting/interior-painting": "pages/services/customized-painting/interior-painting.js",
-  "/enquiry": "pages/enquiry.js",
-  "/services/customized-painting": "pages/services/customized-painting.js"
+  "/services/customized-painting": "pages/services/customized-painting.js",
+  "/services/painting": "pages/services/painting.js"
 }
