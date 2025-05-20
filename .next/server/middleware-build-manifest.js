@@ -28,6 +28,31 @@ self.__BUILD_MANIFEST = {
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/about.js"
+    ],
+    "/calculator": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/calculator.js"
+    ],
+    "/enquiry": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/enquiry.js"
+    ],
+    "/services/customized-painting": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/customized-painting.js"
+    ],
+    "/services/customized-painting/interior-painting": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/customized-painting/interior-painting.js"
+    ],
+    "/services/painting": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/painting.js"
     ]
   },
   "ampFirstPages": []
