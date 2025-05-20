@@ -83,7 +83,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section className="w-[90%] lg:w-[80%] mx-auto flex flex-col items-stretch mt-[50px] max-md:mt-10">
+    <section className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto flex flex-col items-stretch mt-[50px] max-md:mt-10">
       <div className="self-center flex w-full max-w-[409px] flex-col items-stretch text-center">
         <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium self-center leading-[150%]">
           Our Services

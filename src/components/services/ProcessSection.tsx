@@ -4,7 +4,7 @@ import React from 'react';
 const ProcessSection = () => {
   return (
     <section className="py-12 bg-gray-50">
-      <div className="w-[90%] lg:w-[80%] mx-auto">
+      <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
         <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center mb-12">
           Seamless Process You Can Count On
         </h2>

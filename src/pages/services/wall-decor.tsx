@@ -18,7 +18,7 @@ const WallDecor: React.FC = () => {
     <div className="relative min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow pt-28">
-        <div className="w-[90%] lg:w-[80%] mx-auto">
+        <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -36,7 +36,7 @@ const WallDecor: React.FC = () => {
           </Breadcrumb>
         </div>
         
-        <section className="w-[90%] lg:w-[80%] mx-auto py-1">
+        <section className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto py-1">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-6">
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">

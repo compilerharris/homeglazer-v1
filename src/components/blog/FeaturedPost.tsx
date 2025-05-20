@@ -9,7 +9,7 @@ interface FeaturedPostProps {
 const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
   return (
     <section className="w-full bg-white py-8">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-4 lg:px-8 2xl:w-[1400px]">
         <div className="mb-6">
           <h2 className="text-3xl font-medium text-gray-900">Featured Article</h2>
           <div className="mt-2 h-1 w-20 bg-[#ED276E]"></div>
@@ -56,7 +56,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
               <span className="text-gray-500">By {post.author}</span>
               <Link 
                 href={`/blog/${post.slug}`} 
-                className="ml-auto inline-flex items-center rounded-full bg-[#ED276E] px-6 py-3 text-white hover:bg-[#d51e5f] transition-colors"
+                className="ml-auto inline-flex items-center rounded-full bg-[#ED276E] px-6 py-3 text-white hover:bg-[#299dd7] transition-colors"
               >
                 Read Article
               </Link>

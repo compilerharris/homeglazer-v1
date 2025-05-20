@@ -63,7 +63,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
           <div className="ml-auto">
             <Link 
               href={`/blog/${post.slug}`} 
-              className="inline-flex items-center rounded-full bg-[#ED276E] px-4 py-2 text-sm text-white hover:bg-[#d51e5f] transition-colors"
+              className="inline-flex items-center rounded-full bg-[#ED276E] px-4 py-2 text-sm text-white hover:bg-[#299dd7] transition-colors"
             >
               Read More
             </Link>

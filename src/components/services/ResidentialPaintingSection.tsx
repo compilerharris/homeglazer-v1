@@ -4,7 +4,7 @@ import React from 'react';
 const ResidentialPaintingSection = () => {
   return (
     <section className="py-12 bg-white">
-      <div className="w-[90%] lg:w-[80%] mx-auto">
+      <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
         <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center mb-8">
           Home Glazer at Residential painting
         </h2>

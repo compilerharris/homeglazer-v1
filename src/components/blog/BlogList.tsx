@@ -17,17 +17,36 @@ const categories = [
   'Tips & Tricks'
 ];
 
+const POSTS_PER_PAGE = 6;
+
 const BlogList: React.FC<BlogListProps> = ({ posts, featured = false }) => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [visiblePosts, setVisiblePosts] = useState(POSTS_PER_PAGE);
   
   // Filter posts by category
   const filteredPosts = activeCategory === 'All' 
     ? posts 
     : posts.filter(post => post.categories.includes(activeCategory));
 
+  // Get currently visible posts
+  const postsToShow = filteredPosts.slice(0, visiblePosts);
+
+  // Check if there are more posts to load
+  const hasMorePosts = visiblePosts < filteredPosts.length;
+
+  // Handle load more
+  const handleLoadMore = () => {
+    setVisiblePosts(prev => prev + POSTS_PER_PAGE);
+  };
+
+  // Reset visible posts when category changes
+  React.useEffect(() => {
+    setVisiblePosts(POSTS_PER_PAGE);
+  }, [activeCategory]);
+
   return (
     <section className="w-full py-12">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-4 lg:px-8 2xl:w-[1400px]">
         {!featured && (
           <div className="mb-10 overflow-x-auto">
             <div className="flex min-w-max space-x-2 pb-3">
@@ -49,14 +68,17 @@ const BlogList: React.FC<BlogListProps> = ({ posts, featured = false }) => {
         )}
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredPosts.map((post) => (
+          {postsToShow.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
         </div>
 
-        {!featured && filteredPosts.length > 0 && (
+        {!featured && hasMorePosts && (
           <div className="mt-12 flex justify-center">
-            <button className="bg-white border border-gray-300 rounded-full px-8 py-3 text-gray-800 font-medium hover:bg-gray-50 transition-colors">
+            <button 
+              onClick={handleLoadMore}
+              className="bg-[#ED276E] text-white rounded-full px-8 py-3 font-medium hover:bg-[#299dd7] transition-colors"
+            >
               Load More
             </button>
           </div>

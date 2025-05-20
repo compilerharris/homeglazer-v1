@@ -32,9 +32,30 @@ const Reviews: React.FC = () => {
     avatar: "/lovable-uploads/review-face-icon2.png",
     name: "Sarah Wilson",
     position: "Architect"
+  }, {
+    id: "review5",
+    quoteIcon: "https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/26071b2435012144cf53a16107e61981d36120e4?placeholderIfAbsent=true",
+    text: "I've been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!",
+    avatar: "/lovable-uploads/review-face-icon2.png",
+    name: "Emma Collins",
+    position: "HR Specialist"
+  }, {
+    id: "review6",
+    quoteIcon: "https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/ef8e250bd483959c2ece9169925a09e6ff84e36a?placeholderIfAbsent=true",
+    text: "The attention to detail and professionalism displayed was outstanding. The painters were punctual, courteous, and left my home spotless. I absolutely love the new look!",
+    avatar: "/lovable-uploads/review-face-icon3.png",
+    name: "John Doe",
+    position: "Business Owner"
+  }, {
+    id: "review7",
+    quoteIcon: "https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/26071b2435012144cf53a16107e61981d36120e4?placeholderIfAbsent=true",
+    text: "Their color consultation service was incredibly helpful. The team helped me choose the perfect palette for my home office, and the execution was flawless. I'm already planning my next project with them!",
+    avatar: "/lovable-uploads/review-face-icon2.png",
+    name: "Sarah Wilson",
+    position: "Architect"
   }];
   return <section className="w-full mt-[50px] py-[31px] max-md:mt-10">
-      <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center gap-8">
+      <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center gap-8 2xl:w-[1400px]">
         <div className="w-full lg:w-1/3 order-2 lg:order-1 my-auto">
           <div className="max-w-[354px] mx-auto">
             <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium">
@@ -43,9 +64,9 @@ const Reviews: React.FC = () => {
             <p className="text-xl text-[rgba(89,89,89,1)] font-light mt-[18px]">
               See why our clients love our services!
             </p>
-            <CTAButton to="/reviews" className="bg-[rgba(219,231,236,1)] flex min-h-[60px] w-60 max-w-full items-center gap-[13px] text-[21px] text-black font-normal text-center justify-center mt-7 pl-[18px] pr-[11px] py-[13px] rounded-[35px]">
+            <CTAButton to="/reviews" className="bg-[#ED276E] hover:bg-[#299dd7] text-white flex min-h-[60px] w-60 max-w-full items-center gap-[13px] text-[21px] font-normal text-center justify-center mt-7 pl-[18px] pr-[11px] py-[13px] rounded-[35px]">
               <span className="self-stretch my-auto">View All Reviews</span>
-              <img alt="Arrow Icon" className="aspect-[1] object-contain w-[34px] self-stretch shrink-0 my-auto" src="/lovable-uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />
+              <img alt="Arrow Icon" className="aspect-[1] object-contain w-[34px] self-stretch shrink-0 my-auto brightness-0 invert" src="/lovable-uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />
             </CTAButton>
           </div>
         </div>

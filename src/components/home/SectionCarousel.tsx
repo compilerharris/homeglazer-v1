@@ -79,8 +79,8 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     // For reviews section showing 2 at a time above 1367px
     if (reviewsSection && window.innerWidth >= 1367) return 2;
     
-    // For Team section showing 3 at a time above 1023px and centering
-    if (teamSection && window.innerWidth >= 1023) return 3;
+    // For Team section showing 4 at a time above 1023px and centering
+    if (teamSection && window.innerWidth >= 1023) return 4;
     
     // For Paint Brands section showing 3 on desktop, 2 on tablet, 1 on phone
     if (paintBrandsSection) {
@@ -107,11 +107,11 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     // Apply the basis after a 1-second delay
     const timer = setTimeout(() => {
       setDelayedBasis(basis);
-    }, 1000);
+    }, 1);
     
     // Clean up timer on unmount or when dependencies change
     return () => clearTimeout(timer);
-  }, [isMobile, paintBrandsSection, reviewsSection, teamSection, roomMakeoverSection, colorVisualizerSection]);
+  }, [isMobile, paintBrandsSection, reviewsSection, teamSection, roomMakeoverSection, colorVisualizerSection, slidesToShow]);
 
   const carouselOptions: EmblaOptionsType = {
     align: "start",
@@ -122,7 +122,7 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
 
   return (
     <Carousel
-      className={`w-full max-w-screen-xl mx-auto ${className || ''}`}
+      className={`w-full mx-auto ${className || ''}`}
       opts={carouselOptions}
       setApi={setApi}
     >
@@ -139,8 +139,8 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
             : child;
         })}
       </CarouselContent>
-      <CarouselPrevious className="left-2 lg:left-4 bg-white/70 hover:bg-white lg:w-12 lg:h-12 transition-all duration-300" />
-      <CarouselNext className="right-2 lg:right-4 bg-white/70 hover:bg-white lg:w-12 lg:h-12 transition-all duration-300" />
+      <CarouselPrevious className="left-[-20px] lg:left-[-40px] bg-white/70 hover:bg-white lg:w-12 lg:h-12 transition-all duration-300 z-10" />
+      <CarouselNext className="right-[-20px] lg:right-[-40px] bg-white/70 hover:bg-white lg:w-12 lg:h-12 transition-all duration-300 z-10" />
     </Carousel>
   );
 };

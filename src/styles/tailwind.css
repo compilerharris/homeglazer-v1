@@ -95,11 +95,10 @@
 
     --radius: 0.5rem;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
+    transition: all 0.25s ease;
   }
 
   body {

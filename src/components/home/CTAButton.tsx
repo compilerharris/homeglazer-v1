@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Link from 'next/link';
 
@@ -21,13 +20,13 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   externalLink,
   style
 }) => {
-  // Use the user-specified color scheme if it's the hero button
-  // Otherwise use the default pink to blue hover scheme
-  const baseClasses = isHeroButton 
-    ? "bg-[rgba(219,231,236,1)] text-black hover:bg-[rgba(219,231,236,0.8)]" 
-    : "bg-[rgba(237,39,110,1)] text-white hover:bg-[rgba(59,130,246,1)]";
-
-  const classes = `${baseClasses} inline-flex items-center justify-center px-6 py-3 rounded-[39px] font-medium transition-all duration-300 ${className}`;
+  // Default styling for most buttons
+  const baseClasses = "inline-flex items-center justify-center px-6 py-3 rounded-[39px] font-medium transition-all duration-300";
+  
+  // Only apply pink-to-blue styling if explicitly requested through className
+  const classes = className.includes('bg-[#ED276E]') 
+    ? `${baseClasses} ${className}`
+    : `${baseClasses} bg-[rgba(219,231,236,1)] text-black hover:bg-[rgba(219,231,236,0.8)] ${className}`;
   
   // Handle external links
   if (externalLink) {

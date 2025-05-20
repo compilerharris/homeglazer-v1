@@ -119,7 +119,7 @@ const EnquirePage: React.FC = () => {
       <Header />
       
       {/* Breadcrumb */}
-      <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
+      <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto pt-28">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -144,7 +144,7 @@ const EnquirePage: React.FC = () => {
         </div>
         
         {/* Content */}
-        <div className="w-[90%] lg:w-[80%] mx-auto text-center relative z-10">
+        <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto text-center relative z-10">
           <h1 className="text-[40px] md:text-[56px] font-bold text-white mb-6">Get Your Custom Quote</h1>
           <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
             Tell us about your project and get a personalized estimate from our experts within 24 hours
@@ -154,7 +154,7 @@ const EnquirePage: React.FC = () => {
       
       {/* How It Works Section */}
       <section className="w-full py-16 bg-gray-50">
-        <div className="w-[90%] lg:w-[80%] mx-auto">
+        <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-[#ED276E] mb-12">How It Works</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -195,7 +195,7 @@ const EnquirePage: React.FC = () => {
       </section>
       
       {/* Main Enquiry Form Section */}
-      <section className="w-[90%] lg:w-[80%] mx-auto py-16">
+      <section className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Enquiry Form */}
           <div className="lg:col-span-2 bg-white rounded-lg shadow-lg p-8 border border-gray-100">
@@ -517,7 +517,7 @@ const EnquirePage: React.FC = () => {
       
       {/* FAQ Section */}
       <section className="w-full py-16 bg-gray-50">
-        <div className="w-[90%] lg:w-[80%] mx-auto">
+        <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <h2 className="text-3xl font-semibold text-[#ED276E] mb-10 text-center">Frequently Asked Questions</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -554,7 +554,7 @@ const EnquirePage: React.FC = () => {
       
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-[#ED276E] to-[#299dd7] w-full">
-        <div className="container mx-auto px-4 text-center">
+        <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto px-4 text-center">
           <h2 className="text-white text-[40px] font-medium mb-6">Ready to Transform Your Space?</h2>
           <p className="text-white text-xl mb-8 max-w-2xl mx-auto">
             Try our budget calculator to get a quick estimate for your project

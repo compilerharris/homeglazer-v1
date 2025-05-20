@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 interface FAQItem {
   question: string;
@@ -19,7 +20,7 @@ const FAQ: React.FC = () => {
       isOpen: false
     },
     {
-      question: "What is the difference between painting services of local painter and Home Glazer?",
+      question: "What is the difference between local painter and Home Glazer?",
       answer: "Home Glazer offers professional, insured, and quality-controlled painting services with trained experts, while local painters may vary in quality and reliability. We provide comprehensive services including color consultation, premium materials, and a satisfaction guarantee.",
       isOpen: false
     },
@@ -36,12 +37,10 @@ const FAQ: React.FC = () => {
   ]);
 
   const toggleFAQ = (index: number) => {
-    setFaqItems(faqItems.map((item, i) => {
-      if (i === index) {
-        return { ...item, isOpen: !item.isOpen };
-      }
-      return item;
-    }));
+    setFaqItems(faqItems.map((item, i) => ({
+      ...item,
+      isOpen: i === index ? !item.isOpen : false
+    })));
   };
 
   return (
@@ -56,17 +55,22 @@ const FAQ: React.FC = () => {
       {faqItems.map((item, index) => (
         <div 
           key={index}
-          className={`bg-white border flex flex-col items-stretch ${index === 0 ? 'mt-10' : 'mt-[15px]'} pl-[34px] pr-20 py-[25px] rounded-[10px] border-[rgba(207,207,207,1)] border-solid max-md:max-w-full max-md:px-5 cursor-pointer`}
+          className={`bg-white border flex flex-col items-stretch ${index === 0 ? 'mt-10' : 'mt-[15px]'} pl-[34px] pr-10 py-[25px] rounded-[10px] border-[rgba(207,207,207,1)] border-solid max-md:max-w-full max-md:px-5 cursor-pointer`}
           onClick={() => toggleFAQ(index)}
         >
-          <h3 className="text-[22px] font-semibold leading-none max-md:max-w-full">
-            {item.question}
-          </h3>
-          {item.isOpen && (
+          <div className="flex justify-between items-center">
+            <h3 className="text-[16px] lg:text-[22px] font-semibold leading-none max-md:max-w-full">
+              {item.question}
+            </h3>
+            <ChevronDown 
+              className={`w-6 h-6 text-[rgba(237,39,110,1)] transition-transform duration-300 ${item.isOpen ? 'rotate-180' : ''}`}
+            />
+          </div>
+          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${item.isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
             <p className="text-base font-normal leading-[31px] tracking-[-0.32px] mt-[23px] max-md:max-w-full">
               {item.answer}
             </p>
-          )}
+          </div>
         </div>
       ))}
     </section>

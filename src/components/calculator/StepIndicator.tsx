@@ -29,7 +29,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
         {/* Active progress line */}
         {currentStep > 1 && currentStep <= steps.length && (
           <div 
-            className="absolute top-[36px] h-1 bg-[#4285F4] rounded z-1"
+            className="absolute top-[36px] h-1 bg-[#299dd7] rounded z-1"
             style={{
               left: `${8 + ((currentStep - 2) / (steps.length - 1)) * 84}%`,
               width: `${84 / (steps.length - 1)}%`
@@ -49,7 +49,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
               statusClass = 'bg-[#E3F6EF] text-[#70C9A0] border border-[#70C9A0]';
             } else if (currentStep === index + 1) {
               status = 'In Progress';
-              statusClass = 'bg-[#E6EFFF] text-[#4285F4] border border-[#4285F4]';
+              statusClass = 'bg-[#E6EFFF] text-[#299dd7] border border-[#299dd7]';
             } else {
               status = 'Pending';
               statusClass = 'bg-white text-gray-400 border border-gray-300';
@@ -62,7 +62,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
                     step.completed 
                       ? 'bg-[#70C9A0] text-white' 
                       : currentStep === index + 1 
-                        ? 'bg-[#4285F4] text-white border-4 border-[#E6EFFF]' 
+                        ? 'bg-[#299dd7] text-white border-4 border-[#E6EFFF]' 
                         : 'bg-gray-200 text-gray-500'
                   }`}
                 >

@@ -163,7 +163,7 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[rgba(255,255,255,0.65)] shadow-[0px_4px_4px_rgba(255,190,213,0.1)] w-[90%] mx-auto mt-[5%] sm:mt-[1%] rounded-[50px] fixed left-0 right-0 z-50 transition-all duration-300">
+    <div className="bg-[rgba(255,255,255,0.9)] shadow-[0px_4px_4px_rgba(255,190,213,0.2)] w-[90%] mx-auto mt-[5%] sm:mt-[1%] rounded-[50px] fixed left-0 right-0 z-50 transition-all duration-300">
       <div className="flex w-full items-center gap-5 justify-between lg:justify-center lg:gap-[30px] px-6 py-[3px] lg:px-[40px]">
         <Link href="/">
           <img src="https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/e26e09b75bb9c4ab63f78d15296ed43e8713cb0b?placeholderIfAbsent=true" alt="Company Logo" className="aspect-[2.6] object-contain w-24 shadow-[0px_0px_1px_-68px_rgba(255,255,255,0.5)] self-stretch shrink-0 my-auto" />

@@ -4,7 +4,7 @@ import { Facebook, X, Youtube } from 'lucide-react';
 const Footer: React.FC = () => {
   return (
     <footer className="bg-[rgba(26,28,29,1)] w-full flex flex-col items-center justify-center mt-[50px] pt-10 pb-20 max-md:mt-10">
-      <div className="w-[90%] lg:w-[80%] mx-auto flex max-w-full flex-col overflow-hidden items-stretch">
+      <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto flex max-w-full flex-col overflow-hidden items-stretch">
         <div className="self-center relative flex w-full max-w-[1120px] flex-wrap">
           <div className="z-0 flex min-w-60 flex-col items-center gap-[20px] w-full sm:w-auto md:mr-10">
             <img
@@ -17,7 +17,18 @@ const Footer: React.FC = () => {
                 <Facebook size={24} color="white" />
               </a>
               <a href="#" className="bg-[rgba(255,255,255,0.1)] p-3 rounded-full hover:bg-[rgba(255,255,255,0.2)] transition-all duration-300">
-                <X size={24} color="white" />
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  shape-rendering="geometricPrecision" 
+                  text-rendering="geometricPrecision" 
+                  image-rendering="optimizeQuality" 
+                  fill-rule="evenodd" 
+                  clip-rule="evenodd" 
+                  viewBox="0 0 512 462.799"
+                  className="w-6 h-6 fill-white"
+                >
+                  <path fill-rule="nonzero" d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"/>
+                </svg>
               </a>
               <a href="#" className="bg-[rgba(255,255,255,0.1)] p-3 rounded-full hover:bg-[rgba(255,255,255,0.2)] transition-all duration-300">
                 <Youtube size={24} color="white" />

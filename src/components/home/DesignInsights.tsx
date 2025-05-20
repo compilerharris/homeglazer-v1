@@ -18,20 +18,25 @@ const DesignInsights: React.FC = () => {
       const width = window.innerWidth;
       if (width < 767) {
         setSlidesToShow(1);
-      } else if (width < 1200) {
+      } else if (width < 1023) {
         setSlidesToShow(2);
       } else {
         setSlidesToShow(3);
       }
     };
 
+    // Call immediately on mount
     updateSlides();
+    
+    // Add resize listener
     window.addEventListener("resize", updateSlides);
+    
+    // Cleanup
     return () => window.removeEventListener("resize", updateSlides);
   }, []);
 
   return (
-    <section className="w-[90%] lg:w-[80%] mx-auto flex flex-col items-center mt-[50px] max-md:mt-10">
+    <section className="w-[90%] lg:w-[80%] mx-auto flex flex-col items-center mt-[50px] max-md:mt-10 2xl:w-[1400px]">
       <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium self-center leading-[150%] mb-4">
         Painting Blogs
       </h2>
@@ -41,7 +46,7 @@ const DesignInsights: React.FC = () => {
       <div className="w-full">
         <SectionCarousel slidesToShow={slidesToShow}>
           {featuredBlogPosts.map((post) => (
-            <CarouselItem key={post.id} className="basis-1/3 md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={post.id} className="basis-full md:basis-1/2 lg:basis-1/3">
               <Link href={`/blog/${post.slug}`} className="block">
                 <div className="relative flex flex-col min-h-[400px] w-full mx-2 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                   <div className="h-[200px] overflow-hidden">
@@ -63,9 +68,12 @@ const DesignInsights: React.FC = () => {
                     <p className="text-[rgba(64,80,94,1)] text-sm font-normal mt-2 line-clamp-3">
                       {post.excerpt}
                     </p>
-                    <div className="mt-4 flex justify-end">
+                    <div className="mt-4 flex justify-between items-center">
+                      <span className="text-[rgba(64,80,94,1)] text-sm">
+                        By {post.author}
+                      </span>
                       <span 
-                        className="inline-flex items-center rounded-full bg-[#ED276E] px-4 py-2 text-sm text-white hover:bg-[#d51e5f] transition-colors"
+                        className="inline-flex items-center rounded-full bg-[#ED276E] px-4 py-2 text-sm text-white hover:bg-[#299dd7] transition-colors"
                       >
                         Read More
                       </span>

@@ -159,7 +159,7 @@ const ContactPage: React.FC = () => {
       </section>
       
       {/* Branch Information and Contact Form */}
-      <section className="w-[90%] lg:w-[80%] mx-auto py-16">
+      <section className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Branch Information */}
           <div className="space-y-12">
@@ -402,7 +402,7 @@ const ContactPage: React.FC = () => {
       
       {/* Google Maps Section */}
       <section className="w-full py-12 bg-[#F9F9F9]">
-        <div className="w-[90%] lg:w-[80%] mx-auto">
+        <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <h2 className="text-3xl font-semibold text-[#ED276E] mb-8 text-center">Our Locations</h2>
           <div className="rounded-lg overflow-hidden shadow-lg h-[450px]">
             <iframe 
