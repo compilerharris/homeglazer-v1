@@ -74,7 +74,7 @@ const Reviews: React.FC = () => {
         <div className="w-full lg:w-2/3 order-1 lg:order-2">
           <SectionCarousel reviewsSection={true}>
             {reviews.map(review => <CarouselItem key={review.id} className="md:basis-1/2 lg:basis-1/2">
-                <div className="bg-white shadow-[0px_4px_9px_rgba(82,82,82,0.1)] w-full max-w-[500px] mx-auto p-7 rounded-[35px]">
+                <div className="bg-white shadow-[0px_4px_9px_rgba(82,82,82,0.1)] w-full max-w-[500px] mx-auto p-7 rounded-[35px] min-h-[320px] flex flex-col justify-between mb-[30px]">
                   <img src={review.quoteIcon} alt="Quote Icon" className="aspect-[1.56] object-contain w-[53px]" />
                   <p className="text-[rgba(44,44,44,1)] text-sm font-normal leading-[19px] mt-3.5">
                     &quot;{review.text}&quot;

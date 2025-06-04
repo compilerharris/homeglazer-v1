@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { House, Building2, Brush, Bed, Palmtree, PaintBucket } from 'lucide-react';
 import Link from 'next/link';
@@ -15,22 +14,22 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, imageUrl,
   return (
     <Link 
       href={path}
-      className="group flex flex-col relative aspect-[1.683] min-w-60 overflow-hidden grow shrink w-[355px] rounded-[20px] cursor-pointer transition-all duration-250 hover:shadow-lg w-full"
+      className="group flex flex-col relative aspect-[1.683] min-w-60 overflow-hidden grow shrink w-[355px] rounded-[20px] cursor-pointer transition-all duration-500 hover:shadow-lg w-full"
     >
-      <div className="absolute inset-0 bg-black/40 z-10 transition-opacity group-hover:bg-black/60 duration-250" />
+      <div className="absolute inset-0 bg-black/10 z-10 transition-all duration-500 group-hover:bg-black/60" />
       <img
         src={imageUrl}
         alt={title}
-        className="absolute h-full w-full object-cover inset-0"
+        className="absolute h-full w-full object-cover inset-0 transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="relative z-20 flex flex-col h-full justify-end p-5 text-white transition-all duration-250">
-        <div className="flex items-center mb-2 mt-auto">
+      <div className="relative z-20 flex flex-col h-full justify-end p-5 text-white transition-all duration-500">
+        <div className="flex items-center mt-auto">
           <div className="mr-3 text-white">
             {icon}
           </div>
-          <h3 className="text-2xl md:text-3xl font-medium">{title}</h3>
+          <h3 className="text-xl md:text-2xl font-medium">{title}</h3>
         </div>
-        <p className="text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-250 max-h-0 group-hover:max-h-20 overflow-hidden">{description}</p>
+        <p className="text-sm md:text-base opacity-0 group-hover:opacity-100 transition-all duration-500 max-h-0 group-hover:max-h-20 overflow-hidden line-clamp-3">{description}</p>
       </div>
     </Link>
   );

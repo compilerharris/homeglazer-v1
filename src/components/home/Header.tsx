@@ -31,7 +31,7 @@ const NavItem: React.FC<NavItemProps> = ({
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent hover:bg-pink-50 text-base font-normal">{label}</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="bg-transparent hover:bg-pink-50 text-sm font-normal py-[5px] px-[10px] rounded-[45px]">{label}</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                 {children}
@@ -46,7 +46,7 @@ const NavItem: React.FC<NavItemProps> = ({
   return (
     <Link 
       href={path} 
-      className="self-stretch bg-[rgba(255,255,255,0)] min-h-[33px] gap-2.5 whitespace-nowrap px-[15px] py-[5px] rounded-[45px] hover:bg-pink-50 transition-all duration-300" 
+      className="self-stretch bg-[rgba(255,255,255,0)] min-h-[33px] gap-2.5 whitespace-nowrap px-[10px] py-[5px] rounded-[45px] hover:bg-pink-50 transition-all duration-300 text-sm flex items-center" 
       onClick={onClick}
     >
       {label}
@@ -176,7 +176,7 @@ const Header: React.FC = () => {
         </button>
         
         {/* Navigation for desktop */}
-        <nav className="hidden lg:flex self-stretch gap-5 justify-center flex-wrap my-auto p-2.5">
+        <nav className="hidden lg:flex self-stretch gap-2 justify-center flex-wrap my-auto p-2.5">
           {navItems.map((item, index) => (
             <NavItem 
               key={index} 

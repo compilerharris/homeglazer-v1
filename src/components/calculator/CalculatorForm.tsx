@@ -28,14 +28,12 @@ const CalculatorForm: React.FC = () => {
                 Here Is What Makes Express Painting A Great Choice
               </p>
             </div>
-            <div className="bg-[#ED276E] py-4">
-              <Link 
-                href="/calculator/painting" 
-                className="block w-full text-white text-center font-medium"
-              >
-                Calculate
-              </Link>
-            </div>
+            <Link 
+              href="/calculator/painting" 
+              className="block w-full bg-[#ED276E] text-white text-center font-medium py-4 hover:bg-[#d51e5f] transition-colors"
+            >
+              Calculate
+            </Link>
           </div>
           
           {/* Wood Polishing Estimate Card */}
@@ -48,14 +46,12 @@ const CalculatorForm: React.FC = () => {
                 Add charm and beauty to woods, It makes the wood strong.
               </p>
             </div>
-            <div className="bg-[#ED276E] py-4">
-              <Link 
-                href="/contact" 
-                className="block w-full text-white text-center font-medium"
-              >
-                Calculate
-              </Link>
-            </div>
+            <Link 
+              href="/contact" 
+              className="block w-full bg-[#ED276E] text-white text-center font-medium py-4 hover:bg-[#d51e5f] transition-colors"
+            >
+              Calculate
+            </Link>
           </div>
         </div>
         

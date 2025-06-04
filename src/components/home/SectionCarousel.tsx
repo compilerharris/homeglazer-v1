@@ -76,8 +76,9 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     // For blog posts specifically showing 3 at a time above 1023px
     if (slidesToShow) return slidesToShow;
     
-    // For reviews section showing 2 at a time above 1367px
-    if (reviewsSection && window.innerWidth >= 1367) return 2;
+    // For reviews section showing 2 at a time above 1024px (small laptop screens)
+    if (reviewsSection && window.innerWidth >= 1024) return 2;
+    if (reviewsSection && window.innerWidth < 1024) return 1;
     
     // For Team section showing 4 at a time above 1023px and centering
     if (teamSection && window.innerWidth >= 1023) return 4;
@@ -96,21 +97,11 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     return 1;
   };
 
-  // Calculate basis with delay
+  // Calculate basis immediately (no delay)
   useEffect(() => {
     const perView = getPerView();
     const basis = `${100 / perView}%`;
-    
-    // Set basis to null initially
-    setDelayedBasis(null);
-    
-    // Apply the basis after a 1-second delay
-    const timer = setTimeout(() => {
-      setDelayedBasis(basis);
-    }, 1);
-    
-    // Clean up timer on unmount or when dependencies change
-    return () => clearTimeout(timer);
+    setDelayedBasis(basis);
   }, [isMobile, paintBrandsSection, reviewsSection, teamSection, roomMakeoverSection, colorVisualizerSection, slidesToShow]);
 
   const carouselOptions: EmblaOptionsType = {
@@ -122,25 +113,31 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
 
   return (
     <Carousel
-      className={`w-full mx-auto ${className || ''}`}
+      className={`w-full max-w-4xl mx-auto pt-8 pb-28 px-8 overflow-x-hidden relative ${className || ''}`}
       opts={carouselOptions}
       setApi={setApi}
     >
-      <CarouselContent className={`-ml-4`}>
+      <CarouselContent className={`overflow-visible gap-x-8`}>
         {React.Children.map(children, (child, index) => {
           // Use the delayed basis if available, otherwise default to 100%
           const basis = delayedBasis || '100%';
           
           return React.isValidElement(child) 
             ? React.cloneElement(child as React.ReactElement<any>, {
-                className: `${(child as React.ReactElement<any>).props.className || ''} pl-4`,
+                className: `${(child as React.ReactElement<any>).props.className || ''}`,
                 style: { ...(child as React.ReactElement<any>).props.style, flexBasis: basis }
               })
             : child;
         })}
       </CarouselContent>
-      <CarouselPrevious className="left-[-20px] lg:left-[-40px] bg-white/70 hover:bg-white lg:w-12 lg:h-12 transition-all duration-300 z-10" />
-      <CarouselNext className="right-[-20px] lg:right-[-40px] bg-white/70 hover:bg-white lg:w-12 lg:h-12 transition-all duration-300 z-10" />
+      <div className="w-full flex justify-center gap-4 absolute left-0 right-0 bottom-6 md:bottom-10 z-30 pointer-events-none">
+        <div className="pointer-events-auto">
+          <CarouselPrevious className="static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full" />
+        </div>
+        <div className="pointer-events-auto">
+          <CarouselNext className="static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full" />
+        </div>
+      </div>
     </Carousel>
   );
 };
