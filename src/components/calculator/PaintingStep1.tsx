@@ -144,6 +144,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         'asian-paints': [
           { value: '22', name: 'Tractor Emulsion (Recommended)' },
           { value: '23', name: 'Tractor Emulsion Advance' },
+          { value: '23', name: 'Tractor Emulsion Shyne' },
           { value: '21', name: 'Tractor Emulsion Sparc' },
           { value: '21.5', name: 'Tractor Emulsion Sparc Advance' }
         ],
@@ -173,6 +174,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
       premium: {
         'asian-paints': [
           { value: '24', name: 'Apcolite Premium Emulsion (Recommended)' },
+          { value: '24', name: 'Apcolite Premium Satin Emulsion' },
           { value: '26', name: 'Apcolite All Protek' },
           { value: '26', name: 'Apcolite Advance Shyne' },
           { value: '26', name: 'Apcolite Advanced Heavy Duty Emulsion' }
@@ -185,6 +187,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         ],
         'nerolac': [
           { value: '24', name: 'Nerolac Pearls Emulsion' },
+          { value: '24', name: 'Nerolac Pearls Luster Finish' },
           { value: '23', name: 'Nerolac Beauty Silver' },
           { value: '25', name: 'Nerolac Beauty Gold' },
           { value: '27', name: 'Nerolac Beauty Gold Washable (Recommended)' },
@@ -199,6 +202,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         ],
         'jsw': [
           { value: '24', name: 'Aurus Regal Interiors Lustre' },
+          { value: '24', name: 'Aurus Regal Interiors' },
           { value: '26', name: 'Aurus Regal Interiors Silk' }
         ]
       },
@@ -226,6 +230,23 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
           { value: '36', name: 'Impression Ultra HD' },
           { value: '36', name: 'Nerolac Impressions HD (Recommended)' },
           { value: '37', name: 'Impression Ultra Fresh' }
+        ],
+        'berger': [
+          { value: '34', name: 'Berger Easy Clean (Recommended)' },
+          { value: '36', name: 'Berger Easy Clean Fresh' },
+          { value: '36', name: 'Berger Silk Glow' },
+          { value: '38', name: 'Berger Silk Glamor Soft Sheen (Recommended)' },
+          { value: '38', name: 'Berger Silk Glamor High Sheen' },
+          { value: '38', name: 'Berger Silk Breathe Easy' }
+        ],
+        'shalimar': [
+          { value: '31', name: 'Shalimar Superlac Stay Clean' },
+          { value: '32', name: 'Shalimar Signature' }
+        ],
+        'jsw': [
+          { value: '34', name: 'Vogue Astoniq' },
+          { value: '38', name: 'Halo Majestic Interiors - Silk (Recommended)' },
+          { value: '38', name: 'Halo Majestic Interiors Shine' }
         ]
       }
     };
@@ -270,6 +291,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         'asian-paints': [
           { value: '22', name: 'Tractor Emulsion (Recommended)' },
           { value: '23', name: 'Tractor Emulsion Advance' },
+          { value: '23', name: 'Tractor Emulsion Shyne' },
           { value: '21', name: 'Tractor Emulsion Sparc' },
           { value: '21.5', name: 'Tractor Emulsion Sparc Advance' }
         ],
@@ -299,6 +321,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
       premium: {
         'asian-paints': [
           { value: '24', name: 'Apcolite Premium Emulsion (Recommended)' },
+          { value: '24', name: 'Apcolite Premium Satin Emulsion' },
           { value: '26', name: 'Apcolite All Protek' },
           { value: '26', name: 'Apcolite Advance Shyne' },
           { value: '26', name: 'Apcolite Advanced Heavy Duty Emulsion' }
@@ -311,6 +334,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         ],
         'nerolac': [
           { value: '24', name: 'Nerolac Pearls Emulsion' },
+          { value: '24', name: 'Nerolac Pearls Luster Finish' },
           { value: '23', name: 'Nerolac Beauty Silver' },
           { value: '25', name: 'Nerolac Beauty Gold' },
           { value: '27', name: 'Nerolac Beauty Gold Washable (Recommended)' },
@@ -325,6 +349,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         ],
         'jsw': [
           { value: '24', name: 'Aurus Regal Interiors Lustre' },
+          { value: '24', name: 'Aurus Regal Interiors' },
           { value: '26', name: 'Aurus Regal Interiors Silk' }
         ]
       },
@@ -352,6 +377,23 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
           { value: '36', name: 'Impression Ultra HD' },
           { value: '36', name: 'Nerolac Impressions HD (Recommended)' },
           { value: '37', name: 'Impression Ultra Fresh' }
+        ],
+        'berger': [
+          { value: '34', name: 'Berger Easy Clean (Recommended)' },
+          { value: '36', name: 'Berger Easy Clean Fresh' },
+          { value: '36', name: 'Berger Silk Glow' },
+          { value: '38', name: 'Berger Silk Glamor Soft Sheen (Recommended)' },
+          { value: '38', name: 'Berger Silk Glamor High Sheen' },
+          { value: '38', name: 'Berger Silk Breathe Easy' }
+        ],
+        'shalimar': [
+          { value: '31', name: 'Shalimar Superlac Stay Clean' },
+          { value: '32', name: 'Shalimar Signature' }
+        ],
+        'jsw': [
+          { value: '34', name: 'Vogue Astoniq' },
+          { value: '38', name: 'Halo Majestic Interiors - Silk (Recommended)' },
+          { value: '38', name: 'Halo Majestic Interiors Shine' }
         ]
       }
     };
@@ -413,6 +455,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         'asian-paints': [
           { value: '22', name: 'Tractor Emulsion (Recommended)' },
           { value: '23', name: 'Tractor Emulsion Advance' },
+          { value: '23', name: 'Tractor Emulsion Shyne' },
           { value: '21', name: 'Tractor Emulsion Sparc' },
           { value: '21.5', name: 'Tractor Emulsion Sparc Advance' }
         ],
@@ -442,6 +485,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
       premium: {
         'asian-paints': [
           { value: '24', name: 'Apcolite Premium Emulsion (Recommended)' },
+          { value: '24', name: 'Apcolite Premium Satin Emulsion' },
           { value: '26', name: 'Apcolite All Protek' },
           { value: '26', name: 'Apcolite Advance Shyne' },
           { value: '26', name: 'Apcolite Advanced Heavy Duty Emulsion' }
@@ -454,6 +498,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         ],
         'nerolac': [
           { value: '24', name: 'Nerolac Pearls Emulsion' },
+          { value: '24', name: 'Nerolac Pearls Luster Finish' },
           { value: '23', name: 'Nerolac Beauty Silver' },
           { value: '25', name: 'Nerolac Beauty Gold' },
           { value: '27', name: 'Nerolac Beauty Gold Washable (Recommended)' },
@@ -468,6 +513,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         ],
         'jsw': [
           { value: '24', name: 'Aurus Regal Interiors Lustre' },
+          { value: '24', name: 'Aurus Regal Interiors' },
           { value: '26', name: 'Aurus Regal Interiors Silk' }
         ]
       },
@@ -495,6 +541,23 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
           { value: '36', name: 'Impression Ultra HD' },
           { value: '36', name: 'Nerolac Impressions HD (Recommended)' },
           { value: '37', name: 'Impression Ultra Fresh' }
+        ],
+        'berger': [
+          { value: '34', name: 'Berger Easy Clean (Recommended)' },
+          { value: '36', name: 'Berger Easy Clean Fresh' },
+          { value: '36', name: 'Berger Silk Glow' },
+          { value: '38', name: 'Berger Silk Glamor Soft Sheen (Recommended)' },
+          { value: '38', name: 'Berger Silk Glamor High Sheen' },
+          { value: '38', name: 'Berger Silk Breathe Easy' }
+        ],
+        'shalimar': [
+          { value: '31', name: 'Shalimar Superlac Stay Clean' },
+          { value: '32', name: 'Shalimar Signature' }
+        ],
+        'jsw': [
+          { value: '34', name: 'Vogue Astoniq' },
+          { value: '38', name: 'Halo Majestic Interiors - Silk (Recommended)' },
+          { value: '38', name: 'Halo Majestic Interiors Shine' }
         ]
       }
     };
@@ -1028,9 +1091,9 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               )}
                               {ceilingPaintBrand === 'jsw' && (
                                 <>
-                                  <option value="34">Vogue Astoniq</option>
-                                  <option value="38">Halo Majestic Interiors - Silk (Recommended)</option>
-                                  <option value="38">Halo Majestic Interiors Shine</option>
+                                  <option value="21">Pixa Joy Classic Interiors</option>
+                                  <option value="22">Pixa Elegant Interiors</option>
+                                  <option value="23">Pixa Elegant Interiors Silk</option>
                                 </>
                               )}
                             </>
@@ -1077,9 +1140,9 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               )}
                               {ceilingPaintBrand === 'jsw' && (
                                 <>
-                                  <option value="34">Vogue Astoniq</option>
-                                  <option value="38">Halo Majestic Interiors - Silk (Recommended)</option>
-                                  <option value="38">Halo Majestic Interiors Shine</option>
+                                  <option value="21">Pixa Joy Classic Interiors</option>
+                                  <option value="22">Pixa Elegant Interiors</option>
+                                  <option value="23">Pixa Elegant Interiors Silk</option>
                                 </>
                               )}
                             </>
@@ -1499,8 +1562,8 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
           </div>
         )}
 
-      </div>
-      
+                </div>
+                
       {/* Add Result Display Section */}
       {(selectedPaintingType === 'interior' || selectedPaintingType === 'both') && 
        workType && area > 0 && paintCategory && paintBrand && paintType && (
@@ -1522,9 +1585,9 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   <span className="text-[#ED276E]">Wall Paint Price:</span> ₹{formatIndianCurrency(calculateInteriorPrice())}
                 </p>
               </div>
-            </div>
-          </div>
-
+                    </div>
+                  </div>
+                  
           {/* Ceiling Paint Section - Only show if different paint is selected */}
           {samePaintForCeiling && ceilingPaintType && (
             <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
@@ -1598,8 +1661,8 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
             <p className="text-xl font-semibold">
               <span className="text-[#ED276E]">Total Price:</span> ₹{formatIndianCurrency(calculateExteriorTotalPrice())}
             </p>
-          </div>
-        </div>
+                </div>
+              </div>
       )}
 
       {/* Combined Calculation Summary for Both Interior and Exterior */}
@@ -1629,9 +1692,9 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       <span className="text-[#ED276E]">Wall Paint Price:</span> ₹{formatIndianCurrency(calculateInteriorPrice())}
                     </p>
                   </div>
-                </div>
-              </div>
-
+                    </div>
+                  </div>
+                  
               {/* Ceiling Paint Section - Only show if different paint is selected */}
               {samePaintForCeiling && ceilingPaintType && (
                 <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
@@ -1644,7 +1707,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       <p className="text-lg font-medium">
                         <span className="text-[#ED276E]">Ceiling Paint Price:</span> ₹{formatIndianCurrency(calculateCeilingPrice())}
                       </p>
-                    </div>
+                  </div>
                   </div>
                 </div>
               )}
@@ -1694,17 +1757,17 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       <p className="text-lg font-medium">
                         <span className="text-[#ED276E]">Roof Paint Price:</span> ₹{formatIndianCurrency(calculateRoofPrice())}
                       </p>
-                    </div>
-                  </div>
-                </div>
-              )}
+              </div>
+            </div>
+          </div>
+        )}
 
               {/* Exterior Total Section */}
               <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
                 <p className="text-lg font-medium">
                   <span className="text-[#ED276E]">Exterior Total Price:</span> ₹{formatIndianCurrency(calculateExteriorTotalPrice())}
                 </p>
-              </div>
+      </div>
             </div>
           )}
 
