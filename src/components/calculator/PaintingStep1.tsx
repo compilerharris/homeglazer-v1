@@ -572,7 +572,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                         type="radio"
                         name="interiorWorkType"
                         value="fresh"
-                        checked={workType === 'fresh' || !workType}
+                        checked={workType === 'fresh'}
                         onChange={(e) => onWorkTypeChange(e.target.value)}
                         className="w-5 h-5 mr-2"
                       />
@@ -682,7 +682,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                           type="radio"
                           name="interiorPaintCategory"
                           value="economical"
-                          checked={paintCategory === 'economical' || !paintCategory}
+                          checked={paintCategory === 'economical'}
                           onChange={(e) => onPaintCategoryChange(e.target.value)}
                           className="w-5 h-5 mr-2"
                         />
@@ -868,6 +868,29 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               <option value="36">Impression Ultra HD</option>
                               <option value="36">Nerolac Impressions HD (Recommended)</option>
                               <option value="37">Impression Ultra Fresh</option>
+                            </>
+                          )}
+                          {paintBrand === 'berger' && (
+                            <>
+                              <option value="34">Berger Easy Clean (Recommended)</option>
+                              <option value="36">Berger Easy Clean Fresh</option>
+                              <option value="36">Berger Silk Glow</option>
+                              <option value="38">Berger Silk Glamor Soft Sheen (Recommended)</option>
+                              <option value="38">Berger Silk Glamor High Sheen</option>
+                              <option value="38">Berger Silk Breathe Easy</option>
+                            </>
+                          )}
+                          {paintBrand === 'shalimar' && (
+                            <>
+                              <option value="31">Shalimar Superlac Stay Clean</option>
+                              <option value="32">Shalimar Signature</option>
+                            </>
+                          )}
+                          {paintBrand === 'jsw' && (
+                            <>
+                              <option value="34">Vogue Astoniq</option>
+                              <option value="38">Halo Majestic Interiors - Silk (Recommended)</option>
+                              <option value="38">Halo Majestic Interiors Shine</option>
                             </>
                           )}
                         </>
@@ -978,7 +1001,38 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                                   <option value="21.5">Tractor Emulsion Sparc Advance</option>
                                 </>
                               )}
-                              {/* ... Add other brand options similar to the main paint selection ... */}
+                              {ceilingPaintBrand === 'dulux' && (
+                                <>
+                                  <option value="22">Promise Interior (Recommended)</option>
+                                  <option value="21">Promise Interior Smart Choice</option>
+                                  <option value="23">Dulux Promise Sheen Interior</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'nerolac' && (
+                                <>
+                                  <option value="22">Nerolac Beauty Smooth Finish</option>
+                                  <option value="22">Nerolac Beauty Little Master</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'berger' && (
+                                <>
+                                  <option value="22">Berger Bison Acrylic Emulsion</option>
+                                  <option value="23">Berger Bison Glow Acrylic Emulsion</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'shalimar' && (
+                                <>
+                                  <option value="20">Shalimar Master Acrylic Emulsion</option>
+                                  <option value="20">Shalimar No. 1 Silk Acrylic Emulsion</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'jsw' && (
+                                <>
+                                  <option value="34">Vogue Astoniq</option>
+                                  <option value="38">Halo Majestic Interiors - Silk (Recommended)</option>
+                                  <option value="38">Halo Majestic Interiors Shine</option>
+                                </>
+                              )}
                             </>
                           )}
                           {ceilingPaintCategory === 'premium' && (
@@ -992,7 +1046,42 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                                   <option value="26">Apcolite Advanced Heavy Duty Emulsion</option>
                                 </>
                               )}
-                              {/* ... Add other brand options similar to the main paint selection ... */}
+                              {ceilingPaintBrand === 'dulux' && (
+                                <>
+                                  <option value="24">Dulux Super Cover (Recommended)</option>
+                                  <option value="26">Dulux Super Clean</option>
+                                  <option value="27">Dulux Super Clean 3in1 (Recommended)</option>
+                                  <option value="26">Dulux Super Cover Sheen</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'nerolac' && (
+                                <>
+                                  <option value="24">Nerolac Pearls Emulsion</option>
+                                  <option value="24">Nerolac Pearls Luster Finish</option>
+                                  <option value="23">Nerolac Beauty Silver</option>
+                                  <option value="25">Nerolac Beauty Gold</option>
+                                  <option value="27">Nerolac Beauty Gold Washable (Recommended)</option>
+                                  <option value="26">Nerolac Beauty Sheen</option>
+                                  <option value="25">Nerolac Beauty Ceiling Emulsion</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'berger' && (
+                                <>
+                                  <option value="24">Berger Rangoli Total Care</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'shalimar' && (
+                                <>
+                                  <option value="22">Shalimar Superlac Advance</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'jsw' && (
+                                <>
+                                  <option value="34">Vogue Astoniq</option>
+                                  <option value="38">Halo Majestic Interiors - Silk (Recommended)</option>
+                                  <option value="38">Halo Majestic Interiors Shine</option>
+                                </>
+                              )}
                             </>
                           )}
                           {ceilingPaintCategory === 'luxury' && (
@@ -1010,7 +1099,46 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                                   <option value="38">Royale Atmos</option>
                                 </>
                               )}
-                              {/* ... Add other brand options similar to the main paint selection ... */}
+                              {ceilingPaintBrand === 'dulux' && (
+                                <>
+                                  <option value="34">Dulux Velvet Touch Pearl Glo (Recommended)</option>
+                                  <option value="36">Dulux Velvet Touch Diamond Glo</option>
+                                  <option value="36">Dulux Velvet Touch Platinum Glo (Recommended)</option>
+                                  <option value="38">Dulux Ambiance Velvet Touch Elastoglo (Recommended)</option>
+                                  <option value="38">Dulux Better Living Air Biobased</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'nerolac' && (
+                                <>
+                                  <option value="34">Impressions Kashmir (Recommended)</option>
+                                  <option value="36">Impression Ultra HD</option>
+                                  <option value="36">Nerolac Impressions HD (Recommended)</option>
+                                  <option value="37">Impression Ultra Fresh</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'berger' && (
+                                <>
+                                  <option value="34">Berger Easy Clean (Recommended)</option>
+                                  <option value="36">Berger Easy Clean Fresh</option>
+                                  <option value="36">Berger Silk Glow</option>
+                                  <option value="38">Berger Silk Glamor Soft Sheen (Recommended)</option>
+                                  <option value="38">Berger Silk Glamor High Sheen</option>
+                                  <option value="38">Berger Silk Breathe Easy</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'shalimar' && (
+                                <>
+                                  <option value="31">Shalimar Superlac Stay Clean</option>
+                                  <option value="32">Shalimar Signature</option>
+                                </>
+                              )}
+                              {ceilingPaintBrand === 'jsw' && (
+                                <>
+                                  <option value="34">Vogue Astoniq</option>
+                                  <option value="38">Halo Majestic Interiors - Silk (Recommended)</option>
+                                  <option value="38">Halo Majestic Interiors Shine</option>
+                                </>
+                              )}
                             </>
                           )}
                         </select>
@@ -1040,7 +1168,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                         type="radio"
                         name="exteriorWorkType"
                         value="fresh"
-                        checked={roofWorkType === 'fresh' || !roofWorkType}
+                        checked={roofWorkType === 'fresh'}
                         onChange={(e) => onRoofWorkTypeChange(e.target.value)}
                         className="w-5 h-5 mr-2"
                       />
@@ -1150,7 +1278,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                           type="radio"
                           name="exteriorPaintCategory"
                           value="economical"
-                          checked={paintCategory === 'economical' || !paintCategory}
+                          checked={paintCategory === 'economical'}
                           onChange={(e) => onPaintCategoryChange(e.target.value)}
                           className="w-5 h-5 mr-2"
                         />
@@ -1338,330 +1466,27 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               <option value="37">Impression Ultra Fresh</option>
                             </>
                           )}
-                        </>
-                      )}
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Roof Color Selection - Show when both interior and exterior are selected or only exterior is selected */}
-        {(selectedPaintingType === 'both' || selectedPaintingType === 'exterior') && (
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
-            <h3 className="text-xl font-medium mb-6 text-[#ED276E]">
-              Roof Color Selection
-            </h3>
-            <div className="space-y-12">
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-lg font-medium mb-3">
-                    Which Kind Of Painting Work Will Be?
-                  </label>
-                  <div className="flex flex-wrap gap-8">
-                    <label className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        name="roofWorkType"
-                        value="fresh"
-                        checked={roofWorkType === 'fresh' || !roofWorkType}
-                        onChange={(e) => onRoofWorkTypeChange(e.target.value)}
-                        className="w-5 h-5 mr-2"
-                      />
-                      Fresh Painting
-                    </label>
-                    <label className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        name="roofWorkType"
-                        value="repainting"
-                        checked={roofWorkType === 'repainting'}
-                        onChange={(e) => onRoofWorkTypeChange(e.target.value)}
-                        className="w-5 h-5 mr-2"
-                      />
-                      Repainting
-                    </label>
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-lg font-medium">
-                    Enter The Required Measurement
-                  </label>
-                  
-                  <div className="mb-4">
-                    <label className="block text-gray-700 mb-2">
-                      Select Area Type
-                    </label>
-                    <div className="flex flex-wrap gap-8">
-                      {roofAreaTypes.map((type) => (
-                        <label 
-                          key={type.id} 
-                          className="flex items-center cursor-pointer"
-                        >
-                          <input
-                            type="radio"
-                            name="roofAreaType"
-                            checked={type.selected}
-                            onChange={() => onRoofAreaTypeToggle(type.id)}
-                            className="w-5 h-5 mr-2"
-                          />
-                          {type.label}
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {roofAreaTypes.find(type => type.id === 'carpet')?.selected && (
-                    <select
-                      value={roofArea || ''}
-                      onChange={(e) => onRoofAreaChange(Number(e.target.value))}
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
-                    >
-                      <option value="">Select Area Range</option>
-                      {carpetAreaOptions.map((option) => (
-                        <option key={option.label} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
-                  )}
-                  
-                  {roofAreaTypes.find(type => type.id === 'buildup')?.selected && (
-                    <select
-                      value={roofArea || ''}
-                      onChange={(e) => onRoofAreaChange(Number(e.target.value))}
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
-                    >
-                      <option value="">Select Area Range</option>
-                      {buildupAreaOptions.map((option) => (
-                        <option key={option.label} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
-                  )}
-                  
-                  {!roofAreaTypes.find(type => type.id === 'carpet')?.selected && 
-                   !roofAreaTypes.find(type => type.id === 'buildup')?.selected && (
-                    <input
-                      type="number"
-                      value={roofArea || ''}
-                      onChange={(e) => onRoofAreaChange(Number(e.target.value))}
-                      placeholder="Enter The Area in Square Feet"
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966]"
-                    />
-                  )}
-                </div>
-              </div>
-
-              {/* Divider */}
-              <div className="my-8 border-b border-gray-200"></div>
-
-              {/* Roof Paint Selection */}
-              <div>
-                <h4 className="text-lg font-medium mb-6 text-[#ED276E]">
-                  Roof Paint Selection
-                </h4>
-                <div className="space-y-6">
-                  <div>
-                    <label className="block text-lg font-medium mb-3">
-                      Select Your Paint Category
-                    </label>
-                    <div className="flex flex-wrap gap-8">
-                      <label className="flex items-center cursor-pointer">
-                        <input
-                          type="radio"
-                          name="roofPaintCategory"
-                          value="economical"
-                          checked={roofPaintCategory === 'economical' || !roofPaintCategory}
-                          onChange={(e) => onRoofPaintCategoryChange(e.target.value)}
-                          className="w-5 h-5 mr-2"
-                        />
-                        Economical
-                      </label>
-                      <label className="flex items-center cursor-pointer">
-                        <input
-                          type="radio"
-                          name="roofPaintCategory"
-                          value="premium"
-                          checked={roofPaintCategory === 'premium'}
-                          onChange={(e) => onRoofPaintCategoryChange(e.target.value)}
-                          className="w-5 h-5 mr-2"
-                        />
-                        Premium
-                      </label>
-                      <label className="flex items-center cursor-pointer">
-                        <input
-                          type="radio"
-                          name="roofPaintCategory"
-                          value="luxury"
-                          checked={roofPaintCategory === 'luxury'}
-                          onChange={(e) => onRoofPaintCategoryChange(e.target.value)}
-                          className="w-5 h-5 mr-2"
-                        />
-                        Luxury
-                      </label>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-lg font-medium mb-3">
-                      Select Your Brands
-                    </label>
-                    <select
-                      value={roofPaintBrand}
-                      onChange={(e) => onRoofPaintBrandChange(e.target.value)}
-                      className="w-full p-4 pr-16 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
-                      disabled={!roofPaintCategory}
-                    >
-                      <option value="">Select Brands</option>
-                      <option value="asian-paints">Asian Paints</option>
-                      <option value="dulux">Dulux</option>
-                      <option value="nerolac">Nerolac</option>
-                      <option value="berger">Berger</option>
-                      <option value="shalimar">Shalimar</option>
-                      <option value="jsw">JSW</option>
-                    </select>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-lg font-medium mb-3">
-                      Select Your Paints
-                    </label>
-                    <select
-                      value={roofPaintType}
-                      onChange={(e) => onRoofPaintTypeChange(e.target.value)}
-                      className="w-full p-4 pr-16 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
-                      disabled={!roofPaintBrand}
-                    >
-                      <option value="">Select Paint</option>
-                      {roofPaintCategory === 'economical' && (
-                        <>
-                          {roofPaintBrand === 'asian-paints' && (
+                          {paintBrand === 'berger' && (
                             <>
-                              <option value="22">Tractor Emulsion (Recommended)</option>
-                              <option value="23">Tractor Emulsion Advance</option>
-                              <option value="23">Tractor Emulsion Shyne</option>
-                              <option value="21">Tractor Emulsion Sparc</option>
-                              <option value="21.5">Tractor Emulsion Sparc Advance</option>
+                              <option value="34">Berger Easy Clean (Recommended)</option>
+                              <option value="36">Berger Easy Clean Fresh</option>
+                              <option value="36">Berger Silk Glow</option>
+                              <option value="38">Berger Silk Glamor Soft Sheen (Recommended)</option>
+                              <option value="38">Berger Silk Glamor High Sheen</option>
+                              <option value="38">Berger Silk Breathe Easy</option>
                             </>
                           )}
-                          {roofPaintBrand === 'dulux' && (
+                          {paintBrand === 'shalimar' && (
                             <>
-                              <option value="22">Promise Interior (Recommended)</option>
-                              <option value="21">Promise Interior Smart Choice</option>
-                              <option value="23">Dulux Promise Sheen Interior</option>
+                              <option value="31">Shalimar Superlac Stay Clean</option>
+                              <option value="32">Shalimar Signature</option>
                             </>
                           )}
-                          {roofPaintBrand === 'nerolac' && (
+                          {paintBrand === 'jsw' && (
                             <>
-                              <option value="22">Nerolac Beauty Smooth Finish</option>
-                              <option value="22">Nerolac Beauty Little Master</option>
-                            </>
-                          )}
-                          {roofPaintBrand === 'berger' && (
-                            <>
-                              <option value="22">Berger Bison Acrylic Emulsion</option>
-                              <option value="23">Berger Bison Glow Acrylic Emulsion</option>
-                            </>
-                          )}
-                          {roofPaintBrand === 'shalimar' && (
-                            <>
-                              <option value="20">Shalimar Master Acrylic Emulsion</option>
-                              <option value="20">Shalimar No. 1 Silk Acrylic Emulsion</option>
-                            </>
-                          )}
-                          {roofPaintBrand === 'jsw' && (
-                            <>
-                              <option value="21">Pixa Joy Classic Interiors</option>
-                              <option value="22">Pixa Elegant Interiors</option>
-                              <option value="23">Pixa Elegant Interiors Silk</option>
-                            </>
-                          )}
-                        </>
-                      )}
-                      {roofPaintCategory === 'premium' && (
-                        <>
-                          {roofPaintBrand === 'asian-paints' && (
-                            <>
-                              <option value="24">Apcolite Premium Emulsion (Recommended)</option>
-                              <option value="24">Apcolite Premium Satin Emulsion</option>
-                              <option value="26">Apcolite All Protek</option>
-                              <option value="26">Apcolite Advance Shyne</option>
-                              <option value="26">Apcolite Advanced Heavy Duty Emulsion</option>
-                            </>
-                          )}
-                          {roofPaintBrand === 'dulux' && (
-                            <>
-                              <option value="24">Dulux Super Cover (Recommended)</option>
-                              <option value="26">Dulux Super Clean</option>
-                              <option value="27">Dulux Super Clean 3in1 (Recommended)</option>
-                              <option value="26">Dulux Super Cover Sheen</option>
-                            </>
-                          )}
-                          {roofPaintBrand === 'nerolac' && (
-                            <>
-                              <option value="24">Nerolac Pearls Emulsion</option>
-                              <option value="24">Nerolac Pearls Luster Finish</option>
-                              <option value="23">Nerolac Beauty Silver</option>
-                              <option value="25">Nerolac Beauty Gold</option>
-                              <option value="27">Nerolac Beauty Gold Washable (Recommended)</option>
-                              <option value="26">Nerolac Beauty Sheen</option>
-                              <option value="25">Nerolac Beauty Ceiling Emulsion</option>
-                            </>
-                          )}
-                          {roofPaintBrand === 'berger' && (
-                            <>
-                              <option value="24">Berger Rangoli Total Care</option>
-                            </>
-                          )}
-                          {roofPaintBrand === 'shalimar' && (
-                            <>
-                              <option value="22">Shalimar Superlac Advance</option>
-                            </>
-                          )}
-                          {roofPaintBrand === 'jsw' && (
-                            <>
-                              <option value="24">Aurus Regal Interiors Lustre</option>
-                              <option value="24">Aurus Regal Interiors</option>
-                              <option value="26">Aurus Regal Interiors Silk</option>
-                            </>
-                          )}
-                        </>
-                      )}
-                      {roofPaintCategory === 'luxury' && (
-                        <>
-                          {roofPaintBrand === 'asian-paints' && (
-                            <>
-                              <option value="34">Royale Luxury Emulsion (Recommended)</option>
-                              <option value="35">Royale Lustre</option>
-                              <option value="35">Royale Advanced</option>
-                              <option value="34">Royale Matt (Recommended)</option>
-                              <option value="36">Royale Shyne Luxury Emulsion</option>
-                              <option value="38">Royale Health Shield</option>
-                              <option value="40">Royale Aspira (Recommended)</option>
-                              <option value="41">Royale Glitz</option>
-                              <option value="38">Royale Atmos</option>
-                            </>
-                          )}
-                          {roofPaintBrand === 'dulux' && (
-                            <>
-                              <option value="34">Dulux Velvet Touch Pearl Glo (Recommended)</option>
-                              <option value="36">Dulux Velvet Touch Diamond Glo</option>
-                              <option value="36">Dulux Velvet Touch Platinum Glo (Recommended)</option>
-                              <option value="38">Dulux Ambiance Velvet Touch Elastoglo (Recommended)</option>
-                              <option value="38">Dulux Better Living Air Biobased</option>
-                            </>
-                          )}
-                          {roofPaintBrand === 'nerolac' && (
-                            <>
-                              <option value="34">Impressions Kashmir (Recommended)</option>
-                              <option value="36">Impression Ultra HD</option>
-                              <option value="36">Nerolac Impressions HD (Recommended)</option>
-                              <option value="37">Impression Ultra Fresh</option>
+                              <option value="34">Vogue Astoniq</option>
+                              <option value="38">Halo Majestic Interiors - Silk (Recommended)</option>
+                              <option value="38">Halo Majestic Interiors Shine</option>
                             </>
                           )}
                         </>
@@ -1673,6 +1498,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
             </div>
           </div>
         )}
+
       </div>
       
       {/* Add Result Display Section */}
@@ -1891,13 +1717,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         </div>
       )}
 
-      <div className="flex justify-between mt-12">
-        <button
-          onClick={onBack}
-          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50"
-        >
-          BACK
-        </button>
+      <div className="flex justify-end mt-12">
         <button
           onClick={onNext}
           className="px-6 py-3 rounded-lg bg-[#ED276E] text-white hover:bg-[#d51e5f]"
