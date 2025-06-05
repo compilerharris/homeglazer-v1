@@ -1140,9 +1140,9 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               )}
                               {ceilingPaintBrand === 'jsw' && (
                                 <>
-                                  <option value="21">Pixa Joy Classic Interiors</option>
-                                  <option value="22">Pixa Elegant Interiors</option>
-                                  <option value="23">Pixa Elegant Interiors Silk</option>
+                                  <option value="24">Aurus Regal Interiors Lustre</option>
+                                  <option value="24">Aurus Regal Interiors</option>
+                                  <option value="26">Aurus Regal Interiors Silk</option>
                                 </>
                               )}
                             </>
