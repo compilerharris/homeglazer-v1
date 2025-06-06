@@ -118,8 +118,8 @@ const PaintingStep2: React.FC<PaintingStep2Props> = ({
         </button>
         <button
           onClick={onNext}
-          className="px-6 py-3 rounded-lg bg-[#ED276E] text-white hover:bg-[#d51e5f]"
-          disabled={!fullName || !phone || !email || (!hideServiceType && !serviceType) || !location}
+          disabled={!fullName || !email || !phone || !location || (!hideServiceType && !serviceType)}
+          className={`px-6 py-3 rounded-lg text-white transition-colors ${!fullName || !email || !phone || !location || (!hideServiceType && !serviceType) ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#299dd7] hover:bg-[#248ac2]'}`}
         >
           NEXT
         </button>

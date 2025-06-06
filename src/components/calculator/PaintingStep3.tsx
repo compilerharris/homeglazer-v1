@@ -115,7 +115,7 @@ const PaintingStep3: React.FC<PaintingStep3Props> = ({
         </button>
         <button
           onClick={onNext}
-          className="px-6 py-3 rounded-lg bg-[#ED276E] text-white hover:bg-[#d51e5f]"
+          className="px-6 py-3 rounded-lg bg-[#299dd7] text-white hover:bg-[#248ac2]"
           disabled={!fullName || !phone || !email || !workType || !location}
         >
           NEXT

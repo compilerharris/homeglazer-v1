@@ -19,10 +19,10 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/calculator/painting": [
+    "/calculator": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/calculator/painting.js"
+      "static/chunks/pages/calculator.js"
     ],
     "/calculator/wood-polishing": [
       "static/chunks/webpack.js",

@@ -116,8 +116,8 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
               onClick={() => setInputMethod('area')}
               className={`p-4 rounded-lg border-2 text-center transition-colors ${
                 inputMethod === 'area'
-                  ? 'border-[#ED276E] bg-[#ED276E] text-white'
-                  : 'border-gray-200 hover:border-[#ED276E]'
+                  ? 'border-[#299dd7] bg-[#299dd7] text-white'
+                  : 'border-gray-200 hover:border-[#299dd7]'
               }`}
             >
               <h4 className="font-medium mb-2">Enter quantity in sq. ft.</h4>
@@ -128,8 +128,8 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
               onClick={() => setInputMethod('items')}
               className={`p-4 rounded-lg border-2 text-center transition-colors ${
                 inputMethod === 'items'
-                  ? 'border-[#ED276E] bg-[#ED276E] text-white'
-                  : 'border-gray-200 hover:border-[#ED276E]'
+                  ? 'border-[#299dd7] bg-[#299dd7] text-white'
+                  : 'border-gray-200 hover:border-[#299dd7]'
               }`}
             >
               <h4 className="font-medium mb-2">Estimate based on item count</h4>
@@ -340,7 +340,7 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
         <div className="mt-8 flex justify-end">
           <button
             onClick={onNext}
-            className="px-6 py-3 rounded-lg bg-[#ED276E] text-white hover:bg-[#d51e5f]"
+            className="px-6 py-3 rounded-lg bg-[#299dd7] text-white hover:bg-[#248ac2]"
           >
             Next
           </button>

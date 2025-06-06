@@ -598,17 +598,17 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         {/* Painting Type Selection */}
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
           <h3 className="text-xl font-medium mb-6 text-[#ED276E]">
-            Which Type Of Painting Work Do You Want
+            Which Type Of Painting Work Do You Want?
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {options.map((option) => (
               <button
                 key={option.id}
                 onClick={() => onOptionSelect(option.id)}
-                className={`p-6 rounded-lg border-2 text-center transition-all ${
+                className={`p-6 rounded-lg border-2 text-center transition-colors font-medium mb-2 ${
                   option.selected
-                    ? 'border-[#ED276E] bg-[#ED276E] text-white'
-                    : 'border-gray-300 hover:border-[#ED276E]'
+                    ? 'border-[#299dd7] bg-[#299dd7] text-white'
+                    : 'border-gray-200 hover:border-[#299dd7]'
                 }`}
               >
                 {option.title}
@@ -1780,19 +1780,14 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         </div>
       )}
 
-      <div className="flex justify-end mt-12">
+      {/* Navigation Buttons */}
+      <div className="mt-8 flex justify-end">
         <button
           onClick={onNext}
-          className="px-6 py-3 rounded-lg bg-[#ED276E] text-white hover:bg-[#d51e5f]"
-          disabled={!options.some(option => option.selected) || 
-                   !workType || 
-                   area <= 0 || 
-                   !areaTypes.some(type => type.selected) ||
-                   !paintCategory || 
-                   !paintBrand || 
-                   !paintType}
+          disabled={!area || !paintCategory || !paintBrand || !paintType || (selectedPaintingType === 'interior-exterior' && (!roofWorkType || !roofArea || !roofPaintCategory || !roofPaintBrand || !roofPaintType))}
+          className={`px-6 py-3 rounded-lg text-white transition-colors ${!area || !paintCategory || !paintBrand || !paintType || (selectedPaintingType === 'interior-exterior' && (!roofWorkType || !roofArea || !roofPaintCategory || !roofPaintBrand || !roofPaintType)) ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#299dd7] hover:bg-[#248ac2]'}`}
         >
-          NEXT
+          Next
         </button>
       </div>
     </div>

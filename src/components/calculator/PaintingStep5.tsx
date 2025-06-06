@@ -54,7 +54,7 @@ const PaintingStep5: React.FC<PaintingStep5Props> = ({
         </button>
         <button
           onClick={onRestart}
-          className="px-6 py-3 rounded-lg bg-[#ED276E] text-white hover:bg-[#d51e5f]"
+          className="px-6 py-3 rounded-lg bg-[#299dd7] text-white hover:bg-[#248ac2]"
         >
           RESTART
         </button>
