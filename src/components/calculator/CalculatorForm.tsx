@@ -47,7 +47,7 @@ const CalculatorForm: React.FC = () => {
               </p>
             </div>
             <Link 
-              href="/contact" 
+              href="/calculator/wood-polishing" 
               className="block w-full bg-[#ED276E] text-white text-center font-medium py-4 hover:bg-[#d51e5f] transition-colors"
             >
               Calculate

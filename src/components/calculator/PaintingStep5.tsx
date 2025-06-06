@@ -20,7 +20,7 @@ const PaintingStep5: React.FC<PaintingStep5Props> = ({
       </h2>
       
       <p className="text-xl text-[#ED276E] mb-12">
-        We Send you the mail for estimated painting cost.
+        We will send you the mail for estimated wood polishing cost.
       </p>
       
       <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 mb-12">
@@ -32,7 +32,7 @@ const PaintingStep5: React.FC<PaintingStep5Props> = ({
         
         <h3 className="text-2xl font-medium mb-4">Success!</h3>
         <p className="text-gray-600 mb-6">
-          Dear {fullName}, your painting estimate request has been successfully submitted. 
+          Dear {fullName}, your wood polishing estimate request has been successfully submitted. 
           We've sent a confirmation email to {email} with your estimate details.
         </p>
         

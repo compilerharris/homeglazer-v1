@@ -13,6 +13,7 @@ interface PaintingStep2Props {
   onLocationChange: (value: string) => void;
   onNext: () => void;
   onBack: () => void;
+  hideServiceType?: boolean;
 }
 
 const PaintingStep2: React.FC<PaintingStep2Props> = ({
@@ -27,12 +28,13 @@ const PaintingStep2: React.FC<PaintingStep2Props> = ({
   location,
   onLocationChange,
   onNext,
-  onBack
+  onBack,
+  hideServiceType = false
 }) => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <h2 className="text-3xl font-medium text-center mb-8 text-[#ED276E]">
-        Please Fill Your Details
+        Enter Your Details
       </h2>
       
       <div className="space-y-6">
@@ -75,21 +77,23 @@ const PaintingStep2: React.FC<PaintingStep2Props> = ({
           />
         </div>
 
-        <div>
-          <label className="block text-lg font-medium mb-3">
-            Service Type
-          </label>
-          <select
-            value={serviceType}
-            onChange={(e) => onServiceTypeChange(e.target.value)}
-            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
-          >
-            <option value="">Select Service Type</option>
-            <option value="residential">Residential</option>
-            <option value="commercial">Commercial</option>
-            <option value="industrial">Industrial</option>
-          </select>
-        </div>
+        {!hideServiceType && (
+          <div>
+            <label className="block text-lg font-medium mb-3">
+              Service Type
+            </label>
+            <select
+              value={serviceType}
+              onChange={(e) => onServiceTypeChange(e.target.value)}
+              className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
+            >
+              <option value="">Select Service Type</option>
+              <option value="residential">Residential</option>
+              <option value="commercial">Commercial</option>
+              <option value="industrial">Industrial</option>
+            </select>
+          </div>
+        )}
 
         <div>
           <label className="block text-lg font-medium mb-3">
@@ -115,7 +119,7 @@ const PaintingStep2: React.FC<PaintingStep2Props> = ({
         <button
           onClick={onNext}
           className="px-6 py-3 rounded-lg bg-[#ED276E] text-white hover:bg-[#d51e5f]"
-          disabled={!fullName || !phone || !email || !serviceType || !location}
+          disabled={!fullName || !phone || !email || (!hideServiceType && !serviceType) || !location}
         >
           NEXT
         </button>

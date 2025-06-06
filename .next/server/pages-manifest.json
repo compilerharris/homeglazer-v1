@@ -2,5 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/calculator/painting": "pages/calculator/painting.js"
+  "/calculator/painting": "pages/calculator/painting.js",
+  "/calculator": "pages/calculator.js",
+  "/calculator/wood-polishing": "pages/calculator/wood-polishing.js",
+  "/404": "pages/404.js"
 }
