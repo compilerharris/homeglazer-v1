@@ -275,7 +275,7 @@ const MultiStepWoodPolishingCalculator: React.FC = () => {
             wallPanels: wallPanelCount,
             furnitureArea: furnitureArea
           }}
-          onItemCountChange={(item: 'doors' | 'windows' | 'wallPanels' | 'furnitureArea', value: number) => {
+          onItemCountChange={(item: string, value: number) => {
             switch (item) {
               case 'doors':
                 handleDoorCountChange(value);
