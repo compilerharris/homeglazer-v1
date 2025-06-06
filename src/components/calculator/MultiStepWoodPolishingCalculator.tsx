@@ -18,6 +18,11 @@ interface WoodFinishOptions {
   [finishType: string]: WoodFinishBrand;
 }
 
+interface Step {
+  label: string;
+  completed: boolean;
+}
+
 // Wood finish data
 const woodFinishOptions: WoodFinishOptions = {
   Lacquer: {
@@ -121,130 +126,169 @@ const woodFinishOptions: WoodFinishOptions = {
 
 const MultiStepWoodPolishingCalculator: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  
-  // Step 1 - Wood Polishing Details
-  const [workType, setWorkType] = useState('');
-  const [area, setArea] = useState(0);
-  const [itemCounts, setItemCounts] = useState({
-    doors: 0,
-    windows: 0,
-    wallPanels: 0,
-    furnitureArea: 0
-  });
-
-  // Wood finish selection state
-  const [selectedWoodFinishType, setSelectedWoodFinishType] = useState('');
-  const [selectedWoodFinishBrand, setSelectedWoodFinishBrand] = useState('');
-  const [selectedWoodFinish, setSelectedWoodFinish] = useState<
-    WoodFinishOption | null
-  >(null);
-
-  // Step 2 - Personal Details (from Painting Calculator's Step 2)
+  const [inputMethod, setInputMethod] = useState<'area' | 'items'>('area');
+  const [quantity, setQuantity] = useState(0);
+  const [doorCount, setDoorCount] = useState(0);
+  const [windowCount, setWindowCount] = useState(0);
+  const [wallPanelCount, setWallPanelCount] = useState(0);
+  const [furnitureArea, setFurnitureArea] = useState(0);
+  const [selectedWoodFinishType, setSelectedWoodFinishType] = useState<string>('');
+  const [selectedWoodFinishBrand, setSelectedWoodFinishBrand] = useState<string>('');
+  const [selectedWoodFinish, setSelectedWoodFinish] = useState<WoodFinishOption | null>(null);
   const [fullName, setFullName] = useState('');
-  const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [serviceType, setServiceType] = useState('Wood Polishing'); // Default service type
+  const [phone, setPhone] = useState('');
   const [location, setLocation] = useState('');
+  const [serviceType, setServiceType] = useState('');
 
-  const [steps, setSteps] = useState([
+  const steps: Step[] = [
     { label: 'Work Details', completed: false },
-    { label: 'Personal Details', completed: false }, // Using PaintingStep2
-    { label: 'Result', completed: false } // Using PaintingStep5
-  ]);
+    { label: 'Personal Details', completed: false },
+    { label: 'Summary', completed: false }
+  ];
 
-  const nextStep = () => {
-    setSteps(prevSteps => 
-      prevSteps.map((step, index) => 
-        index === currentStep - 1 ? { ...step, completed: true } : step
-      )
-    );
-    setCurrentStep(prev => Math.min(prev + 1, steps.length));
+  const woodFinishes = [
+    {
+      name: 'PU',
+      brands: [
+        {
+          name: 'Asian Paints',
+          finishes: [
+            { name: 'PU Clear', value: '45' },
+            { name: 'PU White', value: '50' }
+          ]
+        },
+        {
+          name: 'Berger',
+          finishes: [
+            { name: 'PU Clear', value: '48' },
+            { name: 'PU White', value: '52' }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'NC',
+      brands: [
+        {
+          name: 'Asian Paints',
+          finishes: [
+            { name: 'NC Clear', value: '35' },
+            { name: 'NC White', value: '40' }
+          ]
+        },
+        {
+          name: 'Berger',
+          finishes: [
+            { name: 'NC Clear', value: '38' },
+            { name: 'NC White', value: '42' }
+          ]
+        }
+      ]
+    }
+  ];
+
+  const handleInputMethodChange = (method: 'area' | 'items') => {
+    setInputMethod(method);
   };
 
-  const prevStep = () => {
-    setSteps(prevSteps => 
-        prevSteps.map((step, index) => 
-          index === currentStep - 2 ? { ...step, completed: false } : step
-        )
-      );
-    setCurrentStep(prev => Math.max(prev - 1, 1));
+  const handleQuantityChange = (value: number) => {
+    setQuantity(value);
   };
 
-  const handleWorkTypeChange = (value: string) => {
-    setWorkType(value);
+  const handleDoorCountChange = (value: number) => {
+    setDoorCount(value);
   };
 
-  const handleAreaChange = (value: number) => {
-    setArea(value);
+  const handleWindowCountChange = (value: number) => {
+    setWindowCount(value);
   };
 
-  const handleItemCountChange = (item: string, value: number) => {
-    setItemCounts(prev => ({
-      ...prev,
-      [item]: value
-    }));
+  const handleWallPanelCountChange = (value: number) => {
+    setWallPanelCount(value);
+  };
+
+  const handleFurnitureAreaChange = (value: number) => {
+    setFurnitureArea(value);
   };
 
   const handleWoodFinishTypeChange = (value: string) => {
     setSelectedWoodFinishType(value);
-    setSelectedWoodFinishBrand(''); // Reset brand and finish when type changes
+    setSelectedWoodFinishBrand('');
     setSelectedWoodFinish(null);
   };
 
   const handleWoodFinishBrandChange = (value: string) => {
     setSelectedWoodFinishBrand(value);
-    // Find the first available finish option for the selected brand and set it
-    const finishOptionsForBrand = woodFinishOptions[selectedWoodFinishType]?.[value];
-    if (finishOptionsForBrand && finishOptionsForBrand.length > 0) {
-      setSelectedWoodFinish(finishOptionsForBrand[0]);
-    } else {
-      setSelectedWoodFinish(null);
-    }
+    const selectedFinish = woodFinishes
+      .find(type => type.name === selectedWoodFinishType)
+      ?.brands.find(brand => brand.name === value)
+      ?.finishes[0] || null;
+    setSelectedWoodFinish(selectedFinish);
   };
 
-  // Handlers for Step 2 (Personal Details)
+  const handleWoodFinishChange = (value: string) => {
+    const selectedFinish = woodFinishes
+      .find(type => type.name === selectedWoodFinishType)
+      ?.brands.find(brand => brand.name === selectedWoodFinishBrand)
+      ?.finishes.find(finish => finish.name === value) || null;
+    setSelectedWoodFinish(selectedFinish);
+  };
+
   const handleFullNameChange = (value: string) => {
     setFullName(value);
-  };
-
-  const handlePhoneChange = (value: string) => {
-    setPhone(value);
   };
 
   const handleEmailChange = (value: string) => {
     setEmail(value);
   };
 
-  const handleServiceTypeChange = (value: string) => {
-    setServiceType(value);
+  const handlePhoneChange = (value: string) => {
+    setPhone(value);
   };
 
   const handleLocationChange = (value: string) => {
     setLocation(value);
   };
 
-  // Although PaintingStep5 does not display the total estimate,
-  // we keep this function in case future steps require it or for logging/submission.
+  const handleServiceTypeChange = (value: string) => {
+    setServiceType(value);
+  };
+
+  const nextStep = () => {
+    setCurrentStep(currentStep + 1);
+  };
+
+  const prevStep = () => {
+    setCurrentStep(currentStep - 1);
+  };
+
+  const restartCalculator = () => {
+    setCurrentStep(1);
+    setInputMethod('area');
+    setQuantity(0);
+    setDoorCount(0);
+    setWindowCount(0);
+    setWallPanelCount(0);
+    setFurnitureArea(0);
+    setSelectedWoodFinishType('');
+    setSelectedWoodFinishBrand('');
+    setSelectedWoodFinish(null);
+    setFullName('');
+    setEmail('');
+    setPhone('');
+    setLocation('');
+    setServiceType('');
+  };
+
   const calculateTotalEstimate = () => {
-    if (!selectedWoodFinish) return 0;
-
-    const finishValue = Number(selectedWoodFinish.value);
     let totalArea = 0;
-
-    // Determine total area based on input method
-    // This logic assumes input mode is tracked elsewhere or derived from state
-    // For now, let's assume 'area' state being non-zero means area input was used
-    if (workType === 'area') {
-      totalArea = area;
-    } else { // Assuming item count input was used
-      const doorArea = itemCounts.doors * 65;
-      const windowArea = itemCounts.windows * 30;
-      const wallPanelArea = itemCounts.wallPanels * 80;
-      const furnitureArea = itemCounts.furnitureArea;
-      totalArea = doorArea + windowArea + wallPanelArea + furnitureArea;
+    if (inputMethod === 'area') {
+      totalArea = quantity;
+    } else {
+      totalArea = (doorCount * 21) + (windowCount * 15) + (wallPanelCount * 30) + furnitureArea;
     }
-
-    return totalArea * finishValue;
+    return totalArea * Number(selectedWoodFinish?.value || 0);
   };
 
   return (
@@ -254,49 +298,75 @@ const MultiStepWoodPolishingCalculator: React.FC = () => {
         
         <div className="mt-12">
           {currentStep === 1 && (
-            <WoodPolishingStep1 
-              workType={workType}
-              onWorkTypeChange={handleWorkTypeChange}
-              area={area}
-              onAreaChange={handleAreaChange}
-              itemCounts={itemCounts}
-              onItemCountChange={handleItemCountChange}
-              woodFinishOptions={woodFinishOptions} // Pass down wood finish data
+            <WoodPolishingStep1
+              workType={inputMethod}
+              onWorkTypeChange={handleInputMethodChange}
+              area={quantity}
+              onAreaChange={handleQuantityChange}
+              itemCounts={{
+                doors: doorCount,
+                windows: windowCount,
+                wallPanels: wallPanelCount,
+                furnitureArea: furnitureArea
+              }}
+              onItemCountChange={(item: string, value: number) => {
+                switch (item) {
+                  case 'doors':
+                    setDoorCount(value);
+                    break;
+                  case 'windows':
+                    setWindowCount(value);
+                    break;
+                  case 'wallPanels':
+                    setWallPanelCount(value);
+                    break;
+                  case 'furnitureArea':
+                    setFurnitureArea(value);
+                    break;
+                }
+              }}
+              woodFinishOptions={woodFinishes.reduce((acc, type) => ({
+                ...acc,
+                [type.name]: type.brands.reduce((brandAcc, brand) => ({
+                  ...brandAcc,
+                  [brand.name]: brand.finishes
+                }), {})
+              }), {})}
               selectedWoodFinishType={selectedWoodFinishType}
               onWoodFinishTypeChange={handleWoodFinishTypeChange}
               selectedWoodFinishBrand={selectedWoodFinishBrand}
               onWoodFinishBrandChange={handleWoodFinishBrandChange}
               selectedWoodFinish={selectedWoodFinish}
-              onWoodFinishChange={setSelectedWoodFinish} // Keep this handler for completeness, though not used in UI anymore
+              onWoodFinishChange={handleWoodFinishChange}
               onNext={nextStep}
-              onBack={prevStep} // Step 1 does not have a back button
+              onBack={prevStep}
             />
           )}
 
           {currentStep === 2 && (
             <PaintingStep2
-               fullName={fullName}
-               onFullNameChange={handleFullNameChange}
-               phone={phone}
-               onPhoneChange={handlePhoneChange}
-               email={email}
-               onEmailChange={handleEmailChange}
-               serviceType={serviceType}
-               onServiceTypeChange={handleServiceTypeChange}
-               location={location}
-               onLocationChange={handleLocationChange}
-               onNext={nextStep}
-               onBack={prevStep}
-               hideServiceType={true}
+              fullName={fullName}
+              onFullNameChange={handleFullNameChange}
+              email={email}
+              onEmailChange={handleEmailChange}
+              phone={phone}
+              onPhoneChange={handlePhoneChange}
+              location={location}
+              onLocationChange={handleLocationChange}
+              serviceType={serviceType}
+              onServiceTypeChange={handleServiceTypeChange}
+              onNext={nextStep}
+              onBack={prevStep}
+              hideServiceType={true}
             />
           )}
 
           {currentStep === 3 && (
             <PaintingStep5
-               fullName={fullName}
-               email={email}
-               onRestart={() => setCurrentStep(1)}
-               onBack={prevStep}
+              onBack={prevStep}
+              onRestart={restartCalculator}
+              fullName={fullName}
+              email={email}
             />
           )}
         </div>

@@ -15,8 +15,8 @@ interface WoodFinishOptions {
 }
 
 interface WoodPolishingStep1Props {
-  workType: string;
-  onWorkTypeChange: (value: string) => void;
+  workType: 'area' | 'items';
+  onWorkTypeChange: (value: 'area' | 'items') => void;
   area: number;
   onAreaChange: (value: number) => void;
   itemCounts: {
