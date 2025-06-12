@@ -29,8 +29,8 @@ const PaintBrands: React.FC = () => {
       <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center gap-8 2xl:w-[1400px]">
         <div className="w-full lg:w-2/3">
           <SectionCarousel paintBrandsSection={true}>
-            {brands.map(brand => <CarouselItem key={brand.id}>
-                <div className="relative w-[200px] h-[250px] mx-auto">
+            {brands.map(brand => <CarouselItem key={brand.id} className="pl-4">
+                <div className="relative w-[180px] h-[250px] mx-auto">
                   <img src={brand.background} alt="Paint Brand" className="w-full h-full object-contain rounded-lg" />
                 </div>
               </CarouselItem>)}

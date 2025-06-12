@@ -40,6 +40,8 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
   const [api, setApi] = React.useState<any>(null);
   // State to track if the delay has passed
   const [delayedBasis, setDelayedBasis] = useState<string | null>(null);
+  const [canScrollNext, setCanScrollNext] = useState(true);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
 
   // When activeSlideIndex changes externally (e.g., from color buttons), update the carousel
   useEffect(() => {
@@ -47,6 +49,25 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
       api.scrollTo(activeSlideIndex);
     }
   }, [api, activeSlideIndex]);
+
+  // Update scroll buttons state
+  useEffect(() => {
+    if (!api) return;
+
+    const updateScrollButtons = () => {
+      setCanScrollPrev(api.canScrollPrev());
+      setCanScrollNext(api.canScrollNext());
+    };
+
+    api.on('select', updateScrollButtons);
+    api.on('reInit', updateScrollButtons);
+    updateScrollButtons();
+
+    return () => {
+      api.off('select', updateScrollButtons);
+      api.off('reInit', updateScrollButtons);
+    };
+  }, [api]);
 
   // When the carousel changes, update the activeSlideIndex
   const handleSelect = React.useCallback(() => {
@@ -82,6 +103,8 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     
     // For Team section showing 4 at a time above 1023px and centering
     if (teamSection && window.innerWidth >= 1023) return 4;
+    if (teamSection && window.innerWidth >= 768) return 2;  // tablet
+    if (teamSection) return 1;  // mobile
     
     // For Paint Brands section showing 3 on desktop, 2 on tablet, 1 on phone
     if (paintBrandsSection) {
@@ -105,37 +128,42 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
   }, [isMobile, paintBrandsSection, reviewsSection, teamSection, roomMakeoverSection, colorVisualizerSection, slidesToShow]);
 
   const carouselOptions: EmblaOptionsType = {
-    align: "start",
-    loop: true,
-    slidesToScroll: 1,
-    dragFree: true,
+    align: teamSection ? "start" : reviewsSection ? "start" : slidesToShow ? "start" : "center",
+    loop: false,
+    slidesToScroll: (teamSection || reviewsSection || paintBrandsSection) ? 1 : (slidesToShow ? slidesToShow : 1),
+    dragFree: (teamSection || reviewsSection || paintBrandsSection) ? false : true,
+    containScroll: (teamSection || reviewsSection || paintBrandsSection) ? "keepSnaps" : (slidesToShow ? "trimSnaps" : false),
+    skipSnaps: false,
+    inViewThreshold: 0.7,
+    duration: 10
   };
 
   return (
     <Carousel
-      className={`w-full max-w-4xl mx-auto pt-8 pb-28 px-8 overflow-x-hidden relative ${className || ''}`}
+      className={`w-full max-w-[1400px] mx-auto pt-8 pb-40 ${teamSection ? 'px-2' : reviewsSection ? 'px-2' : paintBrandsSection ? 'px-4' : slidesToShow ? 'px-4' : 'px-4'} overflow-x-hidden relative ${className || ''}`}
       opts={carouselOptions}
       setApi={setApi}
     >
-      <CarouselContent className={`overflow-visible gap-x-8`}>
+      <CarouselContent className={`overflow-visible ${teamSection || reviewsSection || slidesToShow ? 'gap-x-0' : 'gap-x-4'}`}>
         {React.Children.map(children, (child, index) => {
-          // Use the delayed basis if available, otherwise default to 100%
           const basis = delayedBasis || '100%';
-          
+
+          const clonedChildProps: { className: string; style?: React.CSSProperties } = {
+            className: `${(child as React.ReactElement<any>).props.className || ''}`,
+            style: { ...(child as React.ReactElement<any>).props.style, flexBasis: basis }
+          };
+
           return React.isValidElement(child) 
-            ? React.cloneElement(child as React.ReactElement<any>, {
-                className: `${(child as React.ReactElement<any>).props.className || ''}`,
-                style: { ...(child as React.ReactElement<any>).props.style, flexBasis: basis }
-              })
+            ? React.cloneElement(child as React.ReactElement<any>, clonedChildProps)
             : child;
         })}
       </CarouselContent>
       <div className="w-full flex justify-center gap-4 absolute left-0 right-0 bottom-6 md:bottom-10 z-30 pointer-events-none">
         <div className="pointer-events-auto">
-          <CarouselPrevious className="static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full" />
+          <CarouselPrevious className={`static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full ${!canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''}`} />
         </div>
         <div className="pointer-events-auto">
-          <CarouselNext className="static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full" />
+          <CarouselNext className={`static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full ${!canScrollNext ? 'opacity-50 cursor-not-allowed' : ''}`} />
         </div>
       </div>
     </Carousel>
