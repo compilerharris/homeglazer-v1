@@ -103,16 +103,69 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
   ceilingPaintType,
   onCeilingPaintTypeChange
 }) => {
+  // Add function to calculate display area
+  const getDisplayArea = () => {
+    if (!area) return 0;
+    if (samePaintForCeiling) {
+      let firstNumber = 0;
+      if (areaTypes.find(type => type.id === 'carpet')?.selected) {
+        const selectedOption = carpetAreaOptions.find(option => option.value === area);
+        if (selectedOption) {
+          firstNumber = parseInt(selectedOption.label.split('-')[0].trim());
+        }
+      } else if (areaTypes.find(type => type.id === 'buildup')?.selected) {
+        const selectedOption = buildupAreaOptions.find(option => option.value === area);
+        if (selectedOption) {
+          firstNumber = parseInt(selectedOption.label.split('-')[0].trim());
+        }
+      }
+      return area - firstNumber;
+    }
+    return area;
+  };
+
   // Add calculation function
   const calculateInteriorPrice = () => {
     if (!area || !paintType) return 0;
+    // If different paint for ceiling is selected, subtract the first number from the range
+    if (samePaintForCeiling) {
+      // Get the first number from the selected area range
+      let firstNumber = 0;
+      if (areaTypes.find(type => type.id === 'carpet')?.selected) {
+        const selectedOption = carpetAreaOptions.find(option => option.value === area);
+        if (selectedOption) {
+          firstNumber = parseInt(selectedOption.label.split('-')[0].trim());
+        }
+      } else if (areaTypes.find(type => type.id === 'buildup')?.selected) {
+        const selectedOption = buildupAreaOptions.find(option => option.value === area);
+        if (selectedOption) {
+          firstNumber = parseInt(selectedOption.label.split('-')[0].trim());
+        }
+      }
+      // Calculate wall area by subtracting ceiling area (first number from range)
+      const wallArea = area - firstNumber;
+      return wallArea * Number(paintType);
+    }
     return area * Number(paintType);
   };
 
   // Add calculation function for ceiling
   const calculateCeilingPrice = () => {
     if (!area || !ceilingPaintType) return 0;
-    return area * Number(ceilingPaintType);
+    // When different paint for ceiling is selected, use the first number from the range
+    let ceilingArea = 0;
+    if (areaTypes.find(type => type.id === 'carpet')?.selected) {
+      const selectedOption = carpetAreaOptions.find(option => option.value === area);
+      if (selectedOption) {
+        ceilingArea = parseInt(selectedOption.label.split('-')[0].trim());
+      }
+    } else if (areaTypes.find(type => type.id === 'buildup')?.selected) {
+      const selectedOption = buildupAreaOptions.find(option => option.value === area);
+      if (selectedOption) {
+        ceilingArea = parseInt(selectedOption.label.split('-')[0].trim());
+      }
+    }
+    return ceilingArea * Number(ceilingPaintType);
   };
 
   // Get selected area type label
@@ -1576,7 +1629,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
             <div className="space-y-3">
               <p><span className="font-medium">Work Type:</span> {workType === 'fresh' ? 'Fresh Painting' : 'Repainting'}</p>
               <p><span className="font-medium">Area Type:</span> {getSelectedAreaType()}</p>
-              <p><span className="font-medium">Area Value:</span> {area} sq.ft</p>
+              <p><span className="font-medium">Area Value:</span> {getDisplayArea()} sq.ft</p>
               <p><span className="font-medium">Paint Category:</span> {paintCategory.charAt(0).toUpperCase() + paintCategory.slice(1)}</p>
               <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
               <p><span className="font-medium">Selected Paint:</span> {getSelectedPaintName()}</p>
@@ -1596,6 +1649,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                 <p><span className="font-medium">Paint Category:</span> {ceilingPaintCategory.charAt(0).toUpperCase() + ceilingPaintCategory.slice(1)}</p>
                 <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
                 <p><span className="font-medium">Selected Paint:</span> {getSelectedCeilingPaintName()}</p>
+                <p><span className="font-medium">Area Value:</span> {area - getDisplayArea()} sq.ft</p>
                 <div className="pt-3 border-t border-gray-200">
                   <p className="text-lg font-medium">
                     <span className="text-[#ED276E]">Ceiling Paint Price:</span> ₹{formatIndianCurrency(calculateCeilingPrice())}
