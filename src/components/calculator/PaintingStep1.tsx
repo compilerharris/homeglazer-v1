@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 interface PaintingOption {
   id: string;
@@ -103,16 +103,94 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
   ceilingPaintType,
   onCeilingPaintTypeChange
 }) => {
+  const workDetailsRef = useRef<HTMLDivElement>(null);
+  const exteriorWorkDetailsRef = useRef<HTMLDivElement>(null);
+  const [selectedOption, setSelectedOption] = useState<string>('');
+  const [inputMethod, setInputMethod] = useState<'area' | 'items'>('area');
+  const [localArea, setLocalArea] = useState<number>(0);
+  const [selectedPaint, setSelectedPaint] = useState<string>('');
+  const [itemCounts, setItemCounts] = useState({
+    doors: 0,
+    windows: 0,
+    wallPanels: 0,
+    furnitureArea: 0
+  });
+
+  const calculateTotalEstimate = () => {
+    let totalArea = 0;
+    if (inputMethod === 'area') {
+      totalArea = area || localArea;
+    } else {
+      totalArea = (itemCounts.doors * 65) + (itemCounts.windows * 30) + 
+                 (itemCounts.wallPanels * 80) + itemCounts.furnitureArea;
+    }
+    return totalArea * Number(paintType);
+  };
+
+  const handleOptionSelect = (option: string) => {
+    setSelectedOption(option);
+    onOptionSelect(option);
+    setInputMethod('area');
+    setLocalArea(0);
+    setSelectedPaint('');
+    setItemCounts({
+      doors: 0,
+      windows: 0,
+      wallPanels: 0,
+      furnitureArea: 0
+    });
+    // Add delay before smooth scrolling to work details section on tablet and below screens
+    if (window.innerWidth < 1024) {
+      // Use a slightly longer delay to ensure DOM updates are complete
+      setTimeout(() => {
+        let targetRef = null;
+        if (option === 'interior' || option === 'both') {
+          targetRef = workDetailsRef.current;
+        } else if (option === 'exterior') {
+          targetRef = exteriorWorkDetailsRef.current;
+        }
+
+        if (targetRef) {
+          // Add a small offset to ensure the element is fully visible
+          const yOffset = -20;
+          const y = targetRef.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
+  const handleInputMethodChange = (method: 'area' | 'items') => {
+    setInputMethod(method);
+    if (method === 'area') {
+      setItemCounts({
+        doors: 0,
+        windows: 0,
+        wallPanels: 0,
+        furnitureArea: 0
+      });
+    } else {
+      setLocalArea(0);
+      onAreaChange(0);
+    }
+  };
+
   // Add calculation function
   const calculateInteriorPrice = () => {
-    if (!area || !paintType) return 0;
-    return area * Number(paintType);
+    if (!area && !localArea || !paintType) return 0;
+    // If different ceiling paint is selected, subtract ceiling area (40% of total area)
+    const totalArea = area || localArea;
+    const wallArea = samePaintForCeiling ? totalArea : Math.floor(totalArea * 0.60);
+    return wallArea * Number(paintType);
   };
 
   // Add calculation function for ceiling
   const calculateCeilingPrice = () => {
-    if (!area || !ceilingPaintType) return 0;
-    return area * Number(ceilingPaintType);
+    if (!area && !localArea || !ceilingPaintType) return 0;
+    // Ceiling area is 40% of total area
+    const totalArea = area || localArea;
+    const ceilingArea = Math.floor(totalArea * 0.40);
+    return ceilingArea * Number(ceilingPaintType);
   };
 
   // Get selected area type label
@@ -414,8 +492,8 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
 
   // Add calculation function for exterior
   const calculateExteriorPrice = () => {
-    if (!area || !paintType) return 0;
-    return area * Number(paintType);
+    if (!localArea || !paintType) return 0;
+    return localArea * Number(paintType);
   };
 
   // Calculate total price for exterior including roof if applicable
@@ -590,13 +668,13 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <h2 className="text-3xl font-medium text-center mb-12 text-[#ED276E]">
+      <h2 className="text-3xl font-medium text-center mb-6 md:mb-12 text-[#ED276E]">
         Painting Work Details
       </h2>
       
-      <div className="space-y-12">
+      <div className="space-y-8">
         {/* Painting Type Selection */}
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 mb-6 md:mb-12">
           <h3 className="text-xl font-medium mb-6 text-[#ED276E]">
             Which Type Of Painting Work Do You Want?
           </h3>
@@ -604,7 +682,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
             {options.map((option) => (
               <button
                 key={option.id}
-                onClick={() => onOptionSelect(option.id)}
+                onClick={() => handleOptionSelect(option.id)}
                 className={`p-6 rounded-lg border-2 text-center transition-colors font-medium mb-2 ${
                   option.selected
                     ? 'border-[#299dd7] bg-[#299dd7] text-white'
@@ -619,7 +697,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
 
         {/* Work Details Section - Show based on selection */}
         {(selectedPaintingType === 'interior' || selectedPaintingType === 'both') && (
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
+          <div ref={workDetailsRef} className="bg-gray-50 border border-gray-200 rounded-lg p-8">
             <h3 className="text-xl font-medium mb-6 text-[#ED276E]">
               Interior Work Details
             </h3>
@@ -629,7 +707,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   <label className="block text-lg font-medium mb-3">
                     Which Kind Of Painting Work Will Be?
                   </label>
-                  <div className="flex flex-wrap gap-8">
+                  <div className="flex flex-wrap gap-4 md:gap-8">
                     <label className="flex items-center cursor-pointer">
                       <input
                         type="radio"
@@ -664,7 +742,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <label className="block text-gray-700 mb-2">
                       Select Area Type
                     </label>
-                    <div className="flex flex-wrap gap-8">
+                    <div className="flex flex-wrap gap-4 md:gap-8">
                       {areaTypes.map((type) => (
                         <label 
                           key={type.id} 
@@ -686,7 +764,11 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   {areaTypes.find(type => type.id === 'carpet')?.selected && (
                     <select
                       value={area || ''}
-                      onChange={(e) => onAreaChange(Number(e.target.value))}
+                      onChange={(e) => {
+                        const value = Number(e.target.value);
+                        onAreaChange(value);
+                        setLocalArea(value);
+                      }}
                       className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
                     >
                       <option value="">Select Area Range</option>
@@ -701,7 +783,11 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   {areaTypes.find(type => type.id === 'buildup')?.selected && (
                     <select
                       value={area || ''}
-                      onChange={(e) => onAreaChange(Number(e.target.value))}
+                      onChange={(e) => {
+                        const value = Number(e.target.value);
+                        onAreaChange(value);
+                        setLocalArea(value);
+                      }}
                       className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
                     >
                       <option value="">Select Area Range</option>
@@ -718,7 +804,11 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <input
                       type="number"
                       value={area || ''}
-                      onChange={(e) => onAreaChange(Number(e.target.value))}
+                      onChange={(e) => {
+                        const value = Number(e.target.value);
+                        onAreaChange(value);
+                        setLocalArea(value);
+                      }}
                       placeholder="Enter The Area in Square Feet"
                       className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966]"
                     />
@@ -739,7 +829,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <label className="block text-lg font-medium mb-3">
                       Select Your Paint Category
                     </label>
-                    <div className="flex flex-wrap gap-8">
+                    <div className="flex flex-wrap gap-4 md:gap-8">
                       <label className="flex items-center cursor-pointer">
                         <input
                           type="radio"
@@ -985,7 +1075,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                         <label className="block text-lg font-medium mb-3">
                           Select Your Paint Category
                         </label>
-                        <div className="flex flex-wrap gap-8">
+                        <div className="flex flex-wrap gap-4 md:gap-8">
                           <label className="flex items-center cursor-pointer">
                             <input
                               type="radio"
@@ -1215,7 +1305,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         )}
 
         {(selectedPaintingType === 'exterior' || selectedPaintingType === 'both') && (
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
+          <div ref={exteriorWorkDetailsRef} className="bg-gray-50 border border-gray-200 rounded-lg p-8">
             <h3 className="text-xl font-medium mb-6 text-[#ED276E]">
               Exterior Work Details
             </h3>
@@ -1225,7 +1315,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   <label className="block text-lg font-medium mb-3">
                     Which Kind Of Painting Work Will Be?
                   </label>
-                  <div className="flex flex-wrap gap-8">
+                  <div className="flex flex-wrap gap-4 md:gap-8">
                     <label className="flex items-center cursor-pointer">
                       <input
                         type="radio"
@@ -1260,7 +1350,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <label className="block text-gray-700 mb-2">
                       Select Area Type
                     </label>
-                    <div className="flex flex-wrap gap-8">
+                    <div className="flex flex-wrap gap-4 md:gap-8">
                       {areaTypes.map((type) => (
                         <label 
                           key={type.id} 
@@ -1282,7 +1372,11 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   {areaTypes.find(type => type.id === 'carpet')?.selected && (
                     <select
                       value={area || ''}
-                      onChange={(e) => onAreaChange(Number(e.target.value))}
+                      onChange={(e) => {
+                        const value = Number(e.target.value);
+                        onAreaChange(value);
+                        setLocalArea(value);
+                      }}
                       className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
                     >
                       <option value="">Select Area Range</option>
@@ -1297,7 +1391,11 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   {areaTypes.find(type => type.id === 'buildup')?.selected && (
                     <select
                       value={area || ''}
-                      onChange={(e) => onAreaChange(Number(e.target.value))}
+                      onChange={(e) => {
+                        const value = Number(e.target.value);
+                        onAreaChange(value);
+                        setLocalArea(value);
+                      }}
                       className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
                     >
                       <option value="">Select Area Range</option>
@@ -1314,7 +1412,11 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <input
                       type="number"
                       value={area || ''}
-                      onChange={(e) => onAreaChange(Number(e.target.value))}
+                      onChange={(e) => {
+                        const value = Number(e.target.value);
+                        onAreaChange(value);
+                        setLocalArea(value);
+                      }}
                       placeholder="Enter The Area in Square Feet"
                       className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966]"
                     />
@@ -1335,7 +1437,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <label className="block text-lg font-medium mb-3">
                       Select Your Paint Category
                     </label>
-                    <div className="flex flex-wrap gap-8">
+                    <div className="flex flex-wrap gap-4 md:gap-8">
                       <label className="flex items-center cursor-pointer">
                         <input
                           type="radio"
@@ -1564,218 +1666,69 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
 
                 </div>
                 
-      {/* Add Result Display Section */}
-      {(selectedPaintingType === 'interior' || selectedPaintingType === 'both') && 
-       workType && area > 0 && paintCategory && paintBrand && paintType && (
-        <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-          <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Calculation Summary</h3>
-          
-          {/* Wall Paint Section */}
-          <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium mb-4 text-gray-800">Wall Paint Details</h4>
-            <div className="space-y-3">
-              <p><span className="font-medium">Work Type:</span> {workType === 'fresh' ? 'Fresh Painting' : 'Repainting'}</p>
-              <p><span className="font-medium">Area Type:</span> {getSelectedAreaType()}</p>
-              <p><span className="font-medium">Area Value:</span> {area} sq.ft</p>
-              <p><span className="font-medium">Paint Category:</span> {paintCategory.charAt(0).toUpperCase() + paintCategory.slice(1)}</p>
-              <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-              <p><span className="font-medium">Selected Paint:</span> {getSelectedPaintName()}</p>
-              <div className="pt-3 border-t border-gray-200">
-                <p className="text-lg font-medium">
-                  <span className="text-[#ED276E]">Wall Paint Price:</span> ₹{formatIndianCurrency(calculateInteriorPrice())}
-                </p>
+      {/* Calculation Summary */}
+      {selectedOption && (inputMethod === 'area' && localArea > 0 || inputMethod === 'items' && (itemCounts.doors > 0 || itemCounts.windows > 0 || itemCounts.wallPanels > 0 || itemCounts.furnitureArea > 0)) && (
+        <div className="mt-8 pt-8 border-t-2 border-[#ED276E]">
+          <h3 className="text-2xl font-semibold mb-6 text-[#ED276E]">Calculation Summary</h3>
+          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+            <div className="space-y-4">
+              <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                <span className="font-medium text-gray-600">Input Method:</span>
+                <span className="text-gray-800">{inputMethod === 'area' ? 'Enter quantity in sq. ft.' : 'Estimate based on item count'}</span>
               </div>
-                    </div>
-                  </div>
-                  
-          {/* Ceiling Paint Section - Only show if different paint is selected */}
-          {samePaintForCeiling && ceilingPaintType && (
-            <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="text-lg font-medium mb-4 text-gray-800">Ceiling Paint Details</h4>
-              <div className="space-y-3">
-                <p><span className="font-medium">Paint Category:</span> {ceilingPaintCategory.charAt(0).toUpperCase() + ceilingPaintCategory.slice(1)}</p>
-                <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                <p><span className="font-medium">Selected Paint:</span> {getSelectedCeilingPaintName()}</p>
-                <div className="pt-3 border-t border-gray-200">
-                  <p className="text-lg font-medium">
-                    <span className="text-[#ED276E]">Ceiling Paint Price:</span> ₹{formatIndianCurrency(calculateCeilingPrice())}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Total Price Section */}
-          <div className="pt-4 border-t-2 border-gray-200 bg-white p-4 rounded-lg shadow-sm">
-            <p className="text-xl font-semibold">
-              <span className="text-[#ED276E]">Total Price:</span> ₹{formatIndianCurrency(calculateTotalPrice())}
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Add Result Display Section for Exterior */}
-      {(selectedPaintingType === 'exterior' || selectedPaintingType === 'both') && 
-       roofWorkType && area > 0 && paintCategory && paintBrand && paintType && (
-        <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-          <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Calculation Summary</h3>
-          
-          {/* Exterior Wall Paint Section */}
-          <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium mb-4 text-gray-800">Exterior Wall Paint Details</h4>
-            <div className="space-y-3">
-              <p><span className="font-medium">Work Type:</span> {roofWorkType === 'fresh' ? 'Fresh Painting' : 'Repainting'}</p>
-              <p><span className="font-medium">Area Type:</span> {getSelectedAreaType()}</p>
-              <p><span className="font-medium">Area Value:</span> {area} sq.ft</p>
-              <p><span className="font-medium">Paint Category:</span> {paintCategory.charAt(0).toUpperCase() + paintCategory.slice(1)}</p>
-              <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-              <p><span className="font-medium">Selected Paint:</span> {getSelectedPaintName()}</p>
-              <div className="pt-3 border-t border-gray-200">
-                <p className="text-lg font-medium">
-                  <span className="text-[#ED276E]">Exterior Wall Paint Price:</span> ₹{formatIndianCurrency(calculateExteriorPrice())}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Roof Paint Section - Only show if roof paint is selected */}
-          {roofPaintType && (
-            <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="text-lg font-medium mb-4 text-gray-800">Roof Paint Details</h4>
-              <div className="space-y-3">
-                <p><span className="font-medium">Area Value:</span> {roofArea} sq.ft</p>
-                <p><span className="font-medium">Paint Category:</span> {roofPaintCategory.charAt(0).toUpperCase() + roofPaintCategory.slice(1)}</p>
-                <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                <p><span className="font-medium">Selected Paint:</span> {getSelectedRoofPaintName()}</p>
-                <div className="pt-3 border-t border-gray-200">
-                  <p className="text-lg font-medium">
-                    <span className="text-[#ED276E]">Roof Paint Price:</span> ₹{formatIndianCurrency(calculateRoofPrice())}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Total Price Section */}
-          <div className="pt-4 border-t-2 border-gray-200 bg-white p-4 rounded-lg shadow-sm">
-            <p className="text-xl font-semibold">
-              <span className="text-[#ED276E]">Total Price:</span> ₹{formatIndianCurrency(calculateExteriorTotalPrice())}
-            </p>
-                </div>
-              </div>
-      )}
-
-      {/* Combined Calculation Summary for Both Interior and Exterior */}
-      {selectedPaintingType === 'both' && 
-       ((workType && area > 0 && paintCategory && paintBrand && paintType) || 
-        (roofWorkType && area > 0 && paintCategory && paintBrand && paintType)) && (
-        <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-          <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Complete Calculation Summary</h3>
-          
-          {/* Interior Section */}
-          {workType && area > 0 && paintCategory && paintBrand && paintType && (
-            <div className="mb-8">
-              <h4 className="text-xl font-medium mb-4 text-[#ED276E]">Interior Work</h4>
               
-              {/* Wall Paint Section */}
-              <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                <h5 className="text-lg font-medium mb-4 text-gray-800">Wall Paint Details</h5>
-                <div className="space-y-3">
-                  <p><span className="font-medium">Work Type:</span> {workType === 'fresh' ? 'Fresh Painting' : 'Repainting'}</p>
-                  <p><span className="font-medium">Area Type:</span> {getSelectedAreaType()}</p>
-                  <p><span className="font-medium">Area Value:</span> {area} sq.ft</p>
-                  <p><span className="font-medium">Paint Category:</span> {paintCategory.charAt(0).toUpperCase() + paintCategory.slice(1)}</p>
-                  <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                  <p><span className="font-medium">Selected Paint:</span> {getSelectedPaintName()}</p>
-                  <div className="pt-3 border-t border-gray-200">
-                    <p className="text-lg font-medium">
-                      <span className="text-[#ED276E]">Wall Paint Price:</span> ₹{formatIndianCurrency(calculateInteriorPrice())}
-                    </p>
-                  </div>
-                    </div>
-                  </div>
-                  
-              {/* Ceiling Paint Section - Only show if different paint is selected */}
-              {samePaintForCeiling && ceilingPaintType && (
-                <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                  <h5 className="text-lg font-medium mb-4 text-gray-800">Ceiling Paint Details</h5>
-                  <div className="space-y-3">
-                    <p><span className="font-medium">Paint Category:</span> {ceilingPaintCategory.charAt(0).toUpperCase() + ceilingPaintCategory.slice(1)}</p>
-                    <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                    <p><span className="font-medium">Selected Paint:</span> {getSelectedCeilingPaintName()}</p>
-                    <div className="pt-3 border-t border-gray-200">
-                      <p className="text-lg font-medium">
-                        <span className="text-[#ED276E]">Ceiling Paint Price:</span> ₹{formatIndianCurrency(calculateCeilingPrice())}
-                      </p>
-                  </div>
-                  </div>
+              {inputMethod === 'area' && (
+                <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                  <span className="font-medium text-gray-600">Total Area:</span>
+                  <span className="text-gray-800">{localArea} sq.ft</span>
                 </div>
               )}
-
-              {/* Interior Total Section */}
-              <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                <p className="text-lg font-medium">
-                  <span className="text-[#ED276E]">Interior Total Price:</span> ₹{formatIndianCurrency(calculateTotalPrice())}
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* Exterior Section */}
-          {roofWorkType && area > 0 && paintCategory && paintBrand && paintType && (
-            <div className="mb-8">
-              <h4 className="text-xl font-medium mb-4 text-[#ED276E]">Exterior Work</h4>
               
-              {/* Exterior Wall Paint Section */}
-              <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                <h5 className="text-lg font-medium mb-4 text-gray-800">Exterior Wall Paint Details</h5>
-                <div className="space-y-3">
-                  <p><span className="font-medium">Work Type:</span> {roofWorkType === 'fresh' ? 'Fresh Painting' : 'Repainting'}</p>
-                  <p><span className="font-medium">Area Type:</span> {getSelectedAreaType()}</p>
-                  <p><span className="font-medium">Area Value:</span> {area} sq.ft</p>
-                  <p><span className="font-medium">Paint Category:</span> {paintCategory.charAt(0).toUpperCase() + paintCategory.slice(1)}</p>
-                  <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                  <p><span className="font-medium">Selected Paint:</span> {getSelectedPaintName()}</p>
-                  <div className="pt-3 border-t border-gray-200">
-                    <p className="text-lg font-medium">
-                      <span className="text-[#ED276E]">Exterior Wall Paint Price:</span> ₹{formatIndianCurrency(calculateExteriorPrice())}
-                    </p>
+              {inputMethod === 'items' && (
+                <>
+                  {itemCounts.doors > 0 && (
+                    <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                      <span className="font-medium text-gray-600">No. of Doors:</span>
+                      <span className="text-gray-800">{itemCounts.doors} ({itemCounts.doors * 65} sq.ft)</span>
+                    </div>
+                  )}
+                  {itemCounts.windows > 0 && (
+                    <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                      <span className="font-medium text-gray-600">No. of Windows:</span>
+                      <span className="text-gray-800">{itemCounts.windows} ({itemCounts.windows * 30} sq.ft)</span>
+                    </div>
+                  )}
+                  {itemCounts.wallPanels > 0 && (
+                    <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                      <span className="font-medium text-gray-600">No. of Wall Panels & Wardrobes:</span>
+                      <span className="text-gray-800">{itemCounts.wallPanels} ({itemCounts.wallPanels * 80} sq.ft)</span>
+                    </div>
+                  )}
+                  {itemCounts.furnitureArea > 0 && (
+                    <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                      <span className="font-medium text-gray-600">Tentative Furniture Area:</span>
+                      <span className="text-gray-800">{itemCounts.furnitureArea} sq.ft</span>
+                    </div>
+                  )}
+                  <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                    <span className="font-medium text-gray-600">Calculated Total Area:</span>
+                    <span className="text-gray-800">{calculateTotalEstimate() / Number(paintType)} sq.ft</span>
                   </div>
+                </>
+              )}
+              
+              <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                <span className="font-medium text-gray-600">Selected Paint Type:</span>
+                <span className="text-gray-800">{paintType}</span>
+              </div>
+              
+              <div className="pt-3 border-t border-gray-200 mt-4">
+                <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                  <span className="text-lg font-medium text-[#ED276E]">Estimated Cost:</span>
+                  <span className="text-lg font-medium">₹{formatIndianCurrency(calculateTotalEstimate())}</span>
                 </div>
               </div>
-
-              {/* Roof Paint Section - Only show if roof paint is selected */}
-              {roofPaintType && (
-                <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                  <h5 className="text-lg font-medium mb-4 text-gray-800">Roof Paint Details</h5>
-                  <div className="space-y-3">
-                    <p><span className="font-medium">Area Value:</span> {roofArea} sq.ft</p>
-                    <p><span className="font-medium">Paint Category:</span> {roofPaintCategory.charAt(0).toUpperCase() + roofPaintCategory.slice(1)}</p>
-                    <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                    <p><span className="font-medium">Selected Paint:</span> {getSelectedRoofPaintName()}</p>
-                    <div className="pt-3 border-t border-gray-200">
-                      <p className="text-lg font-medium">
-                        <span className="text-[#ED276E]">Roof Paint Price:</span> ₹{formatIndianCurrency(calculateRoofPrice())}
-                      </p>
-              </div>
             </div>
-          </div>
-        )}
-
-              {/* Exterior Total Section */}
-              <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                <p className="text-lg font-medium">
-                  <span className="text-[#ED276E]">Exterior Total Price:</span> ₹{formatIndianCurrency(calculateExteriorTotalPrice())}
-                </p>
-      </div>
-            </div>
-          )}
-
-          {/* Grand Total Section */}
-          <div className="pt-4 border-t-2 border-gray-200 bg-white p-4 rounded-lg shadow-sm">
-            <p className="text-2xl font-semibold">
-              <span className="text-[#ED276E]">Grand Total Price:</span> ₹{formatIndianCurrency(calculateGrandTotal())}
-            </p>
           </div>
         </div>
       )}
@@ -1784,8 +1737,8 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
       <div className="mt-8 flex justify-end">
         <button
           onClick={onNext}
-          disabled={!area || !paintCategory || !paintBrand || !paintType || (selectedPaintingType === 'interior-exterior' && (!roofWorkType || !roofArea || !roofPaintCategory || !roofPaintBrand || !roofPaintType))}
-          className={`px-6 py-3 rounded-lg text-white transition-colors ${!area || !paintCategory || !paintBrand || !paintType || (selectedPaintingType === 'interior-exterior' && (!roofWorkType || !roofArea || !roofPaintCategory || !roofPaintBrand || !roofPaintType)) ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#299dd7] hover:bg-[#248ac2]'}`}
+          disabled={!localArea || !paintCategory || !paintBrand || !paintType || (selectedPaintingType === 'interior-exterior' && (!roofWorkType || !roofArea || !roofPaintCategory || !roofPaintBrand || !roofPaintType))}
+          className={`px-6 py-3 rounded-lg text-white transition-colors ${!localArea || !paintCategory || !paintBrand || !paintType || (selectedPaintingType === 'interior-exterior' && (!roofWorkType || !roofArea || !roofPaintCategory || !roofPaintBrand || !roofPaintType)) ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#299dd7] hover:bg-[#248ac2]'}`}
         >
           Next
         </button>

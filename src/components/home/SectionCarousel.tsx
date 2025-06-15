@@ -158,7 +158,7 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
             : child;
         })}
       </CarouselContent>
-      <div className="w-full flex justify-center gap-4 absolute left-0 right-0 bottom-6 md:bottom-10 z-30 pointer-events-none">
+      <div className="w-full flex justify-center gap-4 absolute left-0 right-0 bottom-0 md:bottom-0 z-30 pointer-events-none">
         <div className="pointer-events-auto">
           <CarouselPrevious className={`static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full ${!canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''}`} />
         </div>

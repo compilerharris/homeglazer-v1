@@ -17,7 +17,7 @@ const Calculator: React.FC = () => {
     <div className="bg-white flex flex-col overflow-hidden items-center">
       <Header />
       
-      <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
+      <div className="w-[90%] lg:w-[80%] mx-auto pt-20 lg:pt-28">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>

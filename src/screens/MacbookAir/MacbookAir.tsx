@@ -146,8 +146,8 @@ export const MacbookAir = (): JSX.Element => {
         </div>
 
         {/* Our Services Section */}
-        <div className="w-full mt-16">
-          <div className="flex flex-col items-center mb-8">
+        <div className="w-full mt-24">
+          <div className="flex flex-col items-center mb-12">
             <h2 className="font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] text-center">
               Our Services
             </h2>
@@ -163,8 +163,8 @@ export const MacbookAir = (): JSX.Element => {
         </div>
 
         {/* Why Choose Us Section */}
-        <div className="w-full mt-16 relative">
-          <div className="flex flex-col items-center mb-8">
+        <div className="w-full mt-24 relative">
+          <div className="flex flex-col items-center mb-12">
             <h2 className="font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] text-center">
               Why Choose Us?
             </h2>
@@ -199,7 +199,7 @@ export const MacbookAir = (): JSX.Element => {
         </div>
 
         {/* Get in Touch Section */}
-        <div className="w-full relative">
+        <div className="w-full mt-24 relative">
           <div className="bg-[#f6f6f6] w-full py-16">
             <div className="container mx-auto">
               <div className="flex items-center justify-center">
@@ -211,25 +211,33 @@ export const MacbookAir = (): JSX.Element => {
         </div>
 
         {/* Google Reviews Section */}
-        <div className="w-full mt-16">
+        <div className="w-full mt-24">
           <GoogleReviewsSection />
         </div>
 
         {/* Project Gallery Section */}
-        <ProjectGallerySection />
+        <div className="mt-24">
+          <ProjectGallerySection />
+        </div>
 
         {/* Customer Testimonials Section */}
-        <CustomerTestimonialsSection />
+        <div className="mt-24">
+          <CustomerTestimonialsSection />
+        </div>
 
         {/* Quality Points Section */}
-        <QualityPointsSection />
+        <div className="mt-24">
+          <QualityPointsSection />
+        </div>
 
         {/* Reviews Section */}
-        <ReviewsSection />
+        <div className="mt-24">
+          <ReviewsSection />
+        </div>
 
         {/* Design Insights Section */}
-        <div className="w-full mt-16">
-          <div className="flex flex-col items-center mb-8">
+        <div className="w-full mt-24">
+          <div className="flex flex-col items-center mb-12">
             <h2 className="font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] text-center">
               Design Insights
             </h2>
@@ -244,8 +252,8 @@ export const MacbookAir = (): JSX.Element => {
         </div>
 
         {/* FAQ Section */}
-        <div className="w-full mt-16">
-          <div className="flex flex-col items-center mb-8">
+        <div className="w-full mt-24">
+          <div className="flex flex-col items-center mb-12">
             <h2 className="font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] text-center">
               FAQ
             </h2>
@@ -258,7 +266,9 @@ export const MacbookAir = (): JSX.Element => {
         </div>
 
         {/* Footer Section */}
-        <FooterSection />
+        <div className="mt-24">
+          <FooterSection />
+        </div>
 
         {/* Fixed Color Picker */}
         <div className="fixed w-[55px] h-[55px] right-[50px] bottom-[50px] z-50">

@@ -261,77 +261,80 @@ const MultiStepWoodPolishingCalculator: React.FC = () => {
 
   const totalEstimate = calculateTotalEstimate();
 
-  switch (currentStep) {
-    case 1:
-      return (
-        <WoodPolishingStep1
-          workType={inputMethod}
-          onWorkTypeChange={handleInputMethodChange}
-          area={quantity}
-          onAreaChange={handleQuantityChange}
-          itemCounts={{
-            doors: doorCount,
-            windows: windowCount,
-            wallPanels: wallPanelCount,
-            furnitureArea: furnitureArea
-          }}
-          onItemCountChange={(item: string, value: number) => {
-            switch (item) {
-              case 'doors':
-                handleDoorCountChange(value);
-                break;
-              case 'windows':
-                handleWindowCountChange(value);
-                break;
-              case 'wallPanels':
-                handleWallPanelCountChange(value);
-                break;
-              case 'furnitureArea':
-                handleFurnitureAreaChange(value);
-                break;
-            }
-          }}
-          woodFinishOptions={woodFinishOptions}
-          selectedWoodFinishType={selectedWoodFinishType}
-          onWoodFinishTypeChange={handleWoodFinishTypeChange}
-          selectedWoodFinishBrand={selectedWoodFinishBrand}
-          onWoodFinishBrandChange={handleWoodFinishBrandChange}
-          selectedWoodFinish={selectedWoodFinish}
-          onWoodFinishChange={handleWoodFinishChange}
-          onNext={nextStep}
-          onBack={prevStep}
-        />
-      );
-    case 2:
-      return (
-        <PaintingStep2
-          fullName={fullName}
-          onFullNameChange={handleFullNameChange}
-          email={email}
-          onEmailChange={handleEmailChange}
-          phone={phone}
-          onPhoneChange={handlePhoneChange}
-          location={location}
-          onLocationChange={handleLocationChange}
-          serviceType="Wood Polishing"
-          onServiceTypeChange={handleServiceTypeChange}
-          onNext={nextStep}
-          onBack={prevStep}
-          hideServiceType={true}
-        />
-      );
-    case 3:
-      return (
-        <PaintingStep5
-          fullName={fullName}
-          email={email}
-          onBack={prevStep}
-          onRestart={restartCalculator}
-        />
-      );
-    default:
-      return null;
-  }
+  return (
+    <div className="w-full sm:py-0 lg:py-12">
+      <div className="w-full lg:w-[80%] container mx-auto">
+        <StepIndicator currentStep={currentStep} steps={steps} />
+        
+        <div className="mt-6 md:mt-12">
+          {currentStep === 1 && (
+            <WoodPolishingStep1
+              workType={inputMethod}
+              onWorkTypeChange={handleInputMethodChange}
+              area={quantity}
+              onAreaChange={handleQuantityChange}
+              itemCounts={{
+                doors: doorCount,
+                windows: windowCount,
+                wallPanels: wallPanelCount,
+                furnitureArea: furnitureArea
+              }}
+              onItemCountChange={(item: string, value: number) => {
+                switch (item) {
+                  case 'doors':
+                    handleDoorCountChange(value);
+                    break;
+                  case 'windows':
+                    handleWindowCountChange(value);
+                    break;
+                  case 'wallPanels':
+                    handleWallPanelCountChange(value);
+                    break;
+                  case 'furnitureArea':
+                    handleFurnitureAreaChange(value);
+                    break;
+                }
+              }}
+              woodFinishOptions={woodFinishOptions}
+              selectedWoodFinishType={selectedWoodFinishType}
+              onWoodFinishTypeChange={handleWoodFinishTypeChange}
+              selectedWoodFinishBrand={selectedWoodFinishBrand}
+              onWoodFinishBrandChange={handleWoodFinishBrandChange}
+              selectedWoodFinish={selectedWoodFinish}
+              onWoodFinishChange={handleWoodFinishChange}
+              onNext={nextStep}
+              onBack={prevStep}
+            />
+          )}
+          {currentStep === 2 && (
+            <PaintingStep2
+              fullName={fullName}
+              onFullNameChange={handleFullNameChange}
+              email={email}
+              onEmailChange={handleEmailChange}
+              phone={phone}
+              onPhoneChange={handlePhoneChange}
+              location={location}
+              onLocationChange={handleLocationChange}
+              serviceType="Wood Polishing"
+              onServiceTypeChange={handleServiceTypeChange}
+              onNext={nextStep}
+              onBack={prevStep}
+              hideServiceType={true}
+            />
+          )}
+          {currentStep === 3 && (
+            <PaintingStep5
+              fullName={fullName}
+              email={email}
+              onBack={prevStep}
+              onRestart={restartCalculator}
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default MultiStepWoodPolishingCalculator; 

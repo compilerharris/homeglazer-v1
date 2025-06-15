@@ -103,7 +103,7 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <h2 className="text-3xl font-medium text-center mb-12 text-[#ED276E]">Work Details</h2>
+      <h2 className="text-3xl font-medium text-center mb-6 md:mb-12 text-[#ED276E]">Work Details</h2>
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
         
         {/* Input Method Selection */}
@@ -307,27 +307,67 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
           <div className="mt-8 pt-8 border-t-2 border-[#ED276E]">
             <h3 className="text-2xl font-semibold mb-6 text-[#ED276E]">Calculation Summary</h3>
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <div className="space-y-3">
-                <p><span className="font-medium">Input Method:</span> {inputMethod === 'area' ? 'Enter quantity in sq. ft.' : 'Estimate based on item count'}</p>
+              <div className="space-y-4">
+                <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                  <span className="font-medium text-gray-600">Input Method:</span>
+                  <span className="text-gray-800">{inputMethod === 'area' ? 'Enter quantity in sq. ft.' : 'Estimate based on item count'}</span>
+                </div>
+                
                 {inputMethod === 'area' && (
-                  <p><span className="font-medium">Total Area:</span> {area} sq.ft</p>
+                  <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                    <span className="font-medium text-gray-600">Total Area:</span>
+                    <span className="text-gray-800">{area} sq.ft</span>
+                  </div>
                 )}
+                
                 {inputMethod === 'items' && (
                   <>
-                    {itemCounts.doors > 0 && <p><span className="font-medium">No. of Doors:</span> {itemCounts.doors} ({itemCounts.doors * 65} sq.ft)</p>}
-                    {itemCounts.windows > 0 && <p><span className="font-medium">No. of Windows:</span> {itemCounts.windows} ({itemCounts.windows * 30} sq.ft)</p>}
-                    {itemCounts.wallPanels > 0 && <p><span className="font-medium">No. of Wall Panels & Wardrobes:</span> {itemCounts.wallPanels} ({itemCounts.wallPanels * 80} sq.ft)</p>}
-                    {itemCounts.furnitureArea > 0 && <p><span className="font-medium">Tentative Furniture Area:</span> {itemCounts.furnitureArea} sq.ft</p>}
-                    <p><span className="font-medium">Calculated Total Area:</span> {calculateWoodPolishingEstimate() / Number(selectedWoodFinish.value)} sq.ft</p>
+                    {itemCounts.doors > 0 && (
+                      <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                        <span className="font-medium text-gray-600">No. of Doors:</span>
+                        <span className="text-gray-800">{itemCounts.doors} ({itemCounts.doors * 65} sq.ft)</span>
+                      </div>
+                    )}
+                    {itemCounts.windows > 0 && (
+                      <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                        <span className="font-medium text-gray-600">No. of Windows:</span>
+                        <span className="text-gray-800">{itemCounts.windows} ({itemCounts.windows * 30} sq.ft)</span>
+                      </div>
+                    )}
+                    {itemCounts.wallPanels > 0 && (
+                      <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                        <span className="font-medium text-gray-600">No. of Wall Panels & Wardrobes:</span>
+                        <span className="text-gray-800">{itemCounts.wallPanels} ({itemCounts.wallPanels * 80} sq.ft)</span>
+                      </div>
+                    )}
+                    {itemCounts.furnitureArea > 0 && (
+                      <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                        <span className="font-medium text-gray-600">Tentative Furniture Area:</span>
+                        <span className="text-gray-800">{itemCounts.furnitureArea} sq.ft</span>
+                      </div>
+                    )}
+                    <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                      <span className="font-medium text-gray-600">Calculated Total Area:</span>
+                      <span className="text-gray-800">{calculateWoodPolishingEstimate() / Number(selectedWoodFinish.value)} sq.ft</span>
+                    </div>
                   </>
                 )}
-                <p><span className="font-medium">Selected Finish Type:</span> {selectedWoodFinishType}</p>
-                <p><span className="font-medium">Selected Brand:</span> {selectedWoodFinishBrand}</p>
+                
+                <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                  <span className="font-medium text-gray-600">Selected Finish Type:</span>
+                  <span className="text-gray-800">{selectedWoodFinishType}</span>
+                </div>
+                
+                <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                  <span className="font-medium text-gray-600">Selected Brand:</span>
+                  <span className="text-gray-800">{selectedWoodFinishBrand}</span>
+                </div>
                 
                 <div className="pt-3 border-t border-gray-200 mt-4">
-                  <p className="text-lg font-medium">
-                    <span className="text-[#ED276E]">Estimated Cost:</span> ₹{formatIndianCurrency(totalEstimate)}
-                  </p>
+                  <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                    <span className="text-lg font-medium text-[#ED276E]">Estimated Cost:</span>
+                    <span className="text-lg font-medium">₹{formatIndianCurrency(totalEstimate)}</span>
+                  </div>
                 </div>
               </div>
             </div>

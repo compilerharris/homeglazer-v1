@@ -15,7 +15,7 @@ const PaintingStep5: React.FC<PaintingStep5Props> = ({
 }) => {
   return (
     <div className="w-full max-w-4xl mx-auto text-center">
-      <h2 className="text-4xl font-medium text-center mb-6 text-[#ED276E]">
+      <h2 className="text-4xl font-medium text-center mb-6 md:mb-12 text-[#ED276E]">
         Thank You For Your Time
       </h2>
       

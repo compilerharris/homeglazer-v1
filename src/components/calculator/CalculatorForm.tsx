@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const CalculatorForm: React.FC = () => {
   return (
@@ -20,7 +21,15 @@ const CalculatorForm: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8 mt-12">
           {/* Painting Estimate Card */}
           <div className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
-            <div className="p-6 min-h-[250px] flex flex-col items-center justify-center">
+            <div className="relative h-48 w-full">
+              <Image
+                src="/images/painting-estimate.jpg"
+                alt="Painting Estimate"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="p-6 min-h-[200px] flex flex-col items-center justify-center">
               <h3 className="text-[rgba(237,39,110,1)] text-2xl font-medium mb-6 text-center">
                 Painting Estimate
               </h3>
@@ -38,7 +47,15 @@ const CalculatorForm: React.FC = () => {
           
           {/* Wood Polishing Estimate Card */}
           <div className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
-            <div className="p-6 min-h-[250px] flex flex-col items-center justify-center">
+            <div className="relative h-48 w-full">
+              <Image
+                src="/images/wood-polishing-estimate.jpg"
+                alt="Wood Polishing Estimate"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="p-6 min-h-[200px] flex flex-col items-center justify-center">
               <h3 className="text-[rgba(237,39,110,1)] text-2xl font-medium mb-6 text-center">
                 Wood Polishing Estimate
               </h3>

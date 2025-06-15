@@ -1,4 +1,3 @@
-
 import React from "react";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
@@ -17,7 +16,7 @@ const CustomizedPainting: React.FC = () => {
   return (
     <div className="relative min-h-screen flex flex-col">
       <Header />
-      <main className="flex-grow pt-28">
+      <main className="flex-grow pt-20 lg:pt-28">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <Breadcrumb>
             <BreadcrumbList>

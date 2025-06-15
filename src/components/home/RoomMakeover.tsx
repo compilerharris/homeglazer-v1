@@ -41,22 +41,6 @@ const RoomMakeover: React.FC = () => {
               </CarouselItem>
             ))}
           </SectionCarousel>
-          
-          {/* Carousel indicators */}
-          <div className="flex justify-center mt-4 gap-2">
-            {makeovers.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveSlideIndex(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  activeSlideIndex === index 
-                    ? 'bg-[rgba(237,39,110,1)] scale-125' 
-                    : 'bg-gray-300'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
         
         <div className="w-full lg:w-1/3 my-auto">

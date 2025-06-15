@@ -125,7 +125,7 @@ const ContactPage: React.FC = () => {
       <Header />
       
       {/* Breadcrumb */}
-      <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
+      <div className="w-[90%] lg:w-[80%] mx-auto pt-20 lg:pt-28">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
