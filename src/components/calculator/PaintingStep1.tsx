@@ -643,7 +643,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <h2 className="text-3xl font-medium text-center mb-12 text-[#ED276E]">
+      <h2 className="text-3xl font-medium text-center mb-5 text-[#ED276E]">
         Painting Work Details
       </h2>
       
