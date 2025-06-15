@@ -13,15 +13,15 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
     <div className="w-full mb-12">
       <div className="relative">
         {/* Full progress track (background) */}
-        <div className="absolute top-[36px] md:top-[36px] top-[28px] left-[8%] right-[8%] h-1 bg-gray-200 rounded z-0"></div>
+        <div className="absolute top-[24px] md:top-[32px] left-[12%] right-[8%] h-1 bg-gray-200 rounded z-0"></div>
         
         {/* Completed progress line */}
         {currentStep > 1 && (
           <div 
-            className="absolute top-[36px] md:top-[36px] top-[28px] h-1 bg-[#70C9A0] rounded z-1"
+            className="absolute top-[24px] md:top-[32px] h-1 bg-[#70C9A0] rounded z-1"
             style={{
-              left: '8%',
-              width: `${((currentStep - 2) / (steps.length - 1)) * 84}%`
+              left: '12%',
+              width: `${((currentStep - 2) / (steps.length - 1)) * 80}%`
             }}
           />
         )}
@@ -29,10 +29,10 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
         {/* Active progress line */}
         {currentStep > 1 && currentStep <= steps.length && (
           <div 
-            className="absolute top-[36px] md:top-[36px] top-[28px] h-1 bg-[#299dd7] rounded z-1"
+            className="absolute top-[24px] md:top-[32px] h-1 bg-[#299dd7] rounded z-1"
             style={{
-              left: `${8 + ((currentStep - 2) / (steps.length - 1)) * 84}%`,
-              width: `${84 / (steps.length - 1)}%`
+              left: `${12 + ((currentStep - 2) / (steps.length - 1)) * 80}%`,
+              width: `${80 / (steps.length - 1)}%`
             }}
           />
         )}

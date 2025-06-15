@@ -682,7 +682,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   <label className="block text-lg font-medium mb-3">
                     Which Kind Of Painting Work Will Be?
                   </label>
-                  <div className="flex flex-wrap gap-8">
+                  <div className="flex flex-wrap gap-4 md:gap-8">
                     <label className="flex items-center cursor-pointer">
                       <input
                         type="radio"
@@ -717,7 +717,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <label className="block text-gray-700 mb-2">
                       Select Area Type
                     </label>
-                    <div className="flex flex-wrap gap-8">
+                    <div className="flex flex-wrap gap-4 md:gap-8">
                       {areaTypes.map((type) => (
                         <label 
                           key={type.id} 
@@ -792,7 +792,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <label className="block text-lg font-medium mb-3">
                       Select Your Paint Category
                     </label>
-                    <div className="flex flex-wrap gap-8">
+                    <div className="flex flex-wrap gap-4 md:gap-8">
                       <label className="flex items-center cursor-pointer">
                         <input
                           type="radio"
@@ -1038,7 +1038,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                         <label className="block text-lg font-medium mb-3">
                           Select Your Paint Category
                         </label>
-                        <div className="flex flex-wrap gap-8">
+                        <div className="flex flex-wrap gap-4 md:gap-8">
                           <label className="flex items-center cursor-pointer">
                             <input
                               type="radio"
@@ -1278,7 +1278,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   <label className="block text-lg font-medium mb-3">
                     Which Kind Of Painting Work Will Be?
                   </label>
-                  <div className="flex flex-wrap gap-8">
+                  <div className="flex flex-wrap gap-4 md:gap-8">
                     <label className="flex items-center cursor-pointer">
                       <input
                         type="radio"
@@ -1313,7 +1313,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <label className="block text-gray-700 mb-2">
                       Select Area Type
                     </label>
-                    <div className="flex flex-wrap gap-8">
+                    <div className="flex flex-wrap gap-4 md:gap-8">
                       {areaTypes.map((type) => (
                         <label 
                           key={type.id} 
@@ -1388,7 +1388,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <label className="block text-lg font-medium mb-3">
                       Select Your Paint Category
                     </label>
-                    <div className="flex flex-wrap gap-8">
+                    <div className="flex flex-wrap gap-4 md:gap-8">
                       <label className="flex items-center cursor-pointer">
                         <input
                           type="radio"

@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/calculator": "pages/calculator.js",
   "/calculator/painting": "pages/calculator/painting.js",
-  "/404": "pages/404.js",
   "/calculator/wood-polishing": "pages/calculator/wood-polishing.js"
 }
