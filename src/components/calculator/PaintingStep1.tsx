@@ -1838,8 +1838,74 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
       <div className="mt-8 flex justify-end">
         <button
           onClick={onNext}
-          disabled={!area || !paintCategory || !paintBrand || !paintType || (selectedPaintingType === 'interior-exterior' && (!roofWorkType || !roofArea || !roofPaintCategory || !roofPaintBrand || !roofPaintType))}
-          className={`px-6 py-3 rounded-lg text-white transition-colors ${!area || !paintCategory || !paintBrand || !paintType || (selectedPaintingType === 'interior-exterior' && (!roofWorkType || !roofArea || !roofPaintCategory || !roofPaintBrand || !roofPaintType)) ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#299dd7] hover:bg-[#248ac2]'}`}
+          disabled={
+            !selectedPaintingType || // Check if any painting type is selected
+            (
+              selectedPaintingType === 'interior' && (
+                !workType ||
+                !area || 
+                !paintCategory || 
+                !paintBrand || 
+                !paintType || 
+                (samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
+              )
+            ) ||
+            (
+              selectedPaintingType === 'exterior' && (
+                !roofWorkType ||
+                !area || 
+                !paintCategory || 
+                !paintBrand || 
+                !paintType
+              )
+            ) ||
+            (
+              selectedPaintingType === 'both' && (
+                !workType ||
+                !roofWorkType ||
+                !area || 
+                !paintCategory || 
+                !paintBrand || 
+                !paintType || 
+                (samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
+              )
+            )
+          }
+          className={`px-6 py-3 rounded-lg text-white transition-colors ${
+            !selectedPaintingType ||
+            (
+              selectedPaintingType === 'interior' && (
+                !workType ||
+                !area || 
+                !paintCategory || 
+                !paintBrand || 
+                !paintType || 
+                (samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
+              )
+            ) ||
+            (
+              selectedPaintingType === 'exterior' && (
+                !roofWorkType ||
+                !area || 
+                !paintCategory || 
+                !paintBrand || 
+                !paintType
+              )
+            ) ||
+            (
+              selectedPaintingType === 'both' && (
+                !workType ||
+                !roofWorkType ||
+                !area || 
+                !paintCategory || 
+                !paintBrand || 
+                !paintType || 
+                (samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
+              )
+            )
+              ? 'bg-gray-400 cursor-not-allowed' 
+              : 'bg-[#299dd7] hover:bg-[#248ac2]'
+          }`}
         >
           Next
         </button>

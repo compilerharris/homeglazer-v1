@@ -230,7 +230,7 @@ const MultiStepCalculator: React.FC = () => {
   ];
 
   return (
-    <div className="w-full py-12">
+    <div className="w-full pb-12 pt-0">
       <div className="w-[90%] lg:w-[80%] container mx-auto">
         <StepIndicator currentStep={currentStep} steps={steps} />
         

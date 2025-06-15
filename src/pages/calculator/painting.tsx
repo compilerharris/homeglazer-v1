@@ -16,7 +16,7 @@ const PaintingCalculator: React.FC = () => {
     <div className="bg-white flex flex-col overflow-hidden items-center">
       <Header />
       
-      <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
+      <div className="w-[90%] lg:w-[80%] mx-auto pt-20 md:pt-28">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -34,7 +34,7 @@ const PaintingCalculator: React.FC = () => {
         </Breadcrumb>
       </div>
       
-      <div className="w-full bg-white my-8">
+      <div className="w-full bg-white my-0">
         <MultiStepCalculator />
       </div>
       
