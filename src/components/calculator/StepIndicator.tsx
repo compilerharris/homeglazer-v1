@@ -10,7 +10,7 @@ interface StepIndicatorProps {
 
 const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => {
   return (
-    <div className="w-full mb-12">
+    <div className="w-full mb-4">
       <div className="relative">
         {/* Full progress track (background) */}
         <div className="absolute top-[24px] md:top-[32px] left-[12%] right-[8%] h-1 bg-gray-200 rounded z-0"></div>
@@ -56,7 +56,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
             }
             
             return (
-              <div key={index} className="flex flex-col items-center">
+              <div key={index} className="flex flex-col items-center w-1/3">
                 <div 
                   className={`flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full ${
                     step.completed 
@@ -76,8 +76,8 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
                 </div>
                 
                 <div className="mt-4 text-center">
-                  <p className="text-xs md:text-sm font-medium text-gray-500">STEP {index + 1}</p>
-                  <h3 className="text-gray-800 text-sm md:text-base font-medium mt-1">{step.label}</h3>
+                  <p className="hidden md:block text-xs md:text-sm font-medium text-gray-500">STEP {index + 1}</p>
+                  <h3 className="text-xs md:text-base font-medium text-gray-500 md:text-gray-800 mt-1">{step.label}</h3>
                   <span className={`inline-block mt-2 px-2 py-0.5 md:px-3 md:py-1 rounded-full text-xs font-medium ${statusClass}`}>{status}</span>
                 </div>
               </div>

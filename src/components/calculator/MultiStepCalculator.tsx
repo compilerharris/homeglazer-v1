@@ -234,7 +234,7 @@ const MultiStepCalculator: React.FC = () => {
       <div className="w-full container mx-auto">
         <StepIndicator currentStep={currentStep} steps={steps} />
         
-        <div className="mt-12">
+        <div className="mt-0">
           {currentStep === 1 && (
             <PaintingStep1 
               options={paintingOptions}
