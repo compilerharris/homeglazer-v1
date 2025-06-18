@@ -17,12 +17,12 @@ const DesignInsights: React.FC = () => {
   useEffect(() => {
     const updateSlides = () => {
       const width = window.innerWidth;
-      if (width < 767) {
+      if (width < 768) {
         setSlidesToShow(1);
-      } else if (width < 1023) {
+      } else if (width < 1024) {
         setSlidesToShow(2);
       } else {
-        setSlidesToShow(3);
+        setSlidesToShow(3);  // Always show 3 items on desktop
       }
     };
 
@@ -37,7 +37,7 @@ const DesignInsights: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-[100%] lg:w-[100%] mx-auto flex flex-col items-center mt-[50px] max-md:mt-10 2xl:w-[1400px]">
+    <section className="w-[100%] lg:w-[100%] mx-auto flex flex-col items-center mt-[50px] py-10 max-md:mt-10 2xl:w-[1400px]">
       <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium self-center leading-[150%] mb-4">
         Painting Blogs
       </h2>
@@ -45,7 +45,7 @@ const DesignInsights: React.FC = () => {
         Expert Tips & Trends for Your Space
       </p>
       <div className="w-full">
-        <SectionCarousel slidesToShow={slidesToShow}>
+        <SectionCarousel slidesToShow={slidesToShow} blogSection={true}>
           {featuredBlogPosts.map((post) => (
             <CarouselItem key={post.id}>
               <Link href={`/blog/${post.slug}`} className="block">
@@ -86,8 +86,8 @@ const DesignInsights: React.FC = () => {
           ))}
         </SectionCarousel>
       </div>
-      <div className="mt-8 flex justify-center">
-        <CTAButton to="/blog" className="mt-4">
+      <div className="flex justify-center">
+        <CTAButton to="/blog">
           View All Articles
         </CTAButton>
       </div>

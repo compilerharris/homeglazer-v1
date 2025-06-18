@@ -44,7 +44,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section className="flex w-[1100px] max-w-full flex-col items-stretch text-black mt-[50px] max-md:mt-10">
+    <section className="container flex w-[1100px] max-w-full flex-col items-stretch text-black mt-[50px] max-md:mt-10">
       <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center self-center">
         FAQ
       </h2>

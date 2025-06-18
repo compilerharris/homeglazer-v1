@@ -20,6 +20,7 @@ interface SectionCarouselProps {
   paintBrandsSection?: boolean;
   roomMakeoverSection?: boolean;
   colorVisualizerSection?: boolean;
+  blogSection?: boolean;
 }
 
 const SectionCarousel: React.FC<SectionCarouselProps> = ({ 
@@ -32,7 +33,8 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
   teamSection = false,
   paintBrandsSection = false,
   roomMakeoverSection = false,
-  colorVisualizerSection = false
+  colorVisualizerSection = false,
+  blogSection = false
 }) => {
   const isMobile = useIsMobile();
   
@@ -97,14 +99,19 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     // For blog posts specifically showing 3 at a time above 1023px
     if (slidesToShow) return slidesToShow;
     
-    // For reviews section showing 2 at a time above 1024px (small laptop screens)
-    if (reviewsSection && window.innerWidth >= 1024) return 2;
-    if (reviewsSection && window.innerWidth < 1024) return 1;
+    // For reviews section showing 2 on desktop, 1 on mobile
+    if (reviewsSection) {
+      if (window.innerWidth >= 1024) return 2; // desktop
+      if (window.innerWidth >= 768) return 2;  // tablet
+      return 1; // mobile
+    }
     
-    // For Team section showing 4 at a time above 1023px and centering
-    if (teamSection && window.innerWidth >= 1023) return 4;
-    if (teamSection && window.innerWidth >= 768) return 2;  // tablet
-    if (teamSection) return 1;  // mobile
+    // For Team section showing 4 on desktop, 3 on tablet, 1 on mobile
+    if (teamSection) {
+      if (window.innerWidth >= 1024) return 4; // desktop
+      if (window.innerWidth >= 768) return 3;  // tablet
+      return 1; // mobile
+    }
     
     // For Paint Brands section showing 3 on desktop, 2 on tablet, 1 on phone
     if (paintBrandsSection) {
@@ -135,38 +142,48 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     containScroll: (teamSection || reviewsSection || paintBrandsSection) ? "keepSnaps" : (slidesToShow ? "trimSnaps" : false),
     skipSnaps: false,
     inViewThreshold: 0.7,
-    duration: 10
+    duration: 5
   };
 
   return (
-    <Carousel
-      className={`w-full max-w-[1400px] mx-auto pt-8 pb-40 ${teamSection ? 'px-2' : reviewsSection ? 'px-2' : paintBrandsSection ? 'px-4' : slidesToShow ? 'px-4' : 'px-4'} overflow-x-hidden relative ${className || ''}`}
-      opts={carouselOptions}
-      setApi={setApi}
-    >
-      <CarouselContent className={`overflow-visible ${teamSection || reviewsSection || slidesToShow ? 'gap-x-0' : 'gap-x-4'}`}>
-        {React.Children.map(children, (child, index) => {
-          const basis = delayedBasis || '100%';
-
-          const clonedChildProps: { className: string; style?: React.CSSProperties } = {
-            className: `${(child as React.ReactElement<any>).props.className || ''}`,
-            style: { ...(child as React.ReactElement<any>).props.style, flexBasis: basis }
-          };
-
-          return React.isValidElement(child) 
-            ? React.cloneElement(child as React.ReactElement<any>, clonedChildProps)
-            : child;
-        })}
-      </CarouselContent>
-      <div className="w-full flex justify-center gap-4 absolute left-0 right-0 bottom-6 md:bottom-10 z-30 pointer-events-none">
-        <div className="pointer-events-auto">
-          <CarouselPrevious className={`static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full ${!canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''}`} />
-        </div>
-        <div className="pointer-events-auto">
-          <CarouselNext className={`static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full ${!canScrollNext ? 'opacity-50 cursor-not-allowed' : ''}`} />
-        </div>
-      </div>
-    </Carousel>
+    <div className={`w-full max-w-[1400px] mx-auto ${roomMakeoverSection ? 'pb-8' : paintBrandsSection ? 'pb-16' : colorVisualizerSection ? 'pb-0' : 'pb-20'} px-4 overflow-x-hidden relative`}>
+      <Carousel
+        opts={carouselOptions}
+        className="w-full"
+      >
+        <CarouselContent className="gap-4">
+          {React.Children.map(children, (child, index) => (
+            <CarouselItem key={index} className={
+              paintBrandsSection ? 
+                slidesToShow ? 
+                  slidesToShow === 3 ? 'basis-full md:basis-1/2 lg:basis-1/3' :
+                  slidesToShow === 2 ? 'basis-full md:basis-1/2' :
+                  'basis-full' : 
+                'basis-1/3' : 
+              teamSection ? `basis-full md:basis-1/3 lg:basis-1/4` : 
+              reviewsSection ? `basis-full md:basis-1/2` : 
+              slidesToShow ? 
+                slidesToShow === 3 ? 'basis-full md:basis-1/2 lg:basis-1/3' :
+                slidesToShow === 2 ? 'basis-full md:basis-1/2' :
+                'basis-full' : 
+              ''
+            } style={blogSection ? { paddingRight: '1rem', paddingLeft: '0' } : undefined}>
+              {child}
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {!colorVisualizerSection && (
+          <div className={`w-full flex justify-center gap-4 ${roomMakeoverSection ? 'relative mt-4' : paintBrandsSection ? 'absolute left-0 right-0 -bottom-15' : teamSection ? 'absolute left-0 right-0 -bottom-20' : slidesToShow ? 'absolute left-0 right-0 -bottom-16' : reviewsSection ? 'absolute left-0 right-0 -bottom-16' : 'absolute left-0 right-0 bottom-6 md:bottom-10'} z-30 pointer-events-none`}>
+            <div className="pointer-events-auto flex justify-center items-center">
+              <CarouselPrevious className={`static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full ${!canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''}`} />
+            </div>
+            <div className="pointer-events-auto flex justify-center items-center">
+              <CarouselNext className={`static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full ${!canScrollNext ? 'opacity-50 cursor-not-allowed' : ''}`} />
+            </div>
+          </div>
+        )}
+      </Carousel>
+    </div>
   );
 };
 

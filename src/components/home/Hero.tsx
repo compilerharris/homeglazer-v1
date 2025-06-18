@@ -1,7 +1,7 @@
 import React from 'react';
 import CTAButton from './CTAButton';
 const Hero: React.FC = () => {
-  return <div className="w-full relative h-auto lg:h-[80vh] text-center mt-0 py-[120px] max-md:py-[80px]">
+  return <div className="w-full relative h-[60vh] lg:h-[80vh] text-center mt-0 py-[120px] max-md:py-[80px]">
       <img alt="Hero Background" src="/lovable-uploads/hero-banner.png" className="absolute h-full w-full inset-0 object-cover sm:object-scale-down md:object-fill" />
       <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto px-4 mt-0 2xl:mt-10">
         <h1 className="text-white text-[30px] lg:text-[56px] font-semibold max-md:text-[30px] leading-[150%]">

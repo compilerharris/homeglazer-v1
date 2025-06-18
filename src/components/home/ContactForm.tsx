@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 interface FormData {
@@ -31,7 +30,7 @@ const ContactForm: React.FC = () => {
 
   return (
     <section className="bg-[rgba(246,246,246,1)] w-full mt-[50px] py-[23px] max-md:mt-10">
-      <div className="w-[80%] 2xl:w-[1400px] mx-auto flex items-center gap-[92px] justify-center flex-wrap">
+      <div className="w-[80%] 2xl:w-[1400px] mx-auto flex items-center gap-[40px] justify-center flex-wrap">
         <div className="self-stretch min-w-60 text-xl text-[rgba(89,89,89,1)] font-light w-[398px] my-auto">
           <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium leading-[150%]">
             Get in Touch with Us

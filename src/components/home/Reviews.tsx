@@ -54,8 +54,8 @@ const Reviews: React.FC = () => {
     name: "Sarah Wilson",
     position: "Architect"
   }];
-  return <section className="w-full mt-[50px] py-[31px] max-md:mt-10">
-      <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center gap-8 2xl:w-[1400px]">
+  return <section className="w-full mt-[50px] py-0 max-md:mt-10">
+      <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center gap-0 2xl:w-[1400px]">
         <div className="w-full lg:w-1/3 order-2 lg:order-1 my-auto">
           <div className="max-w-[354px] mx-auto">
             <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium">

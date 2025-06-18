@@ -23,8 +23,8 @@ const RoomMakeover: React.FC = () => {
   }];
   
   return (
-    <section className="py-[31px] w-full mt-[50px] max-md:mt-10">
-      <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center gap-8 2xl:w-[1400px]">
+    <section className="pb-[31px] w-full mt-[50px] max-md:mt-10">
+      <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center gap-0 2xl:w-[1400px]">
         <div className="w-full lg:w-2/3 relative">
           <SectionCarousel 
             activeSlideIndex={activeSlideIndex}
@@ -36,27 +36,11 @@ const RoomMakeover: React.FC = () => {
                 <img 
                   src={makeover.image} 
                   alt={makeover.alt} 
-                  className="aspect-[2.03] object-contain w-full min-h-[368px] rounded-lg" 
+                  className="w-full h-auto object-cover rounded-lg" 
                 />
               </CarouselItem>
             ))}
           </SectionCarousel>
-          
-          {/* Carousel indicators */}
-          <div className="flex justify-center mt-4 gap-2">
-            {makeovers.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveSlideIndex(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  activeSlideIndex === index 
-                    ? 'bg-[rgba(237,39,110,1)] scale-125' 
-                    : 'bg-gray-300'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
         
         <div className="w-full lg:w-1/3 my-auto">

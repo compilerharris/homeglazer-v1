@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SectionCarousel from './SectionCarousel';
 import { CarouselItem } from "@/components/ui/carousel";
 import CTAButton from './CTAButton';
+
 const PaintBrands: React.FC = () => {
   // Sample data for carousel - using the paint brands image provided
   const brands = [{
@@ -25,10 +26,36 @@ const PaintBrands: React.FC = () => {
     background: "/lovable-uploads/color-bucket3.png",
     logo: "/lovable-uploads/color-bucket3.png"
   }];
-  return <section className="w-full mt-[50px] py-[31px] max-md:mt-10">
+
+  // Responsive slidesToShow logic
+  const [slidesToShow, setSlidesToShow] = useState(3);
+
+  useEffect(() => {
+    const updateSlides = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setSlidesToShow(1);
+      } else if (width < 1024) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(3);
+      }
+    };
+
+    // Call immediately on mount
+    updateSlides();
+    
+    // Add resize listener
+    window.addEventListener("resize", updateSlides);
+    
+    // Cleanup
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
+  return <section className="w-full mt-[50px] pb-[31px] pt-0 max-md:mt-10">
       <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center gap-8 2xl:w-[1400px]">
         <div className="w-full lg:w-2/3">
-          <SectionCarousel paintBrandsSection={true}>
+          <SectionCarousel paintBrandsSection={true} slidesToShow={slidesToShow}>
             {brands.map(brand => <CarouselItem key={brand.id} className="pl-4">
                 <div className="relative w-[180px] h-[250px] mx-auto">
                   <img src={brand.background} alt="Paint Brand" className="w-full h-full object-contain rounded-lg" />
@@ -54,4 +81,5 @@ const PaintBrands: React.FC = () => {
       </div>
     </section>;
 };
+
 export default PaintBrands;
