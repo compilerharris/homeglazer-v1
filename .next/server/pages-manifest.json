@@ -2,5 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/color-visualiser": "pages/color-visualiser.js",
+  "/color-visualiser/basic": "pages/color-visualiser/basic.js",
+  "/enquiry": "pages/enquiry.js"
 }

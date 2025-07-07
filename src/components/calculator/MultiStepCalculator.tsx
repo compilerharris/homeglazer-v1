@@ -88,10 +88,16 @@ const MultiStepCalculator: React.FC = () => {
     { label: '19001 - 20000 Sq. ft', value: 31500 }
   ];
 
-  const [paintCategory, setPaintCategory] = useState('');
-  const [paintBrand, setPaintBrand] = useState('');
-  const [paintType, setPaintType] = useState('');
-  
+  // Interior paint selection state
+  const [interiorPaintCategory, setInteriorPaintCategory] = useState('');
+  const [interiorPaintBrand, setInteriorPaintBrand] = useState('');
+  const [interiorPaintType, setInteriorPaintType] = useState('');
+
+  // Exterior paint selection state
+  const [exteriorPaintCategory, setExteriorPaintCategory] = useState('');
+  const [exteriorPaintBrand, setExteriorPaintBrand] = useState('');
+  const [exteriorPaintType, setExteriorPaintType] = useState('');
+
   // Roof color selection state
   const [roofWorkType, setRoofWorkType] = useState('');
   const [roofArea, setRoofArea] = useState(0);
@@ -133,9 +139,12 @@ const MultiStepCalculator: React.FC = () => {
     setWorkType('');
     setArea(0);
     setAreaTypes(areaTypes.map(type => ({ ...type, selected: false })));
-    setPaintCategory('');
-    setPaintBrand('');
-    setPaintType('');
+    setInteriorPaintCategory('');
+    setInteriorPaintBrand('');
+    setInteriorPaintType('');
+    setExteriorPaintCategory('');
+    setExteriorPaintBrand('');
+    setExteriorPaintType('');
     // Reset roof color selection state
     setRoofWorkType('');
     setRoofArea(0);
@@ -247,12 +256,20 @@ const MultiStepCalculator: React.FC = () => {
               onAreaTypeToggle={handleAreaTypeToggle}
               carpetAreaOptions={carpetAreaOptions}
               buildupAreaOptions={buildupAreaOptions}
-              paintCategory={paintCategory}
-              onPaintCategoryChange={setPaintCategory}
-              paintBrand={paintBrand}
-              onPaintBrandChange={setPaintBrand}
-              paintType={paintType}
-              onPaintTypeChange={setPaintType}
+              // Interior paint props
+              paintCategory={interiorPaintCategory}
+              onPaintCategoryChange={setInteriorPaintCategory}
+              paintBrand={interiorPaintBrand}
+              onPaintBrandChange={setInteriorPaintBrand}
+              paintType={interiorPaintType}
+              onPaintTypeChange={setInteriorPaintType}
+              // Exterior paint props
+              exteriorPaintCategory={exteriorPaintCategory}
+              onExteriorPaintCategoryChange={setExteriorPaintCategory}
+              exteriorPaintBrand={exteriorPaintBrand}
+              onExteriorPaintBrandChange={setExteriorPaintBrand}
+              exteriorPaintType={exteriorPaintType}
+              onExteriorPaintTypeChange={setExteriorPaintType}
               onNext={nextStep}
               onBack={prevStep}
               selectedPaintingType={paintingOptions.find(option => option.selected)?.id || ''}

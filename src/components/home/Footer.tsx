@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, X, Youtube } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
@@ -44,119 +45,45 @@ const Footer: React.FC = () => {
             {/* Layout for the columns at different breakpoints */}
             <div className="w-full sm:w-1/2 lg:w-auto lg:flex-1 px-4 mb-8">
               <h3 className="text-[rgba(150,150,150,1)] text-sm font-medium tracking-[0.28px] self-stretch">
-                <a href="/contact" className="hover:text-white transition-all duration-250">Contact</a>
+                <Link href="/contact" className="hover:text-white transition-all duration-250">Contact</Link>
               </h3>
-              <div className="flex items-center gap-1.5 whitespace-nowrap mt-2">
-                <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] self-stretch my-auto hover:text-white transition-all duration-250">
-                  Changelog
-                </a>
-                <div className="z-10 bg-[rgba(83,139,243,1)] self-stretch text-[10px] text-white tracking-[0.2px] w-[33px] my-auto px-1.5 rounded-[10px]">
-                  New
-                </div>
+              <div className="flex flex-col gap-2 mt-2">
+                <Link href="/about" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">About Us</Link>
+                <Link href="/faq" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">FAQ</Link>
+                <Link href="/privacy-policy" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Privacy Policy</Link>
+                <Link href="/enquiry" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Enquire Now</Link>
               </div>
-              <div className="self-stretch flex items-center gap-[3px] text-sm text-[rgba(111,121,136,1)] tracking-[0.28px] mt-2">
-                <a href="#" className="self-stretch my-auto hover:text-white transition-all duration-250">
-                  Linkedin extension
-                </a>
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/3294ad547339d8c65b7bb14a0237e35513248e12?placeholderIfAbsent=true"
-                  alt="External Link Icon"
-                  className="aspect-[1] object-contain w-3.5 self-stretch shrink-0 my-auto"
-                />
-              </div>
-              <div className="flex items-center gap-[3px] text-sm text-[rgba(111,121,136,1)] tracking-[0.28px] mt-2">
-                <a href="#" className="self-stretch my-auto hover:text-white transition-all duration-250">
-                  Gmail extension
-                </a>
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/3294ad547339d8c65b7bb14a0237e35513248e12?placeholderIfAbsent=true"
-                  alt="External Link Icon"
-                  className="aspect-[1] object-contain w-3.5 self-stretch shrink-0 my-auto"
-                />
-              </div>
-              <div className="flex items-center gap-[3px] text-sm text-[rgba(111,121,136,1)] tracking-[0.28px] mt-2">
-                <a href="#" className="self-stretch my-auto hover:text-white transition-all duration-250">
-                  iOS app
-                </a>
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/3294ad547339d8c65b7bb14a0237e35513248e12?placeholderIfAbsent=true"
-                  alt="External Link Icon"
-                  className="aspect-[1] object-contain w-3.5 self-stretch shrink-0 my-auto"
-                />
-              </div>
-              <div className="flex items-center gap-[3px] text-sm text-[rgba(111,121,136,1)] tracking-[0.28px] mt-2">
-                <a href="#" className="self-stretch my-auto hover:text-white transition-all duration-250">
-                  Android app
-                </a>
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/3294ad547339d8c65b7bb14a0237e35513248e12?placeholderIfAbsent=true"
-                  alt="External Link Icon"
-                  className="aspect-[1] object-contain w-3.5 self-stretch shrink-0 my-auto"
-                />
-              </div>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] self-stretch mt-2 hover:text-white transition-all duration-250">
-                Security
-              </a>
             </div>
             <div className="w-full sm:w-1/2 lg:w-auto lg:flex-1 px-4 mb-8">
               <h3 className="text-[rgba(150,150,150,1)] text-sm font-medium tracking-[0.28px]">
                 Our Main Services
               </h3>
-              <div className="flex items-center gap-1.5 mt-2">
-                <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] self-stretch my-auto hover:text-white transition-all duration-250">
-                  Interior Painting{" "}
-                </a>
-                <div className="z-10 bg-[rgba(83,139,243,1)] self-stretch text-[10px] text-white whitespace-nowrap tracking-[0.2px] w-[33px] my-auto px-1.5 rounded-[10px]">
-                  New
-                </div>
+              <div className="flex flex-col gap-2 mt-2">
+                <Link href="/services/painting/interior-painting" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Interior Painting</Link>
+                <Link href="/services/painting/exterior-painting" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Exterior Painting</Link>
+                <Link href="/services/painting/commercial" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Commercial Painting</Link>
+                <Link href="/services/painting/kids-room" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Kids Room Painting</Link>
+                <Link href="/services/customized-painting/per-day-painting" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Per Day Painting</Link>
+                <Link href="/services/customized-painting/one-day-painting" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">One Day Painting</Link>
+                <Link href="/services/wall-decor/texture-painting" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Texture Painting</Link>
+                <Link href="/services/wall-decor/stencil-art" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Stencil Art</Link>
+                <Link href="/services/wall-decor/wallpaper" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Wallpaper</Link>
+                <Link href="/services/wall-decor/graffiti-painting" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Graffiti Painting</Link>
+                <Link href="/services/wood/wood-polishing" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Wood Polishing</Link>
+                <Link href="/services/wood/wood-coating" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Wood Coating</Link>
+                <Link href="/services/wood/carpentry" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Carpentry</Link>
               </div>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                Exterior Painting
-              </a>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                Texture Painting
-              </a>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                Stencil Painting
-              </a>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                Wood Polishing
-              </a>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                Wood Coating
-              </a>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                Carpentry Services
-              </a>
             </div>
             <div className="w-full sm:w-1/2 lg:w-auto lg:flex-1 px-4 mb-8">
               <h3 className="text-[rgba(150,150,150,1)] text-sm font-medium tracking-[0.28px]">
                 Quick Links
               </h3>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                Painters in Delhi
-              </a>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                Painters Contractor in Delhi
-              </a>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                FAQ
-              </a>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] mt-2 block hover:text-white transition-all duration-250">
-                We
-              </a>
-              <div className="flex items-center gap-[3px] mt-2">
-                <a href="#" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] self-stretch my-auto hover:text-white transition-all duration-250">
-                  System status
-                </a>
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/be95e4b0a921b54858f948a3a4d416d24898b86d?placeholderIfAbsent=true"
-                  alt="External Link Icon"
-                  className="aspect-[1] object-contain w-3.5 self-stretch shrink-0 my-auto"
-                />
+              <div className="flex flex-col gap-2 mt-2">
+                <Link href="/" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Home</Link>
+                <Link href="/blog" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Blog</Link>
+                <Link href="/calculator" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Budget Calculator</Link>
+                <Link href="/calculator/painting" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Painting Calculator</Link>
+                <Link href="/calculator/wood-polishing" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Wood Polishing Calculator</Link>
               </div>
             </div>
           </div>

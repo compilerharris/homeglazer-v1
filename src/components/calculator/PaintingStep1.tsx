@@ -60,6 +60,12 @@ interface PaintingStep1Props {
   onCeilingPaintBrandChange: (value: string) => void;
   ceilingPaintType: string;
   onCeilingPaintTypeChange: (value: string) => void;
+  exteriorPaintCategory: string;
+  onExteriorPaintCategoryChange: (value: string) => void;
+  exteriorPaintBrand: string;
+  onExteriorPaintBrandChange: (value: string) => void;
+  exteriorPaintType: string;
+  onExteriorPaintTypeChange: (value: string) => void;
 }
 
 const PaintingStep1: React.FC<PaintingStep1Props> = ({ 
@@ -101,7 +107,13 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
   ceilingPaintBrand,
   onCeilingPaintBrandChange,
   ceilingPaintType,
-  onCeilingPaintTypeChange
+  onCeilingPaintTypeChange,
+  exteriorPaintCategory,
+  onExteriorPaintCategoryChange,
+  exteriorPaintBrand,
+  onExteriorPaintBrandChange,
+  exteriorPaintType,
+  onExteriorPaintTypeChange
 }) => {
   // Add function to calculate display area
   const getDisplayArea = () => {
@@ -467,8 +479,8 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
 
   // Add calculation function for exterior
   const calculateExteriorPrice = () => {
-    if (!area || !paintType) return 0;
-    return area * Number(paintType);
+    if (!area || !exteriorPaintType) return 0;
+    return area * Number(exteriorPaintType);
   };
 
   // Calculate total price for exterior including roof if applicable
@@ -640,6 +652,12 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
     }
     return total;
   };
+
+  // Helper to determine if the ceiling paint checkbox should be hidden
+  const isPaintingAreaSelected = areaTypes.find(type => type.id === 'painting')?.selected;
+  const isMainPaintingType = selectedPaintingType === 'interior' || selectedPaintingType === 'exterior' || selectedPaintingType === 'both';
+  const showCeilingPaintCheckbox = !(isPaintingAreaSelected && isMainPaintingType);
+  const showCeilingPaintSection = showCeilingPaintCheckbox && samePaintForCeiling;
 
   return (
     <div className="w-full max-w-4xl mx-auto">
@@ -1015,20 +1033,22 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   </div>
 
                   {/* Ceiling Paint Selection Checkbox */}
-                  <div className="mt-6">
-                    <label className="flex items-center cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={samePaintForCeiling === true}
-                        onChange={(e) => onSamePaintForCeilingChange(e.target.checked)}
-                        className="w-5 h-5 mr-2"
-                      />
-                      <span className="text-lg">Select if you want a <strong>different</strong> paint for ceiling</span>
-                    </label>
-                  </div>
+                  {showCeilingPaintCheckbox && (
+                    <div className="mt-6">
+                      <label className="flex items-center cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={samePaintForCeiling === true}
+                          onChange={(e) => onSamePaintForCeilingChange(e.target.checked)}
+                          className="w-5 h-5 mr-2"
+                        />
+                        <span className="text-lg">Select if you want a <strong>different</strong> paint for ceiling</span>
+                      </label>
+                    </div>
+                  )}
 
                   {/* Ceiling Paint Selection - Only show when checkbox is checked */}
-                  {samePaintForCeiling && (
+                  {showCeilingPaintSection && (
                     <div className="mt-8 space-y-6">
                       <h4 className="text-lg font-medium text-[#ED276E]">
                         Ceiling Paint Selection
@@ -1394,19 +1414,19 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                           type="radio"
                           name="exteriorPaintCategory"
                           value="economical"
-                          checked={paintCategory === 'economical'}
-                          onChange={(e) => onPaintCategoryChange(e.target.value)}
+                          checked={exteriorPaintCategory === 'economical'}
+                          onChange={(e) => onExteriorPaintCategoryChange(e.target.value)}
                           className="w-5 h-5 mr-2"
                         />
-                        Economical
+                        Econom
                       </label>
                       <label className="flex items-center cursor-pointer">
                         <input
                           type="radio"
                           name="exteriorPaintCategory"
                           value="premium"
-                          checked={paintCategory === 'premium'}
-                          onChange={(e) => onPaintCategoryChange(e.target.value)}
+                          checked={exteriorPaintCategory === 'premium'}
+                          onChange={(e) => onExteriorPaintCategoryChange(e.target.value)}
                           className="w-5 h-5 mr-2"
                         />
                         Premium
@@ -1416,8 +1436,8 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                           type="radio"
                           name="exteriorPaintCategory"
                           value="luxury"
-                          checked={paintCategory === 'luxury'}
-                          onChange={(e) => onPaintCategoryChange(e.target.value)}
+                          checked={exteriorPaintCategory === 'luxury'}
+                          onChange={(e) => onExteriorPaintCategoryChange(e.target.value)}
                           className="w-5 h-5 mr-2"
                         />
                         Luxury
@@ -1430,12 +1450,13 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       Select Your Brands
                     </label>
                     <select
-                      value={paintBrand}
-                      onChange={(e) => onPaintBrandChange(e.target.value)}
-                      className="w-full p-4 pr-16 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
-                      disabled={!paintCategory}
+                      value={exteriorPaintBrand}
+                      onChange={(e) => onExteriorPaintBrandChange(e.target.value)}
+                      className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966]"
+                      disabled={!exteriorPaintCategory}
                     >
-                      <option value="">Select Brands</option>
+                      <option value="">Select Brand</option>
+                      {/* Add brand options here as before */}
                       <option value="asian-paints">Asian Paints</option>
                       <option value="dulux">Dulux</option>
                       <option value="nerolac">Nerolac</option>
@@ -1450,15 +1471,16 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       Select Your Paints
                     </label>
                     <select
-                      value={paintType}
-                      onChange={(e) => onPaintTypeChange(e.target.value)}
-                      className="w-full p-4 pr-16 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
-                      disabled={!paintBrand}
+                      value={exteriorPaintType}
+                      onChange={(e) => onExteriorPaintTypeChange(e.target.value)}
+                      className="w-full p-4 pr-16 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
+                      disabled={!exteriorPaintBrand}
                     >
                       <option value="">Select Paint</option>
-                      {paintCategory === 'economical' && (
+                      {/* Add paint options for exterior as before, using exteriorPaintCategory and exteriorPaintBrand */}
+                      {exteriorPaintCategory === 'economical' && (
                         <>
-                          {paintBrand === 'asian-paints' && (
+                          {exteriorPaintBrand === 'asian-paints' && (
                             <>
                               <option value="22">Tractor Emulsion (Recommended)</option>
                               <option value="23">Tractor Emulsion Advance</option>
@@ -1467,32 +1489,32 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               <option value="21.5">Tractor Emulsion Sparc Advance</option>
                             </>
                           )}
-                          {paintBrand === 'dulux' && (
+                          {exteriorPaintBrand === 'dulux' && (
                             <>
                               <option value="22">Promise Interior (Recommended)</option>
                               <option value="21">Promise Interior Smart Choice</option>
                               <option value="23">Dulux Promise Sheen Interior</option>
                             </>
                           )}
-                          {paintBrand === 'nerolac' && (
+                          {exteriorPaintBrand === 'nerolac' && (
                             <>
                               <option value="22">Nerolac Beauty Smooth Finish</option>
                               <option value="22">Nerolac Beauty Little Master</option>
                             </>
                           )}
-                          {paintBrand === 'berger' && (
+                          {exteriorPaintBrand === 'berger' && (
                             <>
                               <option value="22">Berger Bison Acrylic Emulsion</option>
                               <option value="23">Berger Bison Glow Acrylic Emulsion</option>
                             </>
                           )}
-                          {paintBrand === 'shalimar' && (
+                          {exteriorPaintBrand === 'shalimar' && (
                             <>
                               <option value="20">Shalimar Master Acrylic Emulsion</option>
                               <option value="20">Shalimar No. 1 Silk Acrylic Emulsion</option>
                             </>
                           )}
-                          {paintBrand === 'jsw' && (
+                          {exteriorPaintBrand === 'jsw' && (
                             <>
                               <option value="21">Pixa Joy Classic Interiors</option>
                               <option value="22">Pixa Elegant Interiors</option>
@@ -1501,9 +1523,9 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                           )}
                         </>
                       )}
-                      {paintCategory === 'premium' && (
+                      {exteriorPaintCategory === 'premium' && (
                         <>
-                          {paintBrand === 'asian-paints' && (
+                          {exteriorPaintBrand === 'asian-paints' && (
                             <>
                               <option value="24">Apcolite Premium Emulsion (Recommended)</option>
                               <option value="24">Apcolite Premium Satin Emulsion</option>
@@ -1512,7 +1534,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               <option value="26">Apcolite Advanced Heavy Duty Emulsion</option>
                             </>
                           )}
-                          {paintBrand === 'dulux' && (
+                          {exteriorPaintBrand === 'dulux' && (
                             <>
                               <option value="24">Dulux Super Cover (Recommended)</option>
                               <option value="26">Dulux Super Clean</option>
@@ -1520,7 +1542,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               <option value="26">Dulux Super Cover Sheen</option>
                             </>
                           )}
-                          {paintBrand === 'nerolac' && (
+                          {exteriorPaintBrand === 'nerolac' && (
                             <>
                               <option value="24">Nerolac Pearls Emulsion</option>
                               <option value="24">Nerolac Pearls Luster Finish</option>
@@ -1531,17 +1553,17 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               <option value="25">Nerolac Beauty Ceiling Emulsion</option>
                             </>
                           )}
-                          {paintBrand === 'berger' && (
+                          {exteriorPaintBrand === 'berger' && (
                             <>
                               <option value="24">Berger Rangoli Total Care</option>
                             </>
                           )}
-                          {paintBrand === 'shalimar' && (
+                          {exteriorPaintBrand === 'shalimar' && (
                             <>
                               <option value="22">Shalimar Superlac Advance</option>
                             </>
                           )}
-                          {paintBrand === 'jsw' && (
+                          {exteriorPaintBrand === 'jsw' && (
                             <>
                               <option value="24">Aurus Regal Interiors Lustre</option>
                               <option value="24">Aurus Regal Interiors</option>
@@ -1550,9 +1572,9 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                           )}
                         </>
                       )}
-                      {paintCategory === 'luxury' && (
+                      {exteriorPaintCategory === 'luxury' && (
                         <>
-                          {paintBrand === 'asian-paints' && (
+                          {exteriorPaintBrand === 'asian-paints' && (
                             <>
                               <option value="34">Royale Luxury Emulsion (Recommended)</option>
                               <option value="35">Royale Lustre</option>
@@ -1561,11 +1583,10 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               <option value="36">Royale Shyne Luxury Emulsion</option>
                               <option value="38">Royale Health Shield</option>
                               <option value="40">Royale Aspira (Recommended)</option>
-                              <option value="41">Royale Glitz</option>
                               <option value="38">Royale Atmos</option>
                             </>
                           )}
-                          {paintBrand === 'dulux' && (
+                          {exteriorPaintBrand === 'dulux' && (
                             <>
                               <option value="34">Dulux Velvet Touch Pearl Glo (Recommended)</option>
                               <option value="36">Dulux Velvet Touch Diamond Glo</option>
@@ -1574,7 +1595,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               <option value="38">Dulux Better Living Air Biobased</option>
                             </>
                           )}
-                          {paintBrand === 'nerolac' && (
+                          {exteriorPaintBrand === 'nerolac' && (
                             <>
                               <option value="34">Impressions Kashmir (Recommended)</option>
                               <option value="36">Impression Ultra HD</option>
@@ -1582,7 +1603,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               <option value="37">Impression Ultra Fresh</option>
                             </>
                           )}
-                          {paintBrand === 'berger' && (
+                          {exteriorPaintBrand === 'berger' && (
                             <>
                               <option value="34">Berger Easy Clean (Recommended)</option>
                               <option value="36">Berger Easy Clean Fresh</option>
@@ -1592,13 +1613,13 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                               <option value="38">Berger Silk Breathe Easy</option>
                             </>
                           )}
-                          {paintBrand === 'shalimar' && (
+                          {exteriorPaintBrand === 'shalimar' && (
                             <>
                               <option value="31">Shalimar Superlac Stay Clean</option>
                               <option value="32">Shalimar Signature</option>
                             </>
                           )}
-                          {paintBrand === 'jsw' && (
+                          {exteriorPaintBrand === 'jsw' && (
                             <>
                               <option value="34">Vogue Astoniq</option>
                               <option value="38">Halo Majestic Interiors - Silk (Recommended)</option>
@@ -1618,11 +1639,10 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                 </div>
                 
       {/* Add Result Display Section */}
-      {(selectedPaintingType === 'interior' || selectedPaintingType === 'both') && 
+      {selectedPaintingType === 'interior' && 
        workType && area > 0 && paintCategory && paintBrand && paintType && (
         <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
           <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Calculation Summary</h3>
-          
           {/* Wall Paint Section */}
           <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
             <h4 className="text-lg font-medium mb-4 text-gray-800">Wall Paint Details</h4>
@@ -1638,11 +1658,10 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   <span className="text-[#ED276E]">Wall Paint Price:</span> ₹{formatIndianCurrency(calculateInteriorPrice())}
                 </p>
               </div>
-                    </div>
-                  </div>
-                  
+            </div>
+          </div>
           {/* Ceiling Paint Section - Only show if different paint is selected */}
-          {samePaintForCeiling && ceilingPaintType && (
+          {showCeilingPaintSection && (
             <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
               <h4 className="text-lg font-medium mb-4 text-gray-800">Ceiling Paint Details</h4>
               <div className="space-y-3">
@@ -1658,7 +1677,6 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
               </div>
             </div>
           )}
-
           {/* Total Price Section */}
           <div className="pt-4 border-t-2 border-gray-200 bg-white p-4 rounded-lg shadow-sm">
             <p className="text-xl font-semibold">
@@ -1669,11 +1687,10 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
       )}
 
       {/* Add Result Display Section for Exterior */}
-      {(selectedPaintingType === 'exterior' || selectedPaintingType === 'both') && 
-       roofWorkType && area > 0 && paintCategory && paintBrand && paintType && (
+      {selectedPaintingType === 'exterior' && 
+       roofWorkType && area > 0 && exteriorPaintCategory && exteriorPaintBrand && exteriorPaintType && (
         <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
           <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Calculation Summary</h3>
-          
           {/* Exterior Wall Paint Section */}
           <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
             <h4 className="text-lg font-medium mb-4 text-gray-800">Exterior Wall Paint Details</h4>
@@ -1681,9 +1698,9 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
               <p><span className="font-medium">Work Type:</span> {roofWorkType === 'fresh' ? 'Fresh Painting' : 'Repainting'}</p>
               <p><span className="font-medium">Area Type:</span> {getSelectedAreaType()}</p>
               <p><span className="font-medium">Area Value:</span> {area} sq.ft</p>
-              <p><span className="font-medium">Paint Category:</span> {paintCategory.charAt(0).toUpperCase() + paintCategory.slice(1)}</p>
-              <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-              <p><span className="font-medium">Selected Paint:</span> {getSelectedPaintName()}</p>
+              <p><span className="font-medium">Paint Category:</span> {exteriorPaintCategory.charAt(0).toUpperCase() + exteriorPaintCategory.slice(1)}</p>
+              <p><span className="font-medium">Paint Brand:</span> {exteriorPaintBrand}</p>
+              <p><span className="font-medium">Selected Paint:</span> {exteriorPaintType}</p>
               <div className="pt-3 border-t border-gray-200">
                 <p className="text-lg font-medium">
                   <span className="text-[#ED276E]">Exterior Wall Paint Price:</span> ₹{formatIndianCurrency(calculateExteriorPrice())}
@@ -1691,16 +1708,15 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
               </div>
             </div>
           </div>
-
           {/* Roof Paint Section - Only show if roof paint is selected */}
           {roofPaintType && (
             <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
               <h4 className="text-lg font-medium mb-4 text-gray-800">Roof Paint Details</h4>
               <div className="space-y-3">
-                <p><span className="font-medium">Area Value:</span> {roofArea} sq.ft</p>
+                <p><span className="font-medium">Roof Area:</span> {roofArea} sq.ft</p>
                 <p><span className="font-medium">Paint Category:</span> {roofPaintCategory.charAt(0).toUpperCase() + roofPaintCategory.slice(1)}</p>
-                <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                <p><span className="font-medium">Selected Paint:</span> {getSelectedRoofPaintName()}</p>
+                <p><span className="font-medium">Paint Brand:</span> {roofPaintBrand}</p>
+                <p><span className="font-medium">Selected Paint:</span> {roofPaintType}</p>
                 <div className="pt-3 border-t border-gray-200">
                   <p className="text-lg font-medium">
                     <span className="text-[#ED276E]">Roof Paint Price:</span> ₹{formatIndianCurrency(calculateRoofPrice())}
@@ -1709,14 +1725,13 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
               </div>
             </div>
           )}
-
           {/* Total Price Section */}
           <div className="pt-4 border-t-2 border-gray-200 bg-white p-4 rounded-lg shadow-sm">
             <p className="text-xl font-semibold">
               <span className="text-[#ED276E]">Total Price:</span> ₹{formatIndianCurrency(calculateExteriorTotalPrice())}
             </p>
-                </div>
-              </div>
+          </div>
+        </div>
       )}
 
       {/* Combined Calculation Summary for Both Interior and Exterior */}
@@ -1725,12 +1740,10 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         (roofWorkType && area > 0 && paintCategory && paintBrand && paintType)) && (
         <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
           <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Complete Calculation Summary</h3>
-          
           {/* Interior Section */}
           {workType && area > 0 && paintCategory && paintBrand && paintType && (
             <div className="mb-8">
               <h4 className="text-xl font-medium mb-4 text-[#ED276E]">Interior Work</h4>
-              
               {/* Wall Paint Section */}
               <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
                 <h5 className="text-lg font-medium mb-4 text-gray-800">Wall Paint Details</h5>
@@ -1746,11 +1759,10 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       <span className="text-[#ED276E]">Wall Paint Price:</span> ₹{formatIndianCurrency(calculateInteriorPrice())}
                     </p>
                   </div>
-                    </div>
-                  </div>
-                  
+                </div>
+              </div>
               {/* Ceiling Paint Section - Only show if different paint is selected */}
-              {samePaintForCeiling && ceilingPaintType && (
+              {showCeilingPaintSection && (
                 <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
                   <h5 className="text-lg font-medium mb-4 text-gray-800">Ceiling Paint Details</h5>
                   <div className="space-y-3">
@@ -1765,7 +1777,6 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   </div>
                 </div>
               )}
-
               {/* Interior Total Section */}
               <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
                 <p className="text-lg font-medium">
@@ -1774,12 +1785,10 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
               </div>
             </div>
           )}
-
           {/* Exterior Section */}
           {roofWorkType && area > 0 && paintCategory && paintBrand && paintType && (
             <div className="mb-8">
               <h4 className="text-xl font-medium mb-4 text-[#ED276E]">Exterior Work</h4>
-              
               {/* Exterior Wall Paint Section */}
               <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
                 <h5 className="text-lg font-medium mb-4 text-gray-800">Exterior Wall Paint Details</h5>
@@ -1797,25 +1806,23 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                   </div>
                 </div>
               </div>
-
               {/* Roof Paint Section - Only show if roof paint is selected */}
               {roofPaintType && (
                 <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
                   <h5 className="text-lg font-medium mb-4 text-gray-800">Roof Paint Details</h5>
                   <div className="space-y-3">
-                    <p><span className="font-medium">Area Value:</span> {roofArea} sq.ft</p>
+                    <p><span className="font-medium">Roof Area:</span> {roofArea} sq.ft</p>
                     <p><span className="font-medium">Paint Category:</span> {roofPaintCategory.charAt(0).toUpperCase() + roofPaintCategory.slice(1)}</p>
-                    <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                    <p><span className="font-medium">Selected Paint:</span> {getSelectedRoofPaintName()}</p>
+                    <p><span className="font-medium">Paint Brand:</span> {roofPaintBrand}</p>
+                    <p><span className="font-medium">Selected Paint:</span> {roofPaintType}</p>
                     <div className="pt-3 border-t border-gray-200">
                       <p className="text-lg font-medium">
                         <span className="text-[#ED276E]">Roof Paint Price:</span> ₹{formatIndianCurrency(calculateRoofPrice())}
                       </p>
-              </div>
-            </div>
-          </div>
-        )}
-
+                  </div>
+                  </div>
+                </div>
+              )}
               {/* Exterior Total Section */}
               <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
                 <p className="text-lg font-medium">
@@ -1824,7 +1831,6 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
       </div>
             </div>
           )}
-
           {/* Grand Total Section */}
           <div className="pt-4 border-t-2 border-gray-200 bg-white p-4 rounded-lg shadow-sm">
             <p className="text-2xl font-semibold">
@@ -1847,7 +1853,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                 !paintCategory || 
                 !paintBrand || 
                 !paintType || 
-                (samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
+                (showCeilingPaintCheckbox && samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
               )
             ) ||
             (
@@ -1867,7 +1873,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                 !paintCategory || 
                 !paintBrand || 
                 !paintType || 
-                (samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
+                (showCeilingPaintCheckbox && samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
               )
             )
           }
@@ -1880,7 +1886,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                 !paintCategory || 
                 !paintBrand || 
                 !paintType || 
-                (samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
+                (showCeilingPaintCheckbox && samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
               )
             ) ||
             (
@@ -1900,7 +1906,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                 !paintCategory || 
                 !paintBrand || 
                 !paintType || 
-                (samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
+                (showCeilingPaintCheckbox && samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
               )
             )
               ? 'bg-gray-400 cursor-not-allowed' 

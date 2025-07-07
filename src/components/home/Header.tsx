@@ -160,6 +160,10 @@ const Header: React.FC = () => {
     {
       label: 'Budget Calculator',
       path: '/calculator'
+    },
+    {
+      label: 'Color Visualiser',
+      path: '/color-visualiser'
     }
   ];
 
@@ -217,6 +221,7 @@ const Header: React.FC = () => {
             <Link href="/about" onClick={closeMenu} className="py-2">About Us</Link>
             <Link href="/enquiry" onClick={closeMenu} className="py-2">Enquire Now</Link>
             <Link href="/calculator" onClick={closeMenu} className="py-2">Budget Calculator</Link>
+            <Link href="/color-visualiser" onClick={closeMenu} className="py-2">Color Visualiser</Link>
           </nav>
         </div>
       )}
