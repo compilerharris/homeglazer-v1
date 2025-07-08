@@ -19,6 +19,11 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/color-visualiser": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/color-visualiser.js"
+    ],
     "/color-visualiser/basic": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

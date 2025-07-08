@@ -168,7 +168,7 @@ const BasicVisualiserPage: React.FC = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50 pt-4 md:pt-16 pb-24 flex flex-col items-center px-4 md:px-0">
+      <main className="min-h-screen bg-gray-50 pt-4 md:pt-16 pb-2 flex flex-col items-center px-4 md:px-0">
         {/* Padding for mobile swatch bar */}
         <div className="block md:hidden" style={{ height: '80px' }} />
         <h1 className="mt-4 md:mt-12 text-3xl font-bold text-[#ED276E] mb-4 text-center">Basic Color Visualiser</h1>
@@ -191,7 +191,7 @@ const BasicVisualiserPage: React.FC = () => {
           </div>
         </div>
         {/* 2-column layout: left = 3 images stacked vertically, right = swatches */}
-        <div className="flex flex-col md:flex-row gap-10 w-full max-w-screen-xl">
+        <div className="flex flex-col md:flex-row gap-0 w-full max-w-screen-xl">
           {/* Images and swatch bar container for observer */}
           <div ref={imagesContainerRef} className="flex-1 flex flex-col gap-8 relative">
             {Object.entries(ROOM_IMAGES).map(([label, src]) => (
@@ -247,10 +247,10 @@ const BasicVisualiserPage: React.FC = () => {
             )}
           </div>
           {/* Right: Color Swatches (sticky) for desktop */}
-          <div className="flex-1 md:flex-[1] flex flex-col items-center hidden md:block">
+          <div className="flex-1 md:flex-[1] flex flex-col items-center">
             <div className="sticky top-24 w-full flex flex-col items-center">
-              <h2 className="text-xl font-semibold text-[#299dd7] mb-4">{BRANDS.find(b => b.id === selectedBrand)?.name} Colors</h2>
-              <div className="w-full max-w-xs md:grid md:grid-cols-2 md:gap-4 flex flex-row gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+              <h2 className="hidden md:block text-xl font-semibold text-[#299dd7] mb-4">{BRANDS.find(b => b.id === selectedBrand)?.name} Colors</h2>
+              <div className="hidden md:grid w-full max-w-xs grid-cols-2 gap-4 md:gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
                 {swatches.map((swatch, idx) => (
                   <button
                     key={swatch.code+idx}
@@ -263,12 +263,12 @@ const BasicVisualiserPage: React.FC = () => {
                 ))}
               </div>
               {/* Advanced Visualiser Card (moved inside sticky) */}
-              <div className="mt-8 w-full max-w-xs bg-white border-2 border-[#299dd7] rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+              <div className="mt-8 w-full max-w-xs bg-white border-2 border-[#ED276E] rounded-xl shadow-md p-6 flex flex-col items-center text-center">
                 <h3 className="text-lg font-bold text-[#ED276E] mb-2">Want More Power?</h3>
-                <p className="text-gray-600 mb-4 text-sm">Try our <span className="font-semibold text-[#299dd7]">Advanced Visualiser</span> for more room types, wall selection, and custom color uploads!</p>
+                <p className="text-gray-600 mb-4 text-sm">Try our <span className="font-semibold text-[#ED276E]">Advanced Visualiser</span> for more room types, wall selection, and custom color uploads!</p>
                 <a
                   href="/color-visualiser"
-                  className="inline-block px-5 py-2 rounded-full bg-[#299dd7] text-white font-semibold shadow hover:bg-[#217bb0] transition-colors duration-200"
+                  className="inline-block px-5 py-2 rounded-full bg-[#ED276E] text-white font-semibold shadow hover:bg-[#c81e5d] transition-colors duration-200"
                 >
                   Try Advanced Visualiser
                 </a>
@@ -277,7 +277,7 @@ const BasicVisualiserPage: React.FC = () => {
           </div>
         </div>
       {/* Sentinel for intersection observer (start of footer) - outside gallery container */}
-      <div ref={footerSentinelRef} className="block md:hidden w-full h-1" />
+      <div ref={footerSentinelRef} className="block md:hidden w-full h-0" />
       </main>
       <Footer />
     </>
