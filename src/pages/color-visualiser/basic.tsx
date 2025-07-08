@@ -122,15 +122,21 @@ const BasicVisualiserPage: React.FC = () => {
   const imagesRef = useRef<HTMLDivElement>(null);
   const imagesContainerRef = useRef<HTMLDivElement>(null);
   const bottomSentinelRef = useRef<HTMLDivElement>(null);
-  const [swatchShouldBeFixed, setSwatchShouldBeFixed] = useState(false);
+  const footerSentinelRef = useRef<HTMLDivElement>(null);
+  const [imagesSentinelVisible, setImagesSentinelVisible] = useState(false);
+  const [footerSentinelVisible, setFooterSentinelVisible] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     if (!('IntersectionObserver' in window)) return;
-    if (!bottomSentinelRef.current) return;
-    const observer = new window.IntersectionObserver(
+    // Images-end sentinel
+    const imagesObserver = new window.IntersectionObserver(
       (entries) => {
-        setSwatchShouldBeFixed(!entries[0].isIntersecting);
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+          setImagesSentinelVisible(true); // force hide swatch bar at page end
+        } else {
+          setImagesSentinelVisible(entries[0].isIntersecting);
+        }
       },
       {
         root: null,
@@ -138,11 +144,24 @@ const BasicVisualiserPage: React.FC = () => {
         rootMargin: '0px 0px -10% 0px',
       }
     );
-    observer.observe(bottomSentinelRef.current);
+    // Footer-start sentinel
+    const footerObserver = new window.IntersectionObserver(
+      (entries) => {
+        setFooterSentinelVisible(entries[0].isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0.01,
+      }
+    );
+    if (bottomSentinelRef.current) imagesObserver.observe(bottomSentinelRef.current);
+    if (footerSentinelRef.current) footerObserver.observe(footerSentinelRef.current);
     return () => {
-      if (bottomSentinelRef.current) observer.unobserve(bottomSentinelRef.current);
+      if (bottomSentinelRef.current) imagesObserver.unobserve(bottomSentinelRef.current);
+      if (footerSentinelRef.current) footerObserver.unobserve(footerSentinelRef.current);
     };
-  }, [bottomSentinelRef.current]);
+  }, [bottomSentinelRef.current, footerSentinelRef.current]);
+  const swatchShouldBeFixed = !imagesSentinelVisible && !footerSentinelVisible;
 
   const swatches = COLOR_SWATCHES[selectedBrand];
 
@@ -222,6 +241,10 @@ const BasicVisualiserPage: React.FC = () => {
                 ))}
               </div>
             </div>
+            {/* Spacer for swatch bar height on mobile/tablet to prevent flicker */}
+            {!swatchShouldBeFixed && (
+              <div className="block md:hidden w-full" style={{ height: '72px' }} />
+            )}
           </div>
           {/* Right: Color Swatches (sticky) for desktop */}
           <div className="flex-1 md:flex-[1] flex flex-col items-center hidden md:block">
@@ -253,6 +276,8 @@ const BasicVisualiserPage: React.FC = () => {
             </div>
           </div>
         </div>
+      {/* Sentinel for intersection observer (start of footer) - outside gallery container */}
+      <div ref={footerSentinelRef} className="block md:hidden w-full h-1" />
       </main>
       <Footer />
     </>
