@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Facebook, X, Youtube } from 'lucide-react';
 import Link from 'next/link';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  showSentinel?: boolean;
+  onSentinelRef?: (ref: HTMLDivElement | null) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ showSentinel, onSentinelRef }) => {
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  // Pass the ref up to parent if needed
+  useEffect(() => {
+    if (showSentinel && onSentinelRef) {
+      onSentinelRef(sentinelRef.current);
+    }
+  }, [showSentinel, onSentinelRef]);
+
   return (
     <footer className="bg-[rgba(26,28,29,1)] w-full flex flex-col items-center justify-center mt-[50px] pt-10 pb-20 max-md:mt-10">
+      {showSentinel && (
+        <div ref={sentinelRef} className="block md:hidden w-full h-1" style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }} />
+      )}
       <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto flex max-w-full flex-col overflow-hidden items-stretch">
         <div className="self-center relative flex w-full max-w-[1120px] flex-wrap">
           <div className="z-0 flex min-w-60 flex-col items-center gap-[20px] w-full sm:w-auto md:mr-10">
