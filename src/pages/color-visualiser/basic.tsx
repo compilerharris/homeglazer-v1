@@ -242,9 +242,20 @@ const BasicVisualiserPage: React.FC = () => {
               </div>
             </div>
             {/* Spacer for swatch bar height on mobile/tablet to prevent flicker */}
-            {!swatchShouldBeFixed && (
-              <div className="block md:hidden w-full" style={{ height: '72px' }} />
+            {swatchShouldBeFixed && (
+              <div className="block md:hidden w-full" style={{ height: '80px' }} />
             )}
+            {/* Enquiry Now Section for mobile (after swatches, before footer) and as bottom sentinel */}
+            <div ref={bottomSentinelRef} className="md:hidden w-full bg-blue-50 py-4 flex flex-col items-center rounded-xl shadow mt-4">
+              <h2 className="text-xl font-bold text-[#299dd7] mb-2 text-center">Ready to Transform Your Space?</h2>
+              <p className="text-gray-700 mb-4 text-center max-w-xs">Contact us now for a personalized quote or expert advice on your painting project!</p>
+              <a
+                href="/enquiry"
+                className="inline-block px-8 py-3 rounded-full bg-[#299dd7] text-white font-semibold shadow hover:bg-[#217bb0] transition-colors duration-200 text-base"
+              >
+                Enquiry Now
+              </a>
+            </div>
           </div>
           {/* Right: Color Swatches (sticky) for desktop */}
           <div className="flex-1 md:flex-[1] flex flex-col items-center">
@@ -263,14 +274,25 @@ const BasicVisualiserPage: React.FC = () => {
                 ))}
               </div>
               {/* Advanced Visualiser Card (moved inside sticky) */}
-              <div className="mt-8 w-full max-w-xs bg-white border-2 border-[#ED276E] rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+              <div className="mt-4 w-full md:max-w-xs bg-white border-2 border-[#ED276E] rounded-xl shadow-md p-4 flex flex-col items-center text-center">
                 <h3 className="text-lg font-bold text-[#ED276E] mb-2">Want More Power?</h3>
                 <p className="text-gray-600 mb-4 text-sm">Try our <span className="font-semibold text-[#ED276E]">Advanced Visualiser</span> for more room types, wall selection, and custom color uploads!</p>
                 <a
-                  href="/color-visualiser"
+                  href="/color-visualiser/advanced"
                   className="inline-block px-5 py-2 rounded-full bg-[#ED276E] text-white font-semibold shadow hover:bg-[#c81e5d] transition-colors duration-200"
                 >
                   Try Advanced Visualiser
+                </a>
+              </div>
+              {/* Enquiry Now Section (desktop & mobile) */}
+              <div className="mt-4 w-full md:max-w-xs bg-blue-50 py-4 flex flex-col items-center rounded-xl shadow hidden md:flex">
+                <h2 className="text-xl md:text-2xl font-bold text-[#299dd7] mb-2 text-center">Ready to Transform Your Space?</h2>
+                <p className="text-gray-700 mb-4 text-center max-w-xs">Contact us now for a personalized quote or expert advice on your painting project!</p>
+                <a
+                  href="/enquiry"
+                  className="inline-block px-8 py-3 rounded-full bg-[#299dd7] text-white font-semibold shadow hover:bg-[#217bb0] transition-colors duration-200 text-base md:text-lg"
+                >
+                  Enquiry Now
                 </a>
               </div>
             </div>

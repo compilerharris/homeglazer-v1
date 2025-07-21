@@ -9,6 +9,11 @@ self.__BUILD_MANIFEST = {
   "lowPriorityFiles": [],
   "rootMainFiles": [],
   "pages": {
+    "/404": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/404.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -19,15 +24,10 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/color-visualiser": [
+    "/color-visualiser/advanced": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/color-visualiser.js"
-    ],
-    "/color-visualiser/basic": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/color-visualiser/basic.js"
+      "static/chunks/pages/color-visualiser/advanced.js"
     ]
   },
   "ampFirstPages": []
