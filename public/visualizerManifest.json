@@ -8,8 +8,8 @@
         "label": "Bedroom 1",
         "mainImage": "/assets/images/bedroom/bedroom1/bedroom1.jpg",
         "walls": {
-          "front": "/assets/images/bedroom/bedroom1/front-wall.svg",
           "left": "/assets/images/bedroom/bedroom1/left-wall.svg",
+          "front": "/assets/images/bedroom/bedroom1/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom1/right-wall.svg",
           "roof": "/assets/images/bedroom/bedroom1/roof-wall.svg"
         }
@@ -51,6 +51,17 @@
           "left": "/assets/images/bedroom/bedroom6/left-wall.svg",
           "right": "/assets/images/bedroom/bedroom6/right-wall.svg",
           "roof": "/assets/images/bedroom/bedroom6/roof-wall.svg"
+        }
+      },
+      {
+        "name": "bedroom7",
+        "label": "Bedroom 7",
+        "mainImage": "/assets/images/bedroom/bedroom7/bedroom7.jpg",
+        "walls": {
+          "left": "/assets/images/bedroom/bedroom7/left-wall.svg",
+          "front": "/assets/images/bedroom/bedroom7/front-wall.svg",
+          "right": "/assets/images/bedroom/bedroom7/right-wall.svg",
+          "roof": "/assets/images/bedroom/bedroom7/roof-wall.svg"
         }
       }
     ]
