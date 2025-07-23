@@ -14,7 +14,7 @@ const ColorVisualiserPage: React.FC = () => {
           <div className="bg-white rounded-xl shadow-lg p-8 flex-1 flex flex-col items-center hover:shadow-2xl transition cursor-pointer">
             <span className="text-2xl font-semibold text-[#299dd7] mb-4">Basic Visualiser</span>
             <p className="text-gray-600 text-center mb-4">Quickly preview popular color combinations on sample rooms. Simple and fast!</p>
-            <Link href="/color-visualiser/basic" className="mt-auto px-6 py-2 rounded-full bg-[#299dd7] text-white font-medium hover:bg-[#237bb0] transition text-center w-full">Try Basic Visualiser</Link>
+            <Link href="/color-visualiser/basic/asian-paints/ivory-white" className="mt-auto px-6 py-2 rounded-full bg-[#299dd7] text-white font-medium hover:bg-[#237bb0] transition text-center w-full">Try Basic Visualiser</Link>
           </div>
           <div className="bg-white rounded-xl shadow-lg p-8 flex-1 flex flex-col items-center hover:shadow-2xl transition cursor-pointer">
             <span className="text-2xl font-semibold text-[#ED276E] mb-4">Advanced Visualiser</span>

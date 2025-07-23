@@ -163,7 +163,7 @@ const Header: React.FC = () => {
     },
     {
       label: 'Color Visualiser',
-      path: '/color-visualiser'
+      path: '/color-visualiser/basic/asian-paints/ivory-white'
     }
   ];
 
