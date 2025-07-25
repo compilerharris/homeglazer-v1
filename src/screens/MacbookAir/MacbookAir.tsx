@@ -50,7 +50,7 @@ export const MacbookAir = (): JSX.Element => {
     {
       id: 2,
       image: "/assets/images/rectangle-94.png",
-      title: "Transform Your Space with Color",
+                title: "Transform Your Space with Colour",
       buttonText: "Get in touch",
     },
     {

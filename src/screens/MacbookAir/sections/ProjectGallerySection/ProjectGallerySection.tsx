@@ -30,7 +30,7 @@ export const ProjectGallerySection = (): JSX.Element => {
       <div className="flex flex-col items-start gap-7">
         <div className="flex flex-col max-w-[353.59px] items-start gap-[18px]">
           <h2 className="w-[353px] [font-family:'Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] leading-normal">
-            Visualise Your Color
+                              Visualise Your Colour
           </h2>
 
           <div className="flex items-start gap-[42px] w-full">
@@ -42,7 +42,7 @@ export const ProjectGallerySection = (): JSX.Element => {
 
         <Button className="w-60 h-[60px] bg-[#fbd604] rounded-[34.67px] text-black hover:bg-[#fbd604]/90 flex items-center justify-center gap-[13.33px] px-[18.67px] py-[10.67px]">
           <span className="[font-family:'Quicksand',Helvetica] font-normal text-[21.3px] text-center leading-normal">
-            Explore All Color
+                            Explore All Colour
           </span>
           <img
             className="w-[34.67px] h-[34.67px]"

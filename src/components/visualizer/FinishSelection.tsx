@@ -56,20 +56,30 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           className="w-full h-full rounded-lg object-cover"
           style={{ display: 'block', width: '100%', height: '100%' }}
         />
-        {/* Overlay SVGs for each assigned wall */}
-        {wallKeys.map((wallKey) => {
-          if (!assignments[wallKey] || !wallMasks[wallKey]) return null;
-          return (
-            <svg
-              key={wallKey}
-              className="absolute top-0 left-0 w-full h-full"
-              viewBox="0 0 1280 720"
-              style={{ mixBlendMode: 'multiply', pointerEvents: 'none' }}
-            >
-              <path d={wallMasks[wallKey]} fill={assignments[wallKey]} />
-            </svg>
-          );
-        })}
+        {/* SVG Overlay for wall masking */}
+        <svg 
+          className="svg-overlay absolute inset-0 w-full h-full pointer-events-none"
+          viewBox="0 0 1280 720"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <defs>
+            <mask id="wall-mask">
+              <rect width="100%" height="100%" fill="black"/>
+              {wallKeys.map((wallKey) => {
+                if (!assignments[wallKey] || !wallMasks[wallKey]) return null;
+                return <path key={wallKey} d={wallMasks[wallKey]} fill="white"/>;
+              })}
+            </mask>
+          </defs>
+          <rect 
+            width="100%" 
+            height="100%" 
+            fill={wallKeys.map(wallKey => assignments[wallKey]).filter(Boolean)[0] || "#ffffff"} 
+            opacity="0.7"
+            mask="url(#wall-mask)"
+            className="wall-path"
+          />
+        </svg>
         {loadingMasks && (
           <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
             <div className="text-gray-500">Loading masks...</div>

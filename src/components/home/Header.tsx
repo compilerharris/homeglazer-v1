@@ -162,8 +162,8 @@ const Header: React.FC = () => {
       path: '/calculator'
     },
     {
-      label: 'Color Visualiser',
-      path: '/color-visualiser/basic/asian-paints/ivory-white'
+      label: 'Colour Visualiser',
+      path: '/colour-visualiser'
     }
   ];
 
@@ -221,7 +221,7 @@ const Header: React.FC = () => {
             <Link href="/about" onClick={closeMenu} className="py-2">About Us</Link>
             <Link href="/enquiry" onClick={closeMenu} className="py-2">Enquire Now</Link>
             <Link href="/calculator" onClick={closeMenu} className="py-2">Budget Calculator</Link>
-            <Link href="/color-visualiser" onClick={closeMenu} className="py-2">Color Visualiser</Link>
+            <Link href="/colour-visualiser" onClick={closeMenu} className="py-2">Colour Visualiser</Link>
           </nav>
         </div>
       )}

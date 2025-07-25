@@ -20,4 +20,15 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  ...nextConfig,
+  async redirects() {
+    return [
+      {
+        source: '/color-visualiser/:path*',
+        destination: '/colour-visualiser/:path*',
+        permanent: true,
+      },
+    ];
+  },
+};

@@ -11,7 +11,7 @@ const categories = [
   'All',
   'Interior Painting',
   'Exterior Painting', 
-  'Color Ideas',
+  'Colour Ideas',
   'DIY Projects',
   'Trends',
   'Tips & Tricks'

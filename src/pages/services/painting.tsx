@@ -85,7 +85,7 @@ const PaintingServices: React.FC = () => {
               />
               <div className="p-6 bg-gray-50">
                 <h3 className="text-xl font-medium mb-2">Kids Room</h3>
-                <p className="text-gray-600 mb-4">Bright, playful colors made safe and fun for kids.</p>
+                <p className="text-gray-600 mb-4">Bright, playful colours made safe and fun for kids.</p>
                 <Link 
                   href="/services/painting/kids-room"
                   className="flex items-center justify-center bg-[#ed276e] hover:bg-[#3b82f6] text-white rounded-full py-3 px-6 transition-colors"

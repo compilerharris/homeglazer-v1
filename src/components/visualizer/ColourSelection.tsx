@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrandColor } from '../../hooks/useVisualizer';
 
-interface ColorSelectionProps {
+interface ColourSelectionProps {
   palette: string[];
   swatches: BrandColor[];
   maxPalette: number;
@@ -11,7 +11,7 @@ interface ColorSelectionProps {
   onNext: () => void;
 }
 
-const ColorSelection: React.FC<ColorSelectionProps> = ({
+const ColourSelection: React.FC<ColourSelectionProps> = ({
   palette,
   swatches,
   maxPalette,
@@ -32,8 +32,8 @@ const ColorSelection: React.FC<ColorSelectionProps> = ({
           <span className="text-lg">←</span> Back
         </button>
       </div>
-      <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Step 4: Add Your Favourite Colors</h2>
-      <p className="mb-6 text-gray-600 text-center max-w-xl">Tap colors to add them to your palette. You can add up to {maxPalette} colors.</p>
+              <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Step 4: Add Your Favourite Colours</h2>
+      <p className="mb-6 text-gray-600 text-center max-w-xl">Tap colours to add them to your palette. You can add up to {maxPalette} colours.</p>
       {/* Palette row */}
       <div className="flex gap-2 mb-6 w-full max-w-2xl">
         {Array.from({length: maxPalette}).map((_, idx) => (
@@ -44,7 +44,7 @@ const ColorSelection: React.FC<ColorSelectionProps> = ({
                 <button
                   className="absolute -top-2 -right-2 w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center text-xs text-gray-500 hover:bg-gray-100 z-10"
                   onClick={() => onRemoveColor(idx)}
-                  aria-label="Remove color"
+                  aria-label="Remove colour"
                 >
                   ×
                 </button>
@@ -81,10 +81,10 @@ const ColorSelection: React.FC<ColorSelectionProps> = ({
         disabled={palette.length === 0}
         onClick={onNext}
       >
-        COLOR YOUR ROOM <span className="text-2xl">→</span>
+        COLOUR YOUR ROOM <span className="text-2xl">→</span>
       </button>
     </main>
   );
 };
 
-export default ColorSelection; 
+export default ColourSelection; 

@@ -5,7 +5,7 @@ import { useVisualizer } from '../../hooks/useVisualizer';
 import SurfaceSelection from '../../components/visualizer/SurfaceSelection';
 import WallSelection from '../../components/visualizer/WallSelection';
 import ProductSelection from '../../components/visualizer/ProductSelection';
-import ColorSelection from '../../components/visualizer/ColorSelection';
+import ColourSelection from '../../components/visualizer/ColourSelection';
 import FinishSelection from '../../components/visualizer/FinishSelection';
 
 const AdvancedVisualiser: React.FC = () => {
@@ -39,7 +39,7 @@ const AdvancedVisualiser: React.FC = () => {
         />
       )}
       {visualizer.step === 4 && visualizer.selectedBrand && (
-        <ColorSelection
+        <ColourSelection
           palette={visualizer.palette}
           swatches={visualizer.swatches}
           maxPalette={6}

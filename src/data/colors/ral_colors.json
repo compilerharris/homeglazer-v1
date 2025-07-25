@@ -1,0 +1,1090 @@
+{
+  "brand": "RAL",
+  "totalColors": 212,
+  "colorTypes": {
+    "Yellows": [
+      {
+        "colorName": "Sand yellow",
+        "colorCode": "RAL 1002",
+        "colorHex": "#D2B773"
+      },
+      {
+        "colorName": "Signal yellow",
+        "colorCode": "RAL 1003",
+        "colorHex": "#F7BA0B"
+      },
+      {
+        "colorName": "Golden yellow",
+        "colorCode": "RAL 1004",
+        "colorHex": "#E2B007"
+      },
+      {
+        "colorName": "Honey yellow",
+        "colorCode": "RAL 1005",
+        "colorHex": "#C89F04"
+      },
+      {
+        "colorName": "Maize yellow",
+        "colorCode": "RAL 1006",
+        "colorHex": "#E1A100"
+      },
+      {
+        "colorName": "Daffodil yellow",
+        "colorCode": "RAL 1007",
+        "colorHex": "#E79C00"
+      },
+      {
+        "colorName": "Lemon yellow",
+        "colorCode": "RAL 1012",
+        "colorHex": "#D9C022"
+      },
+      {
+        "colorName": "Sulfur yellow",
+        "colorCode": "RAL 1016",
+        "colorHex": "#EAF044"
+      },
+      {
+        "colorName": "Saffron yellow",
+        "colorCode": "RAL 1017",
+        "colorHex": "#F4B752"
+      },
+      {
+        "colorName": "Zinc yellow",
+        "colorCode": "RAL 1018",
+        "colorHex": "#F3E03B"
+      },
+      {
+        "colorName": "Olive yellow",
+        "colorCode": "RAL 1020",
+        "colorHex": "#9A9464"
+      },
+      {
+        "colorName": "Rape yellow",
+        "colorCode": "RAL 1021",
+        "colorHex": "#EEC900"
+      },
+      {
+        "colorName": "traffic yellow",
+        "colorCode": "RAL 1023",
+        "colorHex": "#F0CA00"
+      },
+      {
+        "colorName": "Ochre yellow",
+        "colorCode": "RAL 1024",
+        "colorHex": "#B89C50"
+      },
+      {
+        "colorName": "Luminous yellow",
+        "colorCode": "RAL 1026",
+        "colorHex": "#F5FF00"
+      },
+      {
+        "colorName": "Curry",
+        "colorCode": "RAL 1027",
+        "colorHex": "#A38C15"
+      },
+      {
+        "colorName": "Melon yellow",
+        "colorCode": "RAL 1028",
+        "colorHex": "#FFAB00"
+      },
+      {
+        "colorName": "Broom yellow",
+        "colorCode": "RAL 1032",
+        "colorHex": "#DDB20F"
+      },
+      {
+        "colorName": "Dahlia yellow",
+        "colorCode": "RAL 1033",
+        "colorHex": "#FAAB21"
+      },
+      {
+        "colorName": "Pastel yellow",
+        "colorCode": "RAL 1034",
+        "colorHex": "#EDAB56"
+      },
+      {
+        "colorName": "Pearl gold",
+        "colorCode": "RAL 1036",
+        "colorHex": "#927549"
+      },
+      {
+        "colorName": "Sun yellow",
+        "colorCode": "RAL 1037",
+        "colorHex": "#EEA205"
+      }
+    ],
+    "Oranges": [
+      {
+        "colorName": "Yellow orange",
+        "colorCode": "RAL 2000",
+        "colorHex": "#DD7907"
+      },
+      {
+        "colorName": "Red orange",
+        "colorCode": "RAL 2001",
+        "colorHex": "#BE4E20"
+      },
+      {
+        "colorName": "Vermillion",
+        "colorCode": "RAL 2002",
+        "colorHex": "#C63927"
+      },
+      {
+        "colorName": "Pastel orange",
+        "colorCode": "RAL 2003",
+        "colorHex": "#FA842B"
+      },
+      {
+        "colorName": "Pure orange",
+        "colorCode": "RAL 2004",
+        "colorHex": "#E75B12"
+      },
+      {
+        "colorName": "Luminous orange",
+        "colorCode": "RAL 2005",
+        "colorHex": "#FF2300"
+      },
+      {
+        "colorName": "Luminous bright orange",
+        "colorCode": "RAL 2007",
+        "colorHex": "#FFA421"
+      },
+      {
+        "colorName": "Bright red orange",
+        "colorCode": "RAL 2008",
+        "colorHex": "#F3752C"
+      },
+      {
+        "colorName": "traffic orange",
+        "colorCode": "RAL 2009",
+        "colorHex": "#E15501"
+      },
+      {
+        "colorName": "Signal orange",
+        "colorCode": "RAL 2010",
+        "colorHex": "#D4652F"
+      },
+      {
+        "colorName": "Deep orange",
+        "colorCode": "RAL 2011",
+        "colorHex": "#EC7C25"
+      },
+      {
+        "colorName": "Salmon orange",
+        "colorCode": "RAL 2012",
+        "colorHex": "#DB6A50"
+      },
+      {
+        "colorName": "Pearl orange",
+        "colorCode": "RAL 2013",
+        "colorHex": "#954527"
+      }
+    ],
+    "Reds": [
+      {
+        "colorName": "Flame red",
+        "colorCode": "RAL 3000",
+        "colorHex": "#AB2524"
+      },
+      {
+        "colorName": "Signal red",
+        "colorCode": "RAL 3001",
+        "colorHex": "#A02128"
+      },
+      {
+        "colorName": "Carmine red",
+        "colorCode": "RAL 3002",
+        "colorHex": "#A1232B"
+      },
+      {
+        "colorName": "Ruby red",
+        "colorCode": "RAL 3003",
+        "colorHex": "#8D1D2C"
+      },
+      {
+        "colorName": "Purple red",
+        "colorCode": "RAL 3004",
+        "colorHex": "#701F29"
+      },
+      {
+        "colorName": "Wine red",
+        "colorCode": "RAL 3005",
+        "colorHex": "#5E2028"
+      },
+      {
+        "colorName": "Oxide red",
+        "colorCode": "RAL 3009",
+        "colorHex": "#703731"
+      },
+      {
+        "colorName": "Brown red",
+        "colorCode": "RAL 3011",
+        "colorHex": "#7E292C"
+      },
+      {
+        "colorName": "Tomato red",
+        "colorCode": "RAL 3013",
+        "colorHex": "#9C322E"
+      },
+      {
+        "colorName": "Coral red",
+        "colorCode": "RAL 3016",
+        "colorHex": "#AC4034"
+      },
+      {
+        "colorName": "Rose",
+        "colorCode": "RAL 3017",
+        "colorHex": "#D3545F"
+      },
+      {
+        "colorName": "Strawberry red",
+        "colorCode": "RAL 3018",
+        "colorHex": "#D14152"
+      },
+      {
+        "colorName": "traffic red",
+        "colorCode": "RAL 3020",
+        "colorHex": "#C1121C"
+      },
+      {
+        "colorName": "Luminous red",
+        "colorCode": "RAL 3024",
+        "colorHex": "#F70000"
+      },
+      {
+        "colorName": "Luminous bright red",
+        "colorCode": "RAL 3026",
+        "colorHex": "#FF0000"
+      },
+      {
+        "colorName": "Raspberry red",
+        "colorCode": "RAL 3027",
+        "colorHex": "#B42041"
+      },
+      {
+        "colorName": "Pure red",
+        "colorCode": "RAL 3028",
+        "colorHex": "#E72512"
+      },
+      {
+        "colorName": "Orient red",
+        "colorCode": "RAL 3031",
+        "colorHex": "#AC323B"
+      },
+      {
+        "colorName": "Pearl ruby red",
+        "colorCode": "RAL 3032",
+        "colorHex": "#711521"
+      }
+    ],
+    "Pinks": [
+      {
+        "colorName": "Antique pink",
+        "colorCode": "RAL 3014",
+        "colorHex": "#D47479"
+      },
+      {
+        "colorName": "Light pink",
+        "colorCode": "RAL 3015",
+        "colorHex": "#E1A6AD"
+      },
+      {
+        "colorName": "Salmon pink",
+        "colorCode": "RAL 3022",
+        "colorHex": "#D56D56"
+      },
+      {
+        "colorName": "Pearl pink",
+        "colorCode": "RAL 3033",
+        "colorHex": "#B24C43"
+      }
+    ],
+    "Purples": [
+      {
+        "colorName": "Red lilac",
+        "colorCode": "RAL 4001",
+        "colorHex": "#8A5A83"
+      },
+      {
+        "colorName": "Red violet",
+        "colorCode": "RAL 4002",
+        "colorHex": "#933D50"
+      },
+      {
+        "colorName": "Heather violet",
+        "colorCode": "RAL 4003",
+        "colorHex": "#D15B8F"
+      },
+      {
+        "colorName": "Claret violet",
+        "colorCode": "RAL 4004",
+        "colorHex": "#691639"
+      },
+      {
+        "colorName": "Blue lilac",
+        "colorCode": "RAL 4005",
+        "colorHex": "#83639D"
+      },
+      {
+        "colorName": "Traffic purple",
+        "colorCode": "RAL 4006",
+        "colorHex": "#992572"
+      },
+      {
+        "colorName": "Purple violet",
+        "colorCode": "RAL 4007",
+        "colorHex": "#4A203B"
+      },
+      {
+        "colorName": "Signal violet",
+        "colorCode": "RAL 4008",
+        "colorHex": "#904684"
+      },
+      {
+        "colorName": "Pastel violet",
+        "colorCode": "RAL 4009",
+        "colorHex": "#A38995"
+      },
+      {
+        "colorName": "Telemagenta",
+        "colorCode": "RAL 4010",
+        "colorHex": "#C63678"
+      },
+      {
+        "colorName": "Pearl violet",
+        "colorCode": "RAL 4011",
+        "colorHex": "#8773A1"
+      },
+      {
+        "colorName": "Violet blue",
+        "colorCode": "RAL 5000",
+        "colorHex": "#384C70"
+      }
+    ],
+    "Blues": [
+      {
+        "colorName": "Green blue",
+        "colorCode": "RAL 5001",
+        "colorHex": "#1F4764"
+      },
+      {
+        "colorName": "Ultramarine blue",
+        "colorCode": "RAL 5002",
+        "colorHex": "#2B2C7C"
+      },
+      {
+        "colorName": "Sapphire blue",
+        "colorCode": "RAL 5003",
+        "colorHex": "#2A3756"
+      },
+      {
+        "colorName": "Signal blue",
+        "colorCode": "RAL 5005",
+        "colorHex": "#154889"
+      },
+      {
+        "colorName": "Brilliant blue",
+        "colorCode": "RAL 5007",
+        "colorHex": "#41678D"
+      },
+      {
+        "colorName": "Grey blue",
+        "colorCode": "RAL 5008",
+        "colorHex": "#313C48"
+      },
+      {
+        "colorName": "Azure blue",
+        "colorCode": "RAL 5009",
+        "colorHex": "#2E5978"
+      },
+      {
+        "colorName": "Gentian blue",
+        "colorCode": "RAL 5010",
+        "colorHex": "#13447C"
+      },
+      {
+        "colorName": "Steel blue",
+        "colorCode": "RAL 5011",
+        "colorHex": "#232C3F"
+      },
+      {
+        "colorName": "Light blue",
+        "colorCode": "RAL 5012",
+        "colorHex": "#3481B8"
+      },
+      {
+        "colorName": "Cobalt blue",
+        "colorCode": "RAL 5013",
+        "colorHex": "#232D53"
+      },
+      {
+        "colorName": "Pigeon blue",
+        "colorCode": "RAL 5014",
+        "colorHex": "#6C7C98"
+      },
+      {
+        "colorName": "Sky blue",
+        "colorCode": "RAL 5015",
+        "colorHex": "#2874B2"
+      },
+      {
+        "colorName": "Traffic blue",
+        "colorCode": "RAL 5017",
+        "colorHex": "#0E518D"
+      },
+      {
+        "colorName": "Turquoise blue",
+        "colorCode": "RAL 5018",
+        "colorHex": "#21888F"
+      },
+      {
+        "colorName": "Capri blue",
+        "colorCode": "RAL 5019",
+        "colorHex": "#1A5784"
+      },
+      {
+        "colorName": "Ocean blue",
+        "colorCode": "RAL 5020",
+        "colorHex": "#0B4151"
+      },
+      {
+        "colorName": "Water blue",
+        "colorCode": "RAL 5021",
+        "colorHex": "#07737A"
+      },
+      {
+        "colorName": "Night blue",
+        "colorCode": "RAL 5022",
+        "colorHex": "#2F2A5A"
+      },
+      {
+        "colorName": "Distant blue",
+        "colorCode": "RAL 5023",
+        "colorHex": "#4D668E"
+      },
+      {
+        "colorName": "Pastel blue",
+        "colorCode": "RAL 5024",
+        "colorHex": "#6A93B0"
+      },
+      {
+        "colorName": "Pearl Gentian blue",
+        "colorCode": "RAL 5025",
+        "colorHex": "#296478"
+      },
+      {
+        "colorName": "Pearl night blue",
+        "colorCode": "RAL 5026",
+        "colorHex": "#102C54"
+      },
+      {
+        "colorName": "Turquoise green",
+        "colorCode": "RAL 6016",
+        "colorHex": "#026A52"
+      },
+      {
+        "colorName": "Mint turquoise",
+        "colorCode": "RAL 6033",
+        "colorHex": "#478A84"
+      },
+      {
+        "colorName": "Pastel turquoise",
+        "colorCode": "RAL 6034",
+        "colorHex": "#7FB0B2"
+      }
+    ],
+    "Greens": [
+      {
+        "colorName": "Patina green",
+        "colorCode": "RAL 6000",
+        "colorHex": "#327662"
+      },
+      {
+        "colorName": "Emerald green",
+        "colorCode": "RAL 6001",
+        "colorHex": "#28713E"
+      },
+      {
+        "colorName": "Leaf green",
+        "colorCode": "RAL 6002",
+        "colorHex": "#276235"
+      },
+      {
+        "colorName": "Olive Green",
+        "colorCode": "RAL 6003",
+        "colorHex": "#4B573E"
+      },
+      {
+        "colorName": "Blue green",
+        "colorCode": "RAL 6004",
+        "colorHex": "#0E4243"
+      },
+      {
+        "colorName": "Moss green",
+        "colorCode": "RAL 6005",
+        "colorHex": "#0F4336"
+      },
+      {
+        "colorName": "Grey olive",
+        "colorCode": "RAL 6006",
+        "colorHex": "#40433B"
+      },
+      {
+        "colorName": "Bottle green",
+        "colorCode": "RAL 6007",
+        "colorHex": "#283424"
+      },
+      {
+        "colorName": "Brown green",
+        "colorCode": "RAL 6008",
+        "colorHex": "#35382E"
+      },
+      {
+        "colorName": "Fir green",
+        "colorCode": "RAL 6009",
+        "colorHex": "#26392F"
+      },
+      {
+        "colorName": "Grass green",
+        "colorCode": "RAL 6010",
+        "colorHex": "#3E753B"
+      },
+      {
+        "colorName": "Reseda green",
+        "colorCode": "RAL 6011",
+        "colorHex": "#68825B"
+      },
+      {
+        "colorName": "Reed green",
+        "colorCode": "RAL 6013",
+        "colorHex": "#797C5A"
+      },
+      {
+        "colorName": "Yellow olive",
+        "colorCode": "RAL 6014",
+        "colorHex": "#444337"
+      },
+      {
+        "colorName": "May green",
+        "colorCode": "RAL 6017",
+        "colorHex": "#468641"
+      },
+      {
+        "colorName": "Yellow green",
+        "colorCode": "RAL 6018",
+        "colorHex": "#48A43F"
+      },
+      {
+        "colorName": "pastel green",
+        "colorCode": "RAL 6019",
+        "colorHex": "#B7D9B1"
+      },
+      {
+        "colorName": "Chrome green",
+        "colorCode": "RAL 6020",
+        "colorHex": "#354733"
+      },
+      {
+        "colorName": "Pale green",
+        "colorCode": "RAL 6021",
+        "colorHex": "#86A47C"
+      },
+      {
+        "colorName": "Brown olive",
+        "colorCode": "RAL 6022",
+        "colorHex": "#3E3C32"
+      },
+      {
+        "colorName": "Traffic green",
+        "colorCode": "RAL 6024",
+        "colorHex": "#008754"
+      },
+      {
+        "colorName": "Fern green",
+        "colorCode": "RAL 6025",
+        "colorHex": "#53753C"
+      },
+      {
+        "colorName": "Opal green",
+        "colorCode": "RAL 6026",
+        "colorHex": "#005D52"
+      },
+      {
+        "colorName": "Light green",
+        "colorCode": "RAL 6027",
+        "colorHex": "#81C0BB"
+      },
+      {
+        "colorName": "Pine green",
+        "colorCode": "RAL 6028",
+        "colorHex": "#2D5546"
+      },
+      {
+        "colorName": "Mint green",
+        "colorCode": "RAL 6029",
+        "colorHex": "#007243"
+      },
+      {
+        "colorName": "Signal green",
+        "colorCode": "RAL 6032",
+        "colorHex": "#0F8558"
+      },
+      {
+        "colorName": "Pearl green",
+        "colorCode": "RAL 6035",
+        "colorHex": "#1B542C"
+      },
+      {
+        "colorName": "Pearl opal green",
+        "colorCode": "RAL 6036",
+        "colorHex": "#005D4C"
+      },
+      {
+        "colorName": "Pure green",
+        "colorCode": "RAL 6037",
+        "colorHex": "#25E712"
+      },
+      {
+        "colorName": "Luminous green",
+        "colorCode": "RAL 6038",
+        "colorHex": "#00F700"
+      }
+    ],
+    "Browns": [
+      {
+        "colorName": "Green brown",
+        "colorCode": "RAL 8000",
+        "colorHex": "#887142"
+      },
+      {
+        "colorName": "Ochre brown",
+        "colorCode": "RAL 8001",
+        "colorHex": "#9C6B30"
+      },
+      {
+        "colorName": "Signal brown",
+        "colorCode": "RAL 8002",
+        "colorHex": "#7B5141"
+      },
+      {
+        "colorName": "Clay brown",
+        "colorCode": "RAL 8003",
+        "colorHex": "#80542F"
+      },
+      {
+        "colorName": "Copper brown",
+        "colorCode": "RAL 8004",
+        "colorHex": "#8F4E35"
+      },
+      {
+        "colorName": "Fawn brown",
+        "colorCode": "RAL 8007",
+        "colorHex": "#6F4A2F"
+      },
+      {
+        "colorName": "Olive brown",
+        "colorCode": "RAL 8008",
+        "colorHex": "#6F4F28"
+      },
+      {
+        "colorName": "Nut brown",
+        "colorCode": "RAL 8011",
+        "colorHex": "#5A3A29"
+      },
+      {
+        "colorName": "Red brown",
+        "colorCode": "RAL 8012",
+        "colorHex": "#673831"
+      },
+      {
+        "colorName": "Sepia brown",
+        "colorCode": "RAL 8014",
+        "colorHex": "#49392D"
+      },
+      {
+        "colorName": "Chestnut brown",
+        "colorCode": "RAL 8015",
+        "colorHex": "#633A34"
+      },
+      {
+        "colorName": "Mahogany brown",
+        "colorCode": "RAL 8016",
+        "colorHex": "#4C2F26"
+      },
+      {
+        "colorName": "Chocolate brown",
+        "colorCode": "RAL 8017",
+        "colorHex": "#44322D"
+      },
+      {
+        "colorName": "Grey brown",
+        "colorCode": "RAL 8019",
+        "colorHex": "#3F3A3A"
+      },
+      {
+        "colorName": "Orange brown",
+        "colorCode": "RAL 8023",
+        "colorHex": "#A65E2F"
+      },
+      {
+        "colorName": "Pale brown",
+        "colorCode": "RAL 8025",
+        "colorHex": "#755C49"
+      },
+      {
+        "colorName": "Terra brown",
+        "colorCode": "RAL 8028",
+        "colorHex": "#4E3B31"
+      },
+      {
+        "colorName": "Pearl copper",
+        "colorCode": "RAL 8029",
+        "colorHex": "#763C28"
+      }
+    ],
+    "Greys": [
+      {
+        "colorName": "Squirrel grey",
+        "colorCode": "RAL 7000",
+        "colorHex": "#7E8B92"
+      },
+      {
+        "colorName": "Silver grey",
+        "colorCode": "RAL 7001",
+        "colorHex": "#8F999F"
+      },
+      {
+        "colorName": "Olive grey",
+        "colorCode": "RAL 7002",
+        "colorHex": "#817F68"
+      },
+      {
+        "colorName": "Moss grey",
+        "colorCode": "RAL 7003",
+        "colorHex": "#7A7B6D"
+      },
+      {
+        "colorName": "Signal grey",
+        "colorCode": "RAL 7004",
+        "colorHex": "#9EA0A1"
+      },
+      {
+        "colorName": "Mouse grey",
+        "colorCode": "RAL 7005",
+        "colorHex": "#6B716F"
+      },
+      {
+        "colorName": "Khaki grey",
+        "colorCode": "RAL 7008",
+        "colorHex": "#746643"
+      },
+      {
+        "colorName": "Green grey",
+        "colorCode": "RAL 7009",
+        "colorHex": "#5B6259"
+      },
+      {
+        "colorName": "Tarpaulin grey",
+        "colorCode": "RAL 7010",
+        "colorHex": "#575D57"
+      },
+      {
+        "colorName": "Iron grey",
+        "colorCode": "RAL 7011",
+        "colorHex": "#555D61"
+      },
+      {
+        "colorName": "Basalt grey",
+        "colorCode": "RAL 7012",
+        "colorHex": "#596163"
+      },
+      {
+        "colorName": "Slate grey",
+        "colorCode": "RAL 7015",
+        "colorHex": "#51565C"
+      },
+      {
+        "colorName": "Anthracite grey",
+        "colorCode": "RAL 7016",
+        "colorHex": "#373F43"
+      },
+      {
+        "colorName": "Umbra grey",
+        "colorCode": "RAL 7022",
+        "colorHex": "#4B4D46"
+      },
+      {
+        "colorName": "Concrete grey",
+        "colorCode": "RAL 7023",
+        "colorHex": "#818479"
+      },
+      {
+        "colorName": "Granite grey",
+        "colorCode": "RAL 7026",
+        "colorHex": "#374447"
+      },
+      {
+        "colorName": "Stone grey",
+        "colorCode": "RAL 7030",
+        "colorHex": "#939388"
+      },
+      {
+        "colorName": "Blue grey",
+        "colorCode": "RAL 7031",
+        "colorHex": "#5D6970"
+      },
+      {
+        "colorName": "Pebble grey",
+        "colorCode": "RAL 7032",
+        "colorHex": "#B9B9A8"
+      },
+      {
+        "colorName": "Cement grey",
+        "colorCode": "RAL 7033",
+        "colorHex": "#818979"
+      },
+      {
+        "colorName": "Yellow grey",
+        "colorCode": "RAL 7034",
+        "colorHex": "#939176"
+      },
+      {
+        "colorName": "Light grey",
+        "colorCode": "RAL 7035",
+        "colorHex": "#CBD0CC"
+      },
+      {
+        "colorName": "Platinum grey",
+        "colorCode": "RAL 7036",
+        "colorHex": "#9A9697"
+      },
+      {
+        "colorName": "Dusty grey",
+        "colorCode": "RAL 7037",
+        "colorHex": "#7C7F7E"
+      },
+      {
+        "colorName": "Agate grey",
+        "colorCode": "RAL 7038",
+        "colorHex": "#B4B8B0"
+      },
+      {
+        "colorName": "Quartz grey",
+        "colorCode": "RAL 7039",
+        "colorHex": "#6B695F"
+      },
+      {
+        "colorName": "Window grey",
+        "colorCode": "RAL 7040",
+        "colorHex": "#9DA3A6"
+      },
+      {
+        "colorName": "Traffic grey A",
+        "colorCode": "RAL 7042",
+        "colorHex": "#8F9695"
+      },
+      {
+        "colorName": "Traffic grey B",
+        "colorCode": "RAL 7043",
+        "colorHex": "#4E5451"
+      },
+      {
+        "colorName": "Silk grey",
+        "colorCode": "RAL 7044",
+        "colorHex": "#BDBDB2"
+      },
+      {
+        "colorName": "Telegrey 1",
+        "colorCode": "RAL 7045",
+        "colorHex": "#91969A"
+      },
+      {
+        "colorName": "Telegrey 2",
+        "colorCode": "RAL 7046",
+        "colorHex": "#82898E"
+      },
+      {
+        "colorName": "Telegrey 4",
+        "colorCode": "RAL 7047",
+        "colorHex": "#CFD0CF"
+      },
+      {
+        "colorName": "Pearl mouse grey",
+        "colorCode": "RAL 7048",
+        "colorHex": "#888175"
+      },
+      {
+        "colorName": "Grey aluminum",
+        "colorCode": "RAL 9007",
+        "colorHex": "#8F8F8F"
+      },
+      {
+        "colorName": "Pearl light grey",
+        "colorCode": "RAL 9022",
+        "colorHex": "#9C9C9C"
+      },
+      {
+        "colorName": "Pearl dark grey",
+        "colorCode": "RAL 9023",
+        "colorHex": "#828282"
+      }
+    ],
+    "Beiges": [
+      {
+        "colorName": "Green beige",
+        "colorCode": "RAL 1000",
+        "colorHex": "#CCC58F"
+      },
+      {
+        "colorName": "Beige",
+        "colorCode": "RAL 1001",
+        "colorHex": "#D1BC8A"
+      },
+      {
+        "colorName": "Brown beige",
+        "colorCode": "RAL 1011",
+        "colorHex": "#AF8A54"
+      },
+      {
+        "colorName": "Grey beige",
+        "colorCode": "RAL 1019",
+        "colorHex": "#A4957D"
+      },
+      {
+        "colorName": "Pearl beige",
+        "colorCode": "RAL 1035",
+        "colorHex": "#A29985"
+      },
+      {
+        "colorName": "Beige red",
+        "colorCode": "RAL 3012",
+        "colorHex": "#CB8D73"
+      },
+      {
+        "colorName": "Beige grey",
+        "colorCode": "RAL 7006",
+        "colorHex": "#756F61"
+      },
+      {
+        "colorName": "Beige brown",
+        "colorCode": "RAL 8024",
+        "colorHex": "#79553C"
+      }
+    ],
+    "Whites": [
+      {
+        "colorName": "Oyster white",
+        "colorCode": "RAL 1013",
+        "colorHex": "#E9E5CE"
+      },
+      {
+        "colorName": "Ivory",
+        "colorCode": "RAL 1014",
+        "colorHex": "#DFCEA1"
+      },
+      {
+        "colorName": "Light ivory",
+        "colorCode": "RAL 1015",
+        "colorHex": "#EADEBD"
+      },
+      {
+        "colorName": "Cream",
+        "colorCode": "RAL 9001",
+        "colorHex": "#FDF4E3"
+      },
+      {
+        "colorName": "Grey white",
+        "colorCode": "RAL 9002",
+        "colorHex": "#E7EBDA"
+      },
+      {
+        "colorName": "Signal white",
+        "colorCode": "RAL 9003",
+        "colorHex": "#F4F4F4"
+      },
+      {
+        "colorName": "White aluminum",
+        "colorCode": "RAL 9006",
+        "colorHex": "#A5A5A5"
+      },
+      {
+        "colorName": "Pure white",
+        "colorCode": "RAL 9010",
+        "colorHex": "#FFFFFF"
+      },
+      {
+        "colorName": "Traffic white",
+        "colorCode": "RAL 9016",
+        "colorHex": "#F6F6F6"
+      },
+      {
+        "colorName": "Papyrus white",
+        "colorCode": "RAL 9018",
+        "colorHex": "#D7D7D7"
+      }
+    ],
+    "Blacks": [
+      {
+        "colorName": "Black red",
+        "colorCode": "RAL 3007",
+        "colorHex": "#402225"
+      },
+      {
+        "colorName": "Pearl blackberry",
+        "colorCode": "RAL 4012",
+        "colorHex": "#6B6880"
+      },
+      {
+        "colorName": "Black blue",
+        "colorCode": "RAL 5004",
+        "colorHex": "#1D1F2A"
+      },
+      {
+        "colorName": "Black green",
+        "colorCode": "RAL 6012",
+        "colorHex": "#31403D"
+      },
+      {
+        "colorName": "Black olive",
+        "colorCode": "RAL 6015",
+        "colorHex": "#3D403A"
+      },
+      {
+        "colorName": "Black grey",
+        "colorCode": "RAL 7021",
+        "colorHex": "#2E3234"
+      },
+      {
+        "colorName": "Graphite grey",
+        "colorCode": "RAL 7024",
+        "colorHex": "#474A50"
+      },
+      {
+        "colorName": "Black brown",
+        "colorCode": "RAL 8022",
+        "colorHex": "#211F20"
+      },
+      {
+        "colorName": "Signal black",
+        "colorCode": "RAL 9004",
+        "colorHex": "#282828"
+      },
+      {
+        "colorName": "Jet black",
+        "colorCode": "RAL 9005",
+        "colorHex": "#0A0A0A"
+      },
+      {
+        "colorName": "Graphite black",
+        "colorCode": "RAL 9011",
+        "colorHex": "#1C1C1C"
+      },
+      {
+        "colorName": "Traffic black",
+        "colorCode": "RAL 9017",
+        "colorHex": "#1E1E1E"
+      }
+    ]
+  }
+}

@@ -4,13 +4,13 @@ export const blogPosts: BlogPost[] = [
   {
     id: '1',
     slug: 'choosing-the-perfect-paint-colors-for-your-home',
-    title: 'Choosing the Perfect Paint Colors for Your Home',
-    excerpt: 'Learn how to select the ideal paint colors that complement your home\'s architecture and reflect your personal style. Our expert guide walks you through the process.',
+    title: 'Choosing the Perfect Paint Colours for Your Home',
+    excerpt: 'Learn how to select the ideal paint colours that complement your home\'s architecture and reflect your personal style. Our expert guide walks you through the process.',
     date: 'May 15, 2023',
     author: 'Emma Johnson',
     readTime: '8',
     coverImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2534&q=80',
-    categories: ['Interior Painting', 'Color Ideas']
+    categories: ['Interior Painting', 'Colour Ideas']
   },
   {
     id: '2',
@@ -26,8 +26,8 @@ export const blogPosts: BlogPost[] = [
   {
     id: '3',
     slug: 'trending-exterior-paint-colors-for-2023',
-    title: 'Trending Exterior Paint Colors for 2023',
-    excerpt: 'Stay ahead of the curve with our roundup of the most popular exterior paint colors for this year. From bold statements to subtle elegance, find the perfect shade.',
+    title: 'Trending Exterior Paint Colours for 2023',
+    excerpt: 'Stay ahead of the curve with our roundup of the most popular exterior paint colours for this year. From bold statements to subtle elegance, find the perfect shade.',
     date: 'March 12, 2023',
     author: 'Sarah Williams',
     readTime: '5',
@@ -65,13 +65,13 @@ export const blogPosts: BlogPost[] = [
     author: 'Robert Wilson',
     readTime: '6',
     coverImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2700&q=80',
-    categories: ['Interior Painting', 'Color Ideas']
+    categories: ['Interior Painting', 'Colour Ideas']
   },
   {
     id: '7',
     slug: 'best-paint-colors-for-small-spaces',
-    title: 'Best Paint Colors for Small Spaces',
-    excerpt: 'Make your compact rooms feel more spacious with strategic color choices. Our guide helps you select paint colors that create an illusion of space and light.',
+    title: 'Best Paint Colours for Small Spaces',
+    excerpt: 'Make your compact rooms feel more spacious with strategic colour choices. Our guide helps you select paint colours that create an illusion of space and light.',
     date: 'November 22, 2022',
     author: 'Jennifer Adams',
     readTime: '5',
@@ -92,13 +92,13 @@ export const blogPosts: BlogPost[] = [
   {
     id: '9',
     slug: 'the-psychology-of-color-in-home-design',
-    title: 'The Psychology of Color in Home Design',
-    excerpt: 'Colors affect our mood and behavior more than we realize. Explore how different paint colors can influence the atmosphere and emotional impact of each room.',
+    title: 'The Psychology of Colour in Home Design',
+    excerpt: 'Colours affect our mood and behavior more than we realize. Explore how different paint colours can influence the atmosphere and emotional impact of each room.',
     date: 'September 3, 2022',
     author: 'Olivia Peterson',
     readTime: '7',
     coverImage: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80',
-    categories: ['Color Ideas', 'Interior Painting']
+    categories: ['Colour Ideas', 'Interior Painting']
   }
 ];
 
