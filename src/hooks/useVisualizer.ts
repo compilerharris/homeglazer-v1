@@ -1,5 +1,14 @@
 import { useState, useEffect } from 'react';
 
+// Import all color JSON files
+import asianPaintsColors from '../data/colors/asian_paints_colors.json';
+import nerolacColors from '../data/colors/nerolac_colors.json';
+import bergerColors from '../data/colors/berger_colors.json';
+import jswColors from '../data/colors/jsw_colors.json';
+import birlaOpusColors from '../data/colors/birla_opus_colors.json';
+import ncsColors from '../data/colors/ncs_colors.json';
+import ralColors from '../data/colors/ral_colors.json';
+
 export interface WallManifest {
   [wallKey: string]: string;
 }
@@ -14,6 +23,22 @@ export interface RoomManifest {
   label: string;
   variants: VariantManifest[];
 }
+
+// New interfaces for dynamic brand data
+export interface ColorSwatch {
+  colorName: string;
+  colorCode: string;
+  colorHex: string;
+}
+
+export interface BrandColorData {
+  brand: string;
+  totalColors: number;
+  colorTypes: {
+    [colorType: string]: ColorSwatch[];
+  };
+}
+
 export interface BrandColor {
   name: string;
   code: string;
@@ -24,6 +49,25 @@ export interface BrandManifest {
   logo: string;
   colors: BrandColor[];
 }
+
+// Brand configuration interface
+export interface BrandConfig {
+  id: string;
+  name: string;
+  data: BrandColorData;
+  logo: string;
+}
+
+// Brand configuration mapping with direct imports
+export const BRAND_CONFIG: BrandConfig[] = [
+  { id: 'asian-paints', name: 'Asian Paints', data: asianPaintsColors as BrandColorData, logo: '/assets/images/home-glazer-logo-1.png' },
+  { id: 'nerolac', name: 'Nerolac', data: nerolacColors as BrandColorData, logo: '/assets/images/kansai-nerolac-paints-limited7357-removebg-preview.png' },
+  { id: 'berger', name: 'Berger', data: bergerColors as BrandColorData, logo: '/assets/images/icon-2.svg' },
+  { id: 'jsw', name: 'JSW', data: jswColors as BrandColorData, logo: '/assets/images/nippon-paint-logo-png-seeklogo-353779-removebg-preview.png' },
+  { id: 'birla-opus', name: 'Birla Opus', data: birlaOpusColors as BrandColorData, logo: '/assets/images/rectangle-94.png' },
+  { id: 'ncs', name: 'NCS', data: ncsColors as BrandColorData, logo: '/assets/images/icon-1.svg' },
+  { id: 'ral', name: 'RAL', data: ralColors as BrandColorData, logo: '/assets/images/icon-1.svg' },
+];
 
 export const CATEGORIES = [
   { key: 'bedroom', label: 'Bedroom', img: '/lovable-uploads/bedroom.jpg' },
@@ -50,15 +94,6 @@ export const CATEGORY_IMAGES: Record<string, string[]> = {
   'office': Array.from({length: 12}, (_, i) => `/lovable-uploads/Commercial.png`),
   'home-exterior': Array.from({length: 12}, (_, i) => `/lovable-uploads/exterior-painting.png`),
 };
-
-export const BRANDS = [
-  { id: 'asian-paints', name: 'Asian Paints', logo: '/assets/images/home-glazer-logo-1.png' },
-  { id: 'dulux', name: 'Dulux', logo: '/assets/images/icon-1.svg' },
-  { id: 'nerolac', name: 'Nerolac', logo: '/assets/images/kansai-nerolac-paints-limited7357-removebg-preview.png' },
-  { id: 'berger', name: 'Berger', logo: '/assets/images/icon-2.svg' },
-  { id: 'shalimar', name: 'Shalimar', logo: '/assets/images/rectangle-94.png' },
-  { id: 'jsw', name: 'JSW', logo: '/assets/images/nippon-paint-logo-png-seeklogo-353779-removebg-preview.png' },
-];
 
 export const COLOR_SWATCHES: { [brand: string]: { name: string; code: string }[] } = {
   'asian-paints': [
@@ -138,6 +173,12 @@ export function useVisualizer() {
   const [wallMasks, setWallMasks] = useState<Record<string, string>>({});
   const [loadingMasks, setLoadingMasks] = useState(false);
 
+  // New state for dynamic brand data
+  const [brandData, setBrandData] = useState<BrandColorData | null>(null);
+  const [loadingBrandData, setLoadingBrandData] = useState(false);
+  const [selectedColourType, setSelectedColourType] = useState<string | null>(null);
+  const [selectedColours, setSelectedColours] = useState<ColorSwatch[]>([]);
+
   // Load manifest and brands on mount
   useEffect(() => {
     Promise.all([
@@ -150,11 +191,62 @@ export function useVisualizer() {
     });
   }, []);
 
+  // Dynamic brand data loading function
+  const loadBrandData = (brandId: string) => {
+    const brandConfig = BRAND_CONFIG.find(b => b.id === brandId);
+    if (!brandConfig) {
+      console.error('Brand not found:', brandId);
+      return;
+    }
+
+    setLoadingBrandData(true);
+    try {
+      // Use the imported data directly
+      const data: BrandColorData = brandConfig.data;
+      setBrandData(data);
+      
+      // Auto-select the first colour type if none is selected
+      const colourTypeKeys = Object.keys(data.colorTypes);
+      if (colourTypeKeys.length > 0 && !selectedColourType) {
+        setSelectedColourType(colourTypeKeys[0]);
+      }
+      
+      // Don't clear selected colours - keep them persistent
+      console.log('Brand data loaded, selected colours preserved:', selectedColours.length);
+    } catch (error) {
+      console.error('Error loading brand data:', error);
+      setBrandData(null);
+    } finally {
+      setLoadingBrandData(false);
+    }
+  };
+
   // Get selected room/variant/brand objects
   const selectedRoom = manifest.find(r => r.roomType === selectedRoomType) || null;
   const selectedVariant = selectedRoom?.variants.find(v => v.name === selectedVariantName) || null;
   const selectedBrand = brands.find(b => b.id === selectedBrandId) || null;
   const swatches = selectedBrand ? selectedBrand.colors : [];
+
+  // Get available colour types from brand data
+  const colourTypes = brandData ? Object.keys(brandData.colorTypes) : [];
+  
+  // Get colours for selected colour type
+  const coloursForType = selectedColourType && brandData 
+    ? brandData.colorTypes[selectedColourType] || []
+    : [];
+
+  // Ensure brand data is loaded when reaching step 4
+  useEffect(() => {
+    if (step === 4 && selectedBrandId) {
+      // Always ensure brand data is loaded when reaching step 4
+      if (!brandData) {
+        console.log('Loading brand data for step 4:', selectedBrandId);
+        loadBrandData(selectedBrandId);
+      } else {
+        console.log('Brand data already loaded, selected colours:', selectedColours.length);
+      }
+    }
+  }, [step, selectedBrandId]);
 
   // Fetch and parse wall masks when variant changes
   useEffect(() => {
@@ -210,22 +302,66 @@ export function useVisualizer() {
     setSelectedRoomType(roomType);
     setSelectedVariantName(null);
     setStep(2);
+    // Reset scroll to top when selecting a room type
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
   const handleSelectVariant = (variantName: string) => {
     setSelectedVariantName(variantName);
     setStep(3);
+    // Reset scroll to top when selecting a variant
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
   const handleSelectBrand = (brandId: string) => {
+    // Only clear selections if we're actually changing to a different brand
+    if (selectedBrandId !== brandId) {
+      setSelectedColours([]);
+      setPalette([]); // reset palette on brand change
+    }
+    
     setSelectedBrandId(brandId);
+    loadBrandData(brandId);
     setStep(4);
-    setPalette([]); // reset palette on brand change
+    // Reset scroll to top when selecting a brand
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
-  const handleAddColor = (color: string) => {
+  const handleSelectColourType = (colourType: string) => {
+    setSelectedColourType(colourType);
+    // Scroll to selected colours section when changing colour type
+    if (typeof window !== 'undefined') {
+      setTimeout(() => {
+        const selectedColoursSection = document.querySelector('[data-section="selected-colours"]');
+        if (selectedColoursSection) {
+          selectedColoursSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100); // Small delay to ensure DOM is updated
+    }
+  };
+  const handleAddColour = (colour: ColorSwatch) => {
+    const isAlreadySelected = selectedColours.find(c => c.colorHex === colour.colorHex);
+    
+    if (isAlreadySelected) {
+      // If already selected, remove it (toggle off)
+      setSelectedColours(selectedColours.filter(c => c.colorHex !== colour.colorHex));
+    } else if (selectedColours.length < 12) {
+      // If not selected and under limit, add it (toggle on)
+      setSelectedColours([...selectedColours, colour]);
+    }
+  };
+  const handleRemoveColour = (colourHex: string) => {
+    setSelectedColours(selectedColours.filter(c => c.colorHex !== colourHex));
+  };
+  const handleAddColorToPalette = (color: string) => {
     if (palette.length < 6 && !palette.includes(color)) {
       setPalette([...palette, color]);
     }
   };
-  const handleRemoveColor = (idx: number) => {
+  const handleRemoveColorFromPalette = (idx: number) => {
     setPalette(palette.filter((_, i) => i !== idx));
   };
   const handleOpenPalette = (side: string) => {
@@ -245,9 +381,82 @@ export function useVisualizer() {
   };
 
   // Navigation
-  const goToStep = (n: number) => setStep(n);
-  const nextStep = () => setStep(step + 1);
-  const prevStep = () => setStep(step - 1);
+  const goToStep = (n: number) => {
+    setStep(n);
+    // Reset scroll to top when navigating between steps
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+  const nextStep = () => {
+    setStep(step + 1);
+    // Reset scroll to top when going to next step
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+  const prevStep = () => {
+    setStep(step - 1);
+    // Reset scroll to top when going to previous step
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  // Generate breadcrumbs based on current selections
+  const generateBreadcrumbs = () => {
+    const breadcrumbs = [];
+    
+    // Step 1: Room Type
+    if (selectedRoomType) {
+      const room = manifest.find(r => r.roomType === selectedRoomType);
+      breadcrumbs.push({
+        label: room?.label || selectedRoomType,
+        step: 1,
+        isActive: step === 1
+      });
+    }
+    
+    // Step 2: Room Variant
+    if (selectedVariantName && selectedRoom) {
+      const variant = selectedRoom.variants.find(v => v.name === selectedVariantName);
+      breadcrumbs.push({
+        label: variant?.label || selectedVariantName,
+        step: 2,
+        isActive: step === 2
+      });
+    }
+    
+    // Step 3: Paint Brand
+    if (selectedBrandId) {
+      const brand = BRAND_CONFIG.find(b => b.id === selectedBrandId);
+      breadcrumbs.push({
+        label: brand?.name || selectedBrandId,
+        step: 3,
+        isActive: step === 3
+      });
+    }
+    
+    // Step 4: Colour Selection
+    if (selectedColours.length > 0) {
+      breadcrumbs.push({
+        label: `${selectedColours.length} Colours Selected`,
+        step: 4,
+        isActive: step === 4
+      });
+    }
+    
+    // Step 5: Final Preview
+    if (step === 5) {
+      breadcrumbs.push({
+        label: 'Final Preview',
+        step: 5,
+        isActive: true
+      });
+    }
+    
+    return breadcrumbs;
+  };
 
   return {
     manifest,
@@ -277,14 +486,26 @@ export function useVisualizer() {
     setShowPalette,
     wallMasks,
     loadingMasks,
+    // New dynamic brand data
+    brandData,
+    loadingBrandData,
+    colourTypes,
+    selectedColourType,
+    coloursForType,
+    selectedColours,
     handleSelectRoomType,
     handleSelectVariant,
     handleSelectBrand,
-    handleAddColor,
-    handleRemoveColor,
+    handleSelectColourType,
+    handleAddColour,
+    handleRemoveColour,
+    handleAddColorToPalette,
+    handleRemoveColorFromPalette,
     handleOpenPalette,
     handleAssignColor,
     handleClosePalette,
     handleDownload,
+    // Breadcrumbs
+    generateBreadcrumbs,
   };
 } 

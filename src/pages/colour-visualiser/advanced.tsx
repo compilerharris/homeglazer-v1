@@ -8,9 +8,11 @@ import WallSelection from '../../components/visualizer/WallSelection';
 import ProductSelection from '../../components/visualizer/ProductSelection';
 import ColourSelection from '../../components/visualizer/ColourSelection';
 import FinishSelection from '../../components/visualizer/FinishSelection';
+import Breadcrumbs from '../../components/visualizer/Breadcrumbs';
 
 const AdvancedVisualiser: React.FC = () => {
   const visualizer = useVisualizer();
+  const breadcrumbs = visualizer.generateBreadcrumbs();
 
   return (
     <>
@@ -29,31 +31,42 @@ const AdvancedVisualiser: React.FC = () => {
           selectedVariantName={visualizer.selectedVariantName}
           onSelectVariant={visualizer.handleSelectVariant}
           onBack={visualizer.prevStep}
+          backButtonText="Change Room Type"
+          breadcrumbs={breadcrumbs}
+          onStepClick={visualizer.setStep}
         />
       )}
       {visualizer.step === 3 && (
         <ProductSelection
-          brands={visualizer.brands}
           selectedBrandId={visualizer.selectedBrandId}
           onSelectBrand={visualizer.handleSelectBrand}
           onBack={visualizer.prevStep}
+          backButtonText="Change Room Variant"
+          breadcrumbs={breadcrumbs}
+          onStepClick={visualizer.setStep}
         />
       )}
-      {visualizer.step === 4 && visualizer.selectedBrand && (
+      {visualizer.step === 4 && (
         <ColourSelection
-          palette={visualizer.palette}
-          swatches={visualizer.swatches}
-          maxPalette={6}
-          onAddColor={visualizer.handleAddColor}
-          onRemoveColor={visualizer.handleRemoveColor}
+          colorTypes={visualizer.colourTypes}
+          selectedColorType={visualizer.selectedColourType}
+          colorsForType={visualizer.coloursForType}
+          selectedColors={visualizer.selectedColours}
+          loadingBrandData={visualizer.loadingBrandData}
+          onSelectColorType={visualizer.handleSelectColourType}
+          onAddColor={visualizer.handleAddColour}
+          onRemoveColor={visualizer.handleRemoveColour}
           onBack={visualizer.prevStep}
           onNext={visualizer.nextStep}
+          backButtonText="Change Paint Brand"
+          breadcrumbs={breadcrumbs}
+          onStepClick={visualizer.setStep}
         />
       )}
       {visualizer.step === 5 && visualizer.selectedVariant && (
         <FinishSelection
           variant={visualizer.selectedVariant}
-          palette={visualizer.palette}
+          selectedColors={visualizer.selectedColours}
           assignments={visualizer.assignments}
           wallMasks={visualizer.wallMasks}
           loadingMasks={visualizer.loadingMasks}
@@ -64,6 +77,9 @@ const AdvancedVisualiser: React.FC = () => {
           onClosePalette={visualizer.handleClosePalette}
           onBack={visualizer.prevStep}
           onDownload={visualizer.handleDownload}
+          backButtonText="Change Colours"
+          breadcrumbs={breadcrumbs}
+          onStepClick={visualizer.setStep}
         />
       )}
       

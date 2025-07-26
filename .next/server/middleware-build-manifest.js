@@ -19,11 +19,6 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/about": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/about.js"
-    ],
     "/colour-visualiser": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -33,11 +28,6 @@ self.__BUILD_MANIFEST = {
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/colour-visualiser/advanced.js"
-    ],
-    "/services/painting/kids-room": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/services/painting/kids-room.js"
     ]
   },
   "ampFirstPages": []
