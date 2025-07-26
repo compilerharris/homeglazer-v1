@@ -265,7 +265,7 @@ const BasicVisualiserPage: React.FC = () => {
               className="overflow-x-auto w-full scrollbar-hide"
               ref={categoryScrollRef}
             >
-              <div className="inline-flex gap-4 min-w-max flex-nowrap justify-center px-2">
+              <div className="flex gap-4 flex-nowrap justify-center px-2 w-full">
                 {Object.keys(colorDatabase.colorTypes).map((cat: string) => {
                   const categoryColor = CATEGORY_COLORS[cat] || '#ED276E';
                   return (

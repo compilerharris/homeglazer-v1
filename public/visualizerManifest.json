@@ -104,6 +104,111 @@
           "right": "/assets/images/bedroom/bedroom10/right-wall.svg",
           "roof": "/assets/images/bedroom/bedroom10/roof-wall.svg"
         }
+      },
+      {
+        "name": "bedroom11",
+        "label": "Bedroom 11",
+        "mainImage": "/assets/images/bedroom/bedroom11/bedroom11.jpg",
+        "walls": {
+          "left": "/assets/images/bedroom/bedroom11/left-wall.svg",
+          "front": "/assets/images/bedroom/bedroom11/front-wall.svg",
+          "right": "/assets/images/bedroom/bedroom11/right-wall.svg",
+          "roof": "/assets/images/bedroom/bedroom11/roof-wall.svg"
+        }
+      },
+      {
+        "name": "bedroom12",
+        "label": "Bedroom 12",
+        "mainImage": "/assets/images/bedroom/bedroom12/bedroom12.jpg",
+        "walls": {
+          "left": "/assets/images/bedroom/bedroom12/left-wall.svg",
+          "front": "/assets/images/bedroom/bedroom12/front-wall.svg",
+          "right": "/assets/images/bedroom/bedroom12/right-wall.svg",
+          "roof": "/assets/images/bedroom/bedroom12/roof-wall.svg"
+        }
+      },
+      {
+        "name": "bedroom13",
+        "label": "Bedroom 13",
+        "mainImage": "/assets/images/bedroom/bedroom13/bedroom13.jpg",
+        "walls": {
+          "left": "/assets/images/bedroom/bedroom13/left-wall.svg",
+          "right": "/assets/images/bedroom/bedroom13/right-wall.svg"
+        }
+      },
+      {
+        "name": "bedroom14",
+        "label": "Bedroom 14",
+        "mainImage": "/assets/images/bedroom/bedroom14/bedroom14.jpg",
+        "walls": {
+          "left": "/assets/images/bedroom/bedroom14/left-wall.svg",
+          "front": "/assets/images/bedroom/bedroom14/front-wall.svg",
+          "right": "/assets/images/bedroom/bedroom14/right-wall.svg",
+          "roof": "/assets/images/bedroom/bedroom14/roof-wall.svg"
+        }
+      },
+      {
+        "name": "bedroom15",
+        "label": "Bedroom 15",
+        "mainImage": "/assets/images/bedroom/bedroom15/bedroom15.jpg",
+        "walls": {
+          "left": "/assets/images/bedroom/bedroom15/left-wall.svg",
+          "front": "/assets/images/bedroom/bedroom15/front-wall.svg",
+          "right": "/assets/images/bedroom/bedroom15/right-wall.svg",
+          "roof": "/assets/images/bedroom/bedroom15/roof-wall.svg"
+        }
+      },
+      {
+        "name": "bedroom16",
+        "label": "Bedroom 16",
+        "mainImage": "/assets/images/bedroom/bedroom16/bedroom16.jpg",
+        "walls": {
+          "left": "/assets/images/bedroom/bedroom16/left-wall.svg",
+          "front": "/assets/images/bedroom/bedroom16/front-wall.svg",
+          "right": "/assets/images/bedroom/bedroom16/right-wall.svg",
+          "roof": "/assets/images/bedroom/bedroom16/roof-wall.svg"
+        }
+      },
+      {
+        "name": "bedroom17",
+        "label": "Bedroom 17",
+        "mainImage": "/assets/images/bedroom/bedroom17/bedroom17.jpg",
+        "walls": {
+          "left": "/assets/images/bedroom/bedroom17/left-wall.svg",
+          "front": "/assets/images/bedroom/bedroom17/front-wall.svg",
+          "right": "/assets/images/bedroom/bedroom17/right-wall.svg",
+          "roof": "/assets/images/bedroom/bedroom17/roof-wall.svg"
+        }
+      },
+      {
+        "name": "bedroom18",
+        "label": "Bedroom 18",
+        "mainImage": "/assets/images/bedroom/bedroom18/bedroom18.jpg",
+        "walls": {
+          "left": "/assets/images/bedroom/bedroom18/left-wall.svg",
+          "front": "/assets/images/bedroom/bedroom18/front-wall.svg",
+          "right": "/assets/images/bedroom/bedroom18/right-wall.svg",
+          "roof": "/assets/images/bedroom/bedroom18/roof-wall.svg"
+        }
+      },
+      {
+        "name": "bedroom19",
+        "label": "Bedroom 19",
+        "mainImage": "/assets/images/bedroom/bedroom19/bedroom19.jpg",
+        "walls": {
+          "roof": "/assets/images/bedroom/bedroom19/roof-wall.svg"
+        }
+      },
+      {
+        "name": "bedroom20",
+        "label": "Bedroom 20",
+        "mainImage": "/assets/images/bedroom/bedroom20/bedroom20.jpg",
+        "walls": {
+          "left": "/assets/images/bedroom/bedroom20/left-wall.svg",
+          "front": "/assets/images/bedroom/bedroom20/front-wall.svg",
+          "right": "/assets/images/bedroom/bedroom20/right-wall.svg",
+          "roof": "/assets/images/bedroom/bedroom20/roof-wall.svg"
+        }
       }
     ]
   },

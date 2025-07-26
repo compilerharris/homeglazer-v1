@@ -58,27 +58,31 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         />
         {/* SVG Overlay for wall masking */}
         <svg 
-          className="svg-overlay absolute inset-0 w-full h-full pointer-events-none"
+          className="svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply"
           viewBox="0 0 1280 720"
           preserveAspectRatio="xMidYMid slice"
         >
-          <defs>
-            <mask id="wall-mask">
-              <rect width="100%" height="100%" fill="black"/>
-              {wallKeys.map((wallKey) => {
-                if (!assignments[wallKey] || !wallMasks[wallKey]) return null;
-                return <path key={wallKey} d={wallMasks[wallKey]} fill="white"/>;
-              })}
-            </mask>
-          </defs>
-          <rect 
-            width="100%" 
-            height="100%" 
-            fill={wallKeys.map(wallKey => assignments[wallKey]).filter(Boolean)[0] || "#ffffff"} 
-            opacity="0.7"
-            mask="url(#wall-mask)"
-            className="wall-path"
-          />
+          {wallKeys.map((wallKey) => {
+            if (!assignments[wallKey] || !wallMasks[wallKey]) return null;
+            return (
+              <g key={wallKey}>
+                <defs>
+                  <mask id={`wall-mask-${wallKey}`}>
+                    <rect width="100%" height="100%" fill="black"/>
+                    <path d={wallMasks[wallKey]} fill="white"/>
+                  </mask>
+                </defs>
+                <rect 
+                  width="100%" 
+                  height="100%" 
+                  fill={assignments[wallKey]}
+                  opacity="0.7"
+                  mask={`url(#wall-mask-${wallKey})`}
+                  className="wall-path"
+                />
+              </g>
+            );
+          })}
         </svg>
         {loadingMasks && (
           <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
