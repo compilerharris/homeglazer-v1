@@ -159,11 +159,20 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
           {Array.from({length: 12}).map((_, idx) => (
             <div key={idx} className="w-16 h-16 border-2 border-gray-200 rounded-lg flex items-center justify-center bg-white relative flex-shrink-0">
               {selectedColors[idx] ? (
-                <div 
-                  className="w-12 h-12 rounded border-2 border-white shadow-sm" 
-                  style={{ background: selectedColors[idx].colorHex }}
-                  title={`${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})`}
-                />
+                <>
+                  <div 
+                    className="w-12 h-12 rounded border-2 border-white shadow-sm" 
+                    style={{ background: selectedColors[idx].colorHex }}
+                    title={`${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})`}
+                  />
+                  <button
+                    className="absolute -top-2 -right-2 w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center text-xs text-gray-500 hover:bg-gray-100 z-10"
+                    onClick={() => onRemoveColor(selectedColors[idx].colorHex)}
+                    aria-label="Remove color"
+                  >
+                    ×
+                  </button>
+                </>
               ) : (
                 <div className="w-12 h-12 rounded border-2 border-dashed border-gray-300 flex items-center justify-center text-gray-400">
                   +
