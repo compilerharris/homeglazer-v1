@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Header from '../../../../../components/home/Header';
 import Footer from '../../../../../components/home/Footer';
 import Head from 'next/head';
@@ -99,6 +100,15 @@ const BasicVisualiserPage: React.FC = () => {
   const [showPrevArrow, setShowPrevArrow] = useState(false);
   const [showNextArrow, setShowNextArrow] = useState(false);
 
+  // For brand scroll arrows
+  const brandScrollRef = useRef<HTMLDivElement>(null);
+  const [showBrandPrevArrow, setShowBrandPrevArrow] = useState(false);
+  const [showBrandNextArrow, setShowBrandNextArrow] = useState(false);
+
+  // For dynamic mobile layout
+  const kitchenRef = useRef<HTMLDivElement>(null);
+  const [isMobileLayoutFixed, setIsMobileLayoutFixed] = useState(true);
+
   // Load brand JSON dynamically
   useEffect(() => {
     const loadBrand = async () => {
@@ -148,14 +158,14 @@ const BasicVisualiserPage: React.FC = () => {
 
   // Handle brand/category/color selection
   const handleBrandClick = (id: string) => {
-    router.push(`/colour-visualiser/basic/${id}`);
+    router.push(`/colour-visualiser/basic/${id}`, undefined, { scroll: false });
   };
   const handleCategoryClick = (cat: string) => {
     if (!colorDatabase) return;
     const colors = colorDatabase.colorTypes[cat] || [];
     if (colors.length > 0) {
       const cleanColorCode = colors[0].colorCode.replace(/\s+/g, '-');
-      router.push(`/colour-visualiser/basic/${selectedBrand}/${cat}/${toKebabCase(colors[0].colorName)}-${cleanColorCode}`);
+      router.push(`/colour-visualiser/basic/${selectedBrand}/${cat}/${toKebabCase(colors[0].colorName)}-${cleanColorCode}`, undefined, { scroll: false });
     }
   };
   const handleColorClick = (color: any) => {
@@ -215,8 +225,68 @@ const BasicVisualiserPage: React.FC = () => {
     };
   }, [colorDatabase, selectedBrand]);
 
+  // Check for overflow in brand scroll
+  useEffect(() => {
+    const checkBrandOverflow = () => {
+      const el = brandScrollRef.current;
+      if (el) {
+        setShowBrandPrevArrow(el.scrollLeft > 0);
+        setShowBrandNextArrow(el.scrollWidth > el.clientWidth + el.scrollLeft + 1);
+      }
+    };
+    checkBrandOverflow();
+    window.addEventListener('resize', checkBrandOverflow);
+    if (brandScrollRef.current) {
+      brandScrollRef.current.addEventListener('scroll', checkBrandOverflow);
+    }
+    return () => {
+      window.removeEventListener('resize', checkBrandOverflow);
+      if (brandScrollRef.current) {
+        brandScrollRef.current.removeEventListener('scroll', checkBrandOverflow);
+      }
+    };
+  }, []);
+
+  // Handle dynamic mobile layout based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth > 768) return; // Only for mobile/tablet
+      
+      const kitchenElement = kitchenRef.current;
+      if (!kitchenElement) return;
+
+      const kitchenRect = kitchenElement.getBoundingClientRect();
+      const kitchenTop = kitchenRect.top + window.scrollY;
+      const kitchenBottom = kitchenRect.bottom + window.scrollY;
+      const currentScrollY = window.scrollY;
+      
+      // Switch to static only when kitchen image is fully visible (top of kitchen is at or above viewport top)
+      // This ensures palette stays fixed while viewing living room
+      setIsMobileLayoutFixed(kitchenRect.top > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
   const scrollCategory = (dir: 'left' | 'right') => {
     const el = categoryScrollRef.current;
+    if (el) {
+      const scrollAmount = 150;
+      el.scrollBy({ left: dir === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const scrollBrand = (dir: 'left' | 'right') => {
+    const el = brandScrollRef.current;
     if (el) {
       const scrollAmount = 150;
       el.scrollBy({ left: dir === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
@@ -230,27 +300,60 @@ const BasicVisualiserPage: React.FC = () => {
         <meta name="description" content="Visualise wall paint colors by brand, category, and shade. Try Home Glazer's Basic Color Visualiser for Asian Paints, Nerolac, Berger, JSW and more." />
       </Head>
       <Header />
-      <main className="min-h-screen bg-gray-50 pt-4 md:pt-16 pb-2 flex flex-col items-center px-4 md:px-0">
-        <h1 className="mt-4 md:mt-12 text-3xl font-bold text-[#ED276E] mb-4 text-center">
+      <main className="min-h-screen bg-gray-50 pt-4 md:pt-16 pb-20 md:pb-2 flex flex-col items-center px-4 md:px-0">
+        <h1 className="mt-20 md:mt-12 text-3xl font-bold text-[#ED276E] mb-4 text-center">
           {selectedColor ? `${toSentenceCase(selectedColor.colorName)} | Colour Code ${selectedColor.colorCode} | ${toSentenceCase(BRAND_CONFIG.find(b => b.id === selectedBrand)?.name || '')} | Home Glazer` : 'Basic Color Visualiser'}
         </h1>
-        {/* Brand Tabs */}
-        <div className="w-full flex justify-center mb-2">
-          <div className="flex gap-4 w-full max-w-2xl overflow-x-auto flex-nowrap scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent md:overflow-x-visible md:flex-nowrap md:w-auto md:max-w-fit md:justify-center">
-            {BRAND_CONFIG.map((brand) => (
+        {/* Brand Tabs - Desktop Only */}
+        <div className="hidden md:flex w-full justify-center mb-2">
+          <div className="flex items-center justify-center mb-4 relative w-full max-w-2xl mx-auto">
+            {showBrandPrevArrow && (
               <button
-                key={brand.id}
-                className={`sm:px-6 px-3 sm:py-2 py-1 rounded-full font-medium border transition-all duration-200 whitespace-nowrap sm:text-base text-sm ${selectedBrand === brand.id ? 'bg-[#299dd7] text-white border-[#299dd7]' : 'bg-white text-[#299dd7] border-[#299dd7] hover:bg-[#e6f2fa]'}`}
-                onClick={() => handleBrandClick(brand.id)}
+                className="absolute left-0 z-10 bg-white border border-gray-300 rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-gray-100 transition disabled:opacity-30"
+                style={{ top: '50%', transform: 'translateY(-50%)' }}
+                onClick={() => scrollBrand('left')}
+                aria-label="Scroll left"
               >
-                {brand.name}
+                <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M13 15l-5-5 5-5" stroke="#888" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </button>
-            ))}
+            )}
+            <div
+              className="overflow-x-auto w-full scrollbar-hide"
+              ref={brandScrollRef}
+              style={{ 
+                scrollbarWidth: 'none', 
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch',
+                scrollBehavior: 'smooth'
+              }}
+            >
+              <div className="flex gap-4 flex-nowrap justify-start px-4 w-full min-w-max">
+                {BRAND_CONFIG.map((brand) => (
+                  <button
+                    key={brand.id}
+                    className={`sm:px-6 px-3 sm:py-2 py-1 rounded-full font-medium border transition-all duration-200 whitespace-nowrap sm:text-base text-sm flex-shrink-0 ${selectedBrand === brand.id ? 'bg-[#299dd7] text-white border-[#299dd7]' : 'bg-white text-[#299dd7] border-[#299dd7] hover:bg-[#e6f2fa]'}`}
+                    onClick={() => handleBrandClick(brand.id)}
+                  >
+                    {brand.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {showBrandNextArrow && (
+              <button
+                className="absolute right-0 z-10 bg-white border border-gray-300 rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-gray-100 transition disabled:opacity-30"
+                style={{ top: '50%', transform: 'translateY(-50%)' }}
+                onClick={() => scrollBrand('right')}
+                aria-label="Scroll right"
+              >
+                <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M7 5l5 5-5 5" stroke="#888" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </button>
+            )}
           </div>
         </div>
-        {/* Category Tabs */}
+        {/* Category Tabs - Desktop Only */}
         {colorDatabase && (
-          <div className="w-[90%] max-w-[90%] mx-auto flex items-center justify-center mb-4 relative">
+          <div className="hidden md:block w-[90%] max-w-[90%] mx-auto flex items-center justify-center mb-4 relative">
             {showPrevArrow && (
               <button
                 className="absolute left-0 z-10 bg-white border border-gray-300 rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-gray-100 transition disabled:opacity-30"
@@ -279,7 +382,10 @@ const BasicVisualiserPage: React.FC = () => {
                       style={{
                         borderColor: selectedCategory === cat ? categoryColor : '#e5e7eb',
                       }}
-                      onClick={() => handleCategoryClick(cat)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleCategoryClick(cat);
+                      }}
                     >
                       <div 
                         className="w-4 h-4 rounded-full flex-shrink-0"
@@ -313,6 +419,7 @@ const BasicVisualiserPage: React.FC = () => {
               <div
                 key={label}
                 data-room={label}
+                ref={label === 'kitchen' ? kitchenRef : null}
                 className="w-full flex flex-col border-2 rounded-lg transition-all duration-200"
               >
                 <div className="w-full aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden mb-2 flex items-center justify-center relative">
@@ -348,8 +455,9 @@ const BasicVisualiserPage: React.FC = () => {
               </div>
             ))}
           </div>
-          {/* Swatch palette on right */}
-          <div className="flex-1 md:flex-[1] flex flex-col items-center">
+          
+          {/* Desktop Swatch palette on right */}
+          <div className="hidden md:flex flex-1 md:flex-[1] flex flex-col items-center">
             {selectedCategory && selectedColor && (
               <div className="sticky top-24 w-full flex flex-col items-center min-h-[600px]">
                 <h2 className="text-xl font-semibold text-[#299dd7] mb-2">{colorDatabase?.brand}</h2>
@@ -397,6 +505,119 @@ const BasicVisualiserPage: React.FC = () => {
                 )}
               </div>
             )}
+          </div>
+        </div>
+        
+        {/* Mobile Dynamic Bottom Section (Palette + Category Types + Brand Selector) */}
+        <div className={`md:hidden bg-white border-t border-gray-200 z-50 transition-all duration-300 ${
+          isMobileLayoutFixed ? 'fixed left-0 right-0 bottom-[68px]' : 'static mt-4 w-full max-w-screen-xl mx-auto px-4'
+        }`}>
+          {/* Color Swatches Carousel */}
+          {colorDatabase && selectedCategory && (
+            <div className={`py-3 border-b border-gray-100 ${isMobileLayoutFixed ? 'px-4' : 'px-0'}`}>
+              <div className="overflow-x-auto scrollbar-hide">
+                <div className="flex gap-3 min-w-max">
+                  {colors.map((color: any, idx: number) => (
+                    <button
+                      key={color.colorName+color.colorCode+idx}
+                      className={`flex flex-col items-center gap-2 p-3 rounded-lg border-2 transition-all duration-200 min-w-[120px] flex-shrink-0 ${selectedColor && selectedColor.colorName === color.colorName && selectedColor.colorCode === color.colorCode ? 'border-[#299dd7] bg-blue-50' : 'border-gray-200 bg-white'}`}
+                      onClick={() => handleColorClick(color)}
+                    >
+                      <div className="w-10 h-10 rounded-lg border-2 border-gray-200 flex-shrink-0" style={{ background: color.colorHex }} />
+                      <div className="flex flex-col items-center">
+                        <span className="text-xs text-gray-600 text-center font-medium">{toSentenceCase(color.colorName)}</span>
+                        <span className="text-xs text-gray-400 text-center">{color.colorCode}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+          {/* Category Selector */}
+          {colorDatabase && (
+            <div className={`py-3 border-b border-gray-100 ${isMobileLayoutFixed ? 'px-4' : 'px-0'}`}>
+              <div className="overflow-x-auto scrollbar-hide">
+                <div className="flex gap-3 min-w-max">
+                  {Object.keys(colorDatabase.colorTypes).map((cat: string) => {
+                    const categoryColor = CATEGORY_COLORS[cat] || '#ED276E';
+                    return (
+                      <button
+                        key={cat}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-200 whitespace-nowrap text-sm flex-shrink-0 ${
+                          selectedCategory === cat 
+                            ? 'bg-white shadow-md border-2' 
+                            : 'bg-white hover:bg-gray-50 border-2'
+                        }`}
+                        style={{
+                          borderColor: selectedCategory === cat ? categoryColor : '#e5e7eb',
+                        }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleCategoryClick(cat);
+                        }}
+                      >
+                        <div 
+                          className="w-3 h-3 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: categoryColor }}
+                        />
+                        <span className="text-gray-700 font-semibold tracking-wide">
+                          {cat.toUpperCase()}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            )}
+  
+  {/* Brand Selector - Mobile Only */}
+  <div className={`py-3 border-b border-gray-100 ${isMobileLayoutFixed ? 'px-4' : 'px-0'}`}>
+    <div className="overflow-x-auto scrollbar-hide">
+      <div className="flex gap-3 min-w-max">
+        {BRAND_CONFIG.map((brand) => (
+          <button
+            key={brand.id}
+            className={`sm:px-4 px-3 sm:py-2 py-1 rounded-full font-medium border transition-all duration-200 whitespace-nowrap text-sm flex-shrink-0 ${selectedBrand === brand.id ? 'bg-[#299dd7] text-white border-[#299dd7]' : 'bg-white text-[#299dd7] border-[#299dd7] hover:bg-[#e6f2fa]'}`}
+            onClick={() => handleBrandClick(brand.id)}
+          >
+            {brand.name}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* Action Buttons - Always Fixed */}
+        <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
+          <div className="flex gap-3">
+            <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px]">
+              Enquire Now
+            </Link>
+            <Link href="/calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px]">
+              Budget Calculator
+            </Link>
+          </div>
+        </div>
+        
+        {/* Advanced Visualiser and Enquiry Tiles */}
+        <div className="w-full max-w-screen-xl mt-16 mb-8">
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+            {/* Advanced Visualiser Tile */}
+            <div className="bg-white rounded-xl shadow-lg p-8 flex-1 max-w-md flex flex-col items-center hover:shadow-2xl transition cursor-pointer">
+              <span className="text-2xl font-semibold text-[#ED276E] mb-4">Advanced Visualiser</span>
+              <p className="text-gray-600 text-center mb-4">Choose different colors for each wall and roof<br />across multiple room types.</p>
+              <Link href="/colour-visualiser/advanced" className="mt-auto px-6 py-2 rounded-full bg-[#ED276E] text-white font-medium hover:bg-[#b81d5a] transition text-center w-full">Try Advanced Visualiser</Link>
+            </div>
+            
+            {/* Enquiry Tile */}
+            <div className="bg-white rounded-xl shadow-lg p-8 flex-1 max-w-md flex flex-col items-center hover:shadow-2xl transition cursor-pointer">
+              <span className="text-2xl font-semibold text-[#299dd7] mb-4">Get Free Quote</span>
+              <p className="text-gray-600 text-center mb-4">Ready to transform your space? Get a free consultation and quote from our experts.</p>
+              <Link href="/enquiry" className="mt-auto px-6 py-2 rounded-full bg-[#299dd7] text-white font-medium hover:bg-[#237bb0] transition text-center w-full">Enquire Now</Link>
+            </div>
           </div>
         </div>
       </main>
