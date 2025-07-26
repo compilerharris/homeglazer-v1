@@ -2,7 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/colour-visualiser/basic/[brand]/[category]/[color]": "pages/colour-visualiser/basic/[brand]/[category]/[color].js",
+  "/services/painting": "pages/services/painting.js",
+  "/services/painting/kids-room": "pages/services/painting/kids-room.js",
   "/about": "pages/about.js",
-  "/colour-visualiser/basic/[brand]": "pages/colour-visualiser/basic/[brand].js"
+  "/colour-visualiser/advanced": "pages/colour-visualiser/advanced.js",
+  "/colour-visualiser": "pages/colour-visualiser.js"
 }

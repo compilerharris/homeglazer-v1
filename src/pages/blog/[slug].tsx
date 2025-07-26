@@ -1,9 +1,11 @@
 import React from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
-import BlogContent from '@/components/blog/BlogContent';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
+import BlogContent from '@/components/blog/BlogContent';
+import BlogSidebar from '@/components/blog/BlogSidebar';
 import CTAButton from '@/components/home/CTAButton';
 import { blogPosts, getPostBySlug, getRelatedPosts } from '@/data/blogPosts';
 import { 
@@ -13,7 +15,6 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
-import BlogSidebar from '@/components/blog/BlogSidebar';
 
 const BlogPost: React.FC = () => {
   const router = useRouter();
@@ -98,6 +99,18 @@ const BlogPost: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      {/* Mobile Action Buttons - Fixed at Bottom */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
+        <div className="flex gap-3">
+          <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px]">
+            Enquire Now
+          </Link>
+          <Link href="/calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px]">
+            Budget Calculator
+          </Link>
+        </div>
+      </div>
       
       <Footer />
       <WhatsAppButton />

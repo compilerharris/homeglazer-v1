@@ -19,15 +19,25 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/colour-visualiser/basic/[brand]": [
+    "/about": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/colour-visualiser/basic/[brand].js"
+      "static/chunks/pages/about.js"
     ],
-    "/colour-visualiser/basic/[brand]/[category]/[color]": [
+    "/colour-visualiser": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/colour-visualiser/basic/[brand]/[category]/[color].js"
+      "static/chunks/pages/colour-visualiser.js"
+    ],
+    "/colour-visualiser/advanced": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/colour-visualiser/advanced.js"
+    ],
+    "/services/painting/kids-room": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/painting/kids-room.js"
     ]
   },
   "ampFirstPages": []
