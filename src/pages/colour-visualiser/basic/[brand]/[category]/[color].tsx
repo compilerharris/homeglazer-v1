@@ -94,6 +94,11 @@ const BasicVisualiserPage: React.FC = () => {
   const [colorPage, setColorPage] = useState(0);
   const svgRef = useRef<SVGSVGElement>(null);
 
+  // For category scroll arrows
+  const categoryScrollRef = useRef<HTMLDivElement>(null);
+  const [showPrevArrow, setShowPrevArrow] = useState(false);
+  const [showNextArrow, setShowNextArrow] = useState(false);
+
   // Load brand JSON dynamically
   useEffect(() => {
     const loadBrand = async () => {
@@ -188,6 +193,36 @@ const BasicVisualiserPage: React.FC = () => {
     ? `${toSentenceCase(selectedColor.colorName)} | Colour Code ${selectedColor.colorCode} | ${toSentenceCase(BRAND_CONFIG.find(b => b.id === selectedBrand)?.name || '')} | Home Glazer`
     : 'Basic Color Visualiser | Home Glazer';
 
+  // Check for overflow in category scroll
+  useEffect(() => {
+    const checkOverflow = () => {
+      const el = categoryScrollRef.current;
+      if (el) {
+        setShowPrevArrow(el.scrollLeft > 0);
+        setShowNextArrow(el.scrollWidth > el.clientWidth + el.scrollLeft + 1);
+      }
+    };
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+    if (categoryScrollRef.current) {
+      categoryScrollRef.current.addEventListener('scroll', checkOverflow);
+    }
+    return () => {
+      window.removeEventListener('resize', checkOverflow);
+      if (categoryScrollRef.current) {
+        categoryScrollRef.current.removeEventListener('scroll', checkOverflow);
+      }
+    };
+  }, [colorDatabase, selectedBrand]);
+
+  const scrollCategory = (dir: 'left' | 'right') => {
+    const el = categoryScrollRef.current;
+    if (el) {
+      const scrollAmount = 150;
+      el.scrollBy({ left: dir === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <Head>
@@ -215,34 +250,59 @@ const BasicVisualiserPage: React.FC = () => {
         </div>
         {/* Category Tabs */}
         {colorDatabase && (
-          <div className="w-full flex justify-center mb-4">
-            <div className="flex gap-4 w-[90%] overflow-x-auto flex-nowrap scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent justify-center">
-              {Object.keys(colorDatabase.colorTypes).map((cat: string) => {
-                const categoryColor = CATEGORY_COLORS[cat] || '#ED276E';
-                return (
-                  <button
-                    key={cat}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 whitespace-nowrap text-sm flex-shrink-0 ${
-                      selectedCategory === cat 
-                        ? 'bg-white shadow-md border-2' 
-                        : 'bg-white hover:bg-gray-50 border-2'
-                    }`}
-                    style={{
-                      borderColor: selectedCategory === cat ? categoryColor : '#e5e7eb',
-                    }}
-                    onClick={() => handleCategoryClick(cat)}
-                  >
-                    <div 
-                      className="w-4 h-4 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: categoryColor }}
-                    />
-                    <span className="text-gray-700 font-semibold tracking-wide">
-                      {cat.toUpperCase()}
-                    </span>
-                  </button>
-                );
-              })}
+          <div className="w-[90%] max-w-[90%] mx-auto flex items-center justify-center mb-4 relative">
+            {showPrevArrow && (
+              <button
+                className="absolute left-0 z-10 bg-white border border-gray-300 rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-gray-100 transition disabled:opacity-30"
+                style={{ top: '50%', transform: 'translateY(-50%)' }}
+                onClick={() => scrollCategory('left')}
+                aria-label="Scroll left"
+              >
+                <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M13 15l-5-5 5-5" stroke="#888" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </button>
+            )}
+            <div
+              className="overflow-x-auto w-full scrollbar-hide"
+              ref={categoryScrollRef}
+            >
+              <div className="inline-flex gap-4 min-w-max flex-nowrap justify-center px-2">
+                {Object.keys(colorDatabase.colorTypes).map((cat: string) => {
+                  const categoryColor = CATEGORY_COLORS[cat] || '#ED276E';
+                  return (
+                    <button
+                      key={cat}
+                      className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 whitespace-nowrap text-sm flex-shrink-0 ${
+                        selectedCategory === cat 
+                          ? 'bg-white shadow-md border-2' 
+                          : 'bg-white hover:bg-gray-50 border-2'
+                      }`}
+                      style={{
+                        borderColor: selectedCategory === cat ? categoryColor : '#e5e7eb',
+                      }}
+                      onClick={() => handleCategoryClick(cat)}
+                    >
+                      <div 
+                        className="w-4 h-4 rounded-full flex-shrink-0"
+                        style={{ backgroundColor: categoryColor }}
+                      />
+                      <span className="text-gray-700 font-semibold tracking-wide">
+                        {cat.toUpperCase()}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
+            {showNextArrow && (
+              <button
+                className="absolute right-0 z-10 bg-white border border-gray-300 rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-gray-100 transition disabled:opacity-30"
+                style={{ top: '50%', transform: 'translateY(-50%)' }}
+                onClick={() => scrollCategory('right')}
+                aria-label="Scroll right"
+              >
+                <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M7 5l5 5-5 5" stroke="#888" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </button>
+            )}
           </div>
         )}
         {/* 2-column layout: left = images, right = swatches */}
