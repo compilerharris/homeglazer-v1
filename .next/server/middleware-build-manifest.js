@@ -28,6 +28,11 @@ self.__BUILD_MANIFEST = {
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/colour-visualiser/advanced.js"
+    ],
+    "/colour-visualiser/basic/[brand]/[category]/[color]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/colour-visualiser/basic/[brand]/[category]/[color].js"
     ]
   },
   "ampFirstPages": []

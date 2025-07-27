@@ -29,6 +29,31 @@ const capitalizeWords = (str: string): string => {
   return str.replace(/\b\w/g, (char) => char.toUpperCase());
 };
 
+// Color mapping for category buttons
+const CATEGORY_COLORS: Record<string, string> = {
+  'Greys': '#808080',
+  'Grays': '#808080',
+  'Blues': '#0066CC',
+  'Browns': '#8B4513',
+  'Reds': '#FF0000',
+  'Oranges': '#FF6600',
+  'Yellows': '#FFD700',
+  'Greens': '#228B22',
+  'Purples': '#800080',
+  'Violets': '#800080',
+  'Pinks': '#FF69B4',
+  'Neutrals': '#D3D3D3',
+  'Whites': '#FFFFFF',
+  'Blacks': '#000000',
+  'Metallics': '#C0C0C0',
+  'Pastels': '#FFB6C1',
+  'Earth Tones': '#8B4513',
+  'Classic Neutrals': '#D3D3D3',
+  'Creams': '#FFFDD0',
+  'Beige': '#F5F5DC',
+  'Violet': '#800080',
+};
+
 const ColourSelection: React.FC<ColourSelectionProps> = ({
   colorTypes,
   selectedColorType,
@@ -62,7 +87,18 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
 
     checkCategoryScroll();
     window.addEventListener('resize', checkCategoryScroll);
-    return () => window.removeEventListener('resize', checkCategoryScroll);
+    
+    // Add scroll event listener to the category container
+    if (categoryScrollRef.current) {
+      categoryScrollRef.current.addEventListener('scroll', checkCategoryScroll);
+    }
+    
+    return () => {
+      window.removeEventListener('resize', checkCategoryScroll);
+      if (categoryScrollRef.current) {
+        categoryScrollRef.current.removeEventListener('scroll', checkCategoryScroll);
+      }
+    };
   }, [colorTypes]);
 
   // Handle dynamic button positioning based on scroll
@@ -209,19 +245,31 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
                 }}
               >
                 <div className="flex gap-3 min-w-max px-4">
-                  {colorTypes.map((colorType) => (
-                    <button
-                      key={colorType}
-                      className={`px-4 py-2 rounded-full font-medium border transition-all duration-200 whitespace-nowrap text-sm flex-shrink-0 ${
-                        selectedColorType === colorType 
-                          ? 'bg-[#299dd7] text-white border-[#299dd7]' 
-                          : 'bg-white text-[#299dd7] border-[#299dd7] hover:bg-[#e6f2fa]'
-                      }`}
-                      onClick={() => onSelectColorType(colorType)}
-                    >
-                      {colorType}
-                    </button>
-                  ))}
+                  {colorTypes.map((colorType) => {
+                    const categoryColor = CATEGORY_COLORS[colorType] || '#ED276E';
+                    return (
+                      <button
+                        key={colorType}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 whitespace-nowrap text-sm flex-shrink-0 ${
+                          selectedColorType === colorType 
+                            ? 'bg-white shadow-md border-2' 
+                            : 'bg-white hover:bg-gray-50 border-2'
+                        }`}
+                        style={{
+                          borderColor: selectedColorType === colorType ? categoryColor : '#e5e7eb',
+                        }}
+                        onClick={() => onSelectColorType(colorType)}
+                      >
+                        <div 
+                          className="w-4 h-4 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: categoryColor }}
+                        />
+                        <span className="text-gray-700 font-semibold tracking-wide">
+                          {colorType.toUpperCase()}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 

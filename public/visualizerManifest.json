@@ -185,7 +185,6 @@
         "label": "Bedroom 18",
         "mainImage": "/assets/images/bedroom/bedroom18/bedroom18.jpg",
         "walls": {
-          "left": "/assets/images/bedroom/bedroom18/left-wall.svg",
           "front": "/assets/images/bedroom/bedroom18/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom18/right-wall.svg",
           "roof": "/assets/images/bedroom/bedroom18/roof-wall.svg"

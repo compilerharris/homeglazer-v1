@@ -459,18 +459,18 @@ const BasicVisualiserPage: React.FC = () => {
           {/* Desktop Swatch palette on right */}
           <div className="hidden md:flex flex-1 md:flex-[1] flex flex-col items-center">
             {selectedCategory && selectedColor && (
-              <div className="sticky top-24 w-full flex flex-col items-center min-h-[600px]">
+              <div className="sticky top-24 w-full flex flex-col items-center min-h-[500px]">
                 <h2 className="text-xl font-semibold text-[#299dd7] mb-2">{colorDatabase?.brand}</h2>
-                <div className="grid w-full max-w-[400px] grid-cols-2 gap-4 md:gap-4 overflow-x-hidden flex-wrap">
+                <div className="grid w-full max-w-[400px] grid-cols-2 gap-3 md:gap-3 overflow-x-hidden flex-wrap max-h-[450px]">
                   {paginatedColors.map((color: any, idx: number) => (
                     <button
                       key={color.colorName+color.colorCode+idx}
-                      className={`flex flex-col items-center gap-2 p-3 rounded-lg border-2 transition-all duration-200 min-w-[180px] ${selectedColor && selectedColor.colorName === color.colorName && selectedColor.colorCode === color.colorCode ? 'border-[#299dd7] bg-blue-50' : 'border-gray-200 bg-white'}`}
+                      className={`flex flex-col items-center gap-1.5 p-2 rounded-lg border-2 transition-all duration-200 min-w-[160px] ${selectedColor && selectedColor.colorName === color.colorName && selectedColor.colorCode === color.colorCode ? 'border-[#299dd7] bg-blue-50' : 'border-gray-200 bg-white'}`}
                       onClick={() => handleColorClick(color)}
                     >
-                      <div className="w-12 h-12 rounded-lg border-2 border-gray-200 flex-shrink-0" style={{ background: color.colorHex }} />
+                      <div className="w-10 h-10 rounded-lg border-2 border-gray-200 flex-shrink-0" style={{ background: color.colorHex }} />
                       <div className="flex flex-col items-center">
-                        <span className="text-sm text-gray-600 text-center font-medium">{toSentenceCase(color.colorName)}</span>
+                        <span className="text-xs text-gray-600 text-center font-medium">{toSentenceCase(color.colorName)}</span>
                         <span className="text-xs text-gray-400 text-center">{color.colorCode}</span>
                       </div>
                     </button>
