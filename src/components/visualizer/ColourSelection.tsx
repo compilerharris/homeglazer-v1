@@ -296,18 +296,26 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
             {colorsForType.map((color) => {
               const isSelected = selectedColors.some(c => c.colorHex === color.colorHex);
               const selectionIndex = selectedColors.findIndex(c => c.colorHex === color.colorHex);
+              const isMaxSelected = selectedColors.length >= 12;
+              const isDisabled = !isSelected && isMaxSelected;
               
               return (
                 <div key={color.colorHex} className="relative">
                   <button
-                    className={`w-16 h-16 md:w-20 md:h-20 rounded-lg border-2 transition-all duration-200 cursor-pointer ${
+                    className={`w-16 h-16 md:w-20 md:h-20 rounded-lg border-2 transition-all duration-200 ${
                       isSelected
-                        ? 'border-[#299dd7] shadow-lg hover:border-red-400 hover:shadow-xl'
-                        : 'border-gray-300 hover:border-[#299dd7] hover:shadow-md'
+                        ? 'border-[#299dd7] shadow-lg hover:border-red-400 hover:shadow-xl cursor-pointer'
+                        : isDisabled
+                        ? 'border-gray-200 opacity-50 cursor-not-allowed'
+                        : 'border-gray-300 hover:border-[#299dd7] hover:shadow-md cursor-pointer'
                     }`}
                     style={{ backgroundColor: color.colorHex }}
-                    onClick={() => onAddColor(color)}
-                    title={`${isSelected ? 'Click to remove' : 'Click to select'} ${capitalizeWords(color.colorName)} (${color.colorCode})`}
+                    onClick={() => !isDisabled && onAddColor(color)}
+                    disabled={isDisabled}
+                    title={isDisabled 
+                      ? 'Maximum 12 colours selected. Remove some colours to add more.' 
+                      : `${isSelected ? 'Click to remove' : 'Click to select'} ${capitalizeWords(color.colorName)} (${color.colorCode})`
+                    }
                   >
                     {/* Selection number indicator */}
                     {isSelected && (
@@ -376,7 +384,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
       }`}>
         <button
           className="w-full px-8 py-4 rounded-xl bg-[#299dd7] text-white font-bold text-lg shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-          disabled={selectedColors.length === 0}
+          disabled={selectedColors.length < 3}
           onClick={onNext}
         >
           COLOUR YOUR ROOM <span className="text-2xl">→</span>
@@ -391,7 +399,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
           <button
             className="px-8 py-4 rounded-xl bg-white text-black font-bold text-lg shadow-lg border border-gray-200 flex items-center gap-2 z-50 disabled:opacity-50 mx-auto"
             style={{ minWidth: 280 }}
-            disabled={selectedColors.length === 0}
+            disabled={selectedColors.length < 3}
             onClick={onNext}
           >
             COLOUR YOUR ROOM <span className="text-2xl">→</span>

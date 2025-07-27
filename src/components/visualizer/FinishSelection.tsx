@@ -182,10 +182,10 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               </div>
             )}
             
-            {/* Colors Applied */}
+            {/* Colours Applied */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-sm font-medium text-gray-600">Colors Applied:</span>
+                <span className="text-sm font-medium text-gray-600">Colours Applied:</span>
                 <span className="text-sm text-gray-800">{Object.keys(assignments).filter(key => assignments[key]).length} walls</span>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -349,10 +349,10 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               </div>
             )}
             
-            {/* Colors Applied */}
+            {/* Colours Applied */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-sm font-medium text-gray-600">Colors Applied:</span>
+                <span className="text-sm font-medium text-gray-600">Colours Applied:</span>
                 <span className="text-sm text-gray-800">{Object.keys(assignments).filter(key => assignments[key]).length} walls</span>
               </div>
               <div className="flex flex-wrap gap-2">
