@@ -197,7 +197,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                       <div className="w-3 h-3 rounded-full" style={{ background: color }} />
                       <span className="text-xs text-gray-700">{wallLabels[wallKey] || wallKey}</span>
                       {colorInfo && (
-                        <span className="text-xs text-gray-500">({colorInfo.colorName} - {colorInfo.colorCode})</span>
+                        <span className="text-xs text-gray-500">({capitalizeWords(colorInfo.colorName)} - {colorInfo.colorCode})</span>
                       )}
                     </div>
                   );
@@ -231,7 +231,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                       style={{ background: color }}
                       onClick={() => onAssignColor(color)}
                       aria-label={`Apply color ${color}`}
-                      title={selectedColors[idx] ? `${selectedColors[idx].colorName} (${selectedColors[idx].colorCode})` : color}
+                      title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color}
                     />
                     {/* Colour name and code */}
                     {selectedColors[idx] && (
@@ -364,7 +364,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                       <div className="w-3 h-3 rounded-full" style={{ background: color }} />
                       <span className="text-xs text-gray-700">{wallLabels[wallKey] || wallKey}</span>
                       {colorInfo && (
-                        <span className="text-xs text-gray-500">({colorInfo.colorName} - {colorInfo.colorCode})</span>
+                        <span className="text-xs text-gray-500">({capitalizeWords(colorInfo.colorName)} - {colorInfo.colorCode})</span>
                       )}
                     </div>
                   );
@@ -399,7 +399,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                     style={{ background: color }}
                     onClick={() => onAssignColor(color)}
                     aria-label={`Apply color ${color}`}
-                    title={selectedColors[idx] ? `${selectedColors[idx].colorName} (${selectedColors[idx].colorCode})` : color}
+                    title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color}
                   />
                   {/* Colour name and code */}
                   {selectedColors[idx] && (
