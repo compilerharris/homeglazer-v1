@@ -60,13 +60,13 @@ export interface BrandConfig {
 
 // Brand configuration mapping with direct imports
 export const BRAND_CONFIG: BrandConfig[] = [
-  { id: 'asian-paints', name: 'Asian Paints', data: asianPaintsColors as BrandColorData, logo: '/assets/images/home-glazer-logo-1.png' },
-  { id: 'nerolac', name: 'Nerolac', data: nerolacColors as BrandColorData, logo: '/assets/images/kansai-nerolac-paints-limited7357-removebg-preview.png' },
-  { id: 'berger', name: 'Berger', data: bergerColors as BrandColorData, logo: '/assets/images/icon-2.svg' },
-  { id: 'jsw', name: 'JSW', data: jswColors as BrandColorData, logo: '/assets/images/nippon-paint-logo-png-seeklogo-353779-removebg-preview.png' },
-  { id: 'birla-opus', name: 'Birla Opus', data: birlaOpusColors as BrandColorData, logo: '/assets/images/rectangle-94.png' },
-  { id: 'ncs', name: 'NCS', data: ncsColors as BrandColorData, logo: '/assets/images/icon-1.svg' },
-  { id: 'ral', name: 'RAL', data: ralColors as BrandColorData, logo: '/assets/images/icon-1.svg' },
+  { id: 'asian-paints', name: 'Asian Paints', data: asianPaintsColors as BrandColorData, logo: '/assets/images/brand-logos/asian-paints-logo.webp' },
+  { id: 'nerolac', name: 'Nerolac', data: nerolacColors as BrandColorData, logo: '/assets/images/brand-logos/nerolac-logo.webp' },
+  { id: 'berger', name: 'Berger', data: bergerColors as BrandColorData, logo: '/assets/images/brand-logos/berger-logo.webp' },
+  { id: 'jsw', name: 'JSW', data: jswColors as BrandColorData, logo: '/assets/images/brand-logos/jsw-logo.webp' },
+  { id: 'birla-opus', name: 'Birla Opus', data: birlaOpusColors as BrandColorData, logo: '/assets/images/brand-logos/birla-opus-logo.webp' },
+  { id: 'ncs', name: 'NCS', data: ncsColors as BrandColorData, logo: '/assets/images/brand-logos/ncs-logo.webp' },
+  { id: 'ral', name: 'RAL', data: ralColors as BrandColorData, logo: '/assets/images/brand-logos/ral-logo.webp' },
 ];
 
 export const CATEGORIES = [

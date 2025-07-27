@@ -148,7 +148,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
 
   if (loadingBrandData) {
     return (
-      <main className="min-h-screen bg-gray-50 pt-28 pb-8 flex flex-col items-center px-4 md:px-0">
+      <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 md:px-0">
         <div className="w-full max-w-4xl flex items-center mb-6">
           <button
             className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"
@@ -168,7 +168,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 pt-28 pb-8 flex flex-col items-center px-4 md:px-0">
+    <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 md:px-0">
       <div className="w-full max-w-4xl flex items-center mb-6">
         <button
           className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"

@@ -300,7 +300,7 @@ const BasicVisualiserPage: React.FC = () => {
         <meta name="description" content="Visualise wall paint colors by brand, category, and shade. Try Home Glazer's Basic Color Visualiser for Asian Paints, Nerolac, Berger, JSW and more." />
       </Head>
       <Header />
-      <main className="min-h-screen bg-gray-50 pt-4 md:pt-16 pb-20 md:pb-2 flex flex-col items-center px-4 md:px-0">
+      <main className="min-h-screen bg-white pt-4 md:pt-16 pb-20 md:pb-2 flex flex-col items-center px-4 md:px-0">
         <h1 className="mt-20 md:mt-12 text-3xl font-bold text-[#ED276E] mb-4 text-center">
           {selectedColor ? `${toSentenceCase(selectedColor.colorName)} | Colour Code ${selectedColor.colorCode} | ${toSentenceCase(BRAND_CONFIG.find(b => b.id === selectedBrand)?.name || '')} | Home Glazer` : 'Basic Color Visualiser'}
         </h1>
@@ -465,13 +465,13 @@ const BasicVisualiserPage: React.FC = () => {
                   {paginatedColors.map((color: any, idx: number) => (
                     <button
                       key={color.colorName+color.colorCode+idx}
-                      className={`flex flex-col items-center gap-1.5 p-2 rounded-lg border-2 transition-all duration-200 min-w-[160px] ${selectedColor && selectedColor.colorName === color.colorName && selectedColor.colorCode === color.colorCode ? 'border-[#299dd7] bg-blue-50' : 'border-gray-200 bg-white'}`}
+                      className={`flex items-center gap-3 p-2 rounded-lg transition-all duration-200 w-full ${selectedColor && selectedColor.colorName === color.colorName && selectedColor.colorCode === color.colorCode ? 'border-2 border-[#299dd7]' : 'border-2 border-transparent'}`}
                       onClick={() => handleColorClick(color)}
                     >
-                      <div className="w-10 h-10 rounded-lg border-2 border-gray-200 flex-shrink-0" style={{ background: color.colorHex }} />
-                      <div className="flex flex-col items-center">
-                        <span className="text-xs text-gray-600 text-center font-medium">{toSentenceCase(color.colorName)}</span>
-                        <span className="text-xs text-gray-400 text-center">{color.colorCode}</span>
+                      <div className="w-16 h-16 rounded-lg flex-shrink-0" style={{ background: color.colorHex }} />
+                      <div className="flex flex-col items-start flex-1">
+                        <span className="text-sm text-gray-800 font-medium text-left">{toSentenceCase(color.colorName)}</span>
+                        <span className="text-xs text-gray-500 text-left">{color.colorCode}</span>
                       </div>
                     </button>
                   ))}
@@ -520,13 +520,13 @@ const BasicVisualiserPage: React.FC = () => {
                   {colors.map((color: any, idx: number) => (
                     <button
                       key={color.colorName+color.colorCode+idx}
-                      className={`flex flex-col items-center gap-2 p-3 rounded-lg border-2 transition-all duration-200 min-w-[120px] flex-shrink-0 ${selectedColor && selectedColor.colorName === color.colorName && selectedColor.colorCode === color.colorCode ? 'border-[#299dd7] bg-blue-50' : 'border-gray-200 bg-white'}`}
+                      className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200 min-w-[200px] flex-shrink-0 ${selectedColor && selectedColor.colorName === color.colorName && selectedColor.colorCode === color.colorCode ? 'border-2 border-[#299dd7]' : 'border-2 border-transparent'}`}
                       onClick={() => handleColorClick(color)}
                     >
-                      <div className="w-10 h-10 rounded-lg border-2 border-gray-200 flex-shrink-0" style={{ background: color.colorHex }} />
-                      <div className="flex flex-col items-center">
-                        <span className="text-xs text-gray-600 text-center font-medium">{toSentenceCase(color.colorName)}</span>
-                        <span className="text-xs text-gray-400 text-center">{color.colorCode}</span>
+                      <div className="w-14 h-14 rounded-lg flex-shrink-0" style={{ background: color.colorHex }} />
+                      <div className="flex flex-col items-start flex-1">
+                        <span className="text-sm text-gray-800 font-medium text-left">{toSentenceCase(color.colorName)}</span>
+                        <span className="text-xs text-gray-500 text-left">{color.colorCode}</span>
                       </div>
                     </button>
                   ))}
