@@ -403,6 +403,12 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
         <div className={`transition-all duration-300 ${
           isButtonFixed ? 'fixed left-1/2 -translate-x-1/2 bottom-6 z-50' : 'absolute left-1/2 -translate-x-1/2 bottom-6 z-40'
         }`}>
+          {/* Instructional Message - Above Button (only show when fewer than 3 colors selected) */}
+          {selectedColors.length < 3 && (
+            <div aria-live="polite" className="text-sm text-muted-foreground text-center mb-3">
+              Please select at least 3 colors to continue.
+            </div>
+          )}
           <button
             className="px-8 py-4 rounded-xl bg-white text-black font-bold text-lg shadow-lg border border-gray-200 flex items-center gap-2 z-50 disabled:opacity-50 disabled:cursor-not-allowed mx-auto"
             style={{ minWidth: 280 }}
