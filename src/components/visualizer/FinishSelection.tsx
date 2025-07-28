@@ -56,12 +56,90 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   onStepClick,
 }) => {
   const wallKeys = Object.keys(variant.walls);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const previewScrollRef = useRef<HTMLDivElement>(null);
+  const previewImageRef = useRef<HTMLDivElement>(null);
+  const mobilePreviewRef = useRef<HTMLDivElement>(null);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
   
   // Convert selectedColors to palette (hex values)
   const palette = selectedColors.map(color => color.colorHex);
+
+  // Check scroll position for arrow visibility
+  const checkScrollPosition = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  };
+
+  // Handle wall thumbnail click with scroll
+  const handleWallClick = (wallKey: string) => {
+    onOpenPalette(wallKey);
+    // Scroll to breadcrumbs section after a short delay to ensure palette is rendered
+    setTimeout(() => {
+      // Scroll to the breadcrumbs section for both desktop and mobile
+      if (previewImageRef.current) {
+        previewImageRef.current.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+    }, 100);
+  };
+
+  // Auto-scroll wiggle animation and swipe hint on first render (mobile only)
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    
+    if (isMobile) {
+      // Show swipe hint for 3 seconds
+      setShowSwipeHint(true);
+      
+      // Hide hint after 3 seconds
+      const hideTimer = setTimeout(() => {
+        setShowSwipeHint(false);
+      }, 3000);
+      
+      // Wiggle animation after a longer delay to ensure DOM is ready
+      const wiggleTimer = setTimeout(() => {
+        if (previewScrollRef.current) {
+          const container = previewScrollRef.current;
+          console.log('Performing wiggle animation'); // Debug log
+          container.scrollLeft += 50;
+          setTimeout(() => {
+            container.scrollLeft = 0;
+          }, 500);
+        } else {
+          console.log('Preview scroll container not found'); // Debug log
+        }
+      }, 1500);
+      
+      // Cleanup timers
+      return () => {
+        clearTimeout(hideTimer);
+        clearTimeout(wiggleTimer);
+      };
+    } else {
+      setShowSwipeHint(false);
+    }
+  }, []);
+
+  // Add scroll event listener for arrow visibility
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      checkScrollPosition();
+      container.addEventListener('scroll', checkScrollPosition);
+      return () => container.removeEventListener('scroll', checkScrollPosition);
+    }
+  }, []);
   
   return (
-    <main className="min-h-screen bg-white pt-28 flex flex-col items-center px-4 md:px-0 relative pb-8">
+    <main className="min-h-screen bg-white pt-20 flex flex-col items-center px-4 md:px-0 relative pb-8">
       <div className="w-full max-w-6xl flex items-center mb-6">
         <button
           className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"
@@ -73,7 +151,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       
       {/* Breadcrumbs */}
       {breadcrumbs.length > 0 && (
-        <div className="w-full max-w-6xl flex justify-start">
+        <div className="w-full max-w-6xl flex justify-start" ref={previewImageRef}>
           <Breadcrumbs items={breadcrumbs} onStepClick={onStepClick} />
         </div>
       )}
@@ -134,7 +212,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               <button
                 key={wallKey}
                 className="flex flex-col items-center group"
-                onClick={() => onOpenPalette(wallKey)}
+                onClick={() => handleWallClick(wallKey)}
                 type="button"
               >
                 <div
@@ -250,78 +328,145 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       </div>
       
       {/* Mobile Layout - Stacked */}
-      <div className="md:hidden w-full max-w-2xl">
-        {/* Room image */}
-        <div className="mb-6 relative" style={{ aspectRatio: '16/9' }}>
-          <img
-            src={variant.mainImage}
-            alt={variant.label}
-            className="w-full h-full rounded-lg object-cover"
-            style={{ display: 'block', width: '100%', height: '100%' }}
-          />
-          {/* SVG Overlay for wall masking */}
-          <svg 
-            className="svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply"
-            viewBox="0 0 1280 720"
-            preserveAspectRatio="xMidYMid slice"
+      <div className="md:hidden w-full">
+        {/* Room image - 60% screen height with horizontal scroll */}
+        <div className="h-[60vh] mb-3 relative overflow-hidden">
+          <div 
+            ref={previewScrollRef}
+            className="h-full overflow-x-auto scrollbar-hide relative" 
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch',
+              scrollBehavior: 'smooth'
+            }}
           >
-            {wallKeys.map((wallKey) => {
-              if (!assignments[wallKey] || !wallMasks[wallKey]) return null;
-              return (
-                <g key={wallKey}>
-                  <defs>
-                    <mask id={`wall-mask-mobile-${wallKey}`}>
-                      <rect width="100%" height="100%" fill="black"/>
-                      <path d={wallMasks[wallKey]} fill="white"/>
-                    </mask>
-                  </defs>
-                  <rect 
-                    width="100%" 
-                    height="100%" 
-                    fill={assignments[wallKey]}
-                    opacity="0.7"
-                    mask={`url(#wall-mask-mobile-${wallKey})`}
-                    className="wall-path"
+            <div className="h-full flex items-center justify-center min-w-max">
+              <div className="relative h-full flex items-center justify-center">
+                <img
+                  src={variant.mainImage}
+                  alt={variant.label}
+                  className="h-full w-auto max-w-none rounded-lg object-contain"
+                  style={{ display: 'block' }}
+                />
+                {/* SVG Overlay for wall masking */}
+                <svg 
+                  className="svg-overlay absolute inset-0 h-full w-auto max-w-none pointer-events-none mix-blend-multiply"
+                  viewBox="0 0 1280 720"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  {wallKeys.map((wallKey) => {
+                    if (!assignments[wallKey] || !wallMasks[wallKey]) return null;
+                    return (
+                      <g key={wallKey}>
+                        <defs>
+                          <mask id={`wall-mask-mobile-${wallKey}`}>
+                            <rect width="100%" height="100%" fill="black"/>
+                            <path d={wallMasks[wallKey]} fill="white"/>
+                          </mask>
+                        </defs>
+                        <rect 
+                          width="100%" 
+                          height="100%" 
+                          fill={assignments[wallKey]}
+                          opacity="0.7"
+                          mask={`url(#wall-mask-mobile-${wallKey})`}
+                          className="wall-path"
+                        />
+                      </g>
+                    );
+                  })}
+                </svg>
+                {loadingMasks && (
+                  <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
+                    <div className="text-gray-500">Loading masks...</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+          
+          {/* Swipe hint overlay */}
+          {showSwipeHint && (
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
+              <div className="bg-white rounded-lg p-6 shadow-lg text-center max-w-xs mx-4">
+                <div className="mb-3 flex justify-center">
+                  <img 
+                    src="/assets/images/swipe-left-icon.svg" 
+                    alt="Swipe gesture" 
+                    className="w-12 h-12"
                   />
-                </g>
-              );
-            })}
-          </svg>
-          {loadingMasks && (
-            <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
-              <div className="text-gray-500">Loading masks...</div>
+                </div>
+                <p className="text-gray-800 font-semibold text-lg mb-2">Swipe left & right</p>
+                <p className="text-gray-600 text-sm">for full preview</p>
+              </div>
             </div>
           )}
         </div>
         <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Select wall to paint:</h2>
-        {/* Wall sides grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-2xl mb-6">
-          {wallKeys.map((wallKey) => (
-            <button
-              key={wallKey}
-              className="flex flex-col items-center group"
-              onClick={() => onOpenPalette(wallKey)}
-              type="button"
-            >
-              <div
-                className="w-28 h-20 rounded border-2 flex items-center justify-center mb-2 relative transition-all duration-200 overflow-hidden"
-                style={{ borderColor: assignments[wallKey] || '#e5e7eb', background: assignments[wallKey] || '#fff' }}
+        {/* Wall sides scrollable row - Mobile/Tablet */}
+        <div className="md:hidden w-full max-w-2xl mb-6 relative pb-2">
+          <button
+            type="button"
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full w-8 h-8 flex items-center justify-center shadow-md transition-opacity duration-200 ${canScrollLeft ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            onClick={() => {
+              if (scrollContainerRef.current) scrollContainerRef.current.scrollBy({ left: -160, behavior: 'smooth' });
+            }}
+            aria-label="Scroll left"
+          >
+            <span className="text-2xl">‹</span>
+          </button>
+          <div
+            ref={scrollContainerRef}
+            className="overflow-x-auto scrollbar-hide flex gap-4 px-4"
+            style={{ scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch' }}
+          >
+            {wallKeys.map((wallKey) => (
+              <button
+                key={wallKey}
+                className={`flex flex-col items-center group flex-shrink-0 w-28 bg-white rounded-xl border-2 transition-all duration-200 ${assignments[wallKey] ? 'shadow-lg' : 'shadow'}`}
+                onClick={() => handleWallClick(wallKey)}
+                type="button"
+                style={{ 
+                  minWidth: '7rem',
+                  borderColor: assignments[wallKey] || '#e5e7eb'
+                }}
               >
-                {wallMasks[wallKey] ? (
-                  <svg
-                    className="w-full h-full"
-                    viewBox="0 0 1280 720"
-                    style={{ opacity: assignments[wallKey] ? 1 : 0.2 }}
-                  >
-                    <path d={wallMasks[wallKey]} fill={assignments[wallKey] || '#f3f4f6'} />
-                  </svg>
-                ) : (
-                  <div className="text-xs text-gray-400">Loading...</div>
-                )}
-              </div>
-              <span className="text-base font-medium text-gray-700 text-center mt-1">{wallLabels[wallKey] || wallKey}</span>
-            </button>
-          ))}
+                <div
+                  className="h-20 flex items-center justify-center relative overflow-hidden mx-auto"
+                  style={{ 
+                    background: assignments[wallKey] || '#fff',
+                    width: '6.8rem',
+                    borderTopLeftRadius: '0.5rem',
+                    borderTopRightRadius: '0.5rem'
+                  }}
+                >
+                  {wallMasks[wallKey] ? (
+                    <svg
+                      className="w-full h-full"
+                      viewBox="0 0 1280 720"
+                      style={{ opacity: assignments[wallKey] ? 1 : 0.2 }}
+                    >
+                      <path d={wallMasks[wallKey]} fill={assignments[wallKey] || '#f3f4f6'} />
+                    </svg>
+                  ) : (
+                    <div className="text-xs text-gray-400">Loading...</div>
+                  )}
+                </div>
+                <span className="text-base font-medium text-gray-700 text-center py-2 px-1">{wallLabels[wallKey] || wallKey}</span>
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full w-8 h-8 flex items-center justify-center shadow-md transition-opacity duration-200 ${canScrollRight ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            onClick={() => {
+              if (scrollContainerRef.current) scrollContainerRef.current.scrollBy({ left: 160, behavior: 'smooth' });
+            }}
+            aria-label="Scroll right"
+          >
+            <span className="text-2xl">›</span>
+          </button>
         </div>
         
         {/* Mobile/Tablet Information Box */}

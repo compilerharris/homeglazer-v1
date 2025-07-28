@@ -354,7 +354,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
       {/* Mobile Fixed Bottom Section - Colour Types */}
       {colorTypes.length > 0 && (
         <div className={`md:hidden bg-white border-t border-gray-200 z-40 transition-all duration-300 ${
-          isButtonFixed ? 'fixed left-0 right-0 bottom-[150px]' : 'static mt-4 w-full max-w-screen-xl mx-auto px-4'
+          isButtonFixed ? `fixed left-0 right-0 ${selectedColors.length >= 3 ? 'bottom-[156px]' : 'bottom-[176px]'}` : 'static mt-4 w-full max-w-screen-xl mx-auto px-4'
         }`}>
           <div className="py-3 px-4">
             <div className="overflow-x-auto scrollbar-hide">
@@ -382,9 +382,16 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
       <div className={`md:hidden bg-white border-t border-gray-200 px-4 py-3 transition-all duration-300 ${
         isButtonFixed ? 'fixed left-0 right-0 bottom-[68px] z-50' : 'absolute left-0 right-0 bottom-0 z-40'
       }`}>
+        {/* Instructional Message - Above Button (only hide when 3+ colors selected) */}
+        {selectedColors.length < 3 && (
+          <div aria-live="polite" className="text-sm text-muted-foreground text-center">
+            Please select at least 3 colors to continue.
+          </div>
+        )}
         <button
           className="w-full px-8 py-4 rounded-xl bg-[#299dd7] text-white font-bold text-lg shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={selectedColors.length < 3}
+          aria-disabled={selectedColors.length < 3}
           onClick={onNext}
         >
           COLOUR YOUR ROOM <span className="text-2xl">→</span>
@@ -396,10 +403,18 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
         <div className={`transition-all duration-300 ${
           isButtonFixed ? 'fixed left-1/2 -translate-x-1/2 bottom-6 z-50' : 'absolute left-1/2 -translate-x-1/2 bottom-6 z-40'
         }`}>
+          {/* Instructional Message */}
+          <div aria-live="polite" className="text-sm text-muted-foreground text-center mb-3">
+            {selectedColors.length < 3 
+              ? "Please select at least 3 colors to continue." 
+              : "You're ready to color your room!"
+            }
+          </div>
           <button
-            className="px-8 py-4 rounded-xl bg-white text-black font-bold text-lg shadow-lg border border-gray-200 flex items-center gap-2 z-50 disabled:opacity-50 mx-auto"
+            className="px-8 py-4 rounded-xl bg-white text-black font-bold text-lg shadow-lg border border-gray-200 flex items-center gap-2 z-50 disabled:opacity-50 disabled:cursor-not-allowed mx-auto"
             style={{ minWidth: 280 }}
             disabled={selectedColors.length < 3}
+            aria-disabled={selectedColors.length < 3}
             onClick={onNext}
           >
             COLOUR YOUR ROOM <span className="text-2xl">→</span>

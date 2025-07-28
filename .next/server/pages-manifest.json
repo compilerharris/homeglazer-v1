@@ -2,8 +2,7 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/colour-visualiser/basic/[brand]/[category]/[color]": "pages/colour-visualiser/basic/[brand]/[category]/[color].js",
   "/colour-visualiser/advanced": "pages/colour-visualiser/advanced.js",
-  "/404": "pages/404.js",
-  "/colour-visualiser/basic": "pages/colour-visualiser/basic.js"
+  "/colour-visualiser/basic": "pages/colour-visualiser/basic.js",
+  "/colour-visualiser/basic/[brand]/[category]/[color]": "pages/colour-visualiser/basic/[brand]/[category]/[color].js"
 }
