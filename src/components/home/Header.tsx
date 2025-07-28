@@ -221,6 +221,7 @@ const Header: React.FC = () => {
                 </div>
               </details>
             </div>
+            <Link href="/products" onClick={closeMenu} className="py-2">Products</Link>
             <Link href="/blog" onClick={closeMenu} className="py-2">Painting Blogs</Link>
             <Link href="/about" onClick={closeMenu} className="py-2">About Us</Link>
             <Link href="/enquiry" onClick={closeMenu} className="py-2">Enquire Now</Link>

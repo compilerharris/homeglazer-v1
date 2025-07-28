@@ -24,15 +24,30 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/products": [
+    "/blog": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/products.js"
+      "static/chunks/pages/blog.js"
     ],
-    "/products/[brand]/[slug]": [
+    "/calculator": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/products/[brand]/[slug].js"
+      "static/chunks/pages/calculator.js"
+    ],
+    "/calculator/painting": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/calculator/painting.js"
+    ],
+    "/calculator/wood-polishing": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/calculator/wood-polishing.js"
+    ],
+    "/colour-visualiser": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/colour-visualiser.js"
     ]
   },
   "ampFirstPages": []
