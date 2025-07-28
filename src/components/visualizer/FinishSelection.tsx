@@ -31,6 +31,9 @@ const wallLabels: Record<string, string> = {
   left: 'Left Wall',
   right: 'Right Wall',
   roof: 'Roof',
+  door: 'Door',
+  window: 'Window',
+  table: 'Table',
 };
 
 // Utility function to capitalize first letter of each word
@@ -63,7 +66,12 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const [showSwipeHint, setShowSwipeHint] = useState(true);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
   
+  // Debug log for showSwipeHint state
+  console.log('Current showSwipeHint state:', showSwipeHint);
+  console.log('Current isZoomed state:', isZoomed);
+
   // Convert selectedColors to palette (hex values)
   const palette = selectedColors.map(color => color.colorHex);
 
@@ -79,10 +87,10 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   // Handle wall thumbnail click with scroll
   const handleWallClick = (wallKey: string) => {
     onOpenPalette(wallKey);
-    // Scroll to breadcrumbs section after a short delay to ensure palette is rendered
+    // Scroll to breadcrumbs section after a short delay to ensure palette is rendered (mobile only)
     setTimeout(() => {
-      // Scroll to the breadcrumbs section for both desktop and mobile
-      if (previewImageRef.current) {
+      // Only scroll on mobile devices
+      if (previewImageRef.current && window.innerWidth < 768) {
         previewImageRef.current.scrollIntoView({ 
           behavior: 'smooth', 
           block: 'start' 
@@ -91,40 +99,35 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     }, 100);
   };
 
+  // Handle zoom toggle
+  const handleZoomToggle = () => {
+    const newZoomState = !isZoomed;
+    setIsZoomed(newZoomState);
+  };
+
   // Auto-scroll wiggle animation and swipe hint on first render (mobile only)
   useEffect(() => {
-    const isMobile = window.innerWidth < 768;
+    console.log('Step 5 useEffect - previewScrollRef.current:', !!previewScrollRef.current);
     
-    if (isMobile) {
+    if (previewScrollRef.current) {
+      console.log('Step 5 - Showing swipe hint');
       // Show swipe hint for 3 seconds
-      setShowSwipeHint(true);
-      
-      // Hide hint after 3 seconds
-      const hideTimer = setTimeout(() => {
+      setTimeout(() => {
+        console.log('Step 5 - Hiding swipe hint after 3 seconds');
         setShowSwipeHint(false);
       }, 3000);
       
-      // Wiggle animation after a longer delay to ensure DOM is ready
-      const wiggleTimer = setTimeout(() => {
+      // Perform wiggle animation after 1.5 seconds
+      setTimeout(() => {
+        console.log('Step 5 - Performing wiggle animation');
         if (previewScrollRef.current) {
           const container = previewScrollRef.current;
-          console.log('Performing wiggle animation'); // Debug log
           container.scrollLeft += 50;
           setTimeout(() => {
             container.scrollLeft = 0;
           }, 500);
-        } else {
-          console.log('Preview scroll container not found'); // Debug log
         }
       }, 1500);
-      
-      // Cleanup timers
-      return () => {
-        clearTimeout(hideTimer);
-        clearTimeout(wiggleTimer);
-      };
-    } else {
-      setShowSwipeHint(false);
     }
   }, []);
 
@@ -329,11 +332,11 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       
       {/* Mobile Layout - Stacked */}
       <div className="md:hidden w-full">
-        {/* Room image - 60% screen height with horizontal scroll */}
-        <div className="h-[60vh] mb-3 relative overflow-hidden">
+        {/* Room image - with zoom functionality */}
+        <div className={`${isZoomed ? 'h-auto' : 'h-[60vh]'} mb-3 relative overflow-hidden transition-all duration-500 ease-in-out`}>
           <div 
             ref={previewScrollRef}
-            className="h-full overflow-x-auto scrollbar-hide relative" 
+            className={`${isZoomed ? 'h-auto' : 'h-full'} overflow-x-auto scrollbar-hide relative transition-all duration-500 ease-in-out`}
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
@@ -341,17 +344,17 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               scrollBehavior: 'smooth'
             }}
           >
-            <div className="h-full flex items-center justify-center min-w-max">
-              <div className="relative h-full flex items-center justify-center">
+            <div className={`${isZoomed ? 'w-full' : 'h-full flex items-center justify-center min-w-max'} transition-all duration-500 ease-in-out`}>
+              <div className={`relative ${isZoomed ? 'w-full' : 'h-full flex items-center justify-center'} transition-all duration-500 ease-in-out`}>
                 <img
                   src={variant.mainImage}
                   alt={variant.label}
-                  className="h-full w-auto max-w-none rounded-lg object-contain"
+                  className={`${isZoomed ? 'w-full h-auto object-contain' : 'h-full w-auto max-w-none object-contain'} rounded-lg transition-all duration-500 ease-in-out transform`}
                   style={{ display: 'block' }}
                 />
                 {/* SVG Overlay for wall masking */}
                 <svg 
-                  className="svg-overlay absolute inset-0 h-full w-auto max-w-none pointer-events-none mix-blend-multiply"
+                  className={`svg-overlay absolute inset-0 ${isZoomed ? 'w-full h-full' : 'h-full w-auto max-w-none'} pointer-events-none mix-blend-multiply transition-all duration-500 ease-in-out`}
                   viewBox="0 0 1280 720"
                   preserveAspectRatio="xMidYMid meet"
                 >
@@ -386,9 +389,26 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             </div>
           </div>
           
-          {/* Swipe hint overlay */}
-          {showSwipeHint && (
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
+          {/* Zoom Toggle Button */}
+          <button
+            onClick={handleZoomToggle}
+            className="absolute bottom-4 right-4 z-20 rounded-full bg-white p-2 shadow-md hover:bg-gray-100 transition-colors duration-200"
+            aria-label={isZoomed ? "Zoom out" : "Zoom in"}
+          >
+            {isZoomed ? (
+              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7" />
+              </svg>
+            )}
+          </button>
+          
+          {/* Swipe hint overlay (original) - only show when not zoomed */}
+          {showSwipeHint && !isZoomed && (
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20 transition-opacity duration-300">
               <div className="bg-white rounded-lg p-6 shadow-lg text-center max-w-xs mx-4">
                 <div className="mb-3 flex justify-center">
                   <img 
