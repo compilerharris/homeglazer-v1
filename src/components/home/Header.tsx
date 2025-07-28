@@ -146,6 +146,10 @@ const Header: React.FC = () => {
       ))
     }, 
     {
+      label: 'Products',
+      path: '/products'
+    },
+    {
       label: 'Painting Blogs',
       path: '/blog'
     }, 

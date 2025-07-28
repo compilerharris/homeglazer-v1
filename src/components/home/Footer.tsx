@@ -97,7 +97,10 @@ const Footer: React.FC<FooterProps> = ({ showSentinel, onSentinelRef }) => {
               </h3>
               <div className="flex flex-col gap-2 mt-2">
                 <Link href="/" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Home</Link>
+                <Link href="/products" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Products</Link>
                 <Link href="/blog" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Blog</Link>
+                <Link href="/colour-visualiser/basic" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Basic Visualizer</Link>
+                <Link href="/colour-visualiser/advanced" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Advanced Visualizer</Link>
                 <Link href="/calculator" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Budget Calculator</Link>
                 <Link href="/calculator/painting" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Painting Calculator</Link>
                 <Link href="/calculator/wood-polishing" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Wood Polishing Calculator</Link>
