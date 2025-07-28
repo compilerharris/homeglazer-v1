@@ -67,10 +67,23 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
   
   // Debug log for showSwipeHint state
   console.log('Current showSwipeHint state:', showSwipeHint);
   console.log('Current isZoomed state:', isZoomed);
+
+  // Check screen size for responsive width
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1400);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   // Convert selectedColors to palette (hex values)
   const palette = selectedColors.map(color => color.colorHex);
@@ -160,9 +173,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       )}
       
       {/* Desktop Layout - Side by Side */}
-      <div className="hidden md:flex w-full max-w-6xl gap-8">
+      <div className="hidden md:flex w-full max-w-6xl gap-8" style={{ maxWidth: isLargeScreen ? '1408px' : '1152px' }}>
         {/* Left Column - Room Preview */}
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <div className="relative" style={{ aspectRatio: '16/9' }}>
             <img
               src={variant.mainImage}
@@ -206,7 +219,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           </div>
         </div>
         
-        {/* Right Column - Wall Selection */}
+        {/* Right Column - Wall Selection - Fixed Width */}
         <div className="w-80 flex-shrink-0 relative">
           <h2 className="text-xl font-semibold text-[#299dd7] mb-4">Select wall to paint:</h2>
           {/* Wall sides grid */}
