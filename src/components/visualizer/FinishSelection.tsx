@@ -177,14 +177,14 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         {/* Left Column - Room Preview */}
         <div className="flex-1 min-w-0">
           <div className="relative" style={{ aspectRatio: '16/9' }}>
-            <img
-              src={variant.mainImage}
-              alt={variant.label}
-              className="w-full h-full rounded-lg object-cover"
-              style={{ display: 'block', width: '100%', height: '100%' }}
-            />
+        <img
+          src={variant.mainImage}
+          alt={variant.label}
+          className="w-full h-full rounded-lg object-cover"
+          style={{ display: 'block', width: '100%', height: '100%' }}
+        />
             {/* SVG Overlay for wall masking */}
-            <svg 
+            <svg
               className="svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply"
               viewBox="0 0 1280 720"
               preserveAspectRatio="xMidYMid slice"
@@ -211,42 +211,42 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                 );
               })}
             </svg>
-            {loadingMasks && (
-              <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
-                <div className="text-gray-500">Loading masks...</div>
-              </div>
-            )}
+        {loadingMasks && (
+          <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
+            <div className="text-gray-500">Loading masks...</div>
           </div>
+        )}
+      </div>
         </div>
         
         {/* Right Column - Wall Selection - Fixed Width */}
         <div className="w-80 flex-shrink-0 relative">
           <h2 className="text-xl font-semibold text-[#299dd7] mb-4">Select wall to paint:</h2>
-          {/* Wall sides grid */}
+      {/* Wall sides grid */}
           <div className="grid grid-cols-2 gap-4 mb-6">
-            {wallKeys.map((wallKey) => (
-              <button
-                key={wallKey}
-                className="flex flex-col items-center group"
+        {wallKeys.map((wallKey) => (
+          <button
+            key={wallKey}
+            className="flex flex-col items-center group"
                 onClick={() => handleWallClick(wallKey)}
-                type="button"
-              >
-                <div
+            type="button"
+          >
+            <div
                   className="w-full h-24 rounded-lg border-2 flex items-center justify-center mb-2 relative transition-all duration-200 overflow-hidden"
-                  style={{ borderColor: assignments[wallKey] || '#e5e7eb', background: assignments[wallKey] || '#fff' }}
+              style={{ borderColor: assignments[wallKey] || '#e5e7eb', background: assignments[wallKey] || '#fff' }}
+            >
+              {wallMasks[wallKey] ? (
+                <svg
+                  className="w-full h-full"
+                  viewBox="0 0 1280 720"
+                  style={{ opacity: assignments[wallKey] ? 1 : 0.2 }}
                 >
-                  {wallMasks[wallKey] ? (
-                    <svg
-                      className="w-full h-full"
-                      viewBox="0 0 1280 720"
-                      style={{ opacity: assignments[wallKey] ? 1 : 0.2 }}
-                    >
-                      <path d={wallMasks[wallKey]} fill={assignments[wallKey] || '#f3f4f6'} />
-                    </svg>
-                  ) : (
-                    <div className="text-xs text-gray-400">Loading...</div>
-                  )}
-                </div>
+                  <path d={wallMasks[wallKey]} fill={assignments[wallKey] || '#f3f4f6'} />
+                </svg>
+              ) : (
+                <div className="text-xs text-gray-400">Loading...</div>
+              )}
+            </div>
                 <span className="text-sm font-medium text-gray-700 text-center">{wallLabels[wallKey] || wallKey}</span>
               </button>
             ))}
@@ -487,9 +487,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                   )}
                 </div>
                 <span className="text-base font-medium text-gray-700 text-center py-2 px-1">{wallLabels[wallKey] || wallKey}</span>
-              </button>
-            ))}
-          </div>
+          </button>
+        ))}
+      </div>
           <button
             type="button"
             className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full w-8 h-8 flex items-center justify-center shadow-md transition-opacity duration-200 ${canScrollRight ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
@@ -551,13 +551,13 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             </div>
             
             {/* Download Button */}
-            <button
+      <button
               className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
-              onClick={onDownload}
-            >
+        onClick={onDownload}
+      >
               <span>DOWNLOAD THIS LOOK</span>
               <span className="text-lg">▼</span>
-            </button>
+      </button>
           </div>
         </div>
       </div>
@@ -572,11 +572,11 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             <div className="grid grid-cols-3 gap-4 mb-2">
               {palette.map((color, idx) => (
                 <div key={color + idx} className="flex flex-col items-center">
-                  <button
+                <button
                     className="w-20 h-16 rounded border-2 border-white hover:border-gray-400 focus:outline-none transition-all duration-200"
-                    style={{ background: color }}
-                    onClick={() => onAssignColor(color)}
-                    aria-label={`Apply color ${color}`}
+                  style={{ background: color }}
+                  onClick={() => onAssignColor(color)}
+                  aria-label={`Apply color ${color}`}
                     title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color}
                   />
                   {/* Colour name and code */}

@@ -45,15 +45,15 @@ const ProductSelection: React.FC<ProductSelectionProps> = ({
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 w-full max-w-5xl">
       {BRAND_CONFIG.map((brand) => (
         <div key={brand.id} className="flex flex-col items-center">
-          <button
+        <button
             className="w-full focus:outline-none focus:ring-2 focus:ring-[#299dd7] rounded-xl overflow-hidden"
-            onClick={() => onSelectBrand(brand.id)}
-            type="button"
-          >
+          onClick={() => onSelectBrand(brand.id)}
+          type="button"
+        >
             <div className="w-full aspect-square bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center p-8 overflow-hidden">
               <img src={brand.logo} alt={brand.name} className="object-contain w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Logo')} />
-            </div>
-          </button>
+          </div>
+        </button>
           <span className="text-lg font-semibold text-gray-800 text-center mt-3">{brand.name}</span>
         </div>
       ))}

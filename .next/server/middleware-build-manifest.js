@@ -9,11 +9,6 @@ self.__BUILD_MANIFEST = {
   "lowPriorityFiles": [],
   "rootMainFiles": [],
   "pages": {
-    "/404": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/404.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -24,30 +19,20 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/blog": [
+    "/colour-visualiser/basic/[brand]/[category]/[color]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/blog.js"
+      "static/chunks/pages/colour-visualiser/basic/[brand]/[category]/[color].js"
     ],
-    "/calculator": [
+    "/products": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/calculator.js"
+      "static/chunks/pages/products.js"
     ],
-    "/calculator/painting": [
+    "/products/[brand]/[slug]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/calculator/painting.js"
-    ],
-    "/calculator/wood-polishing": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/calculator/wood-polishing.js"
-    ],
-    "/colour-visualiser": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/colour-visualiser.js"
+      "static/chunks/pages/products/[brand]/[slug].js"
     ]
   },
   "ampFirstPages": []

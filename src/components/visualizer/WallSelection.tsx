@@ -47,15 +47,15 @@ const WallSelection: React.FC<WallSelectionProps> = ({
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl">
       {variants.map((variant) => (
         <div key={variant.name} className="flex flex-col items-center">
-          <button
+        <button
             className="w-full focus:outline-none focus:ring-2 focus:ring-[#299dd7] rounded-xl overflow-hidden"
-            onClick={() => onSelectVariant(variant.name)}
-            type="button"
-          >
+          onClick={() => onSelectVariant(variant.name)}
+          type="button"
+        >
             <div className="w-full h-48 md:h-56 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
               <img src={variant.mainImage} alt={variant.label} className="object-cover w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Room')}/>
-            </div>
-          </button>
+          </div>
+        </button>
           <span className="text-lg font-semibold text-gray-800 text-center mt-3">{variant.label}</span>
         </div>
       ))}

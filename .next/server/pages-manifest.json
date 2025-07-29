@@ -1,11 +1,9 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/calculator/painting": "pages/calculator/painting.js",
-  "/calculator/wood-polishing": "pages/calculator/wood-polishing.js",
-  "/calculator": "pages/calculator.js",
-  "/404": "pages/404.js",
-  "/blog": "pages/blog.js",
-  "/colour-visualiser": "pages/colour-visualiser.js"
+  "/_document": "pages/_document.js",
+  "/colour-visualiser/basic/[brand]/[category]/[color]": "pages/colour-visualiser/basic/[brand]/[category]/[color].js",
+  "/colour-visualiser": "pages/colour-visualiser.js",
+  "/products/[brand]/[slug]": "pages/products/[brand]/[slug].js",
+  "/products": "pages/products.js"
 }
