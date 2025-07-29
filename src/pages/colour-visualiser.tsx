@@ -18,7 +18,7 @@ const ColourVisualiserPage: React.FC = () => {
           </div>
           <div className="bg-white rounded-xl shadow-lg p-8 flex-1 flex flex-col items-center hover:shadow-2xl transition cursor-pointer">
             <span className="text-2xl font-semibold text-[#ED276E] mb-4">Advanced Visualiser</span>
-            <p className="text-gray-600 text-center mb-4">Upload your own room photo, mask walls, and experiment with any colour you want.</p>
+            <p className="text-gray-600 text-center mb-4">Choose different colours for each wall and roof across multiple room types.</p>
             <Link href="/colour-visualiser/advanced" className="mt-auto px-6 py-2 rounded-full bg-[#ED276E] text-white font-medium hover:bg-[#b81d5a] transition text-center w-full">Try Advanced Visualiser</Link>
           </div>
         </div>

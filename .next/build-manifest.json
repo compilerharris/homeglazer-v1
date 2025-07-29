@@ -22,20 +22,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/colour-visualiser/basic/[brand]/[category]/[color]": [
+    "/colour-visualiser/advanced": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/colour-visualiser/basic/[brand]/[category]/[color].js"
+      "static/chunks/pages/colour-visualiser/advanced.js"
     ],
-    "/products": [
+    "/services/customized-painting": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/products.js"
+      "static/chunks/pages/services/customized-painting.js"
     ],
-    "/products/[brand]/[slug]": [
+    "/services/painting/kids-room": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/products/[brand]/[slug].js"
+      "static/chunks/pages/services/painting/kids-room.js"
     ]
   },
   "ampFirstPages": []
