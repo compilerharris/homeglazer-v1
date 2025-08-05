@@ -168,19 +168,15 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
   }
 
   return (
-    <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
-      <div className="w-full max-w-4xl flex items-center mb-6">
-        <button
-          className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"
-          onClick={onBack}
-        >
-          <span className="text-lg">←</span> {backButtonText}
-        </button>
-      </div>
-      
-      {/* Breadcrumbs */}
+    <main className="min-h-screen bg-white pt-20 pb-8 flex flex-col items-center px-4 lg:px-0">
+      {/* Breadcrumbs Section */}
       {breadcrumbs.length > 0 && (
-        <Breadcrumbs items={breadcrumbs} onStepClick={onStepClick} />
+        <div className="w-full max-w-4xl mb-4">
+          <h3 className="text-sm font-medium text-gray-600 mb-2 text-center">
+            Modify your selections here:
+          </h3>
+          <Breadcrumbs items={breadcrumbs} onStepClick={onStepClick} />
+        </div>
       )}
       
       <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Step 4: Select Your Colours</h2>

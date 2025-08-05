@@ -212,19 +212,13 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   }, []);
   
   return (
-    <main className="min-h-screen bg-white pt-20 flex flex-col items-center px-4 lg:px-0 relative pb-8">
-      <div className="w-full max-w-6xl flex items-center mb-6">
-        <button
-          className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"
-          onClick={onBack}
-        >
-          <span className="text-lg">←</span> {backButtonText}
-        </button>
-      </div>
-      
-      {/* Breadcrumbs */}
+    <main className="min-h-screen bg-white pt-12 flex flex-col items-center px-4 lg:px-0 relative pb-8">
+      {/* Breadcrumbs Section */}
       {breadcrumbs.length > 0 && (
-        <div className="w-full max-w-6xl flex justify-start" ref={previewImageRef}>
+        <div className="w-full max-w-6xl mb-4" ref={previewImageRef}>
+          <h3 className="text-sm font-medium text-gray-600 mb-2 text-center">
+            Modify your selections here:
+          </h3>
           <Breadcrumbs items={breadcrumbs} onStepClick={onStepClick} />
         </div>
       )}

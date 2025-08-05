@@ -411,7 +411,7 @@ export function useVisualizer() {
     if (selectedRoomType) {
       const room = manifest.find(r => r.roomType === selectedRoomType);
       breadcrumbs.push({
-        label: room?.label || selectedRoomType,
+        label: `Change Room Type (${room?.label || selectedRoomType})`,
         step: 1,
         isActive: step === 1
       });
@@ -421,7 +421,7 @@ export function useVisualizer() {
     if (selectedVariantName && selectedRoom) {
       const variant = selectedRoom.variants.find(v => v.name === selectedVariantName);
       breadcrumbs.push({
-        label: variant?.label || selectedVariantName,
+        label: `Change Room Variant (${variant?.label || selectedVariantName})`,
         step: 2,
         isActive: step === 2
       });
@@ -431,7 +431,7 @@ export function useVisualizer() {
     if (selectedBrandId) {
       const brand = BRAND_CONFIG.find(b => b.id === selectedBrandId);
       breadcrumbs.push({
-        label: brand?.name || selectedBrandId,
+        label: `Change Paint Brand (${brand?.name || selectedBrandId})`,
         step: 3,
         isActive: step === 3
       });
@@ -440,7 +440,7 @@ export function useVisualizer() {
     // Step 4: Colour Selection
     if (selectedColours.length > 0) {
       breadcrumbs.push({
-        label: `${selectedColours.length} Colours Selected`,
+        label: `Change Colours (${selectedColours.length} Selected)`,
         step: 4,
         isActive: step === 4
       });
