@@ -27,7 +27,7 @@ const WallSelection: React.FC<WallSelectionProps> = ({
   breadcrumbs = [],
   onStepClick,
 }) => (
-  <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 md:px-0">
+  <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
     <div className="w-full max-w-4xl flex items-center mb-6">
       <button
         className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"
@@ -44,7 +44,7 @@ const WallSelection: React.FC<WallSelectionProps> = ({
     
     <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Step 2: Choose a Room Variant</h2>
     <p className="mb-8 text-gray-600 text-center max-w-xl">Pick a photo/variant that best matches your space.</p>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl">
       {variants.map((variant) => (
         <div key={variant.name} className="flex flex-col items-center">
         <button
@@ -52,7 +52,7 @@ const WallSelection: React.FC<WallSelectionProps> = ({
           onClick={() => onSelectVariant(variant.name)}
           type="button"
         >
-            <div className="w-full h-48 md:h-56 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
+            <div className="w-full h-48 lg:h-56 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
               <img src={variant.mainImage} alt={variant.label} className="object-cover w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Room')}/>
           </div>
         </button>

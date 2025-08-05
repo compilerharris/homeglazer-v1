@@ -300,12 +300,12 @@ const BasicVisualiserPage: React.FC = () => {
         <meta name="description" content="Visualise wall paint colors by brand, category, and shade. Try Home Glazer's Basic Color Visualiser for Asian Paints, Nerolac, Berger, JSW and more." />
       </Head>
       <Header />
-      <main className="min-h-screen bg-white pt-4 md:pt-16 pb-20 md:pb-2 flex flex-col items-center px-4 md:px-0">
-        <h1 className="mt-20 md:mt-12 text-3xl font-bold text-[#ED276E] mb-4 text-center">
+      <main className="min-h-screen bg-white pt-4 lg:pt-16 pb-20 lg:pb-2 flex flex-col items-center px-4 lg:px-0">
+        <h1 className="mt-20 lg:mt-12 text-3xl font-bold text-[#ED276E] mb-4 text-center">
           {selectedColor ? `${toSentenceCase(selectedColor.colorName)} | Colour Code ${selectedColor.colorCode} | ${toSentenceCase(BRAND_CONFIG.find(b => b.id === selectedBrand)?.name || '')} | Home Glazer` : 'Basic Color Visualiser'}
         </h1>
         {/* Brand Tabs - Desktop Only */}
-        <div className="hidden md:flex w-full justify-center mb-2">
+        <div className="hidden lg:flex w-full justify-center mb-2">
           <div className="flex items-center justify-center mb-4 relative w-full max-w-2xl mx-auto">
             {showBrandPrevArrow && (
               <button
@@ -353,7 +353,7 @@ const BasicVisualiserPage: React.FC = () => {
         </div>
         {/* Category Tabs - Desktop Only */}
         {colorDatabase && (
-          <div className="hidden md:block w-[90%] max-w-[90%] mx-auto flex items-center justify-center mb-4 relative">
+          <div className="hidden lg:block w-[90%] max-w-[90%] mx-auto flex items-center justify-center mb-4 relative">
             {showPrevArrow && (
               <button
                 className="absolute left-0 z-10 bg-white border border-gray-300 rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-gray-100 transition disabled:opacity-30"
@@ -412,7 +412,7 @@ const BasicVisualiserPage: React.FC = () => {
           </div>
         )}
         {/* 2-column layout: left = images, right = swatches */}
-        <div className="flex flex-col md:flex-row gap-0 w-full max-w-screen-xl">
+        <div className="flex flex-col lg:flex-row gap-0 w-full max-w-screen-xl">
           {/* Images */}
           <div className="flex-1 flex flex-col gap-8 relative">
             {Object.entries(ROOM_IMAGES).map(([label, src]: [string, string]) => (
@@ -457,7 +457,7 @@ const BasicVisualiserPage: React.FC = () => {
           </div>
           
           {/* Desktop Swatch palette on right */}
-          <div className="hidden md:flex flex-1 md:flex-[1] flex flex-col items-center">
+          <div className="hidden lg:flex flex-1 lg:flex-[1] flex flex-col items-center">
             {selectedCategory && selectedColor && (
               <div className="sticky top-24 w-full flex flex-col items-center min-h-[500px]">
                 <h2 className="text-xl font-semibold text-[#299dd7] mb-2">{colorDatabase?.brand}</h2>
@@ -508,22 +508,22 @@ const BasicVisualiserPage: React.FC = () => {
           </div>
         </div>
         
-        {/* Mobile Dynamic Bottom Section (Palette + Category Types + Brand Selector) */}
-        <div className={`md:hidden bg-white border-t border-gray-200 z-50 transition-all duration-300 ${
+        {/* Mobile & Tablet Dynamic Bottom Section (Palette + Category Types + Brand Selector) */}
+        <div className={`lg:hidden bg-white border-t border-gray-200 z-40 transition-all duration-300 ${
           isMobileLayoutFixed ? 'fixed left-0 right-0 bottom-[68px]' : 'static mt-4 w-full max-w-screen-xl mx-auto px-4'
         }`}>
           {/* Color Swatches Carousel */}
           {colorDatabase && selectedCategory && (
             <div className={`py-3 border-b border-gray-100 ${isMobileLayoutFixed ? 'px-4' : 'px-0'}`}>
               <div className="overflow-x-auto scrollbar-hide">
-                <div className="flex gap-3 min-w-max">
+                <div className="flex gap-1 lg:gap-3 min-w-max">
                   {colors.map((color: any, idx: number) => (
                     <button
                       key={color.colorName+color.colorCode+idx}
-                      className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200 min-w-[200px] flex-shrink-0 ${selectedColor && selectedColor.colorName === color.colorName && selectedColor.colorCode === color.colorCode ? 'border-2 border-[#299dd7]' : 'border-2 border-transparent'}`}
+                      className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200 flex-shrink-0 ${selectedColor && selectedColor.colorName === color.colorName && selectedColor.colorCode === color.colorCode ? 'border-2 border-[#299dd7]' : 'border-2 border-transparent'}`}
                       onClick={() => handleColorClick(color)}
                     >
-                      <div className="w-14 h-14 rounded-lg flex-shrink-0" style={{ background: color.colorHex }} />
+                      <div className="w-9 h-9 rounded-lg flex-shrink-0" style={{ background: color.colorHex }} />
                       <div className="flex flex-col items-start flex-1">
                         <span className="text-sm text-gray-800 font-medium text-left">{toSentenceCase(color.colorName)}</span>
                         <span className="text-xs text-gray-500 text-left">{color.colorCode}</span>
@@ -538,7 +538,7 @@ const BasicVisualiserPage: React.FC = () => {
           {colorDatabase && (
             <div className={`py-3 border-b border-gray-100 ${isMobileLayoutFixed ? 'px-4' : 'px-0'}`}>
               <div className="overflow-x-auto scrollbar-hide">
-                <div className="flex gap-3 min-w-max">
+                <div className="flex gap-1 lg:gap-3 min-w-max">
                   {Object.keys(colorDatabase.colorTypes).map((cat: string) => {
                     const categoryColor = CATEGORY_COLORS[cat] || '#ED276E';
                     return (
@@ -575,7 +575,7 @@ const BasicVisualiserPage: React.FC = () => {
   {/* Brand Selector - Mobile Only */}
   <div className={`py-3 border-b border-gray-100 ${isMobileLayoutFixed ? 'px-4' : 'px-0'}`}>
     <div className="overflow-x-auto scrollbar-hide">
-      <div className="flex gap-3 min-w-max">
+      <div className="flex gap-1 lg:gap-3 min-w-max">
         {BRAND_CONFIG.map((brand) => (
           <button
             key={brand.id}
@@ -591,7 +591,7 @@ const BasicVisualiserPage: React.FC = () => {
 </div>
 
 {/* Action Buttons - Always Fixed */}
-        <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
           <div className="flex gap-3">
             <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px]">
               Enquire Now

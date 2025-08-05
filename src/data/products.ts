@@ -68,18 +68,6 @@ export const BRANDS: Brand[] = [
     name: 'Birla Opus',
     logo: '/assets/images/brand-logos/birla-opus-logo.webp',
     description: 'Quality paints for every surface'
-  },
-  {
-    id: 'ral',
-    name: 'RAL',
-    logo: '/assets/images/brand-logos/ral-logo.webp',
-    description: 'International color standard'
-  },
-  {
-    id: 'ncs',
-    name: 'NCS',
-    logo: '/assets/images/brand-logos/ncs-logo.webp',
-    description: 'Natural Color System'
   }
 ];
 

@@ -177,47 +177,22 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProduct
                   </ul>
                 </div>
               )}
-
-              {/* Specifications */}
-              {product.specifications && (
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Specifications</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    {Object.entries(product.specifications).map(([key, value]) => (
-                      <div key={key} className="bg-gray-50 p-4 rounded-lg">
-                        <div className="font-medium text-gray-900">{key}</div>
-                        <div className="text-gray-600">{value}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
 
-            {/* Price Table */}
-            <div>
-              <h2 className="text-[#ED276E] text-3xl font-bold mb-6">Pricing</h2>
-              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg">
-                <div className="bg-[#299dd7] text-white p-4">
-                  <h3 className="text-xl font-semibold">Available Quantities</h3>
-                </div>
-                <div className="p-6">
-                  <div className="space-y-4">
-                    {Object.entries(product.prices).map(([quantity, price]) => (
-                      <div key={quantity} className="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0">
-                        <span className="font-medium text-gray-900">{quantity}</span>
-                        <span className="text-2xl font-bold text-[#299dd7]">₹{price.toLocaleString()}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-                    <p className="text-sm text-gray-600 text-center">
-                      *Prices are subject to change. Contact us for bulk pricing and availability.
-                    </p>
-                  </div>
+            {/* Specifications */}
+            {product.specifications && (
+              <div>
+                <h2 className="text-[#ED276E] text-3xl font-bold mb-6">Specifications</h2>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.entries(product.specifications).map(([key, value]) => (
+                    <div key={key} className="bg-gray-50 p-4 rounded-lg">
+                      <div className="font-medium text-gray-900">{key}</div>
+                      <div className="text-gray-600">{value}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
@@ -237,7 +212,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProduct
               to="/colour-visualiser/basic"
               className="bg-white text-gray-900 hover:bg-gray-100 text-xl px-8 py-4"
             >
-              Try Basic Visualizer
+              Try Single Wall Visualizer
             </CTAButton>
             <CTAButton
               to="/colour-visualiser/advanced"
@@ -321,7 +296,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProduct
       </section>
 
       {/* Mobile Action Buttons */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
+              <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
         <div className="flex gap-3">
           <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-3 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px] whitespace-nowrap">
             Enquire Now

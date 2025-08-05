@@ -274,10 +274,10 @@ const MiniKidsVisualizer: React.FC<MiniKidsVisualizerProps> = ({ className = '' 
             Want to Visualize More Colors?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {/* Basic Visualiser Card */}
+            {/* Single Wall Visualiser Card */}
             <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
               <h4 className="text-xl font-bold text-[#299dd7] mb-3">
-                Basic Visualiser
+                Single Wall Visualiser
               </h4>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Quickly preview popular colour combinations on sample rooms. Simple and fast!
@@ -286,7 +286,7 @@ const MiniKidsVisualizer: React.FC<MiniKidsVisualizerProps> = ({ className = '' 
                 href="/colour-visualiser/basic"
                 className="inline-block w-full bg-[#299dd7] text-white font-medium py-3 px-6 rounded-lg text-center flex justify-center items-center hover:bg-[#1e7bb8] transition-all duration-200"
               >
-                Try Basic Visualiser
+                Try Single Wall Visualiser
               </Link>
             </div>
 

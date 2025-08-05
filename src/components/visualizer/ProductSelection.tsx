@@ -25,7 +25,7 @@ const ProductSelection: React.FC<ProductSelectionProps> = ({
   breadcrumbs = [],
   onStepClick,
 }) => (
-  <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 md:px-0">
+  <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
     <div className="w-full max-w-4xl flex items-center mb-6">
       <button
         className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"
@@ -42,7 +42,7 @@ const ProductSelection: React.FC<ProductSelectionProps> = ({
     
     <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Step 3: Choose a Paint Brand</h2>
     <p className="mb-8 text-gray-600 text-center max-w-xl">Select your preferred paint brand to see their color options.</p>
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 w-full max-w-5xl">
+    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 w-full max-w-5xl">
       {BRAND_CONFIG.map((brand) => (
         <div key={brand.id} className="flex flex-col items-center">
         <button

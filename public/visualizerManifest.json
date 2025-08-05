@@ -61,7 +61,8 @@
         "walls": {
           "left": "/assets/images/bedroom/bedroom6/left-wall.svg",
           "right": "/assets/images/bedroom/bedroom6/right-wall.svg",
-          "roof": "/assets/images/bedroom/bedroom6/roof-wall.svg"
+          "roof": "/assets/images/bedroom/bedroom6/roof-wall.svg",
+          "window": "/assets/images/bedroom/bedroom6/window.svg"
         }
       },
       {
@@ -126,7 +127,10 @@
           "left": "/assets/images/bedroom/bedroom12/left-wall.svg",
           "front": "/assets/images/bedroom/bedroom12/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom12/right-wall.svg",
-          "roof": "/assets/images/bedroom/bedroom12/roof-wall.svg"
+          "roof": "/assets/images/bedroom/bedroom12/roof-wall.svg",
+          "roof-sides": "/assets/images/bedroom/bedroom12/roof-sides.svg",
+          "window": "/assets/images/bedroom/bedroom12/window.svg",
+          "door": "/assets/images/bedroom/bedroom12/door.svg"
         }
       },
       {
@@ -135,7 +139,9 @@
         "mainImage": "/assets/images/bedroom/bedroom13/bedroom13.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom13/left-wall.svg",
-          "right": "/assets/images/bedroom/bedroom13/right-wall.svg"
+          "right": "/assets/images/bedroom/bedroom13/right-wall.svg",
+          "window": "/assets/images/bedroom/bedroom13/window.svg",
+          "chair": "/assets/images/bedroom/bedroom13/chair.svg"
         }
       },
       {
@@ -148,7 +154,8 @@
           "right": "/assets/images/bedroom/bedroom14/right-wall.svg",
           "roof": "/assets/images/bedroom/bedroom14/roof-wall.svg",
           "door": "/assets/images/bedroom/bedroom14/door.svg",
-          "window": "/assets/images/bedroom/bedroom14/window.svg"
+          "window": "/assets/images/bedroom/bedroom14/window.svg",
+          "table": "/assets/images/bedroom/bedroom14/table.svg"
         }
       },
       {
@@ -159,7 +166,8 @@
           "left": "/assets/images/bedroom/bedroom15/left-wall.svg",
           "front": "/assets/images/bedroom/bedroom15/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom15/right-wall.svg",
-          "roof": "/assets/images/bedroom/bedroom15/roof-wall.svg"
+          "roof": "/assets/images/bedroom/bedroom15/roof-wall.svg",
+          "table": "/assets/images/bedroom/bedroom15/table.svg"
         }
       },
       {
@@ -170,7 +178,8 @@
           "left": "/assets/images/bedroom/bedroom16/left-wall.svg",
           "front": "/assets/images/bedroom/bedroom16/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom16/right-wall.svg",
-          "roof": "/assets/images/bedroom/bedroom16/roof-wall.svg"
+          "roof": "/assets/images/bedroom/bedroom16/roof-wall.svg",
+          "window": "/assets/images/bedroom/bedroom16/window.svg"
         }
       },
       {
@@ -181,7 +190,10 @@
           "left": "/assets/images/bedroom/bedroom17/left-wall.svg",
           "front": "/assets/images/bedroom/bedroom17/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom17/right-wall.svg",
-          "roof": "/assets/images/bedroom/bedroom17/roof-wall.svg"
+          "roof": "/assets/images/bedroom/bedroom17/roof-wall.svg",
+          "roof-sides": "/assets/images/bedroom/bedroom17/roof-sides.svg",
+          "door": "/assets/images/bedroom/bedroom17/door.svg",
+          "window": "/assets/images/bedroom/bedroom17/window.svg"
         }
       },
       {
@@ -210,7 +222,8 @@
           "left": "/assets/images/bedroom/bedroom20/left-wall.svg",
           "front": "/assets/images/bedroom/bedroom20/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom20/right-wall.svg",
-          "roof": "/assets/images/bedroom/bedroom20/roof-wall.svg"
+          "roof": "/assets/images/bedroom/bedroom20/roof-wall.svg",
+          "window": "/assets/images/bedroom/bedroom20/window.svg"
         }
       }
     ]

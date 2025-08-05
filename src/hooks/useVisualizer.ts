@@ -235,12 +235,12 @@ export function useVisualizer() {
     ? brandData.colorTypes[selectedColourType] || []
     : [];
 
-  // Ensure brand data is loaded when reaching step 4
+  // Ensure brand data is loaded when reaching step 4 or 5
   useEffect(() => {
-    if (step === 4 && selectedBrandId) {
-      // Always ensure brand data is loaded when reaching step 4
+    if ((step === 4 || step === 5) && selectedBrandId) {
+      // Always ensure brand data is loaded when reaching step 4 or 5
       if (!brandData) {
-        console.log('Loading brand data for step 4:', selectedBrandId);
+        console.log('Loading brand data for step', step, ':', selectedBrandId);
         loadBrandData(selectedBrandId);
       } else {
         console.log('Brand data already loaded, selected colours:', selectedColours.length);

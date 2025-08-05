@@ -24,6 +24,7 @@ interface FinishSelectionProps {
   backButtonText?: string;
   breadcrumbs?: BreadcrumbItem[];
   onStepClick?: (step: number) => void;
+  selectedBrandId?: string | null;
 }
 
 const wallLabels: Record<string, string> = {
@@ -31,14 +32,33 @@ const wallLabels: Record<string, string> = {
   left: 'Left Wall',
   right: 'Right Wall',
   roof: 'Roof',
+  'roof-sides': 'Roof Sides',
   door: 'Door',
   window: 'Window',
   table: 'Table',
+  chair: 'Chair',
 };
 
 // Utility function to capitalize first letter of each word
 const capitalizeWords = (str: string): string => {
   return str.replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
+// Utility function to get brand name from brand ID
+const getBrandName = (brandId: string | null | undefined): string => {
+  if (!brandId) return 'Not selected';
+  
+  const brandConfig = [
+    { id: 'asian-paints', name: 'Asian Paints' },
+    { id: 'nerolac', name: 'Nerolac' },
+    { id: 'berger', name: 'Berger' },
+    { id: 'jsw', name: 'JSW' },
+    { id: 'birla-opus', name: 'Birla Opus' },
+    { id: 'ncs', name: 'NCS' },
+    { id: 'ral', name: 'RAL' }
+  ].find(b => b.id === brandId);
+  
+  return brandConfig?.name || brandId;
 };
 
 const FinishSelection: React.FC<FinishSelectionProps> = ({
@@ -57,6 +77,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   backButtonText = "Change Colours",
   breadcrumbs = [],
   onStepClick,
+  selectedBrandId,
 }) => {
   const wallKeys = Object.keys(variant.walls);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -68,6 +89,8 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
+  const [isButtonFixed, setIsButtonFixed] = useState(true);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   // Debug log for showSwipeHint state
   console.log('Current showSwipeHint state:', showSwipeHint);
@@ -153,9 +176,43 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       return () => container.removeEventListener('scroll', checkScrollPosition);
     }
   }, []);
+
+  // Handle scroll for button positioning
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      
+      scrollTimeoutRef.current = setTimeout(() => {
+        const summarySection = document.querySelector('[data-section="summary"]');
+        if (!summarySection) return;
+        
+        const summaryRect = summarySection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Switch button position when summary section is near the bottom of viewport
+        // This makes it switch earlier, when summary is still partially visible
+        if (summaryRect.bottom < windowHeight - 100) {
+          setIsButtonFixed(false);
+        } else {
+          setIsButtonFixed(true);
+        }
+      }, 50); // Small delay to prevent rapid state changes
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
   
   return (
-    <main className="min-h-screen bg-white pt-20 flex flex-col items-center px-4 md:px-0 relative pb-8">
+    <main className="min-h-screen bg-white pt-20 flex flex-col items-center px-4 lg:px-0 relative pb-8">
       <div className="w-full max-w-6xl flex items-center mb-6">
         <button
           className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"
@@ -173,7 +230,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       )}
       
       {/* Desktop Layout - Side by Side */}
-      <div className="hidden md:flex w-full max-w-6xl gap-8" style={{ maxWidth: isLargeScreen ? '1408px' : '1152px' }}>
+      <div className="hidden lg:flex w-full max-w-6xl gap-8" style={{ maxWidth: isLargeScreen ? '1408px' : '1152px' }}>
         {/* Left Column - Room Preview */}
         <div className="flex-1 min-w-0">
           <div className="relative" style={{ aspectRatio: '16/9' }}>
@@ -265,16 +322,14 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             </div>
             
             {/* Brand Information */}
-            {breadcrumbs.length > 0 && (
-              <div className="mb-3">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-sm font-medium text-gray-600">Brand:</span>
-                  <span className="text-sm text-gray-800">
-                    {breadcrumbs.find(item => item.label.includes('Paints') || item.label.includes('Berger') || item.label.includes('JSW') || item.label.includes('Birla') || item.label.includes('NCS') || item.label.includes('RAL'))?.label || 'Not selected'}
-                  </span>
-                </div>
+            <div className="mb-3">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-sm font-medium text-gray-600">Brand:</span>
+                <span className="text-sm text-gray-800">
+                  {getBrandName(selectedBrandId)}
+                </span>
               </div>
-            )}
+            </div>
             
             {/* Colours Applied */}
             <div className="mb-4">
@@ -344,7 +399,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       </div>
       
       {/* Mobile Layout - Stacked */}
-      <div className="md:hidden w-full">
+      <div className="lg:hidden w-full">
         {/* Room image - with zoom functionality */}
         <div className={`${isZoomed ? 'h-auto' : 'h-[60vh]'} mb-3 relative overflow-hidden transition-all duration-500 ease-in-out`}>
           <div 
@@ -438,12 +493,12 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         </div>
         <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Select wall to paint:</h2>
         {/* Wall sides scrollable row - Mobile/Tablet */}
-        <div className="md:hidden w-full max-w-2xl mb-6 relative pb-2">
+        <div className="lg:hidden w-full max-w-2xl mb-6 relative pb-2">
           <button
             type="button"
             className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full w-8 h-8 flex items-center justify-center shadow-md transition-opacity duration-200 ${canScrollLeft ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             onClick={() => {
-              if (scrollContainerRef.current) scrollContainerRef.current.scrollBy({ left: -160, behavior: 'smooth' });
+              if (scrollContainerRef.current) scrollContainerRef.current.scrollBy({ left: window.innerWidth < 768 ? -112 : -160, behavior: 'smooth' });
             }}
             aria-label="Scroll left"
           >
@@ -457,19 +512,19 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             {wallKeys.map((wallKey) => (
               <button
                 key={wallKey}
-                className={`flex flex-col items-center group flex-shrink-0 w-28 bg-white rounded-xl border-2 transition-all duration-200 ${assignments[wallKey] ? 'shadow-lg' : 'shadow'}`}
+                className={`flex flex-col items-center group flex-shrink-0 w-20 md:w-28 bg-white rounded-xl border-2 transition-all duration-200 ${assignments[wallKey] ? 'shadow-lg' : 'shadow'}`}
                 onClick={() => handleWallClick(wallKey)}
                 type="button"
                 style={{ 
-                  minWidth: '7rem',
+                  minWidth: window.innerWidth < 768 ? '5rem' : '7rem',
                   borderColor: assignments[wallKey] || '#e5e7eb'
                 }}
               >
                 <div
-                  className="h-20 flex items-center justify-center relative overflow-hidden mx-auto"
+                  className="h-14 md:h-20 flex items-center justify-center relative overflow-hidden mx-auto"
                   style={{ 
                     background: assignments[wallKey] || '#fff',
-                    width: '6.8rem',
+                    width: window.innerWidth < 768 ? '4.8rem' : '6.8rem',
                     borderTopLeftRadius: '0.5rem',
                     borderTopRightRadius: '0.5rem'
                   }}
@@ -486,7 +541,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                     <div className="text-xs text-gray-400">Loading...</div>
                   )}
                 </div>
-                <span className="text-base font-medium text-gray-700 text-center py-2 px-1">{wallLabels[wallKey] || wallKey}</span>
+                <span className="text-sm md:text-base font-medium text-gray-700 text-center py-2 px-1">{wallLabels[wallKey] || wallKey}</span>
           </button>
         ))}
       </div>
@@ -494,7 +549,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             type="button"
             className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full w-8 h-8 flex items-center justify-center shadow-md transition-opacity duration-200 ${canScrollRight ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             onClick={() => {
-              if (scrollContainerRef.current) scrollContainerRef.current.scrollBy({ left: 160, behavior: 'smooth' });
+              if (scrollContainerRef.current) scrollContainerRef.current.scrollBy({ left: window.innerWidth < 768 ? 112 : 160, behavior: 'smooth' });
             }}
             aria-label="Scroll right"
           >
@@ -503,7 +558,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         </div>
         
         {/* Mobile/Tablet Information Box */}
-        <div className="w-full max-w-2xl mb-6">
+        <div className="w-full lg:max-w-2xl mb-6" data-section="summary">
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
             <h3 className="text-lg font-semibold text-gray-800 mb-3">Your Selection Summary</h3>
             
@@ -516,16 +571,14 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             </div>
             
             {/* Brand Information */}
-            {breadcrumbs.length > 0 && (
-              <div className="mb-3">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-sm font-medium text-gray-600">Brand:</span>
-                  <span className="text-sm text-gray-800">
-                    {breadcrumbs.find(item => item.label.includes('Paints') || item.label.includes('Berger') || item.label.includes('JSW') || item.label.includes('Birla') || item.label.includes('NCS') || item.label.includes('RAL'))?.label || 'Not selected'}
-                  </span>
-                </div>
+            <div className="mb-3">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-sm font-medium text-gray-600">Brand:</span>
+                <span className="text-sm text-gray-800">
+                  {getBrandName(selectedBrandId)}
+                </span>
               </div>
-            )}
+            </div>
             
             {/* Colours Applied */}
             <div className="mb-4">
@@ -550,23 +603,49 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               </div>
             </div>
             
-            {/* Download Button */}
-      <button
-              className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
-        onClick={onDownload}
-      >
-              <span>DOWNLOAD THIS LOOK</span>
-              <span className="text-lg">▼</span>
-      </button>
+            {/* Download Button - Desktop Only */}
+            <div className="hidden lg:block">
+              <button
+                className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
+                onClick={onDownload}
+              >
+                <span>DOWNLOAD THIS LOOK</span>
+                <span className="text-lg">▼</span>
+              </button>
+            </div>
+            
+            {/* Download Button - Mobile/Tablet (Inside Summary) */}
+            <div className={`lg:hidden ${isButtonFixed ? 'hidden' : 'block'}`} style={{ display: isButtonFixed ? 'none' : 'block' }}>
+              <button
+                className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
+                onClick={onDownload}
+              >
+                <span>DOWNLOAD THIS LOOK</span>
+                <span className="text-lg">▼</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Fixed Download Button - Mobile/Tablet */}
+      {isButtonFixed && (
+        <div className="lg:hidden fixed bottom-[68px] left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
+          <button
+            className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
+            onClick={onDownload}
+          >
+            <span>DOWNLOAD THIS LOOK</span>
+            <span className="text-lg">▼</span>
+          </button>
+        </div>
+      )}
 
 
 
       {/* Mobile Palette bottom sheet/modal */}
       {showPalette && (
-        <div className="md:hidden fixed inset-0 z-50 flex items-end justify-center bg-black bg-opacity-40" onClick={onClosePalette}>
+        <div className="lg:hidden fixed inset-0 z-50 flex items-end justify-center bg-black bg-opacity-40" onClick={onClosePalette}>
           <div className="w-full max-w-md bg-white rounded-t-2xl p-6 pb-20 shadow-lg relative" style={{ minHeight: 260, maxHeight: '80vh' }} onClick={e => e.stopPropagation()}>
             <h3 className="text-lg font-semibold text-center mb-4">Select colour to apply</h3>
             <div className="grid grid-cols-3 gap-4 mb-2">

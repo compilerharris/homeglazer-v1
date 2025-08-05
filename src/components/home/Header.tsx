@@ -199,7 +199,7 @@ const Header: React.FC = () => {
       
       {/* Mobile menu overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-50 top-[60px] lg:hidden">
+        <div className="fixed inset-0 bg-white z-[99999] top-[60px] lg:hidden">
           <nav className="flex flex-col items-center p-5 gap-6 text-xl h-[calc(100vh-60px)] overflow-y-auto">
             <Link href="/" onClick={closeMenu} className="py-2">Home</Link>
             <div className="w-full">
@@ -232,7 +232,7 @@ const Header: React.FC = () => {
       )}
 
       {/* Mobile bottom buttons (below 1023px) */}
-      <div className="fixed bottom-0 left-0 right-0 lg:hidden flex z-40">
+      <div className={`fixed bottom-0 left-0 right-0 lg:hidden flex transition-all duration-300 ${isMenuOpen ? 'z-40' : 'z-50'}`}>
         <Link href="/enquiry" className="w-1/2 bg-[rgba(237,39,110,1)] text-white font-medium py-5 text-center text-xl rounded-tl-[30px]">
           Enquire Now
         </Link>

@@ -203,7 +203,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Mobile Action Buttons */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
+              <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
         {/* Filter Button - Full Width Above */}
         <button
           onClick={() => setShowFilterModal(true)}

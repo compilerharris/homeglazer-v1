@@ -148,7 +148,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
 
   if (loadingBrandData) {
     return (
-      <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 md:px-0">
+      <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
         <div className="w-full max-w-4xl flex items-center mb-6">
           <button
             className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"
@@ -168,7 +168,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
   }
 
   return (
-    <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 md:px-0">
+    <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
       <div className="w-full max-w-4xl flex items-center mb-6">
         <button
           className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"
@@ -220,7 +220,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
       </div>
 
       {/* Colour Type Categories - Desktop Only */}
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         {colorTypes.length > 0 && (
           <div className="w-full max-w-4xl mb-6">
             <h3 className="text-lg font-medium text-gray-700 mb-3 text-center">Colour Types</h3>
@@ -327,7 +327,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
                   <p className="text-sm text-gray-600 mt-2 text-center max-w-16 md:max-w-20 leading-tight">
                     {capitalizeWords(color.colorName)}
                   </p>
-                  <p className="text-xs text-gray-500 mt-1 text-center max-w-16 md:max-w-20 leading-tight">
+                  <p className="text-xs text-gray-500 mt-1 text-center max-w-16 lg:max-w-20 leading-tight">
                     {color.colorCode}
                   </p>
                 </div>
@@ -353,8 +353,8 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
 
       {/* Mobile Fixed Bottom Section - Colour Types */}
       {colorTypes.length > 0 && (
-        <div className={`md:hidden bg-white border-t border-gray-200 z-40 transition-all duration-300 ${
-          isButtonFixed ? `fixed left-0 right-0 ${selectedColors.length >= 3 ? 'bottom-[156px]' : 'bottom-[176px]'}` : 'static mt-4 w-full max-w-screen-xl mx-auto px-4'
+        <div className={`lg:hidden bg-white border-t border-gray-200 z-[9999] transition-all duration-300 ${
+          isButtonFixed ? `fixed left-0 right-0 ${selectedColors.length >= 3 ? 'bottom-[157px]' : 'bottom-[177px]'}` : 'static mt-4 w-full max-w-screen-xl mx-auto px-4'
         }`}>
           <div className="py-3 px-4">
             <div className="overflow-x-auto scrollbar-hide">
@@ -379,8 +379,8 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
       )}
 
       {/* COLOUR YOUR ROOM Button - Full Width, Dynamic */}
-      <div className={`md:hidden bg-white border-t border-gray-200 px-4 py-3 transition-all duration-300 ${
-        isButtonFixed ? 'fixed left-0 right-0 bottom-[68px] z-50' : 'absolute left-0 right-0 bottom-0 z-40'
+      <div className={`lg:hidden bg-white border-t border-gray-200 px-4 py-3 transition-all duration-300 ${
+        isButtonFixed ? 'fixed left-0 right-0 bottom-[68px] z-50' : 'absolute left-0 right-0 bottom-0 z-[9999]'
       }`}>
         {/* Instructional Message - Above Button (only hide when 3+ colors selected) */}
         {selectedColors.length < 3 && (
@@ -399,9 +399,9 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
       </div>
 
       {/* Desktop COLOUR YOUR ROOM Button */}
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <div className={`transition-all duration-300 ${
-          isButtonFixed ? 'fixed left-1/2 -translate-x-1/2 bottom-6 z-50' : 'absolute left-1/2 -translate-x-1/2 bottom-6 z-40'
+          isButtonFixed ? 'fixed left-1/2 -translate-x-1/2 bottom-6 z-50' : 'absolute left-1/2 -translate-x-1/2 bottom-6 z-[9999]'
         }`}>
           {/* Instructional Message - Above Button (only show when fewer than 3 colors selected) */}
           {selectedColors.length < 3 && (

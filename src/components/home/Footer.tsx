@@ -99,7 +99,7 @@ const Footer: React.FC<FooterProps> = ({ showSentinel, onSentinelRef }) => {
                 <Link href="/" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Home</Link>
                 <Link href="/products" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Products</Link>
                 <Link href="/blog" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Blog</Link>
-                <Link href="/colour-visualiser/basic" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Basic Visualizer</Link>
+                <Link href="/colour-visualiser/basic" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Single Wall Visualizer</Link>
                 <Link href="/colour-visualiser/advanced" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Advanced Visualizer</Link>
                 <Link href="/calculator" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Budget Calculator</Link>
                 <Link href="/calculator/painting" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Painting Calculator</Link>
