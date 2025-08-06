@@ -55,11 +55,7 @@ const DevToolsProtection: React.FC = () => {
       return true;
     };
 
-    // Disable text selection
-    const disableSelection = () => {
-      document.onselectstart = () => false;
-      document.ondragstart = () => false;
-    };
+    // Text selection is now enabled for better UX
 
     // Console warning message
     const showConsoleWarning = () => {
@@ -95,7 +91,7 @@ const DevToolsProtection: React.FC = () => {
     // Change this back to production-only after testing: process.env.NODE_ENV === 'production'
     document.addEventListener('contextmenu', disableContextMenu);
     document.addEventListener('keydown', disableDevToolsKeys);
-    disableSelection();
+    // Text selection is now enabled for better UX
     antiDebug();
     showConsoleWarning();
 
@@ -103,8 +99,7 @@ const DevToolsProtection: React.FC = () => {
     return () => {
       document.removeEventListener('contextmenu', disableContextMenu);
       document.removeEventListener('keydown', disableDevToolsKeys);
-      document.onselectstart = null;
-      document.ondragstart = null;
+      // Text selection cleanup removed - now enabled for better UX
     };
   }, []);
 
