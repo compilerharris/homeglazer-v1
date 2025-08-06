@@ -91,14 +91,13 @@ const DevToolsProtection: React.FC = () => {
       }, 500);
     };
 
-    // Apply protections only in production
-    if (process.env.NODE_ENV === 'production') {
-      document.addEventListener('contextmenu', disableContextMenu);
-      document.addEventListener('keydown', disableDevToolsKeys);
-      disableSelection();
-      antiDebug();
-      showConsoleWarning();
-    }
+    // Apply protections in all environments (for testing)
+    // Change this back to production-only after testing: process.env.NODE_ENV === 'production'
+    document.addEventListener('contextmenu', disableContextMenu);
+    document.addEventListener('keydown', disableDevToolsKeys);
+    disableSelection();
+    antiDebug();
+    showConsoleWarning();
 
     // Cleanup function
     return () => {

@@ -1,14 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import Header from '../../components/home/Header';
-import Footer from '../../components/home/Footer';
-import { useVisualizer } from '../../hooks/useVisualizer';
-import SurfaceSelection from '../../components/visualizer/SurfaceSelection';
-import WallSelection from '../../components/visualizer/WallSelection';
-import ProductSelection from '../../components/visualizer/ProductSelection';
-import ColourSelection from '../../components/visualizer/ColourSelection';
-import FinishSelection from '../../components/visualizer/FinishSelection';
-import Breadcrumbs from '../../components/visualizer/Breadcrumbs';
+import Header from '../../src/components/home/Header';
+import Footer from '../../src/components/home/Footer';
+import { useVisualizer } from '../../src/hooks/useVisualizer';
+import SurfaceSelection from '../../src/components/visualizer/SurfaceSelection';
+import WallSelection from '../../src/components/visualizer/WallSelection';
+import ProductSelection from '../../src/components/visualizer/ProductSelection';
+import ColourSelection from '../../src/components/visualizer/ColourSelection';
+import FinishSelection from '../../src/components/visualizer/FinishSelection';
+import Breadcrumbs from '../../src/components/visualizer/Breadcrumbs';
 
 const AdvancedVisualiser: React.FC = () => {
   const visualizer = useVisualizer();

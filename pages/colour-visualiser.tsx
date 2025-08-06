@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Header from '../components/home/Header';
-import Footer from '../components/home/Footer';
-import DevToolsProtection from '../components/security/DevToolsProtection';
+import Header from '../src/components/home/Header';
+import Footer from '../src/components/home/Footer';
+import DevToolsProtection from '../src/components/security/DevToolsProtection';
 
 // Mini Room Visualizer Component for Split Screen
 const MiniRoomVisualizer: React.FC<{ 

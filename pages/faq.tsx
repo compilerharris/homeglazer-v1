@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import Header from '../components/home/Header';
-import Footer from '../components/home/Footer';
-import FAQ from '../components/home/FAQ';
+import Header from '../src/components/home/Header';
+import Footer from '../src/components/home/Footer';
+import FAQ from '../src/components/home/FAQ';
 
 const FAQPage: React.FC = () => {
   return (

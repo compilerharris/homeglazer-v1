@@ -4,11 +4,13 @@ const path = require('path');
 
 const obfuscationConfig = require('../obfuscation-config.json');
 
-// Target files for obfuscation (basic and single wall visualizers)
+// Target files for obfuscation (visualizers and protected components)
 const targetFiles = [
   'src/pages/colour-visualiser/basic/[brand]/[category]/[color].tsx',
   'src/pages/colour-visualiser.tsx',
-  'src/components/security/DevToolsProtection.tsx'
+  'src/components/security/DevToolsProtection.tsx',
+  'src/components/visualizer/ProtectedVisualizer.tsx',
+  'pages/protected-visualizer-demo.tsx'
 ];
 
 // Backup original files

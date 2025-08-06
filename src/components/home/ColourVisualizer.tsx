@@ -96,7 +96,7 @@ const ColourVisualizer: React.FC = () => {
     setSelectedColor(color);
     setCurrentSlide(index);
   };
-
+  
   return (
     <section className="bg-[rgba(223,223,223,0.27)] w-full mt-[50px] py-[35px] max-md:mt-10">
       <div className="container mx-auto w-[80%] px-0 lg:px-8 flex flex-col lg:flex-row items-center gap-8 2xl:w-[1400px]">

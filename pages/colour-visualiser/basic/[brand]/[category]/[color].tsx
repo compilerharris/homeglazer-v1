@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Header from '../../../../../components/home/Header';
-import Footer from '../../../../../components/home/Footer';
+import Header from '../../../../../src/components/home/Header';
+import Footer from '../../../../../src/components/home/Footer';
 import Head from 'next/head';
-import DevToolsProtection from '../../../../../components/security/DevToolsProtection';
+import DevToolsProtection from '../../../../../src/components/security/DevToolsProtection';
 
 const BRAND_CONFIG = [
   { id: 'asian-paints', name: 'Asian Paints', fileName: 'asian_paints_colors.json' },
