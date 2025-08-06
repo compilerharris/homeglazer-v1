@@ -1,140 +1,89 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '../src/components/home/Header';
 import Footer from '../src/components/home/Footer';
 import DevToolsProtection from '../src/components/security/DevToolsProtection';
 
-// Server-Side Protected Mini Room Visualizer Component
+// Obfuscated room visualizer with NO visible SVG paths
 const ProtectedMiniRoomVisualizer: React.FC<{ 
   side: 'left' | 'right'; 
-  isHovered: boolean; 
   currentColorIndex: number; 
   colors: string[] | Array<{ left: string; right: string; front: string }>;
-}> = React.memo(({ side, isHovered, currentColorIndex, colors }) => {
-  const [roomData, setRoomData] = useState<any>(null);
-  const [processedHtml, setProcessedHtml] = useState<string>('');
-  const [loading, setLoading] = useState(true);
-  const containerRef = useRef<HTMLDivElement>(null);
+}> = React.memo(({ side, currentColorIndex, colors }) => {
+  const [displayContent, setDisplayContent] = useState<string>('');
 
-  // Fetch protected room data from server
   useEffect(() => {
-    const fetchRoomData = async () => {
-      try {
-        const response = await fetch('/api/visualizer/room-data?room=bedroom&walls=left,right,window');
-        if (response.ok) {
-          const data = await response.json();
-          setRoomData(data);
-        } else {
-          console.error('Failed to load room data');
-        }
-      } catch (error) {
-        console.error('Error loading room data:', error);
-      }
-    };
+    // Simulate server-side protection by generating content without exposing SVG paths
+    const currentColor = Array.isArray(colors) && colors.length > 0 
+      ? typeof colors[currentColorIndex] === 'string' 
+        ? colors[currentColorIndex]
+        : colors[currentColorIndex]?.left || '#FF6B6B'
+      : '#FF6B6B';
 
-    fetchRoomData();
-  }, []);
-
-  // Fetch server-rendered HTML component
-  useEffect(() => {
-    if (!roomData) return;
-
-    const fetchRenderedComponent = async () => {
-      try {
-        const currentColor = Array.isArray(colors) && colors.length > 0 
-          ? typeof colors[currentColorIndex] === 'string' 
-            ? colors[currentColorIndex]
-            : colors[currentColorIndex]?.left || '#FF6B6B'
-          : '#FF6B6B';
-
-        const response = await fetch('/api/visualizer/render-component', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            componentType: 'mini-room-visualizer',
-            props: {
-              roomImage: roomData.image,
-              svgPath: roomData.svgPath,
-              currentColor,
-              side,
-              viewBox: "0 0 1280 720"
-            },
-            timestamp: Date.now()
-          })
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          setProcessedHtml(data.html);
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching rendered component:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchRenderedComponent();
-  }, [roomData, currentColorIndex, colors, side]);
-
-  if (loading) {
-    return (
-      <div className="relative w-full h-64 bg-gray-100 rounded-lg overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-gray-500">Loading...</div>
-        </div>
+    // Create a protected visualization without exposing actual SVG paths
+    // This simulates what would come from the server-side API
+    const protectedVisualization = `
+      <div style="
+        position: relative;
+        width: 100%;
+        height: 16rem;
+        background-image: url('/lovable-uploads/bedroom6.jpg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 0.5rem;
+        overflow: hidden;
+      ">
+        <div style="
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, ${currentColor}40 0%, ${currentColor}60 50%, ${currentColor}40 100%);
+          mix-blend-mode: multiply;
+          transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        "></div>
+        <div style="
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at 30% 40%, ${currentColor}80 0%, transparent 60%);
+          mix-blend-mode: overlay;
+        "></div>
       </div>
-    );
-  }
+    `;
+
+    setDisplayContent(protectedVisualization);
+  }, [currentColorIndex, colors, side]);
 
   return (
     <div 
-      ref={containerRef}
-      className="relative w-full h-64 bg-gray-100 rounded-lg overflow-hidden transition-all duration-600 ease-out"
-      dangerouslySetInnerHTML={{ __html: processedHtml }}
+      className="relative w-full h-64"
+      dangerouslySetInnerHTML={{ __html: displayContent }}
     />
   );
 });
 
 const ColourVisualiserPage: React.FC = () => {
   const [colorIndex, setColorIndex] = useState(0);
-  const [leftHovered, setLeftHovered] = useState(false);
-  const [rightHovered, setRightHovered] = useState(false);
 
-  // Memoize color arrays to prevent re-creation
+  // Color arrays (these could also be moved server-side for extra protection)
   const warmColors = React.useMemo(() => [
-    '#FF6B6B', // Red
-    '#FF8E53', // Orange  
-    '#FFB74D', // Light Orange
-    '#FFD54F', // Yellow
-    '#FFAB91', // Coral
-    '#F48FB1'  // Pink
+    '#FF6B6B', '#FF8E53', '#FFB74D', '#FFD54F', '#FFAB91', '#F48FB1'
   ], []);
 
   const coolColorSets = React.useMemo(() => [
-    { left: '#4FC3F7', right: '#42A5F5', front: '#1976D2' }, // Blues
-    { left: '#81C784', right: '#66BB6A', front: '#388E3C' }, // Greens
-    { left: '#BA68C8', right: '#AB47BC', front: '#7B1FA2' }, // Purples
-    { left: '#4DB6AC', right: '#26A69A', front: '#00695C' }, // Teals
-    { left: '#FFB74D', right: '#FFA726', front: '#F57C00' }, // Orange variation
-    { left: '#F06292', right: '#EC407A', front: '#C2185B' }  // Pink variation
+    { left: '#4FC3F7', right: '#42A5F5', front: '#1976D2' },
+    { left: '#81C784', right: '#66BB6A', front: '#388E3C' },
+    { left: '#BA68C8', right: '#AB47BC', front: '#7B1FA2' },
+    { left: '#4DB6AC', right: '#26A69A', front: '#00695C' },
+    { left: '#FFB74D', right: '#FFA726', front: '#F57C00' },
+    { left: '#F06292', right: '#EC407A', front: '#C2185B' }
   ], []);
 
   // Synchronized color cycling
   useEffect(() => {
-    let colorInterval: NodeJS.Timeout;
-    const startInterval = () => {
-      colorInterval = setInterval(() => {
-        setColorIndex((prev) => (prev + 1) % Math.max(warmColors.length, coolColorSets.length));
-      }, 1000); // Every second, non-stop
-    };
+    const colorInterval = setInterval(() => {
+      setColorIndex((prev) => (prev + 1) % Math.max(warmColors.length, coolColorSets.length));
+    }, 1000);
 
-    const timeoutId = setTimeout(startInterval, 300);
-
-    return () => {
-      clearTimeout(timeoutId);
-      if (colorInterval) clearInterval(colorInterval);
-    };
+    return () => clearInterval(colorInterval);
   }, [warmColors.length, coolColorSets.length]);
 
   return (
@@ -151,8 +100,6 @@ const ColourVisualiserPage: React.FC = () => {
           style={{
             background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)'
           }}
-          onMouseEnter={() => setLeftHovered(true)}
-          onMouseLeave={() => setLeftHovered(false)}
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
@@ -173,11 +120,10 @@ const ColourVisualiserPage: React.FC = () => {
               Quickly preview popular colour combinations on sample rooms. Simple and fast!
             </p>
             
-            {/* Protected Mini Room Visualizer */}
+            {/* Protected Mini Room Visualizer - NO SVG PATHS */}
             <div className="mb-6">
               <ProtectedMiniRoomVisualizer
                 side="left"
-                isHovered={leftHovered}
                 currentColorIndex={colorIndex % warmColors.length}
                 colors={warmColors}
               />
@@ -198,8 +144,6 @@ const ColourVisualiserPage: React.FC = () => {
           style={{
             background: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)'
           }}
-          onMouseEnter={() => setRightHovered(true)}
-          onMouseLeave={() => setRightHovered(false)}
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
@@ -220,11 +164,10 @@ const ColourVisualiserPage: React.FC = () => {
               Choose different colours for each wall and roof across multiple room types.
             </p>
             
-            {/* Protected Mini Room Visualizer */}
+            {/* Protected Mini Room Visualizer - NO SVG PATHS */}
             <div className="mb-6">
               <ProtectedMiniRoomVisualizer
                 side="right"
-                isHovered={rightHovered}
                 currentColorIndex={colorIndex % coolColorSets.length}
                 colors={coolColorSets}
               />
