@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Header from '../../../../../components/home/Header';
 import Footer from '../../../../../components/home/Footer';
 import Head from 'next/head';
+import DevToolsProtection from '../../../../../components/security/DevToolsProtection';
 
 const BRAND_CONFIG = [
   { id: 'asian-paints', name: 'Asian Paints', fileName: 'asian_paints_colors.json' },
@@ -295,6 +296,7 @@ const BasicVisualiserPage: React.FC = () => {
 
   return (
     <>
+      <DevToolsProtection />
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content="Visualise wall paint colors by brand, category, and shade. Try Home Glazer's Basic Color Visualiser for Asian Paints, Nerolac, Berger, JSW and more." />

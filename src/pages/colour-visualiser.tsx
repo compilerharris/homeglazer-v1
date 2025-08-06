@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Header from '../components/home/Header';
 import Footer from '../components/home/Footer';
+import DevToolsProtection from '../components/security/DevToolsProtection';
 
 // Mini Room Visualizer Component for Split Screen
 const MiniRoomVisualizer: React.FC<{ 
@@ -198,6 +199,7 @@ const ColourVisualiserPage: React.FC = () => {
 
   return (
     <>
+      <DevToolsProtection />
       <Header />
       
       {/* Main Split Screen Layout */}
