@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Import all color JSON files
 import asianPaintsColors from '../data/colors/asian_paints_colors.json';
@@ -178,6 +178,7 @@ export function useVisualizer() {
   const [loadingBrandData, setLoadingBrandData] = useState(false);
   const [selectedColourType, setSelectedColourType] = useState<string | null>(null);
   const [selectedColours, setSelectedColours] = useState<ColorSwatch[]>([]);
+  const [colorTypeRefreshKey, setColorTypeRefreshKey] = useState(0);
 
   // Load manifest and brands on mount
   useEffect(() => {
@@ -230,10 +231,13 @@ export function useVisualizer() {
   // Get available colour types from brand data
   const colourTypes = brandData ? Object.keys(brandData.colorTypes) : [];
   
-  // Get colours for selected colour type
-  const coloursForType = selectedColourType && brandData 
-    ? brandData.colorTypes[selectedColourType] || []
-    : [];
+  // Get colours for selected colour type - use refresh key to force updates
+  const coloursForType = React.useMemo(() => {
+    if (!selectedColourType || !brandData) {
+      return [];
+    }
+    return brandData.colorTypes[selectedColourType] || [];
+  }, [selectedColourType, brandData, colorTypeRefreshKey]);
 
   // Ensure brand data is loaded when reaching step 4 or 5
   useEffect(() => {
@@ -320,6 +324,7 @@ export function useVisualizer() {
     if (selectedBrandId !== brandId) {
       setSelectedColours([]);
       setPalette([]); // reset palette on brand change
+      setColorTypeRefreshKey(0); // reset refresh key for new brand
     }
     
     setSelectedBrandId(brandId);
@@ -331,7 +336,12 @@ export function useVisualizer() {
     }
   };
   const handleSelectColourType = (colourType: string) => {
+    // Force a state update to ensure colors refresh properly
     setSelectedColourType(colourType);
+    
+    // Force re-render by updating refresh key to prevent React batching issues
+    setColorTypeRefreshKey(prev => prev + 1);
+    
     // Scroll to selected colours section when changing colour type
     if (typeof window !== 'undefined') {
       setTimeout(() => {
@@ -507,5 +517,7 @@ export function useVisualizer() {
     handleDownload,
     // Breadcrumbs
     generateBreadcrumbs,
+    // Color type refresh key for forcing re-renders
+    colorTypeRefreshKey,
   };
 } 

@@ -149,7 +149,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
   if (loadingBrandData) {
     return (
       <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
-        <div className="w-full max-w-4xl flex items-center mb-6">
+        <div className="w-full flex items-center mb-6">
           <button
             className="text-[#299dd7] font-medium flex items-center gap-2 hover:underline"
             onClick={onBack}
@@ -168,10 +168,10 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
   }
 
   return (
-    <main className="min-h-screen bg-white pt-20 pb-8 flex flex-col items-center px-4 lg:px-0">
+    <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
       {/* Breadcrumbs Section */}
       {breadcrumbs.length > 0 && (
-        <div className="w-full max-w-4xl mb-4">
+        <div className="w-full mb-4">
           <h3 className="text-sm font-medium text-gray-600 mb-2 text-center">
             Modify your selections here:
           </h3>
@@ -284,11 +284,11 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
 
       {/* Colour Swatches Grid - Center aligned */}
       {selectedColorType && colorsForType.length > 0 && (
-        <div className={`w-full max-w-4xl md:mb-32 ${isButtonFixed ? 'mb-66' : 'mb-8'}`}>
+        <div className={`w-full max-w-4xl md:mb-32 ${isButtonFixed ? 'mb-66' : 'mb-8'}`} key={`color-grid-${selectedColorType}`}>
           <h3 className="text-lg font-medium text-gray-700 mb-3 text-center">
             {selectedColorType} Colours ({colorsForType.length} available)
           </h3>
-          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 justify-items-center">
+          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 justify-items-center" key={`swatches-${selectedColorType}`}>
             {colorsForType.map((color) => {
               const isSelected = selectedColors.some(c => c.colorHex === color.colorHex);
               const selectionIndex = selectedColors.findIndex(c => c.colorHex === color.colorHex);

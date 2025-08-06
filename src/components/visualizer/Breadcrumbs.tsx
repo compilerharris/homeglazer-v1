@@ -56,7 +56,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, onStepClick }) => {
   };
 
   return (
-    <div className="w-full max-w-4xl mb-3 relative">
+    <div className="w-full mb-3 relative">
       {/* Previous Arrow */}
       {showPrevArrow && (
         <button
@@ -79,7 +79,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, onStepClick }) => {
       
       <nav 
         ref={scrollContainerRef}
-        className="flex items-center gap-1 text-xs overflow-x-auto scrollbar-hide px-2"
+        className="flex items-center justify-center gap-1 text-xs overflow-x-auto scrollbar-hide px-2"
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',

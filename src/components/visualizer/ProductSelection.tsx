@@ -25,10 +25,10 @@ const ProductSelection: React.FC<ProductSelectionProps> = ({
   breadcrumbs = [],
   onStepClick,
 }) => (
-  <main className="min-h-screen bg-white pt-20 pb-8 flex flex-col items-center px-4 lg:px-0">
+  <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
     {/* Breadcrumbs Section */}
     {breadcrumbs.length > 0 && (
-      <div className="w-full max-w-4xl mb-4">
+      <div className="w-full mb-4">
                   <h3 className="text-sm font-medium text-gray-600 mb-2 text-center">
             Modify your selections here:
           </h3>

@@ -48,6 +48,7 @@ const AdvancedVisualiser: React.FC = () => {
       )}
       {visualizer.step === 4 && (
         <ColourSelection
+          key={`color-selection-${visualizer.colorTypeRefreshKey}`}
           colorTypes={visualizer.colourTypes}
           selectedColorType={visualizer.selectedColourType}
           colorsForType={visualizer.coloursForType}

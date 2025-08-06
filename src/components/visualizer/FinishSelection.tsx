@@ -212,10 +212,10 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   }, []);
   
   return (
-    <main className="min-h-screen bg-white pt-12 flex flex-col items-center px-4 lg:px-0 relative pb-8">
+    <main className="min-h-screen bg-white pt-28 flex flex-col items-center px-4 lg:px-0 relative pb-8">
       {/* Breadcrumbs Section */}
       {breadcrumbs.length > 0 && (
-        <div className="w-full max-w-6xl mb-4" ref={previewImageRef}>
+        <div className="w-full mb-4" ref={previewImageRef}>
           <h3 className="text-sm font-medium text-gray-600 mb-2 text-center">
             Modify your selections here:
           </h3>
