@@ -106,7 +106,32 @@ function calculateLuminance(color: string) {
 }
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  // Only accept POST requests
+  // Handle both GET and POST requests
+  if (req.method === 'GET') {
+    // Simple GET request for basic room data
+    const { room, walls } = req.query;
+    
+    if (!room || typeof room !== 'string') {
+      return res.status(400).json({ error: 'Room parameter is required' });
+    }
+
+    // Check if room type exists
+    const roomData = PROTECTED_ROOM_DATA[room as keyof typeof PROTECTED_ROOM_DATA];
+    if (!roomData) {
+      return res.status(400).json({ error: 'Invalid room type' });
+    }
+
+    // Return basic room data without token verification for GET requests
+    res.status(200).json({
+      success: true,
+      image: roomData.image,
+      svgPath: roomData.svgPath,
+      wallMasks: roomData.wallMasks,
+      roomType: room
+    });
+    return;
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }

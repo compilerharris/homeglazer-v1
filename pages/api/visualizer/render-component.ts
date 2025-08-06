@@ -121,11 +121,79 @@ function createColorPalette(colors: string[]) {
   return paletteDiv;
 }
 
+// Create mini room visualizer for split-screen layout
+function createMiniRoomVisualizer(props: {
+  roomImage: string;
+  svgPath: string;
+  currentColor: string;
+  side: string;
+  viewBox?: string;
+}) {
+  const { roomImage, svgPath, currentColor, side, viewBox } = props;
+  
+  const visualizerDiv = React.createElement('div', {
+    className: 'relative w-full h-64 bg-gray-100 rounded-lg overflow-hidden',
+    style: {
+      backgroundImage: `url(${roomImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }
+  }, [
+    // SVG Overlay for wall masking
+    React.createElement('svg', {
+      key: 'svg-overlay',
+      className: 'svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply',
+      viewBox: viewBox || '0 0 1280 720',
+      preserveAspectRatio: 'xMidYMid slice'
+    }, [
+      // Defs with mask
+      React.createElement('defs', {
+        key: 'defs'
+      }, [
+        React.createElement('mask', {
+          key: 'mask-bedroom',
+          id: 'mask-bedroom'
+        }, [
+          React.createElement('rect', {
+            key: 'mask-bg',
+            width: '100%',
+            height: '100%',
+            fill: 'black'
+          }),
+          React.createElement('path', {
+            key: 'mask-path',
+            d: svgPath,
+            fill: 'white'
+          })
+        ])
+      ]),
+      
+      // Colored wall
+      React.createElement('rect', {
+        key: 'wall-rect',
+        width: '100%',
+        height: '100%',
+        fill: currentColor,
+        opacity: '0.7',
+        mask: 'url(#mask-bedroom)',
+        className: 'wall-path',
+        style: {
+          transition: 'fill 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+        }
+      })
+    ])
+  ]);
+
+  return visualizerDiv;
+}
+
 // Component factory (server-side only)
 const COMPONENT_FACTORY = {
   'room-visualizer': createRoomVisualizer,
   'color-palette': createColorPalette,
-  'visualizer-svg': createVisualizerSVG
+  'visualizer-svg': createVisualizerSVG,
+  'mini-room-visualizer': createMiniRoomVisualizer
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
