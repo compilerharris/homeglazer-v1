@@ -83,7 +83,8 @@
         "walls": {
           "left": "/assets/images/bedroom/bedroom8/left-wall.svg",
           "right": "/assets/images/bedroom/bedroom8/right-wall.svg",
-          "roof": "/assets/images/bedroom/bedroom8/roof-wall.svg"
+          "roof": "/assets/images/bedroom/bedroom8/roof-wall.svg",
+          "table": "/assets/images/bedroom/bedroom8/table.svg"
         }
       },
       {
@@ -229,6 +230,49 @@
     ]
   },
   {
+    "roomType": "livingroom",
+    "label": "Living Room",
+    "variants": [
+      {
+        "name": "livingroom1",
+        "label": "Living Room 1",
+        "mainImage": "/assets/images/livingroom/livingroom3/livingroom3.jpg",
+        "walls": {
+          "left": "/assets/images/livingroom/livingroom3/left-wall.svg",
+          "front": "/assets/images/livingroom/livingroom3/front-wall.svg",
+          "right": "/assets/images/livingroom/livingroom3/right-wall.svg",
+          "roof": "/assets/images/livingroom/livingroom3/roof-wall.svg",
+          "door": "/assets/images/livingroom/livingroom3/door.svg"
+        }
+      },
+      {
+        "name": "livingroom2",
+        "label": "Living Room 2",
+        "mainImage": "/assets/images/livingroom/livingroom2/livingroom2.jpg",
+        "walls": {
+          "left": "/assets/images/livingroom/livingroom2/left-wall.svg",
+          "front": "/assets/images/livingroom/livingroom2/front-wall.svg",
+          "right": "/assets/images/livingroom/livingroom2/right-wall.svg",
+          "roof": "/assets/images/livingroom/livingroom2/roof-wall.svg",
+          "door": "/assets/images/livingroom/livingroom2/door.svg"
+        }
+      },
+      {
+        "name": "livingroom3",
+        "label": "Living Room 3",
+        "mainImage": "/assets/images/livingroom/livingroom1/livingroom1.jpg",
+        "walls": {
+          "left": "/assets/images/livingroom/livingroom1/left-wall.svg",
+          "front": "/assets/images/livingroom/livingroom1/front-wall.svg",
+          "right": "/assets/images/livingroom/livingroom1/right-wall.svg",
+          "roof": "/assets/images/livingroom/livingroom1/roof-wall.svg",
+          "door": "/assets/images/livingroom/livingroom1/door.svg",
+          "window": "/assets/images/livingroom/livingroom1/window.svg"
+        }
+      }
+    ]
+  },
+  {
     "roomType": "kitchen",
     "label": "Kitchen",
     "variants": [
@@ -236,18 +280,6 @@
         "name": "kitchen1",
         "label": "Kitchen 1",
         "mainImage": "/lovable-uploads/kitchen.jpg",
-        "walls": {}
-      }
-    ]
-  },
-  {
-    "roomType": "living-room",
-    "label": "Living Room",
-    "variants": [
-      {
-        "name": "livingroom1",
-        "label": "Living Room 1",
-        "mainImage": "/lovable-uploads/living-room.jpg",
         "walls": {}
       }
     ]

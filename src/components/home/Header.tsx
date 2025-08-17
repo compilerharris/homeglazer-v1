@@ -31,9 +31,11 @@ const NavItem: React.FC<NavItemProps> = ({
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent hover:bg-pink-50 text-sm font-normal py-[5px] px-[10px] rounded-[45px]">{label}</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="bg-white/30 backdrop-blur-xl hover:bg-white/40 text-sm font-medium py-2 px-4 rounded-2xl border border-white/30 transition-all duration-300 text-gray-800 hover:text-gray-900">
+              {label}
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white/80 backdrop-blur-2xl rounded-2xl border border-white/40 shadow-2xl">
                 {children}
               </ul>
             </NavigationMenuContent>
@@ -46,7 +48,7 @@ const NavItem: React.FC<NavItemProps> = ({
   return (
     <Link 
       href={path} 
-      className="self-stretch bg-[rgba(255,255,255,0)] min-h-[33px] gap-2.5 whitespace-nowrap px-[10px] py-[5px] rounded-[45px] hover:bg-pink-50 transition-all duration-300 text-sm flex items-center" 
+      className="self-stretch bg-white/30 backdrop-blur-xl min-h-[40px] gap-2.5 whitespace-nowrap px-4 py-2 rounded-2xl hover:bg-white/40 transition-all duration-300 text-sm font-medium flex items-center border border-white/30 text-gray-800 hover:text-gray-900" 
       onClick={onClick}
     >
       {label}
@@ -65,13 +67,13 @@ const ListItem = React.forwardRef<
           ref={ref}
           href={href || '#'}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-pink-50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-xl p-4 leading-none no-underline outline-none transition-all duration-300 hover:bg-white/50 hover:scale-[1.02] border border-transparent hover:border-white/30",
             className
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="text-sm font-semibold leading-none text-gray-800">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-gray-600 mt-2">
             {children}
           </p>
         </Link>
@@ -83,6 +85,7 @@ ListItem.displayName = "ListItem";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Effect to handle body scroll locking when menu is open
   useEffect(() => {
@@ -99,6 +102,16 @@ const Header: React.FC = () => {
       document.body.style.overflow = 'auto';
     };
   }, [isMenuOpen]);
+
+  // Effect to handle scroll-based styling
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   const closeMenu = () => setIsMenuOpen(false);
   
@@ -158,33 +171,41 @@ const Header: React.FC = () => {
       path: '/about'
     }, 
     {
-      label: 'Enquire Now',
-      path: '/enquiry'
-    }, 
-    {
-      label: 'Budget Calculator',
-      path: '/calculator'
-    },
-    {
       label: 'Colour Visualiser',
       path: '/colour-visualiser'
     }
   ];
 
   return (
-    <div className="bg-[rgba(255,255,255,0.9)] shadow-[0px_4px_4px_rgba(255,190,213,0.2)] w-[90%] mx-auto mt-[5%] sm:mt-[1%] rounded-[50px] fixed left-0 right-0 z-50 transition-all duration-300">
-      <div className="flex w-full items-center gap-5 justify-between lg:justify-center lg:gap-[30px] px-6 py-[3px] lg:px-[40px]">
-        <Link href="/">
-          <img src="https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/e26e09b75bb9c4ab63f78d15296ed43e8713cb0b?placeholderIfAbsent=true" alt="Company Logo" className="aspect-[2.6] object-contain w-24 shadow-[0px_0px_1px_-68px_rgba(255,255,255,0.5)] self-stretch shrink-0 my-auto" />
+    <div className={cn(
+      "fixed left-0 right-0 z-50 transition-all duration-500 ease-out",
+      "w-[95%] mx-auto mt-4 sm:mt-2 lg:mt-3",
+      "bg-white/50 backdrop-blur-3xl",
+      "border border-white/40",
+      "shadow-[0_12px_40px_rgba(0,0,0,0.15)]",
+      "rounded-3xl",
+      isScrolled ? "bg-white/60 backdrop-blur-[50px] shadow-[0_16px_50px_rgba(0,0,0,0.2)]" : ""
+    )}>
+      <div className="flex w-full items-center gap-4 justify-between lg:justify-center lg:gap-8 px-6 py-3 lg:px-8 lg:py-4">
+        <Link href="/" className="group">
+          <img 
+            src="https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/e26e09b75bb9c4ab63f78d15296ed43e8713cb0b?placeholderIfAbsent=true" 
+            alt="Company Logo" 
+            className="aspect-[2.6] object-contain w-24 lg:w-28 transition-all duration-300 group-hover:scale-105" 
+          />
         </Link>
         
         {/* Burger menu for mobile/tablet */}
-        <button className="lg:hidden p-2 rounded-md" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label={isMenuOpen ? "Close menu" : "Open menu"}>
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        <button 
+          className="lg:hidden p-2 rounded-2xl bg-white/40 backdrop-blur-xl border border-white/30 hover:bg-white/50 transition-all duration-300" 
+          onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMenuOpen ? <X size={24} className="text-gray-800" /> : <Menu size={24} className="text-gray-800" />}
         </button>
         
         {/* Navigation for desktop */}
-        <nav className="hidden lg:flex self-stretch gap-2 justify-center flex-wrap my-auto p-2.5">
+        <nav className="hidden lg:flex self-stretch gap-3 justify-center flex-wrap my-auto">
           {navItems.map((item, index) => (
             <NavItem 
               key={index} 
@@ -199,47 +220,49 @@ const Header: React.FC = () => {
       
       {/* Mobile menu overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-[99999] top-[60px] lg:hidden">
-          <nav className="flex flex-col items-center p-5 gap-6 text-xl h-[calc(100vh-60px)] overflow-y-auto">
-            <Link href="/" onClick={closeMenu} className="py-2">Home</Link>
-            <div className="w-full">
-              <details className="w-full">
-                <summary className="py-2 flex items-center justify-center cursor-pointer">
-                  Our Services <ChevronDown className="ml-1" size={16} />
-                </summary>
-                <div className="pl-4 flex flex-col items-center gap-2 mt-2">
-                  {serviceDropdownItems.map((item, index) => (
-                    <Link 
-                      key={index} 
-                      href={item.path} 
-                      onClick={closeMenu}
-                      className="py-2 text-base"
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
+        <div className="fixed inset-0 bg-black/30 z-[99999] top-[80px] lg:hidden">
+          <div className="bg-white/95 border border-white/40 rounded-3xl mx-4 mt-4 shadow-2xl h-[70vh]">
+            <div className="h-full overflow-y-auto p-6">
+              <nav className="flex flex-col items-center gap-4 text-xl">
+                <Link href="/" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  Home
+                </Link>
+                <div className="w-full">
+                  <details className="w-full">
+                    <summary className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 flex items-center justify-center cursor-pointer">
+                      Our Services <ChevronDown className="ml-2" size={20} />
+                    </summary>
+                    <div className="pl-4 flex flex-col items-center gap-3 mt-4">
+                      {serviceDropdownItems.map((item, index) => (
+                        <Link 
+                          key={index} 
+                          href={item.path} 
+                          onClick={closeMenu}
+                          className="py-2 px-4 text-base bg-white/70 rounded-xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center"
+                        >
+                          {item.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </details>
                 </div>
-              </details>
+                <Link href="/products" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  Products
+                </Link>
+                <Link href="/blog" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  Painting Blogs
+                </Link>
+                <Link href="/about" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  About Us
+                </Link>
+                <Link href="/colour-visualiser" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  Colour Visualiser
+                </Link>
+              </nav>
             </div>
-            <Link href="/products" onClick={closeMenu} className="py-2">Products</Link>
-            <Link href="/blog" onClick={closeMenu} className="py-2">Painting Blogs</Link>
-            <Link href="/about" onClick={closeMenu} className="py-2">About Us</Link>
-            <Link href="/enquiry" onClick={closeMenu} className="py-2">Enquire Now</Link>
-            <Link href="/calculator" onClick={closeMenu} className="py-2">Budget Calculator</Link>
-            <Link href="/colour-visualiser" onClick={closeMenu} className="py-2">Colour Visualiser</Link>
-          </nav>
+          </div>
         </div>
       )}
-
-      {/* Mobile bottom buttons (below 1023px) */}
-      <div className={`fixed bottom-0 left-0 right-0 lg:hidden flex transition-all duration-300 ${isMenuOpen ? 'z-40' : 'z-50'}`}>
-        <Link href="/enquiry" className="w-1/2 bg-[rgba(237,39,110,1)] text-white font-medium py-5 text-center text-xl rounded-tl-[30px]">
-          Enquire Now
-        </Link>
-        <Link href="/calculator" className="w-1/2 bg-[rgba(59,130,246,1)] text-white font-medium py-5 text-center text-xl rounded-tr-[30px]">
-          Budget Calculator
-        </Link>
-      </div>
     </div>
   );
 };

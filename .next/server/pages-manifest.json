@@ -1,6 +1,8 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/colour-visualiser": "pages/colour-visualiser.js"
+  "/_error": "pages/_error.js",
+  "/services/customized-painting": "pages/services/customized-painting.js",
+  "/services/customized-painting/per-day-painting": "pages/services/customized-painting/per-day-painting.js",
+  "/services/wall-decor/stencil-art": "pages/services/wall-decor/stencil-art.js"
 }

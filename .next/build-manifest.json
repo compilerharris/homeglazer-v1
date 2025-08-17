@@ -22,10 +22,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/colour-visualiser": [
+    "/services/customized-painting": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/colour-visualiser.js"
+      "static/chunks/pages/services/customized-painting.js"
+    ],
+    "/services/customized-painting/per-day-painting": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/customized-painting/per-day-painting.js"
     ]
   },
   "ampFirstPages": []
