@@ -117,13 +117,30 @@ const PerDayPainting: React.FC = () => {
               </h2>
             </div>
             
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Life is busy and hectic for everyone, thinking of painting, re-painting, or just a touch-up painting is also a tough deal. WOW Per Day Painting Service is unique as the Home Glazer team has some expert painters who go to your doorsteps and provide the services. We have seen many people bothering to hire painters for their unnecessary delay and wage rate. But here we provide efficient painters who are worth your time and money.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Our clients can hire as many painters as they want for as long as they need them. There is no hurry to make a huge payment. Payment is done on a regular basis in the form of a wage. This helps to get the best painters for the days when they are actually needed. Their charges are suitable for a per-day basis and they prefer to work like this.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                  Life is busy and hectic for everyone, thinking of painting, re-painting, or just a touch-up painting is also a tough deal. WOW Per Day Painting Service is unique as the Home Glazer team has some expert painters who go to your doorsteps and provide the services. We have seen many people bothering to hire painters for their unnecessary delay and wage rate. But here we provide efficient painters who are worth your time and money.
+                </p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Our clients can hire as many painters as they want for as long as they need them. There is no hurry to make a huge payment. Payment is done on a regular basis in the form of a wage. This helps to get the best painters for the days when they are actually needed. Their charges are suitable for a per-day basis and they prefer to work like this.
+                </p>
+              </div>
+              
+              {/* Professional Painter Working Image */}
+              <div className="relative group">
+                <img 
+                  src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop&q=80" 
+                  alt="Professional painter working efficiently on residential interior"
+                  className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-2xl"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 text-center">
+                    <p className="text-sm font-semibold text-gray-800">Expert Painters at Your Service</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -137,10 +154,27 @@ const PerDayPainting: React.FC = () => {
               </h2>
             </div>
             
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Wow Per Day Painting Service is for saving them valuable time and money for our clients'. This is an opportunity to get your small areas painted at affordable rates by skilled painters. Many as per surveys, we have understood that people do not wish to make a big deal when they have to colour a small room or they need to do some patchwork. Everyone feels like saving money but they never wish to compromise the quality of work. So, as Home Glazer has promised to stay beside the client throughout, we have introduced WOW Per Day Painting Service. In this option, clients only hire the painter and enjoy their quality services.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Painting Tools and Equipment Image */}
+              <div className="relative group">
+                <img 
+                  src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=800&h=600&fit=crop&q=80" 
+                  alt="Professional painting tools and equipment for quality work"
+                  className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-2xl"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 text-center">
+                    <p className="text-sm font-semibold text-gray-800">Professional Tools & Equipment</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Wow Per Day Painting Service is for saving them valuable time and money for our clients'. This is an opportunity to get your small areas painted at affordable rates by skilled painters. Many as per surveys, we have understood that people do not wish to make a big deal when they have to colour a small room or they need to do some patchwork. Everyone feels like saving money but they never wish to compromise the quality of work. So, as Home Glazer has promised to stay beside the client throughout, we have introduced WOW Per Day Painting Service. In this option, clients only hire the painter and enjoy their quality services.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -149,6 +183,14 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
+              {/* Decorative Image */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=200&h=200&fit=crop&q=80" 
+                  alt="Home Glazer professional painting expertise"
+                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
+                />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 Why is Home Glazer beneficial to you?
               </h2>
@@ -175,6 +217,14 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
+              {/* Decorative Image */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=200&h=200&fit=crop&q=80" 
+                  alt="Easy booking and scheduling for painting services"
+                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
+                />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 How to avail the WOW Per Day Painting Services benefit?
               </h2>
@@ -231,6 +281,14 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
+              {/* Decorative Image */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&q=80" 
+                  alt="Professional painting features and quality tools"
+                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
+                />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 Features of WOW Per Day Painting Services
               </h2>
@@ -286,6 +344,14 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
+              {/* Decorative Image */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=200&h=200&fit=crop&q=80" 
+                  alt="Customer benefits and satisfaction from painting services"
+                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
+                />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 Benefits for Customers
               </h2>
@@ -341,6 +407,14 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
+              {/* Decorative Image */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&q=80" 
+                  alt="Real-world painting use cases and examples"
+                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
+                />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 Example Use Cases
               </h2>
@@ -382,6 +456,14 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
+              {/* Decorative Image */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&h=200&fit=crop&q=80" 
+                  alt="Commercial space painting benefits and professional appearance"
+                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
+                />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 WOW One Day Painting Services Benefits For Commercial Space
               </h2>
@@ -467,6 +549,14 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
+              {/* Decorative Image */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=200&h=200&fit=crop&q=80" 
+                  alt="Residential painting benefits and home transformation"
+                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
+                />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 WOW One Day Painting Services Benefits For Residential Space
               </h2>
@@ -603,6 +693,14 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
+              {/* Decorative Image */}
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&q=80" 
+                  alt="Summary of painting service benefits and key advantages"
+                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
+                />
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 Summary of Key Benefits
               </h2>
@@ -625,6 +723,109 @@ const PerDayPainting: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-3 flex-shrink-0"></div>
                   <span className="text-gray-700"><strong>Projects do not have to be priced in detail:</strong> With this service, you do not have to such a stereotype where you are compelled to come up with a complete project plan, raising high upfront payment for its execution.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Before & After Transformation Section */}
+        <section className="py-20 bg-white">
+          <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                Transform Your Space in Just One Day
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                See the incredible difference our professional painters can make to your home or business in a single day
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Before Image */}
+              <div className="relative group">
+                <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold z-10">
+                  BEFORE
+                </div>
+                <img 
+                  src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop&q=80" 
+                  alt="Interior space before professional painting transformation"
+                  className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-2xl"></div>
+              </div>
+              
+              {/* After Image */}
+              <div className="relative group">
+                <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold z-10">
+                  AFTER
+                </div>
+                <img 
+                  src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop&q=80" 
+                  alt="Interior space after professional painting transformation"
+                  className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-2xl"></div>
+              </div>
+            </div>
+            
+            <div className="text-center mt-12">
+              <p className="text-lg text-gray-600 mb-6">
+                Our expert painters use premium materials and professional techniques to deliver stunning results
+              </p>
+              <Link 
+                href="/enquiry" 
+                className="bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-[#ED276E]/90 hover:to-[#299dd7]/90 transition duration-300 transform hover:scale-105"
+              >
+                Get Your Transformation Started
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Professional Team Section */}
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+          <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                  Our Expert Painting Team
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                  Home Glazer's professional painters are highly skilled, experienced, and committed to delivering exceptional results. Each team member undergoes rigorous training and follows industry best practices to ensure your satisfaction.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-[#ED276E] rounded-full"></div>
+                    <span className="text-gray-700">Certified and licensed professionals</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-[#ED276E] rounded-full"></div>
+                    <span className="text-gray-700">35+ years of combined experience</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-[#ED276E] rounded-full"></div>
+                    <span className="text-gray-700">Quality-focused approach</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-[#ED276E] rounded-full"></div>
+                    <span className="text-gray-700">Customer satisfaction guarantee</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Professional Team Image */}
+              <div className="relative group">
+                <img 
+                  src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=800&h=600&fit=crop&q=80" 
+                  alt="Professional painting team working efficiently and professionally"
+                  className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-2xl"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 text-center">
+                    <p className="text-sm font-semibold text-gray-800">Dedicated to Excellence</p>
+                  </div>
                 </div>
               </div>
             </div>

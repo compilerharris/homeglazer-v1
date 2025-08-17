@@ -19,11 +19,6 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/services/customized-painting": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/services/customized-painting.js"
-    ],
     "/services/customized-painting/per-day-painting": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
