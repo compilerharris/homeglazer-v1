@@ -59,8 +59,8 @@ const PerDayPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="/lovable-uploads/per-day-painting.png" 
-              alt="WOW Per Day Painting Services"
+              src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=1920&h=1080&fit=crop&q=80" 
+              alt="Professional on-demand painting services - expert painters at work"
               className="w-full h-full object-cover"
             />
           </div>
@@ -131,15 +131,10 @@ const PerDayPainting: React.FC = () => {
               <div className="relative group">
                 <img 
                   src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop&q=80" 
-                  alt="Professional painter working efficiently on residential interior"
+                  alt="Professional painter working efficiently in modern home interior"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-2xl"></div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 text-center">
-                    <p className="text-sm font-semibold text-gray-800">Expert Painters at Your Service</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -158,16 +153,11 @@ const PerDayPainting: React.FC = () => {
               {/* Painting Tools and Equipment Image */}
               <div className="relative group">
                 <img 
-                  src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=800&h=600&fit=crop&q=80" 
-                  alt="Professional painting tools and equipment for quality work"
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&q=80" 
+                  alt="Professional painting tools and equipment for quality interior work"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-2xl"></div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 text-center">
-                    <p className="text-sm font-semibold text-gray-800">Professional Tools & Equipment</p>
-                  </div>
-                </div>
               </div>
               
               <div>
@@ -183,14 +173,6 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              {/* Decorative Image */}
-              <div className="flex justify-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=200&h=200&fit=crop&q=80" 
-                  alt="Home Glazer professional painting expertise"
-                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
-                />
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 Why is Home Glazer beneficial to you?
               </h2>
@@ -217,14 +199,6 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              {/* Decorative Image */}
-              <div className="flex justify-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=200&h=200&fit=crop&q=80" 
-                  alt="Easy booking and scheduling for painting services"
-                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
-                />
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 How to avail the WOW Per Day Painting Services benefit?
               </h2>
@@ -281,14 +255,6 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              {/* Decorative Image */}
-              <div className="flex justify-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&q=80" 
-                  alt="Professional painting features and quality tools"
-                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
-                />
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 Features of WOW Per Day Painting Services
               </h2>
@@ -344,14 +310,6 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              {/* Decorative Image */}
-              <div className="flex justify-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=200&h=200&fit=crop&q=80" 
-                  alt="Customer benefits and satisfaction from painting services"
-                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
-                />
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 Benefits for Customers
               </h2>
@@ -407,14 +365,6 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              {/* Decorative Image */}
-              <div className="flex justify-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&q=80" 
-                  alt="Real-world painting use cases and examples"
-                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
-                />
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 Example Use Cases
               </h2>
@@ -456,14 +406,6 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              {/* Decorative Image */}
-              <div className="flex justify-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&h=200&fit=crop&q=80" 
-                  alt="Commercial space painting benefits and professional appearance"
-                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
-                />
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 WOW One Day Painting Services Benefits For Commercial Space
               </h2>
@@ -549,14 +491,6 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              {/* Decorative Image */}
-              <div className="flex justify-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=200&h=200&fit=crop&q=80" 
-                  alt="Residential painting benefits and home transformation"
-                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
-                />
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 WOW One Day Painting Services Benefits For Residential Space
               </h2>
@@ -693,14 +627,6 @@ const PerDayPainting: React.FC = () => {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              {/* Decorative Image */}
-              <div className="flex justify-center mb-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&q=80" 
-                  alt="Summary of painting service benefits and key advantages"
-                  className="w-24 h-24 object-cover rounded-full shadow-lg border-4 border-white"
-                />
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
                 Summary of Key Benefits
               </h2>
@@ -744,9 +670,6 @@ const PerDayPainting: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Before Image */}
               <div className="relative group">
-                <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold z-10">
-                  BEFORE
-                </div>
                 <img 
                   src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop&q=80" 
                   alt="Interior space before professional painting transformation"
@@ -757,9 +680,6 @@ const PerDayPainting: React.FC = () => {
               
               {/* After Image */}
               <div className="relative group">
-                <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold z-10">
-                  AFTER
-                </div>
                 <img 
                   src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop&q=80" 
                   alt="Interior space after professional painting transformation"
@@ -822,11 +742,6 @@ const PerDayPainting: React.FC = () => {
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-2xl"></div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 text-center">
-                    <p className="text-sm font-semibold text-gray-800">Dedicated to Excellence</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
