@@ -141,11 +141,7 @@ const Header: React.FC = () => {
   
   const navItems = [
     {
-      label: 'Home',
-      path: '/'
-    }, 
-    {
-      label: 'Our Services',
+      label: 'Services',
       path: '/services',
       hasDropdown: true,
       children: serviceDropdownItems.map((item, index) => (
@@ -163,16 +159,20 @@ const Header: React.FC = () => {
       path: '/products'
     },
     {
-      label: 'Painting Blogs',
-      path: '/blog'
-    }, 
+      label: 'Budget Calculator',
+      path: '/calculator'
+    },
     {
-      label: 'About Us',
-      path: '/about'
-    }, 
-    {
-      label: 'Colour Visualiser',
+      label: 'Colour Visualisers',
       path: '/colour-visualiser'
+    },
+    {
+      label: 'Enquiry',
+      path: '/enquiry'
+    },
+    {
+      label: 'About',
+      path: '/about'
     }
   ];
 
@@ -224,13 +224,10 @@ const Header: React.FC = () => {
           <div className="bg-white/95 border border-white/40 rounded-3xl mx-4 mt-4 shadow-2xl h-[70vh]">
             <div className="h-full overflow-y-auto p-6">
               <nav className="flex flex-col items-center gap-4 text-xl">
-                <Link href="/" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
-                  Home
-                </Link>
                 <div className="w-full">
                   <details className="w-full">
                     <summary className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 flex items-center justify-center cursor-pointer">
-                      Our Services <ChevronDown className="ml-2" size={20} />
+                      Services <ChevronDown className="ml-2" size={20} />
                     </summary>
                     <div className="pl-4 flex flex-col items-center gap-3 mt-4">
                       {serviceDropdownItems.map((item, index) => (
@@ -249,14 +246,17 @@ const Header: React.FC = () => {
                 <Link href="/products" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
                   Products
                 </Link>
-                <Link href="/blog" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
-                  Painting Blogs
-                </Link>
-                <Link href="/about" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
-                  About Us
+                <Link href="/calculator" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  Budget Calculator
                 </Link>
                 <Link href="/colour-visualiser" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
-                  Colour Visualiser
+                  Colour Visualisers
+                </Link>
+                <Link href="/enquiry" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  Enquiry
+                </Link>
+                <Link href="/about" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  About
                 </Link>
               </nav>
             </div>

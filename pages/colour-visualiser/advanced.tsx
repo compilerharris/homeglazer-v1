@@ -14,6 +14,10 @@ const AdvancedVisualiser: React.FC = () => {
   const visualizer = useVisualizer();
   const breadcrumbs = visualizer.generateBreadcrumbs();
 
+  const handleGeneratePDF = (clientName: string, dateOfDesign: string, roomPreviewRef: React.RefObject<HTMLDivElement>) => {
+    visualizer.handleGeneratePDF(clientName, dateOfDesign, roomPreviewRef);
+  };
+
   return (
     <>
       <Header />
@@ -82,6 +86,11 @@ const AdvancedVisualiser: React.FC = () => {
           breadcrumbs={breadcrumbs}
           onStepClick={visualizer.setStep}
           selectedBrandId={visualizer.selectedBrandId}
+          // PDF generation props
+          showPDFModal={visualizer.showPDFModal}
+          isGeneratingPDF={visualizer.isGeneratingPDF}
+          onGeneratePDF={handleGeneratePDF}
+          onClosePDFModal={visualizer.closePDFModal}
         />
       )}
       

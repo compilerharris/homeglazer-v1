@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { VariantManifest, ColorSwatch } from '../../hooks/useVisualizer';
 import Breadcrumbs from './Breadcrumbs';
+import PDFGenerationModal from './PDFGenerationModal';
 
 interface BreadcrumbItem {
   label: string;
@@ -25,6 +26,11 @@ interface FinishSelectionProps {
   breadcrumbs?: BreadcrumbItem[];
   onStepClick?: (step: number) => void;
   selectedBrandId?: string | null;
+  // PDF generation props
+  showPDFModal?: boolean;
+  isGeneratingPDF?: boolean;
+  onGeneratePDF?: (clientName: string, dateOfDesign: string, roomPreviewRef: React.RefObject<HTMLDivElement>) => void;
+  onClosePDFModal?: () => void;
 }
 
 const wallLabels: Record<string, string> = {
@@ -78,12 +84,18 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   breadcrumbs = [],
   onStepClick,
   selectedBrandId,
+  // PDF generation props
+  showPDFModal,
+  isGeneratingPDF,
+  onGeneratePDF,
+  onClosePDFModal,
 }) => {
   const wallKeys = Object.keys(variant.walls);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const previewScrollRef = useRef<HTMLDivElement>(null);
   const previewImageRef = useRef<HTMLDivElement>(null);
   const mobilePreviewRef = useRef<HTMLDivElement>(null);
+  const roomPreviewRef = useRef<HTMLDivElement>(null);
   const [showSwipeHint, setShowSwipeHint] = useState(true);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -211,6 +223,12 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     };
   }, []);
   
+  const handleGeneratePDF = (clientName: string, dateOfDesign: string) => {
+    if (onGeneratePDF) {
+      onGeneratePDF(clientName, dateOfDesign, roomPreviewRef);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-white pt-28 flex flex-col items-center px-4 lg:px-0 relative pb-8">
       {/* Breadcrumbs Section */}
@@ -227,11 +245,11 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       <div className="hidden lg:flex w-full max-w-6xl gap-8" style={{ maxWidth: isLargeScreen ? '1408px' : '1152px' }}>
         {/* Left Column - Room Preview */}
         <div className="flex-1 min-w-0">
-          <div className="relative" style={{ aspectRatio: '16/9' }}>
+          <div ref={roomPreviewRef} className="relative room-preview-container overflow-hidden rounded-lg" style={{ aspectRatio: '16/9', width: '100%', height: 'auto' }}>
         <img
           src={variant.mainImage}
           alt={variant.label}
-          className="w-full h-full rounded-lg object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ display: 'block', width: '100%', height: '100%' }}
         />
             {/* SVG Overlay for wall masking */}
@@ -239,6 +257,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               className="svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply"
               viewBox="0 0 1280 720"
               preserveAspectRatio="xMidYMid slice"
+              style={{ width: '100%', height: '100%' }}
             >
               {wallKeys.map((wallKey) => {
                 if (!assignments[wallKey] || !wallMasks[wallKey]) return null;
@@ -407,18 +426,19 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             }}
           >
             <div className={`${isZoomed ? 'w-full' : 'h-full flex items-center justify-center min-w-max'} transition-all duration-500 ease-in-out`}>
-              <div className={`relative ${isZoomed ? 'w-full' : 'h-full flex items-center justify-center'} transition-all duration-500 ease-in-out`}>
+              <div ref={roomPreviewRef} className={`relative room-preview-container overflow-hidden rounded-lg ${isZoomed ? 'w-full' : 'h-full flex items-center justify-center'} transition-all duration-500 ease-in-out`}>
                 <img
                   src={variant.mainImage}
                   alt={variant.label}
-                  className={`${isZoomed ? 'w-full h-auto object-contain' : 'h-full w-auto max-w-none object-contain'} rounded-lg transition-all duration-500 ease-in-out transform`}
-                  style={{ display: 'block' }}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out transform`}
+                  style={{ display: 'block', width: '100%', height: '100%' }}
                 />
                 {/* SVG Overlay for wall masking */}
                 <svg 
-                  className={`svg-overlay absolute inset-0 ${isZoomed ? 'w-full h-full' : 'h-full w-auto max-w-none'} pointer-events-none mix-blend-multiply transition-all duration-500 ease-in-out`}
+                  className="svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply transition-all duration-500 ease-in-out"
                   viewBox="0 0 1280 720"
-                  preserveAspectRatio="xMidYMid meet"
+                  preserveAspectRatio="xMidYMid slice"
+                  style={{ width: '100%', height: '100%' }}
                 >
                   {wallKeys.map((wallKey) => {
                     if (!assignments[wallKey] || !wallMasks[wallKey]) return null;
@@ -665,6 +685,14 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           </div>
         </div>
       )}
+      
+      {/* PDF Generation Modal */}
+      <PDFGenerationModal
+        isOpen={showPDFModal || false}
+        onClose={onClosePDFModal || (() => {})}
+        onGenerate={handleGeneratePDF}
+        isGenerating={isGeneratingPDF || false}
+      />
     </main>
   );
 };

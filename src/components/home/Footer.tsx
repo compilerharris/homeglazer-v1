@@ -62,13 +62,15 @@ const Footer: React.FC<FooterProps> = ({ showSentinel, onSentinelRef }) => {
             {/* Layout for the columns at different breakpoints */}
             <div className="w-full sm:w-1/2 lg:w-auto lg:flex-1 px-4 mb-8">
               <h3 className="text-[rgba(150,150,150,1)] text-sm font-medium tracking-[0.28px] self-stretch">
-                <Link href="/contact" className="hover:text-white transition-all duration-250">Contact</Link>
+                Company
               </h3>
               <div className="flex flex-col gap-2 mt-2">
+                <Link href="/" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Home</Link>
                 <Link href="/about" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">About Us</Link>
-                <Link href="/faq" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">FAQ</Link>
-                <Link href="/privacy-policy" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Privacy Policy</Link>
+                <Link href="/blog" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Blog</Link>
+                <Link href="/contact" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Contact</Link>
                 <Link href="/enquiry" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Enquire Now</Link>
+                <Link href="/careers" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Careers</Link>
               </div>
             </div>
             <div className="w-full sm:w-1/2 lg:w-auto lg:flex-1 px-4 mb-8">
@@ -93,17 +95,27 @@ const Footer: React.FC<FooterProps> = ({ showSentinel, onSentinelRef }) => {
             </div>
             <div className="w-full sm:w-1/2 lg:w-auto lg:flex-1 px-4 mb-8">
               <h3 className="text-[rgba(150,150,150,1)] text-sm font-medium tracking-[0.28px]">
-                Quick Links
+                Tools & Resources
               </h3>
               <div className="flex flex-col gap-2 mt-2">
-                <Link href="/" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Home</Link>
                 <Link href="/products" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Products</Link>
-                <Link href="/blog" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Blog</Link>
                 <Link href="/colour-visualiser/basic" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Single Wall Visualizer</Link>
                 <Link href="/colour-visualiser/advanced" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Advanced Visualizer</Link>
                 <Link href="/calculator" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Budget Calculator</Link>
                 <Link href="/calculator/painting" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Painting Calculator</Link>
                 <Link href="/calculator/wood-polishing" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Wood Polishing Calculator</Link>
+              </div>
+            </div>
+            <div className="w-full sm:w-1/2 lg:w-auto lg:flex-1 px-4 mb-8">
+              <h3 className="text-[rgba(150,150,150,1)] text-sm font-medium tracking-[0.28px]">
+                Support & Legal
+              </h3>
+              <div className="flex flex-col gap-2 mt-2">
+                <Link href="/faq" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">FAQ</Link>
+                <Link href="/support" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Support</Link>
+                <Link href="/privacy-policy" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Privacy Policy</Link>
+                <Link href="/terms-of-service" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Terms of Service</Link>
+                <Link href="/sitemap" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Sitemap</Link>
               </div>
             </div>
           </div>
@@ -112,17 +124,21 @@ const Footer: React.FC<FooterProps> = ({ showSentinel, onSentinelRef }) => {
           <div className="bg-[rgba(230,230,230,0.5)] flex min-h-px w-full" />
           <div className="flex h-[52px] w-full max-w-[1188px] flex-col items-center justify-center mt-[21px] max-md:max-w-full">
             <div className="flex items-center gap-[17px] text-xs text-white whitespace-nowrap justify-center">
-              <a href="#" className="self-stretch rounded h-[17px] gap-[9px] my-auto hover:text-gray-300 transition-all duration-300">
-                English
-              </a>
+              <Link href="/privacy-policy" className="self-stretch rounded h-[17px] gap-[9px] my-auto hover:text-gray-300 transition-all duration-300">
+                Privacy Policy
+              </Link>
               <div className="bg-white self-stretch flex w-1 shrink-0 h-1 my-auto rounded-[17px]" />
-              <a href="#" className="self-stretch rounded h-[17px] gap-[9px] my-auto hover:text-gray-300 transition-all duration-300">
-                Privacy
-              </a>
+              <Link href="/terms-of-service" className="self-stretch rounded h-[17px] gap-[9px] my-auto hover:text-gray-300 transition-all duration-300">
+                Terms of Service
+              </Link>
               <div className="bg-white self-stretch flex w-1 shrink-0 h-1 my-auto rounded-[17px]" />
-              <a href="#" className="self-stretch rounded h-[17px] gap-[9px] my-auto hover:text-gray-300 transition-all duration-300">
-                Legal
-              </a>
+              <Link href="/cookie-policy" className="self-stretch rounded h-[17px] gap-[9px] my-auto hover:text-gray-300 transition-all duration-300">
+                Cookie Policy
+              </Link>
+              <div className="bg-white self-stretch flex w-1 shrink-0 h-1 my-auto rounded-[17px]" />
+              <Link href="/sitemap" className="self-stretch rounded h-[17px] gap-[9px] my-auto hover:text-gray-300 transition-all duration-300">
+                Sitemap
+              </Link>
             </div>
             <div className="text-[#A6A7AB] text-[13px] mt-6">
               © 2025 Homeglazer. All Rights Reserved.

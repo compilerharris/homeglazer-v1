@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PDFGenerator, { RoomData, ColorSelection } from '../lib/pdfGenerator';
 
 // Import all color JSON files
 import asianPaintsColors from '../data/colors/asian_paints_colors.json';
@@ -179,6 +180,10 @@ export function useVisualizer() {
   const [selectedColourType, setSelectedColourType] = useState<string | null>(null);
   const [selectedColours, setSelectedColours] = useState<ColorSwatch[]>([]);
   const [colorTypeRefreshKey, setColorTypeRefreshKey] = useState(0);
+
+  // State for PDF generation
+  const [showPDFModal, setShowPDFModal] = useState(false);
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
 
   // Load manifest and brands on mount
   useEffect(() => {
@@ -387,7 +392,77 @@ export function useVisualizer() {
   };
   const handleClosePalette = () => setShowPalette(false);
   const handleDownload = () => {
-    alert('Download functionality coming soon!');
+    setShowPDFModal(true);
+  };
+
+  const handleGeneratePDF = async (clientName: string, dateOfDesign: string, roomPreviewRef?: React.RefObject<HTMLDivElement>) => {
+    if (!selectedRoom || !selectedVariantName || !selectedBrandId) {
+      alert('Please complete all selections before generating PDF');
+      return;
+    }
+
+    setIsGeneratingPDF(true);
+    
+    try {
+      // Get the room preview element from ref
+      const roomPreviewElement = roomPreviewRef?.current;
+      
+      // Create PDF generator instance
+      const pdfGenerator = new PDFGenerator();
+      
+      // Prepare room data
+      const colorSelections: ColorSelection[] = Object.entries(assignments)
+        .filter(([_, color]) => color)
+        .map(([wallKey, color]) => {
+          const colorInfo = selectedColours.find(c => c.colorHex === color);
+          return {
+            wallKey: wallKey.charAt(0).toUpperCase() + wallKey.slice(1).replace('-', ' '),
+            colorHex: color,
+            colorName: colorInfo ? colorInfo.colorName : 'Unknown',
+            colorCode: colorInfo ? colorInfo.colorCode : 'Unknown'
+          };
+        });
+
+      const roomData: RoomData = {
+        roomType: selectedRoom.label,
+        roomVariant: selectedVariantName,
+        brand: BRAND_CONFIG.find(b => b.id === selectedBrandId)?.name || 'Unknown',
+        colorSelections,
+        previewImageUrl: selectedRoom.variants.find(v => v.name === selectedVariantName)?.mainImage
+      };
+
+      // Capture room preview if element exists
+      if (roomPreviewElement) {
+        try {
+          const previewImage = await pdfGenerator.captureRoomPreview(roomPreviewElement);
+          roomData.previewImageUrl = previewImage;
+        } catch (error) {
+          console.warn('Failed to capture room preview, using fallback image');
+        }
+      }
+
+      // Generate PDF
+      await pdfGenerator.generatePDF(roomData, {
+        clientName,
+        dateOfDesign
+      });
+
+      // Close modal and show success message
+      setShowPDFModal(false);
+      alert('PDF generated successfully!');
+      
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert('Failed to generate PDF. Please try again.');
+    } finally {
+      setIsGeneratingPDF(false);
+    }
+  };
+
+  const closePDFModal = () => {
+    if (!isGeneratingPDF) {
+      setShowPDFModal(false);
+    }
   };
 
   // Navigation
@@ -515,6 +590,11 @@ export function useVisualizer() {
     handleAssignColor,
     handleClosePalette,
     handleDownload,
+    // PDF generation state
+    showPDFModal,
+    isGeneratingPDF,
+    handleGeneratePDF,
+    closePDFModal,
     // Breadcrumbs
     generateBreadcrumbs,
     // Color type refresh key for forcing re-renders
