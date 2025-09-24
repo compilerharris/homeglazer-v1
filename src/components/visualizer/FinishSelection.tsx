@@ -43,6 +43,8 @@ const wallLabels: Record<string, string> = {
   window: 'Window',
   table: 'Table',
   chair: 'Chair',
+  sofa: 'Sofa',
+  edge: 'Edge',
 };
 
 // Utility function to capitalize first letter of each word
@@ -99,19 +101,39 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const [showSwipeHint, setShowSwipeHint] = useState(true);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
-  const [isZoomed, setIsZoomed] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(() => {
+    // Set zoom out (true) as default for tablet and mobile devices
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 1024; // lg breakpoint
+    }
+    return false; // Default for SSR
+  });
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   const [isButtonFixed, setIsButtonFixed] = useState(true);
+  const [imageLoading, setImageLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   // Debug log for showSwipeHint state
   console.log('Current showSwipeHint state:', showSwipeHint);
   console.log('Current isZoomed state:', isZoomed);
 
-  // Check screen size for responsive width
+  // Reset image loading state when variant changes
+  useEffect(() => {
+    setImageLoading(true);
+    setImageError(false);
+  }, [variant.mainImage]);
+
+  // Check screen size for responsive width and zoom state
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsLargeScreen(window.innerWidth >= 1400);
+      const isLargeScreen = window.innerWidth >= 1400;
+      const isDesktop = window.innerWidth >= 1024;
+      
+      setIsLargeScreen(isLargeScreen);
+      
+      // Set zoom out (true) for tablet and mobile, zoom in (false) for desktop
+      setIsZoomed(!isDesktop);
     };
     
     checkScreenSize();
@@ -120,8 +142,8 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // Convert selectedColors to palette (hex values)
-  const palette = selectedColors.map(color => color.colorHex);
+  // Convert selectedColors to palette (hex values) and add white color option
+  const palette = [...selectedColors.map(color => color.colorHex), '#FFFFFF'];
 
   // Check scroll position for arrow visibility
   const checkScrollPosition = () => {
@@ -251,6 +273,17 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           alt={variant.label}
           className="absolute inset-0 w-full h-full object-cover"
           style={{ display: 'block', width: '100%', height: '100%' }}
+          onError={(e) => {
+            console.error('Failed to load image:', variant.mainImage);
+            setImageError(true);
+            setImageLoading(false);
+            e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Room+Preview';
+          }}
+          onLoad={() => {
+            console.log('Image loaded successfully:', variant.mainImage);
+            setImageLoading(false);
+            setImageError(false);
+          }}
         />
             {/* SVG Overlay for wall masking */}
             <svg
@@ -286,6 +319,19 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             <div className="text-gray-500">Loading masks...</div>
           </div>
         )}
+        {imageLoading && !imageError && (
+          <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
+            <div className="text-gray-500">Loading image...</div>
+          </div>
+        )}
+        {imageError && (
+          <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+            <div className="text-gray-500 text-center">
+              <div className="text-sm">Image failed to load</div>
+              <div className="text-xs mt-1">Using placeholder</div>
+            </div>
+          </div>
+        )}
       </div>
         </div>
         
@@ -302,8 +348,13 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             type="button"
           >
             <div
-                  className="w-full h-24 rounded-lg border-2 flex items-center justify-center mb-2 relative transition-all duration-200 overflow-hidden"
-              style={{ borderColor: assignments[wallKey] || '#e5e7eb', background: assignments[wallKey] || '#fff' }}
+                  className={`w-full h-24 rounded-lg border-2 flex items-center justify-center mb-2 relative transition-all duration-200 overflow-hidden ${
+                    assignments[wallKey] === '#FFFFFF' ? 'border-gray-300' : ''
+                  }`}
+              style={{ 
+                borderColor: assignments[wallKey] === '#FFFFFF' ? '#d1d5db' : (assignments[wallKey] || '#e5e7eb'), 
+                background: assignments[wallKey] || '#fff' 
+              }}
             >
               {wallMasks[wallKey] ? (
                 <svg
@@ -389,19 +440,28 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                 {palette.map((color, idx) => (
                   <div key={color + idx} className="flex flex-col items-center">
                     <button
-                      className="w-16 h-12 rounded border-2 border-white hover:border-gray-400 focus:outline-none transition-all duration-200"
+                      className={`w-16 h-12 rounded border-2 focus:outline-none transition-all duration-200 ${
+                        color === '#FFFFFF' 
+                          ? 'border-gray-300 hover:border-gray-500' 
+                          : 'border-white hover:border-gray-400'
+                      }`}
                       style={{ background: color }}
                       onClick={() => onAssignColor(color)}
                       aria-label={`Apply color ${color}`}
-                      title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color}
+                      title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color === '#FFFFFF' ? 'White (#FFFFFF)' : color}
                     />
                     {/* Colour name and code */}
-                    {selectedColors[idx] && (
+                    {selectedColors[idx] ? (
                       <div className="mt-1 text-xs text-gray-600 text-center w-full h-8 flex flex-col justify-center">
                         <div className="font-medium leading-tight">{capitalizeWords(selectedColors[idx].colorName)}</div>
                         <div className="text-gray-500 leading-tight">{selectedColors[idx].colorCode}</div>
                       </div>
-                    )}
+                    ) : color === '#FFFFFF' ? (
+                      <div className="mt-1 text-xs text-gray-600 text-center w-full h-8 flex flex-col justify-center">
+                        <div className="font-medium leading-tight">White</div>
+                        <div className="text-gray-500 leading-tight">#FFFFFF</div>
+                      </div>
+                    ) : null}
                   </div>
                 ))}
               </div>
@@ -426,12 +486,23 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             }}
           >
             <div className={`${isZoomed ? 'w-full' : 'h-full flex items-center justify-center min-w-max'} transition-all duration-500 ease-in-out`}>
-              <div ref={roomPreviewRef} className={`relative room-preview-container overflow-hidden rounded-lg ${isZoomed ? 'w-full' : 'h-full flex items-center justify-center'} transition-all duration-500 ease-in-out`}>
+              <div ref={roomPreviewRef} className={`relative room-preview-container overflow-hidden rounded-lg ${isZoomed ? 'w-full' : 'h-full flex items-center justify-center'} transition-all duration-500 ease-in-out`} style={{ minHeight: isZoomed ? 'auto' : '100%', aspectRatio: isZoomed ? '16/9' : 'auto' }}>
                 <img
                   src={variant.mainImage}
                   alt={variant.label}
-                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out transform`}
+                  className={`w-full h-full object-cover transition-all duration-500 ease-in-out transform`}
                   style={{ display: 'block', width: '100%', height: '100%' }}
+                  onError={(e) => {
+                    console.error('Failed to load image:', variant.mainImage);
+                    setImageError(true);
+                    setImageLoading(false);
+                    e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Room+Preview';
+                  }}
+                  onLoad={() => {
+                    console.log('Image loaded successfully:', variant.mainImage);
+                    setImageLoading(false);
+                    setImageError(false);
+                  }}
                 />
                 {/* SVG Overlay for wall masking */}
                 <svg 
@@ -465,6 +536,19 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                 {loadingMasks && (
                   <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
                     <div className="text-gray-500">Loading masks...</div>
+                  </div>
+                )}
+                {imageLoading && !imageError && (
+                  <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
+                    <div className="text-gray-500">Loading image...</div>
+                  </div>
+                )}
+                {imageError && (
+                  <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+                    <div className="text-gray-500 text-center">
+                      <div className="text-sm">Image failed to load</div>
+                      <div className="text-xs mt-1">Using placeholder</div>
+                    </div>
                   </div>
                 )}
               </div>
@@ -526,12 +610,14 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             {wallKeys.map((wallKey) => (
               <button
                 key={wallKey}
-                className={`flex flex-col items-center group flex-shrink-0 w-20 md:w-28 bg-white rounded-xl border-2 transition-all duration-200 ${assignments[wallKey] ? 'shadow-lg' : 'shadow'}`}
+                className={`flex flex-col items-center group flex-shrink-0 w-20 md:w-28 bg-white rounded-xl border-2 transition-all duration-200 ${assignments[wallKey] ? 'shadow-lg' : 'shadow'} ${
+                  assignments[wallKey] === '#FFFFFF' ? 'border-gray-300' : ''
+                }`}
                 onClick={() => handleWallClick(wallKey)}
                 type="button"
                 style={{ 
                   minWidth: window.innerWidth < 768 ? '5rem' : '7rem',
-                  borderColor: assignments[wallKey] || '#e5e7eb'
+                  borderColor: assignments[wallKey] === '#FFFFFF' ? '#d1d5db' : (assignments[wallKey] || '#e5e7eb')
                 }}
               >
                 <div
@@ -666,19 +752,28 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               {palette.map((color, idx) => (
                 <div key={color + idx} className="flex flex-col items-center">
                 <button
-                    className="w-20 h-16 rounded border-2 border-white hover:border-gray-400 focus:outline-none transition-all duration-200"
+                    className={`w-20 h-16 rounded border-2 focus:outline-none transition-all duration-200 ${
+                      color === '#FFFFFF' 
+                        ? 'border-gray-300 hover:border-gray-500' 
+                        : 'border-white hover:border-gray-400'
+                    }`}
                   style={{ background: color }}
                   onClick={() => onAssignColor(color)}
                   aria-label={`Apply color ${color}`}
-                    title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color}
+                    title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color === '#FFFFFF' ? 'White (#FFFFFF)' : color}
                   />
                   {/* Colour name and code */}
-                  {selectedColors[idx] && (
+                  {selectedColors[idx] ? (
                     <div className="mt-1 text-xs text-gray-600 text-center w-full h-8 flex flex-col justify-center">
                       <div className="font-medium leading-tight">{capitalizeWords(selectedColors[idx].colorName)}</div>
                       <div className="text-gray-500 leading-tight">{selectedColors[idx].colorCode}</div>
                     </div>
-                  )}
+                  ) : color === '#FFFFFF' ? (
+                    <div className="mt-1 text-xs text-gray-600 text-center w-full h-8 flex flex-col justify-center">
+                      <div className="font-medium leading-tight">White</div>
+                      <div className="text-gray-500 leading-tight">#FFFFFF</div>
+                    </div>
+                  ) : null}
                 </div>
               ))}
             </div>

@@ -381,7 +381,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
         {/* Instructional Message - Above Button (only hide when 3+ colors selected) */}
         {selectedColors.length < 3 && (
           <div aria-live="polite" className="text-sm text-muted-foreground text-center">
-            Please select at least 3 colors to continue.
+            Please select at least 3 colours to continue.
           </div>
         )}
         <button
@@ -399,21 +399,23 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
         <div className={`transition-all duration-300 ${
           isButtonFixed ? 'fixed left-1/2 -translate-x-1/2 bottom-6 z-50' : 'absolute left-1/2 -translate-x-1/2 bottom-6 z-[9999]'
         }`}>
-          {/* Instructional Message - Above Button (only show when fewer than 3 colors selected) */}
-          {selectedColors.length < 3 && (
-            <div aria-live="polite" className="text-sm text-muted-foreground text-center mb-3">
-              Please select at least 3 colors to continue.
-            </div>
-          )}
-          <button
-            className="px-8 py-4 rounded-xl bg-white text-black font-bold text-lg shadow-lg border border-gray-200 flex items-center gap-2 z-50 disabled:opacity-50 disabled:cursor-not-allowed mx-auto"
-            style={{ minWidth: 280 }}
-            disabled={selectedColors.length < 3}
-            aria-disabled={selectedColors.length < 3}
-            onClick={onNext}
-          >
-            COLOUR YOUR ROOM <span className="text-2xl">→</span>
-          </button>
+          <div className="bg-white border border-gray-200 rounded-xl p-2 shadow-lg">
+            {/* Instructional Message - Above Button (only show when fewer than 3 colors selected) */}
+            {selectedColors.length < 3 && (
+              <div aria-live="polite" className="text-sm text-muted-foreground text-center mb-3">
+                Please select at least 3 colours to continue.
+              </div>
+            )}
+            <button
+              className="px-8 py-4 rounded-xl bg-[#299dd7] text-white font-bold text-lg shadow-lg flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ minWidth: 280 }}
+              disabled={selectedColors.length < 3}
+              aria-disabled={selectedColors.length < 3}
+              onClick={onNext}
+            >
+              COLOUR YOUR ROOM <span className="text-2xl">→</span>
+            </button>
+          </div>
         </div>
       </div>
     </main>

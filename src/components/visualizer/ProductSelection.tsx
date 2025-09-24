@@ -38,7 +38,7 @@ const ProductSelection: React.FC<ProductSelectionProps> = ({
     
     <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Step 3: Choose a Paint Brand</h2>
     <p className="mb-8 text-gray-600 text-center max-w-xl">Select your preferred paint brand to see their color options.</p>
-    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 w-full max-w-5xl">
+    <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-4 w-full max-w-7xl mx-auto justify-items-center">
       {BRAND_CONFIG.map((brand) => (
         <div key={brand.id} className="flex flex-col items-center">
         <button
@@ -46,11 +46,11 @@ const ProductSelection: React.FC<ProductSelectionProps> = ({
           onClick={() => onSelectBrand(brand.id)}
           type="button"
         >
-            <div className="w-full aspect-square bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center p-8 overflow-hidden">
+            <div className="w-full aspect-square bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center p-3 sm:p-4 overflow-hidden">
               <img src={brand.logo} alt={brand.name} className="object-contain w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Logo')} />
           </div>
         </button>
-          <span className="text-lg font-semibold text-gray-800 text-center mt-3">{brand.name}</span>
+          <span className="text-xs sm:text-sm font-semibold text-gray-800 text-center mt-2">{brand.name}</span>
         </div>
       ))}
     </div>

@@ -9,8 +9,8 @@
         "mainImage": "/assets/images/bedroom/bedroom1/bedroom1.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom1/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom1/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom1/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom1/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom1/roof-wall.svg"
         }
       },
@@ -49,8 +49,8 @@
         "mainImage": "/assets/images/bedroom/bedroom5/bedroom5.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom5/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom5/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom5/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom5/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom5/roof-wall.svg"
         }
       },
@@ -71,8 +71,8 @@
         "mainImage": "/assets/images/bedroom/bedroom7/bedroom7.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom7/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom7/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom7/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom7/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom7/roof-wall.svg"
         }
       },
@@ -93,8 +93,8 @@
         "mainImage": "/assets/images/bedroom/bedroom9/bedroom9.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom9/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom9/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom9/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom9/front-wall.svg",
           "door": "/assets/images/bedroom/bedroom9/door.svg",
           "window": "/assets/images/bedroom/bedroom9/window.svg"
         }
@@ -115,8 +115,8 @@
         "mainImage": "/assets/images/bedroom/bedroom11/bedroom11.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom11/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom11/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom11/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom11/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom11/roof-wall.svg"
         }
       },
@@ -126,8 +126,8 @@
         "mainImage": "/assets/images/bedroom/bedroom12/bedroom12.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom12/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom12/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom12/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom12/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom12/roof-wall.svg",
           "roof-sides": "/assets/images/bedroom/bedroom12/roof-sides.svg",
           "window": "/assets/images/bedroom/bedroom12/window.svg",
@@ -151,8 +151,8 @@
         "mainImage": "/assets/images/bedroom/bedroom14/bedroom14.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom14/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom14/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom14/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom14/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom14/roof-wall.svg",
           "door": "/assets/images/bedroom/bedroom14/door.svg",
           "window": "/assets/images/bedroom/bedroom14/window.svg",
@@ -165,8 +165,8 @@
         "mainImage": "/assets/images/bedroom/bedroom15/bedroom15.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom15/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom15/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom15/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom15/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom15/roof-wall.svg",
           "table": "/assets/images/bedroom/bedroom15/table.svg"
         }
@@ -177,8 +177,8 @@
         "mainImage": "/assets/images/bedroom/bedroom16/bedroom16.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom16/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom16/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom16/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom16/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom16/roof-wall.svg",
           "window": "/assets/images/bedroom/bedroom16/window.svg"
         }
@@ -189,8 +189,8 @@
         "mainImage": "/assets/images/bedroom/bedroom17/bedroom17.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom17/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom17/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom17/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom17/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom17/roof-wall.svg",
           "roof-sides": "/assets/images/bedroom/bedroom17/roof-sides.svg",
           "door": "/assets/images/bedroom/bedroom17/door.svg",
@@ -202,8 +202,8 @@
         "label": "Bedroom 18",
         "mainImage": "/assets/images/bedroom/bedroom18/bedroom18.jpg",
         "walls": {
-          "front": "/assets/images/bedroom/bedroom18/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom18/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom18/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom18/roof-wall.svg"
         }
       },
@@ -221,8 +221,8 @@
         "mainImage": "/assets/images/bedroom/bedroom20/bedroom20.jpg",
         "walls": {
           "left": "/assets/images/bedroom/bedroom20/left-wall.svg",
-          "front": "/assets/images/bedroom/bedroom20/front-wall.svg",
           "right": "/assets/images/bedroom/bedroom20/right-wall.svg",
+          "front": "/assets/images/bedroom/bedroom20/front-wall.svg",
           "roof": "/assets/images/bedroom/bedroom20/roof-wall.svg",
           "window": "/assets/images/bedroom/bedroom20/window.svg"
         }
@@ -239,8 +239,8 @@
         "mainImage": "/assets/images/livingroom/livingroom1/livingroom1.jpg",
         "walls": {
           "left": "/assets/images/livingroom/livingroom1/left-wall.svg",
-          "front": "/assets/images/livingroom/livingroom1/front-wall.svg",
           "right": "/assets/images/livingroom/livingroom1/right-wall.svg",
+          "front": "/assets/images/livingroom/livingroom1/front-wall.svg",
           "roof": "/assets/images/livingroom/livingroom1/roof-wall.svg",
           "window": "/assets/images/livingroom/livingroom1/window.svg"
         }
@@ -251,8 +251,8 @@
         "mainImage": "/assets/images/livingroom/livingroom2/livingroom2.jpg",
         "walls": {
           "left": "/assets/images/livingroom/livingroom2/left-wall.svg",
-          "front": "/assets/images/livingroom/livingroom2/front-wall.svg",
           "right": "/assets/images/livingroom/livingroom2/right-wall.svg",
+          "front": "/assets/images/livingroom/livingroom2/front-wall.svg",
           "roof": "/assets/images/livingroom/livingroom2/roof-wall.svg",
           "door": "/assets/images/livingroom/livingroom2/door.svg"
         }
@@ -263,8 +263,8 @@
         "mainImage": "/assets/images/livingroom/livingroom3/livingroom3.jpg",
         "walls": {
           "left": "/assets/images/livingroom/livingroom3/left-wall.svg",
-          "front": "/assets/images/livingroom/livingroom3/front-wall.svg",
           "right": "/assets/images/livingroom/livingroom3/right-wall.svg",
+          "front": "/assets/images/livingroom/livingroom3/front-wall.svg",
           "roof": "/assets/images/livingroom/livingroom3/roof-wall.svg",
           "door": "/assets/images/livingroom/livingroom3/door.svg"
         }
@@ -275,8 +275,8 @@
         "mainImage": "/assets/images/livingroom/livingroom4/livingroom4.jpg",
         "walls": {
           "left": "/assets/images/livingroom/livingroom4/left-wall.svg",
-          "front": "/assets/images/livingroom/livingroom4/front-wall.svg",
           "right": "/assets/images/livingroom/livingroom4/right-wall.svg",
+          "front": "/assets/images/livingroom/livingroom4/front-wall.svg",
           "roof": "/assets/images/livingroom/livingroom4/roof-wall.svg",
           "door": "/assets/images/livingroom/livingroom4/door.svg",
           "window": "/assets/images/livingroom/livingroom4/window.svg"
@@ -288,8 +288,8 @@
         "mainImage": "/assets/images/livingroom/livingroom5/livingroom5.jpg",
         "walls": {
           "left": "/assets/images/livingroom/livingroom5/left-wall.svg",
-          "front": "/assets/images/livingroom/livingroom5/front-wall.svg",
-          "right": "/assets/images/livingroom/livingroom5/right-wall.svg"
+          "right": "/assets/images/livingroom/livingroom5/right-wall.svg",
+          "front": "/assets/images/livingroom/livingroom5/front-wall.svg"
         }
       },
       {
@@ -298,8 +298,8 @@
         "mainImage": "/assets/images/livingroom/livingroom6/livingroom6.jpg",
         "walls": {
           "left": "/assets/images/livingroom/livingroom6/left-wall.svg",
-          "front": "/assets/images/livingroom/livingroom6/front-wall.svg",
           "right": "/assets/images/livingroom/livingroom6/right-wall.svg",
+          "front": "/assets/images/livingroom/livingroom6/front-wall.svg",
           "roof": "/assets/images/livingroom/livingroom6/roof-wall.svg",
           "window": "/assets/images/livingroom/livingroom6/window.svg"
         }
@@ -309,8 +309,8 @@
         "label": "Living Room 7",
         "mainImage": "/assets/images/livingroom/livingroom7/livingroom7.jpg",
         "walls": {
-          "front": "/assets/images/livingroom/livingroom7/front-wall.svg",
           "right": "/assets/images/livingroom/livingroom7/right-wall.svg",
+          "front": "/assets/images/livingroom/livingroom7/front-wall.svg",
           "roof": "/assets/images/livingroom/livingroom7/roof-wall.svg",
           "table": "/assets/images/livingroom/livingroom7/table.svg"
         }
@@ -321,8 +321,8 @@
         "mainImage": "/assets/images/livingroom/livingroom8/livingroom8.jpg",
         "walls": {
           "left": "/assets/images/livingroom/livingroom8/left-wall.svg",
-          "front": "/assets/images/livingroom/livingroom8/front-wall.svg",
           "right": "/assets/images/livingroom/livingroom8/right-wall.svg",
+          "front": "/assets/images/livingroom/livingroom8/front-wall.svg",
           "roof": "/assets/images/livingroom/livingroom8/roof-wall.svg",
           "window": "/assets/images/livingroom/livingroom8/window.svg"
         }
@@ -333,8 +333,8 @@
         "mainImage": "/assets/images/livingroom/livingroom9/livingroom9.jpg",
         "walls": {
           "left": "/assets/images/livingroom/livingroom9/left-wall.svg",
-          "front": "/assets/images/livingroom/livingroom9/front-wall.svg",
           "right": "/assets/images/livingroom/livingroom9/right-wall.svg",
+          "front": "/assets/images/livingroom/livingroom9/front-wall.svg",
           "roof": "/assets/images/livingroom/livingroom9/roof-wall.svg"
         }
       },
@@ -344,10 +344,89 @@
         "mainImage": "/assets/images/livingroom/livingroom10/livingroom10.jpg",
         "walls": {
           "left": "/assets/images/livingroom/livingroom10/left-wall.svg",
-          "front": "/assets/images/livingroom/livingroom10/front-wall.svg",
           "right": "/assets/images/livingroom/livingroom10/right-wall.svg",
+          "front": "/assets/images/livingroom/livingroom10/front-wall.svg",
           "roof": "/assets/images/livingroom/livingroom10/roof-wall.svg",
           "window": "/assets/images/livingroom/livingroom10/window.svg"
+        }
+      }
+    ]
+  },
+  {
+    "roomType": "homeoffice",
+    "label": "Home Office",
+    "variants": [
+      {
+        "name": "homeoffice1",
+        "label": "Home Office 1",
+        "mainImage": "/assets/images/homeoffice/homeoffice1/homeoffice1.jpg",
+        "walls": {
+          "left": "/assets/images/homeoffice/homeoffice1/left-wall.svg",
+          "front": "/assets/images/homeoffice/homeoffice1/front-wall.svg",
+          "door": "/assets/images/homeoffice/homeoffice1/door.svg",
+          "table": "/assets/images/homeoffice/homeoffice1/table.svg",
+          "Drawer": "/assets/images/homeoffice/homeoffice1/drawer.svg"
+        }
+      },
+      {
+        "name": "homeoffice2",
+        "label": "Home Office 2",
+        "mainImage": "/assets/images/homeoffice/homeoffice2/homeoffice2.jpg",
+        "walls": {
+          "left": "/assets/images/homeoffice/homeoffice2/left-wall.svg",
+          "right": "/assets/images/homeoffice/homeoffice2/right-wall.svg",
+          "front": "/assets/images/homeoffice/homeoffice2/front-wall.svg",
+          "roof": "/assets/images/homeoffice/homeoffice2/roof-wall.svg",
+          "window": "/assets/images/homeoffice/homeoffice2/window.svg",
+          "table": "/assets/images/homeoffice/homeoffice2/table.svg",
+          "sofa": "/assets/images/homeoffice/homeoffice2/sofa.svg"
+        }
+      },
+      {
+        "name": "homeoffice3",
+        "label": "Home Office 3",
+        "mainImage": "/assets/images/homeoffice/homeoffice3/homeoffice3.jpg",
+        "walls": {
+          "left": "/assets/images/homeoffice/homeoffice3/left-wall.svg",
+          "right": "/assets/images/homeoffice/homeoffice3/right-wall.svg",
+          "front": "/assets/images/homeoffice/homeoffice3/front-wall.svg",
+          "roof": "/assets/images/homeoffice/homeoffice3/roof-wall.svg"
+        }
+      },
+      {
+        "name": "homeoffice4",
+        "label": "Home Office 4",
+        "mainImage": "/assets/images/homeoffice/homeoffice4/homeoffice4.jpg",
+        "walls": {
+          "left": "/assets/images/homeoffice/homeoffice4/left-wall.svg",
+          "right": "/assets/images/homeoffice/homeoffice4/right-wall.svg",
+          "front": "/assets/images/homeoffice/homeoffice4/front-wall.svg",
+          "roof": "/assets/images/homeoffice/homeoffice4/roof-wall.svg",
+          "window": "/assets/images/homeoffice/homeoffice4/window.svg",
+          "edge": "/assets/images/homeoffice/homeoffice4/edge.svg"
+        }
+      },
+      {
+        "name": "homeoffice5",
+        "label": "Home Office 5",
+        "mainImage": "/assets/images/homeoffice/homeoffice5/homeoffice5.jpg",
+        "walls": {
+          "left": "/assets/images/homeoffice/homeoffice5/left-wall.svg",
+          "right": "/assets/images/homeoffice/homeoffice5/right-wall.svg",
+          "front": "/assets/images/homeoffice/homeoffice5/front-wall.svg",
+          "window": "/assets/images/homeoffice/homeoffice5/window.svg"
+        }
+      },
+      {
+        "name": "homeoffice6",
+        "label": "Home Office 6",
+        "mainImage": "/assets/images/homeoffice/homeoffice6/homeoffice6.jpg",
+        "walls": {
+          "left": "/assets/images/homeoffice/homeoffice6/left-wall.svg",
+          "right": "/assets/images/homeoffice/homeoffice6/right-wall.svg",
+          "front": "/assets/images/homeoffice/homeoffice6/front-wall.svg",
+          "door": "/assets/images/homeoffice/homeoffice6/door.svg",
+          "table": "/assets/images/homeoffice/homeoffice6/table.svg"
         }
       }
     ]
