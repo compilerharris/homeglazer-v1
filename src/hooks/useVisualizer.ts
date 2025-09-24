@@ -390,6 +390,13 @@ export function useVisualizer() {
       setActiveSide(null);
     }
   };
+
+  const handleBulkAssignColors = (newAssignments: { [side: string]: string }) => {
+    setAssignments(newAssignments);
+    setShowPalette(false);
+    setActiveSide(null);
+  };
+
   const handleClosePalette = () => setShowPalette(false);
   const handleDownload = () => {
     setShowPDFModal(true);
@@ -588,6 +595,7 @@ export function useVisualizer() {
     handleRemoveColorFromPalette,
     handleOpenPalette,
     handleAssignColor,
+    handleBulkAssignColors,
     handleClosePalette,
     handleDownload,
     // PDF generation state

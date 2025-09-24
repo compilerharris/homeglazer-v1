@@ -19,6 +19,7 @@ interface FinishSelectionProps {
   showPalette: boolean;
   onOpenPalette: (side: string) => void;
   onAssignColor: (color: string) => void;
+  onBulkAssignColors?: (assignments: { [side: string]: string }) => void;
   onClosePalette: () => void;
   onBack: () => void;
   onDownload: () => void;
@@ -79,6 +80,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   showPalette,
   onOpenPalette,
   onAssignColor,
+  onBulkAssignColors,
   onClosePalette,
   onBack,
   onDownload,
@@ -112,6 +114,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const [isButtonFixed, setIsButtonFixed] = useState(true);
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
+  const [isRecoloring, setIsRecoloring] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   // Debug log for showSwipeHint state
@@ -141,6 +144,69 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
+
+  // Function to randomly assign colors to walls (excluding roof)
+  const handleRandomRecolor = () => {
+    if (selectedColors.length === 0) return; // No colors selected, nothing to do
+    
+    // Set recoloring state for visual feedback
+    setIsRecoloring(true);
+    
+    // Get available colors (excluding white for more variety)
+    const availableColors = selectedColors.map(color => color.colorHex);
+    
+    // Get walls that can be recolored (exclude roof)
+    const recolorableWalls = wallKeys.filter(wallKey => wallKey !== 'roof');
+    
+    // Create new assignments object with random colors
+    const newAssignments = { ...assignments };
+    
+    // Randomly assign colors to recolorable walls
+    recolorableWalls.forEach(wallKey => {
+      const randomColor = availableColors[Math.floor(Math.random() * availableColors.length)];
+      newAssignments[wallKey] = randomColor;
+    });
+    
+    // Use bulk assignment if available, otherwise fall back to individual assignments
+    if (onBulkAssignColors) {
+      onBulkAssignColors(newAssignments);
+    } else {
+      // Fallback: assign colors individually without opening palette
+      recolorableWalls.forEach(wallKey => {
+        const randomColor = newAssignments[wallKey];
+        // Directly assign color without opening palette
+        onAssignColor(randomColor);
+      });
+    }
+    
+    // Reset recoloring state after a short delay
+    setTimeout(() => {
+      setIsRecoloring(false);
+    }, 500);
+  };
+
+  // Spacebar key listener for random color assignment
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      // Only trigger on spacebar and when not in an input field and not currently recoloring
+      if (event.code === 'Space' && 
+          event.target instanceof HTMLElement && 
+          event.target.tagName !== 'INPUT' && 
+          event.target.tagName !== 'TEXTAREA' &&
+          !isRecoloring) {
+        event.preventDefault(); // Prevent page scroll
+        handleRandomRecolor();
+      }
+    };
+
+    // Add event listener
+    document.addEventListener('keydown', handleKeyPress);
+
+    // Cleanup
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [selectedColors, assignments, isRecoloring]); // Dependencies to ensure fresh data
 
   // Convert selectedColors to palette (hex values) and add white color option
   const palette = [...selectedColors.map(color => color.colorHex), '#FFFFFF'];
@@ -333,6 +399,31 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           </div>
         )}
       </div>
+          
+          {/* Spacebar Feature Text - Desktop Only */}
+          <div className="hidden lg:block text-center mt-4">
+            <p className="text-sm italic text-gray-600 flex items-center justify-center gap-1">
+              Press Spacebar for Magic
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 32 32">
+                <g>
+                  <path d="M12,17c0.8-4.2,1.9-5.3,6.1-6.1c0.5-0.1,0.8-0.5,0.8-1s-0.3-0.9-0.8-1C13.9,8.1,12.8,7,12,2.8C11.9,2.3,11.5,2,11,2
+                    c-0.5,0-0.9,0.3-1,0.8C9.2,7,8.1,8.1,3.9,8.9C3.5,9,3.1,9.4,3.1,9.9s0.3,0.9,0.8,1c4.2,0.8,5.3,1.9,6.1,6.1c0.1,0.5,0.5,0.8,1,0.8
+                    S11.9,17.4,12,17z"/>
+                  <path d="M22,24c-2.8-0.6-3.4-1.2-4-4c-0.1-0.5-0.5-0.8-1-0.8s-0.9,0.3-1,0.8c-0.6,2.8-1.2,3.4-4,4c-0.5,0.1-0.8,0.5-0.8,1
+                    s0.3,0.9,0.8,1c2.8,0.6,3.4,1.2,4,4c0.1,0.5,0.5,0.8,1,0.8s0.9-0.3,1-0.8c0.6-2.8,1.2-3.4,4-4c0.5-0.1,0.8-0.5,0.8-1
+                    S22.4,24.1,22,24z"/>
+                  <path d="M29.2,14c-2.2-0.4-2.7-0.9-3.1-3.1c-0.1-0.5-0.5-0.8-1-0.8c-0.5,0-0.9,0.3-1,0.8c-0.4,2.2-0.9,2.7-3.1,3.1
+                    c-0.5,0.1-0.8,0.5-0.8,1s0.3,0.9,0.8,1c2.2,0.4,2.7,0.9,3.1,3.1c0.1,0.5,0.5,0.8,1,0.8c0.5,0,0.9-0.3,1-0.8
+                    c0.4-2.2,0.9-2.7,3.1-3.1c0.5-0.1,0.8-0.5,0.8-1S29.7,14.1,29.2,14z"/>
+                  <path d="M5.7,22.3C5.4,22,5,21.9,4.6,22.1c-0.1,0-0.2,0.1-0.3,0.2c-0.1,0.1-0.2,0.2-0.2,0.3C4,22.7,4,22.9,4,23s0,0.3,0.1,0.4
+                    c0.1,0.1,0.1,0.2,0.2,0.3c0.1,0.1,0.2,0.2,0.3,0.2C4.7,24,4.9,24,5,24c0.1,0,0.3,0,0.4-0.1s0.2-0.1,0.3-0.2
+                    c0.1-0.1,0.2-0.2,0.2-0.3C6,23.3,6,23.1,6,23s0-0.3-0.1-0.4C5.9,22.5,5.8,22.4,5.7,22.3z"/>
+                  <path d="M28,7c0.3,0,0.5-0.1,0.7-0.3C28.9,6.5,29,6.3,29,6s-0.1-0.5-0.3-0.7c-0.1-0.1-0.2-0.2-0.3-0.2c-0.2-0.1-0.5-0.1-0.8,0
+                    c-0.1,0-0.2,0.1-0.3,0.2C27.1,5.5,27,5.7,27,6c0,0.3,0.1,0.5,0.3,0.7C27.5,6.9,27.7,7,28,7z"/>
+                </g>
+              </svg>
+            </p>
+          </div>
         </div>
         
         {/* Right Column - Wall Selection - Fixed Width */}
@@ -407,7 +498,10 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                   const colorInfo = selectedColors.find(c => c.colorHex === color);
                   return (
                     <div key={wallKey} className="flex items-center gap-1 bg-white px-2 py-1 rounded border">
-                      <div className="w-3 h-3 rounded-full" style={{ background: color }} />
+                      <div 
+                        className={`w-3 h-3 rounded-full ${color === '#FFFFFF' ? 'border border-gray-300' : ''}`} 
+                        style={{ background: color }} 
+                      />
                       <span className="text-xs text-gray-700">{wallLabels[wallKey] || wallKey}</span>
                       {colorInfo && (
                         <span className="text-xs text-gray-500">({capitalizeWords(colorInfo.colorName)} - {colorInfo.colorCode})</span>
@@ -437,19 +531,31 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               <div className="absolute top-0 left-0 right-0 bg-white border-2 border-gray-200 rounded-lg p-4 shadow-lg z-50">
                 <h3 className="text-lg font-semibold text-center mb-4">Select colour to apply</h3>
                               <div className="grid grid-cols-3 gap-3 mb-2">
-                {palette.map((color, idx) => (
-                  <div key={color + idx} className="flex flex-col items-center">
-                    <button
-                      className={`w-16 h-12 rounded border-2 focus:outline-none transition-all duration-200 ${
-                        color === '#FFFFFF' 
-                          ? 'border-gray-300 hover:border-gray-500' 
-                          : 'border-white hover:border-gray-400'
-                      }`}
-                      style={{ background: color }}
-                      onClick={() => onAssignColor(color)}
-                      aria-label={`Apply color ${color}`}
-                      title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color === '#FFFFFF' ? 'White (#FFFFFF)' : color}
-                    />
+                {palette.map((color, idx) => {
+                  const isCurrentlySelected = activeSide && assignments[activeSide] === color;
+                  return (
+                    <div key={color + idx} className="flex flex-col items-center">
+                      <div className="relative">
+                        <button
+                          className={`w-16 h-12 rounded border-2 focus:outline-none transition-all duration-200 ${
+                            color === '#FFFFFF' 
+                              ? 'border-gray-300 hover:border-gray-500' 
+                              : 'border-white hover:border-gray-400'
+                          }`}
+                          style={{ background: color }}
+                          onClick={() => onAssignColor(color)}
+                          aria-label={`Apply color ${color}`}
+                          title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color === '#FFFFFF' ? 'White (#FFFFFF)' : color}
+                        />
+                        {/* Tick icon for currently selected color */}
+                        {isCurrentlySelected && (
+                          <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#299dd7] rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+                            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
                     {/* Colour name and code */}
                     {selectedColors[idx] ? (
                       <div className="mt-1 text-xs text-gray-600 text-center w-full h-8 flex flex-col justify-center">
@@ -462,8 +568,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                         <div className="text-gray-500 leading-tight">#FFFFFF</div>
                       </div>
                     ) : null}
-                  </div>
-                ))}
+                    </div>
+                  );
+                })}
               </div>
               </div>
             </>
@@ -692,7 +799,10 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                   const colorInfo = selectedColors.find(c => c.colorHex === color);
                   return (
                     <div key={wallKey} className="flex items-center gap-1 bg-white px-2 py-1 rounded border">
-                      <div className="w-3 h-3 rounded-full" style={{ background: color }} />
+                      <div 
+                        className={`w-3 h-3 rounded-full ${color === '#FFFFFF' ? 'border border-gray-300' : ''}`} 
+                        style={{ background: color }} 
+                      />
                       <span className="text-xs text-gray-700">{wallLabels[wallKey] || wallKey}</span>
                       {colorInfo && (
                         <span className="text-xs text-gray-500">({capitalizeWords(colorInfo.colorName)} - {colorInfo.colorCode})</span>
@@ -715,7 +825,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             </div>
             
             {/* Download Button - Mobile/Tablet (Inside Summary) */}
-            <div className={`lg:hidden ${isButtonFixed ? 'hidden' : 'block'}`} style={{ display: isButtonFixed ? 'none' : 'block' }}>
+            <div className="lg:hidden">
               <button
                 className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
                 onClick={onDownload}
@@ -728,40 +838,66 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         </div>
       </div>
 
-      {/* Fixed Download Button - Mobile/Tablet */}
-      {isButtonFixed && (
-        <div className="lg:hidden fixed bottom-[68px] left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
-          <button
-            className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
-            onClick={onDownload}
-          >
-            <span>DOWNLOAD THIS LOOK</span>
-            <span className="text-lg">▼</span>
-          </button>
-        </div>
-      )}
-
-
+      {/* Floating Magic Button - Mobile/Tablet Only */}
+      <div className="lg:hidden fixed bottom-20 right-4 z-50">
+        <button
+          className="w-16 h-16 bg-[#ED276E] text-white rounded-full shadow-lg hover:bg-[#b81d5a] transition-colors duration-200 flex flex-col items-center justify-center"
+          onClick={handleRandomRecolor}
+          title="Press Spacebar for Magic"
+        >
+          <svg className="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 32 32">
+            <g>
+              <path d="M12,17c0.8-4.2,1.9-5.3,6.1-6.1c0.5-0.1,0.8-0.5,0.8-1s-0.3-0.9-0.8-1C13.9,8.1,12.8,7,12,2.8C11.9,2.3,11.5,2,11,2
+                c-0.5,0-0.9,0.3-1,0.8C9.2,7,8.1,8.1,3.9,8.9C3.5,9,3.1,9.4,3.1,9.9s0.3,0.9,0.8,1c4.2,0.8,5.3,1.9,6.1,6.1c0.1,0.5,0.5,0.8,1,0.8
+                S11.9,17.4,12,17z"/>
+              <path d="M22,24c-2.8-0.6-3.4-1.2-4-4c-0.1-0.5-0.5-0.8-1-0.8s-0.9,0.3-1,0.8c-0.6,2.8-1.2,3.4-4,4c-0.5,0.1-0.8,0.5-0.8,1
+                s0.3,0.9,0.8,1c2.8,0.6,3.4,1.2,4,4c0.1,0.5,0.5,0.8,1,0.8s0.9-0.3,1-0.8c0.6-2.8,1.2-3.4,4-4c0.5-0.1,0.8-0.5,0.8-1
+                S22.4,24.1,22,24z"/>
+              <path d="M29.2,14c-2.2-0.4-2.7-0.9-3.1-3.1c-0.1-0.5-0.5-0.8-1-0.8c-0.5,0-0.9,0.3-1,0.8c-0.4,2.2-0.9,2.7-3.1,3.1
+                c-0.5,0.1-0.8,0.5-0.8,1s0.3,0.9,0.8,1c2.2,0.4,2.7,0.9,3.1,3.1c0.1,0.5,0.5,0.8,1,0.8c0.5,0,0.9-0.3,1-0.8
+                c0.4-2.2,0.9-2.7,3.1-3.1c0.5-0.1,0.8-0.5,0.8-1S29.7,14.1,29.2,14z"/>
+              <path d="M5.7,22.3C5.4,22,5,21.9,4.6,22.1c-0.1,0-0.2,0.1-0.3,0.2c-0.1,0.1-0.2,0.2-0.2,0.3C4,22.7,4,22.9,4,23s0,0.3,0.1,0.4
+                c0.1,0.1,0.1,0.2,0.2,0.3c0.1,0.1,0.2,0.2,0.3,0.2C4.7,24,4.9,24,5,24c0.1,0,0.3,0,0.4-0.1s0.2-0.1,0.3-0.2
+                c0.1-0.1,0.2-0.2,0.2-0.3C6,23.3,6,23.1,6,23s0-0.3-0.1-0.4C5.9,22.5,5.8,22.4,5.7,22.3z"/>
+              <path d="M28,7c0.3,0,0.5-0.1,0.7-0.3C28.9,6.5,29,6.3,29,6s-0.1-0.5-0.3-0.7c-0.1-0.1-0.2-0.2-0.3-0.2c-0.2-0.1-0.5-0.1-0.8,0
+                c-0.1,0-0.2,0.1-0.3,0.2C27.1,5.5,27,5.7,27,6c0,0.3,0.1,0.5,0.3,0.7C27.5,6.9,27.7,7,28,7z"/>
+            </g>
+          </svg>
+          <span className="text-xs font-medium">Magic</span>
+        </button>
+      </div>
 
       {/* Mobile Palette bottom sheet/modal */}
       {showPalette && (
-        <div className="lg:hidden fixed inset-0 z-50 flex items-end justify-center bg-black bg-opacity-40" onClick={onClosePalette}>
+        <div className="lg:hidden fixed inset-0 z-[60] flex items-end justify-center bg-black bg-opacity-40" onClick={onClosePalette}>
           <div className="w-full max-w-md bg-white rounded-t-2xl p-6 pb-20 shadow-lg relative" style={{ minHeight: 260, maxHeight: '80vh' }} onClick={e => e.stopPropagation()}>
             <h3 className="text-lg font-semibold text-center mb-4">Select colour to apply</h3>
             <div className="grid grid-cols-3 gap-4 mb-2">
-              {palette.map((color, idx) => (
-                <div key={color + idx} className="flex flex-col items-center">
-                <button
-                    className={`w-20 h-16 rounded border-2 focus:outline-none transition-all duration-200 ${
-                      color === '#FFFFFF' 
-                        ? 'border-gray-300 hover:border-gray-500' 
-                        : 'border-white hover:border-gray-400'
-                    }`}
-                  style={{ background: color }}
-                  onClick={() => onAssignColor(color)}
-                  aria-label={`Apply color ${color}`}
-                    title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color === '#FFFFFF' ? 'White (#FFFFFF)' : color}
-                  />
+              {palette.map((color, idx) => {
+                const isCurrentlySelected = activeSide && assignments[activeSide] === color;
+                return (
+                  <div key={color + idx} className="flex flex-col items-center">
+                    <div className="relative">
+                      <button
+                        className={`w-20 h-16 rounded border-2 focus:outline-none transition-all duration-200 ${
+                          color === '#FFFFFF' 
+                            ? 'border-gray-300 hover:border-gray-500' 
+                            : 'border-white hover:border-gray-400'
+                        }`}
+                        style={{ background: color }}
+                        onClick={() => onAssignColor(color)}
+                        aria-label={`Apply color ${color}`}
+                        title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color === '#FFFFFF' ? 'White (#FFFFFF)' : color}
+                      />
+                      {/* Tick icon for currently selected color */}
+                      {isCurrentlySelected && (
+                        <div className="absolute -top-1 -right-1 w-6 h-6 bg-[#299dd7] rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
                   {/* Colour name and code */}
                   {selectedColors[idx] ? (
                     <div className="mt-1 text-xs text-gray-600 text-center w-full h-8 flex flex-col justify-center">
@@ -774,8 +910,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                       <div className="text-gray-500 leading-tight">#FFFFFF</div>
                     </div>
                   ) : null}
-                </div>
-              ))}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

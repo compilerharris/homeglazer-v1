@@ -428,6 +428,50 @@
           "door": "/assets/images/homeoffice/homeoffice6/door.svg",
           "table": "/assets/images/homeoffice/homeoffice6/table.svg"
         }
+      },
+      {
+        "name": "homeoffice7",
+        "label": "Home Office 6",
+        "mainImage": "/assets/images/homeoffice/homeoffice7/homeoffice7.jpg",
+        "walls": {
+          "left": "/assets/images/homeoffice/homeoffice7/left-wall.svg",
+          "right": "/assets/images/homeoffice/homeoffice7/right-wall.svg",
+          "roof": "/assets/images/homeoffice/homeoffice7/roof-wall.svg",
+          "window": "/assets/images/homeoffice/homeoffice7/window.svg"
+        }
+      },
+      {
+        "name": "homeoffice8",
+        "label": "Home Office 8",
+        "mainImage": "/assets/images/homeoffice/homeoffice8/homeoffice8.jpg",
+        "walls": {
+          "right": "/assets/images/homeoffice/homeoffice8/right-wall.svg",
+          "front": "/assets/images/homeoffice/homeoffice8/front-wall.svg",
+          "roof": "/assets/images/homeoffice/homeoffice8/roof-wall.svg",
+          "door": "/assets/images/homeoffice/homeoffice8/door.svg"
+        }
+      },
+      {
+        "name": "homeoffice9",
+        "label": "Home Office 9",
+        "mainImage": "/assets/images/homeoffice/homeoffice9/homeoffice9.jpg",
+        "walls": {
+          "left": "/assets/images/homeoffice/homeoffice9/left-wall.svg",
+          "front": "/assets/images/homeoffice/homeoffice9/front-wall.svg"
+        }
+      },
+      {
+        "name": "homeoffice10",
+        "label": "Home Office 10",
+        "mainImage": "/assets/images/homeoffice/homeoffice10/homeoffice10.jpg",
+        "walls": {
+          "left": "/assets/images/homeoffice/homeoffice10/left-wall.svg",
+          "front": "/assets/images/homeoffice/homeoffice10/front-wall.svg",
+          "back": "/assets/images/homeoffice/homeoffice10/back-wall.svg",
+          "roof": "/assets/images/homeoffice/homeoffice10/roof-wall.svg",
+          "window": "/assets/images/homeoffice/homeoffice10/window.svg",
+          "edge": "/assets/images/homeoffice/homeoffice10/edge.svg"
+        }
       }
     ]
   },

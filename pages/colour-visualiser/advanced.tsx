@@ -79,6 +79,7 @@ const AdvancedVisualiser: React.FC = () => {
           showPalette={visualizer.showPalette}
           onOpenPalette={visualizer.handleOpenPalette}
           onAssignColor={visualizer.handleAssignColor}
+          onBulkAssignColors={visualizer.handleBulkAssignColors}
           onClosePalette={visualizer.handleClosePalette}
           onBack={visualizer.prevStep}
           onDownload={visualizer.handleDownload}
