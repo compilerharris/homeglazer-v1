@@ -1,46 +1,25 @@
-import React, { useState } from 'react';
-import SectionCarousel from './SectionCarousel';
-import { CarouselItem } from "@/components/ui/carousel";
+import React from 'react';
+import BeforeAfterSlider from '@/components/ui/before-after-slider';
 import CTAButton from './CTAButton';
 
 const RoomMakeover: React.FC = () => {
-  // State for active slide
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  
-  // Sample data for carousel - using the before/after image provided
-  const makeovers = [{
-    id: 1,
-    image: "/lovable-uploads/before-after.png",
-    alt: "Room Makeover Before and After 1"
-  }, {
-    id: 2,
-    image: "/lovable-uploads/before-after.png",
-    alt: "Room Makeover Before and After 2"
-  }, {
-    id: 3,
-    image: "/lovable-uploads/before-after.png",
-    alt: "Room Makeover Before and After 3"
-  }];
+  // Sample data for before/after images using homeoffice images as placeholders
+  const makeoverData = {
+    beforeImage: "/assets/images/homeoffice/homeoffice1/homeoffice1.jpg",
+    afterImage: "/assets/images/homeoffice/homeoffice2/homeoffice2.jpg",
+    beforeAlt: "Room before painting service",
+    afterAlt: "Room after painting service"
+  };
   
   return (
     <section className="pb-[31px] w-full mt-[50px] max-md:mt-10">
       <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center gap-0 2xl:w-[1400px]">
         <div className="w-full lg:w-2/3 relative">
-          <SectionCarousel 
-            activeSlideIndex={activeSlideIndex}
-            setActiveSlideIndex={setActiveSlideIndex}
-            roomMakeoverSection={true}
-          >
-            {makeovers.map((makeover, index) => (
-              <CarouselItem key={makeover.id} className="md:basis-full">
-                <img 
-                  src={makeover.image} 
-                  alt={makeover.alt} 
-                  className="w-full h-auto object-cover rounded-lg" 
-                />
-              </CarouselItem>
-            ))}
-          </SectionCarousel>
+          <BeforeAfterSlider
+            beforeImage={makeoverData.beforeImage}
+            afterImage={makeoverData.afterImage}
+            className="w-full"
+          />
         </div>
         
         <div className="w-full lg:w-1/3 my-auto">

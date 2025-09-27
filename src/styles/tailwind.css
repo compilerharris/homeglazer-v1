@@ -1,6 +1,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import before/after slider styles */
+@import './before-after-slider.css';
+
 @layer components {
   .all-\[unset\] {
     all: unset;
