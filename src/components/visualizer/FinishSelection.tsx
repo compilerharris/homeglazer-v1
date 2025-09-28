@@ -46,6 +46,10 @@ const wallLabels: Record<string, string> = {
   chair: 'Chair',
   sofa: 'Sofa',
   edge: 'Edge',
+  'cabinet-upper': 'Cabinet Upper',
+  'cabinet-upper-1': 'Cabinet Upper 1',
+  'cabinet-upper-2': 'Cabinet Upper 2',
+  'cabinet-lower': 'Cabinet Lower',
 };
 
 // Utility function to capitalize first letter of each word

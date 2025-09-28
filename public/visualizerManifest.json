@@ -349,6 +349,16 @@
           "roof": "/assets/images/livingroom/livingroom10/roof-wall.svg",
           "window": "/assets/images/livingroom/livingroom10/window.svg"
         }
+      },
+      {
+        "name": "livingroom11",
+        "label": "Living Room 11",
+        "mainImage": "/assets/images/livingroom/livingroom11/livingroom11.jpg",
+        "walls": {
+          "left": "/assets/images/livingroom/livingroom11/left-wall.svg",
+          "right": "/assets/images/livingroom/livingroom11/right-wall.svg",
+          "sofa": "/assets/images/livingroom/livingroom11/sofa.svg"
+        }
       }
     ]
   },
@@ -482,8 +492,109 @@
       {
         "name": "kitchen1",
         "label": "Kitchen 1",
-        "mainImage": "/lovable-uploads/kitchen.jpg",
-        "walls": {}
+        "mainImage": "/assets/images/kitchen/kitchen1/kitchen1.jpg",
+        "walls": {
+          "front": "/assets/images/kitchen/kitchen1/front-wall.svg",
+          "roof": "/assets/images/kitchen/kitchen1/roof-wall.svg",
+          "window": "/assets/images/kitchen/kitchen1/window.svg",
+          "cabinet-upper": "/assets/images/kitchen/kitchen1/cabinet-upper.svg",
+          "cabinet-lower": "/assets/images/kitchen/kitchen1/cabinet-lower.svg"
+        }
+      },
+      {
+        "name": "kitchen2",
+        "label": "Kitchen 2",
+        "mainImage": "/assets/images/kitchen/kitchen2/kitchen2.jpg",
+        "walls": {
+          "left": "/assets/images/kitchen/kitchen2/left-wall.svg",
+          "right": "/assets/images/kitchen/kitchen2/right-wall.svg",
+          "front": "/assets/images/kitchen/kitchen2/front-wall.svg",
+          "roof": "/assets/images/kitchen/kitchen2/roof-wall.svg",
+          "window": "/assets/images/kitchen/kitchen2/window.svg",
+          "cabinet-upper": "/assets/images/kitchen/kitchen2/cabinet-upper.svg",
+          "cabinet-lower": "/assets/images/kitchen/kitchen2/cabinet-lower.svg"
+        }
+      },
+      {
+        "name": "kitchen3",
+        "label": "Kitchen 3",
+        "mainImage": "/assets/images/kitchen/kitchen3/kitchen3.jpg",
+        "walls": {
+          "right": "/assets/images/kitchen/kitchen3/right-wall.svg"
+        }
+      },
+      {
+        "name": "kitchen4",
+        "label": "Kitchen 4",
+        "mainImage": "/assets/images/kitchen/kitchen4/kitchen4.jpg",
+        "walls": {
+          "front": "/assets/images/kitchen/kitchen4/front-wall.svg",
+          "roof": "/assets/images/kitchen/kitchen4/roof-wall.svg",
+          "window": "/assets/images/kitchen/kitchen4/window.svg",
+          "chair": "/assets/images/kitchen/kitchen4/chair.svg",
+          "cabinet-upper": "/assets/images/kitchen/kitchen4/cabinet-upper.svg"
+        }
+      },
+      {
+        "name": "kitchen5",
+        "label": "Kitchen 5",
+        "mainImage": "/assets/images/kitchen/kitchen5/kitchen5.jpg",
+        "walls": {
+          "left": "/assets/images/kitchen/kitchen5/left-wall.svg",
+          "right": "/assets/images/kitchen/kitchen5/right-wall.svg",
+          "front": "/assets/images/kitchen/kitchen5/front-wall.svg",
+          "window": "/assets/images/kitchen/kitchen5/window.svg",
+          "cabinet-upper-1": "/assets/images/kitchen/kitchen5/cabinet-upper1.svg",
+          "cabinet-upper-2": "/assets/images/kitchen/kitchen5/cabinet-upper2.svg",
+          "cabinet-lower": "/assets/images/kitchen/kitchen5/cabinet-lower.svg"
+        }
+      },
+      {
+        "name": "kitchen6",
+        "label": "Kitchen 6",
+        "mainImage": "/assets/images/kitchen/kitchen6/kitchen6.jpg",
+        "walls": {
+          "front": "/assets/images/kitchen/kitchen6/front-wall.svg",
+          "roof": "/assets/images/kitchen/kitchen6/roof-wall.svg",
+          "table": "/assets/images/kitchen/kitchen6/table.svg",
+          "cabinet-upper": "/assets/images/kitchen/kitchen6/cabinet-upper.svg",
+          "cabinet-lower": "/assets/images/kitchen/kitchen6/cabinet-lower.svg"
+        }
+      },
+      {
+        "name": "kitchen7",
+        "label": "Kitchen 7",
+        "mainImage": "/assets/images/kitchen/kitchen7/kitchen7.jpg",
+        "walls": {
+          "front": "/assets/images/kitchen/kitchen7/front-wall.svg",
+          "roof": "/assets/images/kitchen/kitchen7/roof-wall.svg",
+          "cabinet-upper": "/assets/images/kitchen/kitchen7/cabinet-upper.svg"
+        }
+      },
+      {
+        "name": "kitchen8",
+        "label": "Kitchen 8",
+        "mainImage": "/assets/images/kitchen/kitchen8/kitchen8.jpg",
+        "walls": {
+          "front": "/assets/images/kitchen/kitchen8/front-wall.svg",
+          "chair": "/assets/images/kitchen/kitchen8/chair.svg",
+          "table": "/assets/images/kitchen/kitchen8/table.svg",
+          "cabinet-upper": "/assets/images/kitchen/kitchen8/cabinet-upper.svg",
+          "cabinet-lower": "/assets/images/kitchen/kitchen8/cabinet-lower.svg"
+        }
+      },
+      {
+        "name": "kitchen9",
+        "label": "Kitchen 9",
+        "mainImage": "/assets/images/kitchen/kitchen9/kitchen9.jpg",
+        "walls": {
+          "right": "/assets/images/kitchen/kitchen9/right-wall.svg",
+          "roof": "/assets/images/kitchen/kitchen9/roof-wall.svg",
+          "window": "/assets/images/kitchen/kitchen9/window.svg",
+          "table": "/assets/images/kitchen/kitchen9/table.svg",
+          "cabinet-upper": "/assets/images/kitchen/kitchen9/cabinet-upper.svg",
+          "cabinet-lower": "/assets/images/kitchen/kitchen9/cabinet-lower.svg"
+        }
       }
     ]
   }
