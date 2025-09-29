@@ -520,7 +520,9 @@
         "label": "Kitchen 3",
         "mainImage": "/assets/images/kitchen/kitchen3/kitchen3.jpg",
         "walls": {
-          "right": "/assets/images/kitchen/kitchen3/right-wall.svg"
+          "right": "/assets/images/kitchen/kitchen3/right-wall.svg",
+          "front": "/assets/images/kitchen/kitchen3/front-wall.svg",
+          "table": "/assets/images/kitchen/kitchen3/table.svg"
         }
       },
       {
