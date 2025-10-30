@@ -86,6 +86,174 @@ function toSentenceCase(str: string): string {
   ).join(' ');
 }
 
+// 1. Category science content map
+const COLOR_TYPE_SCIENCE: Record<string, { title: string; description: string; examples: string }> = {
+  Greys: {
+    title: 'The Science & Mood of Greys',
+    description: 'Grey tones evoke calmness, sophistication, and neutrality, making them excellent at balancing bold colors or providing a modern, minimalist look. Greys are remarkably versatile, harmonizing with almost any color palette while reducing visual clutter.',
+    examples: 'Recommended for: Living rooms, offices, bedrooms, and contemporary spaces. Benefits: Promotes focus, flexibility in décor, and a timeless elegance.'
+  },
+  Grays: {
+    title: 'About Grays',
+    description: 'Gray is commonly used for its modern aesthetic and adaptability. It offers a neutral backdrop, reduces overstimulation, and helps other colors stand out in your décor.',
+    examples: 'Recommended for: Any room, particularly living rooms, offices, kitchens. Benefits: Adds sophistication, balance, and versatility.'
+  },
+  Blues: {
+    title: 'Why Choose Blues?',
+    description: 'Blue shades are known to create a feeling of tranquillity, spaciousness, and a cooling effect. They lower stress, support sleep, and inspire calm reflection, making them a favorite for interior designers globally.',
+    examples: 'Recommended for: Bedrooms, bathrooms, study rooms. Benefits: Aids relaxation, encourages productivity, and enhances sleep quality.'
+  },
+  Browns: {
+    title: 'Bring Nature Home with Browns',
+    description: 'Brown colors draw on earth tones and bring warmth and security to a space. They feel comforting, stable, and rooted, and pair beautifully with natural materials and textures.',
+    examples: 'Recommended for: Living rooms, dens, reading nooks. Benefits: Grounds the space, creates comfort, aligns with rustic or classic décor.'
+  },
+  Reds: {
+    title: 'Embracing Energy with Reds',
+    description: 'Red is stimulating, energetic, and bold. It increases excitement and appetite—making red ideal for spaces where you entertain or dine—but should be balanced to avoid overwhelming the senses.',
+    examples: 'Recommended for: Dining areas, accent walls, creative studios. Benefits: Inspires passion, conversation, and appetite.'
+  },
+  Yellows: {
+    title: 'The Uplifting Power of Yellows',
+    description: 'Yellow evokes happiness, positivity, and energy. It mimics the warmth of sunlight and can make rooms feel more inviting and bright.',
+    examples: 'Recommended for: Kitchens, children\'s rooms, hallways. Benefits: Boosts energy, creativity, and feelings of optimism.'
+  },
+  Oranges: {
+    title: 'The Vibrance of Oranges',
+    description: 'Orange energizes spaces, spurring sociability and excitement. It\'s perfect for creating a warm, welcoming environment and works well as an accent.',
+    examples: 'Recommended for: Playrooms, exercise spaces, kitchens. Benefits: Stimulates conversation, appetite, and movement.'
+  },
+  Greens: {
+    title: 'The Restorative Qualities of Greens',
+    description: 'Green represents harmony and is associated with nature, renewal, and well-being. It has a calming and refreshing effect, helping to reduce stress.',
+    examples: 'Recommended for: Bedrooms, living spaces, home offices. Benefits: Reduces anxiety, enhances concentration, creates balance.'
+  },
+  Purples: {
+    title: 'The Creative Power of Purples',
+    description: 'Purple hues are historically linked to creativity, luxury, and spirituality. Lighter purples soothe and support creative thought, while darker shades add drama and elegance.',
+    examples: 'Recommended for: Bathrooms, bedrooms, meditation rooms. Benefits: Evokes creativity, luxury, and introspection.'
+  },
+  Violets: {
+    title: 'Violets for Serenity and Imagination',
+    description: 'Violet combines the calm of blue with the energy of red, promoting imagination and mystery. It\'s unique and brings a sense of inspiration and tranquility.',
+    examples: 'Recommended for: Kid\'s rooms, creative corners, bathrooms. Benefits: Nourishes imagination, supports calm sleep.'
+  },
+  Violet: {
+    title: 'Violet Spaces',
+    description: 'Violet helps to integrate stability and calm with energy and vibrancy. It can transform rooms into places of creativity and peace.',
+    examples: 'Recommended for: Bedrooms, spas, meditation rooms. Benefits: Soothes and inspires.'
+  },
+  Beige: {
+    title: 'Classic Comfort: Beiges',
+    description: 'Beige provides a warm neutral background that works with almost all color schemes. It gives a soft, inviting elegance to a room.',
+    examples: 'Recommended for: Living rooms, bedrooms, dining rooms. Benefits: Timeless warmth, flexibility, and coziness.'
+  },
+  Neutrals: {
+    title: 'Timeless Versatility of Neutrals',
+    description: 'Neutrals (like taupe, ivory, sand) provide balance, subtlety, and effortless coordination. They create a calming backdrop that adapts with changing décor.',
+    examples: 'Recommended for: Any room. Benefits: Flexibility for décor changes and a clean, soothing effect.'
+  },
+  Whites: {
+    title: 'Freshness & Light: Whites',
+    description: 'White paint reflects light, enlarges a space visually, and delivers crispness and simplicity. It feels rejuvenating and allows other elements to pop.',
+    examples: 'Recommended for: Small spaces, ceilings, kitchens, bathrooms. Benefits: Expands visual space, boosts brightness.'
+  },
+  Blacks: {
+    title: 'Chic Drama: Blacks',
+    description: 'Black adds instant drama and sophistication. Used in moderation, it creates striking contrast, grounds bold palettes, and conveys authority.',
+    examples: 'Recommended for: Accent walls, details, ultra-modern spaces. Benefits: Defines, dramatizes, and accentuates.'
+  },
+  Metallics: {
+    title: 'Shimmer & Glamour: Metallics',
+    description: 'Metallic paints (silver, gold, bronze) catch the light and add luxury and excitement to your walls. They work well as highlights or special effects.',
+    examples: 'Recommended for: Feature walls, trim, contemporary designs. Benefits: Adds opulence, visual interest.'
+  },
+  Pastels: {
+    title: 'Soft Touch: Pastels',
+    description: 'Pastel colors feel gentle and nurturing. They create a sense of peace and happiness, making any space more playful and light-hearted.',
+    examples: 'Recommended for: Nurseries, bedrooms, relaxing nooks. Benefits: Uplifts mood, encourages peace.'
+  },
+  'Earth Tones': {
+    title: 'Warmth & Grounding: Earth Tones',
+    description: 'Earth tones (terracotta, ochres, olive) bring the outdoors in and create feelings of warmth and security. They make spaces feel grounded and protected.',
+    examples: 'Recommended for: Living rooms, kitchens, entryways. Benefits: Comfort, coziness, stability.'
+  },
+  'Classic Neutrals': {
+    title: 'Classic Neutrals',
+    description: 'Classic neutrals deliver elegance and flexibility while allowing you to easily change your décor style over time.',
+    examples: 'Recommended for: Any room. Benefits: Timelessness and balance.'
+  },
+  Creams: {
+    title: 'Creams: Subtle Sophistication',
+    description: 'Cream shades offer a gentle warmth and elegance. They soften a room\'s aesthetic and pair beautifully with both light and dark accents.',
+    examples: 'Recommended for: Living rooms, bedrooms, kitchens. Benefits: Coziness, classic appeal.'
+  },
+  Pinks: {
+    title: 'The Joy of Pinks',
+    description: 'Pink shades evoke connection, warmth, and playfulness. Lighter pinks are calming, while brighter pinks add fun and vibrancy.',
+    examples: 'Recommended for: Children\'s bedrooms, creative spaces, bathrooms. Benefits: Inspires happiness and nurturing.'
+  },
+  Lilac: {
+    title: 'Lilac: Gentle Inspiration',
+    description: 'Lilac blends the calm of blue and energy of red, much like violet, but with a softer, lighter feel. It inspires, soothes, and beautifully complements a range of palettes.',
+    examples: 'Recommended for: Bedrooms, bathrooms, creative rooms. Benefits: Cheerful and tranquil.'
+  },
+  Peaches: {
+    title: 'Peaches: Welcoming & Soft',
+    description: 'Peach creates an inviting, restful mood that also feels fresh and unique. It warms up spaces without overpowering, making rooms cozy and stylish.',
+    examples: 'Recommended for: Living rooms, kitchens, nurseries. Benefits: Feels fresh, nurturing, and light.'
+  },
+};
+
+// Enhanced category explanation component props
+const getDetailsFromExamples = (examples: string) => {
+  // Split "Recommended for:" and "Benefits:" out
+  let recommendedFor = '';
+  let benefits = '';
+  const recMatch = examples.match(/Recommended for:\s*(.*?)\.?\s*Benefits:/i);
+  if (recMatch) {
+    recommendedFor = recMatch[1];
+    const benMatch = examples.match(/Benefits:\s*(.*)/i);
+    if (benMatch) benefits = benMatch[1];
+  } else {
+    // fallback: use the full string as recommended for
+    recommendedFor = examples;
+  }
+  return { recommendedFor, benefits };
+};
+
+function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
+  const cleaned = hex.replace('#', '');
+  if (cleaned.length === 3) {
+    const r = parseInt(cleaned[0] + cleaned[0], 16);
+    const g = parseInt(cleaned[1] + cleaned[1], 16);
+    const b = parseInt(cleaned[2] + cleaned[2], 16);
+    return { r, g, b };
+  }
+  if (cleaned.length === 6) {
+    const r = parseInt(cleaned.slice(0, 2), 16);
+    const g = parseInt(cleaned.slice(2, 4), 16);
+    const b = parseInt(cleaned.slice(4, 6), 16);
+    return { r, g, b };
+  }
+  return null;
+}
+function getRelativeLuminance(hex: string): number {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return 0;
+  const srgb = [rgb.r / 255, rgb.g / 255, rgb.b / 255].map((v) =>
+    v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)
+  );
+  return 0.2126 * (srgb[0] as number) + 0.7152 * (srgb[1] as number) + 0.0722 * (srgb[2] as number);
+}
+function isLightColor(hex: string): boolean {
+  try {
+    return getRelativeLuminance(hex) > 0.6; // threshold for light backgrounds
+  } catch {
+    return false;
+  }
+}
+
 const BasicVisualiserPage: React.FC = () => {
   const router = useRouter();
   const { brand: brandParam, category: categoryParam, color: colorParam } = router.query;
@@ -592,20 +760,78 @@ const BasicVisualiserPage: React.FC = () => {
   </div>
 </div>
 
-{/* Action Buttons - Always Fixed */}
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
-          <div className="flex gap-3">
-            <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px]">
-              Enquire Now
-            </Link>
-            <Link href="/calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px]">
-              Budget Calculator
-            </Link>
-          </div>
-        </div>
-        
+{/* SPLIT SCREEN COLOR SCIENCE/INFO SECTION */}
+        {!!selectedCategory && COLOR_TYPE_SCIENCE[selectedCategory] && (
+          <section
+            className="w-full max-w-5xl flex flex-col lg:flex-row items-stretch gap-8 my-12"
+          >
+            {/* LEFT: Category Color Block */}
+            <div className="flex-1 flex flex-col items-center justify-center min-w-[220px] max-w-[340px]">
+              {(() => {
+                const bg = selectedColor?.colorHex || CATEGORY_COLORS[selectedCategory] || '#ED276E';
+                const light = isLightColor(bg);
+                const textColor = light ? '#1f2937' : '#ffffff'; // gray-800 or white
+                const shadowClass = light ? '' : ' drop-shadow-lg';
+                return (
+                  <div
+                    className="w-full h-44 lg:h-60 rounded-2xl flex flex-col items-end justify-end shadow-inner relative"
+                    style={{ background: bg, transition: 'background 0.3s' }}
+                  >
+                    <div className="w-full flex flex-col items-center justify-center absolute top-1/2 left-1/2" style={{ transform: 'translate(-50%, -80%)' }}>
+                      <span className={`text-2xl font-bold uppercase tracking-wide${shadowClass}`} style={{ color: textColor }}>
+                        {selectedCategory}
+                      </span>
+                    </div>
+                    <div className="w-full flex flex-col items-center mb-6">
+                      <div className="flex items-center justify-center">
+                        <span className={`text-base font-medium${shadowClass}`} style={{ color: textColor }}>
+                          {selectedColor?.colorCode || bg}
+                        </span>
+                      </div>
+                      {selectedColor?.colorName && (
+                        <span className={`text-xs font-semibold mt-1${shadowClass}`} style={{ color: textColor }}>
+                          {toSentenceCase(selectedColor.colorName)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+            {/* RIGHT: Explanation Info */}
+            <div className="flex-1 flex flex-col justify-center">
+              <h3 className="text-2xl lg:text-3xl font-bold mb-2 text-[#299dd7] text-left">
+                {COLOR_TYPE_SCIENCE[selectedCategory].title}
+              </h3>
+              <p className="text-gray-700 text-lg mb-5 text-left">
+                {COLOR_TYPE_SCIENCE[selectedCategory].description}
+              </p>
+              {/* Parse examples string into split sections */}
+              {(() => {
+                const d = getDetailsFromExamples(COLOR_TYPE_SCIENCE[selectedCategory].examples);
+                return (
+                  <>
+                    {d.recommendedFor && (
+                      <div className="mb-2">
+                        <span className="block font-semibold text-gray-900">Recommended for:</span>
+                        <p className="text-gray-700">{d.recommendedFor}</p>
+                      </div>
+                    )}
+                    {d.benefits && (
+                      <div>
+                        <span className="block font-semibold text-gray-900">Benefits:</span>
+                        <p className="text-gray-700">{d.benefits}</p>
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
+            </div>
+          </section>
+        )}
+
         {/* Advanced Visualiser and Enquiry Tiles */}
-        <div className="w-full max-w-screen-xl mt-16 mb-8">
+        <div className="w-full max-w-screen-xl mt-8 mb-8">
           <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
             {/* Advanced Visualiser Tile */}
             <div className="bg-white rounded-xl shadow-lg p-8 flex-1 max-w-md flex flex-col items-center hover:shadow-2xl transition cursor-pointer">
@@ -622,6 +848,18 @@ const BasicVisualiserPage: React.FC = () => {
             </div>
           </div>
         </div>
+        {/* Action Buttons - Always Fixed */}
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
+          <div className="flex gap-3">
+            <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px]">
+              Enquire Now
+            </Link>
+            <Link href="/calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px]">
+              Budget Calculator
+            </Link>
+          </div>
+        </div>
+        
       </main>
       <Footer />
     </>
