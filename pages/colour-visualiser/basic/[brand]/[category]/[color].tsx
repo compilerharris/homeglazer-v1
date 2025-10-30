@@ -148,6 +148,31 @@ const COLOR_TYPE_SCIENCE: Record<string, { title: string; description: string; e
     description: 'Beige provides a warm neutral background that works with almost all color schemes. It gives a soft, inviting elegance to a room.',
     examples: 'Recommended for: Living rooms, bedrooms, dining rooms. Benefits: Timeless warmth, flexibility, and coziness.'
   },
+  Beiges: {
+    title: 'Classic Comfort: Beiges',
+    description: 'Beige and beiges offer a warm, understated backdrop that integrates easily with most palettes. They soften a room and add familiar comfort without overwhelming.',
+    examples: 'Recommended for: Living rooms, bedrooms, common areas. Benefits: Versatility, cozy elegance, pairs with light or dark accents.'
+  },
+  'Blue-Greens': {
+    title: 'Balanced Calm: Blue‑Greens',
+    description: 'Blue‑green hues blend the calm of blue with the freshness of green, evoking sea and forest tones. They feel restorative yet lively, great for modern natural themes.',
+    examples: 'Recommended for: Bedrooms, living rooms, studies. Benefits: Calms the mind, refreshes the space, supports focus and relaxation.'
+  },
+  'Yellow-Greens': {
+    title: 'Fresh Energy: Yellow‑Greens',
+    description: 'Yellow‑greens are uplifting and botanical, bringing outdoor vitality indoors. They feel sunny and organic, ideal for brightening low‑light rooms.',
+    examples: 'Recommended for: Kitchens, breakfast nooks, kid spaces. Benefits: Boosts energy, adds freshness, complements plants and wood.'
+  },
+  'Neutrals: Browns & Greys': {
+    title: 'Grounded Neutrals: Browns & Greys',
+    description: 'This neutral spectrum combines the warmth of browns with the sophistication of greys, yielding a balanced canvas that suits contemporary to classic interiors.',
+    examples: 'Recommended for: Living rooms, hallways, multifunction spaces. Benefits: Balanced warmth and calm, easy coordination, long‑lasting appeal.'
+  },
+  Golds: {
+    title: 'Radiant Warmth: Golds',
+    description: 'Gold tones deliver a luxe, sun‑kissed glow. Used thoughtfully, they elevate a room with warmth and refinement while reflecting light beautifully.',
+    examples: 'Recommended for: Feature walls, dining rooms, accents. Benefits: Adds glamour, warmth, and visual richness.'
+  },
   Neutrals: {
     title: 'Timeless Versatility of Neutrals',
     description: 'Neutrals (like taupe, ivory, sand) provide balance, subtlety, and effortless coordination. They create a calming backdrop that adapts with changing décor.',
@@ -766,7 +791,7 @@ const BasicVisualiserPage: React.FC = () => {
             className="w-full max-w-5xl flex flex-col lg:flex-row items-stretch gap-8 my-12"
           >
             {/* LEFT: Category Color Block */}
-            <div className="flex-1 flex flex-col items-center justify-center min-w-[220px] max-w-[340px]">
+            <div className="flex-1 flex flex-col items-center justify-center w-full lg:max-w-[340px]">
               {(() => {
                 const bg = selectedColor?.colorHex || CATEGORY_COLORS[selectedCategory] || '#ED276E';
                 const light = isLightColor(bg);
@@ -777,12 +802,12 @@ const BasicVisualiserPage: React.FC = () => {
                     className="w-full h-44 lg:h-60 rounded-2xl flex flex-col items-end justify-end shadow-inner relative"
                     style={{ background: bg, transition: 'background 0.3s' }}
                   >
-                    <div className="w-full flex flex-col items-center justify-center absolute top-1/2 left-1/2" style={{ transform: 'translate(-50%, -80%)' }}>
-                      <span className={`text-2xl font-bold uppercase tracking-wide${shadowClass}`} style={{ color: textColor }}>
+                    <div className="w-full flex flex-col items-center justify-center absolute top-6 left-1/2 px-4" style={{ transform: 'translateX(-50%)' }}>
+                      <span className={`text-2xl font-bold uppercase tracking-wide${shadowClass} text-center`} style={{ color: textColor }}>
                         {selectedCategory}
                       </span>
                     </div>
-                    <div className="w-full flex flex-col items-center mb-6">
+                    <div className="w-full flex flex-col items-center mb-6 px-4 text-center">
                       <div className="flex items-center justify-center">
                         <span className={`text-base font-medium${shadowClass}`} style={{ color: textColor }}>
                           {selectedColor?.colorCode || bg}
