@@ -82,7 +82,7 @@ export const PRODUCTS: Product[] = [
     description: 'Economy interior emulsion with smart upgrade and smooth finish. Provides 2/5 washability and 1600+ shade availability.',
     shortDescription: 'Economy interior emulsion with smart upgrade and smooth finish',
     category: 'Interior Paint',
-    sheenLevel: 'Matt',
+    sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -117,7 +117,7 @@ export const PRODUCTS: Product[] = [
     description: 'Economy interior emulsion with superior anti-fungal shield. Provides 2/5 washability and 1600+ shade availability.',
     shortDescription: 'Economy interior emulsion with superior anti-fungal shield',
     category: 'Interior Paint',
-    sheenLevel: 'Matt',
+    sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -187,7 +187,7 @@ export const PRODUCTS: Product[] = [
     description: 'Perfect economy emulsion with smooth finish. Provides 2/5 washability and 850+ shade availability.',
     shortDescription: 'Perfect economy emulsion with smooth finish',
     category: 'Interior Paint',
-    sheenLevel: 'Matt',
+    sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -222,7 +222,7 @@ export const PRODUCTS: Product[] = [
     description: 'Perfect economy emulsion with smooth finish, better whiteness & hiding. Provides 2/5 washability and 850+ shade availability.',
     shortDescription: 'Perfect economy emulsion with better whiteness & hiding',
     category: 'Interior Paint',
-    sheenLevel: 'Matt',
+    sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -257,7 +257,7 @@ export const PRODUCTS: Product[] = [
     description: 'Premium interior emulsion with rich matt finish, satin guard, long lasting film, fungus & mildew resistance, extra deep colours for feature wall.',
     shortDescription: 'Premium interior emulsion with rich matt finish and satin guard',
     category: 'Interior Paint',
-    sheenLevel: 'Matt & Smooth',
+    sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -293,7 +293,7 @@ export const PRODUCTS: Product[] = [
     description: 'Premium interior emulsion with rich satin finish, advance satin guard, high washability, anti fungal.',
     shortDescription: 'Premium interior emulsion with rich satin finish',
     category: 'Interior Paint',
-    sheenLevel: 'Silky Smooth',
+    sheenLevel: 'Low Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -363,7 +363,7 @@ export const PRODUCTS: Product[] = [
     description: 'Premium interior emulsion with flame spread resistance, advance satin guard, lotus effect, fragrance.',
     shortDescription: 'Premium interior emulsion with flame spread resistance',
     category: 'Interior Paint',
-    sheenLevel: 'Matt & Smooth',
+    sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -433,7 +433,7 @@ export const PRODUCTS: Product[] = [
     description: 'Premium interior emulsion with rich matt finish, advanced satin guard, fungus & mildew resistance, 2X film strength, abrasion resistance, burnish resistance.',
     shortDescription: 'Premium heavy duty emulsion with advanced protection',
     category: 'Interior Paint',
-    sheenLevel: 'Matt & Smooth',
+    sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -470,7 +470,7 @@ export const PRODUCTS: Product[] = [
     description: 'Luxury interior emulsion with enhanced satin resistance & easy clean, anti fungal protection, smooth finish, enhance durability, create teflon surface.',
     shortDescription: 'Luxury emulsion with enhanced satin resistance & easy clean',
     category: 'Interior Paint',
-    sheenLevel: 'Low Sheen & Smooth',
+    sheenLevel: 'Low Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -507,7 +507,7 @@ export const PRODUCTS: Product[] = [
     description: 'Luxury interior emulsion with enhanced satin resistance & easy clean, anti fungal protection, smooth finish, enhance durability, create teflon surface, anti yellowing, less odour & irritation in eyes.',
     shortDescription: 'Luxury emulsion with silky smooth & high sheen finish',
     category: 'Interior Paint',
-    sheenLevel: 'Silky Smooth & High Sheen',
+    sheenLevel: 'High Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -546,7 +546,7 @@ export const PRODUCTS: Product[] = [
     description: 'Luxury interior emulsion with green assure, advanced satin resistance, advance sheen, release fragrance.',
     shortDescription: 'Luxury emulsion with green assure and advanced satin resistance',
     category: 'Interior Paint',
-    sheenLevel: 'Smooth & Sheen',
+    sheenLevel: 'High Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -581,7 +581,7 @@ export const PRODUCTS: Product[] = [
     description: 'Luxury interior emulsion with smoothest matt finish, burnish resistance, teflon surface protector, excellent dirt resistance, anti-bacterial and anti-fungal shield.',
     shortDescription: 'Luxury emulsion with smoothest matt finish',
     category: 'Interior Paint',
-    sheenLevel: 'Matt & Smooth',
+    sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -652,7 +652,7 @@ export const PRODUCTS: Product[] = [
     description: 'Luxury interior emulsion with silver ion technology, germ killing action, neutralize formaldehyde, green assure, teflon surface protector.',
     shortDescription: 'Luxury emulsion with silver ion technology and germ killing action',
     category: 'Interior Paint',
-    sheenLevel: 'Low Sheen & Smooth',
+    sheenLevel: 'Low Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -688,7 +688,7 @@ export const PRODUCTS: Product[] = [
     description: 'Luxury interior emulsion with unsurpassed water beading technology, enhanced anti-microbial formula, environmentally responsible, super satin resistance, exceptional crack bridging technology.',
     shortDescription: 'Luxury emulsion with unsurpassed water beading technology',
     category: 'Interior Paint',
-    sheenLevel: 'Silky Smooth Finish',
+    sheenLevel: 'Low Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -725,7 +725,7 @@ export const PRODUCTS: Product[] = [
     description: 'Luxury interior emulsion with luxury with teflon, dead matt finish, royale designer palette, crack free performance, green assure, satin repellent.',
     shortDescription: 'Luxury emulsion with dead matt finish and teflon protection',
     category: 'Interior Paint',
-    sheenLevel: 'Dead Matt',
+    sheenLevel: 'Ultra Matt',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -763,7 +763,7 @@ export const PRODUCTS: Product[] = [
     description: 'Luxury interior emulsion with neutralises formaldehyde, release fragrance, green assure, teflon, absorbs malodours.',
     shortDescription: 'Luxury emulsion that neutralises formaldehyde and absorbs malodours',
     category: 'Interior Paint',
-    sheenLevel: 'Smooth Matt Finish',
+    sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
     prices: {
@@ -795,7 +795,7 @@ export const PRODUCTS: Product[] = [
 
 // Filter options derived from products data
 export const FILTER_OPTIONS: FilterOptions = {
-  sheenLevels: ['Matt', 'Low Sheen', 'Matt & Smooth', 'Silky Smooth', 'High Sheen', 'Smooth & Sheen', 'Low Sheen & Smooth', 'Silky Smooth & High Sheen', 'Silky Smooth Finish', 'Dead Matt', 'Smooth Matt Finish'],
+  sheenLevels: ['Ultra Matt', 'Mat', 'Low Sheen', 'High Sheen'],
   surfaceTypes: ['Interior Wall', 'Exterior Wall', 'Wood', 'Metal'],
   usageTypes: ['Home', 'Commercial'],
   quantityOptions: ['1L', '4L', '10L', '20L'],
