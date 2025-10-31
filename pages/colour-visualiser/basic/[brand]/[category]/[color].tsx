@@ -515,8 +515,30 @@ const BasicVisualiserPage: React.FC = () => {
   }, [colorDatabase, categoryParam, colorParam, brandParam, selectedBrand, selectedCategory]);
 
   // Handle brand/category/color selection
-  const handleBrandClick = (id: string) => {
-    router.push(`/colour-visualiser/basic/${id}`, undefined, { scroll: false });
+  const handleBrandClick = async (id: string) => {
+    if (id === selectedBrand) return; // Don't switch if already selected
+    
+    // Load the new brand data
+    const brandConfig = BRAND_CONFIG.find(b => b.id === id);
+    if (!brandConfig) return;
+    
+    try {
+      const colorData = await import(`@/data/colors/${brandConfig.fileName}`);
+      const newColorDatabase = colorData.default;
+      const categories = Object.keys(newColorDatabase.colorTypes);
+      if (categories.length > 0) {
+        const firstCategory = categories[0];
+        const colors = newColorDatabase.colorTypes[firstCategory];
+        if (colors && colors.length > 0) {
+          const firstColor = colors[0];
+          const cleanColorCode = firstColor.colorCode.replace(/\s+/g, '-');
+          const colorSlug = `${toKebabCase(firstColor.colorName)}-${cleanColorCode}`;
+          router.push(`/colour-visualiser/basic/${id}/${firstCategory}/${colorSlug}`, undefined, { scroll: false });
+        }
+      }
+    } catch (error) {
+      console.error('Error loading brand data:', error);
+    }
   };
   const handleCategoryClick = (cat: string) => {
     if (!colorDatabase) return;
