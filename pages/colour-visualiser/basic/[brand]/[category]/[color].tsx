@@ -279,6 +279,170 @@ function isLightColor(hex: string): boolean {
   }
 }
 
+// Additional tips/pairings/finishes per category with sensible defaults
+const CATEGORY_TIPS: Record<string, { tips: string[]; pairings: string[]; finishes: string[]; pairingCategories?: string[] }> = {
+  DEFAULT: {
+    tips: [
+      'Test a sample on two walls to see how daylight and artificial light change the tone.',
+      'Balance saturation by mixing one bold wall with three calmer walls for harmony.',
+      'Use larger swatches on the wall to evaluate undertones throughout the day.'
+    ],
+    pairings: ['Crisp whites', 'Warm woods', 'Matte black accents'],
+    finishes: ['Matte for walls', 'Eggshell for easy cleaning', 'Satin for kitchens/baths'],
+    pairingCategories: ['Whites', 'Greys']
+  },
+  Greys: {
+    tips: ['Warm greys soften contemporary spaces.', 'Layer textures (linen, wool) to avoid a flat look.'],
+    pairings: ['Soft whites', 'Natural oak', 'Brushed nickel'],
+    finishes: ['Matte or eggshell walls', 'Satin on trims'],
+    pairingCategories: ['Reds', 'Yellows', 'Oranges', 'Blues']
+  },
+  Blues: {
+    tips: ['Lighter blues enlarge small rooms visually.', 'Use deeper blues as an accent behind shelving or headboards.'],
+    pairings: ['Bright white', 'Tan leather', 'Polished brass'],
+    finishes: ['Matte for bedrooms', 'Satin in baths'],
+    pairingCategories: ['Yellows', 'Oranges', 'Reds', 'Blacks']
+  },
+  Browns: {
+    tips: ['Keep ceilings and trims light to prevent heaviness.', 'Combine with natural fibers for a grounded look.'],
+    pairings: ['Creams', 'Olive greens', 'Aged brass'],
+    finishes: ['Eggshell walls', 'Semi‑gloss trims'],
+    pairingCategories: ['Blues', 'Greens', 'Purples', 'Blacks']
+  },
+  Reds: {
+    tips: ['Use on a feature wall to energize without overpowering.', 'Dimmer switches help control intensity for evenings.'],
+    pairings: ['Warm neutrals', 'Charcoal', 'Antique gold'],
+    finishes: ['Eggshell walls', 'Satin for dining areas'],
+    pairingCategories: ['Greens', 'Blues', 'Purples', 'Blacks']
+  },
+  Oranges: {
+    tips: ['Great for social zones and playful nooks.', 'Balance with cool neutrals to avoid too much warmth.'],
+    pairings: ['Soft grey', 'Off‑white', 'Natural cane'],
+    finishes: ['Eggshell walls', 'Satin in kitchens'],
+    pairingCategories: ['Blues', 'Purples', 'Greens', 'Blacks']
+  },
+  Yellows: {
+    tips: ['Brighter yellows suit daylight rooms; choose buttery tones for low‑light spaces.', 'Pair with cooler trims to keep it fresh.'],
+    pairings: ['Cool white', 'Mid‑grey', 'Light oak'],
+    finishes: ['Matte in living spaces', 'Satin for kitchens'],
+    pairingCategories: ['Purples', 'Blues', 'Greens', 'Blacks']
+  },
+  Greens: {
+    tips: ['Olive and sage are calming for work areas.', 'Add indoor plants to echo the hue and enrich the scheme.'],
+    pairings: ['Creams', 'Walnut', 'Matte black'],
+    finishes: ['Matte/eggshell walls', 'Satin trims'],
+    pairingCategories: ['Reds', 'Pinks', 'Oranges', 'Blacks']
+  },
+  Purples: {
+    tips: ['Desaturate with neutrals to keep it sophisticated.', 'Lighter tints are spa‑like and restful.'],
+    pairings: ['Soft grey', 'Warm beige', 'Brushed gold'],
+    finishes: ['Matte in bedrooms', 'Satin accents'],
+    pairingCategories: ['Yellows', 'Oranges', 'Greens', 'Blacks']
+  },
+  Pinks: {
+    tips: ['Use earthy pinks for mature spaces; bright pinks for playful energy.', 'Pair with deep greens for modern contrast.'],
+    pairings: ['Deep green', 'Cream', 'Light wood'],
+    finishes: ['Matte walls', 'Eggshell hallways'],
+    pairingCategories: ['Greens', 'Blues', 'Blacks', 'Yellows']
+  },
+  Beige: {
+    tips: ['Match undertone (pink/green/grey) with floors and fabrics.', 'Introduce contrast through darker doors or trims.'],
+    pairings: ['Charcoal', 'Crisp white', 'Warm wood'],
+    finishes: ['Eggshell walls', 'Semi‑gloss trims'],
+    pairingCategories: ['Blues', 'Greens', 'Purples', 'Reds']
+  },
+  Beiges: {
+    tips: ['Keep ceilings bright to maintain airiness.', 'Mix textures (rattan, boucle) for depth.'],
+    pairings: ['Off‑white', 'Black accents', 'Oak'],
+    finishes: ['Eggshell walls', 'Semi‑gloss trims'],
+    pairingCategories: ['Blues', 'Greens', 'Purples', 'Reds']
+  },
+  Neutrals: {
+    tips: ['Layer two neighboring tones for subtle dimension.', 'Use art and textiles for color pops.'],
+    pairings: ['Any accent color', 'Natural fibers', 'Stone'],
+    finishes: ['Matte living areas', 'Satin for high‑touch zones'],
+    pairingCategories: ['Blues', 'Greens', 'Purples', 'Reds']
+  },
+  Whites: {
+    tips: ['Assess undertones (warm/cool) against your fixed elements.', 'Warmer whites feel cozy; cooler whites feel crisp.'],
+    pairings: ['Soft greys', 'Light woods', 'Matte black'],
+    finishes: ['Matte ceilings', 'Semi‑gloss trims'],
+    pairingCategories: ['Blues', 'Greens', 'Purples', 'Reds']
+  },
+  Blacks: {
+    tips: ['Balance with ample light and light furnishings.', 'Great for doors and accent walls to ground schemes.'],
+    pairings: ['Warm white', 'Oak', 'Brass'],
+    finishes: ['Matte walls for depth', 'High‑gloss accents'],
+    pairingCategories: ['Whites', 'Yellows', 'Oranges', 'Reds']
+  },
+  Metallics: {
+    tips: ['Use sparingly on feature areas for sparkle.', 'Coordinate metal tones across hardware and lighting.'],
+    pairings: ['Charcoal', 'Deep navy', 'Ivory'],
+    finishes: ['Special effect coats', 'Satin trims'],
+    pairingCategories: ['Greys', 'Blues', 'Whites']
+  },
+  'Earth Tones': {
+    tips: ['Terracotta pairs well with textured plaster.', 'Keep trims neutral for a natural feel.'],
+    pairings: ['Creams', 'Olives', 'Muted blues'],
+    finishes: ['Eggshell walls', 'Satin doors'],
+    pairingCategories: ['Creams', 'Greens', 'Blues']
+  },
+  Creams: {
+    tips: ['Use with north‑facing rooms to add warmth.', 'Contrast with darker metals for definition.'],
+    pairings: ['Bronze', 'Dark wood', 'Deep green'],
+    finishes: ['Eggshell walls', 'Semi‑gloss trims'],
+    pairingCategories: ['Blues', 'Greens', 'Purples', 'Reds']
+  },
+  Violet: {
+    tips: ['Anchor with neutrals to avoid over‑sweetness.', 'Great for calm corners and reading nooks.'],
+    pairings: ['Grey', 'Cream', 'Walnut'],
+    finishes: ['Matte walls', 'Satin accents'],
+    pairingCategories: ['Yellows', 'Oranges', 'Greens', 'Blacks']
+  },
+  Violets: {
+    tips: ['Use mid‑tones for creative zones; pale tints for serenity.', 'Pair with metallics to elevate.'],
+    pairings: ['Brass', 'Ivory', 'Charcoal'],
+    finishes: ['Matte/eggshell walls'],
+    pairingCategories: ['Yellows', 'Oranges', 'Greens', 'Blues']
+  },
+  Lilac: {
+    tips: ['Works beautifully with natural light.', 'Add deeper plums for contrast.'],
+    pairings: ['Soft grey', 'Warm white', 'Blush'],
+    finishes: ['Matte bedrooms', 'Satin baths'],
+    pairingCategories: ['Greens', 'Yellows', 'Oranges', 'Blacks']
+  },
+  Peaches: {
+    tips: ['Keep trims white for a fresh feel.', 'Great for cozy dining corners.'],
+    pairings: ['Cream', 'Warm grey', 'Light oak'],
+    finishes: ['Eggshell walls'],
+    pairingCategories: ['Blues', 'Greens', 'Purples', 'Blacks']
+  },
+  'Blue-Greens': {
+    tips: ['Ideal for biophilic schemes with plants.', 'Use lighter tints for coastal moods.'],
+    pairings: ['Sand beige', 'Warm white', 'Natural rattan'],
+    finishes: ['Matte/eggshell walls'],
+    pairingCategories: ['Reds', 'Oranges', 'Yellows', 'Blacks']
+  },
+  'Yellow-Greens': {
+    tips: ['Balance vibrancy with neutral floors.', 'Excellent for energizing entryways.'],
+    pairings: ['Soft grey', 'White oak', 'Black accents'],
+    finishes: ['Eggshell walls'],
+    pairingCategories: ['Reds', 'Purples', 'Blacks', 'Blues']
+  },
+  'Neutrals: Browns & Greys': {
+    tips: ['Mix both families to achieve balance (warm + cool).', 'Use textiles to bridge undertones.'],
+    pairings: ['Beige', 'Slate', 'Warm wood'],
+    finishes: ['Matte walls', 'Semi‑gloss trims'],
+    pairingCategories: ['Blues', 'Greens', 'Purples', 'Reds']
+  },
+  Golds: {
+    tips: ['Use on smaller walls or details for luxe impact.', 'Balance with matte textures to avoid glare.'],
+    pairings: ['Deep green', 'Charcoal', 'Ivory'],
+    finishes: ['Special effect metallic', 'Satin trims'],
+    pairingCategories: ['Blues', 'Purples', 'Blacks', 'Reds']
+  }
+};
+
 const BasicVisualiserPage: React.FC = () => {
   const router = useRouter();
   const { brand: brandParam, category: categoryParam, color: colorParam } = router.query;
@@ -492,7 +656,7 @@ const BasicVisualiserPage: React.FC = () => {
       <DevToolsProtection />
       <Head>
         <title>{pageTitle}</title>
-        <meta name="description" content="Visualise wall paint colors by brand, category, and shade. Try Home Glazer's Basic Color Visualiser for Asian Paints, Nerolac, Berger, JSW and more." />
+        <meta name="description" content="Visualise wall paint colors by brand, category, and shade. Try Home Glazer\'s Basic Color Visualiser for Asian Paints, Nerolac, Berger, JSW and more." />
       </Head>
       <Header />
       <main className="min-h-screen bg-white pt-4 lg:pt-16 pb-20 lg:pb-2 flex flex-col items-center px-4 lg:px-0">
@@ -765,59 +929,61 @@ const BasicVisualiserPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            )}
+          )}
   
-  {/* Brand Selector - Mobile Only */}
-  <div className={`py-3 border-b border-gray-100 ${isMobileLayoutFixed ? 'px-4' : 'px-0'}`}>
-    <div className="overflow-x-auto scrollbar-hide">
-      <div className="flex gap-1 lg:gap-3 min-w-max">
-        {BRAND_CONFIG.map((brand) => (
-          <button
-            key={brand.id}
-            className={`sm:px-4 px-3 sm:py-2 py-1 rounded-full font-medium border transition-all duration-200 whitespace-nowrap text-sm flex-shrink-0 ${selectedBrand === brand.id ? 'bg-[#299dd7] text-white border-[#299dd7]' : 'bg-white text-[#299dd7] border-[#299dd7] hover:bg-[#e6f2fa]'}`}
-            onClick={() => handleBrandClick(brand.id)}
-          >
-            {brand.name}
-          </button>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
+          {/* Brand Selector - Mobile Only */}
+          <div className={`py-3 border-b border-gray-100 ${isMobileLayoutFixed ? 'px-4' : 'px-0'}`}>
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex gap-1 lg:gap-3 min-w-max">
+                {BRAND_CONFIG.map((brand) => (
+                  <button
+                    key={brand.id}
+                    className={`sm:px-4 px-3 sm:py-2 py-1 rounded-full font-medium border transition-all duration-200 whitespace-nowrap text-sm flex-shrink-0 ${selectedBrand === brand.id ? 'bg-[#299dd7] text-white border-[#299dd7]' : 'bg-white text-[#299dd7] border-[#299dd7] hover:bg-[#e6f2fa]'}`}
+                    onClick={() => handleBrandClick(brand.id)}
+                  >
+                    {brand.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
 
-{/* SPLIT SCREEN COLOR SCIENCE/INFO SECTION */}
+        {/* SPLIT SCREEN COLOR SCIENCE/INFO SECTION */}
         {!!selectedCategory && COLOR_TYPE_SCIENCE[selectedCategory] && (
           <section
             className="w-full max-w-5xl flex flex-col lg:flex-row items-stretch gap-8 my-12"
           >
             {/* LEFT: Category Color Block */}
-            <div className="flex-1 flex flex-col items-center justify-center w-full lg:max-w-[340px]">
+            <div className="hidden lg:block flex-1 flex flex-col items-center justify-center w-full lg:max-w-[340px]">
               {(() => {
                 const bg = selectedColor?.colorHex || CATEGORY_COLORS[selectedCategory] || '#ED276E';
                 const light = isLightColor(bg);
                 const textColor = light ? '#1f2937' : '#ffffff'; // gray-800 or white
                 const shadowClass = light ? '' : ' drop-shadow-lg';
                 return (
-                  <div
-                    className="w-full h-44 lg:h-60 rounded-2xl flex flex-col items-end justify-end shadow-inner relative"
-                    style={{ background: bg, transition: 'background 0.3s' }}
-                  >
-                    <div className="w-full flex flex-col items-center justify-center absolute top-6 left-1/2 px-4" style={{ transform: 'translateX(-50%)' }}>
-                      <span className={`text-2xl font-bold uppercase tracking-wide${shadowClass} text-center`} style={{ color: textColor }}>
-                        {selectedCategory}
-                      </span>
-                    </div>
-                    <div className="w-full flex flex-col items-center mb-6 px-4 text-center">
-                      <div className="flex items-center justify-center">
-                        <span className={`text-base font-medium${shadowClass}`} style={{ color: textColor }}>
-                          {selectedColor?.colorCode || bg}
+                  <div className="sticky top-24 w-full">
+                    <div
+                      className="w-full h-44 lg:h-60 rounded-2xl flex flex-col items-end justify-end shadow-inner relative"
+                      style={{ background: bg, transition: 'background 0.3s' }}
+                    >
+                      <div className="w-full flex flex-col items-center justify-center absolute top-6 left-1/2 px-4" style={{ transform: 'translateX(-50%)' }}>
+                        <span className={`text-2xl font-bold uppercase tracking-wide${shadowClass} text-center`} style={{ color: textColor }}>
+                          {selectedCategory}
                         </span>
                       </div>
-                      {selectedColor?.colorName && (
-                        <span className={`text-xs font-semibold mt-1${shadowClass}`} style={{ color: textColor }}>
-                          {toSentenceCase(selectedColor.colorName)}
-                        </span>
-                      )}
+                      <div className="w-full flex flex-col items-center mb-6 px-4 text-center">
+                        <div className="flex items-center justify-center">
+                          <span className={`text-base font-medium${shadowClass}`} style={{ color: textColor }}>
+                            {selectedColor?.colorCode || bg}
+                          </span>
+                        </div>
+                        {selectedColor?.colorName && (
+                          <span className={`text-xs font-semibold mt-1${shadowClass}`} style={{ color: textColor }}>
+                            {toSentenceCase(selectedColor.colorName)}
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
                 );
@@ -831,9 +997,14 @@ const BasicVisualiserPage: React.FC = () => {
               <p className="text-gray-700 text-lg mb-5 text-left">
                 {COLOR_TYPE_SCIENCE[selectedCategory].description}
               </p>
+              {/* SEO paragraph referencing the selected color */}
+              <p className="text-gray-700 text-base mb-5 text-left">
+                Explore the {selectedCategory.toUpperCase()} colour family—an excellent choice with {COLOR_TYPE_SCIENCE[selectedCategory].examples.replace('Recommended for: ', '').split('Benefits:')[0].trim()}.
+              </p>
               {/* Parse examples string into split sections */}
               {(() => {
                 const d = getDetailsFromExamples(COLOR_TYPE_SCIENCE[selectedCategory].examples);
+                const tipsConfig = CATEGORY_TIPS[selectedCategory] || CATEGORY_TIPS.DEFAULT;
                 return (
                   <>
                     {d.recommendedFor && (
@@ -843,9 +1014,127 @@ const BasicVisualiserPage: React.FC = () => {
                       </div>
                     )}
                     {d.benefits && (
-                      <div>
+                      <div className="mb-4">
                         <span className="block font-semibold text-gray-900">Benefits:</span>
                         <p className="text-gray-700">{d.benefits}</p>
+                      </div>
+                    )}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                      <div>
+                        <span className="block font-semibold text-gray-900 mb-1">Design tips:</span>
+                        <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                          {tipsConfig.tips.map((t, i) => (<li key={`tip-${i}`}>{t}</li>))}
+                        </ul>
+                      </div>
+                      <div>
+                        <span className="block font-semibold text-gray-900 mb-1">Best finishes:</span>
+                        <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                          {tipsConfig.finishes.map((t, i) => (<li key={`finish-${i}`}>{t}</li>))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Visual Works well with (clickable thumbnails) */}
+                    {colorDatabase && Array.isArray(colors) && colors.length > 0 && (
+                      <div className="mt-6">
+                        <span className="block font-semibold text-gray-900 mb-3">Works well with:</span>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                          {(() => {
+                            const catTips = CATEGORY_TIPS[selectedCategory] || CATEGORY_TIPS.DEFAULT;
+                            const targetCats = (catTips.pairingCategories && catTips.pairingCategories.length > 0)
+                              ? catTips.pairingCategories
+                              : ['Whites', 'Greys'];
+                            
+                            // Collect all colors from contrasting categories with category labels
+                            const allContrastingColors: any[] = [];
+                            targetCats.forEach((cat) => {
+                              const arr = colorDatabase.colorTypes[cat] || [];
+                              arr.forEach((c: any) => {
+                                allContrastingColors.push({ ...c, __cat: cat });
+                              });
+                            });
+                            
+                            // Fallback to any non-current category if not enough
+                            if (allContrastingColors.length < 8) {
+                              const excludeCats = [selectedCategory, ...targetCats];
+                              const allCats = Object.keys(colorDatabase.colorTypes);
+                              const contrastingCats = allCats.filter(cat => !excludeCats.includes(cat));
+                              
+                              contrastingCats.forEach((cat) => {
+                                const arr = colorDatabase.colorTypes[cat] || [];
+                                arr.forEach((c: any) => {
+                                  if (allContrastingColors.length < 50) { // Cap at 50 for variety
+                                    allContrastingColors.push({ ...c, __cat: cat });
+                                  }
+                                });
+                              });
+                            }
+                            
+                            // Select 8 diverse colors by picking from different categories in rotation
+                            const suggestionColors: any[] = [];
+                            const colorsPerCat = Math.ceil(8 / Math.min(targetCats.length, 4)); // Distribute across 4 or fewer cats
+                            const catsUsed = new Set<string>();
+                            let attempts = 0;
+                            
+                            while (suggestionColors.length < 8 && attempts < 1000) {
+                              // Find next color from a category we haven't fully used yet
+                              for (const cat of targetCats) {
+                                if (suggestionColors.length >= 8) break;
+                                
+                                const colorsFromCat = suggestionColors.filter(c => c.__cat === cat).length;
+                                if (colorsFromCat < colorsPerCat) {
+                                  // Pick a random color from this category
+                                  const availableFromCat = allContrastingColors.filter(
+                                    c => c.__cat === cat && !suggestionColors.some(s => s.colorName === c.colorName && s.colorCode === c.colorCode)
+                                  );
+                                  if (availableFromCat.length > 0) {
+                                    const randomColor = availableFromCat[Math.floor(Math.random() * availableFromCat.length)];
+                                    suggestionColors.push(randomColor);
+                                  }
+                                }
+                              }
+                              
+                              // If we still need more, pick from any contrasting color
+                              if (suggestionColors.length < 8) {
+                                const remaining = allContrastingColors.filter(
+                                  c => !suggestionColors.some(s => s.colorName === c.colorName && s.colorCode === c.colorCode)
+                                );
+                                if (remaining.length > 0) {
+                                  const randomColor = remaining[Math.floor(Math.random() * remaining.length)];
+                                  suggestionColors.push(randomColor);
+                                } else {
+                                  break; // No more unique colors
+                                }
+                              }
+                              attempts++;
+                            }
+                            
+                            // Shuffle for display variety
+                            for (let i = suggestionColors.length - 1; i > 0; i--) {
+                              const j = Math.floor(Math.random() * (i + 1));
+                              [suggestionColors[i], suggestionColors[j]] = [suggestionColors[j], suggestionColors[i]];
+                            }
+                            
+                            const finalList = suggestionColors.slice(0, 8);
+                            return finalList.map((c: any, i: number) => (
+                              <button
+                                key={`${c.__cat || selectedCategory}-${c.colorName}-${c.colorCode}-${i}`}
+                                onClick={() => {
+                                  const cleanColorCode = c.colorCode.replace(/\s+/g, '-');
+                                  router.push(`/colour-visualiser/basic/${selectedBrand}/${c.__cat || selectedCategory}/${toKebabCase(c.colorName)}-${cleanColorCode}`, undefined, { scroll: false });
+                                }}
+                                className="flex items-center gap-2 p-2 rounded-lg border hover:shadow-sm transition bg-white"
+                                aria-label={`Switch to ${toSentenceCase(c.colorName)} ${c.colorCode}`}
+                              >
+                                <div className="w-16 h-16 rounded-lg flex-shrink-0" style={{ background: c.colorHex }} />
+                                <div className="flex flex-col items-start flex-1">
+                                  <span className="text-sm text-gray-800 font-medium text-left">{toSentenceCase(c.colorName)}</span>
+                                  <span className="text-xs text-gray-500 text-left">{c.colorCode}</span>
+                                </div>
+                              </button>
+                            ));
+                          })()}
+                        </div>
                       </div>
                     )}
                   </>
@@ -854,41 +1143,10 @@ const BasicVisualiserPage: React.FC = () => {
             </div>
           </section>
         )}
-
-        {/* Advanced Visualiser and Enquiry Tiles */}
-        <div className="w-full max-w-screen-xl mt-8 mb-8">
-          <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
-            {/* Advanced Visualiser Tile */}
-            <div className="bg-white rounded-xl shadow-lg p-8 flex-1 max-w-md flex flex-col items-center hover:shadow-2xl transition cursor-pointer">
-              <span className="text-2xl font-semibold text-[#ED276E] mb-4">Advanced Visualiser</span>
-              <p className="text-gray-600 text-center mb-4">Choose different colours for each wall and roof<br />across multiple room types.</p>
-              <Link href="/colour-visualiser/advanced" className="mt-auto px-6 py-2 rounded-full bg-[#ED276E] text-white font-medium hover:bg-[#b81d5a] transition text-center w-full">Try Advanced Visualiser</Link>
-            </div>
-            
-            {/* Enquiry Tile */}
-            <div className="bg-white rounded-xl shadow-lg p-8 flex-1 max-w-md flex flex-col items-center hover:shadow-2xl transition cursor-pointer">
-              <span className="text-2xl font-semibold text-[#299dd7] mb-4">Get Free Quote</span>
-              <p className="text-gray-600 text-center mb-4">Ready to transform your space? Get a free consultation and quote from our experts.</p>
-              <Link href="/enquiry" className="mt-auto px-6 py-2 rounded-full bg-[#299dd7] text-white font-medium hover:bg-[#237bb0] transition text-center w-full">Enquire Now</Link>
-            </div>
-          </div>
-        </div>
-        {/* Action Buttons - Always Fixed */}
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
-          <div className="flex gap-3">
-            <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px]">
-              Enquire Now
-            </Link>
-            <Link href="/calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px]">
-              Budget Calculator
-            </Link>
-          </div>
-        </div>
-        
       </main>
       <Footer />
     </>
   );
 };
 
-export default BasicVisualiserPage; 
+export default BasicVisualiserPage;
