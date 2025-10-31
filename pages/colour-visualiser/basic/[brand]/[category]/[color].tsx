@@ -954,7 +954,41 @@ const BasicVisualiserPage: React.FC = () => {
           <section
             className="w-full max-w-5xl flex flex-col lg:flex-row items-stretch gap-8 my-12"
           >
-            {/* LEFT: Category Color Block */}
+            {/* LEFT: Category Color Block - Mobile Version */}
+            <div className="lg:hidden w-full mb-6">
+              {(() => {
+                const bg = selectedColor?.colorHex || CATEGORY_COLORS[selectedCategory] || '#ED276E';
+                const light = isLightColor(bg);
+                const textColor = light ? '#1f2937' : '#ffffff';
+                const shadowClass = light ? '' : ' drop-shadow-lg';
+                return (
+                  <div
+                    className="w-full h-40 rounded-2xl flex flex-col items-end justify-end shadow-inner relative"
+                    style={{ background: bg, transition: 'background 0.3s' }}
+                  >
+                    <div className="w-full flex flex-col items-center justify-center absolute top-4 left-1/2 px-4" style={{ transform: 'translateX(-50%)' }}>
+                      <span className={`text-xl font-bold uppercase tracking-wide${shadowClass} text-center`} style={{ color: textColor }}>
+                        {selectedCategory}
+                      </span>
+                    </div>
+                    <div className="w-full flex flex-col items-center mb-4 px-4 text-center">
+                      <div className="flex items-center justify-center">
+                        <span className={`text-base font-medium${shadowClass}`} style={{ color: textColor }}>
+                          {selectedColor?.colorCode || bg}
+                        </span>
+                      </div>
+                      {selectedColor?.colorName && (
+                        <span className={`text-xs font-semibold mt-1${shadowClass}`} style={{ color: textColor }}>
+                          {toSentenceCase(selectedColor.colorName)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+            
+            {/* LEFT: Category Color Block - Desktop Version */}
             <div className="hidden lg:block flex-1 flex flex-col items-center justify-center w-full lg:max-w-[340px]">
               {(() => {
                 const bg = selectedColor?.colorHex || CATEGORY_COLORS[selectedCategory] || '#ED276E';
@@ -1145,6 +1179,18 @@ const BasicVisualiserPage: React.FC = () => {
         )}
       </main>
       <Footer />
+      
+      {/* Mobile Action Buttons - Fixed at Bottom */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
+        <div className="flex gap-3">
+          <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px]">
+            Enquire Now
+          </Link>
+          <Link href="/calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px]">
+            Budget Calculator
+          </Link>
+        </div>
+      </div>
     </>
   );
 };
