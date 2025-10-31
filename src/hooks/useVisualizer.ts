@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PDFGenerator, { RoomData, ColorSelection } from '../lib/pdfGenerator';
+import type { RoomData, ColorSelection } from '../lib/pdfGenerator';
 
 // Import all color JSON files
 import asianPaintsColors from '../data/colors/asian_paints_colors.json';
@@ -411,6 +411,9 @@ export function useVisualizer() {
     setIsGeneratingPDF(true);
     
     try {
+      // Dynamically import PDFGenerator to avoid SSR issues with dom-to-image-more
+      const { default: PDFGenerator } = await import('../lib/pdfGenerator');
+      
       // Get the room preview element from ref
       const roomPreviewElement = roomPreviewRef?.current;
       

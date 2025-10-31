@@ -279,6 +279,33 @@ function isLightColor(hex: string): boolean {
   }
 }
 
+// Replace color type references with specific color name
+function personalizeContent(text: string, colorName: string, colorType: string): string {
+  if (!text || !colorName) return text;
+  
+  // Create a personalized version by replacing common patterns
+  let personalized = text;
+  
+  // Get singular form (remove 's' from plural)
+  const singularType = colorType.replace(/s$/, '');
+  const lowerSingular = singularType.toLowerCase();
+  const upperSingular = singularType.charAt(0).toUpperCase() + singularType.slice(1).toLowerCase();
+  
+  // Replace plural color types (e.g., "Reds", "Blues") with color name
+  const pluralPattern = new RegExp(`\\b${colorType}\\b`, 'gi');
+  personalized = personalized.replace(pluralPattern, colorName);
+  
+  // Replace capitalized singular forms (e.g., "Red", "Blue") with color name
+  const upperSingularPattern = new RegExp(`\\b${upperSingular}\\b`, 'g');
+  personalized = personalized.replace(upperSingularPattern, colorName);
+  
+  // Replace lowercase singular forms (e.g., "red", "blue") with color name
+  const lowerSingularPattern = new RegExp(`\\b${lowerSingular}\\b`, 'g');
+  personalized = personalized.replace(lowerSingularPattern, colorName);
+  
+  return personalized;
+}
+
 // Additional tips/pairings/finishes per category with sensible defaults
 const CATEGORY_TIPS: Record<string, { tips: string[]; pairings: string[]; finishes: string[]; pairingCategories?: string[] }> = {
   DEFAULT: {
@@ -749,7 +776,7 @@ const BasicVisualiserPage: React.FC = () => {
               className="overflow-x-auto w-full scrollbar-hide"
               ref={categoryScrollRef}
             >
-              <div className="flex gap-4 flex-nowrap justify-center px-2 w-full">
+              <div className={`flex gap-4 flex-nowrap px-2 w-full ${(showPrevArrow || showNextArrow) ? 'justify-start' : 'justify-center'}`}>
                 {Object.keys(colorDatabase.colorTypes).map((cat: string) => {
                   const categoryColor = CATEGORY_COLORS[cat] || '#ED276E';
                   return (
@@ -1047,22 +1074,27 @@ const BasicVisualiserPage: React.FC = () => {
             </div>
             {/* RIGHT: Explanation Info */}
             <div className="flex-1 flex flex-col justify-center">
-              <h3 className="text-2xl lg:text-3xl font-bold mb-2 text-[#299dd7] text-left">
-                {COLOR_TYPE_SCIENCE[selectedCategory].title}
-              </h3>
-              <p className="text-gray-700 text-lg mb-5 text-left">
-                {COLOR_TYPE_SCIENCE[selectedCategory].description}
-              </p>
-              {/* SEO paragraph referencing the selected color */}
-              <p className="text-gray-700 text-base mb-5 text-left">
-                Explore the {selectedCategory.toUpperCase()} colour family—an excellent choice with {COLOR_TYPE_SCIENCE[selectedCategory].examples.replace('Recommended for: ', '').split('Benefits:')[0].trim()}.
-              </p>
-              {/* Parse examples string into split sections */}
               {(() => {
-                const d = getDetailsFromExamples(COLOR_TYPE_SCIENCE[selectedCategory].examples);
+                const colorName = selectedColor ? toSentenceCase(selectedColor.colorName) : '';
+                const title = personalizeContent(COLOR_TYPE_SCIENCE[selectedCategory].title, colorName, selectedCategory);
+                const description = personalizeContent(COLOR_TYPE_SCIENCE[selectedCategory].description, colorName, selectedCategory);
+                const examples = personalizeContent(COLOR_TYPE_SCIENCE[selectedCategory].examples, colorName, selectedCategory);
+                const d = getDetailsFromExamples(examples);
                 const tipsConfig = CATEGORY_TIPS[selectedCategory] || CATEGORY_TIPS.DEFAULT;
+                
                 return (
                   <>
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-2 text-[#299dd7] text-left">
+                      {title}
+                    </h3>
+                    <p className="text-gray-700 text-lg mb-5 text-left">
+                      {description}
+                    </p>
+                    {/* SEO paragraph referencing the selected color */}
+                    <p className="text-gray-700 text-base mb-5 text-left">
+                      Explore {selectedColor ? `${colorName}—part of the ` : ''}the {selectedCategory.toUpperCase()} colour family—an excellent choice with {examples.replace('Recommended for: ', '').split('Benefits:')[0].trim()}.
+                    </p>
+                    {/* Parse examples string into split sections */}
                     {d.recommendedFor && (
                       <div className="mb-2">
                         <span className="block font-semibold text-gray-900">Recommended for:</span>
@@ -1179,13 +1211,13 @@ const BasicVisualiserPage: React.FC = () => {
                                   const cleanColorCode = c.colorCode.replace(/\s+/g, '-');
                                   router.push(`/colour-visualiser/basic/${selectedBrand}/${c.__cat || selectedCategory}/${toKebabCase(c.colorName)}-${cleanColorCode}`, undefined, { scroll: false });
                                 }}
-                                className="flex items-center gap-2 p-2 rounded-lg border hover:shadow-sm transition bg-white"
+                                className="flex items-center gap-2 p-2 rounded-lg border hover:shadow-sm transition bg-white min-w-0"
                                 aria-label={`Switch to ${toSentenceCase(c.colorName)} ${c.colorCode}`}
                               >
                                 <div className="w-16 h-16 rounded-lg flex-shrink-0" style={{ background: c.colorHex }} />
-                                <div className="flex flex-col items-start flex-1">
-                                  <span className="text-sm text-gray-800 font-medium text-left">{toSentenceCase(c.colorName)}</span>
-                                  <span className="text-xs text-gray-500 text-left">{c.colorCode}</span>
+                                <div className="flex flex-col items-start flex-1 min-w-0">
+                                  <span className="text-sm text-gray-800 font-medium text-left truncate w-full">{toSentenceCase(c.colorName)}</span>
+                                  <span className="text-xs text-gray-500 text-left truncate w-full">{c.colorCode}</span>
                                 </div>
                               </button>
                             ));
