@@ -1,12 +1,30 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { verifyPassword, generateToken } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
-import { z } from 'zod';
 
-const loginSchema = z.object({
-  email: z.string().email('Invalid email address'),
-  password: z.string().min(1, 'Password is required'),
-});
+// Manual validation function to avoid Zod webpack issues
+function validateLogin(data: any): { isValid: boolean; errors: string[] } {
+  const errors: string[] = [];
+
+  if (!data.email || typeof data.email !== 'string' || data.email.trim() === '') {
+    errors.push('Email is required');
+  } else {
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email.trim())) {
+      errors.push('Invalid email address');
+    }
+  }
+
+  if (!data.password || typeof data.password !== 'string' || data.password.trim() === '') {
+    errors.push('Password is required');
+  }
+
+  return {
+    isValid: errors.length === 0,
+    errors,
+  };
+}
 
 export default async function handler(
   req: NextApiRequest,
@@ -18,15 +36,22 @@ export default async function handler(
 
   try {
     // Validate request body
-    const validationResult = loginSchema.safeParse(req.body);
-    if (!validationResult.success) {
+    if (!req.body) {
       return res.status(400).json({
-        error: 'Validation failed',
-        details: validationResult.error.issues,
+        error: 'Request body is required',
       });
     }
 
-    const { email, password } = validationResult.data;
+    const validationResult = validateLogin(req.body);
+    if (!validationResult.isValid) {
+      return res.status(400).json({
+        error: 'Validation failed',
+        details: validationResult.errors,
+      });
+    }
+
+    const email = req.body.email.trim();
+    const password = req.body.password;
 
     // Find user
     const user = await prisma.user.findUnique({
@@ -64,9 +89,14 @@ export default async function handler(
         email: user.email,
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Login error:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    console.error('Error stack:', error?.stack);
+    console.error('Error message:', error?.message);
+    return res.status(500).json({ 
+      error: 'Internal server error',
+      message: process.env.NODE_ENV === 'development' ? error?.message : undefined,
+    });
   }
 }
 
