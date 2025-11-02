@@ -1,0 +1,129 @@
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { prisma } from '@/lib/prisma';
+
+// GET /api/products/by-slug - Get product by brand slug and product slug
+// This is a public endpoint for fetching products on the frontend
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  // Handle CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  if (req.method !== 'GET') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  try {
+    const { brand, slug } = req.query;
+
+    // Validate query parameters
+    if (!brand || !slug || typeof brand !== 'string' || typeof slug !== 'string') {
+      return res.status(400).json({ error: 'Brand and slug query parameters are required' });
+    }
+
+    // Find the brand by slug
+    const brandRecord = await prisma.brand.findUnique({
+      where: { slug: brand },
+      select: { id: true, name: true },
+    });
+
+    if (!brandRecord) {
+      return res.status(404).json({ error: 'Brand not found' });
+    }
+
+    // Find the product by brand ID and slug
+    const product = await prisma.product.findUnique({
+      where: {
+        brandId_slug: {
+          brandId: brandRecord.id,
+          slug: slug,
+        },
+      },
+      include: {
+        brand: {
+          select: {
+            id: true,
+            name: true,
+            slug: true,
+          },
+        },
+        relatedProducts: {
+          take: 4,
+          include: {
+            relatedProduct: {
+              include: {
+                brand: {
+                  select: {
+                    id: true,
+                    name: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (!product) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
+
+    // Format product response
+    const formattedProduct = {
+      id: product.id,
+      name: product.name,
+      slug: product.slug,
+      brandId: product.brandId,
+      brand: product.brand.name,
+      description: product.description,
+      shortDescription: product.shortDescription,
+      category: product.category,
+      sheenLevel: product.sheenLevel,
+      surfaceType: product.surfaceType,
+      usage: product.usage,
+      image: product.image,
+      prices: product.prices as Record<string, number>,
+      colors: (product.colors as string[]) || [],
+      features: (product.features as string[]) || [],
+      specifications: (product.specifications as Record<string, string>) || {},
+    };
+
+    // Format related products
+    const formattedRelatedProducts = (product.relatedProducts || []).map((rp: any) => ({
+      id: rp.relatedProduct.id,
+      name: rp.relatedProduct.name,
+      slug: rp.relatedProduct.slug,
+      brandId: rp.relatedProduct.brandId,
+      brand: rp.relatedProduct.brand.name,
+      image: rp.relatedProduct.image,
+      prices: rp.relatedProduct.prices as Record<string, number>,
+      shortDescription: rp.relatedProduct.shortDescription,
+      category: rp.relatedProduct.category,
+      sheenLevel: rp.relatedProduct.sheenLevel,
+      description: rp.relatedProduct.description || '',
+      surfaceType: rp.relatedProduct.surfaceType || '',
+      usage: rp.relatedProduct.usage || '',
+    }));
+
+    return res.status(200).json({
+      product: formattedProduct,
+      relatedProducts: formattedRelatedProducts,
+      brandSlug: brand,
+    });
+  } catch (error: any) {
+    console.error('Error fetching product by slug:', error);
+    return res.status(500).json({ 
+      error: 'Failed to fetch product',
+      message: error?.message || 'Unknown error'
+    });
+  }
+}
+

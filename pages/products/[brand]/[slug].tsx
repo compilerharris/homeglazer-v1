@@ -6,7 +6,6 @@ import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
 import CTAButton from '@/components/home/CTAButton';
 import ProductCard from '@/components/products/ProductCard';
-import { prisma } from '@/lib/prisma';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -349,7 +348,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps<ProductDetailsProps> = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<ProductDetailsProps> = async ({ params, req }) => {
   try {
     // Validate params
     if (!params || !params.brand || !params.slug) {
@@ -360,116 +359,48 @@ export const getServerSideProps: GetServerSideProps<ProductDetailsProps> = async
     const brandSlug = params.brand as string;
     const slug = params.slug as string;
 
-    // Ensure Prisma client is initialized
-    if (!prisma) {
-      console.error('Prisma client not initialized');
-      return { notFound: true };
-    }
+    // Get the base URL for API calls
+    // During server-side rendering, we can construct the absolute URL
+    const protocol = req.headers['x-forwarded-proto'] || 'http';
+    const host = req.headers.host || 'localhost:3000';
+    const baseUrl = `${protocol}://${host}`;
 
-    // Find the brand by slug
-    let brand;
+    // Fetch product data from API route instead of using Prisma directly
+    let apiResponse;
     try {
-      brand = await prisma.brand.findUnique({
-        where: { slug: brandSlug },
-        select: { id: true, name: true },
-      });
+      const apiUrl = `${baseUrl}/api/products/by-slug?brand=${encodeURIComponent(brandSlug)}&slug=${encodeURIComponent(slug)}`;
+      console.log('Fetching product from API:', apiUrl);
+      
+      apiResponse = await fetch(apiUrl);
+      
+      if (!apiResponse.ok) {
+        console.error(`API returned error: ${apiResponse.status} ${apiResponse.statusText}`);
+        return { notFound: true };
+      }
     } catch (error) {
-      console.error('Error fetching brand:', error);
+      console.error('Error fetching from API:', error);
       return { notFound: true };
     }
 
-    if (!brand) {
-      console.log(`Brand not found: ${brandSlug}`);
-      return { notFound: true };
-    }
-
-    // Find the product by brand ID and slug
-    let product;
+    // Parse the API response
+    let data;
     try {
-      product = await prisma.product.findUnique({
-        where: {
-          brandId_slug: {
-            brandId: brand.id,
-            slug: slug,
-          },
-        },
-        include: {
-          brand: {
-            select: {
-              id: true,
-              name: true,
-              slug: true,
-            },
-          },
-          relatedProducts: {
-            take: 4,
-            include: {
-              relatedProduct: {
-                include: {
-                  brand: {
-                    select: {
-                      id: true,
-                      name: true,
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      });
+      data = await apiResponse.json();
     } catch (error) {
-      console.error('Error fetching product:', error);
+      console.error('Error parsing API response:', error);
       return { notFound: true };
     }
 
-    if (!product) {
-      console.log(`Product not found: ${slug} for brand ${brandSlug}`);
+    // Validate the response structure
+    if (!data || !data.product) {
+      console.error('Invalid API response structure:', data);
       return { notFound: true };
     }
-
-    // Format product for component
-    const formattedProduct = {
-      id: product.id,
-      name: product.name,
-      slug: product.slug,
-      brandId: product.brandId,
-      brand: product.brand.name,
-      description: product.description,
-      shortDescription: product.shortDescription,
-      category: product.category,
-      sheenLevel: product.sheenLevel,
-      surfaceType: product.surfaceType,
-      usage: product.usage,
-      image: product.image,
-      prices: product.prices as Record<string, number>,
-      colors: (product.colors as string[]) || [],
-      features: (product.features as string[]) || [],
-      specifications: (product.specifications as Record<string, string>) || {},
-    };
-
-    // Format related products for ProductCard component
-    const formattedRelatedProducts = (product.relatedProducts || []).map((rp: any) => ({
-      id: rp.relatedProduct.id,
-      name: rp.relatedProduct.name,
-      slug: rp.relatedProduct.slug,
-      brandId: rp.relatedProduct.brandId,
-      brand: rp.relatedProduct.brand.name,
-      image: rp.relatedProduct.image,
-      prices: rp.relatedProduct.prices as Record<string, number>,
-      shortDescription: rp.relatedProduct.shortDescription,
-      category: rp.relatedProduct.category,
-      sheenLevel: rp.relatedProduct.sheenLevel,
-      // Add required fields that ProductCard doesn't use but Product type requires
-      description: rp.relatedProduct.description || '',
-      surfaceType: rp.relatedProduct.surfaceType || '',
-      usage: rp.relatedProduct.usage || '',
-    }));
 
     return {
       props: {
-        product: formattedProduct,
-        relatedProducts: formattedRelatedProducts,
+        product: data.product,
+        relatedProducts: data.relatedProducts || [],
         brandSlug: brandSlug,
       },
     };
