@@ -347,54 +347,80 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
 
 export const getServerSideProps: GetServerSideProps<ProductDetailsProps> = async ({ params }) => {
   try {
-    const brandSlug = params?.brand as string;
-    const slug = params?.slug as string;
+    // Validate params
+    if (!params || !params.brand || !params.slug) {
+      console.error('Missing required params:', params);
+      return { notFound: true };
+    }
+
+    const brandSlug = params.brand as string;
+    const slug = params.slug as string;
+
+    // Ensure Prisma client is initialized
+    if (!prisma) {
+      console.error('Prisma client not initialized');
+      return { notFound: true };
+    }
 
     // Find the brand by slug
-    const brand = await prisma.brand.findUnique({
-      where: { slug: brandSlug },
-      select: { id: true, name: true },
-    });
+    let brand;
+    try {
+      brand = await prisma.brand.findUnique({
+        where: { slug: brandSlug },
+        select: { id: true, name: true },
+      });
+    } catch (error) {
+      console.error('Error fetching brand:', error);
+      return { notFound: true };
+    }
 
     if (!brand) {
+      console.log(`Brand not found: ${brandSlug}`);
       return { notFound: true };
     }
 
     // Find the product by brand ID and slug
-    const product = await prisma.product.findUnique({
-      where: {
-        brandId_slug: {
-          brandId: brand.id,
-          slug: slug,
-        },
-      },
-      include: {
-        brand: {
-          select: {
-            id: true,
-            name: true,
-            slug: true,
+    let product;
+    try {
+      product = await prisma.product.findUnique({
+        where: {
+          brandId_slug: {
+            brandId: brand.id,
+            slug: slug,
           },
         },
-        relatedProducts: {
-          take: 4,
-          include: {
-            relatedProduct: {
-              include: {
-                brand: {
-                  select: {
-                    id: true,
-                    name: true,
+        include: {
+          brand: {
+            select: {
+              id: true,
+              name: true,
+              slug: true,
+            },
+          },
+          relatedProducts: {
+            take: 4,
+            include: {
+              relatedProduct: {
+                include: {
+                  brand: {
+                    select: {
+                      id: true,
+                      name: true,
+                    },
                   },
                 },
               },
             },
           },
         },
-      },
-    });
+      });
+    } catch (error) {
+      console.error('Error fetching product:', error);
+      return { notFound: true };
+    }
 
-  if (!product) {
+    if (!product) {
+      console.log(`Product not found: ${slug} for brand ${brandSlug}`);
       return { notFound: true };
     }
 
@@ -419,7 +445,6 @@ export const getServerSideProps: GetServerSideProps<ProductDetailsProps> = async
     };
 
     // Format related products for ProductCard component
-    console.log('Raw product.relatedProducts:', JSON.stringify(product.relatedProducts, null, 2));
     const formattedRelatedProducts = (product.relatedProducts || []).map((rp: any) => ({
       id: rp.relatedProduct.id,
       name: rp.relatedProduct.name,
@@ -436,17 +461,22 @@ export const getServerSideProps: GetServerSideProps<ProductDetailsProps> = async
       surfaceType: rp.relatedProduct.surfaceType || '',
       usage: rp.relatedProduct.usage || '',
     }));
-    console.log('Formatted related products:', formattedRelatedProducts.length, 'products');
 
-  return {
-    props: {
+    return {
+      props: {
         product: formattedProduct,
         relatedProducts: formattedRelatedProducts,
         brandSlug: brandSlug,
-    },
-  };
+      },
+    };
   } catch (error) {
-    console.error('Error fetching product:', error);
+    console.error('Error in getServerSideProps:', error);
+    // Log full error details for debugging
+    if (error instanceof Error) {
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
+    }
+    // Return notFound to prevent build failure
     return { notFound: true };
   }
 };
