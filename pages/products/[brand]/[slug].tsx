@@ -1,18 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
 import CTAButton from '@/components/home/CTAButton';
 import ProductCard from '@/components/products/ProductCard';
-import {
-  PRODUCTS,
-  BRANDS,
-  getProductByBrandAndSlug,
-  getRelatedProducts,
-  Product
-} from '@/data/products';
+import { prisma } from '@/lib/prisma';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -22,11 +16,49 @@ import {
 } from "@/components/ui/breadcrumb";
 
 interface ProductDetailsProps {
-  product: Product;
-  relatedProducts: Product[];
+  product: {
+    id: string;
+    name: string;
+    slug: string;
+    brandId: string;
+    brand: string; // Brand name for display
+    description: string;
+    shortDescription: string;
+    category: string;
+    sheenLevel: string;
+    surfaceType: string;
+    usage: string;
+    image: string;
+    prices: Record<string, number>;
+    colors?: string[];
+    features?: string[];
+    specifications?: Record<string, string>;
+  };
+  relatedProducts: Array<{
+    id: string;
+    name: string;
+    slug: string;
+    brandId: string;
+    brand: string;
+    image: string;
+    prices: Record<string, number>;
+    shortDescription: string;
+    description: string;
+    category: string;
+    sheenLevel: string;
+    surfaceType: string;
+    usage: string;
+  }>;
 }
 
-const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProducts }) => {
+const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({ product, relatedProducts, brandSlug }) => {
+  // Debug logging
+  useEffect(() => {
+    console.log('Product data:', product);
+    console.log('Related products:', relatedProducts);
+    console.log('Related products count:', relatedProducts.length);
+  }, [product, relatedProducts]);
+
   return (
     <div className="bg-white flex flex-col overflow-hidden items-center">
       <Header />
@@ -47,7 +79,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProduct
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/products/${product.brandId}/${product.slug}`}>{product.name}</BreadcrumbLink>
+              <BreadcrumbLink href={`/products/${brandSlug}/${product.slug}`}>{product.name}</BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -268,7 +300,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProduct
               >
                 {relatedProducts.map((relatedProduct) => (
                   <div key={relatedProduct.id} className="flex-shrink-0 w-80">
-                    <ProductCard product={relatedProduct} />
+                    <ProductCard product={relatedProduct as any} />
                   </div>
                 ))}
               </div>
@@ -313,39 +345,110 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProduct
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = PRODUCTS.map((product) => ({
-    params: {
-      brand: product.brandId,
-      slug: product.slug
-    },
-  }));
+export const getServerSideProps: GetServerSideProps<ProductDetailsProps> = async ({ params }) => {
+  try {
+    const brandSlug = params?.brand as string;
+    const slug = params?.slug as string;
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+    // Find the brand by slug
+    const brand = await prisma.brand.findUnique({
+      where: { slug: brandSlug },
+      select: { id: true, name: true },
+    });
 
-export const getStaticProps: GetStaticProps<ProductDetailsProps> = async ({ params }) => {
-  const brand = params?.brand as string;
-  const slug = params?.slug as string;
-  const product = getProductByBrandAndSlug(brand, slug);
+    if (!brand) {
+      return { notFound: true };
+    }
+
+    // Find the product by brand ID and slug
+    const product = await prisma.product.findUnique({
+      where: {
+        brandId_slug: {
+          brandId: brand.id,
+          slug: slug,
+        },
+      },
+      include: {
+        brand: {
+          select: {
+            id: true,
+            name: true,
+            slug: true,
+          },
+        },
+        relatedProducts: {
+          take: 4,
+          include: {
+            relatedProduct: {
+              include: {
+                brand: {
+                  select: {
+                    id: true,
+                    name: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
 
   if (!product) {
-    return {
-      notFound: true,
-    };
-  }
+      return { notFound: true };
+    }
 
-  const relatedProducts = getRelatedProducts(product, 4);
+    // Format product for component
+    const formattedProduct = {
+      id: product.id,
+      name: product.name,
+      slug: product.slug,
+      brandId: product.brandId,
+      brand: product.brand.name,
+      description: product.description,
+      shortDescription: product.shortDescription,
+      category: product.category,
+      sheenLevel: product.sheenLevel,
+      surfaceType: product.surfaceType,
+      usage: product.usage,
+      image: product.image,
+      prices: product.prices as Record<string, number>,
+      colors: (product.colors as string[]) || [],
+      features: (product.features as string[]) || [],
+      specifications: (product.specifications as Record<string, string>) || {},
+    };
+
+    // Format related products for ProductCard component
+    console.log('Raw product.relatedProducts:', JSON.stringify(product.relatedProducts, null, 2));
+    const formattedRelatedProducts = (product.relatedProducts || []).map((rp: any) => ({
+      id: rp.relatedProduct.id,
+      name: rp.relatedProduct.name,
+      slug: rp.relatedProduct.slug,
+      brandId: rp.relatedProduct.brandId,
+      brand: rp.relatedProduct.brand.name,
+      image: rp.relatedProduct.image,
+      prices: rp.relatedProduct.prices as Record<string, number>,
+      shortDescription: rp.relatedProduct.shortDescription,
+      category: rp.relatedProduct.category,
+      sheenLevel: rp.relatedProduct.sheenLevel,
+      // Add required fields that ProductCard doesn't use but Product type requires
+      description: rp.relatedProduct.description || '',
+      surfaceType: rp.relatedProduct.surfaceType || '',
+      usage: rp.relatedProduct.usage || '',
+    }));
+    console.log('Formatted related products:', formattedRelatedProducts.length, 'products');
 
   return {
     props: {
-      product,
-      relatedProducts,
+        product: formattedProduct,
+        relatedProducts: formattedRelatedProducts,
+        brandSlug: brandSlug,
     },
   };
+  } catch (error) {
+    console.error('Error fetching product:', error);
+    return { notFound: true };
+  }
 };
 
 export default ProductDetails; 

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -9,7 +9,6 @@ import BrandTabs from '@/components/products/BrandTabs';
 import Pagination from '@/components/products/Pagination';
 import Link from 'next/link';
 import { 
-  PRODUCTS, 
   FILTER_OPTIONS, 
   filterProducts,
   Product 
@@ -21,8 +20,13 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
+import { fetchProducts, fetchBrands, transformProduct, transformBrand } from '@/lib/api';
 
 const Products: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [brands, setBrands] = useState(FILTER_OPTIONS.brands);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const [filters, setFilters] = useState({
     sheenLevel: undefined as string | undefined,
@@ -34,9 +38,45 @@ const Products: React.FC = () => {
   const [showFilterModal, setShowFilterModal] = useState(false);
   const productsPerPage = 12;
 
+  // Fetch products and brands on mount
+  useEffect(() => {
+    async function loadData() {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        // Fetch products and brands in parallel
+        const [productsData, brandsData] = await Promise.all([
+          fetchProducts(),
+          fetchBrands(),
+        ]);
+
+        // Transform API data to frontend format
+        const transformedProducts = productsData.map(transformProduct);
+        const transformedBrands = brandsData.map(transformBrand);
+
+        // Update filter options with fetched brands
+        const updatedFilterOptions = {
+          ...FILTER_OPTIONS,
+          brands: transformedBrands,
+        };
+
+        setProducts(transformedProducts);
+        setBrands(transformedBrands);
+      } catch (err) {
+        console.error('Failed to load data:', err);
+        setError('Failed to load products. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadData();
+  }, []);
+
   // Filter products based on selected brand and filters
   const filteredProducts = useMemo(() => {
-    let filtered = PRODUCTS;
+    let filtered = products;
     
     // Apply brand filter
     if (selectedBrand) {
@@ -47,7 +87,7 @@ const Products: React.FC = () => {
     filtered = filterProducts(filtered, filters);
     
     return filtered;
-  }, [selectedBrand, filters]);
+  }, [products, selectedBrand, filters]);
 
   // Paginate products
   const paginatedProducts = useMemo(() => {
@@ -124,7 +164,7 @@ const Products: React.FC = () => {
             <div className="hidden lg:block lg:col-span-1">
               <ProductFilters
                 filters={filters}
-                filterOptions={FILTER_OPTIONS}
+                filterOptions={{ ...FILTER_OPTIONS, brands }}
                 onFilterChange={handleFilterChange}
                 onClearFilters={handleClearFilters}
               />
@@ -134,7 +174,7 @@ const Products: React.FC = () => {
             <div className="col-span-1 lg:col-span-3">
               {/* Brand Tabs */}
               <BrandTabs
-                brands={FILTER_OPTIONS.brands}
+                brands={brands}
                 selectedBrand={selectedBrand}
                 onBrandSelect={handleBrandSelect}
               />
@@ -147,7 +187,26 @@ const Products: React.FC = () => {
               </div>
 
               {/* Products Grid */}
-              {paginatedProducts.length > 0 ? (
+              {loading ? (
+                <div className="text-center py-12">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#299dd7] mx-auto"></div>
+                  <p className="mt-4 text-gray-600">Loading products...</p>
+                </div>
+              ) : error ? (
+                <div className="text-center py-12">
+                  <div className="text-red-400 text-6xl mb-4">⚠️</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Error Loading Products
+                  </h3>
+                  <p className="text-gray-600 mb-6">{error}</p>
+                  <button
+                    onClick={() => window.location.reload()}
+                    className="bg-[#299dd7] text-white px-6 py-3 rounded-lg hover:bg-[#237bb0] transition-colors"
+                  >
+                    Reload Page
+                  </button>
+                </div>
+              ) : paginatedProducts.length > 0 ? (
                 <>
                   <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-3 md:gap-6 mb-8">
                     {paginatedProducts.map((product) => (
@@ -239,7 +298,7 @@ const Products: React.FC = () => {
             <div className="flex-1 p-4 overflow-y-auto">
               <ProductFilters
                 filters={filters}
-                filterOptions={FILTER_OPTIONS}
+                filterOptions={{ ...FILTER_OPTIONS, brands }}
                 onFilterChange={handleFilterChange}
                 onClearFilters={handleClearFilters}
                 showHeader={false}

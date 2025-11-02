@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../node_modules/@prisma/client/.prisma/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// For production PostgreSQL, change back to:
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Brand {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  logo        String
+  description String
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id                String                  @id @default(cuid())
+  brandId           String
+  brand             Brand                   @relation(fields: [brandId], references: [id], onDelete: Cascade)
+  name              String
+  slug              String
+  description       String
+  shortDescription  String
+  category          String
+  sheenLevel        String
+  surfaceType       String
+  usage             String
+  image             String
+  prices            Json // { "1L": number, "4L": number, "10L": number, "20L": number }
+  colors            Json? // string[]
+  features          Json? // string[]
+  specifications    Json? // Record<string, string>
+  relatedProducts   ProductRelatedProduct[] @relation("ProductRelations")
+  relatedToProducts ProductRelatedProduct[] @relation("RelatedProductRelations")
+  createdAt         DateTime                @default(now())
+  updatedAt         DateTime                @updatedAt
+
+  @@unique([brandId, slug])
+  @@index([brandId])
+  @@index([sheenLevel])
+  @@index([slug])
+}
+
+model ProductRelatedProduct {
+  id              String   @id @default(cuid())
+  productId       String
+  relatedProductId String
+  product         Product  @relation("ProductRelations", fields: [productId], references: [id], onDelete: Cascade)
+  relatedProduct  Product  @relation("RelatedProductRelations", fields: [relatedProductId], references: [id], onDelete: Cascade)
+  createdAt       DateTime @default(now())
+
+  @@unique([productId, relatedProductId])
+  @@index([productId])
+  @@index([relatedProductId])
+}

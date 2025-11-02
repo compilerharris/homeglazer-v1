@@ -1,6 +1,10 @@
 {
+  "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/_app": "pages/_app.js",
-  "/colour-visualiser/basic/[brand]/[category]/[color]": "pages/colour-visualiser/basic/[brand]/[category]/[color].js"
+  "/colour-visualiser/basic/[brand]/[category]/[color]": "pages/colour-visualiser/basic/[brand]/[category]/[color].js",
+  "/404": "pages/404.js",
+  "/admin/brands": "pages/admin/brands.js",
+  "/api/auth/session": "pages/api/auth/session.js",
+  "/api/brands": "pages/api/brands.js"
 }
