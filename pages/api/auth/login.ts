@@ -35,6 +35,23 @@ export default async function handler(
   }
 
   try {
+    // Ensure all required modules are loaded
+    if (!prisma) {
+      console.error('Prisma client not available');
+      return res.status(500).json({
+        error: 'Database connection failed',
+        message: 'Prisma client not available. Please check server logs.',
+      });
+    }
+
+    if (!verifyPassword || !generateToken) {
+      console.error('Auth utilities not available');
+      return res.status(500).json({
+        error: 'Authentication service failed',
+        message: 'Auth utilities not available. Please check server logs.',
+      });
+    }
+
     // Validate request body
     if (!req.body) {
       return res.status(400).json({
@@ -54,9 +71,20 @@ export default async function handler(
     const password = req.body.password;
 
     // Find user
-    const user = await prisma.user.findUnique({
-      where: { email },
-    });
+    let user;
+    try {
+      user = await prisma.user.findUnique({
+        where: { email },
+      });
+    } catch (dbError: any) {
+      console.error('Database query error:', dbError);
+      console.error('Error code:', dbError?.code);
+      console.error('Error message:', dbError?.message);
+      return res.status(500).json({
+        error: 'Database query failed',
+        message: process.env.NODE_ENV === 'development' ? dbError?.message : undefined,
+      });
+    }
 
     if (!user) {
       return res.status(401).json({ error: 'Invalid email or password' });
