@@ -5,5 +5,6 @@
   "/admin/products": "pages/admin/products.js",
   "/admin/dashboard": "pages/admin/dashboard.js",
   "/admin/products/[id]/edit": "pages/admin/products/[id]/edit.js",
-  "/products": "pages/products.js"
+  "/products": "pages/products.js",
+  "/404": "pages/404.js"
 }
