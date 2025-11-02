@@ -9,11 +9,6 @@ self.__BUILD_MANIFEST = {
   "lowPriorityFiles": [],
   "rootMainFiles": [],
   "pages": {
-    "/404": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/404.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -24,20 +19,25 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/admin/brands": [
+    "/admin": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/admin/brands.js"
+      "static/chunks/pages/admin.js"
     ],
     "/admin/products": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/admin/products.js"
     ],
-    "/colour-visualiser/basic/[brand]/[category]/[color]": [
+    "/admin/products/[id]/edit": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/colour-visualiser/basic/[brand]/[category]/[color].js"
+      "static/chunks/pages/admin/products/[id]/edit.js"
+    ],
+    "/products": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/products.js"
     ]
   },
   "ampFirstPages": []

@@ -22,6 +22,8 @@ interface ProductOption {
 }
 
 const SHEEN_LEVELS = ['Ultra Matt', 'Mat', 'Low Sheen', 'High Sheen'] as const;
+const SURFACE_TYPES = ['Interior Wall', 'Exterior Wall', 'Wood', 'Metal'] as const;
+const USAGE_TYPES = ['Home', 'Commercial'] as const;
 
 export default function NewProduct() {
   const router = useRouter();
@@ -39,8 +41,8 @@ export default function NewProduct() {
     shortDescription: '',
     category: '',
     sheenLevel: 'Mat' as typeof SHEEN_LEVELS[number],
-    surfaceType: '',
-    usage: '',
+    surfaceType: 'Interior Wall' as typeof SURFACE_TYPES[number],
+    usage: 'Home' as typeof USAGE_TYPES[number],
     image: '',
     prices: {
       '1L': 0,
@@ -470,24 +472,36 @@ export default function NewProduct() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Surface Type *
                   </label>
-                  <Input
+                  <select
                     value={formData.surfaceType}
-                    onChange={(e) => setFormData({ ...formData, surfaceType: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, surfaceType: e.target.value as typeof SURFACE_TYPES[number] })}
                     required
-                    placeholder="e.g., Interior Wall"
-                  />
+                    className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm"
+                  >
+                    {SURFACE_TYPES.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Usage *
                   </label>
-                  <Input
+                  <select
                     value={formData.usage}
-                    onChange={(e) => setFormData({ ...formData, usage: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, usage: e.target.value as typeof USAGE_TYPES[number] })}
                     required
-                    placeholder="e.g., Home"
-                  />
+                    className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm"
+                  >
+                    {USAGE_TYPES.map((usage) => (
+                      <option key={usage} value={usage}>
+                        {usage}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
             </div>
