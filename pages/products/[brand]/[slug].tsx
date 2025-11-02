@@ -15,6 +15,10 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+// Force dynamic rendering - prevents static generation at build time
+// This ensures Prisma client is only used at request time, not during build
+export const dynamic = 'force-dynamic';
+
 interface ProductDetailsProps {
   product: {
     id: string;
