@@ -2,16 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/admin": "pages/admin.js",
-  "/404": "pages/404.js",
-  "/products": "pages/products.js",
-  "/api/auth/login": "pages/api/auth/login.js",
-  "/admin/dashboard": "pages/admin/dashboard.js",
-  "/api/brands": "pages/api/brands.js",
-  "/api/auth/session": "pages/api/auth/session.js",
-  "/api/products": "pages/api/products.js",
   "/admin/products": "pages/admin/products.js",
+  "/admin/dashboard": "pages/admin/dashboard.js",
   "/admin/products/[id]/edit": "pages/admin/products/[id]/edit.js",
-  "/api/products/[id]": "pages/api/products/[id].js",
-  "/api/products/related-options": "pages/api/products/related-options.js"
+  "/products": "pages/products.js"
 }
