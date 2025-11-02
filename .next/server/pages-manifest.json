@@ -3,10 +3,11 @@
   "/_document": "pages/_document.js",
   "/_app": "pages/_app.js",
   "/admin": "pages/admin.js",
-  "/404": "pages/404.js",
-  "/api/auth/login": "pages/api/auth/login.js",
   "/admin/dashboard": "pages/admin/dashboard.js",
   "/api/auth/session": "pages/api/auth/session.js",
+  "/api/products": "pages/api/products.js",
   "/api/brands": "pages/api/brands.js",
-  "/api/products": "pages/api/products.js"
+  "/api/auth/logout": "pages/api/auth/logout.js",
+  "/api/auth/login": "pages/api/auth/login.js",
+  "/404": "pages/404.js"
 }
