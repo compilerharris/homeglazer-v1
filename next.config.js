@@ -21,8 +21,8 @@ const nextConfig = {
       use: ['@svgr/webpack'],
     });
     
-    // Externalize Prisma client from webpack bundling
-    // This allows Node.js to handle the require() directly using the compiled JavaScript files
+    // Externalize Prisma client - it needs to be loaded at runtime
+    // This prevents webpack from trying to bundle Prisma internals
     if (isServer) {
       config.externals = config.externals || [];
       config.externals.push({

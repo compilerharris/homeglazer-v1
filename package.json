@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "postinstall": "prisma generate",
-    "build": "prisma generate && node scripts/create-default-js.js && node scripts/compile-prisma-client.js && next build",
+    "build": "prisma generate && node scripts/compile-prisma-client.js && next build",
     "start": "next start",
     "obfuscate:backup": "node scripts/obfuscate.js backup",
     "obfuscate:process": "node scripts/obfuscate.js obfuscate",
