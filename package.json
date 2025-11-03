@@ -6,6 +6,7 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "build": "next build",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "start": "next start",
     "obfuscate:backup": "node scripts/obfuscate.js backup",
     "obfuscate:process": "node scripts/obfuscate.js obfuscate",
@@ -16,7 +17,8 @@
     "db:migrate": "prisma migrate dev",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:generate": "prisma generate && node scripts/create-default-js.js && node scripts/compile-prisma-client.js",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "generate:jwt-secret": "node scripts/generate-jwt-secret.js"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
