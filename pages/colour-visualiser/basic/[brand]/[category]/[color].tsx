@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Header from '../../../../../src/components/home/Header';
@@ -470,6 +470,301 @@ const CATEGORY_TIPS: Record<string, { tips: string[]; pairings: string[]; finish
   }
 };
 
+// FAQ content per category
+// Brand information content
+const BRAND_INFO: Record<string, { intro: string; sections: Array<{ heading: string; content: string }> }> = {
+  'asian-paints': {
+    intro: 'Asian Paints is India\'s largest and most trusted paint company, offering an extensive palette of over 1,800 shades and innovative color solutions for every space.',
+    sections: [
+      {
+        heading: 'Heritage of Excellence',
+        content: 'Founded in 1942, Asian Paints has been at the forefront of India\'s paint industry for over eight decades. With a presence in 15 countries and a commitment to innovation, Asian Paints delivers world-class quality, durability, and an unmatched range of colors that transform homes and commercial spaces alike.'
+      },
+      {
+        heading: 'Comprehensive Shade Range',
+        content: 'Asian Paints offers one of the most diverse color portfolios in the industry, spanning from timeless neutrals to bold statement hues. Their scientifically developed shades are categorized into families—Greys, Blues, Greens, Reds, Yellows, Oranges, Browns, Purples, and Pinks—ensuring you find the perfect match for every room, mood, and design vision.'
+      },
+      {
+        heading: 'Premium Product Lines',
+        content: 'Asian Paints features multiple product ranges tailored to different needs: Royale for luxury interiors with silk and matt finishes, Apcolite for long-lasting protection, Tractor Emulsion for economical coverage, and specialized products like Apex Ultima for weather-resistant exteriors. Each line is backed by rigorous testing and eco-friendly formulations.'
+      },
+      {
+        heading: 'Innovation & Technology',
+        content: 'Asian Paints invests heavily in R&D, creating low-VOC, washable, and anti-bacterial paints. Their Color Next forecast predicts global color trends, helping homeowners stay ahead. With digital tools like the Asian Paints Color Visualizer and in-store tinting services, choosing and customizing your perfect shade has never been easier.'
+      },
+      {
+        heading: 'Trusted by Millions',
+        content: 'Asian Paints is the preferred choice for millions of Indian households and leading architects. Their paints are known for superior coverage, fade resistance, and vibrant color retention. Whether you\'re repainting a single room or undertaking a full home makeover, Asian Paints delivers reliability, beauty, and lasting value.'
+      }
+    ]
+  },
+  'nerolac': {
+    intro: 'Nerolac Paints, a trusted name since 1920, offers premium quality paints with cutting-edge technology and a vibrant range of over 1,500 shades for every aesthetic.',
+    sections: [
+      {
+        heading: 'A Legacy of Trust',
+        content: 'Kansai Nerolac Paints Limited has been a household name in India for over a century. With a strong focus on innovation, quality, and customer satisfaction, Nerolac has earned the trust of millions, becoming synonymous with durability, finish quality, and a stunning spectrum of colors.'
+      },
+      {
+        heading: 'Diverse Color Palette',
+        content: 'Nerolac\'s extensive shade card features over 1,500 colors across categories like Reds, Blues, Greens, Yellows, Purples, Pinks, Golds, Neutrals, and more. From sophisticated neutrals to bold statement shades, Nerolac ensures every customer finds their perfect hue for residential, commercial, and industrial applications.'
+      },
+      {
+        heading: 'Advanced Product Offerings',
+        content: 'Nerolac offers premium ranges including Beauty Gold for washable luxury finishes, Excel Total for all-weather protection, Impressions for designer effects, and Suraksha Shaktee for anti-bacterial properties. Their specialized wood finishes and waterproofing solutions ensure comprehensive coverage for all surfaces.'
+      },
+      {
+        heading: 'Sustainability & Safety',
+        content: 'Nerolac is committed to eco-friendly practices with low-VOC formulations, lead-free paints, and sustainable manufacturing. Their products meet international safety standards while delivering exceptional performance, ensuring homes are beautiful, safe, and environmentally responsible.'
+      },
+      {
+        heading: 'Customer-Centric Innovation',
+        content: 'Nerolac provides expert color consultation, in-store shade matching, and digital visualization tools to help customers make confident decisions. With nationwide availability, professional-grade quality, and a reputation built over generations, Nerolac continues to set benchmarks in the Indian paint industry.'
+      }
+    ]
+  },
+  'berger': {
+    intro: 'Berger Paints, established in 1760, is one of the world\'s oldest paint companies, delivering premium quality and a stunning range of over 1,200 shades with unmatched expertise.',
+    sections: [
+      {
+        heading: 'Global Heritage, Local Expertise',
+        content: 'Berger Paints has over 260 years of global experience and has been a trusted name in India since 1923. Combining international standards with local insights, Berger offers paints that withstand India\'s diverse climatic conditions while delivering world-class aesthetics and durability.'
+      },
+      {
+        heading: 'Extensive Shade Selection',
+        content: 'Berger\'s color palette spans over 1,200 shades, organized into categories like Reds, Blues, Greens, Yellows, Violets, Earth Tones, Greys, Browns, and Whites. Their scientifically curated collections ensure seamless coordination and inspire creativity for every interior and exterior project.'
+      },
+      {
+        heading: 'Premium & Specialized Products',
+        content: 'Berger offers diverse product lines including Silk Luxury Emulsion for elegant interiors, WeatherCoat for long-lasting exterior protection, Easy Clean for stain-resistant walls, and Berger Express Painting for quick, professional finishes. Their wood and metal coatings provide comprehensive solutions for all surfaces.'
+      },
+      {
+        heading: 'Innovation & Quality Assurance',
+        content: 'Berger invests in advanced research, creating low-odor, quick-dry, and anti-fungal formulations. Their paints undergo stringent quality checks and are tested for color fastness, coverage, and longevity. Berger\'s commitment to excellence ensures every can delivers consistent, superior results.'
+      },
+      {
+        heading: 'Trusted Nationwide',
+        content: 'With a vast dealer network, expert color consultants, and professional painting services, Berger Paints makes home transformation accessible and hassle-free. Millions of satisfied customers across India trust Berger for projects ranging from residential repaints to large-scale commercial developments.'
+      }
+    ]
+  },
+  'jsw': {
+    intro: 'JSW Paints brings the trusted JSW Group legacy to the paint industry, offering eco-friendly, high-performance coatings with a curated range of beautiful shades.',
+    sections: [
+      {
+        heading: 'A New Standard in Paints',
+        content: 'Launched by the renowned JSW Group, JSW Paints represents a fresh, innovative approach to the Indian paint market. Backed by decades of manufacturing excellence, JSW Paints combines cutting-edge technology with sustainability, delivering premium-quality paints that are safe, durable, and beautiful.'
+      },
+      {
+        heading: 'Thoughtfully Curated Colors',
+        content: 'JSW Paints offers a carefully selected palette of over 1,200 shades across categories including Oranges, Blues, Whites, Creams, Reds, Yellows, Greens, Neutrals, Pinks, and Greys. Each color is designed to complement modern Indian homes, blending international trends with local sensibilities for timeless appeal.'
+      },
+      {
+        heading: 'Eco-Friendly & Safe',
+        content: 'JSW Paints is India\'s most environmentally responsible paint brand, offering low-VOC, lead-free, and heavy-metal-free formulations. Their manufacturing processes prioritize sustainability without compromising on performance, ensuring your home is healthy, safe, and beautiful.'
+      },
+      {
+        heading: 'High-Performance Products',
+        content: 'JSW offers premium ranges like JSW Shyne for superior sheen and durability, JSW Primer for excellent adhesion, and specialized exterior coatings for all-weather protection. Their paints are engineered for superior coverage, washability, and fade resistance, ensuring long-lasting brilliance.'
+      },
+      {
+        heading: 'Future-Ready Innovation',
+        content: 'JSW Paints leverages AI-driven color matching, digital visualization tools, and expert consultation services to simplify color selection. With a growing pan-India network and a customer-first approach, JSW Paints is redefining the painting experience for the modern homeowner.'
+      }
+    ]
+  },
+  'birla-opus': {
+    intro: 'Birla Opus by Birla White offers premium, curated paint shades with exceptional finish quality, backed by the trusted Aditya Birla Group legacy.',
+    sections: [
+      {
+        heading: 'Trusted Legacy',
+        content: 'Birla Opus is part of the prestigious Aditya Birla Group, known for world-class building materials. Leveraging decades of expertise in construction and surface solutions, Birla Opus delivers paints that combine aesthetic beauty with structural integrity and lasting performance.'
+      },
+      {
+        heading: 'Curated Color Collections',
+        content: 'Birla Opus features a refined palette of over 1,000 shades across categories like Whites, Yellows, Oranges, Reds, Purples, Blues, Blue-Greens, Greens, and Yellow-Greens. Each shade is thoughtfully developed to harmonize with modern architecture and interior design trends, ensuring spaces feel cohesive and inspiring.'
+      },
+      {
+        heading: 'Superior Finish Quality',
+        content: 'Birla Opus paints are formulated for exceptional smoothness, coverage, and sheen consistency. Their products include premium emulsions, luxury matt finishes, and specialized coatings that deliver flawless results with minimal effort, making professional-quality painting accessible to all.'
+      },
+      {
+        heading: 'Innovation & Sustainability',
+        content: 'Birla Opus prioritizes eco-conscious manufacturing with low-emission formulas and sustainable practices. Their paints are tested for safety, indoor air quality, and environmental impact, ensuring your home is not only beautiful but also healthy and responsible.'
+      },
+      {
+        heading: 'Expert Support',
+        content: 'Birla Opus provides comprehensive support through color consultants, application guides, and digital tools. Their nationwide network ensures easy access to products and professional services, making your painting project smooth from selection to final finish.'
+      }
+    ]
+  },
+  'ral': {
+    intro: 'RAL is the international standard for color matching, offering a precise, universally recognized palette used by designers, architects, and industries worldwide.',
+    sections: [
+      {
+        heading: 'Global Color Standard',
+        content: 'RAL (Reichs-Ausschuss für Lieferbedingungen) has been the global benchmark for color specification since 1927. With consistent, standardized shades, RAL ensures exact color matching across materials, industries, and borders, making it the preferred choice for professionals worldwide.'
+      },
+      {
+        heading: 'Comprehensive Shade System',
+        content: 'The RAL Classic collection features over 200 precisely defined shades across Yellows, Oranges, Reds, Pinks, Purples, Blues, Greens, Browns, Greys, Beiges, Whites, and Blacks. Each color is assigned a unique four-digit code (e.g., RAL 1002), ensuring accurate communication and reproduction anywhere in the world.'
+      },
+      {
+        heading: 'Versatility Across Industries',
+        content: 'RAL colors are used in architecture, automotive, manufacturing, signage, and industrial design. From powder coating to paint matching, RAL ensures consistency and reliability, making it indispensable for projects requiring precise color coordination across multiple suppliers and materials.'
+      },
+      {
+        heading: 'Trusted Precision',
+        content: 'RAL shades are rigorously tested and documented, with standardized formulations that ensure the same color looks identical whether applied in Mumbai or Munich. This precision eliminates guesswork, reduces errors, and streamlines large-scale projects with multiple stakeholders.'
+      },
+      {
+        heading: 'Ideal for Professional Projects',
+        content: 'Architects, designers, and contractors rely on RAL for its unambiguous color specification. Whether you\'re matching corporate branding, coordinating building exteriors, or selecting feature wall colors, RAL provides the clarity, consistency, and professionalism your project demands.'
+      }
+    ]
+  },
+  'ncs': {
+    intro: 'NCS (Natural Color System) is a scientifically based color system used globally for precise color definition, communication, and matching across all industries.',
+    sections: [
+      {
+        heading: 'Science-Based Color System',
+        content: 'The Natural Color System (NCS) is built on how the human eye perceives color, making it intuitive and universally applicable. Developed in Sweden and adopted worldwide, NCS describes colors based on their resemblance to six elementary colors: white, black, yellow, red, blue, and green.'
+      },
+      {
+        heading: 'Extensive Color Range',
+        content: 'NCS offers over 1,950 standardized shades spanning Greys, Blues, Greens, Reds, Oranges, Yellows, Purples, Pinks, and Browns. Each color is defined by a unique notation (e.g., NCS S 2020-B10G), ensuring exact specification and matching across paints, textiles, plastics, and digital media.'
+      },
+      {
+        heading: 'Universal Application',
+        content: 'NCS is used by designers, architects, and manufacturers worldwide for interior design, product development, and industrial applications. Its logical structure allows seamless communication between creative professionals and manufacturers, ensuring vision becomes reality without color discrepancies.'
+      },
+      {
+        heading: 'Precision & Consistency',
+        content: 'Every NCS color is defined by its blackness, chromaticness, and hue, creating a three-dimensional color space that\'s scientifically accurate. This precision ensures the same NCS code produces identical colors whether specified in paint, fabric, or digital design software.'
+      },
+      {
+        heading: 'Professional Standard',
+        content: 'NCS is the go-to system for high-stakes projects requiring exact color coordination across multiple materials and suppliers. From luxury hotels to corporate branding, NCS delivers the accuracy, reliability, and international recognition that professionals demand.'
+      }
+    ]
+  }
+};
+
+const CATEGORY_FAQS: Record<string, Array<{ q: string; a: string }>> = {
+  DEFAULT: [
+    { q: 'How do I choose the right paint finish?', a: 'The finish depends on the room and traffic. Matte works for low-traffic areas like bedrooms, eggshell for living rooms, and satin or semi-gloss for kitchens and bathrooms where cleaning is frequent.' },
+    { q: 'Will this color look different in my room?', a: 'Yes. Lighting (natural vs artificial), surrounding colors, and room size all affect how a paint color appears. Always test a sample on multiple walls before committing.' },
+    { q: 'How many coats will I need?', a: 'Typically 2 coats provide full coverage. Darker or bold colors may need a primer and 2-3 coats for even results.' },
+    { q: 'Can I use this color on all walls?', a: 'You can, but consider balance. Using one color on all walls creates cohesion, while an accent wall adds visual interest. Test and see what feels right for your space.' },
+    { q: 'How do I maintain painted walls?', a: 'Dust regularly with a soft cloth. For marks, use a damp sponge with mild soap. Avoid abrasive cleaners, especially on matte finishes.' }
+  ],
+  Greys: [
+    { q: 'Do grey walls make a room feel cold?', a: 'Not necessarily. Warm greys with beige or taupe undertones feel cozy, while cool greys suit modern styles. Layer textures like wool and linen to add warmth.' },
+    { q: 'What colors pair well with grey walls?', a: 'Whites, blues, browns, and blush pinks work beautifully. Grey is a versatile neutral that complements almost any accent color.' },
+    { q: 'Is grey suitable for small rooms?', a: 'Yes! Light to mid-tone greys can make small rooms feel larger and more open, especially when paired with good lighting.' },
+    { q: 'How do I avoid grey looking flat?', a: 'Add depth with varied textures (velvet, wood, metal) and layered lighting. Mix warm and cool tones for dimension.' },
+    { q: 'Which grey finish is best for living rooms?', a: 'Eggshell or matte finishes work well. They hide imperfections while still being easy to clean.' }
+  ],
+  Blues: [
+    { q: 'Are blue walls calming?', a: 'Yes, blues are psychologically calming and help reduce stress. Light blues are especially soothing in bedrooms and bathrooms.' },
+    { q: 'Will blue make my room look smaller?', a: 'Light blues can actually make rooms feel more spacious. Darker blues create coziness, ideal for accent walls or larger rooms.' },
+    { q: 'What trim color works with blue walls?', a: 'Crisp white trim creates a fresh, coastal look. Cream or off-white softens the contrast for a more traditional feel.' },
+    { q: 'Can I use blue in north-facing rooms?', a: 'Yes, but choose warmer blues with grey or green undertones to counteract the cool natural light.' },
+    { q: 'Which rooms suit blue paint?', a: 'Blue is ideal for bedrooms (promotes sleep), bathrooms (spa-like), studies (aids focus), and living rooms (calming).' }
+  ],
+  Browns: [
+    { q: 'Do brown walls make rooms feel dark?', a: 'They can if the room lacks light. Balance brown walls with light ceilings, white trim, and ample lighting to keep the space bright.' },
+    { q: 'What colors complement brown walls?', a: 'Creams, beiges, olives, and soft blues pair well. Metallics like brass and copper add warmth and elegance.' },
+    { q: 'Is brown good for modern interiors?', a: 'Absolutely! Warm browns, taupes, and chocolate tones add sophistication to contemporary spaces when paired with clean lines.' },
+    { q: 'Which rooms work best with brown?', a: 'Living rooms, dens, home offices, and dining areas benefit from brown\'s grounding, cozy qualities.' },
+    { q: 'How do I style brown walls?', a: 'Use natural materials (wood, leather, linen), indoor plants, and warm lighting to enhance the earthy, organic feel.' }
+  ],
+  Reds: [
+    { q: 'Is red too bold for walls?', a: 'Red can be bold, but used strategically (accent wall, dining room) it energizes and inspires conversation. Balance with neutral furnishings.' },
+    { q: 'Does red paint increase energy levels?', a: 'Yes, red is stimulating and can increase heart rate and appetite—ideal for dining and social spaces but less so for bedrooms.' },
+    { q: 'What colors tone down red walls?', a: 'Pair with warm neutrals (beige, cream), charcoal, or soft whites to balance intensity.' },
+    { q: 'Can red work in small spaces?', a: 'Yes, as an accent wall. Full red in small rooms can feel overwhelming; use sparingly for impact.' },
+    { q: 'Which finish is best for red walls?', a: 'Eggshell or satin finishes. They highlight the richness without glare and are easier to maintain.' }
+  ],
+  Oranges: [
+    { q: 'Is orange paint too bright?', a: 'Softer oranges (peach, terracotta) are versatile and warm. Bright oranges suit playful, creative spaces like kids\' rooms or studios.' },
+    { q: 'What rooms suit orange walls?', a: 'Kitchens, playrooms, creative studios, and social areas. Orange stimulates conversation and appetite.' },
+    { q: 'How do I balance orange walls?', a: 'Use cool neutrals (soft grey, white) and natural materials to prevent the space from feeling too warm.' },
+    { q: 'Does orange go out of style?', a: 'Softer, earthy oranges (terracotta, rust) are timeless. Bright neon tones trend in and out, so use them as accents.' },
+    { q: 'Can I use orange in north-facing rooms?', a: 'Yes! Orange adds warmth to cool, north-facing spaces and counteracts the lack of direct sunlight.' }
+  ],
+  Yellows: [
+    { q: 'Do yellow walls make rooms feel bigger?', a: 'Light, buttery yellows reflect light and can make small rooms feel more open and airy.' },
+    { q: 'Is yellow good for dark rooms?', a: 'Yes! Yellow brightens dim spaces and mimics natural sunlight, making them feel more inviting.' },
+    { q: 'What colors pair with yellow walls?', a: 'Cool greys, whites, and soft blues balance yellow\'s warmth. Navy or charcoal adds modern contrast.' },
+    { q: 'Can yellow walls be calming?', a: 'Soft, muted yellows can be calming. Bright yellows are energizing, so choose the tone based on room purpose.' },
+    { q: 'Which rooms suit yellow?', a: 'Kitchens, breakfast nooks, children\'s rooms, and hallways. It\'s uplifting and welcoming.' }
+  ],
+  Greens: [
+    { q: 'Are green walls relaxing?', a: 'Yes, green is associated with nature and tranquility. It reduces stress and promotes focus, ideal for bedrooms and offices.' },
+    { q: 'What shades of green work for interiors?', a: 'Sage, olive, and forest greens are versatile. Bright greens energize; soft greens soothe.' },
+    { q: 'Can I use green in bathrooms?', a: 'Absolutely. Green with white fixtures creates a spa-like, fresh feel. Use satin finishes for moisture resistance.' },
+    { q: 'What colors complement green walls?', a: 'Creams, beiges, warm woods, and matte blacks. Blush pink or terracotta adds warmth.' },
+    { q: 'Is green suitable for modern homes?', a: 'Yes! Deep greens (emerald, forest) add luxury and sophistication to contemporary interiors.' }
+  ],
+  Purples: [
+    { q: 'Do purple walls suit adults?', a: 'Yes! Muted purples (lavender, mauve) are calming and sophisticated. Deep purples add drama to dining or accent walls.' },
+    { q: 'Is purple good for creativity?', a: 'Purple is linked to creativity and introspection, making it ideal for studios, meditation rooms, and bedrooms.' },
+    { q: 'What colors pair with purple walls?', a: 'Soft greys, creams, gold accents, and whites. Charcoal or black adds modern contrast.' },
+    { q: 'Can purple make a room feel smaller?', a: 'Dark purples can, but light lavenders and lilacs open up spaces and feel airy.' },
+    { q: 'Which finish works for purple walls?', a: 'Matte for bedrooms, satin for bathrooms. Avoid high gloss unless you want a bold, reflective look.' }
+  ],
+  Pinks: [
+    { q: 'Is pink paint only for kids\' rooms?', a: 'Not at all! Earthy, muted pinks (blush, dusty rose) are sophisticated and work beautifully in adult bedrooms and living spaces.' },
+    { q: 'What colors go with pink walls?', a: 'Deep greens, greys, creams, and warm woods. Navy or charcoal adds modern contrast.' },
+    { q: 'Can pink walls feel calming?', a: 'Yes, soft pinks are nurturing and calming, ideal for bedrooms. Bright pinks are playful and energizing.' },
+    { q: 'How do I style pink walls for adults?', a: 'Pair with natural textures (linen, wood, rattan) and muted tones to keep it sophisticated and grounded.' },
+    { q: 'Which rooms suit pink?', a: 'Bedrooms, bathrooms, dressing rooms, and creative spaces. It adds warmth and a touch of whimsy.' }
+  ],
+  Beige: [
+    { q: 'Is beige boring?', a: 'Not when styled well! Beige provides a warm, timeless backdrop that lets furniture, art, and textures shine.' },
+    { q: 'What undertones should I look for in beige?', a: 'Match beige undertones (pink, green, grey) with your flooring and fixed elements for harmony.' },
+    { q: 'Can beige work in modern homes?', a: 'Yes! Pair with black, charcoal, or brass accents for a contemporary, elevated look.' },
+    { q: 'What colors pair with beige walls?', a: 'Whites, greys, warm woods, and deep greens. Almost any accent color works with beige.' },
+    { q: 'Which rooms suit beige?', a: 'Any room! It\'s universally versatile—living rooms, bedrooms, dining rooms, and offices.' }
+  ],
+  Beiges: [
+    { q: 'How do I keep beige walls from looking flat?', a: 'Layer textures (boucle, rattan, velvet) and add contrast with darker furniture or trims.' },
+    { q: 'Is beige still trendy?', a: 'Yes, warm neutrals are timeless. Beige provides flexibility and longevity compared to trend-driven colors.' },
+    { q: 'What lighting works with beige?', a: 'Warm LED bulbs enhance beige\'s coziness. Avoid cool white light, which can make beige look dull.' },
+    { q: 'Can I use beige in small rooms?', a: 'Yes! Light beiges reflect light and make small spaces feel larger and more open.' },
+    { q: 'What finish is best for beige walls?', a: 'Eggshell or satin. They\'re forgiving, easy to clean, and don\'t highlight imperfections.' }
+  ],
+  Neutrals: [
+    { q: 'What defines a neutral color?', a: 'Neutrals include whites, beiges, greys, taupes, and soft browns—colors that provide a calm backdrop for other elements.' },
+    { q: 'Are neutrals boring?', a: 'Not at all! Neutrals create a sophisticated, timeless canvas that adapts to changing décor and trends.' },
+    { q: 'Can I mix warm and cool neutrals?', a: 'Yes, but balance them carefully. Use textiles and accessories to bridge warm and cool tones harmoniously.' },
+    { q: 'What rooms suit neutral walls?', a: 'Any room! Neutrals are universally versatile and work in living rooms, bedrooms, kitchens, and offices.' },
+    { q: 'How do I add interest to neutral walls?', a: 'Use varied textures (wood, metal, fabric), layered lighting, and bold artwork or statement furniture.' }
+  ],
+  Whites: [
+    { q: 'Will white walls look sterile?', a: 'Not if you choose the right undertone (warm, cool, or neutral) and layer textures and colors through décor.' },
+    { q: 'How do I choose the right white?', a: 'Test samples in your lighting. Warm whites feel cozy; cool whites feel crisp. Match to your fixed elements.' },
+    { q: 'Are white walls hard to maintain?', a: 'They show marks more, but wipeable finishes (eggshell, satin) make cleaning easier. Touch-ups are simple.' },
+    { q: 'Do white walls make rooms look bigger?', a: 'Yes! White reflects light and visually expands small spaces, making them feel airy and open.' },
+    { q: 'Which rooms suit white walls?', a: 'Any room! White is timeless and versatile—kitchens, bathrooms, bedrooms, living rooms, and offices.' }
+  ],
+  Creams: [
+    { q: 'Is cream warmer than white?', a: 'Yes, cream has warm undertones that create a cozy, inviting feel compared to crisp whites.' },
+    { q: 'Can cream walls look dated?', a: 'Not if styled with modern furnishings and good lighting. Cream is timeless and pairs with current trends.' },
+    { q: 'What colors complement cream walls?', a: 'Deep greens, bronzes, warm woods, and charcoal. Almost any accent color works with cream.' },
+    { q: 'Which rooms suit cream?', a: 'Any room—living rooms, bedrooms, kitchens, and offices. It\'s universally flattering.' },
+    { q: 'How do I prevent cream from looking yellow?', a: 'Choose creams with neutral undertones and use warm LED lighting (not overly yellow bulbs).' }
+  ],
+  Golds: [
+    { q: 'Are gold walls too bold?', a: 'Gold is luxurious but best used sparingly—on feature walls, accents, or small powder rooms for maximum impact.' },
+    { q: 'What rooms suit gold walls?', a: 'Dining rooms, powder rooms, feature walls in living rooms, or entryways for a grand statement.' },
+    { q: 'What colors pair with gold walls?', a: 'Deep greens, charcoals, ivories, and blacks. Keep surrounding tones muted to let gold shine.' },
+    { q: 'Which finish works for gold walls?', a: 'Metallic or satin finishes enhance the shimmer. Avoid matte, which dulls the effect.' },
+    { q: 'Can gold go out of style?', a: 'Gold has been used for centuries and remains a symbol of luxury. Use thoughtfully for lasting appeal.' }
+  ]
+};
+
 const BasicVisualiserPage: React.FC = () => {
   const router = useRouter();
   const { brand: brandParam, category: categoryParam, color: colorParam } = router.query;
@@ -479,6 +774,8 @@ const BasicVisualiserPage: React.FC = () => {
   const [selectedColor, setSelectedColor] = useState<any>(null);
   const [colorPage, setColorPage] = useState(0);
   const svgRef = useRef<SVGSVGElement>(null);
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [pairingColorsSeed, setPairingColorsSeed] = useState<number>(Date.now());
 
   // For category scroll arrows
   const categoryScrollRef = useRef<HTMLDivElement>(null);
@@ -521,6 +818,7 @@ const BasicVisualiserPage: React.FC = () => {
     const categoryChanged = selectedCategory !== cat;
     if (categoryChanged) {
       setColorPage(0);
+      setPairingColorsSeed(Date.now()); // Reset pairing colors when category changes
     }
     
     setSelectedCategory(cat);
@@ -699,6 +997,84 @@ const BasicVisualiserPage: React.FC = () => {
       el.scrollBy({ left: dir === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
     }
   };
+
+  // Memoize pairing colors to prevent reshuffling on FAQ clicks
+  const pairingColors = useMemo(() => {
+    if (!colorDatabase || !selectedCategory || !colors || colors.length === 0) return [];
+    
+    const catTips = CATEGORY_TIPS[selectedCategory] || CATEGORY_TIPS.DEFAULT;
+    const targetCats = (catTips.pairingCategories && catTips.pairingCategories.length > 0)
+      ? catTips.pairingCategories
+      : ['Whites', 'Greys'];
+    
+    // Collect all colors from contrasting categories with category labels
+    const allContrastingColors: any[] = [];
+    targetCats.forEach((cat) => {
+      const arr = colorDatabase.colorTypes[cat] || [];
+      arr.forEach((c: any) => {
+        allContrastingColors.push({ ...c, __cat: cat });
+      });
+    });
+    
+    // Fallback to any non-current category if not enough
+    if (allContrastingColors.length < 8) {
+      const excludeCats = [selectedCategory, ...targetCats];
+      const allCats = Object.keys(colorDatabase.colorTypes);
+      const contrastingCats = allCats.filter(cat => !excludeCats.includes(cat));
+      
+      contrastingCats.forEach((cat) => {
+        const arr = colorDatabase.colorTypes[cat] || [];
+        arr.forEach((c: any) => {
+          if (allContrastingColors.length < 50) {
+            allContrastingColors.push({ ...c, __cat: cat });
+          }
+        });
+      });
+    }
+    
+    // Deterministic selection using seed
+    const seededRandom = (seed: number, index: number) => {
+      const x = Math.sin(seed + index) * 10000;
+      return x - Math.floor(x);
+    };
+    
+    // Select 8 diverse colors deterministically
+    const suggestionColors: any[] = [];
+    const colorsPerCat = Math.ceil(8 / Math.min(targetCats.length, 4));
+    let attempts = 0;
+    
+    while (suggestionColors.length < 8 && attempts < 1000) {
+      for (const cat of targetCats) {
+        if (suggestionColors.length >= 8) break;
+        
+        const colorsFromCat = suggestionColors.filter(c => c.__cat === cat).length;
+        if (colorsFromCat < colorsPerCat) {
+          const availableFromCat = allContrastingColors.filter(
+            c => c.__cat === cat && !suggestionColors.some(s => s.colorName === c.colorName && s.colorCode === c.colorCode)
+          );
+          if (availableFromCat.length > 0) {
+            const idx = Math.floor(seededRandom(pairingColorsSeed, attempts) * availableFromCat.length);
+            suggestionColors.push(availableFromCat[idx]);
+          }
+        }
+      }
+      
+      if (suggestionColors.length < 8) {
+        const remaining = allContrastingColors.filter(
+          c => !suggestionColors.some(s => s.colorName === c.colorName && s.colorCode === c.colorCode)
+        );
+        if (remaining.length > 0) {
+          const idx = Math.floor(seededRandom(pairingColorsSeed, attempts + 100) * remaining.length);
+          suggestionColors.push(remaining[idx]);
+        } else {
+          break;
+        }
+      }
+      attempts++;
+    }
+    
+    return suggestionColors.slice(0, 8);
+  }, [colorDatabase, selectedCategory, colors, pairingColorsSeed]);
 
   return (
     <>
@@ -1125,88 +1501,11 @@ const BasicVisualiserPage: React.FC = () => {
                     </div>
 
                     {/* Visual Works well with (clickable thumbnails) */}
-                    {colorDatabase && Array.isArray(colors) && colors.length > 0 && (
+                    {colorDatabase && Array.isArray(colors) && colors.length > 0 && pairingColors.length > 0 && (
                       <div className="mt-6">
                         <span className="block font-semibold text-gray-900 mb-3">Works well with:</span>
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                          {(() => {
-                            const catTips = CATEGORY_TIPS[selectedCategory] || CATEGORY_TIPS.DEFAULT;
-                            const targetCats = (catTips.pairingCategories && catTips.pairingCategories.length > 0)
-                              ? catTips.pairingCategories
-                              : ['Whites', 'Greys'];
-                            
-                            // Collect all colors from contrasting categories with category labels
-                            const allContrastingColors: any[] = [];
-                            targetCats.forEach((cat) => {
-                              const arr = colorDatabase.colorTypes[cat] || [];
-                              arr.forEach((c: any) => {
-                                allContrastingColors.push({ ...c, __cat: cat });
-                              });
-                            });
-                            
-                            // Fallback to any non-current category if not enough
-                            if (allContrastingColors.length < 8) {
-                              const excludeCats = [selectedCategory, ...targetCats];
-                              const allCats = Object.keys(colorDatabase.colorTypes);
-                              const contrastingCats = allCats.filter(cat => !excludeCats.includes(cat));
-                              
-                              contrastingCats.forEach((cat) => {
-                                const arr = colorDatabase.colorTypes[cat] || [];
-                                arr.forEach((c: any) => {
-                                  if (allContrastingColors.length < 50) { // Cap at 50 for variety
-                                    allContrastingColors.push({ ...c, __cat: cat });
-                                  }
-                                });
-                              });
-                            }
-                            
-                            // Select 8 diverse colors by picking from different categories in rotation
-                            const suggestionColors: any[] = [];
-                            const colorsPerCat = Math.ceil(8 / Math.min(targetCats.length, 4)); // Distribute across 4 or fewer cats
-                            const catsUsed = new Set<string>();
-                            let attempts = 0;
-                            
-                            while (suggestionColors.length < 8 && attempts < 1000) {
-                              // Find next color from a category we haven't fully used yet
-                              for (const cat of targetCats) {
-                                if (suggestionColors.length >= 8) break;
-                                
-                                const colorsFromCat = suggestionColors.filter(c => c.__cat === cat).length;
-                                if (colorsFromCat < colorsPerCat) {
-                                  // Pick a random color from this category
-                                  const availableFromCat = allContrastingColors.filter(
-                                    c => c.__cat === cat && !suggestionColors.some(s => s.colorName === c.colorName && s.colorCode === c.colorCode)
-                                  );
-                                  if (availableFromCat.length > 0) {
-                                    const randomColor = availableFromCat[Math.floor(Math.random() * availableFromCat.length)];
-                                    suggestionColors.push(randomColor);
-                                  }
-                                }
-                              }
-                              
-                              // If we still need more, pick from any contrasting color
-                              if (suggestionColors.length < 8) {
-                                const remaining = allContrastingColors.filter(
-                                  c => !suggestionColors.some(s => s.colorName === c.colorName && s.colorCode === c.colorCode)
-                                );
-                                if (remaining.length > 0) {
-                                  const randomColor = remaining[Math.floor(Math.random() * remaining.length)];
-                                  suggestionColors.push(randomColor);
-                                } else {
-                                  break; // No more unique colors
-                                }
-                              }
-                              attempts++;
-                            }
-                            
-                            // Shuffle for display variety
-                            for (let i = suggestionColors.length - 1; i > 0; i--) {
-                              const j = Math.floor(Math.random() * (i + 1));
-                              [suggestionColors[i], suggestionColors[j]] = [suggestionColors[j], suggestionColors[i]];
-                            }
-                            
-                            const finalList = suggestionColors.slice(0, 8);
-                            return finalList.map((c: any, i: number) => (
+                          {pairingColors.map((c: any, i: number) => (
                               <button
                                 key={`${c.__cat || selectedCategory}-${c.colorName}-${c.colorCode}-${i}`}
                                 onClick={() => {
@@ -1222,14 +1521,98 @@ const BasicVisualiserPage: React.FC = () => {
                                   <span className="text-xs text-gray-500 text-left truncate w-full">{c.colorCode}</span>
                                 </div>
                               </button>
-                            ));
-                          })()}
+                            ))}
                         </div>
                       </div>
                     )}
+
+                    {/* FAQ Accordion */}
+                    {(() => {
+                      const baseFaqs = CATEGORY_FAQS[selectedCategory] || CATEGORY_FAQS.DEFAULT;
+                      const colorName = selectedColor?.colorName ? toSentenceCase(selectedColor.colorName) : selectedCategory.toLowerCase();
+                      const isLightColorSelected = selectedColor?.colorHex ? isLightColor(selectedColor.colorHex) : false;
+                      
+                      // Generate contextual FAQs based on selected color properties
+                      const faqs = baseFaqs.map((faq, idx) => {
+                        let q = faq.q;
+                        let a = faq.a;
+                        
+                        // Personalize based on color lightness
+                        if (idx === 0 && q.includes('too bright') && isLightColorSelected) {
+                          q = `Is ${colorName} suitable for larger spaces?`;
+                          a = `Yes! ${colorName} is a soft, versatile shade that works beautifully in larger spaces. Its subtle tone won't overwhelm and creates an inviting, spacious feel. Pair with neutral furnishings for balance.`;
+                        } else if (idx === 0 && q.includes('too bold')) {
+                          q = `Will ${colorName} work in my space?`;
+                          a = `${colorName} is a ${isLightColorSelected ? 'soft' : 'bold'} choice that ${isLightColorSelected ? 'adds subtle warmth' : 'creates impact'}. ${isLightColorSelected ? 'It works beautifully in most rooms and is easy to style with various décor.' : 'Consider using it on accent walls or smaller spaces for maximum effect without overwhelming.'}`;
+                        }
+                        
+                        // Replace generic color references with selected color name
+                        const categoryLower = selectedCategory.toLowerCase().replace(/s$/, '');
+                        q = q.replace(new RegExp(`\\b${categoryLower}\\s+(walls|paint)`, 'gi'), colorName);
+                        q = q.replace(new RegExp(`\\b${categoryLower}\\b`, 'gi'), colorName);
+                        a = a.replace(new RegExp(`\\b${categoryLower}\\s+(walls|paint)`, 'gi'), colorName);
+                        a = a.replace(new RegExp(`\\b${categoryLower}\\b`, 'gi'), colorName);
+                        
+                        return { q, a };
+                      });
+                      
+                      return (
+                        <div className="mt-8">
+                          <h4 className="text-xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h4>
+                          <div className="space-y-3">
+                            {faqs.map((faq, index) => (
+                              <div key={`faq-${index}`} className="border border-gray-200 rounded-lg overflow-hidden">
+                                <button
+                                  onClick={() => setActiveFaq(activeFaq === index ? null : index)}
+                                  className="w-full text-left px-4 py-3 bg-white hover:bg-gray-50 transition flex justify-between items-center"
+                                  aria-expanded={activeFaq === index}
+                                >
+                                  <span className="font-semibold text-gray-900 pr-4">{faq.q}</span>
+                                  <svg
+                                    className={`w-5 h-5 text-gray-500 transition-transform flex-shrink-0 ${activeFaq === index ? 'rotate-180' : ''}`}
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                  >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                  </svg>
+                                </button>
+                                {activeFaq === index && (
+                                  <div className="px-4 py-3 bg-gray-50 text-gray-700 border-t border-gray-200">
+                                    {faq.a}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })()}
                   </>
                 );
               })()}
+            </div>
+          </section>
+        )}
+
+        {/* Brand Information Section */}
+        {selectedBrand && BRAND_INFO[selectedBrand] && (
+          <section className="w-full max-w-4xl mt-12 mb-8 px-4">
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-sm border border-gray-100 p-8 lg:p-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#299dd7] mb-4 text-center">
+                About {BRAND_CONFIG.find(b => b.id === selectedBrand)?.name}
+              </h2>
+              <p className="text-gray-700 text-lg mb-8 text-center leading-relaxed">
+                {BRAND_INFO[selectedBrand].intro}
+              </p>
+              <div className="space-y-6">
+                {BRAND_INFO[selectedBrand].sections.map((section, idx) => (
+                  <div key={`brand-section-${idx}`}>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{section.heading}</h3>
+                    <p className="text-gray-700 leading-relaxed">{section.content}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
         )}
