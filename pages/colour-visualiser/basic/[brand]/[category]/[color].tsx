@@ -776,6 +776,9 @@ const BasicVisualiserPage: React.FC = () => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [pairingColorsSeed, setPairingColorsSeed] = useState<number>(Date.now());
+  const [advPreviewColorIndex, setAdvPreviewColorIndex] = useState(0);
+  const [advPreviewMasks, setAdvPreviewMasks] = useState<Record<string, string>>({});
+  const [advPreviewLoadingMasks, setAdvPreviewLoadingMasks] = useState(true);
 
   // For category scroll arrows
   const categoryScrollRef = useRef<HTMLDivElement>(null);
@@ -997,6 +1000,75 @@ const BasicVisualiserPage: React.FC = () => {
       el.scrollBy({ left: dir === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
     }
   };
+
+  // Advanced visualiser preview - cycling colors
+  const advPreviewColors = useMemo(() => [
+    { left: '#4FC3F7', right: '#81C784', window: '#BA68C8' },
+    { left: '#FF6B6B', right: '#FFB74D', window: '#4FC3F7' },
+    { left: '#81C784', right: '#BA68C8', window: '#FF8E53' },
+    { left: '#BA68C8', right: '#4FC3F7', window: '#81C784' }
+  ], []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAdvPreviewColorIndex((prev) => (prev + 1) % advPreviewColors.length);
+    }, 1500);
+    return () => clearInterval(interval);
+  }, [advPreviewColors.length]);
+
+  // Load wall masks for advanced preview
+  useEffect(() => {
+    const loadWallMasks = async () => {
+      try {
+        const wallSvgs = {
+          left: '/assets/images/bedroom/bedroom6/left-wall.svg',
+          right: '/assets/images/bedroom/bedroom6/right-wall.svg',
+          window: '/assets/images/bedroom/bedroom6/window.svg'
+        };
+
+        const promises = Object.entries(wallSvgs).map(async ([key, url]) => {
+          try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`Failed to load ${url}`);
+            const svgText = await res.text();
+            
+            // Extract path data
+            let pathData = '';
+            if (typeof window !== 'undefined' && 'DOMParser' in window) {
+              try {
+                const parser = new window.DOMParser();
+                const doc = parser.parseFromString(svgText, 'image/svg+xml');
+                const pathElement = doc.querySelector('path');
+                if (pathElement) {
+                  pathData = pathElement.getAttribute('d') || '';
+                }
+              } catch (e) {
+                const pathMatch = svgText.match(/<path[^>]*d=["']([^"']+)["'][^>]*>/i);
+                if (pathMatch && pathMatch[1]) {
+                  pathData = pathMatch[1];
+                }
+              }
+            }
+            
+            return [key, pathData];
+          } catch (error) {
+            console.error(`Error loading wall mask ${key}:`, error);
+            return [key, ''];
+          }
+        });
+
+        const results = await Promise.all(promises);
+        const masks = Object.fromEntries(results);
+        setAdvPreviewMasks(masks);
+        setAdvPreviewLoadingMasks(false);
+      } catch (error) {
+        console.error('Error loading wall masks:', error);
+        setAdvPreviewLoadingMasks(false);
+      }
+    };
+
+    loadWallMasks();
+  }, []);
 
   // Memoize pairing colors to prevent reshuffling on FAQ clicks
   const pairingColors = useMemo(() => {
@@ -1374,6 +1446,111 @@ const BasicVisualiserPage: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* CTA Card - Advanced Visualiser with Animated Preview */}
+        <div className="w-full max-w-6xl mt-12 mb-8 px-4">
+          <Link href="/colour-visualiser/advanced" className="group block">
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 lg:p-8 border-2 border-transparent hover:border-[#ED276E] transition-all duration-300 flex flex-col lg:flex-row gap-6 items-center">
+              {/* Left: Animated Preview */}
+              <div className="flex-shrink-0 w-full lg:w-80">
+                <div 
+                  className="relative w-full bg-gray-100 rounded-xl overflow-hidden shadow-inner"
+                  style={{
+                    aspectRatio: '16/9',
+                    backgroundImage: 'url(/lovable-uploads/bedroom6.jpg)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  {advPreviewLoadingMasks ? (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                      <div className="text-gray-400 text-sm">Loading preview...</div>
+                    </div>
+                  ) : (
+                    <svg
+                      className="absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply"
+                      viewBox="0 0 1280 720"
+                      preserveAspectRatio="xMidYMid slice"
+                    >
+                      <defs>
+                        {advPreviewMasks.left && (
+                          <mask id={`adv-preview-left-${selectedBrand}-${selectedCategory}`}>
+                            <rect width="100%" height="100%" fill="black" />
+                            <path d={advPreviewMasks.left} fill="white" />
+                          </mask>
+                        )}
+                        {advPreviewMasks.right && (
+                          <mask id={`adv-preview-right-${selectedBrand}-${selectedCategory}`}>
+                            <rect width="100%" height="100%" fill="black" />
+                            <path d={advPreviewMasks.right} fill="white" />
+                          </mask>
+                        )}
+                        {advPreviewMasks.window && (
+                          <mask id={`adv-preview-window-${selectedBrand}-${selectedCategory}`}>
+                            <rect width="100%" height="100%" fill="black" />
+                            <path d={advPreviewMasks.window} fill="white" />
+                          </mask>
+                        )}
+                      </defs>
+                      {/* Left wall */}
+                      {advPreviewMasks.left && (
+                        <rect
+                          width="100%"
+                          height="100%"
+                          fill={advPreviewColors[advPreviewColorIndex].left}
+                          opacity="0.7"
+                          mask={`url(#adv-preview-left-${selectedBrand}-${selectedCategory})`}
+                          style={{ transition: 'fill 0.6s ease-in-out' }}
+                        />
+                      )}
+                      {/* Right wall */}
+                      {advPreviewMasks.right && (
+                        <rect
+                          width="100%"
+                          height="100%"
+                          fill={advPreviewColors[advPreviewColorIndex].right}
+                          opacity="0.7"
+                          mask={`url(#adv-preview-right-${selectedBrand}-${selectedCategory})`}
+                          style={{ transition: 'fill 0.6s ease-in-out' }}
+                        />
+                      )}
+                      {/* Window wall */}
+                      {advPreviewMasks.window && (
+                        <rect
+                          width="100%"
+                          height="100%"
+                          fill={advPreviewColors[advPreviewColorIndex].window}
+                          opacity="0.7"
+                          mask={`url(#adv-preview-window-${selectedBrand}-${selectedCategory})`}
+                          style={{ transition: 'fill 0.6s ease-in-out' }}
+                        />
+                      )}
+                    </svg>
+                  )}
+                  <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
+                    Live Preview
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Content */}
+              <div className="flex-1 flex flex-col justify-center">
+                <h3 className="text-3xl lg:text-4xl font-bold text-[#ED276E] mb-3">
+                  Advanced Visualiser
+                </h3>
+                <p className="text-gray-700 text-lg mb-4 leading-relaxed">
+                  Take your design vision to the next level with our Advanced Visualiser. Choose different colors for each wall, ceiling, and floor across multiple room types. Perfect for planning complete room makeovers and experimenting with bold color combinations.
+                </p>
+                <div className="inline-flex items-center text-[#ED276E] font-bold text-lg group-hover:gap-3 gap-2 transition-all">
+                  Try Advanced Visualiser
+                  <svg className="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* SPLIT SCREEN COLOR SCIENCE/INFO SECTION */}
