@@ -22,20 +22,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/admin/products": [
+    "/admin/blogs/new": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/admin/products.js"
+      "static/chunks/pages/admin/blogs/new.js"
     ],
-    "/colour-visualiser": [
+    "/admin/products/new": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/colour-visualiser.js"
+      "static/chunks/pages/admin/products/new.js"
     ],
-    "/colour-visualiser/basic/[brand]/[category]/[color]": [
+    "/products/[brand]/[slug]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/colour-visualiser/basic/[brand]/[category]/[color].js"
+      "static/chunks/pages/products/[brand]/[slug].js"
     ]
   },
   "ampFirstPages": []

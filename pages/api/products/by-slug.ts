@@ -69,6 +69,28 @@ export default async function handler(
             },
           },
         },
+        suggestedBlogs: {
+          take: 3,
+          orderBy: {
+            order: 'asc',
+          },
+          include: {
+            blog: {
+              select: {
+                id: true,
+                slug: true,
+                title: true,
+                excerpt: true,
+                coverImage: true,
+                author: true,
+                readTime: true,
+                categories: true,
+                publishedAt: true,
+                published: true,
+              },
+            },
+          },
+        },
       },
     });
 
@@ -94,6 +116,16 @@ export default async function handler(
       colors: (product.colors as string[]) || [],
       features: (product.features as string[]) || [],
       specifications: (product.specifications as Record<string, string>) || {},
+      pisHeading: product.pisHeading || null,
+      pisDescription: product.pisDescription || null,
+      pisFileUrl: product.pisFileUrl || null,
+      showPisSection: product.showPisSection || false,
+      userGuideSteps: (product.userGuideSteps as Array<{title: string, description: string}>) || null,
+      userGuideMaterials: (product.userGuideMaterials as string[]) || null,
+      userGuideTips: (product.userGuideTips as string[]) || null,
+      showUserGuide: product.showUserGuide || false,
+      faqs: (product.faqs as Array<{question: string, answer: string}>) || null,
+      showFaqSection: product.showFaqSection || false,
     };
 
     // Format related products
@@ -113,8 +145,26 @@ export default async function handler(
       usage: rp.relatedProduct.usage || '',
     }));
 
+    // Format suggested blogs (only published ones)
+    const formattedSuggestedBlogs = (product.suggestedBlogs || [])
+      .filter((sb: any) => sb.blog.published)
+      .map((sb: any) => ({
+        id: sb.blog.id,
+        slug: sb.blog.slug,
+        title: sb.blog.title,
+        excerpt: sb.blog.excerpt,
+        coverImage: sb.blog.coverImage,
+        author: sb.blog.author,
+        readTime: sb.blog.readTime,
+        categories: sb.blog.categories as string[],
+        publishedAt: sb.blog.publishedAt ? sb.blog.publishedAt.toISOString() : null,
+      }));
+
     return res.status(200).json({
-      product: formattedProduct,
+      product: {
+        ...formattedProduct,
+        suggestedBlogs: formattedSuggestedBlogs,
+      },
       relatedProducts: formattedRelatedProducts,
       brandSlug: brand,
     });

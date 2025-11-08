@@ -1,9 +1,9 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/colour-visualiser": "pages/colour-visualiser.js",
-  "/colour-visualiser/basic": "pages/colour-visualiser/basic.js",
-  "/colour-visualiser/basic/[brand]/[category]/[color]": "pages/colour-visualiser/basic/[brand]/[category]/[color].js",
-  "/admin/products": "pages/admin/products.js"
+  "/_document": "pages/_document.js",
+  "/products/[brand]/[slug]": "pages/products/[brand]/[slug].js",
+  "/admin/blogs/new": "pages/admin/blogs/new.js",
+  "/admin/blogs/[id]/edit": "pages/admin/blogs/[id]/edit.js",
+  "/admin/products/new": "pages/admin/products/new.js"
 }

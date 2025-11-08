@@ -21,6 +21,8 @@ const ensureUploadDir = (dir: string) => {
 const uploadDir = path.join(process.cwd(), 'public', 'uploads');
 ensureUploadDir(path.join(uploadDir, 'brands'));
 ensureUploadDir(path.join(uploadDir, 'products'));
+ensureUploadDir(path.join(uploadDir, 'documents'));
+ensureUploadDir(path.join(uploadDir, 'blogs'));
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -40,29 +42,63 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const type = Array.isArray(fields.type) ? fields.type[0] : fields.type;
     const uploadedFile = Array.isArray(files.image) ? files.image[0] : files.image;
 
-    if (!type || (type !== 'brand' && type !== 'product')) {
-      return res.status(400).json({ error: 'Invalid type. Must be "brand" or "product"' });
+    if (
+      !type ||
+      (type !== 'brand' && type !== 'product' && type !== 'document' && type !== 'blog')
+    ) {
+      return res
+        .status(400)
+        .json({ error: 'Invalid type. Must be "brand", "product", "blog", or "document"' });
     }
 
     if (!uploadedFile) {
-      return res.status(400).json({ error: 'No image file provided' });
+      return res.status(400).json({ error: 'No file provided' });
     }
 
+    // Check if it's a PDF
+    const isPdf = uploadedFile.mimetype === 'application/pdf';
+    
     // Validate file type
-    const allowedMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+    const allowedMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'application/pdf'];
     if (!uploadedFile.mimetype || !allowedMimeTypes.includes(uploadedFile.mimetype)) {
       return res.status(400).json({
-        error: 'Invalid file type. Only JPEG, PNG, and WebP are allowed.',
+        error: 'Invalid file type. Only JPEG, PNG, WebP, and PDF are allowed.',
       });
     }
 
     // Generate unique filename
     const timestamp = Date.now();
     const randomString = Math.random().toString(36).substring(2, 15);
-    const extension = path.extname(uploadedFile.originalFilename || 'image.jpg');
+    const extension = path.extname(uploadedFile.originalFilename || (isPdf ? '.pdf' : 'image.jpg'));
     const filename = `${timestamp}-${randomString}${extension}`;
-    const targetDir = path.join(uploadDir, type === 'brand' ? 'brands' : 'products');
+    
+    let targetDir: string;
+    if (type === 'brand') {
+      targetDir = path.join(uploadDir, 'brands');
+    } else if (type === 'document') {
+      targetDir = path.join(uploadDir, 'documents');
+    } else if (type === 'blog') {
+      targetDir = path.join(uploadDir, 'blogs');
+    } else {
+      targetDir = path.join(uploadDir, 'products');
+    }
+    
     const targetPath = path.join(targetDir, filename);
+
+    // Handle PDF files differently - just move them
+    if (isPdf) {
+      fs.renameSync(uploadedFile.filepath, targetPath);
+      
+      const urlPath = `/uploads/${
+        type === 'brand' ? 'brands' : type === 'document' ? 'documents' : type === 'blog' ? 'blogs' : 'products'
+      }/${filename}`;
+      
+      return res.status(200).json({
+        success: true,
+        url: urlPath,
+        filename: filename,
+      });
+    }
 
     // Move and optimize image
     await sharp(uploadedFile.filepath)
@@ -73,11 +109,13 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       .webp({ quality: 85 })
       .toFile(targetPath.replace(extension, '.webp'));
 
-    // Also save original if needed, or remove temp file
+    // Remove temp file
     fs.unlinkSync(uploadedFile.filepath);
 
     // Return the URL path
-    const urlPath = `/uploads/${type === 'brand' ? 'brands' : 'products'}/${filename.replace(extension, '.webp')}`;
+    const imageFolder =
+      type === 'brand' ? 'brands' : type === 'blog' ? 'blogs' : 'products';
+    const urlPath = `/uploads/${imageFolder}/${filename.replace(extension, '.webp')}`;
 
     return res.status(200).json({
       success: true,

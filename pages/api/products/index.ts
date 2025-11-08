@@ -92,6 +92,61 @@ function validateCreateProduct(data: any): { isValid: boolean; errors: string[] 
     errors.push('Related product IDs must be an array');
   }
 
+  // Optional PIS fields
+  if (data.pisHeading !== undefined && typeof data.pisHeading !== 'string') {
+    errors.push('PIS heading must be a string');
+  }
+
+  if (data.pisDescription !== undefined && typeof data.pisDescription !== 'string') {
+    errors.push('PIS description must be a string');
+  }
+
+  if (data.pisFileUrl !== undefined) {
+    if (typeof data.pisFileUrl !== 'string') {
+      errors.push('PIS file URL must be a string');
+    } else if (data.pisFileUrl.trim() !== '') {
+      const pisFileValue = data.pisFileUrl.trim();
+      if (!pisFileValue.startsWith('http://') && !pisFileValue.startsWith('https://') && !pisFileValue.startsWith('/')) {
+        errors.push('PIS file URL must be a valid URL or path starting with /');
+      }
+    }
+  }
+
+  if (data.showPisSection !== undefined && typeof data.showPisSection !== 'boolean') {
+    errors.push('Show PIS section must be a boolean');
+  }
+
+  // Optional User Guide fields
+  if (data.userGuideSteps !== undefined && !Array.isArray(data.userGuideSteps)) {
+    errors.push('User guide steps must be an array');
+  }
+
+  if (data.userGuideMaterials !== undefined && !Array.isArray(data.userGuideMaterials)) {
+    errors.push('User guide materials must be an array');
+  }
+
+  if (data.userGuideTips !== undefined && !Array.isArray(data.userGuideTips)) {
+    errors.push('User guide tips must be an array');
+  }
+
+  if (data.showUserGuide !== undefined && typeof data.showUserGuide !== 'boolean') {
+    errors.push('Show user guide must be a boolean');
+  }
+
+  // Optional FAQ fields
+  if (data.faqs !== undefined && !Array.isArray(data.faqs)) {
+    errors.push('FAQs must be an array');
+  }
+
+  if (data.showFaqSection !== undefined && typeof data.showFaqSection !== 'boolean') {
+    errors.push('Show FAQ section must be a boolean');
+  }
+
+  // Optional Blog Suggestion fields
+  if (data.suggestedBlogIds !== undefined && !Array.isArray(data.suggestedBlogIds)) {
+    errors.push('Suggested blog IDs must be an array');
+  }
+
   return {
     isValid: errors.length === 0,
     errors,
@@ -208,8 +263,8 @@ async function createProduct(req: NextApiRequest, res: NextApiResponse) {
       return res.status(409).json({ error: 'Product with this slug already exists for this brand' });
     }
 
-    // Extract related product IDs
-    const { relatedProductIds, ...productData } = data;
+    // Extract related product IDs and suggested blog IDs
+    const { relatedProductIds, suggestedBlogIds, ...productData } = data;
     
     console.log('=== CREATE PRODUCT DEBUG ===');
     console.log('Raw request body:', JSON.stringify(req.body, null, 2));
@@ -297,6 +352,29 @@ async function createProduct(req: NextApiRequest, res: NextApiResponse) {
           console.error('Error creating relationships:', relationError);
           console.error('Full relation error:', JSON.stringify(relationError, null, 2));
           // Don't fail the request if relationships fail - product is already created
+        }
+      }
+    }
+
+    // Create blog suggestion relationships
+    if (suggestedBlogIds && Array.isArray(suggestedBlogIds) && suggestedBlogIds.length > 0) {
+      const uniqueBlogIds = Array.from(new Set(suggestedBlogIds));
+      
+      for (let i = 0; i < uniqueBlogIds.length; i++) {
+        const blogId = uniqueBlogIds[i];
+        try {
+          await prisma.productBlogSuggestion.create({
+            data: {
+              productId: product.id,
+              blogId: blogId as string,
+              order: i,
+            },
+          });
+          console.log(`✅ Created blog suggestion: ${product.id} -> ${blogId}`);
+        } catch (blogError: any) {
+          if (blogError?.code !== 'P2002') {
+            console.error(`❌ Error creating blog suggestion:`, blogError?.message);
+          }
         }
       }
     }

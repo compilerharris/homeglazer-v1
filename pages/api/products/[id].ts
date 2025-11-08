@@ -74,6 +74,58 @@ function validateUpdateProduct(data: any): { isValid: boolean; errors: string[] 
     errors.push('relatedProductIds must be an array');
   }
 
+  // Optional PIS fields
+  if (data.pisHeading !== undefined && typeof data.pisHeading !== 'string') {
+    errors.push('PIS heading must be a string');
+  }
+
+  if (data.pisDescription !== undefined && typeof data.pisDescription !== 'string') {
+    errors.push('PIS description must be a string');
+  }
+
+  if (data.pisFileUrl !== undefined) {
+    if (typeof data.pisFileUrl !== 'string') {
+      errors.push('PIS file URL must be a string');
+    } else if (data.pisFileUrl.trim() !== '' && !data.pisFileUrl.startsWith('http://') && !data.pisFileUrl.startsWith('https://') && !data.pisFileUrl.startsWith('/')) {
+      errors.push('PIS file URL must be a valid URL or path starting with /');
+    }
+  }
+
+  if (data.showPisSection !== undefined && typeof data.showPisSection !== 'boolean') {
+    errors.push('Show PIS section must be a boolean');
+  }
+
+  // Optional User Guide fields
+  if (data.userGuideSteps !== undefined && !Array.isArray(data.userGuideSteps)) {
+    errors.push('User guide steps must be an array');
+  }
+
+  if (data.userGuideMaterials !== undefined && !Array.isArray(data.userGuideMaterials)) {
+    errors.push('User guide materials must be an array');
+  }
+
+  if (data.userGuideTips !== undefined && !Array.isArray(data.userGuideTips)) {
+    errors.push('User guide tips must be an array');
+  }
+
+  if (data.showUserGuide !== undefined && typeof data.showUserGuide !== 'boolean') {
+    errors.push('Show user guide must be a boolean');
+  }
+
+  // Optional FAQ fields
+  if (data.faqs !== undefined && !Array.isArray(data.faqs)) {
+    errors.push('FAQs must be an array');
+  }
+
+  if (data.showFaqSection !== undefined && typeof data.showFaqSection !== 'boolean') {
+    errors.push('Show FAQ section must be a boolean');
+  }
+
+  // Optional Blog Suggestion fields
+  if (data.suggestedBlogIds !== undefined && !Array.isArray(data.suggestedBlogIds)) {
+    errors.push('Suggested blog IDs must be an array');
+  }
+
   return {
     isValid: errors.length === 0,
     errors,
@@ -123,6 +175,17 @@ async function getProduct(req: NextApiRequest, res: NextApiResponse) {
                     name: true,
                   },
                 },
+              },
+            },
+          },
+        },
+        suggestedBlogs: {
+          include: {
+            blog: {
+              select: {
+                id: true,
+                title: true,
+                categories: true,
               },
             },
           },
@@ -252,11 +315,19 @@ async function updateProduct(req: NextApiRequest, res: NextApiResponse) {
       }
     }
 
-    // Extract related product IDs
+    // Extract related product IDs, suggested blog IDs, and brandId
     console.log('=== BEFORE EXTRACTION ===');
     console.log('data keys:', Object.keys(data));
     console.log('data.relatedProductIds:', data.relatedProductIds);
-    const { relatedProductIds, ...productData } = data;
+    console.log('data.suggestedBlogIds:', data.suggestedBlogIds);
+    const { relatedProductIds, suggestedBlogIds, brandId: newBrandId, ...productData } = data;
+    
+    // Handle brandId separately - Prisma requires relation syntax
+    if (newBrandId && newBrandId !== existingProduct.brandId) {
+      // Brand is being changed - use connect syntax
+      (productData as any).brand = { connect: { id: newBrandId } };
+    }
+    // If brandId is the same or not provided, don't include it in the update
     
     console.log('=== UPDATE PRODUCT DEBUG ===');
     console.log('Raw request body:', JSON.stringify(req.body, null, 2));
@@ -415,6 +486,40 @@ async function updateProduct(req: NextApiRequest, res: NextApiResponse) {
     }
     
     console.log('🔵 STEP 9: Relationship update status:', relationshipsUpdated ? '✅ Updated' : '❌ Not updated');
+
+    // Update blog suggestions if provided
+    if (suggestedBlogIds !== undefined) {
+      console.log('🟢 Updating blog suggestions');
+      
+      // Delete existing blog suggestions
+      await prisma.productBlogSuggestion.deleteMany({
+        where: { productId: id as string },
+      });
+      
+      // Create new blog suggestions
+      if (suggestedBlogIds.length > 0 && Array.isArray(suggestedBlogIds)) {
+        const uniqueBlogIds = Array.from(new Set(suggestedBlogIds));
+        
+        for (let i = 0; i < uniqueBlogIds.length; i++) {
+          const blogId = uniqueBlogIds[i];
+          try {
+            await prisma.productBlogSuggestion.create({
+              data: {
+                productId: id as string,
+                blogId: blogId as string,
+                order: i,
+              },
+            });
+            console.log(`  ✅ Created blog suggestion: ${id} -> ${blogId}`);
+          } catch (blogError: any) {
+            if (blogError?.code !== 'P2002') {
+              console.error(`  ❌ Error creating blog suggestion:`, blogError?.message);
+            }
+          }
+        }
+      }
+      console.log('  ✅ Blog suggestions updated');
+    }
 
     // Try to fetch product with relations, but don't fail if this fails
     // ALWAYS return 200 with at least the basic product data

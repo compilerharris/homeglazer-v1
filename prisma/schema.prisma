@@ -46,8 +46,19 @@ model Product {
   colors            Json? // string[]
   features          Json? // string[]
   specifications    Json? // Record<string, string>
+  pisHeading        String? // Custom heading for PIS section
+  pisDescription    String? // Custom description for PIS section
+  pisFileUrl        String? // URL to uploaded PDF file
+  showPisSection    Boolean @default(false) // Toggle to show/hide PIS section
+  userGuideSteps    Json? // Array of step objects: [{ title: string, description: string }]
+  userGuideMaterials Json? // Array of material strings
+  userGuideTips     Json? // Array of tip strings
+  showUserGuide     Boolean @default(false) // Toggle to show/hide User Guide section
+  faqs              Json? // Array of FAQ objects: [{ question: string, answer: string }]
+  showFaqSection    Boolean @default(false) // Toggle to show/hide FAQ section
   relatedProducts   ProductRelatedProduct[] @relation("ProductRelations")
   relatedToProducts ProductRelatedProduct[] @relation("RelatedProductRelations")
+  suggestedBlogs    ProductBlogSuggestion[]
   createdAt         DateTime                @default(now())
   updatedAt         DateTime                @updatedAt
 
@@ -68,4 +79,44 @@ model ProductRelatedProduct {
   @@unique([productId, relatedProductId])
   @@index([productId])
   @@index([relatedProductId])
+}
+
+model BlogPost {
+  id                 String                  @id @default(cuid())
+  slug               String                  @unique
+  title              String
+  excerpt            String                  @db.Text
+  content            String                  @db.Text
+  coverImage         String
+  author             String
+  readTime           String
+  categories         Json                    // string[]
+  published          Boolean                 @default(false)
+  metaDescription    String?                 @db.Text
+  metaKeywords       String?
+  featuredOrder      Int?
+  viewCount          Int                     @default(0)
+  createdAt          DateTime                @default(now())
+  updatedAt          DateTime                @updatedAt
+  publishedAt        DateTime?
+  productSuggestions ProductBlogSuggestion[]
+
+  @@index([slug])
+  @@index([published])
+  @@index([publishedAt])
+  @@index([featuredOrder])
+}
+
+model ProductBlogSuggestion {
+  id        String   @id @default(cuid())
+  productId String
+  blogId    String
+  order     Int      @default(0)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  blog      BlogPost @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([productId, blogId])
+  @@index([productId])
+  @@index([blogId])
 }

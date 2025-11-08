@@ -42,10 +42,27 @@ interface Product {
   colors: string[];
   features: string[];
   specifications: Record<string, string>;
+  pisHeading?: string;
+  pisDescription?: string;
+  pisFileUrl?: string;
+  showPisSection?: boolean;
+  userGuideSteps?: Array<{title: string, description: string}>;
+  userGuideMaterials?: string[];
+  userGuideTips?: string[];
+  showUserGuide?: boolean;
+  faqs?: Array<{question: string, answer: string}>;
+  showFaqSection?: boolean;
   relatedProducts: Array<{
     relatedProduct: {
       id: string;
       name: string;
+    };
+  }>;
+  suggestedBlogs?: Array<{
+    blog: {
+      id: string;
+      title: string;
+      categories: string[];
     };
   }>;
 }
@@ -60,10 +77,12 @@ export default function EditProduct() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
+  const [uploadingPis, setUploadingPis] = useState(false);
   const [error, setError] = useState('');
   const [brands, setBrands] = useState<Brand[]>([]);
   const [relatedProductOptions, setRelatedProductOptions] = useState<ProductOption[]>([]);
   const [searchRelated, setSearchRelated] = useState('');
+  const [blogOptions, setBlogOptions] = useState<Array<{id: string, title: string, categories: string[]}>>([]);
   const [formData, setFormData] = useState({
     brandId: '',
     name: '',
@@ -85,10 +104,22 @@ export default function EditProduct() {
     features: [''],
     specifications: {} as Record<string, string>,
     relatedProductIds: [] as string[],
+    suggestedBlogIds: [] as string[],
+    pisHeading: '',
+    pisDescription: '',
+    pisFileUrl: '',
+    showPisSection: false,
+    userGuideSteps: [] as Array<{title: string, description: string}>,
+    userGuideMaterials: [''],
+    userGuideTips: [''],
+    showUserGuide: false,
+    faqs: [] as Array<{question: string, answer: string}>,
+    showFaqSection: false,
   });
 
   useEffect(() => {
     fetchBrands();
+    fetchBlogs();
     if (id) {
       fetchProduct();
     }
@@ -117,6 +148,22 @@ export default function EditProduct() {
       }
     } catch (err) {
       console.error('Failed to fetch brands:', err);
+    }
+  };
+
+  const fetchBlogs = async () => {
+    try {
+      const response = await fetch('/api/blogs');
+      if (response.ok) {
+        const data = await response.json();
+        setBlogOptions(data.map((blog: any) => ({
+          id: blog.id,
+          title: blog.title,
+          categories: Array.isArray(blog.categories) ? blog.categories : [],
+        })));
+      }
+    } catch (err) {
+      console.error('Failed to fetch blogs:', err);
     }
   };
 
@@ -179,6 +226,10 @@ export default function EditProduct() {
           console.log('  ℹ️ STEP 7: No related products to extract (empty array)');
         }
         
+        // Extract suggested blog IDs
+        const extractedBlogIds = product.suggestedBlogs?.map((sb: any) => sb.blog.id).filter(Boolean) || [];
+        console.log('  → Extracted blog IDs:', extractedBlogIds);
+        
         console.log('  → STEP 8: Setting formData state');
         setFormData({
           brandId: product.brandId,
@@ -196,6 +247,17 @@ export default function EditProduct() {
           features: product.features && product.features.length > 0 ? product.features : [''],
           specifications: product.specifications || {},
           relatedProductIds: extractedRelatedIds,
+          suggestedBlogIds: extractedBlogIds,
+          pisHeading: product.pisHeading || '',
+          pisDescription: product.pisDescription || '',
+          pisFileUrl: product.pisFileUrl || '',
+          showPisSection: product.showPisSection || false,
+          userGuideSteps: (product.userGuideSteps as Array<{title: string, description: string}>) || [],
+          userGuideMaterials: (product.userGuideMaterials as string[]) || [''],
+          userGuideTips: (product.userGuideTips as string[]) || [''],
+          showUserGuide: product.showUserGuide || false,
+          faqs: (product.faqs as Array<{question: string, answer: string}>) || [],
+          showFaqSection: product.showFaqSection || false,
         });
         
         console.log('  → STEP 9: Form data set');
@@ -307,6 +369,97 @@ export default function EditProduct() {
     });
   };
 
+  const toggleSuggestedBlog = (blogId: string) => {
+    setFormData({
+      ...formData,
+      suggestedBlogIds: formData.suggestedBlogIds.includes(blogId)
+        ? formData.suggestedBlogIds.filter(id => id !== blogId)
+        : [...formData.suggestedBlogIds, blogId],
+    });
+  };
+
+  // User Guide helper functions
+  const addStep = () => {
+    setFormData({
+      ...formData,
+      userGuideSteps: [...formData.userGuideSteps, { title: '', description: '' }],
+    });
+  };
+
+  const removeStep = (index: number) => {
+    setFormData({
+      ...formData,
+      userGuideSteps: formData.userGuideSteps.filter((_, i) => i !== index),
+    });
+  };
+
+  const updateStep = (index: number, field: 'title' | 'description', value: string) => {
+    const newSteps = [...formData.userGuideSteps];
+    newSteps[index][field] = value;
+    setFormData({ ...formData, userGuideSteps: newSteps });
+  };
+
+  const addMaterial = () => {
+    setFormData({
+      ...formData,
+      userGuideMaterials: [...formData.userGuideMaterials, ''],
+    });
+  };
+
+  const removeMaterial = (index: number) => {
+    setFormData({
+      ...formData,
+      userGuideMaterials: formData.userGuideMaterials.filter((_, i) => i !== index),
+    });
+  };
+
+  const updateMaterial = (index: number, value: string) => {
+    const newMaterials = [...formData.userGuideMaterials];
+    newMaterials[index] = value;
+    setFormData({ ...formData, userGuideMaterials: newMaterials });
+  };
+
+  const addTip = () => {
+    setFormData({
+      ...formData,
+      userGuideTips: [...formData.userGuideTips, ''],
+    });
+  };
+
+  const removeTip = (index: number) => {
+    setFormData({
+      ...formData,
+      userGuideTips: formData.userGuideTips.filter((_, i) => i !== index),
+    });
+  };
+
+  const updateTip = (index: number, value: string) => {
+    const newTips = [...formData.userGuideTips];
+    newTips[index] = value;
+    setFormData({ ...formData, userGuideTips: newTips });
+  };
+
+  // FAQ handlers
+  const addFaq = () => {
+    setFormData({
+      ...formData,
+      faqs: [...formData.faqs, { question: '', answer: '' }],
+    });
+  };
+
+  const removeFaq = (index: number) => {
+    setFormData({
+      ...formData,
+      faqs: formData.faqs.filter((_, i) => i !== index),
+    });
+  };
+
+  const updateFaq = (index: number, field: 'question' | 'answer', value: string) => {
+    const newFaqs = [...formData.faqs];
+    newFaqs[index][field] = value;
+    setFormData({ ...formData, faqs: newFaqs });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -315,6 +468,10 @@ export default function EditProduct() {
     try {
       const colors = formData.colors.filter(c => c.trim() !== '');
       const features = formData.features.filter(f => f.trim() !== '');
+      const userGuideMaterials = formData.userGuideMaterials.filter(m => m.trim() !== '');
+      const userGuideTips = formData.userGuideTips.filter(t => t.trim() !== '');
+      const userGuideSteps = formData.userGuideSteps.filter(s => s.title.trim() !== '' || s.description.trim() !== '');
+      const faqs = formData.faqs.filter(f => f.question.trim() !== '' || f.answer.trim() !== '');
 
       const payload = {
         ...formData,
@@ -323,6 +480,10 @@ export default function EditProduct() {
         specifications: Object.fromEntries(
           Object.entries(formData.specifications).filter(([_, v]) => v.trim() !== '')
         ),
+        userGuideMaterials,
+        userGuideTips,
+        userGuideSteps,
+        faqs,
       };
 
       console.log('=== SUBMIT PAYLOAD DEBUG ===');
@@ -743,6 +904,366 @@ export default function EditProduct() {
                   <p className="text-sm text-gray-600">
                     {formData.relatedProductIds.length} product(s) selected
                   </p>
+                )}
+              </div>
+            </div>
+
+            {/* Suggested Blog Articles */}
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Suggested Blog Articles</h2>
+              <p className="text-sm text-gray-600 mb-4">
+                Select blog articles to show in the "Want some suggestion?" section on the product page
+              </p>
+              <div className="max-h-60 overflow-y-auto border rounded-lg p-4 space-y-2">
+                {blogOptions.length === 0 ? (
+                  <p className="text-sm text-gray-500">No blogs found</p>
+                ) : (
+                  blogOptions.map((blog) => {
+                    const isChecked = formData.suggestedBlogIds.includes(blog.id);
+                    return (
+                      <label
+                        key={blog.id}
+                        className="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => toggleSuggestedBlog(blog.id)}
+                          className="w-4 h-4"
+                        />
+                        <div className="flex-1">
+                          <span className="text-sm font-medium">{blog.title}</span>
+                          {blog.categories.length > 0 && (
+                            <div className="flex gap-1 mt-1 flex-wrap">
+                              {blog.categories.map((cat, idx) => (
+                                <span key={idx} className="text-xs bg-gray-100 px-2 py-0.5 rounded">
+                                  {cat}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </label>
+                    );
+                  })
+                )}
+              </div>
+              {formData.suggestedBlogIds.length > 0 && (
+                <p className="text-sm text-gray-600 mt-4">
+                  {formData.suggestedBlogIds.length} blog(s) selected
+                </p>
+              )}
+            </div>
+
+            {/* User Guide */}
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">User Guide</h2>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <input
+                    type="checkbox"
+                    id="showUserGuide"
+                    checked={formData.showUserGuide}
+                    onChange={(e) => setFormData({ ...formData, showUserGuide: e.target.checked })}
+                    className="w-4 h-4 text-[#299dd7] rounded"
+                  />
+                  <label htmlFor="showUserGuide" className="text-sm font-medium text-gray-700">
+                    Enable User Guide section
+                  </label>
+                </div>
+
+                {formData.showUserGuide && (
+                  <>
+                    {/* Steps */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Step-by-Step Process
+                      </label>
+                      <div className="space-y-3">
+                        {formData.userGuideSteps.map((step, index) => (
+                          <div key={index} className="border rounded-lg p-4 space-y-2">
+                            <div className="flex gap-2 items-center">
+                              <span className="text-sm font-semibold text-gray-700">Step {index + 1}</span>
+                              {formData.userGuideSteps.length > 1 && (
+                                <Button
+                                  type="button"
+                                  variant="destructive"
+                                  size="sm"
+                                  onClick={() => removeStep(index)}
+                                >
+                                  Remove
+                                </Button>
+                              )}
+                            </div>
+                            <Input
+                              value={step.title}
+                              onChange={(e) => updateStep(index, 'title', e.target.value)}
+                              placeholder="Step title (e.g., Surface Preparation)"
+                            />
+                            <Textarea
+                              value={step.description}
+                              onChange={(e) => updateStep(index, 'description', e.target.value)}
+                              placeholder="Step description"
+                              rows={3}
+                            />
+                          </div>
+                        ))}
+                        <Button type="button" variant="outline" onClick={addStep}>
+                          + Add Step
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Materials */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Materials You'll Need
+                      </label>
+                      <div className="space-y-3">
+                        {formData.userGuideMaterials.map((material, index) => (
+                          <div key={index} className="flex gap-2">
+                            <Input
+                              value={material}
+                              onChange={(e) => updateMaterial(index, e.target.value)}
+                              placeholder="Material name"
+                            />
+                            {formData.userGuideMaterials.length > 1 && (
+                              <Button
+                                type="button"
+                                variant="destructive"
+                                size="sm"
+                                onClick={() => removeMaterial(index)}
+                              >
+                                Remove
+                              </Button>
+                            )}
+                          </div>
+                        ))}
+                        <Button type="button" variant="outline" onClick={addMaterial}>
+                          + Add Material
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Tips */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Tips
+                      </label>
+                      <div className="space-y-3">
+                        {formData.userGuideTips.map((tip, index) => (
+                          <div key={index} className="flex gap-2">
+                            <Input
+                              value={tip}
+                              onChange={(e) => updateTip(index, e.target.value)}
+                              placeholder="Tip description"
+                            />
+                            {formData.userGuideTips.length > 1 && (
+                              <Button
+                                type="button"
+                                variant="destructive"
+                                size="sm"
+                                onClick={() => removeTip(index)}
+                              >
+                                Remove
+                              </Button>
+                            )}
+                          </div>
+                        ))}
+                        <Button type="button" variant="outline" onClick={addTip}>
+                          + Add Tip
+                        </Button>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* FAQ Section */}
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Frequently Asked Questions (FAQ)</h2>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <input
+                    type="checkbox"
+                    id="showFaqSection"
+                    checked={formData.showFaqSection}
+                    onChange={(e) => setFormData({ ...formData, showFaqSection: e.target.checked })}
+                    className="w-4 h-4 text-[#299dd7] rounded"
+                  />
+                  <label htmlFor="showFaqSection" className="text-sm font-medium text-gray-700">
+                    Enable FAQ section
+                  </label>
+                </div>
+
+                {formData.showFaqSection && (
+                  <>
+                    {/* FAQs */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        FAQs
+                      </label>
+                      <div className="space-y-3">
+                        {formData.faqs.map((faq, index) => (
+                          <div key={index} className="border rounded-lg p-4 space-y-2">
+                            <div className="flex gap-2 items-center">
+                              <span className="text-sm font-semibold text-gray-700">FAQ {index + 1}</span>
+                              {formData.faqs.length > 1 && (
+                                <Button
+                                  type="button"
+                                  variant="destructive"
+                                  size="sm"
+                                  onClick={() => removeFaq(index)}
+                                >
+                                  Remove
+                                </Button>
+                              )}
+                            </div>
+                            <Input
+                              value={faq.question}
+                              onChange={(e) => updateFaq(index, 'question', e.target.value)}
+                              placeholder="Question (e.g., What is the coverage area of this paint?)"
+                            />
+                            <Textarea
+                              value={faq.answer}
+                              onChange={(e) => updateFaq(index, 'answer', e.target.value)}
+                              placeholder="Answer"
+                              rows={3}
+                            />
+                          </div>
+                        ))}
+                        <Button type="button" variant="outline" onClick={addFaq}>
+                          + Add FAQ
+                        </Button>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Product Information Sheet */}
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Product Information Sheet (PIS)</h2>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <input
+                    type="checkbox"
+                    id="showPisSection"
+                    checked={formData.showPisSection}
+                    onChange={(e) => setFormData({ ...formData, showPisSection: e.target.checked })}
+                    className="w-4 h-4 text-[#299dd7] rounded"
+                  />
+                  <label htmlFor="showPisSection" className="text-sm font-medium text-gray-700">
+                    Enable Product Information Sheet section
+                  </label>
+                </div>
+
+                {formData.showPisSection && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        PIS Heading (Optional)
+                      </label>
+                      <Input
+                        value={formData.pisHeading}
+                        onChange={(e) => setFormData({ ...formData, pisHeading: e.target.value })}
+                        placeholder="Leave empty to use default heading"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        Default: "Download Product Information Sheet for [Brand] [Product Name]"
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        PIS Description (Optional)
+                      </label>
+                      <Textarea
+                        value={formData.pisDescription}
+                        onChange={(e) => setFormData({ ...formData, pisDescription: e.target.value })}
+                        rows={2}
+                        placeholder="Leave empty to use default description"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        Default: "Get detailed technical specifications, application guidelines, and safety information for this product."
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        PIS PDF File
+                      </label>
+                      <div className="space-y-3">
+                        <div>
+                          <input
+                            type="file"
+                            accept="application/pdf"
+                            disabled={uploadingPis}
+                            onChange={async (e) => {
+                              const file = e.target.files?.[0];
+                              if (file) {
+                                setUploadingPis(true);
+                                const formData = new FormData();
+                                formData.append('image', file);
+                                formData.append('type', 'document');
+                                
+                                try {
+                                  const response = await fetch('/api/upload', {
+                                    method: 'POST',
+                                    body: formData,
+                                  });
+                                  
+                                  const data = await response.json();
+                                  if (data.success) {
+                                    setFormData(prev => ({ ...prev, pisFileUrl: data.url }));
+                                  } else {
+                                    alert(data.error || 'Upload failed');
+                                  }
+                                } catch (err) {
+                                  console.error('Upload error:', err);
+                                  alert('Failed to upload PDF');
+                                } finally {
+                                  setUploadingPis(false);
+                                }
+                              }
+                            }}
+                            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#299dd7] file:text-white hover:file:bg-[#237bb0]"
+                          />
+                        </div>
+                        <div>
+                          <Input
+                            type="text"
+                            value={formData.pisFileUrl}
+                            onChange={(e) => setFormData({ ...formData, pisFileUrl: e.target.value })}
+                            placeholder="Or enter PDF URL (e.g., /uploads/documents/file.pdf)"
+                            className="mt-2"
+                            disabled={uploadingPis}
+                          />
+                          {uploadingPis && (
+                            <p className="text-xs text-gray-500 mt-1">Uploading PDF...</p>
+                          )}
+                        </div>
+                        {formData.pisFileUrl && (
+                          <div className="mt-3">
+                            <a
+                              href={formData.pisFileUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm text-[#299dd7] hover:underline flex items-center gap-2"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                              </svg>
+                              Preview PDF
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </>
                 )}
               </div>
             </div>

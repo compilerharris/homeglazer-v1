@@ -8,6 +8,25 @@
   .all-\[unset\] {
     all: unset;
   }
+
+  .ql-toolbar.ql-snow {
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #ffffff;
+  }
+
+  .ql-toolbar.ql-snow .ql-picker {
+    @apply text-gray-700;
+  }
+
+  .ql-container.ql-snow {
+    border: none !important;
+    background-color: #ffffff;
+  }
+
+  .ql-container.ql-snow .ql-editor {
+    min-height: 12rem;
+  }
 }
 
 .scrollbar-hide {
