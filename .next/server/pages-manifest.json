@@ -2,8 +2,13 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/colour-visualiser": "pages/colour-visualiser.js",
-  "/admin/products/new": "pages/admin/products/new.js",
   "/colour-visualiser/advanced": "pages/colour-visualiser/advanced.js",
-  "/products/[brand]/[slug]": "pages/products/[brand]/[slug].js"
+  "/admin/products/new": "pages/admin/products/new.js",
+  "/colour-visualiser": "pages/colour-visualiser.js",
+  "/api/products/related-options": "pages/api/products/related-options.js",
+  "/api/brands": "pages/api/brands.js",
+  "/api/auth/session": "pages/api/auth/session.js",
+  "/api/blogs": "pages/api/blogs.js",
+  "/admin/blogs": "pages/admin/blogs.js",
+  "/404": "pages/404.js"
 }

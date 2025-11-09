@@ -618,7 +618,6 @@
           "front": "/assets/images/kitchen/kitchen11/front-wall.svg",
           "roof": "/assets/images/kitchen/kitchen11/roof-wall.svg",
           "table": "/assets/images/kitchen/kitchen11/table.svg",
-          "sink": "/assets/images/kitchen/kitchen11/sink.svg",
           "cabinet-upper": "/assets/images/kitchen/kitchen11/cabinet-upper.svg",
           "cabinet-lower": "/assets/images/kitchen/kitchen11/cabinet-lower.svg"
         }
@@ -715,6 +714,16 @@
           "window": "/assets/images/kitchen/kitchen18/window.svg",
           "cabinet-upper": "/assets/images/kitchen/kitchen18/cabinet-upper.svg",
           "cabinet-lower": "/assets/images/kitchen/kitchen18/cabinet-lower.svg"
+        }
+      },
+      {
+        "name": "kitchen19",
+        "label": "Kitchen 19",
+        "mainImage": "/assets/images/kitchen/kitchen19/kitchen19.jpg",
+        "walls": {
+          "window": "/assets/images/kitchen/kitchen19/window.svg",
+          "cabinet-upper": "/assets/images/kitchen/kitchen19/cabinet-upper.svg",
+          "cabinet-lower": "/assets/images/kitchen/kitchen19/cabinet-lower.svg"
         }
       }
     ]
