@@ -30,6 +30,21 @@
     ]
   },
   {
+    "id": "jk-maxx",
+    "name": "JK Maxx",
+    "logo": "/assets/images/jk-maxx-logo.png",
+    "colors": [
+      { "name": "Sweet Jasmine", "code": "#EFE19B" },
+      { "name": "Sunscape", "code": "#FDE287" },
+      { "name": "Cheddar", "code": "#E6A72D" },
+      { "name": "Tulip Yellow", "code": "#FDCF46" },
+      { "name": "Golden Yellow", "code": "#fca61d" },
+      { "name": "Equator", "code": "#FBBA0C" },
+      { "name": "Bumble Bee", "code": "#F5CB0A" },
+      { "name": "King's Ransom", "code": "#FEAC0F" }
+    ]
+  },
+  {
     "id": "nerolac",
     "name": "Nerolac",
     "logo": "/assets/images/kansai-nerolac-paints-limited7357-removebg-preview.png",

@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Node.js binary distributions (should be installed system-wide)
+node-v*/
+*.tar.gz
+
 #.next
 .next/*
 
