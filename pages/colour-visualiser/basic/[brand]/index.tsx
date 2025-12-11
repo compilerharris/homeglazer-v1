@@ -10,6 +10,7 @@ const BRAND_CONFIG = [
   { id: 'dulux', name: 'Dulux', fileName: 'dulux_colors.json' },
   { id: 'jk-maxx', name: 'JK Maxx', fileName: 'jk_maxx_colors.json' },
   { id: 'shalimar', name: 'Shalimar', fileName: 'shalimar_colors.json' },
+  { id: 'nippon', name: 'Nippon', fileName: 'nippon_colors.json' },
   { id: 'ral', name: 'RAL', fileName: 'ral_colors.json' },
   { id: 'ncs', name: 'NCS', fileName: 'ncs_colors.json' },
 ];

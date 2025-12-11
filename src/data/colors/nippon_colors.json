@@ -1,0 +1,5550 @@
+{
+  "brand": "Nippon",
+  "totalColors": 1106,
+  "colorTypes": {
+    "Accents": [
+      {
+        "colorName": "bright lime",
+        "colorCode": "NP AC 2048 A",
+        "colorHex": "#E3D11E"
+      },
+      {
+        "colorName": "shocking yellow",
+        "colorCode": "NP AC 2049 A",
+        "colorHex": "#F4D303"
+      },
+      {
+        "colorName": "jester yellow",
+        "colorCode": "NP AC 2050 A",
+        "colorHex": "#F3C02B"
+      },
+      {
+        "colorName": "deep safron",
+        "colorCode": "NP AC 2051 A",
+        "colorHex": "#E39C22"
+      },
+      {
+        "colorName": "florist yellow",
+        "colorCode": "NP AC 2052 A",
+        "colorHex": "#F4A813"
+      },
+      {
+        "colorName": "yellow blaze",
+        "colorCode": "NP AC 2053 A",
+        "colorHex": "#EFB22B"
+      },
+      {
+        "colorName": "deep marigolds",
+        "colorCode": "NP AC 2054 A",
+        "colorHex": "#FFBB00"
+      },
+      {
+        "colorName": "yellow amazon",
+        "colorCode": "NP AC 2055 A",
+        "colorHex": "#FFB100"
+      },
+      {
+        "colorName": "sweet grapefruit",
+        "colorCode": "NP AC 2056 A",
+        "colorHex": "#FF9F27"
+      },
+      {
+        "colorName": "orange originality",
+        "colorCode": "NP AC 2057 A",
+        "colorHex": "#DC812E"
+      },
+      {
+        "colorName": "firelights",
+        "colorCode": "NP AC 2058 A",
+        "colorHex": "#D6842D"
+      },
+      {
+        "colorName": "autumn lights",
+        "colorCode": "NP AC 2059 A",
+        "colorHex": "#DB8C2A"
+      },
+      {
+        "colorName": "orange kisses",
+        "colorCode": "NP AC 2060 A",
+        "colorHex": "#F6A614"
+      },
+      {
+        "colorName": "cheers",
+        "colorCode": "NP AC 2061 A",
+        "colorHex": "#FFB000"
+      },
+      {
+        "colorName": "orange bouquet",
+        "colorCode": "NP AC 2062 A",
+        "colorHex": "#FC8925"
+      },
+      {
+        "colorName": "orange royale",
+        "colorCode": "NP AC 2063 A",
+        "colorHex": "#ED8444"
+      },
+      {
+        "colorName": "so orange",
+        "colorCode": "NP AC 2064 A",
+        "colorHex": "#E97933"
+      },
+      {
+        "colorName": "carrothead",
+        "colorCode": "NP AC 2065 A",
+        "colorHex": "#C35434"
+      },
+      {
+        "colorName": "setting sun",
+        "colorCode": "NP AC 2066 A",
+        "colorHex": "#C75437"
+      },
+      {
+        "colorName": "ripe tomatoes",
+        "colorCode": "NP AC 2067 A",
+        "colorHex": "#E36835"
+      },
+      {
+        "colorName": "exciting orange",
+        "colorCode": "NP AC 2068 A",
+        "colorHex": "#D9792E"
+      },
+      {
+        "colorName": "hot shot",
+        "colorCode": "NP AC 2069 A",
+        "colorHex": "#D1483F"
+      },
+      {
+        "colorName": "talk of the town",
+        "colorCode": "NP AC 2070 A",
+        "colorHex": "#D33C3F"
+      },
+      {
+        "colorName": "cotillion red",
+        "colorCode": "NP AC 2071 A",
+        "colorHex": "#B53D36"
+      },
+      {
+        "colorName": "alpha red",
+        "colorCode": "NP AC 2072 A",
+        "colorHex": "#A23644"
+      },
+      {
+        "colorName": "red martini",
+        "colorCode": "NP AC 2073 A",
+        "colorHex": "#963C40"
+      },
+      {
+        "colorName": "red confetti",
+        "colorCode": "NP AC 2074 A",
+        "colorHex": "#9C434B"
+      },
+      {
+        "colorName": "red apples",
+        "colorCode": "NP AC 2075 A",
+        "colorHex": "#A04142"
+      },
+      {
+        "colorName": "fast car",
+        "colorCode": "NP AC 2076 A",
+        "colorHex": "#C14364"
+      },
+      {
+        "colorName": "absolutely pink",
+        "colorCode": "NP AC 2077 A",
+        "colorHex": "#BD456B"
+      },
+      {
+        "colorName": "english rose",
+        "colorCode": "NP AC 2078 A",
+        "colorHex": "#8D3E5E"
+      },
+      {
+        "colorName": "irish charm",
+        "colorCode": "NP AC 2079 A",
+        "colorHex": "#724058"
+      },
+      {
+        "colorName": "pink floss",
+        "colorCode": "NP AC 2080 A",
+        "colorHex": "#BA4875"
+      },
+      {
+        "colorName": "pizazz",
+        "colorCode": "NP AC 2081 A",
+        "colorHex": "#AC4571"
+      },
+      {
+        "colorName": "vivid violet",
+        "colorCode": "NP AC 2082 A",
+        "colorHex": "#A04571"
+      },
+      {
+        "colorName": "conquest",
+        "colorCode": "NP AC 2083 A",
+        "colorHex": "#894E77"
+      },
+      {
+        "colorName": "grape popsicle",
+        "colorCode": "NP AC 2084 A",
+        "colorHex": "#82517A"
+      },
+      {
+        "colorName": "marmalade rush",
+        "colorCode": "NP AC 2085 A",
+        "colorHex": "#7C517D"
+      },
+      {
+        "colorName": "grape wine",
+        "colorCode": "NP AC 2086 A",
+        "colorHex": "#594250"
+      },
+      {
+        "colorName": "violet crunch",
+        "colorCode": "NP AC 2087 A",
+        "colorHex": "#5A485D"
+      },
+      {
+        "colorName": "jam break",
+        "colorCode": "NP AC 2088 A",
+        "colorHex": "#5A4668"
+      },
+      {
+        "colorName": "grape freeze",
+        "colorCode": "NP AC 2089 A",
+        "colorHex": "#624365"
+      },
+      {
+        "colorName": "purple charm",
+        "colorCode": "NP AC 2090 A",
+        "colorHex": "#575381"
+      },
+      {
+        "colorName": "magnetism",
+        "colorCode": "NP AC 2091 A",
+        "colorHex": "#56527B"
+      },
+      {
+        "colorName": "blessed purple",
+        "colorCode": "NP AC 2092 A",
+        "colorHex": "#514A6A"
+      },
+      {
+        "colorName": "deep faith",
+        "colorCode": "NP AC 2093 A",
+        "colorHex": "#4A4963"
+      },
+      {
+        "colorName": "rhapsody",
+        "colorCode": "NP AC 2094 A",
+        "colorHex": "#464C7A"
+      },
+      {
+        "colorName": "so purple",
+        "colorCode": "NP AC 2095 A",
+        "colorHex": "#4D4D77"
+      },
+      {
+        "colorName": "mozarts",
+        "colorCode": "NP AC 2096 A",
+        "colorHex": "#555787"
+      },
+      {
+        "colorName": "electrify",
+        "colorCode": "NP AC 2097 A",
+        "colorHex": "#0067A8"
+      },
+      {
+        "colorName": "blue lighting",
+        "colorCode": "NP AC 2098 A",
+        "colorHex": "#1B62A1"
+      },
+      {
+        "colorName": "blue mercury",
+        "colorCode": "NP AC 2099 A",
+        "colorHex": "#335289"
+      },
+      {
+        "colorName": "cobalt blue",
+        "colorCode": "NP AC 2100 A",
+        "colorHex": "#445685"
+      },
+      {
+        "colorName": "fluid blue",
+        "colorCode": "NP AC 2101 A",
+        "colorHex": "#1D5C8B"
+      },
+      {
+        "colorName": "circuit blue",
+        "colorCode": "NP AC 2102 A",
+        "colorHex": "#006190"
+      },
+      {
+        "colorName": "sports blue",
+        "colorCode": "NP AC 2103 A",
+        "colorHex": "#00668A"
+      },
+      {
+        "colorName": "green academy",
+        "colorCode": "NP AC 2104 A",
+        "colorHex": "#0A6758"
+      },
+      {
+        "colorName": "green feathers",
+        "colorCode": "NP AC 2105 A",
+        "colorHex": "#235C48"
+      },
+      {
+        "colorName": "great seascape",
+        "colorCode": "NP AC 2106 A",
+        "colorHex": "#31564C"
+      },
+      {
+        "colorName": "tempest sea",
+        "colorCode": "NP AC 2107 A",
+        "colorHex": "#3A5A5F"
+      },
+      {
+        "colorName": "harbour",
+        "colorCode": "NP AC 2108 A",
+        "colorHex": "#006871"
+      },
+      {
+        "colorName": "sea balm",
+        "colorCode": "NP AC 2109 A",
+        "colorHex": "#007987"
+      },
+      {
+        "colorName": "fantasy green",
+        "colorCode": "NP AC 2110 A",
+        "colorHex": "#007174"
+      },
+      {
+        "colorName": "faraway",
+        "colorCode": "NP AC 2111 A",
+        "colorHex": "#299151"
+      },
+      {
+        "colorName": "mythology",
+        "colorCode": "NP AC 2112 A",
+        "colorHex": "#008151"
+      },
+      {
+        "colorName": "greek legend",
+        "colorCode": "NP AC 2113 A",
+        "colorHex": "#007A5A"
+      },
+      {
+        "colorName": "impressions",
+        "colorCode": "NP AC 2114 A",
+        "colorHex": "#2D6747"
+      },
+      {
+        "colorName": "green gust",
+        "colorCode": "NP AC 2115 A",
+        "colorHex": "#3E7F40"
+      },
+      {
+        "colorName": "colleen green",
+        "colorCode": "NP AC 2116 A",
+        "colorHex": "#64AC45"
+      },
+      {
+        "colorName": "gisette green",
+        "colorCode": "NP AC 2117 A",
+        "colorHex": "#8DAA34"
+      },
+      {
+        "colorName": "army green",
+        "colorCode": "NP AC 2118 A",
+        "colorHex": "#677C4C"
+      },
+      {
+        "colorName": "dark green",
+        "colorCode": "NP AC 2119 A",
+        "colorHex": "#597548"
+      },
+      {
+        "colorName": "costume green",
+        "colorCode": "NP AC 2120 A",
+        "colorHex": "#5B684D"
+      },
+      {
+        "colorName": "out to the seas",
+        "colorCode": "NP AC 2121 A",
+        "colorHex": "#4B6448"
+      },
+      {
+        "colorName": "green topiary",
+        "colorCode": "NP AC 2122 A",
+        "colorHex": "#5F6847"
+      },
+      {
+        "colorName": "woods trail",
+        "colorCode": "NP AC 2123 A",
+        "colorHex": "#7A7F45"
+      },
+      {
+        "colorName": "breen",
+        "colorCode": "NP AC 2124 A",
+        "colorHex": "#999755"
+      },
+      {
+        "colorName": "bronze trophy",
+        "colorCode": "NP AC 2125 A",
+        "colorHex": "#BE993C"
+      },
+      {
+        "colorName": "swinging palms",
+        "colorCode": "NP AC 2126 A",
+        "colorHex": "#A7923E"
+      },
+      {
+        "colorName": "oregano leaves",
+        "colorCode": "NP AC 2127 A",
+        "colorHex": "#918F43"
+      },
+      {
+        "colorName": "woodford",
+        "colorCode": "NP AC 2128 A",
+        "colorHex": "#817346"
+      },
+      {
+        "colorName": "wood grains",
+        "colorCode": "NP AC 2129 A",
+        "colorHex": "#967946"
+      },
+      {
+        "colorName": "grated pulp",
+        "colorCode": "NP AC 2130 A",
+        "colorHex": "#A97F46"
+      },
+      {
+        "colorName": "ollie gold",
+        "colorCode": "NP AC 2131 A",
+        "colorHex": "#C28940"
+      },
+      {
+        "colorName": "castle rook",
+        "colorCode": "NP AC 2132 A",
+        "colorHex": "#9F754B"
+      },
+      {
+        "colorName": "fortune cookie",
+        "colorCode": "NP AC 2133 A",
+        "colorHex": "#7D5B46"
+      },
+      {
+        "colorName": "affogato",
+        "colorCode": "NP AC 2134 A",
+        "colorHex": "#664941"
+      },
+      {
+        "colorName": "expresso",
+        "colorCode": "NP AC 2135 A",
+        "colorHex": "#5D4D44"
+      },
+      {
+        "colorName": "natural highlights",
+        "colorCode": "NP AC 2136 A",
+        "colorHex": "#655445"
+      },
+      {
+        "colorName": "bedford",
+        "colorCode": "NP AC 2137 A",
+        "colorHex": "#7B5E4A"
+      },
+      {
+        "colorName": "brown dye",
+        "colorCode": "NP AC 2138 A",
+        "colorHex": "#7E634A"
+      },
+      {
+        "colorName": "caramel twist",
+        "colorCode": "NP AC 2139 A",
+        "colorHex": "#AD7548"
+      },
+      {
+        "colorName": "caramel twirl",
+        "colorCode": "NP AC 2140 A",
+        "colorHex": "#AD6C46"
+      },
+      {
+        "colorName": "brown bailey",
+        "colorCode": "NP AC 2141 A",
+        "colorHex": "#885141"
+      },
+      {
+        "colorName": "soprano",
+        "colorCode": "NP AC 2142 A",
+        "colorHex": "#623F44"
+      },
+      {
+        "colorName": "winestone",
+        "colorCode": "NP AC 2143 A",
+        "colorHex": "#6F4143"
+      },
+      {
+        "colorName": "new terracotta",
+        "colorCode": "NP AC 2144 A",
+        "colorHex": "#764B45"
+      },
+      {
+        "colorName": "fertile earth",
+        "colorCode": "NP AC 2145 A",
+        "colorHex": "#89463B"
+      }
+    ],
+    "Blue Greens & Greens": [
+      {
+        "colorName": "winning streak",
+        "colorCode": "NP BGG 1566 P",
+        "colorHex": "#A5D4E6"
+      },
+      {
+        "colorName": "great outdoors",
+        "colorCode": "NP BGG 1567 P",
+        "colorHex": "#84C5DE"
+      },
+      {
+        "colorName": "norse blue",
+        "colorCode": "NP BGG 1568 A",
+        "colorHex": "#0083AA"
+      },
+      {
+        "colorName": "out at sea",
+        "colorCode": "NP BGG 1569 D",
+        "colorHex": "#37A3C5"
+      },
+      {
+        "colorName": "blue spell",
+        "colorCode": "NP BGG 1570 T",
+        "colorHex": "#65B0D0"
+      },
+      {
+        "colorName": "blue instinct",
+        "colorCode": "NP BGG 1571 P",
+        "colorHex": "#BCE0EA"
+      },
+      {
+        "colorName": "blue wool",
+        "colorCode": "NP BGG 1572 P",
+        "colorHex": "#C8E1E7"
+      },
+      {
+        "colorName": "blue jive",
+        "colorCode": "NP BGG 1573 P",
+        "colorHex": "#97D3E2"
+      },
+      {
+        "colorName": "blue entry",
+        "colorCode": "NP BGG 1574 T",
+        "colorHex": "#5CB6CF"
+      },
+      {
+        "colorName": "blue jewel",
+        "colorCode": "NP BGG 1575 A",
+        "colorHex": "#007D9E"
+      },
+      {
+        "colorName": "florence blue",
+        "colorCode": "NP BGG 1576 D",
+        "colorHex": "#008CAA"
+      },
+      {
+        "colorName": "mediterranean seas",
+        "colorCode": "NP BGG 1577 T",
+        "colorHex": "#76C3DA"
+      },
+      {
+        "colorName": "blue puff",
+        "colorCode": "NP BGG 1578 P",
+        "colorHex": "#9DD2DC"
+      },
+      {
+        "colorName": "sky delight",
+        "colorCode": "NP BGG 1579 P",
+        "colorHex": "#BBE1E1"
+      },
+      {
+        "colorName": "basic blue",
+        "colorCode": "NP BGG 1580 P",
+        "colorHex": "#98D8DE"
+      },
+      {
+        "colorName": "classical blue",
+        "colorCode": "NP BGG 1581 D",
+        "colorHex": "#2DA7BA"
+      },
+      {
+        "colorName": "saxony blue",
+        "colorCode": "NP BGG 1582 A",
+        "colorHex": "#00819C"
+      },
+      {
+        "colorName": "ocean calm",
+        "colorCode": "NP BGG 1583 D",
+        "colorHex": "#0093A8"
+      },
+      {
+        "colorName": "engaging",
+        "colorCode": "NP BGG 1584 T",
+        "colorHex": "#61BACB"
+      },
+      {
+        "colorName": "blue breeze",
+        "colorCode": "NP BGG 1585 P",
+        "colorHex": "#A2D5DB"
+      },
+      {
+        "colorName": "blue scarf",
+        "colorCode": "NP BGG 1586 P",
+        "colorHex": "#B9E4E3"
+      },
+      {
+        "colorName": "distant blue",
+        "colorCode": "NP BGG 1587 P",
+        "colorHex": "#9DD8D9"
+      },
+      {
+        "colorName": "persian blue",
+        "colorCode": "NP BGG 1588 T",
+        "colorHex": "#5DC0C5"
+      },
+      {
+        "colorName": "navajo turquoise",
+        "colorCode": "NP BGG 1589 A",
+        "colorHex": "#007B89"
+      },
+      {
+        "colorName": "turkish tile",
+        "colorCode": "NP BGG 1590 D",
+        "colorHex": "#009BA3"
+      },
+      {
+        "colorName": "compass green",
+        "colorCode": "NP BGG 1607 P",
+        "colorHex": "#C6ECDB"
+      },
+      {
+        "colorName": "elves green",
+        "colorCode": "NP BGG 1608 P",
+        "colorHex": "#86D9C4"
+      },
+      {
+        "colorName": "green campus",
+        "colorCode": "NP BGG 1609 T",
+        "colorHex": "#5BBEA7"
+      },
+      {
+        "colorName": "ultra green",
+        "colorCode": "NP BGG 1610 A",
+        "colorHex": "#008066"
+      },
+      {
+        "colorName": "turquoise beads",
+        "colorCode": "NP BGG 1611 D",
+        "colorHex": "#26AA8D"
+      },
+      {
+        "colorName": "aqua glass",
+        "colorCode": "NP BGG 1612 T",
+        "colorHex": "#76CCB5"
+      },
+      {
+        "colorName": "crisp green",
+        "colorCode": "NP BGG 1613 P",
+        "colorHex": "#AFE2D1"
+      },
+      {
+        "colorName": "fairways",
+        "colorCode": "NP BGG 1614 P",
+        "colorHex": "#CCEED9"
+      },
+      {
+        "colorName": "green gates",
+        "colorCode": "NP BGG 1615 P",
+        "colorHex": "#8DDABA"
+      },
+      {
+        "colorName": "gazing fields",
+        "colorCode": "NP BGG 1616 D",
+        "colorHex": "#54C193"
+      },
+      {
+        "colorName": "green barricades",
+        "colorCode": "NP BGG 1617 A",
+        "colorHex": "#009863"
+      },
+      {
+        "colorName": "gretel's guess",
+        "colorCode": "NP BGG 1618 D",
+        "colorHex": "#1FB17F"
+      },
+      {
+        "colorName": "green gauze",
+        "colorCode": "NP BGG 1619 T",
+        "colorHex": "#80D3AD"
+      },
+      {
+        "colorName": "gustav green",
+        "colorCode": "NP BGG 1620 P",
+        "colorHex": "#A8E2C9"
+      },
+      {
+        "colorName": "amenity",
+        "colorCode": "NP BGG 1621 P",
+        "colorHex": "#B6E0C4"
+      },
+      {
+        "colorName": "green slur",
+        "colorCode": "NP BGG 1622 P",
+        "colorHex": "#AEE3C9"
+      },
+      {
+        "colorName": "spun green",
+        "colorCode": "NP BGG 1623 T",
+        "colorHex": "#8CC5A2"
+      },
+      {
+        "colorName": "greenway",
+        "colorCode": "NP BGG 1624 A",
+        "colorHex": "#0F8D56"
+      },
+      {
+        "colorName": "green fortune",
+        "colorCode": "NP BGG 1625 D",
+        "colorHex": "#40AD77"
+      },
+      {
+        "colorName": "restful green",
+        "colorCode": "NP BGG 1626 T",
+        "colorHex": "#84CEA5"
+      },
+      {
+        "colorName": "party mint",
+        "colorCode": "NP BGG 1627 P",
+        "colorHex": "#A9D4B9"
+      },
+      {
+        "colorName": "green draft",
+        "colorCode": "NP BGG 1628 P",
+        "colorHex": "#D2EFD8"
+      },
+      {
+        "colorName": "grated green",
+        "colorCode": "NP BGG 1629 P",
+        "colorHex": "#ADE1C4"
+      },
+      {
+        "colorName": "green gazette",
+        "colorCode": "NP BGG 1630 T",
+        "colorHex": "#90D5A9"
+      },
+      {
+        "colorName": "going green",
+        "colorCode": "NP BGG 1631 A",
+        "colorHex": "#347D4A"
+      },
+      {
+        "colorName": "green breakers",
+        "colorCode": "NP BGG 1632 D",
+        "colorHex": "#3DB06C"
+      },
+      {
+        "colorName": "tidal green",
+        "colorCode": "NP BGG 1633 D",
+        "colorHex": "#68C18A"
+      },
+      {
+        "colorName": "green glaze",
+        "colorCode": "NP BGG 1634 P",
+        "colorHex": "#B5E5C7"
+      },
+      {
+        "colorName": "rainy ride",
+        "colorCode": "NP BGG 1635 P",
+        "colorHex": "#D8F0CF"
+      },
+      {
+        "colorName": "greek myth",
+        "colorCode": "NP BGG 1636 P",
+        "colorHex": "#C5EAC0"
+      },
+      {
+        "colorName": "surrey green",
+        "colorCode": "NP BGG 1637 T",
+        "colorHex": "#8FD29F"
+      },
+      {
+        "colorName": "arboretum",
+        "colorCode": "NP BGG 1638 A",
+        "colorHex": "#069750"
+      },
+      {
+        "colorName": "beanstalk",
+        "colorCode": "NP BGG 1639 D",
+        "colorHex": "#58B26F"
+      },
+      {
+        "colorName": "mountain high",
+        "colorCode": "NP BGG 1640 D",
+        "colorHex": "#6CC580"
+      },
+      {
+        "colorName": "green highlands",
+        "colorCode": "NP BGG 1641 P",
+        "colorHex": "#A8E1B0"
+      },
+      {
+        "colorName": "young tea leaves",
+        "colorCode": "NP BGG 1642 P",
+        "colorHex": "#D1ECC5"
+      },
+      {
+        "colorName": "jasmine scent",
+        "colorCode": "NP BGG 1643 P",
+        "colorHex": "#CCE8BD"
+      },
+      {
+        "colorName": "jasmine leaf",
+        "colorCode": "NP BGG 1644 T",
+        "colorHex": "#9FD897"
+      },
+      {
+        "colorName": "stunning green",
+        "colorCode": "NP BGG 1645 A",
+        "colorHex": "#3EA041"
+      },
+      {
+        "colorName": "matcha green",
+        "colorCode": "NP BGG 1646 D",
+        "colorHex": "#69BF64"
+      },
+      {
+        "colorName": "picking green",
+        "colorCode": "NP BGG 1647 T",
+        "colorHex": "#8CCF84"
+      },
+      {
+        "colorName": "getaway",
+        "colorCode": "NP BGG 1648 P",
+        "colorHex": "#BCE4B3"
+      },
+      {
+        "colorName": "kiwi squeeze",
+        "colorCode": "NP BGG 1649 P",
+        "colorHex": "#D0EABD"
+      },
+      {
+        "colorName": "sweet kiwi",
+        "colorCode": "NP BGG 1650 P",
+        "colorHex": "#B7E4B0"
+      },
+      {
+        "colorName": "kiwi smoothie",
+        "colorCode": "NP BGG 1651 T",
+        "colorHex": "#9FD99C"
+      },
+      {
+        "colorName": "shenanigan",
+        "colorCode": "NP BGG 1652 A",
+        "colorHex": "#51A847"
+      },
+      {
+        "colorName": "kiwi",
+        "colorCode": "NP BGG 1653 D",
+        "colorHex": "#72C061"
+      },
+      {
+        "colorName": "kiwi cut",
+        "colorCode": "NP BGG 1654 T",
+        "colorHex": "#A2D893"
+      },
+      {
+        "colorName": "iced kiwi",
+        "colorCode": "NP BGG 1655 P",
+        "colorHex": "#CBEBC3"
+      },
+      {
+        "colorName": "floating leaves",
+        "colorCode": "NP BGG 1656 P",
+        "colorHex": "#E4F0CC"
+      },
+      {
+        "colorName": "leaflet",
+        "colorCode": "NP BGG 1657 P",
+        "colorHex": "#CBE5B1"
+      },
+      {
+        "colorName": "lime freeze",
+        "colorCode": "NP BGG 1658 T",
+        "colorHex": "#B2DD93"
+      },
+      {
+        "colorName": "lime frappe",
+        "colorCode": "NP BGG 1659 A",
+        "colorHex": "#60B03C"
+      },
+      {
+        "colorName": "frolic green",
+        "colorCode": "NP BGG 1660 D",
+        "colorHex": "#86C55F"
+      },
+      {
+        "colorName": "apple martini",
+        "colorCode": "NP BGG 1661 T",
+        "colorHex": "#9ED583"
+      },
+      {
+        "colorName": "apple cut",
+        "colorCode": "NP BGG 1662 P",
+        "colorHex": "#D6EABA"
+      },
+      {
+        "colorName": "pale parsnip",
+        "colorCode": "NP BGG 1663 P",
+        "colorHex": "#D5E9B7"
+      },
+      {
+        "colorName": "green treat",
+        "colorCode": "NP BGG 1664 T",
+        "colorHex": "#CCE499"
+      },
+      {
+        "colorName": "pixie leaf",
+        "colorCode": "NP BGG 1665 T",
+        "colorHex": "#B9DA7C"
+      },
+      {
+        "colorName": "green tuft",
+        "colorCode": "NP BGG 1666 A",
+        "colorHex": "#8ABD3C"
+      },
+      {
+        "colorName": "green willow",
+        "colorCode": "NP BGG 1667 D",
+        "colorHex": "#9BC45D"
+      },
+      {
+        "colorName": "parsnip",
+        "colorCode": "NP BGG 1668 T",
+        "colorHex": "#C0DB90"
+      },
+      {
+        "colorName": "willow stem",
+        "colorCode": "NP BGG 1669 P",
+        "colorHex": "#D3E5B0"
+      },
+      {
+        "colorName": "calm spirit",
+        "colorCode": "NP BGG 1670 P",
+        "colorHex": "#DFEBBB"
+      },
+      {
+        "colorName": "tiny leaf",
+        "colorCode": "NP BGG 1671 P",
+        "colorHex": "#D3E2AA"
+      },
+      {
+        "colorName": "limeburst",
+        "colorCode": "NP BGG 1672 T",
+        "colorHex": "#C2D789"
+      },
+      {
+        "colorName": "lime time",
+        "colorCode": "NP BGG 1673 A",
+        "colorHex": "#A7BD26"
+      },
+      {
+        "colorName": "dry bamboo",
+        "colorCode": "NP BGG 1693 T",
+        "colorHex": "#DDCA85"
+      },
+      {
+        "colorName": "natural slates",
+        "colorCode": "NP BGG 1694 A",
+        "colorHex": "#B3932A"
+      },
+      {
+        "colorName": "woven slats",
+        "colorCode": "NP BGG 1695 D",
+        "colorHex": "#C4AB58"
+      },
+      {
+        "colorName": "natural cane",
+        "colorCode": "NP BGG 1696 T",
+        "colorHex": "#D5C385"
+      },
+      {
+        "colorName": "nutmeats",
+        "colorCode": "NP BGG 1697 P",
+        "colorHex": "#EDE1AF"
+      },
+      {
+        "colorName": "light haystack",
+        "colorCode": "NP BGG 1698 P",
+        "colorHex": "#F2E1BD"
+      },
+      {
+        "colorName": "attica",
+        "colorCode": "NP BGG 1699 P",
+        "colorHex": "#E0C896"
+      },
+      {
+        "colorName": "backpackers lodge",
+        "colorCode": "NP BGG 1700 D",
+        "colorHex": "#C1A360"
+      },
+      {
+        "colorName": "naturella",
+        "colorCode": "NP BGG 1701 A",
+        "colorHex": "#A78442"
+      },
+      {
+        "colorName": "knitted sweater",
+        "colorCode": "NP BGG 1702 D",
+        "colorHex": "#B89756"
+      },
+      {
+        "colorName": "old mat",
+        "colorCode": "NP BGG 1703 T",
+        "colorHex": "#D0B47A"
+      },
+      {
+        "colorName": "pilates mat",
+        "colorCode": "NP BGG 1704 P",
+        "colorHex": "#EED9A9"
+      },
+      {
+        "colorName": "creek sand",
+        "colorCode": "NP BGG 1705 P",
+        "colorHex": "#E9DEB9"
+      },
+      {
+        "colorName": "broadcloth",
+        "colorCode": "NP BGG 1706 T",
+        "colorHex": "#CCBF95"
+      },
+      {
+        "colorName": "sandle tan",
+        "colorCode": "NP BGG 1707 D",
+        "colorHex": "#A49566"
+      },
+      {
+        "colorName": "deepset eyes",
+        "colorCode": "NP BGG 1708 A",
+        "colorHex": "#7E6D4A"
+      },
+      {
+        "colorName": "golden sage",
+        "colorCode": "NP BGG 1709 D",
+        "colorHex": "#AF9E60"
+      },
+      {
+        "colorName": "basket straw",
+        "colorCode": "NP BGG 1710 T",
+        "colorHex": "#CCBE8B"
+      },
+      {
+        "colorName": "cotton canvas",
+        "colorCode": "NP BGG 1711 P",
+        "colorHex": "#DACFAF"
+      },
+      {
+        "colorName": "picket fences",
+        "colorCode": "NP BGG 1712 P",
+        "colorHex": "#EBDEC5"
+      },
+      {
+        "colorName": "old barn",
+        "colorCode": "NP BGG 1713 P",
+        "colorHex": "#DCCAAA"
+      },
+      {
+        "colorName": "rolled logs",
+        "colorCode": "NP BGG 1714 T",
+        "colorHex": "#C2AF86"
+      },
+      {
+        "colorName": "woodward",
+        "colorCode": "NP BGG 1715 A",
+        "colorHex": "#89734C"
+      },
+      {
+        "colorName": "natural touch",
+        "colorCode": "NP BGG 1716 D",
+        "colorHex": "#AA9265"
+      },
+      {
+        "colorName": "dried stacks",
+        "colorCode": "NP BGG 1717 P",
+        "colorHex": "#D6C49F"
+      },
+      {
+        "colorName": "hunny's hut",
+        "colorCode": "NP BGG 1718 P",
+        "colorHex": "#E4D6BA"
+      },
+      {
+        "colorName": "evasive yellow",
+        "colorCode": "NP BGG 1719 P",
+        "colorHex": "#EBE6BB"
+      },
+      {
+        "colorName": "glinted white",
+        "colorCode": "NP BGG 1720 P",
+        "colorHex": "#E3DEB3"
+      },
+      {
+        "colorName": "dried palm",
+        "colorCode": "NP BGG 1721 T",
+        "colorHex": "#D9CE85"
+      },
+      {
+        "colorName": "patchwork",
+        "colorCode": "NP BGG 1722 A",
+        "colorHex": "#A6953F"
+      },
+      {
+        "colorName": "winter moss",
+        "colorCode": "NP BGG 1723 D",
+        "colorHex": "#C8BB8B"
+      },
+      {
+        "colorName": "moss print",
+        "colorCode": "NP BGG 1724 T",
+        "colorHex": "#D6CA8C"
+      },
+      {
+        "colorName": "crushed moss",
+        "colorCode": "NP BGG 1725 P",
+        "colorHex": "#E6DCAB"
+      },
+      {
+        "colorName": "cloud grass",
+        "colorCode": "NP BGG 1726 P",
+        "colorHex": "#E5E7BF"
+      },
+      {
+        "colorName": "clear bank",
+        "colorCode": "NP BGG 1727 P",
+        "colorHex": "#D7D2A5"
+      },
+      {
+        "colorName": "little isle",
+        "colorCode": "NP BGG 1728 T",
+        "colorHex": "#C8C288"
+      },
+      {
+        "colorName": "campus green",
+        "colorCode": "NP BGG 1729 A",
+        "colorHex": "#C1B324"
+      },
+      {
+        "colorName": "green shoot",
+        "colorCode": "NP BGG 1730 D",
+        "colorHex": "#AEA958"
+      },
+      {
+        "colorName": "celery seed",
+        "colorCode": "NP BGG 1731 T",
+        "colorHex": "#CAC389"
+      },
+      {
+        "colorName": "celery powder",
+        "colorCode": "NP BGG 1732 P",
+        "colorHex": "#DED7AC"
+      },
+      {
+        "colorName": "mimosette",
+        "colorCode": "NP BGG 1733 P",
+        "colorHex": "#EFEBD3"
+      },
+      {
+        "colorName": "green sling",
+        "colorCode": "NP BGG 1734 P",
+        "colorHex": "#D4CBA0"
+      },
+      {
+        "colorName": "miranda green",
+        "colorCode": "NP BGG 1735 T",
+        "colorHex": "#D4CBA0"
+      },
+      {
+        "colorName": "green pack",
+        "colorCode": "NP BGG 1736 A",
+        "colorHex": "#837949"
+      },
+      {
+        "colorName": "green mile",
+        "colorCode": "NP BGG 1737 D",
+        "colorHex": "#958B58"
+      },
+      {
+        "colorName": "young stalk",
+        "colorCode": "NP BGG 1738 T",
+        "colorHex": "#C4BB90"
+      },
+      {
+        "colorName": "glade",
+        "colorCode": "NP BGG 1739 P",
+        "colorHex": "#E0D7B2"
+      },
+      {
+        "colorName": "soft greetings",
+        "colorCode": "NP BGG 1740 P",
+        "colorHex": "#E5E5CD"
+      },
+      {
+        "colorName": "young bud",
+        "colorCode": "NP BGG 1741 P",
+        "colorHex": "#D0D0B2"
+      },
+      {
+        "colorName": "green living",
+        "colorCode": "NP BGG 1742 T",
+        "colorHex": "#B6B790"
+      },
+      {
+        "colorName": "livia green",
+        "colorCode": "NP BGG 1743 A",
+        "colorHex": "#696A48"
+      },
+      {
+        "colorName": "green heights",
+        "colorCode": "NP BGG 1744 D",
+        "colorHex": "#909063"
+      },
+      {
+        "colorName": "little garden",
+        "colorCode": "NP BGG 1745 P",
+        "colorHex": "#C0C29F"
+      },
+      {
+        "colorName": "by the pond",
+        "colorCode": "NP BGG 1746 P",
+        "colorHex": "#E3E4C3"
+      },
+      {
+        "colorName": "little buddies",
+        "colorCode": "NP BGG 1747 P",
+        "colorHex": "#DADBC1"
+      },
+      {
+        "colorName": "froggy's leaf",
+        "colorCode": "NP BGG 1748 P",
+        "colorHex": "#DADCB6"
+      },
+      {
+        "colorName": "brittany",
+        "colorCode": "NP BGG 1749 T",
+        "colorHex": "#A0A080"
+      },
+      {
+        "colorName": "esparina",
+        "colorCode": "NP BGG 1750 A",
+        "colorHex": "#666949"
+      },
+      {
+        "colorName": "brazen",
+        "colorCode": "NP BGG 1751 D",
+        "colorHex": "#828361"
+      },
+      {
+        "colorName": "green montage",
+        "colorCode": "NP BGG 1752 T",
+        "colorHex": "#C0C59C"
+      },
+      {
+        "colorName": "green tag",
+        "colorCode": "NP BGG 1753 P",
+        "colorHex": "#D4D9B8"
+      },
+      {
+        "colorName": "wavelike",
+        "colorCode": "NP BGG 1754 P",
+        "colorHex": "#D9DDC9"
+      },
+      {
+        "colorName": "skylark",
+        "colorCode": "NP BGG 1755 T",
+        "colorHex": "#B9C2A9"
+      },
+      {
+        "colorName": "parrot green",
+        "colorCode": "NP BGG 1756 T",
+        "colorHex": "#92997D"
+      },
+      {
+        "colorName": "esplanade",
+        "colorCode": "NP BGG 1757 A",
+        "colorHex": "#4C4E3F"
+      },
+      {
+        "colorName": "torrents",
+        "colorCode": "NP BGG 1758 D",
+        "colorHex": "#7A8065"
+      },
+      {
+        "colorName": "sweet escapade",
+        "colorCode": "NP BGG 1759 T",
+        "colorHex": "#A9B296"
+      },
+      {
+        "colorName": "green peers",
+        "colorCode": "NP BGG 1760 P",
+        "colorHex": "#D2D6C3"
+      },
+      {
+        "colorName": "little lullaby",
+        "colorCode": "NP BGG 1761 P",
+        "colorHex": "#D2DAD0"
+      },
+      {
+        "colorName": "young fonds",
+        "colorCode": "NP BGG 1762 P",
+        "colorHex": "#C1CABD"
+      },
+      {
+        "colorName": "georgia fields",
+        "colorCode": "NP BGG 1763 T",
+        "colorHex": "#93A393"
+      },
+      {
+        "colorName": "great escape",
+        "colorCode": "NP BGG 1764 A",
+        "colorHex": "#515C50"
+      },
+      {
+        "colorName": "green hills",
+        "colorCode": "NP BGG 1765 D",
+        "colorHex": "#707F6F"
+      },
+      {
+        "colorName": "young shepherd",
+        "colorCode": "NP BGG 1766 P",
+        "colorHex": "#A7B4A5"
+      },
+      {
+        "colorName": "prized green",
+        "colorCode": "NP BGG 1767 P",
+        "colorHex": "#D7DCCE"
+      },
+      {
+        "colorName": "hidden green",
+        "colorCode": "NP BGG 1768 P",
+        "colorHex": "#D5DDB1"
+      },
+      {
+        "colorName": "spring kissed",
+        "colorCode": "NP BGG 1769 P",
+        "colorHex": "#DBE3B7"
+      },
+      {
+        "colorName": "creeping willow",
+        "colorCode": "NP BGG 1770 T",
+        "colorHex": "#C2D089"
+      },
+      {
+        "colorName": "great sentosa",
+        "colorCode": "NP BGG 1771 A",
+        "colorHex": "#97A340"
+      },
+      {
+        "colorName": "willow branch",
+        "colorCode": "NP BGG 1772 D",
+        "colorHex": "#99AC59"
+      },
+      {
+        "colorName": "grassy patch",
+        "colorCode": "NP BGG 1773 T",
+        "colorHex": "#CFDBA3"
+      },
+      {
+        "colorName": "clover tip",
+        "colorCode": "NP BGG 1774 P",
+        "colorHex": "#DFE4B9"
+      },
+      {
+        "colorName": "neverland",
+        "colorCode": "NP BGG 1775 P",
+        "colorHex": "#F0EFD4"
+      },
+      {
+        "colorName": "green veil",
+        "colorCode": "NP BGG 1776 P",
+        "colorHex": "#D4E5AF"
+      },
+      {
+        "colorName": "aquarius green",
+        "colorCode": "NP BGG 1777 T",
+        "colorHex": "#AEC97A"
+      },
+      {
+        "colorName": "green pastures",
+        "colorCode": "NP BGG 1778 A",
+        "colorHex": "#77A13D"
+      },
+      {
+        "colorName": "lilting green",
+        "colorCode": "NP BGG 1779 D",
+        "colorHex": "#A7C659"
+      },
+      {
+        "colorName": "green slopes",
+        "colorCode": "NP BGG 1780 T",
+        "colorHex": "#C4D999"
+      },
+      {
+        "colorName": "grasslands",
+        "colorCode": "NP BGG 1781 P",
+        "colorHex": "#E3EBC4"
+      },
+      {
+        "colorName": "white fern",
+        "colorCode": "NP BGG 1782 P",
+        "colorHex": "#D2E2BE"
+      },
+      {
+        "colorName": "little little",
+        "colorCode": "NP BGG 1783 P",
+        "colorHex": "#BED7AD"
+      },
+      {
+        "colorName": "lily stem",
+        "colorCode": "NP BGG 1784 T",
+        "colorHex": "#A6C58E"
+      },
+      {
+        "colorName": "climbing vine",
+        "colorCode": "NP BGG 1785 A",
+        "colorHex": "#5E8742"
+      },
+      {
+        "colorName": "painter's leaf",
+        "colorCode": "NP BGG 1786 D",
+        "colorHex": "#87A762"
+      },
+      {
+        "colorName": "secret garden",
+        "colorCode": "NP BGG 1787 T",
+        "colorHex": "#B5D3A0"
+      },
+      {
+        "colorName": "pine scent",
+        "colorCode": "NP BGG 1788 P",
+        "colorHex": "#D2E4C6"
+      },
+      {
+        "colorName": "green dash",
+        "colorCode": "NP BGG 1789 P",
+        "colorHex": "#D5E7CD"
+      },
+      {
+        "colorName": "wing flutter",
+        "colorCode": "NP BGG 1790 P",
+        "colorHex": "#C9DEBA"
+      },
+      {
+        "colorName": "single blade",
+        "colorCode": "NP BGG 1791 T",
+        "colorHex": "#A7C893"
+      },
+      {
+        "colorName": "bamboo leaf",
+        "colorCode": "NP BGG 1792 A",
+        "colorHex": "#4D7547"
+      },
+      {
+        "colorName": "green pod",
+        "colorCode": "NP BGG 1793 D",
+        "colorHex": "#789E61"
+      },
+      {
+        "colorName": "comfort green",
+        "colorCode": "NP BGG 1794 T",
+        "colorHex": "#B1CE9C"
+      },
+      {
+        "colorName": "green touch",
+        "colorCode": "NP BGG 1795 P",
+        "colorHex": "#CEE6C4"
+      },
+      {
+        "colorName": "teardrop",
+        "colorCode": "NP BGG 1796 P",
+        "colorHex": "#CADFD0"
+      },
+      {
+        "colorName": "clear perrier",
+        "colorCode": "NP BGG 1797 T",
+        "colorHex": "#ACCDAF"
+      },
+      {
+        "colorName": "chameleon",
+        "colorCode": "NP BGG 1798 T",
+        "colorHex": "#88AC8B"
+      },
+      {
+        "colorName": "green abyss",
+        "colorCode": "NP BGG 1799 A",
+        "colorHex": "#436552"
+      },
+      {
+        "colorName": "terrestrial green",
+        "colorCode": "NP BGG 1800 D",
+        "colorHex": "#65906F"
+      },
+      {
+        "colorName": "jasper green",
+        "colorCode": "NP BGG 1801 T",
+        "colorHex": "#96B99C"
+      },
+      {
+        "colorName": "pine bud",
+        "colorCode": "NP BGG 1802 P",
+        "colorHex": "#C0D8C3"
+      },
+      {
+        "colorName": "lake alone",
+        "colorCode": "NP BGG 1803 P",
+        "colorHex": "#C3DAD1"
+      },
+      {
+        "colorName": "misty rain",
+        "colorCode": "NP BGG 1804 P",
+        "colorHex": "#A3C3BB"
+      },
+      {
+        "colorName": "river port",
+        "colorCode": "NP BGG 1805 T",
+        "colorHex": "#85AFA7"
+      },
+      {
+        "colorName": "courtyard green",
+        "colorCode": "NP BGG 1806 A",
+        "colorHex": "#3A736A"
+      },
+      {
+        "colorName": "slate crest",
+        "colorCode": "NP BGG 1807 D",
+        "colorHex": "#538277"
+      },
+      {
+        "colorName": "harbour shadow",
+        "colorCode": "NP BGG 1808 T",
+        "colorHex": "#85AAA2"
+      },
+      {
+        "colorName": "vantage view",
+        "colorCode": "NP BGG 1809 P",
+        "colorHex": "#B3D2CA"
+      },
+      {
+        "colorName": "sea nymph green",
+        "colorCode": "NP BGG 1810 P",
+        "colorHex": "#BADDDC"
+      },
+      {
+        "colorName": "water blue",
+        "colorCode": "NP BGG 1811 P",
+        "colorHex": "#A9D4D6"
+      },
+      {
+        "colorName": "early trek",
+        "colorCode": "NP BGG 1812 T",
+        "colorHex": "#75B6BE"
+      },
+      {
+        "colorName": "green gable",
+        "colorCode": "NP BGG 1813 A",
+        "colorHex": "#2E797C"
+      },
+      {
+        "colorName": "pueblo blue",
+        "colorCode": "NP BGG 1814 D",
+        "colorHex": "#398A93"
+      },
+      {
+        "colorName": "scuba dive",
+        "colorCode": "NP BGG 1815 P",
+        "colorHex": "#85CACF"
+      },
+      {
+        "colorName": "blue bubble",
+        "colorCode": "NP BGG 1816 P",
+        "colorHex": "#B0D6DD"
+      }
+    ],
+    "Neutrals": [
+      {
+        "colorName": "pebble walk",
+        "colorCode": "NP N 1817 P",
+        "colorHex": "#D2C8AE"
+      },
+      {
+        "colorName": "sanded brich",
+        "colorCode": "NP N 1818 P",
+        "colorHex": "#D0C5A7"
+      },
+      {
+        "colorName": "weatherburn tan",
+        "colorCode": "NP N 1819 T",
+        "colorHex": "#B4A786"
+      },
+      {
+        "colorName": "old box",
+        "colorCode": "NP N 1820 A",
+        "colorHex": "#796C4B"
+      },
+      {
+        "colorName": "crete barrel",
+        "colorCode": "NP N 1821 D",
+        "colorHex": "#958663"
+      },
+      {
+        "colorName": "wood box",
+        "colorCode": "NP N 1822 T",
+        "colorHex": "#BEB192"
+      },
+      {
+        "colorName": "natural almond",
+        "colorCode": "NP N 1823 P",
+        "colorHex": "#D8CEB5"
+      },
+      {
+        "colorName": "little angel",
+        "colorCode": "NP N 1824 P",
+        "colorHex": "#F0E4C5"
+      },
+      {
+        "colorName": "melancholy",
+        "colorCode": "NP N 1825 P",
+        "colorHex": "#CBC29E"
+      },
+      {
+        "colorName": "natural essence",
+        "colorCode": "NP N 1826 T",
+        "colorHex": "#A1967A"
+      },
+      {
+        "colorName": "green slate",
+        "colorCode": "NP N 1827 A",
+        "colorHex": "#6B614A"
+      },
+      {
+        "colorName": "green gallop",
+        "colorCode": "NP N 1828 D",
+        "colorHex": "#908462"
+      },
+      {
+        "colorName": "green gables",
+        "colorCode": "NP N 1829 P",
+        "colorHex": "#BCB296"
+      },
+      {
+        "colorName": "foggy green",
+        "colorCode": "NP N 1830 P",
+        "colorHex": "#D0C5A7"
+      },
+      {
+        "colorName": "almond chip",
+        "colorCode": "NP N 1831 P",
+        "colorHex": "#DFD9C4"
+      },
+      {
+        "colorName": "great wall",
+        "colorCode": "NP N 1832 P",
+        "colorHex": "#CBC3A9"
+      },
+      {
+        "colorName": "concrete kerb",
+        "colorCode": "NP N 1833 D",
+        "colorHex": "#908A70"
+      },
+      {
+        "colorName": "shady spot",
+        "colorCode": "NP N 1834 D",
+        "colorHex": "#827C61"
+      },
+      {
+        "colorName": "square pegs",
+        "colorCode": "NP N 1835 D",
+        "colorHex": "#8D876F"
+      },
+      {
+        "colorName": "nightingale",
+        "colorCode": "NP N 1836 T",
+        "colorHex": "#A09B85"
+      },
+      {
+        "colorName": "healing touch",
+        "colorCode": "NP N 1837 P",
+        "colorHex": "#D3CEB7"
+      },
+      {
+        "colorName": "drifting by",
+        "colorCode": "NP N 1838 P",
+        "colorHex": "#E8D9BC"
+      },
+      {
+        "colorName": "comfy tan",
+        "colorCode": "NP N 1839 T",
+        "colorHex": "#D8BF94"
+      },
+      {
+        "colorName": "countertop",
+        "colorCode": "NP N 1840 D",
+        "colorHex": "#B09061"
+      },
+      {
+        "colorName": "italian cafe",
+        "colorCode": "NP N 1841 A",
+        "colorHex": "#937548"
+      },
+      {
+        "colorName": "golden grain",
+        "colorCode": "NP N 1842 D",
+        "colorHex": "#BB975B"
+      },
+      {
+        "colorName": "pastry puff",
+        "colorCode": "NP N 1843 T",
+        "colorHex": "#D2B487"
+      },
+      {
+        "colorName": "butter toast",
+        "colorCode": "NP N 1844 P",
+        "colorHex": "#EAD5AE"
+      },
+      {
+        "colorName": "perfumed powder",
+        "colorCode": "NP N 1845 P",
+        "colorHex": "#F3E0C1"
+      },
+      {
+        "colorName": "ciabatta",
+        "colorCode": "NP N 1846 P",
+        "colorHex": "#E3D1AF"
+      },
+      {
+        "colorName": "sapling",
+        "colorCode": "NP N 1847 T",
+        "colorHex": "#C3AE89"
+      },
+      {
+        "colorName": "creamy caramel",
+        "colorCode": "NP N 1848 A",
+        "colorHex": "#776345"
+      },
+      {
+        "colorName": "pecan smell",
+        "colorCode": "NP N 1849 D",
+        "colorHex": "#9E845D"
+      },
+      {
+        "colorName": "danish pattiserie",
+        "colorCode": "NP N 1850 T",
+        "colorHex": "#B69F7A"
+      },
+      {
+        "colorName": "ramie",
+        "colorCode": "NP N 1851 P",
+        "colorHex": "#E0CFB4"
+      },
+      {
+        "colorName": "birch patina",
+        "colorCode": "NP N 1852 P",
+        "colorHex": "#DAD0C2"
+      },
+      {
+        "colorName": "curling bark",
+        "colorCode": "NP N 1853 T",
+        "colorHex": "#C0B39D"
+      },
+      {
+        "colorName": "tracking tan",
+        "colorCode": "NP N 1854 D",
+        "colorHex": "#988569"
+      },
+      {
+        "colorName": "timber logs",
+        "colorCode": "NP N 1855 A",
+        "colorHex": "#675948"
+      },
+      {
+        "colorName": "firewood",
+        "colorCode": "NP N 1856 D",
+        "colorHex": "#96866E"
+      },
+      {
+        "colorName": "shipsgate",
+        "colorCode": "NP N 1857 T",
+        "colorHex": "#B6A68E"
+      },
+      {
+        "colorName": "foggy day",
+        "colorCode": "NP N 1858 P",
+        "colorHex": "#D1C5B2"
+      },
+      {
+        "colorName": "wispy bits",
+        "colorCode": "NP N 1859 P",
+        "colorHex": "#E9DBC9"
+      },
+      {
+        "colorName": "light mcintosh",
+        "colorCode": "NP N 1860 P",
+        "colorHex": "#D8C2AE"
+      },
+      {
+        "colorName": "handpainted",
+        "colorCode": "NP N 1861 T",
+        "colorHex": "#A28A75"
+      },
+      {
+        "colorName": "azuki coffee",
+        "colorCode": "NP N 1862 A",
+        "colorHex": "#6F5B4A"
+      },
+      {
+        "colorName": "morsels",
+        "colorCode": "NP N 1863 D",
+        "colorHex": "#8C745E"
+      },
+      {
+        "colorName": "artist's impression",
+        "colorCode": "NP N 1864 T",
+        "colorHex": "#BBA591"
+      },
+      {
+        "colorName": "wall arte",
+        "colorCode": "NP N 1865 P",
+        "colorHex": "#E0D1C1"
+      },
+      {
+        "colorName": "old pub",
+        "colorCode": "NP N 1866 P",
+        "colorHex": "#E7D4B9"
+      },
+      {
+        "colorName": "tavern buff",
+        "colorCode": "NP N 1867 P",
+        "colorHex": "#D5BFA6"
+      },
+      {
+        "colorName": "stairstep",
+        "colorCode": "NP N 1868 T",
+        "colorHex": "#BDA081"
+      },
+      {
+        "colorName": "friar tuck",
+        "colorCode": "NP N 1869 A",
+        "colorHex": "#89694A"
+      },
+      {
+        "colorName": "oak parquet",
+        "colorCode": "NP N 1870 D",
+        "colorHex": "#A07A54"
+      },
+      {
+        "colorName": "natural oak",
+        "colorCode": "NP N 1871 T",
+        "colorHex": "#C6A683"
+      },
+      {
+        "colorName": "silk knot",
+        "colorCode": "NP N 1872 P",
+        "colorHex": "#E2CBAF"
+      },
+      {
+        "colorName": "shitake",
+        "colorCode": "NP N 1873 P",
+        "colorHex": "#E7D0B9"
+      },
+      {
+        "colorName": "soft fur",
+        "colorCode": "NP N 1874 T",
+        "colorHex": "#CBAD96"
+      },
+      {
+        "colorName": "brushmark",
+        "colorCode": "NP N 1875 T",
+        "colorHex": "#C3A182"
+      },
+      {
+        "colorName": "sable brown",
+        "colorCode": "NP N 1876 A",
+        "colorHex": "#875D42"
+      },
+      {
+        "colorName": "country maple",
+        "colorCode": "NP N 1877 D",
+        "colorHex": "#9A7352"
+      },
+      {
+        "colorName": "natural cedar",
+        "colorCode": "NP N 1878 T",
+        "colorHex": "#BC9479"
+      },
+      {
+        "colorName": "basket beige",
+        "colorCode": "NP N 1879 P",
+        "colorHex": "#DFC5AD"
+      },
+      {
+        "colorName": "nature walk",
+        "colorCode": "NP N 1880 P",
+        "colorHex": "#D9C8BF"
+      },
+      {
+        "colorName": "leather belt",
+        "colorCode": "NP N 1881 T",
+        "colorHex": "#B8A299"
+      },
+      {
+        "colorName": "mushroom brown",
+        "colorCode": "NP N 1882 T",
+        "colorHex": "#A68F85"
+      },
+      {
+        "colorName": "saddle brown",
+        "colorCode": "NP N 1883 A",
+        "colorHex": "#6B5043"
+      },
+      {
+        "colorName": "old boots",
+        "colorCode": "NP N 1884 D",
+        "colorHex": "#897269"
+      },
+      {
+        "colorName": "buckle straps",
+        "colorCode": "NP N 1885 T",
+        "colorHex": "#AC9892"
+      },
+      {
+        "colorName": "chain reaction",
+        "colorCode": "NP N 1886 P",
+        "colorHex": "#CBB8AF"
+      },
+      {
+        "colorName": "bradford beige",
+        "colorCode": "NP N 1887 P",
+        "colorHex": "#D4B8AF"
+      },
+      {
+        "colorName": "plymouth notch",
+        "colorCode": "NP N 1888 P",
+        "colorHex": "#D1B5AD"
+      },
+      {
+        "colorName": "ground clove",
+        "colorCode": "NP N 1889 T",
+        "colorHex": "#A47D73"
+      },
+      {
+        "colorName": "newtowne brown",
+        "colorCode": "NP N 1890 A",
+        "colorHex": "#6E4D46"
+      },
+      {
+        "colorName": "roxbury brown",
+        "colorCode": "NP N 1891 D",
+        "colorHex": "#8C6359"
+      },
+      {
+        "colorName": "frontier shadow",
+        "colorCode": "NP N 1892 P",
+        "colorHex": "#C0A199"
+      },
+      {
+        "colorName": "olde rose",
+        "colorCode": "NP N 1893 P",
+        "colorHex": "#D0AFA7"
+      },
+      {
+        "colorName": "mountain haze",
+        "colorCode": "NP N 1894 P",
+        "colorHex": "#CFB8BA"
+      },
+      {
+        "colorName": "weathered brown",
+        "colorCode": "NP N 1895 P",
+        "colorHex": "#C8B3AF"
+      },
+      {
+        "colorName": "lavender gray",
+        "colorCode": "NP N 1896 T",
+        "colorHex": "#A8898D"
+      },
+      {
+        "colorName": "tempest brown",
+        "colorCode": "NP N 1897 A",
+        "colorHex": "#604242"
+      },
+      {
+        "colorName": "purplestone",
+        "colorCode": "NP N 1898 D",
+        "colorHex": "#7C5C60"
+      },
+      {
+        "colorName": "country junction",
+        "colorCode": "NP N 1899 T",
+        "colorHex": "#9D7E7D"
+      },
+      {
+        "colorName": "teaberry gray",
+        "colorCode": "NP N 1900 P",
+        "colorHex": "#BBA1A0"
+      },
+      {
+        "colorName": "arte deco",
+        "colorCode": "NP N 1901 P",
+        "colorHex": "#D9C8BF"
+      },
+      {
+        "colorName": "favorite shawl",
+        "colorCode": "NP N 1902 P",
+        "colorHex": "#CBB6AA"
+      },
+      {
+        "colorName": "warm knit",
+        "colorCode": "NP N 1903 T",
+        "colorHex": "#AD9A93"
+      },
+      {
+        "colorName": "painted frame",
+        "colorCode": "NP N 1904 A",
+        "colorHex": "#57443D"
+      },
+      {
+        "colorName": "garden earth",
+        "colorCode": "NP N 1905 D",
+        "colorHex": "#725C57"
+      },
+      {
+        "colorName": "autumn ashes",
+        "colorCode": "NP N 1906 T",
+        "colorHex": "#9D8A84"
+      },
+      {
+        "colorName": "overalls",
+        "colorCode": "NP N 1907 P",
+        "colorHex": "#CDBCB3"
+      },
+      {
+        "colorName": "light mink",
+        "colorCode": "NP N 1908 P",
+        "colorHex": "#D6C7C2"
+      },
+      {
+        "colorName": "tinted glass",
+        "colorCode": "NP N 1909 P",
+        "colorHex": "#C8B7B3"
+      },
+      {
+        "colorName": "king's throne",
+        "colorCode": "NP N 1910 P",
+        "colorHex": "#B8A6A2"
+      },
+      {
+        "colorName": "nat king cole",
+        "colorCode": "NP N 1911 D",
+        "colorHex": "#746461"
+      },
+      {
+        "colorName": "harrison gray",
+        "colorCode": "NP N 1912 T",
+        "colorHex": "#938582"
+      },
+      {
+        "colorName": "garden dust",
+        "colorCode": "NP N 1913 P",
+        "colorHex": "#B7A9A5"
+      },
+      {
+        "colorName": "beige gray",
+        "colorCode": "NP N 1914 P",
+        "colorHex": "#C6B6B0"
+      },
+      {
+        "colorName": "battlestone",
+        "colorCode": "NP N 1915 P",
+        "colorHex": "#DAD2D2"
+      },
+      {
+        "colorName": "bayside",
+        "colorCode": "NP N 1916 P",
+        "colorHex": "#CEC3C4"
+      },
+      {
+        "colorName": "burnt ashes",
+        "colorCode": "NP N 1917 T",
+        "colorHex": "#A89FA4"
+      },
+      {
+        "colorName": "volcanic black",
+        "colorCode": "NP N 1918 A",
+        "colorHex": "#453C40"
+      },
+      {
+        "colorName": "turned earth",
+        "colorCode": "NP N 1919 D",
+        "colorHex": "#676162"
+      },
+      {
+        "colorName": "braintree road",
+        "colorCode": "NP N 1920 T",
+        "colorHex": "#8C888B"
+      },
+      {
+        "colorName": "gray dawning",
+        "colorCode": "NP N 1921 P",
+        "colorHex": "#BAB7B7"
+      },
+      {
+        "colorName": "enchanted state",
+        "colorCode": "NP N 1922 P",
+        "colorHex": "#C9C2BE"
+      },
+      {
+        "colorName": "youthful grace",
+        "colorCode": "NP N 1923 P",
+        "colorHex": "#B2ACA8"
+      },
+      {
+        "colorName": "amazing touch",
+        "colorCode": "NP N 1924 D",
+        "colorHex": "#7C797A"
+      },
+      {
+        "colorName": "painted faces",
+        "colorCode": "NP N 1925 A",
+        "colorHex": "#4D4643"
+      },
+      {
+        "colorName": "serendipitous",
+        "colorCode": "NP N 1926 D",
+        "colorHex": "#625C5B"
+      },
+      {
+        "colorName": "rare talent",
+        "colorCode": "NP N 1927 T",
+        "colorHex": "#9A9596"
+      },
+      {
+        "colorName": "pure gift",
+        "colorCode": "NP N 1928 P",
+        "colorHex": "#BBB5B2"
+      },
+      {
+        "colorName": "enticed",
+        "colorCode": "NP N 1929 P",
+        "colorHex": "#CFC3C3"
+      },
+      {
+        "colorName": "soft chant",
+        "colorCode": "NP N 1930 T",
+        "colorHex": "#BAB0B9"
+      },
+      {
+        "colorName": "long finale",
+        "colorCode": "NP N 1931 T",
+        "colorHex": "#8E7F89"
+      },
+      {
+        "colorName": "rumours",
+        "colorCode": "NP N 1932 A",
+        "colorHex": "#564653"
+      },
+      {
+        "colorName": "pitter patter",
+        "colorCode": "NP N 1933 D",
+        "colorHex": "#7D6E7A"
+      },
+      {
+        "colorName": "soft prayers",
+        "colorCode": "NP N 1934 T",
+        "colorHex": "#9E919D"
+      },
+      {
+        "colorName": "kind words",
+        "colorCode": "NP N 1935 P",
+        "colorHex": "#D8CBD0"
+      },
+      {
+        "colorName": "lonely nights",
+        "colorCode": "NP N 1936 P",
+        "colorHex": "#E6DCE1"
+      },
+      {
+        "colorName": "lavender lots",
+        "colorCode": "NP N 1937 P",
+        "colorHex": "#CABCC4"
+      },
+      {
+        "colorName": "hazy lavender",
+        "colorCode": "NP N 1938 T",
+        "colorHex": "#A496A7"
+      },
+      {
+        "colorName": "lavender hedge",
+        "colorCode": "NP N 1939 A",
+        "colorHex": "#544A54"
+      },
+      {
+        "colorName": "crowded house",
+        "colorCode": "NP N 1940 D",
+        "colorHex": "#7D6E7E"
+      },
+      {
+        "colorName": "billows",
+        "colorCode": "NP N 1941 T",
+        "colorHex": "#BBAEBB"
+      },
+      {
+        "colorName": "orchid reach",
+        "colorCode": "NP N 1942 P",
+        "colorHex": "#E1D0D0"
+      },
+      {
+        "colorName": "singing softly",
+        "colorCode": "NP N 1943 P",
+        "colorHex": "#D8CED5"
+      },
+      {
+        "colorName": "dreamy state",
+        "colorCode": "NP N 1944 P",
+        "colorHex": "#C8BCCA"
+      },
+      {
+        "colorName": "wonder land",
+        "colorCode": "NP N 1945 T",
+        "colorHex": "#A598AC"
+      },
+      {
+        "colorName": "making music",
+        "colorCode": "NP N 1946 A",
+        "colorHex": "#4F4351"
+      },
+      {
+        "colorName": "slight nudge",
+        "colorCode": "NP N 1947 D",
+        "colorHex": "#77687C"
+      },
+      {
+        "colorName": "mushy grapes",
+        "colorCode": "NP N 1948 D",
+        "colorHex": "#86788C"
+      },
+      {
+        "colorName": "bridging gap",
+        "colorCode": "NP N 1949 T",
+        "colorHex": "#B4A8B8"
+      },
+      {
+        "colorName": "thinking aloud",
+        "colorCode": "NP N 1950 P",
+        "colorHex": "#CEC9D6"
+      },
+      {
+        "colorName": "hollywood dream",
+        "colorCode": "NP N 1951 P",
+        "colorHex": "#B1AEC0"
+      },
+      {
+        "colorName": "fantasy come true",
+        "colorCode": "NP N 1952 T",
+        "colorHex": "#8A8398"
+      },
+      {
+        "colorName": "hustle bustle",
+        "colorCode": "NP N 1953 A",
+        "colorHex": "#534C5B"
+      },
+      {
+        "colorName": "castle in the air",
+        "colorCode": "NP N 1954 D",
+        "colorHex": "#746B81"
+      },
+      {
+        "colorName": "springstep",
+        "colorCode": "NP N 1955 T",
+        "colorHex": "#9893A8"
+      },
+      {
+        "colorName": "light kaleidascope",
+        "colorCode": "NP N 1956 P",
+        "colorHex": "#C5BECE"
+      },
+      {
+        "colorName": "light jacket",
+        "colorCode": "NP N 1957 P",
+        "colorHex": "#CCCACE"
+      },
+      {
+        "colorName": "suede shoes",
+        "colorCode": "NP N 1958 P",
+        "colorHex": "#BDBBC3"
+      },
+      {
+        "colorName": "glass bottle",
+        "colorCode": "NP N 1959 T",
+        "colorHex": "#969AA6"
+      },
+      {
+        "colorName": "deep meditation",
+        "colorCode": "NP N 1960 D",
+        "colorHex": "#595C68"
+      },
+      {
+        "colorName": "passing by",
+        "colorCode": "NP N 1961 D",
+        "colorHex": "#6B6F7E"
+      },
+      {
+        "colorName": "trinklets",
+        "colorCode": "NP N 1962 P",
+        "colorHex": "#ADADB6"
+      },
+      {
+        "colorName": "etheria blue",
+        "colorCode": "NP N 1963 P",
+        "colorHex": "#C5C9D4"
+      },
+      {
+        "colorName": "blue cradle",
+        "colorCode": "NP N 1964 P",
+        "colorHex": "#CAD1D9"
+      },
+      {
+        "colorName": "choir boys",
+        "colorCode": "NP N 1965 P",
+        "colorHex": "#B9C0CB"
+      },
+      {
+        "colorName": "blue collar",
+        "colorCode": "NP N 1966 D",
+        "colorHex": "#757F91"
+      },
+      {
+        "colorName": "mysterious blue",
+        "colorCode": "NP N 1967 A",
+        "colorHex": "#545662"
+      },
+      {
+        "colorName": "fountain blue",
+        "colorCode": "NP N 1968 D",
+        "colorHex": "#676E82"
+      },
+      {
+        "colorName": "blue tip",
+        "colorCode": "NP N 1969 T",
+        "colorHex": "#949EB1"
+      },
+      {
+        "colorName": "ringo blue",
+        "colorCode": "NP N 1970 P",
+        "colorHex": "#A3ADBE"
+      },
+      {
+        "colorName": "cloud formation",
+        "colorCode": "NP N 1971 P",
+        "colorHex": "#E0E0E0"
+      },
+      {
+        "colorName": "blue pool",
+        "colorCode": "NP N 1972 P",
+        "colorHex": "#B4B5BA"
+      },
+      {
+        "colorName": "baby blue towel",
+        "colorCode": "NP N 1973 T",
+        "colorHex": "#7A808C"
+      },
+      {
+        "colorName": "blue bureau",
+        "colorCode": "NP N 1974 A",
+        "colorHex": "#414045"
+      },
+      {
+        "colorName": "bassinet blue",
+        "colorCode": "NP N 1975 D",
+        "colorHex": "#6D7079"
+      },
+      {
+        "colorName": "blue carpet",
+        "colorCode": "NP N 1976 P",
+        "colorHex": "#9BA0A7"
+      },
+      {
+        "colorName": "blue jumpers",
+        "colorCode": "NP N 1977 P",
+        "colorHex": "#BAC4C8"
+      },
+      {
+        "colorName": "light gauze",
+        "colorCode": "NP N 1978 P",
+        "colorHex": "#C3C6C8"
+      },
+      {
+        "colorName": "graycloth",
+        "colorCode": "NP N 1979 P",
+        "colorHex": "#BDC1C2"
+      },
+      {
+        "colorName": "granite rock",
+        "colorCode": "NP N 1980 T",
+        "colorHex": "#90959C"
+      },
+      {
+        "colorName": "beadrock bottom",
+        "colorCode": "NP N 1981 A",
+        "colorHex": "#4D4E52"
+      },
+      {
+        "colorName": "puritan black",
+        "colorCode": "NP N 1982 D",
+        "colorHex": "#61666C"
+      },
+      {
+        "colorName": "gray cotton",
+        "colorCode": "NP N 1983 P",
+        "colorHex": "#AEB6B9"
+      },
+      {
+        "colorName": "gray prose",
+        "colorCode": "NP N 1984 P",
+        "colorHex": "#C7CED2"
+      },
+      {
+        "colorName": "quarry pebble",
+        "colorCode": "NP N 1985 P",
+        "colorHex": "#BCBFC0"
+      },
+      {
+        "colorName": "gray mystic",
+        "colorCode": "NP N 1986 P",
+        "colorHex": "#ADB2B5"
+      },
+      {
+        "colorName": "weathervane",
+        "colorCode": "NP N 1987 T",
+        "colorHex": "#848A8F"
+      },
+      {
+        "colorName": "black magic",
+        "colorCode": "NP N 1988 A",
+        "colorHex": "#383B3D"
+      },
+      {
+        "colorName": "silhouette gray",
+        "colorCode": "NP N 1989 D",
+        "colorHex": "#5F6468"
+      },
+      {
+        "colorName": "liberty gray",
+        "colorCode": "NP N 1990 T",
+        "colorHex": "#8F9498"
+      },
+      {
+        "colorName": "gray glove",
+        "colorCode": "NP N 1991 P",
+        "colorHex": "#C4C4C1"
+      },
+      {
+        "colorName": "stiletto gray",
+        "colorCode": "NP N 1992 P",
+        "colorHex": "#BEC4C2"
+      },
+      {
+        "colorName": "weatherbell",
+        "colorCode": "NP N 1993 P",
+        "colorHex": "#ADB4B3"
+      },
+      {
+        "colorName": "whetstone",
+        "colorCode": "NP N 1994 T",
+        "colorHex": "#8B9596"
+      },
+      {
+        "colorName": "black night",
+        "colorCode": "NP N 1995 A",
+        "colorHex": "#3A3F42"
+      },
+      {
+        "colorName": "trojan gray",
+        "colorCode": "NP N 1996 D",
+        "colorHex": "#616B6D"
+      },
+      {
+        "colorName": "smithy tool",
+        "colorCode": "NP N 1997 T",
+        "colorHex": "#90999B"
+      },
+      {
+        "colorName": "light pewter",
+        "colorCode": "NP N 1998 P",
+        "colorHex": "#BCC3C2"
+      },
+      {
+        "colorName": "silver skates",
+        "colorCode": "NP N 1999 P",
+        "colorHex": "#C4CFD2"
+      },
+      {
+        "colorName": "lake stone",
+        "colorCode": "NP N 2000 P",
+        "colorHex": "#B3C2C7"
+      },
+      {
+        "colorName": "gray knight",
+        "colorCode": "NP N 2001 T",
+        "colorHex": "#86949D"
+      },
+      {
+        "colorName": "ebony blue",
+        "colorCode": "NP N 2002 A",
+        "colorHex": "#324553"
+      },
+      {
+        "colorName": "stone fence",
+        "colorCode": "NP N 2003 D",
+        "colorHex": "#596C78"
+      },
+      {
+        "colorName": "miner gray",
+        "colorCode": "NP N 2004 T",
+        "colorHex": "#899BA6"
+      },
+      {
+        "colorName": "quaker gray",
+        "colorCode": "NP N 2005 P",
+        "colorHex": "#AAB5B9"
+      },
+      {
+        "colorName": "gracious gray",
+        "colorCode": "NP N 2006 P",
+        "colorHex": "#C3CCC9"
+      },
+      {
+        "colorName": "steel sting",
+        "colorCode": "NP N 2007 P",
+        "colorHex": "#B1BFBE"
+      },
+      {
+        "colorName": "gray gait",
+        "colorCode": "NP N 2008 T",
+        "colorHex": "#8D9EA3"
+      },
+      {
+        "colorName": "flint black",
+        "colorCode": "NP N 2009 A",
+        "colorHex": "#3D4544"
+      },
+      {
+        "colorName": "gray chalk",
+        "colorCode": "NP N 2010 T",
+        "colorHex": "#7B8788"
+      },
+      {
+        "colorName": "gray block",
+        "colorCode": "NP N 2011 T",
+        "colorHex": "#949F9F"
+      },
+      {
+        "colorName": "gray chord",
+        "colorCode": "NP N 2012 P",
+        "colorHex": "#B3BCB9"
+      },
+      {
+        "colorName": "blue bash",
+        "colorCode": "NP N 2013 P",
+        "colorHex": "#CED9D6"
+      },
+      {
+        "colorName": "northern comets",
+        "colorCode": "NP N 2014 P",
+        "colorHex": "#9CAFAC"
+      },
+      {
+        "colorName": "great pacific",
+        "colorCode": "NP N 2015 T",
+        "colorHex": "#76888A"
+      },
+      {
+        "colorName": "blue eruption",
+        "colorCode": "NP N 2016 A",
+        "colorHex": "#4C5A5A"
+      },
+      {
+        "colorName": "eastward",
+        "colorCode": "NP N 2017 D",
+        "colorHex": "#657877"
+      },
+      {
+        "colorName": "sleepyhead",
+        "colorCode": "NP N 2018 T",
+        "colorHex": "#899F9F"
+      },
+      {
+        "colorName": "bedtime stories",
+        "colorCode": "NP N 2019 P",
+        "colorHex": "#B5C1BD"
+      },
+      {
+        "colorName": "everlasting",
+        "colorCode": "NP N 2020 P",
+        "colorHex": "#D2D9CF"
+      },
+      {
+        "colorName": "river waters",
+        "colorCode": "NP N 2021 P",
+        "colorHex": "#B7C2BA"
+      },
+      {
+        "colorName": "alaskan seas",
+        "colorCode": "NP N 2022 T",
+        "colorHex": "#8F9C97"
+      },
+      {
+        "colorName": "riverdrance",
+        "colorCode": "NP N 2023 A",
+        "colorHex": "#545B58"
+      },
+      {
+        "colorName": "restful watch",
+        "colorCode": "NP N 2024 D",
+        "colorHex": "#6C7370"
+      },
+      {
+        "colorName": "quiet time",
+        "colorCode": "NP N 2025 P",
+        "colorHex": "#ABB6B0"
+      },
+      {
+        "colorName": "tip of iceberg",
+        "colorCode": "NP N 2026 P",
+        "colorHex": "#C6CEC7"
+      },
+      {
+        "colorName": "gray suit",
+        "colorCode": "NP N 2027 P",
+        "colorHex": "#C1C2B8"
+      },
+      {
+        "colorName": "folkstone",
+        "colorCode": "NP N 2028 P",
+        "colorHex": "#B4B6AF"
+      },
+      {
+        "colorName": "smokey wings",
+        "colorCode": "NP N 2029 T",
+        "colorHex": "#90928A"
+      },
+      {
+        "colorName": "crater black",
+        "colorCode": "NP N 2030 A",
+        "colorHex": "#4F504B"
+      },
+      {
+        "colorName": "hardware gray",
+        "colorCode": "NP N 2031 D",
+        "colorHex": "#70736C"
+      },
+      {
+        "colorName": "gray shirt",
+        "colorCode": "NP N 2032 P",
+        "colorHex": "#B1B3AA"
+      },
+      {
+        "colorName": "dusty gray",
+        "colorCode": "NP N 2033 P",
+        "colorHex": "#C4C6BC"
+      },
+      {
+        "colorName": "abacadabra",
+        "colorCode": "NP N 2034 P",
+        "colorHex": "#D2CEC6"
+      },
+      {
+        "colorName": "gray rail",
+        "colorCode": "NP N 2035 T",
+        "colorHex": "#AFACA5"
+      },
+      {
+        "colorName": "millenium gray",
+        "colorCode": "NP N 2036 D",
+        "colorHex": "#777469"
+      },
+      {
+        "colorName": "black smoke",
+        "colorCode": "NP N 2037 A",
+        "colorHex": "#534F45"
+      },
+      {
+        "colorName": "gray dots",
+        "colorCode": "NP N 2038 D",
+        "colorHex": "#716E63"
+      },
+      {
+        "colorName": "leaping gray",
+        "colorCode": "NP N 2039 T",
+        "colorHex": "#88877E"
+      },
+      {
+        "colorName": "mortar board",
+        "colorCode": "NP N 2040 P",
+        "colorHex": "#BDBAB3"
+      },
+      {
+        "colorName": "gray ashes",
+        "colorCode": "NP N 2041 P",
+        "colorHex": "#C5C3BB"
+      },
+      {
+        "colorName": "dinosaur grey",
+        "colorCode": "NP N 2042 P",
+        "colorHex": "#ACAAA4"
+      },
+      {
+        "colorName": "dormant gray",
+        "colorCode": "NP N 2043 T",
+        "colorHex": "#94918B"
+      },
+      {
+        "colorName": "black swan",
+        "colorCode": "NP N 2044 A",
+        "colorHex": "#4E4D4D"
+      },
+      {
+        "colorName": "smoking gray",
+        "colorCode": "NP N 2045 T",
+        "colorHex": "#8B8B89"
+      },
+      {
+        "colorName": "gray dolphin",
+        "colorCode": "NP N 2046 P",
+        "colorHex": "#A5A6A3"
+      },
+      {
+        "colorName": "steel pot",
+        "colorCode": "NP N 2047 P",
+        "colorHex": "#C1C2BD"
+      }
+    ],
+    "Off White": [
+      {
+        "colorName": "snow white",
+        "colorCode": "NP OW 1002 P",
+        "colorHex": "#FAF4E5"
+      },
+      {
+        "colorName": "hush white",
+        "colorCode": "NP OW 1003 P",
+        "colorHex": "#F3EEE1"
+      },
+      {
+        "colorName": "white lace",
+        "colorCode": "NP OW 1004 P",
+        "colorHex": "#F2EDDF"
+      },
+      {
+        "colorName": "light wings",
+        "colorCode": "NP OW 1005 P",
+        "colorHex": "#F3ECE0"
+      },
+      {
+        "colorName": "soft flutter",
+        "colorCode": "NP OW 1006 P",
+        "colorHex": "#F3EADC"
+      },
+      {
+        "colorName": "intimate white",
+        "colorCode": "NP OW 1007 P",
+        "colorHex": "#EFE8DA"
+      },
+      {
+        "colorName": "mobe pearl",
+        "colorCode": "NP OW 1008 P",
+        "colorHex": "#EBE1D4"
+      },
+      {
+        "colorName": "peaceful white",
+        "colorCode": "NP OW 1009 P",
+        "colorHex": "#EEE9D6"
+      },
+      {
+        "colorName": "walden white",
+        "colorCode": "NP OW 1010 P",
+        "colorHex": "#EAE8D8"
+      },
+      {
+        "colorName": "soft tissue",
+        "colorCode": "NP OW 1011 P",
+        "colorHex": "#F0E9DC"
+      },
+      {
+        "colorName": "eggshell",
+        "colorCode": "NP OW 1012 P",
+        "colorHex": "#E5E2D1"
+      },
+      {
+        "colorName": "sun glint",
+        "colorCode": "NP OW 1013 P",
+        "colorHex": "#F4F1D9"
+      },
+      {
+        "colorName": "daisy white",
+        "colorCode": "NP OW 1014 P",
+        "colorHex": "#F5EED4"
+      },
+      {
+        "colorName": "gossamer white",
+        "colorCode": "NP OW 1015 P",
+        "colorHex": "#FBF4DB"
+      },
+      {
+        "colorName": "creamy white",
+        "colorCode": "NP OW 1016 P",
+        "colorHex": "#FCF4D9"
+      },
+      {
+        "colorName": "swan wing",
+        "colorCode": "NP OW 1017 P",
+        "colorHex": "#FBF3DE"
+      },
+      {
+        "colorName": "cotton bud",
+        "colorCode": "NP OW 1018 P",
+        "colorHex": "#FBF3DF"
+      },
+      {
+        "colorName": "soft pulp",
+        "colorCode": "NP OW 1019 P",
+        "colorHex": "#FCEED5"
+      },
+      {
+        "colorName": "ultra smooth",
+        "colorCode": "NP OW 1020 P",
+        "colorHex": "#F2E7D1"
+      },
+      {
+        "colorName": "swanlike",
+        "colorCode": "NP OW 1021 P",
+        "colorHex": "#F2E8D4"
+      },
+      {
+        "colorName": "peach pinch",
+        "colorCode": "NP OW 1022 P",
+        "colorHex": "#F6E9D6"
+      },
+      {
+        "colorName": "bare blush",
+        "colorCode": "NP OW 1023 P",
+        "colorHex": "#F6E6D4"
+      },
+      {
+        "colorName": "victorian white",
+        "colorCode": "NP OW 1024 P",
+        "colorHex": "#F3E2CD"
+      },
+      {
+        "colorName": "bare toes",
+        "colorCode": "NP OW 1025 P",
+        "colorHex": "#F6E9D9"
+      },
+      {
+        "colorName": "timid pink",
+        "colorCode": "NP OW 1026 P",
+        "colorHex": "#FAEFDF"
+      },
+      {
+        "colorName": "autumn white",
+        "colorCode": "NP OW 1027 P",
+        "colorHex": "#F9E7D7"
+      },
+      {
+        "colorName": "pink puff",
+        "colorCode": "NP OW 1028 P",
+        "colorHex": "#F9E8D8"
+      },
+      {
+        "colorName": "angelic pink",
+        "colorCode": "NP OW 1029 P",
+        "colorHex": "#F2E7DC"
+      },
+      {
+        "colorName": "rosy dawn",
+        "colorCode": "NP OW 1030 P",
+        "colorHex": "#EDDFD5"
+      },
+      {
+        "colorName": "rose fragrance",
+        "colorCode": "NP OW 1031 P",
+        "colorHex": "#F0DFD4"
+      },
+      {
+        "colorName": "lullaby",
+        "colorCode": "NP OW 1032 P",
+        "colorHex": "#ECDDD6"
+      },
+      {
+        "colorName": "sugar pink",
+        "colorCode": "NP OW 1033 P",
+        "colorHex": "#FAEEE4"
+      },
+      {
+        "colorName": "white peony",
+        "colorCode": "NP OW 1034 P",
+        "colorHex": "#F3E8DF"
+      },
+      {
+        "colorName": "drifting cloud",
+        "colorCode": "NP OW 1035 P",
+        "colorHex": "#EFE6DF"
+      },
+      {
+        "colorName": "white dawn",
+        "colorCode": "NP OW 1036 P",
+        "colorHex": "#EFE5DE"
+      },
+      {
+        "colorName": "pink cloud",
+        "colorCode": "NP OW 1037 P",
+        "colorHex": "#FBEFE7"
+      },
+      {
+        "colorName": "penelope pink",
+        "colorCode": "NP OW 1038 P",
+        "colorHex": "#F3E5DD"
+      },
+      {
+        "colorName": "snowbush rose",
+        "colorCode": "NP OW 1039 P",
+        "colorHex": "#F7E4DE"
+      },
+      {
+        "colorName": "felicia rose",
+        "colorCode": "NP OW 1040 P",
+        "colorHex": "#F4E0D9"
+      },
+      {
+        "colorName": "sweet wreath",
+        "colorCode": "NP OW 1041 P",
+        "colorHex": "#FCEAE9"
+      },
+      {
+        "colorName": "restful",
+        "colorCode": "NP OW 1042 P",
+        "colorHex": "#FBEDDD"
+      },
+      {
+        "colorName": "light laurels",
+        "colorCode": "NP OW 1043 P",
+        "colorHex": "#EEE1E4"
+      },
+      {
+        "colorName": "josette",
+        "colorCode": "NP OW 1044 P",
+        "colorHex": "#E9DEE3"
+      },
+      {
+        "colorName": "soft marion",
+        "colorCode": "NP OW 1045 P",
+        "colorHex": "#EFE7E6"
+      },
+      {
+        "colorName": "wisteria white",
+        "colorCode": "NP OW 1046 P",
+        "colorHex": "#E6DEDB"
+      },
+      {
+        "colorName": "orchid scent",
+        "colorCode": "NP OW 1047 P",
+        "colorHex": "#E5DAD5"
+      },
+      {
+        "colorName": "orchid garden",
+        "colorCode": "NP OW 1048 P",
+        "colorHex": "#E1DED8"
+      },
+      {
+        "colorName": "special touch",
+        "colorCode": "NP OW 1049 P",
+        "colorHex": "#E1E3E4"
+      },
+      {
+        "colorName": "white lilac",
+        "colorCode": "NP OW 1050 P",
+        "colorHex": "#E1E0DF"
+      },
+      {
+        "colorName": "velvet touch",
+        "colorCode": "NP OW 1051 P",
+        "colorHex": "#DFE0E4"
+      },
+      {
+        "colorName": "iris tip",
+        "colorCode": "NP OW 1052 P",
+        "colorHex": "#DDDCDE"
+      },
+      {
+        "colorName": "remembrance",
+        "colorCode": "NP OW 1053 P",
+        "colorHex": "#DEE4E2"
+      },
+      {
+        "colorName": "fondness",
+        "colorCode": "NP OW 1054 P",
+        "colorHex": "#D6DFDF"
+      },
+      {
+        "colorName": "soft tendrils",
+        "colorCode": "NP OW 1055 P",
+        "colorHex": "#D7E3E9"
+      },
+      {
+        "colorName": "laid back",
+        "colorCode": "NP OW 1056 P",
+        "colorHex": "#D2E2E8"
+      },
+      {
+        "colorName": "soothing blue",
+        "colorCode": "NP OW 1057 P",
+        "colorHex": "#E4EEE8"
+      },
+      {
+        "colorName": "blue vision",
+        "colorCode": "NP OW 1058 P",
+        "colorHex": "#DDE8E5"
+      },
+      {
+        "colorName": "blue trace",
+        "colorCode": "NP OW 1059 P",
+        "colorHex": "#D8E9E8"
+      },
+      {
+        "colorName": "sprizzle",
+        "colorCode": "NP OW 1060 P",
+        "colorHex": "#D3E7EB"
+      },
+      {
+        "colorName": "graceful",
+        "colorCode": "NP OW 1061 P",
+        "colorHex": "#DCE5E0"
+      },
+      {
+        "colorName": "soft creek",
+        "colorCode": "NP OW 1062 P",
+        "colorHex": "#DBE7E6"
+      },
+      {
+        "colorName": "meanders",
+        "colorCode": "NP OW 1063 P",
+        "colorHex": "#D3DEDE"
+      },
+      {
+        "colorName": "cool drift",
+        "colorCode": "NP OW 1064 P",
+        "colorHex": "#D4DAD7"
+      },
+      {
+        "colorName": "cool hint",
+        "colorCode": "NP OW 1065 P",
+        "colorHex": "#E7F1E4"
+      },
+      {
+        "colorName": "mint scent",
+        "colorCode": "NP OW 1066 P",
+        "colorHex": "#E1F0E3"
+      },
+      {
+        "colorName": "blue essence",
+        "colorCode": "NP OW 1067 P",
+        "colorHex": "#D7E6E0"
+      },
+      {
+        "colorName": "blue swirl",
+        "colorCode": "NP OW 1068 P",
+        "colorHex": "#DEF0E8"
+      },
+      {
+        "colorName": "slight wift",
+        "colorCode": "NP OW 1069 P",
+        "colorHex": "#E8F4E0"
+      },
+      {
+        "colorName": "sea breeze",
+        "colorCode": "NP OW 1070 P",
+        "colorHex": "#E0EADC"
+      },
+      {
+        "colorName": "wafting wave",
+        "colorCode": "NP OW 1071 P",
+        "colorHex": "#D5E5D8"
+      },
+      {
+        "colorName": "clear day",
+        "colorCode": "NP OW 1072 P",
+        "colorHex": "#D5ECE0"
+      },
+      {
+        "colorName": "green pass",
+        "colorCode": "NP OW 1073 P",
+        "colorHex": "#EBF4D4"
+      },
+      {
+        "colorName": "green whimsey",
+        "colorCode": "NP OW 1074 P",
+        "colorHex": "#E4EDD3"
+      },
+      {
+        "colorName": "clover petal",
+        "colorCode": "NP OW 1075 P",
+        "colorHex": "#E3EAD1"
+      },
+      {
+        "colorName": "tumbling water",
+        "colorCode": "NP OW 1076 P",
+        "colorHex": "#D8E3CA"
+      },
+      {
+        "colorName": "gardenia",
+        "colorCode": "NP OW 1077 P",
+        "colorHex": "#E9ECDA"
+      },
+      {
+        "colorName": "light gauze",
+        "colorCode": "NP OW 1078 P",
+        "colorHex": "#E7E5D1"
+      },
+      {
+        "colorName": "evening breeze",
+        "colorCode": "NP OW 1079 P",
+        "colorHex": "#DEE2D1"
+      },
+      {
+        "colorName": "rusting leaf",
+        "colorCode": "NP OW 1080 P",
+        "colorHex": "#DDE5D0"
+      },
+      {
+        "colorName": "reserved white",
+        "colorCode": "NP OW 1081 P",
+        "colorHex": "#ECEADF"
+      },
+      {
+        "colorName": "ash white",
+        "colorCode": "NP OW 1082 P",
+        "colorHex": "#E7E4DA"
+      },
+      {
+        "colorName": "reticent white",
+        "colorCode": "NP OW 1083 P",
+        "colorHex": "#DFDED6"
+      },
+      {
+        "colorName": "white concrete",
+        "colorCode": "NP OW 1084 P",
+        "colorHex": "#DEDDD7"
+      },
+      {
+        "colorName": "violet whisper",
+        "colorCode": "NP OW 1085 P",
+        "colorHex": "#E9E8E1"
+      },
+      {
+        "colorName": "gray dew",
+        "colorCode": "NP OW 1086 P",
+        "colorHex": "#E0DFD8"
+      },
+      {
+        "colorName": "gray drops",
+        "colorCode": "NP OW 1087 P",
+        "colorHex": "#DFDFDD"
+      },
+      {
+        "colorName": "genteel",
+        "colorCode": "NP OW 1088 P",
+        "colorHex": "#D8DCDA"
+      }
+    ],
+    "Purple & Blues": [
+      {
+        "colorName": "flower fields",
+        "colorCode": "NP PB 1391 P",
+        "colorHex": "#E3B8D7"
+      },
+      {
+        "colorName": "adolescence",
+        "colorCode": "NP PB 1392 T",
+        "colorHex": "#BC8DBB"
+      },
+      {
+        "colorName": "paradise bird",
+        "colorCode": "NP PB 1393 A",
+        "colorHex": "#865180"
+      },
+      {
+        "colorName": "camp rock",
+        "colorCode": "NP PB 1394 D",
+        "colorHex": "#AB76A8"
+      },
+      {
+        "colorName": "natalie's niche",
+        "colorCode": "NP PB 1395 P",
+        "colorHex": "#CFAED1"
+      },
+      {
+        "colorName": "night dress",
+        "colorCode": "NP PB 1396 P",
+        "colorHex": "#DDBFD9"
+      },
+      {
+        "colorName": "plum pink",
+        "colorCode": "NP PB 1397 P",
+        "colorHex": "#DBC5D6"
+      },
+      {
+        "colorName": "chata phlox",
+        "colorCode": "NP PB 1398 P",
+        "colorHex": "#CDB5C8"
+      },
+      {
+        "colorName": "creeping phlox",
+        "colorCode": "NP PB 1399 T",
+        "colorHex": "#BF96BA"
+      },
+      {
+        "colorName": "iris bouquet",
+        "colorCode": "NP PB 1400 A",
+        "colorHex": "#6B476A"
+      },
+      {
+        "colorName": "wild iris",
+        "colorCode": "NP PB 1401 D",
+        "colorHex": "#936690"
+      },
+      {
+        "colorName": "phlox petal",
+        "colorCode": "NP PB 1402 P",
+        "colorHex": "#DBC1D3"
+      },
+      {
+        "colorName": "bells of holland",
+        "colorCode": "NP PB 1403 P",
+        "colorHex": "#DBC9D6"
+      },
+      {
+        "colorName": "violet petal",
+        "colorCode": "NP PB 1404 P",
+        "colorHex": "#D0BED3"
+      },
+      {
+        "colorName": "forever young",
+        "colorCode": "NP PB 1405 P",
+        "colorHex": "#DAC6DC"
+      },
+      {
+        "colorName": "bouquet violet",
+        "colorCode": "NP PB 1406 T",
+        "colorHex": "#BEA2C6"
+      },
+      {
+        "colorName": "red purple",
+        "colorCode": "NP PB 1407 A",
+        "colorHex": "#705282"
+      },
+      {
+        "colorName": "dauphne red",
+        "colorCode": "NP PB 1408 D",
+        "colorHex": "#9371A2"
+      },
+      {
+        "colorName": "vivaville",
+        "colorCode": "NP PB 1409 T",
+        "colorHex": "#AD90BE"
+      },
+      {
+        "colorName": "artpiece",
+        "colorCode": "NP PB 1410 P",
+        "colorHex": "#E3D3E3"
+      },
+      {
+        "colorName": "pale pansy",
+        "colorCode": "NP PB 1411 P",
+        "colorHex": "#D8CDDA"
+      },
+      {
+        "colorName": "dawn glow",
+        "colorCode": "NP PB 1412 P",
+        "colorHex": "#D1C5D6"
+      },
+      {
+        "colorName": "lazy phlox",
+        "colorCode": "NP PB 1413 T",
+        "colorHex": "#AA8FAC"
+      },
+      {
+        "colorName": "purple comet",
+        "colorCode": "NP PB 1414 A",
+        "colorHex": "#715175"
+      },
+      {
+        "colorName": "picked plum",
+        "colorCode": "NP PB 1415 D",
+        "colorHex": "#84698E"
+      },
+      {
+        "colorName": "plum sparkle",
+        "colorCode": "NP PB 1416 T",
+        "colorHex": "#B099B8"
+      },
+      {
+        "colorName": "plum frost",
+        "colorCode": "NP PB 1417 P",
+        "colorHex": "#C9B7CA"
+      },
+      {
+        "colorName": "light year",
+        "colorCode": "NP PB 1418 P",
+        "colorHex": "#ECD7E2"
+      },
+      {
+        "colorName": "artists loft",
+        "colorCode": "NP PB 1419 P",
+        "colorHex": "#D7B1C9"
+      },
+      {
+        "colorName": "pure addiction",
+        "colorCode": "NP PB 1420 D",
+        "colorHex": "#A27398"
+      },
+      {
+        "colorName": "monet's accent",
+        "colorCode": "NP PB 1421 A",
+        "colorHex": "#644757"
+      },
+      {
+        "colorName": "spanish dance",
+        "colorCode": "NP PB 1422 D",
+        "colorHex": "#926081"
+      },
+      {
+        "colorName": "renoir's touch",
+        "colorCode": "NP PB 1423 T",
+        "colorHex": "#B988AA"
+      },
+      {
+        "colorName": "ivy posse",
+        "colorCode": "NP PB 1424 P",
+        "colorHex": "#DEC2D3"
+      },
+      {
+        "colorName": "snowbell",
+        "colorCode": "NP PB 1425 P",
+        "colorHex": "#E0D0DD"
+      },
+      {
+        "colorName": "twirling ribbon",
+        "colorCode": "NP PB 1426 P",
+        "colorHex": "#D1B9C5"
+      },
+      {
+        "colorName": "razzle dazzle",
+        "colorCode": "NP PB 1427 T",
+        "colorHex": "#A08395"
+      },
+      {
+        "colorName": "bordeau brown",
+        "colorCode": "NP PB 1428 A",
+        "colorHex": "#58434B"
+      },
+      {
+        "colorName": "painter's attic",
+        "colorCode": "NP PB 1429 D",
+        "colorHex": "#806476"
+      },
+      {
+        "colorName": "ophelia's song",
+        "colorCode": "NP PB 1430 P",
+        "colorHex": "#BDA3B1"
+      },
+      {
+        "colorName": "slow waltz",
+        "colorCode": "NP PB 1431 P",
+        "colorHex": "#DDCACF"
+      },
+      {
+        "colorName": "drifting lavender",
+        "colorCode": "NP PB 1432 P",
+        "colorHex": "#DFD5E4"
+      },
+      {
+        "colorName": "monet lavender",
+        "colorCode": "NP PB 1433 P",
+        "colorHex": "#CFC3D7"
+      },
+      {
+        "colorName": "lavender print",
+        "colorCode": "NP PB 1434 T",
+        "colorHex": "#AD9DC7"
+      },
+      {
+        "colorName": "monet's purple",
+        "colorCode": "NP PB 1435 A",
+        "colorHex": "#5C507E"
+      },
+      {
+        "colorName": "prophetic purple",
+        "colorCode": "NP PB 1436 D",
+        "colorHex": "#7C679C"
+      },
+      {
+        "colorName": "canyon cloud",
+        "colorCode": "NP PB 1437 T",
+        "colorHex": "#A498BD"
+      },
+      {
+        "colorName": "heather bunch",
+        "colorCode": "NP PB 1438 P",
+        "colorHex": "#C4B7D0"
+      },
+      {
+        "colorName": "soft melody",
+        "colorCode": "NP PB 1439 P",
+        "colorHex": "#E2D9E6"
+      },
+      {
+        "colorName": "light cadence",
+        "colorCode": "NP PB 1440 P",
+        "colorHex": "#C7BFD7"
+      },
+      {
+        "colorName": "repertoire",
+        "colorCode": "NP PB 1441 T",
+        "colorHex": "#A29DC4"
+      },
+      {
+        "colorName": "electrifying",
+        "colorCode": "NP PB 1442 A",
+        "colorHex": "#5B5284"
+      },
+      {
+        "colorName": "harvest dance",
+        "colorCode": "NP PB 1443 D",
+        "colorHex": "#7D74A8"
+      },
+      {
+        "colorName": "millenia",
+        "colorCode": "NP PB 1444 P",
+        "colorHex": "#B3ADCB"
+      },
+      {
+        "colorName": "orinoco",
+        "colorCode": "NP PB 1445 P",
+        "colorHex": "#D6CEDF"
+      },
+      {
+        "colorName": "early bird",
+        "colorCode": "NP PB 1446 P",
+        "colorHex": "#D4D4E3"
+      },
+      {
+        "colorName": "soulmate",
+        "colorCode": "NP PB 1447 P",
+        "colorHex": "#C6C8E0"
+      },
+      {
+        "colorName": "purple lights",
+        "colorCode": "NP PB 1448 T",
+        "colorHex": "#8785B6"
+      },
+      {
+        "colorName": "wild fury",
+        "colorCode": "NP PB 1449 A",
+        "colorHex": "#505386"
+      },
+      {
+        "colorName": "marimba beat",
+        "colorCode": "NP PB 1450 D",
+        "colorHex": "#7171A6"
+      },
+      {
+        "colorName": "light alcove",
+        "colorCode": "NP PB 1451 P",
+        "colorHex": "#B3B3D6"
+      },
+      {
+        "colorName": "rain dance",
+        "colorCode": "NP PB 1452 P",
+        "colorHex": "#BFC8E0"
+      },
+      {
+        "colorName": "demure",
+        "colorCode": "NP PB 1453 P",
+        "colorHex": "#DCD4DB"
+      },
+      {
+        "colorName": "heather spray",
+        "colorCode": "NP PB 1454 P",
+        "colorHex": "#CDC6D6"
+      },
+      {
+        "colorName": "heather ashes",
+        "colorCode": "NP PB 1455 P",
+        "colorHex": "#B7B2C7"
+      },
+      {
+        "colorName": "sultan blue",
+        "colorCode": "NP PB 1456 A",
+        "colorHex": "#5D5387"
+      },
+      {
+        "colorName": "ruling royalty",
+        "colorCode": "NP PB 1457 D",
+        "colorHex": "#7C729B"
+      },
+      {
+        "colorName": "purple heather",
+        "colorCode": "NP PB 1458 T",
+        "colorHex": "#A7A0C0"
+      },
+      {
+        "colorName": "overcast",
+        "colorCode": "NP PB 1459 P",
+        "colorHex": "#B7B4CD"
+      },
+      {
+        "colorName": "lighthearted",
+        "colorCode": "NP PB 1460 P",
+        "colorHex": "#C5BFCC"
+      },
+      {
+        "colorName": "evening dresses",
+        "colorCode": "NP PB 1461 T",
+        "colorHex": "#9594AD"
+      },
+      {
+        "colorName": "gala glitter",
+        "colorCode": "NP PB 1462 D",
+        "colorHex": "#797790"
+      },
+      {
+        "colorName": "phoenician purple",
+        "colorCode": "NP PB 1463 A",
+        "colorHex": "#56516A"
+      },
+      {
+        "colorName": "silent solace",
+        "colorCode": "NP PB 1464 D",
+        "colorHex": "#6A6780"
+      },
+      {
+        "colorName": "twist of fate",
+        "colorCode": "NP PB 1465 T",
+        "colorHex": "#8989A4"
+      },
+      {
+        "colorName": "solitaire",
+        "colorCode": "NP PB 1466 P",
+        "colorHex": "#A9A5B6"
+      },
+      {
+        "colorName": "merry old soul",
+        "colorCode": "NP PB 1467 P",
+        "colorHex": "#D3D0D9"
+      },
+      {
+        "colorName": "slight tempo",
+        "colorCode": "NP PB 1468 TP",
+        "colorHex": "#A3A1B7"
+      },
+      {
+        "colorName": "sequined scarf",
+        "colorCode": "NP PB 1469 T",
+        "colorHex": "#9594AC"
+      },
+      {
+        "colorName": "opera night",
+        "colorCode": "NP PB 1470 A",
+        "colorHex": "#4D4957"
+      },
+      {
+        "colorName": "ukranian girl",
+        "colorCode": "NP PB 1471 D",
+        "colorHex": "#6D6F8D"
+      },
+      {
+        "colorName": "faded lilac",
+        "colorCode": "NP PB 1472 T",
+        "colorHex": "#9C9BB1"
+      },
+      {
+        "colorName": "faded memories",
+        "colorCode": "NP PB 1473 P",
+        "colorHex": "#AEAFC6"
+      },
+      {
+        "colorName": "royal mist",
+        "colorCode": "NP PB 1474 P",
+        "colorHex": "#C2C4DA"
+      },
+      {
+        "colorName": "dear diary",
+        "colorCode": "NP PB 1475 P",
+        "colorHex": "#B7B9DA"
+      },
+      {
+        "colorName": "lady di",
+        "colorCode": "NP PB 1476 T",
+        "colorHex": "#949CC7"
+      },
+      {
+        "colorName": "deep trance",
+        "colorCode": "NP PB 1477 A",
+        "colorHex": "#4F568C"
+      },
+      {
+        "colorName": "arousing score",
+        "colorCode": "NP PB 1478 D",
+        "colorHex": "#656FA6"
+      },
+      {
+        "colorName": "rich expression",
+        "colorCode": "NP PB 1479 T",
+        "colorHex": "#878EC0"
+      },
+      {
+        "colorName": "last dance",
+        "colorCode": "NP PB 1480 P",
+        "colorHex": "#C4C5E0"
+      },
+      {
+        "colorName": "lonesome",
+        "colorCode": "NP PB 1481 P",
+        "colorHex": "#CFD1E2"
+      },
+      {
+        "colorName": "expedition",
+        "colorCode": "NP PB 1482 P",
+        "colorHex": "#AFB8DA"
+      },
+      {
+        "colorName": "rainmaker",
+        "colorCode": "NP PB 1483 T",
+        "colorHex": "#9AA5CF"
+      },
+      {
+        "colorName": "crown jewel",
+        "colorCode": "NP PB 1484 A",
+        "colorHex": "#415085"
+      },
+      {
+        "colorName": "blue triumph",
+        "colorCode": "NP PB 1485 D",
+        "colorHex": "#6071A8"
+      },
+      {
+        "colorName": "nigara nights",
+        "colorCode": "NP PB 1486 T",
+        "colorHex": "#7D8EC0"
+      },
+      {
+        "colorName": "september rain",
+        "colorCode": "NP PB 1487 P",
+        "colorHex": "#BEC3DC"
+      },
+      {
+        "colorName": "apparition",
+        "colorCode": "NP PB 1488 P",
+        "colorHex": "#C8CEDB"
+      },
+      {
+        "colorName": "skylights",
+        "colorCode": "NP PB 1489 P",
+        "colorHex": "#C4CADF"
+      },
+      {
+        "colorName": "grape gate",
+        "colorCode": "NP PB 1490 T",
+        "colorHex": "#7F8FBB"
+      },
+      {
+        "colorName": "blue purple",
+        "colorCode": "NP PB 1491 A",
+        "colorHex": "#485174"
+      },
+      {
+        "colorName": "purple edge",
+        "colorCode": "NP PB 1492 D",
+        "colorHex": "#6374A3"
+      },
+      {
+        "colorName": "purple covers",
+        "colorCode": "NP PB 1493 P",
+        "colorHex": "#97A8CC"
+      },
+      {
+        "colorName": "ash purple",
+        "colorCode": "NP PB 1494 P",
+        "colorHex": "#B2BDD9"
+      },
+      {
+        "colorName": "purple bits",
+        "colorCode": "NP PB 1495 P",
+        "colorHex": "#CACDDE"
+      },
+      {
+        "colorName": "purple times",
+        "colorCode": "NP PB 1496 P",
+        "colorHex": "#A3B6DB"
+      },
+      {
+        "colorName": "spring crocus",
+        "colorCode": "NP PB 1497 T",
+        "colorHex": "#8EA0CB"
+      },
+      {
+        "colorName": "marabelle",
+        "colorCode": "NP PB 1498 A",
+        "colorHex": "#3D4570"
+      },
+      {
+        "colorName": "pharaoh's purple",
+        "colorCode": "NP PB 1499 D",
+        "colorHex": "#5975AE"
+      },
+      {
+        "colorName": "purplettes",
+        "colorCode": "NP PB 1500 T",
+        "colorHex": "#91A6D3"
+      },
+      {
+        "colorName": "purple tide",
+        "colorCode": "NP PB 1501 P",
+        "colorHex": "#B7C5E1"
+      },
+      {
+        "colorName": "lilac lining",
+        "colorCode": "NP PB 1502 P",
+        "colorHex": "#CED8E7"
+      },
+      {
+        "colorName": "lilac frost",
+        "colorCode": "NP PB 1503 P",
+        "colorHex": "#B0BDD6"
+      },
+      {
+        "colorName": "night drizzle",
+        "colorCode": "NP PB 1504 P",
+        "colorHex": "#A4BBDE"
+      },
+      {
+        "colorName": "dynasty",
+        "colorCode": "NP PB 1505 A",
+        "colorHex": "#2D4881"
+      },
+      {
+        "colorName": "blue planet",
+        "colorCode": "NP PB 1506 D",
+        "colorHex": "#4D72AB"
+      },
+      {
+        "colorName": "blue epic",
+        "colorCode": "NP PB 1507 T",
+        "colorHex": "#88A3CE"
+      },
+      {
+        "colorName": "cool lilac",
+        "colorCode": "NP PB 1508 P",
+        "colorHex": "#BFC8DB"
+      },
+      {
+        "colorName": "cloud wisp",
+        "colorCode": "NP PB 1509 P",
+        "colorHex": "#C2CFD9"
+      },
+      {
+        "colorName": "star flower",
+        "colorCode": "NP PB 1510 P",
+        "colorHex": "#ACB9CB"
+      },
+      {
+        "colorName": "cottage blue",
+        "colorCode": "NP PB 1511 T",
+        "colorHex": "#879EBB"
+      },
+      {
+        "colorName": "benedict blue",
+        "colorCode": "NP PB 1512 A",
+        "colorHex": "#3C4A6E"
+      },
+      {
+        "colorName": "senate blue",
+        "colorCode": "NP PB 1513 D",
+        "colorHex": "#596F8F"
+      },
+      {
+        "colorName": "violet veil",
+        "colorCode": "NP PB 1514 T",
+        "colorHex": "#849FC8"
+      },
+      {
+        "colorName": "washed mitten",
+        "colorCode": "NP PB 1515 P",
+        "colorHex": "#BCC7D6"
+      },
+      {
+        "colorName": "blue crotchet",
+        "colorCode": "NP PB 1516 P",
+        "colorHex": "#C1D2E6"
+      },
+      {
+        "colorName": "memories",
+        "colorCode": "NP PB 1517 P",
+        "colorHex": "#94B6DC"
+      },
+      {
+        "colorName": "blue emotion",
+        "colorCode": "NP PB 1518 T",
+        "colorHex": "#7BA2CF"
+      },
+      {
+        "colorName": "tremont blue",
+        "colorCode": "NP PB 1519 A",
+        "colorHex": "#264B86"
+      },
+      {
+        "colorName": "blue award",
+        "colorCode": "NP PB 1520 D",
+        "colorHex": "#4E77B0"
+      },
+      {
+        "colorName": "fresco blue",
+        "colorCode": "NP PB 1521 T",
+        "colorHex": "#7EA0C6"
+      },
+      {
+        "colorName": "corner cupboard",
+        "colorCode": "NP PB 1522 P",
+        "colorHex": "#A4BDD6"
+      },
+      {
+        "colorName": "lingering blue",
+        "colorCode": "NP PB 1523 P",
+        "colorHex": "#C4D9E5"
+      },
+      {
+        "colorName": "bosco blue",
+        "colorCode": "NP PB 1524 P",
+        "colorHex": "#AFCFE4"
+      },
+      {
+        "colorName": "barbara blue",
+        "colorCode": "NP PB 1525 T",
+        "colorHex": "#6FA7D4"
+      },
+      {
+        "colorName": "porcelain blue",
+        "colorCode": "NP PB 1526 A",
+        "colorHex": "#1E528D"
+      },
+      {
+        "colorName": "founder blue",
+        "colorCode": "NP PB 1527 D",
+        "colorHex": "#387CB9"
+      },
+      {
+        "colorName": "blue rhythm",
+        "colorCode": "NP PB 1528 P",
+        "colorHex": "#99C1E3"
+      },
+      {
+        "colorName": "blue aura",
+        "colorCode": "NP PB 1529 P",
+        "colorHex": "#AEC6DD"
+      },
+      {
+        "colorName": "yours truly",
+        "colorCode": "NP PB 1530 P",
+        "colorHex": "#C4DCE8"
+      },
+      {
+        "colorName": "blue signature",
+        "colorCode": "NP PB 1531 P",
+        "colorHex": "#A5CDE6"
+      },
+      {
+        "colorName": "sky blue",
+        "colorCode": "NP PB 1532 P",
+        "colorHex": "#94C3DA"
+      },
+      {
+        "colorName": "liberty blue",
+        "colorCode": "NP PB 1533 A",
+        "colorHex": "#0066A7"
+      },
+      {
+        "colorName": "true blue",
+        "colorCode": "NP PB 1534 D",
+        "colorHex": "#1886C1"
+      },
+      {
+        "colorName": "cerulean",
+        "colorCode": "NP PB 1535 T",
+        "colorHex": "#62ACD8"
+      },
+      {
+        "colorName": "parlor blue",
+        "colorCode": "NP PB 1536 P",
+        "colorHex": "#9EC2DB"
+      },
+      {
+        "colorName": "windsurf",
+        "colorCode": "NP PB 1537 P",
+        "colorHex": "#C7D4E1"
+      },
+      {
+        "colorName": "blue wish",
+        "colorCode": "NP PB 1538 P",
+        "colorHex": "#B6CEE0"
+      },
+      {
+        "colorName": "boyish grin",
+        "colorCode": "NP PB 1539 T",
+        "colorHex": "#8CB0CB"
+      },
+      {
+        "colorName": "bachelor's pad",
+        "colorCode": "NP PB 1540 A",
+        "colorHex": "#2B5472"
+      },
+      {
+        "colorName": "blue flippers",
+        "colorCode": "NP PB 1541 D",
+        "colorHex": "#4D7A9D"
+      },
+      {
+        "colorName": "ryder blue",
+        "colorCode": "NP PB 1542 P",
+        "colorHex": "#9CBBD5"
+      },
+      {
+        "colorName": "silent blue",
+        "colorCode": "NP PB 1543 P",
+        "colorHex": "#B8CCDC"
+      },
+      {
+        "colorName": "lite up",
+        "colorCode": "NP PB 1544 P",
+        "colorHex": "#BED7E6"
+      },
+      {
+        "colorName": "blue tune",
+        "colorCode": "NP PB 1545 P",
+        "colorHex": "#ACCBDD"
+      },
+      {
+        "colorName": "kind sky",
+        "colorCode": "NP PB 1546 T",
+        "colorHex": "#72ACCB"
+      },
+      {
+        "colorName": "ultra blue",
+        "colorCode": "NP PB 1547 A",
+        "colorHex": "#235F7F"
+      },
+      {
+        "colorName": "nautical blue",
+        "colorCode": "NP PB 1548 D",
+        "colorHex": "#3D81A7"
+      },
+      {
+        "colorName": "blue monday",
+        "colorCode": "NP PB 1549 T",
+        "colorHex": "#91BED7"
+      },
+      {
+        "colorName": "blue lullaby",
+        "colorCode": "NP PB 1550 P",
+        "colorHex": "#A9CADF"
+      },
+      {
+        "colorName": "little girl blue",
+        "colorCode": "NP PB 1551 P",
+        "colorHex": "#AACFDD"
+      },
+      {
+        "colorName": "blue horizon",
+        "colorCode": "NP PB 1552 P",
+        "colorHex": "#96C4D3"
+      },
+      {
+        "colorName": "blue music",
+        "colorCode": "NP PB 1553 T",
+        "colorHex": "#6AAFCD"
+      },
+      {
+        "colorName": "deepsea",
+        "colorCode": "NP PB 1554 A",
+        "colorHex": "#005C7C"
+      },
+      {
+        "colorName": "blue madonna",
+        "colorCode": "NP PB 1555 D",
+        "colorHex": "#3485AC"
+      },
+      {
+        "colorName": "joppa blue",
+        "colorCode": "NP PB 1556 T",
+        "colorHex": "#74B0CF"
+      },
+      {
+        "colorName": "composed",
+        "colorCode": "NP PB 1557 P",
+        "colorHex": "#A5CDDB"
+      },
+      {
+        "colorName": "summer ice",
+        "colorCode": "NP PB 1558 P",
+        "colorHex": "#AFD5DC"
+      },
+      {
+        "colorName": "to dream",
+        "colorCode": "NP PB 1559 P",
+        "colorHex": "#A3CCDA"
+      },
+      {
+        "colorName": "blue button",
+        "colorCode": "NP PB 1560 T",
+        "colorHex": "#6EA6BE"
+      },
+      {
+        "colorName": "dark secret",
+        "colorCode": "NP PB 1561 A",
+        "colorHex": "#2F7084"
+      },
+      {
+        "colorName": "neptune",
+        "colorCode": "NP PB 1562 D",
+        "colorHex": "#2580A0"
+      },
+      {
+        "colorName": "shipside blue",
+        "colorCode": "NP PB 1563 T",
+        "colorHex": "#69AAC5"
+      },
+      {
+        "colorName": "tweedia blue",
+        "colorCode": "NP PB 1564 P",
+        "colorHex": "#B0CFDA"
+      }
+    ],
+    "Red & Pink": [
+      {
+        "colorName": "spring song",
+        "colorCode": "NP R 1258 P",
+        "colorHex": "#FAC7B9"
+      },
+      {
+        "colorName": "just divine",
+        "colorCode": "NP R 1259 T",
+        "colorHex": "#FCA595"
+      },
+      {
+        "colorName": "sashay red",
+        "colorCode": "NP R 1260 A",
+        "colorHex": "#CC3C3B"
+      },
+      {
+        "colorName": "koralle",
+        "colorCode": "NP R 1261 D",
+        "colorHex": "#ED6D5D"
+      },
+      {
+        "colorName": "corallina",
+        "colorCode": "NP R 1262 T",
+        "colorHex": "#F99F90"
+      },
+      {
+        "colorName": "magnolia blossom",
+        "colorCode": "NP R 1263 P",
+        "colorHex": "#F6CABB"
+      },
+      {
+        "colorName": "girlish giggle",
+        "colorCode": "NP R 1264 P",
+        "colorHex": "#FED3CA"
+      },
+      {
+        "colorName": "pink geranium",
+        "colorCode": "NP R 1265 P",
+        "colorHex": "#FCC4BE"
+      },
+      {
+        "colorName": "strawberry ice",
+        "colorCode": "NP R 1266 T",
+        "colorHex": "#F59995"
+      },
+      {
+        "colorName": "diva",
+        "colorCode": "NP R 1267 A",
+        "colorHex": "#C03B3E"
+      },
+      {
+        "colorName": "fire princess",
+        "colorCode": "NP R 1268 D",
+        "colorHex": "#E76B68"
+      },
+      {
+        "colorName": "flower girl",
+        "colorCode": "NP R 1269 T",
+        "colorHex": "#FBACA6"
+      },
+      {
+        "colorName": "pink stockings",
+        "colorCode": "NP R 1270 P",
+        "colorHex": "#FCC7C0"
+      },
+      {
+        "colorName": "home sweet home",
+        "colorCode": "NP R 1271 P",
+        "colorHex": "#FDDDD7"
+      },
+      {
+        "colorName": "gypsy song",
+        "colorCode": "NP R 1272 P",
+        "colorHex": "#FDD5D0"
+      },
+      {
+        "colorName": "impatiens pink",
+        "colorCode": "NP R 1273 T",
+        "colorHex": "#F5989C"
+      },
+      {
+        "colorName": "fashion red",
+        "colorCode": "NP R 1274 A",
+        "colorHex": "#BC3441"
+      },
+      {
+        "colorName": "coral expression",
+        "colorCode": "NP R 1275 D",
+        "colorHex": "#E76A6C"
+      },
+      {
+        "colorName": "candy shoppe",
+        "colorCode": "NP R 1276 P",
+        "colorHex": "#FFC2C0"
+      },
+      {
+        "colorName": "astilbe venus",
+        "colorCode": "NP R 1277 P",
+        "colorHex": "#F9C3C3"
+      },
+      {
+        "colorName": "wisely pink",
+        "colorCode": "NP R 1278 P",
+        "colorHex": "#F8C2C9"
+      },
+      {
+        "colorName": "sweet marionette",
+        "colorCode": "NP R 1279 P",
+        "colorHex": "#FBB6C1"
+      },
+      {
+        "colorName": "zinnia ruffles",
+        "colorCode": "NP R 1280 T",
+        "colorHex": "#F69AA7"
+      },
+      {
+        "colorName": "knockout red",
+        "colorCode": "NP R 1281 A",
+        "colorHex": "#BE3542"
+      },
+      {
+        "colorName": "zinnia scarlet",
+        "colorCode": "NP R 1282 D",
+        "colorHex": "#E26A7A"
+      },
+      {
+        "colorName": "pink crown",
+        "colorCode": "NP R 1283 T",
+        "colorHex": "#F399AC"
+      },
+      {
+        "colorName": "zinnia scent",
+        "colorCode": "NP R 1284 P",
+        "colorHex": "#F8C2C9"
+      },
+      {
+        "colorName": "ballerina slipper",
+        "colorCode": "NP R 1285 P",
+        "colorHex": "#F6C2CC"
+      },
+      {
+        "colorName": "little tutu",
+        "colorCode": "NP R 1286 P",
+        "colorHex": "#FBB9C7"
+      },
+      {
+        "colorName": "peaking pink",
+        "colorCode": "NP R 1287 T",
+        "colorHex": "#ED98AE"
+      },
+      {
+        "colorName": "drama red",
+        "colorCode": "NP R 1288 A",
+        "colorHex": "#AF3A51"
+      },
+      {
+        "colorName": "alpine pink",
+        "colorCode": "NP R 1289 D",
+        "colorHex": "#DD637E"
+      },
+      {
+        "colorName": "angelique",
+        "colorCode": "NP R 1290 T",
+        "colorHex": "#EF8CA4"
+      },
+      {
+        "colorName": "pomponette",
+        "colorCode": "NP R 1291 P",
+        "colorHex": "#F1B6BF"
+      },
+      {
+        "colorName": "blusher",
+        "colorCode": "NP R 1292 P",
+        "colorHex": "#F8CDD9"
+      },
+      {
+        "colorName": "sweethearts",
+        "colorCode": "NP R 1293 P",
+        "colorHex": "#F5B9CF"
+      },
+      {
+        "colorName": "bubblegum pink",
+        "colorCode": "NP R 1294 T",
+        "colorHex": "#E286AA"
+      },
+      {
+        "colorName": "fascination",
+        "colorCode": "NP R 1295 A",
+        "colorHex": "#BA456B"
+      },
+      {
+        "colorName": "exotic bloom",
+        "colorCode": "NP R 1296 D",
+        "colorHex": "#D46185"
+      },
+      {
+        "colorName": "alba rose",
+        "colorCode": "NP R 1297 T",
+        "colorHex": "#EB97B5"
+      },
+      {
+        "colorName": "rosy cushion",
+        "colorCode": "NP R 1298 P",
+        "colorHex": "#F4C6D5"
+      },
+      {
+        "colorName": "strawberry muffin",
+        "colorCode": "NP R 1299 P",
+        "colorHex": "#F0BAD1"
+      },
+      {
+        "colorName": "single petal",
+        "colorCode": "NP R 1300 P",
+        "colorHex": "#E9B9CF"
+      },
+      {
+        "colorName": "trailing pink",
+        "colorCode": "NP R 1301 T",
+        "colorHex": "#E497C0"
+      },
+      {
+        "colorName": "raging pink",
+        "colorCode": "NP R 1302 A",
+        "colorHex": "#9B3D60"
+      },
+      {
+        "colorName": "hot shot",
+        "colorCode": "NP R 1303 D",
+        "colorHex": "#CF71A2"
+      },
+      {
+        "colorName": "pink rally",
+        "colorCode": "NP R 1304 T",
+        "colorHex": "#E9A0C8"
+      },
+      {
+        "colorName": "warley rose",
+        "colorCode": "NP R 1305 P",
+        "colorHex": "#ECBFD3"
+      },
+      {
+        "colorName": "sweet deal",
+        "colorCode": "NP R 1306 P",
+        "colorHex": "#F7DFE6"
+      },
+      {
+        "colorName": "good fortune",
+        "colorCode": "NP R 1307 P",
+        "colorHex": "#F2C7DE"
+      },
+      {
+        "colorName": "cest' la vie",
+        "colorCode": "NP R 1308 P",
+        "colorHex": "#E196C1"
+      },
+      {
+        "colorName": "latin dance",
+        "colorCode": "NP R 1309 A",
+        "colorHex": "#9B4877"
+      },
+      {
+        "colorName": "crimson tide",
+        "colorCode": "NP R 1310 D",
+        "colorHex": "#C56C9D"
+      },
+      {
+        "colorName": "pink berret",
+        "colorCode": "NP R 1311 P",
+        "colorHex": "#ECB4D4"
+      },
+      {
+        "colorName": "crystal pink",
+        "colorCode": "NP R 1312 P",
+        "colorHex": "#F4D4E1"
+      },
+      {
+        "colorName": "too shy",
+        "colorCode": "NP R 1313 P",
+        "colorHex": "#F2D7E4"
+      },
+      {
+        "colorName": "cocktail",
+        "colorCode": "NP R 1314 P",
+        "colorHex": "#EAC3DA"
+      },
+      {
+        "colorName": "adrenaline rush",
+        "colorCode": "NP R 1315 T",
+        "colorHex": "#C892BF"
+      },
+      {
+        "colorName": "celebrity",
+        "colorCode": "NP R 1316 A",
+        "colorHex": "#8B4974"
+      },
+      {
+        "colorName": "poet justice",
+        "colorCode": "NP R 1317 D",
+        "colorHex": "#B071A2"
+      },
+      {
+        "colorName": "stardom",
+        "colorCode": "NP R 1318 T",
+        "colorHex": "#D2A3CA"
+      },
+      {
+        "colorName": "lavender posy",
+        "colorCode": "NP R 1319 P",
+        "colorHex": "#EDD1D8"
+      },
+      {
+        "colorName": "flickering pink",
+        "colorCode": "NP R 1320 P",
+        "colorHex": "#ECC7DE"
+      },
+      {
+        "colorName": "pretty box",
+        "colorCode": "NP R 1321 P",
+        "colorHex": "#DAAED1"
+      },
+      {
+        "colorName": "glee",
+        "colorCode": "NP R 1322 T",
+        "colorHex": "#BB7FAE"
+      },
+      {
+        "colorName": "sparkling sequins",
+        "colorCode": "NP R 1323 A",
+        "colorHex": "#884A77"
+      },
+      {
+        "colorName": "luscious lips",
+        "colorCode": "NP R 1324 D",
+        "colorHex": "#AC6E9F"
+      },
+      {
+        "colorName": "flowing frock",
+        "colorCode": "NP R 1325 T",
+        "colorHex": "#D7A2CA"
+      },
+      {
+        "colorName": "pink balloon",
+        "colorCode": "NP R 1326 P",
+        "colorHex": "#E5B8D6"
+      },
+      {
+        "colorName": "iris pink",
+        "colorCode": "NP R 1327 P",
+        "colorHex": "#E6CCD8"
+      },
+      {
+        "colorName": "viola phlox",
+        "colorCode": "NP R 1328 P",
+        "colorHex": "#E5BFD0"
+      },
+      {
+        "colorName": "marjory phlox",
+        "colorCode": "NP R 1329 T",
+        "colorHex": "#CF96B4"
+      },
+      {
+        "colorName": "sweltering pink",
+        "colorCode": "NP R 1330 A",
+        "colorHex": "#874467"
+      },
+      {
+        "colorName": "pike's pink",
+        "colorCode": "NP R 1331 D",
+        "colorHex": "#A46589"
+      },
+      {
+        "colorName": "pink bouquet",
+        "colorCode": "NP R 1332 T",
+        "colorHex": "#C081A1"
+      },
+      {
+        "colorName": "aster petal",
+        "colorCode": "NP R 1333 P",
+        "colorHex": "#DAB8C9"
+      },
+      {
+        "colorName": "privacy pink",
+        "colorCode": "NP R 1334 P",
+        "colorHex": "#F1CCD7"
+      },
+      {
+        "colorName": "tickle pink",
+        "colorCode": "NP R 1335 P",
+        "colorHex": "#EDC1CF"
+      },
+      {
+        "colorName": "pink joy",
+        "colorCode": "NP R 1336 T",
+        "colorHex": "#DE99B1"
+      },
+      {
+        "colorName": "keepsake rose",
+        "colorCode": "NP R 1337 A",
+        "colorHex": "#9A4057"
+      },
+      {
+        "colorName": "rose velvet",
+        "colorCode": "NP R 1338 D",
+        "colorHex": "#B36781"
+      },
+      {
+        "colorName": "fairy lights",
+        "colorCode": "NP R 1339 T",
+        "colorHex": "#D395AC"
+      },
+      {
+        "colorName": "cyclamen pink",
+        "colorCode": "NP R 1340 P",
+        "colorHex": "#F2C6D1"
+      },
+      {
+        "colorName": "grandma's",
+        "colorCode": "NP R 1341 P",
+        "colorHex": "#F4C6CD"
+      },
+      {
+        "colorName": "rose shade",
+        "colorCode": "NP R 1342 P",
+        "colorHex": "#EFBBC1"
+      },
+      {
+        "colorName": "miniature rose",
+        "colorCode": "NP R 1343 T",
+        "colorHex": "#D68E98"
+      },
+      {
+        "colorName": "rosy dreams",
+        "colorCode": "NP R 1344 A",
+        "colorHex": "#873C42"
+      },
+      {
+        "colorName": "remember rose",
+        "colorCode": "NP R 1345 D",
+        "colorHex": "#B05E68"
+      },
+      {
+        "colorName": "hill cherry",
+        "colorCode": "NP R 1346 T",
+        "colorHex": "#D98B91"
+      },
+      {
+        "colorName": "pink bonnet",
+        "colorCode": "NP R 1347 P",
+        "colorHex": "#F5CCD3"
+      },
+      {
+        "colorName": "sarah's sash",
+        "colorCode": "NP R 1348 P",
+        "colorHex": "#F2BFB8"
+      },
+      {
+        "colorName": "baby bud",
+        "colorCode": "NP R 1349 P",
+        "colorHex": "#E6ADAA"
+      },
+      {
+        "colorName": "vintage rose",
+        "colorCode": "NP R 1350 T",
+        "colorHex": "#CE827E"
+      },
+      {
+        "colorName": "burgundy",
+        "colorCode": "NP R 1351 A",
+        "colorHex": "#874341"
+      },
+      {
+        "colorName": "pioneer red",
+        "colorCode": "NP R 1352 D",
+        "colorHex": "#AD5652"
+      },
+      {
+        "colorName": "smouldering red",
+        "colorCode": "NP R 1353 T",
+        "colorHex": "#D49697"
+      },
+      {
+        "colorName": "martha's pink",
+        "colorCode": "NP R 1354 P",
+        "colorHex": "#EAB0AC"
+      },
+      {
+        "colorName": "lover's hug",
+        "colorCode": "NP R 1355 P",
+        "colorHex": "#F7CFC4"
+      },
+      {
+        "colorName": "salmon bisque",
+        "colorCode": "NP R 1356 P",
+        "colorHex": "#F1ADA6"
+      },
+      {
+        "colorName": "coral cove",
+        "colorCode": "NP R 1357 T",
+        "colorHex": "#E18E87"
+      },
+      {
+        "colorName": "scarlet oak",
+        "colorCode": "NP R 1358 A",
+        "colorHex": "#86423F"
+      },
+      {
+        "colorName": "coral pin",
+        "colorCode": "NP R 1359 T",
+        "colorHex": "#DF8B8C"
+      },
+      {
+        "colorName": "beautiful rose",
+        "colorCode": "NP R 1360 T",
+        "colorHex": "#F0ACAA"
+      },
+      {
+        "colorName": "cherry pink",
+        "colorCode": "NP R 1361 P",
+        "colorHex": "#EDB9BC"
+      },
+      {
+        "colorName": "pueblo peach",
+        "colorCode": "NP R 1362 P",
+        "colorHex": "#EFBEAB"
+      },
+      {
+        "colorName": "crushed clay",
+        "colorCode": "NP R 1363 P",
+        "colorHex": "#E9B1A2"
+      },
+      {
+        "colorName": "copperleaf",
+        "colorCode": "NP R 1364 T",
+        "colorHex": "#CF8675"
+      },
+      {
+        "colorName": "brunette",
+        "colorCode": "NP R 1365 A",
+        "colorHex": "#9B5144"
+      },
+      {
+        "colorName": "aztec",
+        "colorCode": "NP R 1366 D",
+        "colorHex": "#BD6C53"
+      },
+      {
+        "colorName": "cracked shell",
+        "colorCode": "NP R 1367 T",
+        "colorHex": "#DB947D"
+      },
+      {
+        "colorName": "clay brushed",
+        "colorCode": "NP R 1368 P",
+        "colorHex": "#E6AD97"
+      },
+      {
+        "colorName": "infant smile",
+        "colorCode": "NP R 1369 P",
+        "colorHex": "#F6CBB9"
+      },
+      {
+        "colorName": "sampler stitch",
+        "colorCode": "NP R 1370 P",
+        "colorHex": "#E2B6A8"
+      },
+      {
+        "colorName": "new brick",
+        "colorCode": "NP R 1371 T",
+        "colorHex": "#B88374"
+      },
+      {
+        "colorName": "brick house",
+        "colorCode": "NP R 1372 D",
+        "colorHex": "#A16552"
+      },
+      {
+        "colorName": "winthrop brick",
+        "colorCode": "NP R 1373 T",
+        "colorHex": "#C58C79"
+      },
+      {
+        "colorName": "standish rose",
+        "colorCode": "NP R 1374 P",
+        "colorHex": "#D0A497"
+      },
+      {
+        "colorName": "prairie dust",
+        "colorCode": "NP R 1375 P",
+        "colorHex": "#DBB1A5"
+      },
+      {
+        "colorName": "quaint",
+        "colorCode": "NP R 1376 P",
+        "colorHex": "#E7CCBC"
+      },
+      {
+        "colorName": "dried leaves",
+        "colorCode": "NP R 1377 P",
+        "colorHex": "#DEC0AE"
+      },
+      {
+        "colorName": "rustic leather",
+        "colorCode": "NP R 1378 T",
+        "colorHex": "#BF8D76"
+      },
+      {
+        "colorName": "red earth",
+        "colorCode": "NP R 1379 A",
+        "colorHex": "#795148"
+      },
+      {
+        "colorName": "polished leather",
+        "colorCode": "NP R 1380 D",
+        "colorHex": "#9A6751"
+      },
+      {
+        "colorName": "my knapsack",
+        "colorCode": "NP R 1381 T",
+        "colorHex": "#D8A994"
+      },
+      {
+        "colorName": "bleached leather",
+        "colorCode": "NP R 1382 P",
+        "colorHex": "#E0BAA5"
+      },
+      {
+        "colorName": "timber grain",
+        "colorCode": "NP R 1383 P",
+        "colorHex": "#EFD0BD"
+      },
+      {
+        "colorName": "delta",
+        "colorCode": "NP R 1384 T",
+        "colorHex": "#DCAE8F"
+      },
+      {
+        "colorName": "wet moccasin",
+        "colorCode": "NP R 1385 T",
+        "colorHex": "#BA8F75"
+      },
+      {
+        "colorName": "field oak",
+        "colorCode": "NP R 1386 A",
+        "colorHex": "#845644"
+      },
+      {
+        "colorName": "copper bell",
+        "colorCode": "NP R 1387 D",
+        "colorHex": "#A0684C"
+      },
+      {
+        "colorName": "clay vessel",
+        "colorCode": "NP R 1388 T",
+        "colorHex": "#C89375"
+      },
+      {
+        "colorName": "cedar scent",
+        "colorCode": "NP R 1389 P",
+        "colorHex": "#E6C3AA"
+      }
+    ],
+    "Yellows & Oranges": [
+      {
+        "colorName": "lemon yellow",
+        "colorCode": "NP YO 1090 P",
+        "colorHex": "#FDF0BD"
+      },
+      {
+        "colorName": "golden yellow",
+        "colorCode": "NP YO 1091 T",
+        "colorHex": "#EEDA77"
+      },
+      {
+        "colorName": "heart of gold",
+        "colorCode": "NP YO 1092 A",
+        "colorHex": "#E4C74B"
+      },
+      {
+        "colorName": "golden touch",
+        "colorCode": "NP YO 1093 T",
+        "colorHex": "#F4E077"
+      },
+      {
+        "colorName": "sparkling yellow",
+        "colorCode": "NP YO 1094 P",
+        "colorHex": "#FAE89A"
+      },
+      {
+        "colorName": "ixora",
+        "colorCode": "NP YO 1095 P",
+        "colorHex": "#F7EDC0"
+      },
+      {
+        "colorName": "sun screen",
+        "colorCode": "NP YO 1096 P",
+        "colorHex": "#F6ECC0"
+      },
+      {
+        "colorName": "niblet",
+        "colorCode": "NP YO 1097 P",
+        "colorHex": "#F4E8A9"
+      },
+      {
+        "colorName": "golden ear",
+        "colorCode": "NP YO 1098 T",
+        "colorHex": "#F2DE7E"
+      },
+      {
+        "colorName": "evergold",
+        "colorCode": "NP YO 1099 D",
+        "colorHex": "#E5CA4F"
+      },
+      {
+        "colorName": "yellow jasmine",
+        "colorCode": "NP YO 1100 D",
+        "colorHex": "#F3D754"
+      },
+      {
+        "colorName": "zen yellow",
+        "colorCode": "NP YO 1101 P",
+        "colorHex": "#F8EC9E"
+      },
+      {
+        "colorName": "yellow joy",
+        "colorCode": "NP YO 1102 P",
+        "colorHex": "#FEF5BC"
+      },
+      {
+        "colorName": "slight embrace",
+        "colorCode": "NP YO 1103 P",
+        "colorHex": "#F9EDAB"
+      },
+      {
+        "colorName": "yellow necklace",
+        "colorCode": "NP YO 1104 P",
+        "colorHex": "#F7EC9F"
+      },
+      {
+        "colorName": "yellow pendant",
+        "colorCode": "NP YO 1105 T",
+        "colorHex": "#FAE477"
+      },
+      {
+        "colorName": "yellow mint",
+        "colorCode": "NP YO 1106 A",
+        "colorHex": "#F3CB17"
+      },
+      {
+        "colorName": "sun miracle",
+        "colorCode": "NP YO 1107 D",
+        "colorHex": "#FCDE4B"
+      },
+      {
+        "colorName": "potenitilla",
+        "colorCode": "NP YO 1108 T",
+        "colorHex": "#F9E983"
+      },
+      {
+        "colorName": "yellow charm",
+        "colorCode": "NP YO 1109 P",
+        "colorHex": "#FEF4B5"
+      },
+      {
+        "colorName": "lemon white",
+        "colorCode": "NP YO 1110 P",
+        "colorHex": "#F5E7AC"
+      },
+      {
+        "colorName": "chromatella",
+        "colorCode": "NP YO 1111 T",
+        "colorHex": "#F8E582"
+      },
+      {
+        "colorName": "austere yellow",
+        "colorCode": "NP YO 1112 D",
+        "colorHex": "#FFE26C"
+      },
+      {
+        "colorName": "absolute yellow",
+        "colorCode": "NP YO 1113 A",
+        "colorHex": "#FFD30A"
+      },
+      {
+        "colorName": "sunray",
+        "colorCode": "NP YO 1114 A",
+        "colorHex": "#F6D537"
+      },
+      {
+        "colorName": "feather gold",
+        "colorCode": "NP YO 1115 T",
+        "colorHex": "#EEDD82"
+      },
+      {
+        "colorName": "single feather",
+        "colorCode": "NP YO 1116 P",
+        "colorHex": "#EFE3A8"
+      },
+      {
+        "colorName": "hearth yellow",
+        "colorCode": "NP YO 1117 P",
+        "colorHex": "#FCF3C4"
+      },
+      {
+        "colorName": "clear yellow",
+        "colorCode": "NP YO 1118 P",
+        "colorHex": "#FEF4B8"
+      },
+      {
+        "colorName": "yellow band",
+        "colorCode": "NP YO 1119 T",
+        "colorHex": "#FFE575"
+      },
+      {
+        "colorName": "sassy yellow",
+        "colorCode": "NP YO 1120 D",
+        "colorHex": "#FFD749"
+      },
+      {
+        "colorName": "yellow prominence",
+        "colorCode": "NP YO 1121 T",
+        "colorHex": "#FEE77D"
+      },
+      {
+        "colorName": "yellow fragrance",
+        "colorCode": "NP YO 1122 P",
+        "colorHex": "#FAEBA5"
+      },
+      {
+        "colorName": "powder yellow",
+        "colorCode": "NP YO 1123 P",
+        "colorHex": "#F1E8C3"
+      },
+      {
+        "colorName": "daisy petal",
+        "colorCode": "NP YO 1124 P",
+        "colorHex": "#FCF2BD"
+      },
+      {
+        "colorName": "yellow sails",
+        "colorCode": "NP YO 1125 P",
+        "colorHex": "#FEE997"
+      },
+      {
+        "colorName": "yellow ring",
+        "colorCode": "NP YO 1126 T",
+        "colorHex": "#FFE074"
+      },
+      {
+        "colorName": "jumping for joy",
+        "colorCode": "NP YO 1127 A",
+        "colorHex": "#FFD022"
+      },
+      {
+        "colorName": "yellow flag",
+        "colorCode": "NP YO 1128 D",
+        "colorHex": "#FFDB64"
+      },
+      {
+        "colorName": "glory yellow",
+        "colorCode": "NP YO 1129 T",
+        "colorHex": "#FFE281"
+      },
+      {
+        "colorName": "filtered light",
+        "colorCode": "NP YO 1130 P",
+        "colorHex": "#F6E6A3"
+      },
+      {
+        "colorName": "sunny ivory",
+        "colorCode": "NP YO 1131 P",
+        "colorHex": "#FDEEB5"
+      },
+      {
+        "colorName": "sunday morning",
+        "colorCode": "NP YO 1132 P",
+        "colorHex": "#FEEEB4"
+      },
+      {
+        "colorName": "yellow helmet",
+        "colorCode": "NP YO 1133 T",
+        "colorHex": "#FFE184"
+      },
+      {
+        "colorName": "cricus top",
+        "colorCode": "NP YO 1134 A",
+        "colorHex": "#FFC800"
+      },
+      {
+        "colorName": "lucky charm",
+        "colorCode": "NP YO 1135 D",
+        "colorHex": "#FFDB66"
+      },
+      {
+        "colorName": "yellow bag",
+        "colorCode": "NP YO 1136 P",
+        "colorHex": "#FFEBAC"
+      },
+      {
+        "colorName": "silky veil",
+        "colorCode": "NP YO 1137 P",
+        "colorHex": "#FEF1C7"
+      },
+      {
+        "colorName": "softly lit",
+        "colorCode": "NP YO 1138 P",
+        "colorHex": "#FFECB1"
+      },
+      {
+        "colorName": "morning dawn",
+        "colorCode": "NP YO 1139 P",
+        "colorHex": "#FDE296"
+      },
+      {
+        "colorName": "crocus yellow",
+        "colorCode": "NP YO 1140 T",
+        "colorHex": "#FED777"
+      },
+      {
+        "colorName": "meadow daisy",
+        "colorCode": "NP YO 1141 A",
+        "colorHex": "#F9C128"
+      },
+      {
+        "colorName": "buttercup bouquet",
+        "colorCode": "NP YO 1142 D",
+        "colorHex": "#FFCC3B"
+      },
+      {
+        "colorName": "sweet yellow",
+        "colorCode": "NP YO 1143 T",
+        "colorHex": "#FFDB79"
+      },
+      {
+        "colorName": "spinning silk",
+        "colorCode": "NP YO 1144 P",
+        "colorHex": "#FBE19C"
+      },
+      {
+        "colorName": "amber light",
+        "colorCode": "NP YO 1145 P",
+        "colorHex": "#FCE2A8"
+      },
+      {
+        "colorName": "gold dust",
+        "colorCode": "NP YO 1146 P",
+        "colorHex": "#FCE2A6"
+      },
+      {
+        "colorName": "yellow destiny",
+        "colorCode": "NP YO 1147 T",
+        "colorHex": "#FFD178"
+      },
+      {
+        "colorName": "all gold",
+        "colorCode": "NP YO 1148 A",
+        "colorHex": "#FCAF1E"
+      },
+      {
+        "colorName": "golden dome",
+        "colorCode": "NP YO 1149 D",
+        "colorHex": "#FFC037"
+      },
+      {
+        "colorName": "desert fire",
+        "colorCode": "NP YO 1150 T",
+        "colorHex": "#FFD679"
+      },
+      {
+        "colorName": "desert breeze",
+        "colorCode": "NP YO 1151 P",
+        "colorHex": "#FBDC99"
+      },
+      {
+        "colorName": "yellow glove",
+        "colorCode": "NP YO 1152 P",
+        "colorHex": "#FBDFAD"
+      },
+      {
+        "colorName": "yellow pinafore",
+        "colorCode": "NP YO 1153 P",
+        "colorHex": "#FFDC9F"
+      },
+      {
+        "colorName": "happy tunes",
+        "colorCode": "NP YO 1154 T",
+        "colorHex": "#FFD281"
+      },
+      {
+        "colorName": "bright smile",
+        "colorCode": "NP YO 1155 A",
+        "colorHex": "#FFB300"
+      },
+      {
+        "colorName": "marsh marigold",
+        "colorCode": "NP YO 1156 D",
+        "colorHex": "#FFB73C"
+      },
+      {
+        "colorName": "daffodil",
+        "colorCode": "NP YO 1157 T",
+        "colorHex": "#FFCB7B"
+      },
+      {
+        "colorName": "sun drenched",
+        "colorCode": "NP YO 1158 P",
+        "colorHex": "#F9D59B"
+      },
+      {
+        "colorName": "young banana",
+        "colorCode": "NP YO 1159 P",
+        "colorHex": "#FBE5B7"
+      },
+      {
+        "colorName": "wishing well",
+        "colorCode": "NP YO 1160 P",
+        "colorHex": "#FDD894"
+      },
+      {
+        "colorName": "perk me up",
+        "colorCode": "NP YO 1161 T",
+        "colorHex": "#FFCE76"
+      },
+      {
+        "colorName": "vivacious",
+        "colorCode": "NP YO 1162 A",
+        "colorHex": "#FCA331"
+      },
+      {
+        "colorName": "jumping jack",
+        "colorCode": "NP YO 1163 D",
+        "colorHex": "#FFBA3E"
+      },
+      {
+        "colorName": "good fun",
+        "colorCode": "NP YO 1164 D",
+        "colorHex": "#FFBF55"
+      },
+      {
+        "colorName": "buttermelt",
+        "colorCode": "NP YO 1165 P",
+        "colorHex": "#FCE4A9"
+      },
+      {
+        "colorName": "silent bliss",
+        "colorCode": "NP YO 1166 P",
+        "colorHex": "#F4E0BF"
+      },
+      {
+        "colorName": "sheer chiffon",
+        "colorCode": "NP YO 1167 P",
+        "colorHex": "#FBDEB6"
+      },
+      {
+        "colorName": "coachlight",
+        "colorCode": "NP YO 1168 T",
+        "colorHex": "#EDC17D"
+      },
+      {
+        "colorName": "capitol's gold",
+        "colorCode": "NP YO 1169 D",
+        "colorHex": "#D4A155"
+      },
+      {
+        "colorName": "ripe wheat",
+        "colorCode": "NP YO 1170 T",
+        "colorHex": "#E3C089"
+      },
+      {
+        "colorName": "spoonbread",
+        "colorCode": "NP YO 1171 P",
+        "colorHex": "#FAE0B4"
+      },
+      {
+        "colorName": "star magnolia",
+        "colorCode": "NP YO 1172 P",
+        "colorHex": "#FBE6C2"
+      },
+      {
+        "colorName": "warm toast",
+        "colorCode": "NP YO 1173 P",
+        "colorHex": "#F3E2C6"
+      },
+      {
+        "colorName": "wheat dust",
+        "colorCode": "NP YO 1174 P",
+        "colorHex": "#E7D0A9"
+      },
+      {
+        "colorName": "straw stack",
+        "colorCode": "NP YO 1175 T",
+        "colorHex": "#DBBE8C"
+      },
+      {
+        "colorName": "straw hat",
+        "colorCode": "NP YO 1176 A",
+        "colorHex": "#B18145"
+      },
+      {
+        "colorName": "harvest flame",
+        "colorCode": "NP YO 1177 D",
+        "colorHex": "#C99D54"
+      },
+      {
+        "colorName": "dry wheat",
+        "colorCode": "NP YO 1178 T",
+        "colorHex": "#D3B887"
+      },
+      {
+        "colorName": "classic silk",
+        "colorCode": "NP YO 1179 P",
+        "colorHex": "#E8D4B1"
+      },
+      {
+        "colorName": "alcove ivory",
+        "colorCode": "NP YO 1180 P",
+        "colorHex": "#FBDDAE"
+      },
+      {
+        "colorName": "summer's blanket",
+        "colorCode": "NP YO 1181 P",
+        "colorHex": "#FED59D"
+      },
+      {
+        "colorName": "sun's enchantment",
+        "colorCode": "NP YO 1182 T",
+        "colorHex": "#FFC97D"
+      },
+      {
+        "colorName": "coronette orange",
+        "colorCode": "NP YO 1183 A",
+        "colorHex": "#E98D2A"
+      },
+      {
+        "colorName": "field daisy",
+        "colorCode": "NP YO 1184 D",
+        "colorHex": "#FFAF3D"
+      },
+      {
+        "colorName": "crepe de chine",
+        "colorCode": "NP YO 1185 P",
+        "colorHex": "#FBDBB2"
+      },
+      {
+        "colorName": "warm smile",
+        "colorCode": "NP YO 1186 P",
+        "colorHex": "#FCDCA8"
+      },
+      {
+        "colorName": "feather plume",
+        "colorCode": "NP YO 1187 P",
+        "colorHex": "#FBDBAD"
+      },
+      {
+        "colorName": "petite peach",
+        "colorCode": "NP YO 1188 P",
+        "colorHex": "#F9D09D"
+      },
+      {
+        "colorName": "baby wishes",
+        "colorCode": "NP YO 1189 P",
+        "colorHex": "#FFCD87"
+      },
+      {
+        "colorName": "leap of faith",
+        "colorCode": "NP YO 1190 A",
+        "colorHex": "#FF9528"
+      },
+      {
+        "colorName": "golden charmer",
+        "colorCode": "NP YO 1191 D",
+        "colorHex": "#FFA444"
+      },
+      {
+        "colorName": "happy day",
+        "colorCode": "NP YO 1192 P",
+        "colorHex": "#FFD098"
+      },
+      {
+        "colorName": "sweet cream",
+        "colorCode": "NP YO 1193 P",
+        "colorHex": "#FDD7AC"
+      },
+      {
+        "colorName": "musing",
+        "colorCode": "NP YO 1194 P",
+        "colorHex": "#FBD6AF"
+      },
+      {
+        "colorName": "impish grin",
+        "colorCode": "NP YO 1195 P",
+        "colorHex": "#FFD09A"
+      },
+      {
+        "colorName": "sunny smile",
+        "colorCode": "NP YO 1196 T",
+        "colorHex": "#FFC281"
+      },
+      {
+        "colorName": "cheetah spots",
+        "colorCode": "NP YO 1197 A",
+        "colorHex": "#F97B2C"
+      },
+      {
+        "colorName": "orange bedder",
+        "colorCode": "NP YO 1198 D",
+        "colorHex": "#F89748"
+      },
+      {
+        "colorName": "apricot flower",
+        "colorCode": "NP YO 1199 T",
+        "colorHex": "#FEB979"
+      },
+      {
+        "colorName": "fruity flavor",
+        "colorCode": "NP YO 1200 P",
+        "colorHex": "#FACC9B"
+      },
+      {
+        "colorName": "daylights",
+        "colorCode": "NP YO 1201 P",
+        "colorHex": "#FFDFBF"
+      },
+      {
+        "colorName": "iced melon",
+        "colorCode": "NP YO 1202 P",
+        "colorHex": "#FFCAA1"
+      },
+      {
+        "colorName": "spiced orange",
+        "colorCode": "NP YO 1203 T",
+        "colorHex": "#F7BA85"
+      },
+      {
+        "colorName": "orange torch",
+        "colorCode": "NP YO 1204 A",
+        "colorHex": "#E27337"
+      },
+      {
+        "colorName": "autumn blaze",
+        "colorCode": "NP YO 1205 D",
+        "colorHex": "#EC8850"
+      },
+      {
+        "colorName": "buffy orange",
+        "colorCode": "NP YO 1206 T",
+        "colorHex": "#F8B07B"
+      },
+      {
+        "colorName": "peachy pink",
+        "colorCode": "NP YO 1207 P",
+        "colorHex": "#FAD2AE"
+      },
+      {
+        "colorName": "wishlist",
+        "colorCode": "NP YO 1208 P",
+        "colorHex": "#FFD4B5"
+      },
+      {
+        "colorName": "clarion",
+        "colorCode": "NP YO 1209 T",
+        "colorHex": "#FAC5A4"
+      },
+      {
+        "colorName": "bubblegum",
+        "colorCode": "NP YO 1210 T",
+        "colorHex": "#FFA676"
+      },
+      {
+        "colorName": "disco beat",
+        "colorCode": "NP YO 1211 A",
+        "colorHex": "#ED6733"
+      },
+      {
+        "colorName": "cozy hearth",
+        "colorCode": "NP YO 1212 D",
+        "colorHex": "#F98C54"
+      },
+      {
+        "colorName": "autumn lights",
+        "colorCode": "NP YO 1213 P",
+        "colorHex": "#FFC097"
+      },
+      {
+        "colorName": "lantern festival",
+        "colorCode": "NP YO 1214 P",
+        "colorHex": "#FFD6B2"
+      },
+      {
+        "colorName": "sweet peach",
+        "colorCode": "NP YO 1215 P",
+        "colorHex": "#FBE1CE"
+      },
+      {
+        "colorName": "lovely jewels",
+        "colorCode": "NP YO 1216 P",
+        "colorHex": "#FDC8AE"
+      },
+      {
+        "colorName": "apricot buds",
+        "colorCode": "NP YO 1217 T",
+        "colorHex": "#F9AE92"
+      },
+      {
+        "colorName": "orange sparks",
+        "colorCode": "NP YO 1218 D",
+        "colorHex": "#EA7F5A"
+      },
+      {
+        "colorName": "being peach",
+        "colorCode": "NP YO 1219 T",
+        "colorHex": "#F89273"
+      },
+      {
+        "colorName": "melon rose",
+        "colorCode": "NP YO 1220 P",
+        "colorHex": "#F7BAA8"
+      },
+      {
+        "colorName": "melon halo",
+        "colorCode": "NP YO 1221 P",
+        "colorHex": "#F2C9B4"
+      },
+      {
+        "colorName": "little cupcakes",
+        "colorCode": "NP YO 1222 P",
+        "colorHex": "#FFE1CC"
+      },
+      {
+        "colorName": "soft cushion",
+        "colorCode": "NP YO 1223 P",
+        "colorHex": "#FFD2B9"
+      },
+      {
+        "colorName": "bubbly smile",
+        "colorCode": "NP YO 1224 T",
+        "colorHex": "#FA9D7C"
+      },
+      {
+        "colorName": "party time",
+        "colorCode": "NP YO 1225 A",
+        "colorHex": "#EB613D"
+      },
+      {
+        "colorName": "tribal art",
+        "colorCode": "NP YO 1226 D",
+        "colorHex": "#F9845D"
+      },
+      {
+        "colorName": "orange macaron",
+        "colorCode": "NP YO 1227 T",
+        "colorHex": "#FFB69C"
+      },
+      {
+        "colorName": "orange magix",
+        "colorCode": "NP YO 1228 P",
+        "colorHex": "#FCCFBC"
+      },
+      {
+        "colorName": "terra peach",
+        "colorCode": "NP YO 1229 P",
+        "colorHex": "#F8CBAB"
+      },
+      {
+        "colorName": "prairie peach",
+        "colorCode": "NP YO 1230 P",
+        "colorHex": "#F3BC9B"
+      },
+      {
+        "colorName": "paprika sprinkle",
+        "colorCode": "NP YO 1231 T",
+        "colorHex": "#E9A172"
+      },
+      {
+        "colorName": "tigerstripe",
+        "colorCode": "NP YO 1232 A",
+        "colorHex": "#D16E43"
+      },
+      {
+        "colorName": "sunbaked",
+        "colorCode": "NP YO 1233 D",
+        "colorHex": "#D57E4E"
+      },
+      {
+        "colorName": "healthy glow",
+        "colorCode": "NP YO 1234 T",
+        "colorHex": "#ECAC80"
+      },
+      {
+        "colorName": "lalique peach",
+        "colorCode": "NP YO 1235 P",
+        "colorHex": "#F8D4B8"
+      },
+      {
+        "colorName": "avant garde",
+        "colorCode": "NP YO 1236 P",
+        "colorHex": "#F4CDB5"
+      },
+      {
+        "colorName": "copper dust",
+        "colorCode": "NP YO 1237 P",
+        "colorHex": "#EEB799"
+      },
+      {
+        "colorName": "southwest stone",
+        "colorCode": "NP YO 1238 T",
+        "colorHex": "#E5A17F"
+      },
+      {
+        "colorName": "firebush",
+        "colorCode": "NP YO 1239 D",
+        "colorHex": "#CB734E"
+      },
+      {
+        "colorName": "sedona stone",
+        "colorCode": "NP YO 1240 T",
+        "colorHex": "#DE9470"
+      },
+      {
+        "colorName": "vessel chip",
+        "colorCode": "NP YO 1241 P",
+        "colorHex": "#E7BBA3"
+      },
+      {
+        "colorName": "westwind dust",
+        "colorCode": "NP YO 1242 P",
+        "colorHex": "#F3C4AA"
+      },
+      {
+        "colorName": "delicate peach",
+        "colorCode": "NP YO 1243 P",
+        "colorHex": "#FEE1C0"
+      },
+      {
+        "colorName": "weak tea",
+        "colorCode": "NP YO 1244 P",
+        "colorHex": "#F5D0AA"
+      },
+      {
+        "colorName": "caramel sugar",
+        "colorCode": "NP YO 1245 T",
+        "colorHex": "#E3A974"
+      },
+      {
+        "colorName": "harvest orange",
+        "colorCode": "NP YO 1246 A",
+        "colorHex": "#CB7E45"
+      },
+      {
+        "colorName": "hubbard squash",
+        "colorCode": "NP YO 1247 D",
+        "colorHex": "#D4884D"
+      },
+      {
+        "colorName": "sunshine tea",
+        "colorCode": "NP YO 1248 T",
+        "colorHex": "#E6AD76"
+      },
+      {
+        "colorName": "paris perfume",
+        "colorCode": "NP YO 1249 P",
+        "colorHex": "#FAD6B3"
+      },
+      {
+        "colorName": "pearl inlay",
+        "colorCode": "NP YO 1250 P",
+        "colorHex": "#F7D7B1"
+      },
+      {
+        "colorName": "nude shades",
+        "colorCode": "NP YO 1251 P",
+        "colorHex": "#EEC79A"
+      },
+      {
+        "colorName": "lacquered maple",
+        "colorCode": "NP YO 1252 T",
+        "colorHex": "#EBBB84"
+      },
+      {
+        "colorName": "baroque",
+        "colorCode": "NP YO 1253 A",
+        "colorHex": "#B7763F"
+      },
+      {
+        "colorName": "mansion gold",
+        "colorCode": "NP YO 1254 D",
+        "colorHex": "#D49451"
+      },
+      {
+        "colorName": "sunstraw",
+        "colorCode": "NP YO 1255 P",
+        "colorHex": "#E9CBA2"
+      },
+      {
+        "colorName": "palest glow",
+        "colorCode": "NP YO 1256 P",
+        "colorHex": "#FDE0B0"
+      },
+      {
+        "colorName": "csk yellow",
+        "colorCode": "CSK Yellow",
+        "colorHex": "#FFD83A"
+      }
+    ]
+  }
+}

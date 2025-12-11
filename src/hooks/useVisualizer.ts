@@ -10,6 +10,7 @@ import birlaOpusColors from '../data/colors/birla_opus_colors.json';
 import duluxColors from '../data/colors/dulux_colors.json';
 import jkMaxxColors from '../data/colors/jk_maxx_colors.json';
 import shalimarColors from '../data/colors/shalimar_colors.json';
+import nipponColors from '../data/colors/nippon_colors.json';
 import ncsColors from '../data/colors/ncs_colors.json';
 import ralColors from '../data/colors/ral_colors.json';
 
@@ -72,6 +73,7 @@ export const BRAND_CONFIG: BrandConfig[] = [
   { id: 'dulux', name: 'Dulux', data: duluxColors as BrandColorData, logo: '/assets/images/brand-logos/dulux-logo.webp' },
   { id: 'jk-maxx', name: 'JK Maxx', data: jkMaxxColors as BrandColorData, logo: '/assets/images/brand-logos/jk-logo.webp' },
   { id: 'shalimar', name: 'Shalimar', data: shalimarColors as BrandColorData, logo: '/assets/images/brand-logos/shalimar-logo.webp' },
+  { id: 'nippon', name: 'Nippon', data: nipponColors as BrandColorData, logo: '/assets/images/brand-logos/nippon-logo.webp' },
   { id: 'ncs', name: 'NCS', data: ncsColors as BrandColorData, logo: '/assets/images/brand-logos/ncs-logo.webp' },
   { id: 'ral', name: 'RAL', data: ralColors as BrandColorData, logo: '/assets/images/brand-logos/ral-logo.webp' },
 ];
