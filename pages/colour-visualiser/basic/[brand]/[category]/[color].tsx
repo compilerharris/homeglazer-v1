@@ -5,6 +5,9 @@ import Header from '../../../../../src/components/home/Header';
 import Footer from '../../../../../src/components/home/Footer';
 import Head from 'next/head';
 import DevToolsProtection from '../../../../../src/components/security/DevToolsProtection';
+import { GetServerSideProps } from 'next';
+import fs from 'fs';
+import path from 'path';
 
 const BRAND_CONFIG = [
   { id: 'asian-paints', name: 'Asian Paints', fileName: 'asian_paints_colors.json' },
@@ -75,6 +78,13 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Creams': '#FFFDD0',
   'Beige': '#F5F5DC',
   'Violet': '#800080',
+  // Nippon-specific categories
+  'Accents': '#FFD700', // Yellow/Orange for accents
+  'Blue Greens & Greens': '#20B2AA', // Teal/Blue-green
+  'Off White': '#F5F5DC', // Off-white/cream
+  'Purple & Blues': '#6A5ACD', // Slate blue (mix of purple and blue)
+  'Red & Pink': '#FF69B4', // Pink (represents both red and pink)
+  'Yellows & Oranges': '#FFA500', // Orange (mix of yellow and orange)
 };
 
 function toKebabCase(str: string): string {
@@ -114,7 +124,7 @@ const COLOR_TYPE_SCIENCE: Record<string, { title: string; description: string; e
   },
   Reds: {
     title: 'Embracing Energy with Reds',
-    description: 'Red is stimulating, energetic, and bold. It increases excitement and appetite—making red ideal for spaces where you entertain or dine—but should be balanced to avoid overwhelming the senses.',
+    description: 'Red is stimulating, energetic, and bold. It increases excitement and appetite - making red ideal for spaces where you entertain or dine - but should be balanced to avoid overwhelming the senses.',
     examples: 'Recommended for: Dining areas, accent walls, creative studios. Benefits: Inspires passion, conversation, and appetite.'
   },
   Yellows: {
@@ -231,6 +241,51 @@ const COLOR_TYPE_SCIENCE: Record<string, { title: string; description: string; e
     title: 'Peaches: Welcoming & Soft',
     description: 'Peach creates an inviting, restful mood that also feels fresh and unique. It warms up spaces without overpowering, making rooms cozy and stylish.',
     examples: 'Recommended for: Living rooms, kitchens, nurseries. Benefits: Feels fresh, nurturing, and light.'
+  },
+  Accents: {
+    title: 'Bold Statements: Accents',
+    description: 'Accent colors are vibrant, high-impact hues designed to create focal points and add personality to your space. They energize rooms and draw attention, perfect for feature walls, architectural details, or statement pieces.',
+    examples: 'Recommended for: Feature walls, entryways, powder rooms, creative spaces. Benefits: Creates visual interest, adds personality, energizes the space.'
+  },
+  'Blue Greens & Greens': {
+    title: 'Ocean & Forest Harmony: Blue Greens & Greens',
+    description: 'This spectrum blends the tranquility of blue with the freshness of green, evoking coastal breezes and forest canopies. These hues feel both calming and invigorating, bringing natural serenity indoors.',
+    examples: 'Recommended for: Bedrooms, bathrooms, living rooms, home offices. Benefits: Promotes relaxation, refreshes the space, connects with nature.'
+  },
+  'Off White': {
+    title: 'Warm Sophistication: Off White',
+    description: 'Off white offers the brightness of white with subtle warm undertones that create a softer, more inviting feel. It provides a clean backdrop while adding gentle warmth and elegance to any space.',
+    examples: 'Recommended for: Any room, especially living rooms, bedrooms, kitchens. Benefits: Versatile warmth, timeless elegance, easy coordination.'
+  },
+  'Purple & Blues': {
+    title: 'Serene Depth: Purple & Blues',
+    description: 'This harmonious blend combines the calm of blue with the creativity of purple, creating sophisticated hues that feel both restful and inspiring. These colors add depth and luxury while maintaining a peaceful atmosphere.',
+    examples: 'Recommended for: Bedrooms, bathrooms, meditation spaces, studies. Benefits: Promotes calm, inspires creativity, adds sophisticated depth.'
+  },
+  'Red & Pink': {
+    title: 'Passionate Warmth: Red & Pink',
+    description: 'Red and pink hues blend energy with playfulness, creating a spectrum from bold passion to gentle warmth. These colors energize spaces while maintaining an inviting, approachable feel that works in both vibrant and subtle applications.',
+    examples: 'Recommended for: Dining areas, bedrooms, creative spaces, children\'s rooms. Benefits: Adds energy, warmth, and emotional connection.'
+  },
+  'Yellows & Oranges': {
+    title: 'Sunshine & Vitality: Yellows & Oranges',
+    description: 'This warm spectrum captures the energy of sunlight and citrus, bringing brightness and cheerfulness to any space. These hues energize rooms, stimulate conversation, and create an uplifting, welcoming atmosphere.',
+    examples: 'Recommended for: Kitchens, breakfast nooks, playrooms, entryways. Benefits: Boosts energy, creates warmth, stimulates appetite and conversation.'
+  },
+  Magentas: {
+    title: 'Vibrant Expression: Magentas',
+    description: 'Magenta is a bold, energetic color that sits between pink and purple, combining passion with creativity. It\'s vibrant and attention-grabbing, perfect for making a statement while maintaining sophistication.',
+    examples: 'Recommended for: Accent walls, creative studios, powder rooms, feature spaces. Benefits: Adds vibrancy, expresses creativity, creates memorable impact.'
+  },
+  Limes: {
+    title: 'Fresh Zest: Limes',
+    description: 'Lime green is bright, energetic, and refreshing - like citrus fruit brought to life on your walls. It brings outdoor vitality indoors, creating spaces that feel fresh, modern, and full of life.',
+    examples: 'Recommended for: Kitchens, breakfast areas, playrooms, modern spaces. Benefits: Energizes the space, adds freshness, creates a modern, vibrant feel.'
+  },
+  Teals: {
+    title: 'Coastal Calm: Teals',
+    description: 'Teal blends the tranquility of blue with the freshness of green, evoking tropical waters and coastal serenity. It\'s sophisticated yet refreshing, creating spaces that feel both calming and invigorating.',
+    examples: 'Recommended for: Bedrooms, bathrooms, living rooms, coastal-themed spaces. Benefits: Promotes relaxation, adds sophistication, creates a spa-like atmosphere.'
   },
 };
 
@@ -471,6 +526,60 @@ const CATEGORY_TIPS: Record<string, { tips: string[]; pairings: string[]; finish
     pairings: ['Deep green', 'Charcoal', 'Ivory'],
     finishes: ['Special effect metallic', 'Satin trims'],
     pairingCategories: ['Blues', 'Purples', 'Blacks', 'Reds']
+  },
+  Accents: {
+    tips: ['Use strategically on one wall or architectural features for maximum impact.', 'Balance bold accents with neutral surrounding walls to avoid overwhelming.'],
+    pairings: ['Neutral greys', 'Crisp whites', 'Natural wood'],
+    finishes: ['Satin or eggshell for durability', 'Matte for sophisticated depth'],
+    pairingCategories: ['Whites', 'Greys', 'Neutrals', 'Blacks']
+  },
+  'Blue Greens & Greens': {
+    tips: ['Pair with natural materials like rattan and wood for a cohesive organic feel.', 'Use lighter tints in small spaces to maintain openness.'],
+    pairings: ['Warm white', 'Sand beige', 'Natural rattan'],
+    finishes: ['Matte/eggshell walls', 'Satin in bathrooms'],
+    pairingCategories: ['Reds', 'Oranges', 'Yellows', 'Blacks']
+  },
+  'Off White': {
+    tips: ['Test samples to find the right undertone (warm vs cool) for your space.', 'Layer textures to add depth and prevent a flat appearance.'],
+    pairings: ['Soft greys', 'Warm woods', 'Matte black accents'],
+    finishes: ['Eggshell walls', 'Semi-gloss trims'],
+    pairingCategories: ['Blues', 'Greens', 'Purples', 'Reds']
+  },
+  'Purple & Blues': {
+    tips: ['Use lighter shades for a spa-like atmosphere in bathrooms and bedrooms.', 'Pair with metallics like brass or gold for added luxury.'],
+    pairings: ['Soft grey', 'Ivory', 'Brushed gold'],
+    finishes: ['Matte in bedrooms', 'Satin in bathrooms'],
+    pairingCategories: ['Yellows', 'Oranges', 'Greens', 'Blacks']
+  },
+  'Red & Pink': {
+    tips: ['Softer pinks work well in bedrooms; bolder reds suit dining and social spaces.', 'Balance intensity with neutral furnishings and plenty of natural light.'],
+    pairings: ['Cream', 'Charcoal', 'Warm woods'],
+    finishes: ['Eggshell walls', 'Satin for dining areas'],
+    pairingCategories: ['Greens', 'Blues', 'Blacks', 'Yellows']
+  },
+  'Yellows & Oranges': {
+    tips: ['Brighter tones suit well-lit spaces; softer tones work in low-light areas.', 'Balance warmth with cool neutrals to prevent the space from feeling too intense.'],
+    pairings: ['Cool white', 'Soft grey', 'Natural cane'],
+    finishes: ['Matte in living spaces', 'Satin for kitchens'],
+    pairingCategories: ['Blues', 'Purples', 'Greens', 'Blacks']
+  },
+  Magentas: {
+    tips: ['Use as an accent wall or in small spaces like powder rooms for bold impact.', 'Pair with neutrals and metallics to balance the vibrancy.'],
+    pairings: ['Charcoal', 'Crisp white', 'Brass accents'],
+    finishes: ['Satin walls', 'Semi-gloss accents'],
+    pairingCategories: ['Greens', 'Blues', 'Blacks', 'Yellows']
+  },
+  Limes: {
+    tips: ['Balance the brightness with neutral floors and plenty of white trim.', 'Great for energizing entryways and modern kitchen spaces.'],
+    pairings: ['White', 'Charcoal', 'Natural wood'],
+    finishes: ['Eggshell walls', 'Satin in kitchens'],
+    pairingCategories: ['Reds', 'Purples', 'Blacks', 'Blues']
+  },
+  Teals: {
+    tips: ['Ideal for creating a spa-like atmosphere in bathrooms and bedrooms.', 'Pair with white fixtures and natural materials for a coastal feel.'],
+    pairings: ['Warm white', 'Sand beige', 'Natural rattan'],
+    finishes: ['Matte/eggshell walls', 'Satin in bathrooms'],
+    pairingCategories: ['Reds', 'Oranges', 'Yellows', 'Blacks']
   }
 };
 
@@ -486,7 +595,7 @@ const BRAND_INFO: Record<string, { intro: string; sections: Array<{ heading: str
       },
       {
         heading: 'Comprehensive Shade Range',
-        content: 'Asian Paints offers one of the most diverse color portfolios in the industry, spanning from timeless neutrals to bold statement hues. Their scientifically developed shades are categorized into families—Greys, Blues, Greens, Reds, Yellows, Oranges, Browns, Purples, and Pinks—ensuring you find the perfect match for every room, mood, and design vision.'
+        content: 'Asian Paints offers one of the most diverse color portfolios in the industry, spanning from timeless neutrals to bold statement hues. Their scientifically developed shades are categorized into families - Greys, Blues, Greens, Reds, Yellows, Oranges, Browns, Purples, and Pinks - ensuring you find the perfect match for every room, mood, and design vision.'
       },
       {
         heading: 'Premium Product Lines',
@@ -685,7 +794,7 @@ const CATEGORY_FAQS: Record<string, Array<{ q: string; a: string }>> = {
   ],
   Reds: [
     { q: 'Is red too bold for walls?', a: 'Red can be bold, but used strategically (accent wall, dining room) it energizes and inspires conversation. Balance with neutral furnishings.' },
-    { q: 'Does red paint increase energy levels?', a: 'Yes, red is stimulating and can increase heart rate and appetite—ideal for dining and social spaces but less so for bedrooms.' },
+    { q: 'Does red paint increase energy levels?', a: 'Yes, red is stimulating and can increase heart rate and appetite - ideal for dining and social spaces but less so for bedrooms.' },
     { q: 'What colors tone down red walls?', a: 'Pair with warm neutrals (beige, cream), charcoal, or soft whites to balance intensity.' },
     { q: 'Can red work in small spaces?', a: 'Yes, as an accent wall. Full red in small rooms can feel overwhelming; use sparingly for impact.' },
     { q: 'Which finish is best for red walls?', a: 'Eggshell or satin finishes. They highlight the richness without glare and are easier to maintain.' }
@@ -730,7 +839,7 @@ const CATEGORY_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     { q: 'What undertones should I look for in beige?', a: 'Match beige undertones (pink, green, grey) with your flooring and fixed elements for harmony.' },
     { q: 'Can beige work in modern homes?', a: 'Yes! Pair with black, charcoal, or brass accents for a contemporary, elevated look.' },
     { q: 'What colors pair with beige walls?', a: 'Whites, greys, warm woods, and deep greens. Almost any accent color works with beige.' },
-    { q: 'Which rooms suit beige?', a: 'Any room! It\'s universally versatile—living rooms, bedrooms, dining rooms, and offices.' }
+    { q: 'Which rooms suit beige?', a: 'Any room! It\'s universally versatile - living rooms, bedrooms, dining rooms, and offices.' }
   ],
   Beiges: [
     { q: 'How do I keep beige walls from looking flat?', a: 'Layer textures (boucle, rattan, velvet) and add contrast with darker furniture or trims.' },
@@ -740,7 +849,7 @@ const CATEGORY_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     { q: 'What finish is best for beige walls?', a: 'Eggshell or satin. They\'re forgiving, easy to clean, and don\'t highlight imperfections.' }
   ],
   Neutrals: [
-    { q: 'What defines a neutral color?', a: 'Neutrals include whites, beiges, greys, taupes, and soft browns—colors that provide a calm backdrop for other elements.' },
+    { q: 'What defines a neutral color?', a: 'Neutrals include whites, beiges, greys, taupes, and soft browns - colors that provide a calm backdrop for other elements.' },
     { q: 'Are neutrals boring?', a: 'Not at all! Neutrals create a sophisticated, timeless canvas that adapts to changing décor and trends.' },
     { q: 'Can I mix warm and cool neutrals?', a: 'Yes, but balance them carefully. Use textiles and accessories to bridge warm and cool tones harmoniously.' },
     { q: 'What rooms suit neutral walls?', a: 'Any room! Neutrals are universally versatile and work in living rooms, bedrooms, kitchens, and offices.' },
@@ -751,35 +860,129 @@ const CATEGORY_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     { q: 'How do I choose the right white?', a: 'Test samples in your lighting. Warm whites feel cozy; cool whites feel crisp. Match to your fixed elements.' },
     { q: 'Are white walls hard to maintain?', a: 'They show marks more, but wipeable finishes (eggshell, satin) make cleaning easier. Touch-ups are simple.' },
     { q: 'Do white walls make rooms look bigger?', a: 'Yes! White reflects light and visually expands small spaces, making them feel airy and open.' },
-    { q: 'Which rooms suit white walls?', a: 'Any room! White is timeless and versatile—kitchens, bathrooms, bedrooms, living rooms, and offices.' }
+    { q: 'Which rooms suit white walls?', a: 'Any room! White is timeless and versatile - kitchens, bathrooms, bedrooms, living rooms, and offices.' }
   ],
   Creams: [
     { q: 'Is cream warmer than white?', a: 'Yes, cream has warm undertones that create a cozy, inviting feel compared to crisp whites.' },
     { q: 'Can cream walls look dated?', a: 'Not if styled with modern furnishings and good lighting. Cream is timeless and pairs with current trends.' },
     { q: 'What colors complement cream walls?', a: 'Deep greens, bronzes, warm woods, and charcoal. Almost any accent color works with cream.' },
-    { q: 'Which rooms suit cream?', a: 'Any room—living rooms, bedrooms, kitchens, and offices. It\'s universally flattering.' },
+    { q: 'Which rooms suit cream?', a: 'Any room - living rooms, bedrooms, kitchens, and offices. It\'s universally flattering.' },
     { q: 'How do I prevent cream from looking yellow?', a: 'Choose creams with neutral undertones and use warm LED lighting (not overly yellow bulbs).' }
   ],
   Golds: [
-    { q: 'Are gold walls too bold?', a: 'Gold is luxurious but best used sparingly—on feature walls, accents, or small powder rooms for maximum impact.' },
+    { q: 'Are gold walls too bold?', a: 'Gold is luxurious but best used sparingly - on feature walls, accents, or small powder rooms for maximum impact.' },
     { q: 'What rooms suit gold walls?', a: 'Dining rooms, powder rooms, feature walls in living rooms, or entryways for a grand statement.' },
     { q: 'What colors pair with gold walls?', a: 'Deep greens, charcoals, ivories, and blacks. Keep surrounding tones muted to let gold shine.' },
     { q: 'Which finish works for gold walls?', a: 'Metallic or satin finishes enhance the shimmer. Avoid matte, which dulls the effect.' },
     { q: 'Can gold go out of style?', a: 'Gold has been used for centuries and remains a symbol of luxury. Use thoughtfully for lasting appeal.' }
+  ],
+  Accents: [
+    { q: 'How do I use accent colors effectively?', a: 'Use accent colors strategically on one wall, architectural features, or small spaces like powder rooms. Balance bold accents with neutral surrounding walls to create impact without overwhelming.' },
+    { q: 'Are accent colors too bold for everyday spaces?', a: 'Not when used thoughtfully. Accent colors add personality and energy. Use them on feature walls or in smaller spaces, and balance with neutrals for a sophisticated look.' },
+    { q: 'What rooms work best with accent colors?', a: 'Entryways, powder rooms, feature walls in living rooms, and creative spaces. They\'re perfect for making a statement without committing to an entire room.' },
+    { q: 'How do I choose the right accent color?', a: 'Consider your existing décor and the mood you want to create. Bold reds energize, deep blues calm, and vibrant yellows uplift. Test samples to see how they interact with your lighting.' },
+    { q: 'Can I use multiple accent colors together?', a: 'Yes, but use them sparingly and ensure they complement each other. Consider using them in different proportions - one dominant accent with smaller touches of another for visual harmony.' }
+  ],
+  'Blue Greens & Greens': [
+    { q: 'Are blue-green walls calming?', a: 'Yes! Blue-greens combine the tranquility of blue with the freshness of green, creating a soothing, spa-like atmosphere that promotes relaxation and well-being.' },
+    { q: 'What rooms suit blue-green walls?', a: 'Bedrooms, bathrooms, living rooms, and home offices benefit from blue-green\'s calming yet refreshing qualities. It works especially well in spaces where you want to feel both relaxed and energized.' },
+    { q: 'How do I prevent blue-green from looking too cool?', a: 'Choose warmer blue-greens with subtle yellow undertones, and pair with warm materials like wood, rattan, and warm lighting to balance the coolness.' },
+    { q: 'What colors complement blue-green walls?', a: 'Warm whites, sand beiges, natural woods, and coral accents work beautifully. These warm tones balance the coolness while maintaining harmony.' },
+    { q: 'Can blue-green work in small spaces?', a: 'Yes! Lighter blue-green tints can make small spaces feel more open and airy, while deeper shades create cozy, intimate atmospheres in larger rooms.' }
+  ],
+  'Off White': [
+    { q: 'How is off-white different from white?', a: 'Off-white has subtle warm undertones (beige, cream, or yellow) that create a softer, more inviting feel compared to crisp whites. It provides warmth while maintaining brightness.' },
+    { q: 'What undertones should I look for in off-white?', a: 'Warm off-whites have beige or yellow undertones, while cool off-whites have grey or blue undertones. Choose based on your lighting and existing décor for harmony.' },
+    { q: 'Can off-white work in modern interiors?', a: 'Absolutely! Off-white provides a sophisticated, warm backdrop that works beautifully in modern spaces when paired with clean lines, natural materials, and contemporary furnishings.' },
+    { q: 'What colors pair with off-white walls?', a: 'Soft greys, warm woods, matte black accents, and almost any accent color work well. Off-white is versatile and provides a perfect neutral backdrop.' },
+    { q: 'Which rooms suit off-white?', a: 'Any room! Off-white is universally flattering and works in living rooms, bedrooms, kitchens, and offices. It\'s especially good in north-facing rooms that need warmth.' }
+  ],
+  'Purple & Blues': [
+    { q: 'Are purple-blue walls too bold?', a: 'Not necessarily. Lighter purple-blues create a serene, spa-like atmosphere, while deeper shades add sophisticated drama. Choose the intensity based on your space and desired mood.' },
+    { q: 'What rooms suit purple-blue walls?', a: 'Bedrooms, bathrooms, meditation spaces, and studies benefit from purple-blue\'s calming yet creative qualities. It promotes relaxation while inspiring thought.' },
+    { q: 'How do I balance purple-blue walls?', a: 'Pair with warm neutrals like cream, beige, or warm greys. Add metallics like brass or gold for luxury, and ensure good lighting to prevent the space from feeling too dark.' },
+    { q: 'Can purple-blue make a room feel smaller?', a: 'Deeper shades can, but lighter purple-blues actually help spaces feel more open and airy. Use lighter tints in small rooms and deeper shades in larger spaces or as accents.' },
+    { q: 'What finish works best for purple-blue walls?', a: 'Matte finishes work well in bedrooms for a restful feel, while satin finishes are ideal for bathrooms. Avoid high gloss unless you want a bold, reflective look.' }
+  ],
+  'Red & Pink': [
+    { q: 'Are red and pink walls too bold for bedrooms?', a: 'Softer pinks are perfect for bedrooms - they\'re calming and nurturing. Bolder reds are better suited for dining areas or accent walls. Choose the intensity based on the room\'s purpose.' },
+    { q: 'What rooms suit red and pink walls?', a: 'Dining areas benefit from red\'s appetite-stimulating qualities, while softer pinks work beautifully in bedrooms and bathrooms. Both can energize creative spaces and children\'s rooms.' },
+    { q: 'How do I prevent red-pink from overwhelming a space?', a: 'Use softer, muted tones for larger areas, and reserve bold shades for accent walls or small spaces. Balance with neutral furnishings and plenty of natural light.' },
+    { q: 'What colors complement red and pink walls?', a: 'Creams, charcoals, warm woods, and deep greens create beautiful contrast. Navy or black adds modern sophistication, while whites keep the space fresh.' },
+    { q: 'Can red-pink work in small spaces?', a: 'Yes, especially softer pinks which can make small spaces feel cozy and inviting. Use bold reds sparingly in small spaces - perhaps as an accent wall - to avoid feeling overwhelming.' }
+  ],
+  'Yellows & Oranges': [
+    { q: 'Are yellow-orange walls too bright?', a: 'Softer, buttery yellows and warm oranges are versatile and welcoming. Brighter tones suit well-lit spaces and playful areas. Choose the intensity based on your lighting and desired mood.' },
+    { q: 'What rooms suit yellow-orange walls?', a: 'Kitchens, breakfast nooks, playrooms, and entryways benefit from yellow-orange\'s energizing warmth. These colors stimulate appetite and conversation, making them ideal for social spaces.' },
+    { q: 'How do I balance yellow-orange warmth?', a: 'Pair with cool neutrals like soft grey or white to prevent the space from feeling too warm. Use natural materials and ensure good ventilation, especially in kitchens.' },
+    { q: 'Can yellow-orange work in north-facing rooms?', a: 'Absolutely! Yellow-orange adds warmth to cool, north-facing spaces and counteracts the lack of direct sunlight, making rooms feel more inviting and cheerful.' },
+    { q: 'What colors pair with yellow-orange walls?', a: 'Cool whites, soft greys, navy blues, and natural woods create beautiful balance. These cooler tones prevent the space from feeling too warm while maintaining harmony.' }
+  ],
+  Magentas: [
+    { q: 'Are magenta walls too bold?', a: 'Magenta is vibrant and attention-grabbing, making it perfect for accent walls or small spaces like powder rooms. Use strategically to create impact without overwhelming larger areas.' },
+    { q: 'What rooms suit magenta walls?', a: 'Powder rooms, creative studios, accent walls in living rooms, and feature spaces benefit from magenta\'s bold, creative energy. It\'s ideal for making a memorable statement.' },
+    { q: 'How do I balance magenta\'s intensity?', a: 'Pair with neutral greys, crisp whites, and natural woods. Use metallics like brass or gold for added sophistication. Ensure good lighting to showcase the color\'s vibrancy.' },
+    { q: 'Can magenta work in modern interiors?', a: 'Yes! Magenta adds a contemporary, bold statement when used thoughtfully. Pair with clean lines, modern furnishings, and neutral accents for a sophisticated, vibrant look.' },
+    { q: 'What finish works best for magenta walls?', a: 'Satin finishes work well, providing durability while maintaining the color\'s vibrancy. Semi-gloss accents can add extra depth. Avoid matte if you want maximum color impact.' }
+  ],
+  Limes: [
+    { q: 'Are lime walls too bright for interiors?', a: 'Lime is vibrant and energizing, making it perfect for modern, playful spaces. Use in well-lit areas like kitchens or breakfast nooks, or as an accent wall for bold impact.' },
+    { q: 'What rooms suit lime walls?', a: 'Kitchens, breakfast areas, playrooms, and modern entryways benefit from lime\'s fresh, energetic vibe. It\'s ideal for spaces where you want to feel energized and alive.' },
+    { q: 'How do I balance lime\'s brightness?', a: 'Pair with plenty of white, neutral floors, and natural wood. Use charcoal or black accents for modern contrast. Balance the vibrancy with neutral furnishings.' },
+    { q: 'Can lime work in small spaces?', a: 'Yes, especially as an accent wall or in well-lit small spaces. Lime\'s brightness can make small areas feel more open and energetic, but use thoughtfully to avoid overwhelming.' },
+    { q: 'What colors complement lime walls?', a: 'White, charcoal, natural wood, and soft greys create beautiful balance. Navy or black adds modern sophistication, while warm whites keep the space fresh and clean.' }
+  ],
+  Teals: [
+    { q: 'Are teal walls calming?', a: 'Yes! Teal combines the tranquility of blue with the freshness of green, creating a sophisticated, spa-like atmosphere that promotes relaxation and well-being.' },
+    { q: 'What rooms suit teal walls?', a: 'Bedrooms, bathrooms, living rooms, and coastal-themed spaces benefit from teal\'s calming yet refreshing qualities. It creates a sophisticated, spa-like atmosphere.' },
+    { q: 'How do I create a coastal feel with teal?', a: 'Pair teal with warm whites, sand beiges, natural rattan, and light woods. Add nautical accents and plenty of natural light to complete the coastal aesthetic.' },
+    { q: 'Can teal work in modern interiors?', a: 'Absolutely! Teal adds sophisticated depth to modern spaces when paired with clean lines, contemporary furnishings, and neutral accents. It\'s both timeless and on-trend.' },
+    { q: 'What finish works best for teal walls?', a: 'Matte or eggshell finishes work well in bedrooms and living rooms, while satin is ideal for bathrooms. These finishes showcase teal\'s depth without being too reflective.' }
   ]
 };
 
-const BasicVisualiserPage: React.FC = () => {
+interface BasicVisualiserPageProps {
+  initialData?: {
+    colorDatabase: any;
+    brand: string;
+    category: string;
+    color: any;
+    pageTitle: string;
+  };
+}
+
+const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }) => {
   const router = useRouter();
   const { brand: brandParam, category: categoryParam, color: colorParam } = router.query;
-  const [colorDatabase, setColorDatabase] = useState<any>(null);
-  const [selectedBrand, setSelectedBrand] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedColor, setSelectedColor] = useState<any>(null);
+  const [colorDatabase, setColorDatabase] = useState<any>(initialData?.colorDatabase || null);
+  const [selectedBrand, setSelectedBrand] = useState(initialData?.brand || '');
+  const [selectedCategory, setSelectedCategory] = useState(initialData?.category || '');
+  const [selectedColor, setSelectedColor] = useState<any>(initialData?.color || null);
   const [colorPage, setColorPage] = useState(0);
   const svgRef = useRef<SVGSVGElement>(null);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-  const [pairingColorsSeed, setPairingColorsSeed] = useState<number>(Date.now());
+  // Use deterministic seed based on brand/category/color for consistent server/client rendering
+  const getDeterministicSeed = (brand: string, category: string, colorName: string, colorCode: string) => {
+    const seedString = `${brand}-${category}-${colorName}-${colorCode}`;
+    let hash = 0;
+    for (let i = 0; i < seedString.length; i++) {
+      const char = seedString.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+    return Math.abs(hash);
+  };
+  const [pairingColorsSeed, setPairingColorsSeed] = useState<number>(() => {
+    if (initialData?.color && initialData?.brand && initialData?.category) {
+      return getDeterministicSeed(
+        initialData.brand,
+        initialData.category,
+        initialData.color.colorName,
+        initialData.color.colorCode
+      );
+    }
+    return Date.now();
+  });
   const [advPreviewColorIndex, setAdvPreviewColorIndex] = useState(0);
   const [advPreviewMasks, setAdvPreviewMasks] = useState<Record<string, string>>({});
   const [advPreviewLoadingMasks, setAdvPreviewLoadingMasks] = useState(true);
@@ -797,9 +1000,18 @@ const BasicVisualiserPage: React.FC = () => {
   // For dynamic mobile layout
   const kitchenRef = useRef<HTMLDivElement>(null);
   const [isMobileLayoutFixed, setIsMobileLayoutFixed] = useState(true);
+  
+  // Track if we've used initialData to prevent hydration mismatches
+  const hasUsedInitialData = useRef(!!initialData);
 
-  // Load brand JSON dynamically
+  // Load brand JSON dynamically (skip if initialData is provided and matches)
   useEffect(() => {
+    // Skip on initial mount if we have initialData that matches
+    if (hasUsedInitialData.current && initialData && initialData.brand === brandParam) {
+      hasUsedInitialData.current = false; // Reset after first check
+      return;
+    }
+    
     const loadBrand = async () => {
       const brandId = typeof brandParam === 'string' && BRAND_CONFIG.some(b => b.id === brandParam) ? brandParam : BRAND_CONFIG[0].id;
       setSelectedBrand(brandId);
@@ -815,9 +1027,22 @@ const BasicVisualiserPage: React.FC = () => {
     loadBrand();
   }, [brandParam]);
 
-  // Set category and color from URL or fallback
+  // Set category and color from URL or fallback (skip if initialData is provided and matches)
   useEffect(() => {
     if (!colorDatabase) return;
+    
+    // Skip on initial mount if we have initialData that matches URL params (to prevent hydration mismatch)
+    if (hasUsedInitialData.current && initialData && 
+        initialData.category === (categoryParam || '') && 
+        initialData.brand === (brandParam || '')) {
+      // Only skip if color param also matches (if provided)
+      if (!colorParam || (initialData.color && 
+          `${toKebabCase(initialData.color.colorName)}-${initialData.color.colorCode.replace(/\s+/g, '-')}` === colorParam)) {
+        hasUsedInitialData.current = false; // Reset after first check
+        return;
+      }
+    }
+    
     const categories = Object.keys(colorDatabase.colorTypes);
     const cat = typeof categoryParam === 'string' && categories.includes(categoryParam) ? categoryParam : categories[0];
     
@@ -825,7 +1050,21 @@ const BasicVisualiserPage: React.FC = () => {
     const categoryChanged = selectedCategory !== cat;
     if (categoryChanged) {
       setColorPage(0);
-      setPairingColorsSeed(Date.now()); // Reset pairing colors when category changes
+      // Use deterministic seed based on brand/category/color
+      const colors = colorDatabase.colorTypes[cat] || [];
+      const colorObj = colors[0];
+      if (colorObj) {
+        const seedString = `${selectedBrand}-${cat}-${colorObj.colorName}-${colorObj.colorCode}`;
+        let hash = 0;
+        for (let i = 0; i < seedString.length; i++) {
+          const char = seedString.charCodeAt(i);
+          hash = ((hash << 5) - hash) + char;
+          hash = hash & hash;
+        }
+        setPairingColorsSeed(Math.abs(hash));
+      } else {
+        setPairingColorsSeed(Date.now());
+      }
     }
     
     setSelectedCategory(cat);
@@ -844,7 +1083,19 @@ const BasicVisualiserPage: React.FC = () => {
     }
     if (!colorObj) colorObj = colors[0];
     setSelectedColor(colorObj);
-  }, [colorDatabase, categoryParam, colorParam, brandParam, selectedBrand, selectedCategory]);
+    
+    // Update pairing colors seed when color changes (deterministic)
+    if (colorObj) {
+      const seedString = `${selectedBrand}-${cat}-${colorObj.colorName}-${colorObj.colorCode}`;
+      let hash = 0;
+      for (let i = 0; i < seedString.length; i++) {
+        const char = seedString.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+      }
+      setPairingColorsSeed(Math.abs(hash));
+    }
+  }, [colorDatabase, categoryParam, colorParam, brandParam, selectedBrand]);
 
   // Handle brand/category/color selection
   const handleBrandClick = async (id: string) => {
@@ -884,8 +1135,9 @@ const BasicVisualiserPage: React.FC = () => {
     const cleanColorCode = color.colorCode.replace(/\s+/g, '-');
     router.push(`/colour-visualiser/basic/${selectedBrand}/${selectedCategory}/${toKebabCase(color.colorName)}-${cleanColorCode}`, undefined, { scroll: false });
   };
-  // Pagination
-  const colors = colorDatabase && selectedCategory ? colorDatabase.colorTypes[selectedCategory] || [] : [];
+  // Pagination - use initialData as fallback for server-side rendering
+  const colors = (colorDatabase && selectedCategory ? colorDatabase.colorTypes[selectedCategory] || [] : []) ||
+                 (initialData?.colorDatabase && initialData?.category ? initialData.colorDatabase.colorTypes[initialData.category] || [] : []);
   const totalPages = Math.ceil(colors.length / PAGE_SIZE);
   const paginatedColors = colors.slice(colorPage * PAGE_SIZE, (colorPage + 1) * PAGE_SIZE);
   const handleNextPage = () => { if (colorPage < totalPages - 1) setColorPage(colorPage + 1); };
@@ -911,9 +1163,9 @@ const BasicVisualiserPage: React.FC = () => {
   }, [selectedColor]);
 
   // Generate title and h1
-  const pageTitle = selectedColor && selectedBrand 
+  const pageTitle = initialData?.pageTitle || (selectedColor && selectedBrand 
     ? `${toSentenceCase(selectedColor.colorName)} | Colour Code ${selectedColor.colorCode} | ${toSentenceCase(BRAND_CONFIG.find(b => b.id === selectedBrand)?.name || '')} | Home Glazer`
-    : 'Basic Color Visualiser | Home Glazer';
+    : 'Basic Color Visualiser | Home Glazer');
 
   // Check for overflow in category scroll
   useEffect(() => {
@@ -1075,34 +1327,39 @@ const BasicVisualiserPage: React.FC = () => {
   }, []);
 
   // Memoize pairing colors to prevent reshuffling on FAQ clicks
+  // Use initialData as fallback for server-side rendering
   const pairingColors = useMemo(() => {
-    if (!colorDatabase || !selectedCategory || !colors || colors.length === 0) return [];
+    const db = colorDatabase || initialData?.colorDatabase;
+    const cat = selectedCategory || initialData?.category;
+    const colorList = colors.length > 0 ? colors : (initialData?.colorDatabase && initialData?.category ? initialData.colorDatabase.colorTypes[initialData.category] || [] : []);
     
-    const catTips = CATEGORY_TIPS[selectedCategory] || CATEGORY_TIPS.DEFAULT;
+    if (!db || !cat || !colorList || colorList.length === 0) return [];
+    
+    const catTips = CATEGORY_TIPS[cat] || CATEGORY_TIPS.DEFAULT;
     const targetCats = (catTips.pairingCategories && catTips.pairingCategories.length > 0)
       ? catTips.pairingCategories
       : ['Whites', 'Greys'];
     
     // Collect all colors from contrasting categories with category labels
     const allContrastingColors: any[] = [];
-    targetCats.forEach((cat) => {
-      const arr = colorDatabase.colorTypes[cat] || [];
+    targetCats.forEach((targetCat) => {
+      const arr = db.colorTypes[targetCat] || [];
       arr.forEach((c: any) => {
-        allContrastingColors.push({ ...c, __cat: cat });
+        allContrastingColors.push({ ...c, __cat: targetCat });
       });
     });
     
     // Fallback to any non-current category if not enough
     if (allContrastingColors.length < 8) {
-      const excludeCats = [selectedCategory, ...targetCats];
-      const allCats = Object.keys(colorDatabase.colorTypes);
-      const contrastingCats = allCats.filter(cat => !excludeCats.includes(cat));
+      const excludeCats = [cat, ...targetCats];
+      const allCats = Object.keys(db.colorTypes);
+      const contrastingCats = allCats.filter(contrastCat => !excludeCats.includes(contrastCat));
       
-      contrastingCats.forEach((cat) => {
-        const arr = colorDatabase.colorTypes[cat] || [];
+      contrastingCats.forEach((contrastCat) => {
+        const arr = db.colorTypes[contrastCat] || [];
         arr.forEach((c: any) => {
           if (allContrastingColors.length < 50) {
-            allContrastingColors.push({ ...c, __cat: cat });
+            allContrastingColors.push({ ...c, __cat: contrastCat });
           }
         });
       });
@@ -1120,13 +1377,13 @@ const BasicVisualiserPage: React.FC = () => {
     let attempts = 0;
     
     while (suggestionColors.length < 8 && attempts < 1000) {
-      for (const cat of targetCats) {
+      for (const targetCat of targetCats) {
         if (suggestionColors.length >= 8) break;
         
-        const colorsFromCat = suggestionColors.filter(c => c.__cat === cat).length;
+        const colorsFromCat = suggestionColors.filter(c => c.__cat === targetCat).length;
         if (colorsFromCat < colorsPerCat) {
           const availableFromCat = allContrastingColors.filter(
-            c => c.__cat === cat && !suggestionColors.some(s => s.colorName === c.colorName && s.colorCode === c.colorCode)
+            c => c.__cat === targetCat && !suggestionColors.some(s => s.colorName === c.colorName && s.colorCode === c.colorCode)
           );
           if (availableFromCat.length > 0) {
             const idx = Math.floor(seededRandom(pairingColorsSeed, attempts) * availableFromCat.length);
@@ -1150,7 +1407,7 @@ const BasicVisualiserPage: React.FC = () => {
     }
     
     return suggestionColors.slice(0, 8);
-  }, [colorDatabase, selectedCategory, colors, pairingColorsSeed]);
+  }, [colorDatabase, selectedCategory, colors, pairingColorsSeed, initialData]);
 
   return (
     <>
@@ -1162,7 +1419,7 @@ const BasicVisualiserPage: React.FC = () => {
       <Header />
       <main className="min-h-screen bg-white pt-4 lg:pt-16 pb-20 lg:pb-2 flex flex-col items-center px-4 lg:px-0">
         <h1 className="mt-20 lg:mt-12 text-3xl font-bold text-[#ED276E] mb-4 text-center">
-          {selectedColor ? `${toSentenceCase(selectedColor.colorName)} | Colour Code ${selectedColor.colorCode} | ${toSentenceCase(BRAND_CONFIG.find(b => b.id === selectedBrand)?.name || '')} | Home Glazer` : 'Basic Color Visualiser'}
+          {(selectedColor || initialData?.color) ? `${toSentenceCase((selectedColor || initialData?.color)?.colorName || '')} | Colour Code ${(selectedColor || initialData?.color)?.colorCode || ''} | ${toSentenceCase(BRAND_CONFIG.find(b => b.id === (selectedBrand || initialData?.brand || ''))?.name || '')} | Home Glazer` : 'Basic Color Visualiser'}
         </h1>
         {/* Brand Tabs - Desktop Only */}
         <div className="hidden lg:flex w-full justify-center mb-2">
@@ -1230,7 +1487,7 @@ const BasicVisualiserPage: React.FC = () => {
             >
               <div className={`flex gap-4 flex-nowrap px-2 w-full ${(showPrevArrow || showNextArrow) ? 'justify-start' : 'justify-center'}`}>
                 {Object.keys(colorDatabase.colorTypes).map((cat: string) => {
-                  const categoryColor = CATEGORY_COLORS[cat] || '#ED276E';
+                  const categoryColor = CATEGORY_COLORS[cat] || '#808080';
                   return (
                     <button
                       key={cat}
@@ -1402,7 +1659,7 @@ const BasicVisualiserPage: React.FC = () => {
               <div className="overflow-x-auto scrollbar-hide">
                 <div className="flex gap-1 lg:gap-3 min-w-max">
                   {Object.keys(colorDatabase.colorTypes).map((cat: string) => {
-                    const categoryColor = CATEGORY_COLORS[cat] || '#ED276E';
+                    const categoryColor = CATEGORY_COLORS[cat] || '#808080';
                     return (
                       <button
                         key={cat}
@@ -1558,14 +1815,19 @@ const BasicVisualiserPage: React.FC = () => {
         </div>
 
         {/* SPLIT SCREEN COLOR SCIENCE/INFO SECTION */}
-        {!!selectedCategory && COLOR_TYPE_SCIENCE[selectedCategory] && (
+        {(() => {
+          const categoryForRender = selectedCategory || initialData?.category || '';
+          return categoryForRender && COLOR_TYPE_SCIENCE[categoryForRender];
+        })() ? (
           <section
             className="w-full max-w-5xl flex flex-col lg:flex-row items-stretch gap-8 my-12"
           >
             {/* LEFT: Category Color Block - Mobile Version */}
             <div className="lg:hidden w-full mb-6">
               {(() => {
-                const bg = selectedColor?.colorHex || CATEGORY_COLORS[selectedCategory] || '#ED276E';
+                const currentCategory = selectedCategory || initialData?.category || '';
+                const currentColor = selectedColor || initialData?.color;
+                const bg = currentColor?.colorHex || CATEGORY_COLORS[currentCategory] || '#ED276E';
                 const light = isLightColor(bg);
                 const textColor = light ? '#1f2937' : '#ffffff';
                 const shadowClass = light ? '' : ' drop-shadow-lg';
@@ -1576,18 +1838,18 @@ const BasicVisualiserPage: React.FC = () => {
                   >
                     <div className="w-full flex flex-col items-center justify-center absolute top-4 left-1/2 px-4" style={{ transform: 'translateX(-50%)' }}>
                       <span className={`text-xl font-bold uppercase tracking-wide${shadowClass} text-center`} style={{ color: textColor }}>
-                        {selectedCategory}
+                        {currentCategory}
                       </span>
                     </div>
                     <div className="w-full flex flex-col items-center mb-4 px-4 text-center">
                       <div className="flex items-center justify-center">
                         <span className={`text-base font-medium${shadowClass}`} style={{ color: textColor }}>
-                          {selectedColor?.colorCode || bg}
+                          {currentColor?.colorCode || bg}
                         </span>
                       </div>
-                      {selectedColor?.colorName && (
+                      {currentColor?.colorName && (
                         <span className={`text-xs font-semibold mt-1${shadowClass}`} style={{ color: textColor }}>
-                          {toSentenceCase(selectedColor.colorName)}
+                          {toSentenceCase(currentColor.colorName)}
                         </span>
                       )}
                     </div>
@@ -1599,7 +1861,9 @@ const BasicVisualiserPage: React.FC = () => {
             {/* LEFT: Category Color Block - Desktop Version */}
             <div className="hidden lg:block flex-1 flex flex-col items-center justify-center w-full lg:max-w-[340px]">
               {(() => {
-                const bg = selectedColor?.colorHex || CATEGORY_COLORS[selectedCategory] || '#ED276E';
+                const currentCategory = selectedCategory || initialData?.category || '';
+                const currentColor = selectedColor || initialData?.color;
+                const bg = currentColor?.colorHex || CATEGORY_COLORS[currentCategory] || '#ED276E';
                 const light = isLightColor(bg);
                 const textColor = light ? '#1f2937' : '#ffffff'; // gray-800 or white
                 const shadowClass = light ? '' : ' drop-shadow-lg';
@@ -1611,18 +1875,18 @@ const BasicVisualiserPage: React.FC = () => {
                     >
                       <div className="w-full flex flex-col items-center justify-center absolute top-6 left-1/2 px-4" style={{ transform: 'translateX(-50%)' }}>
                         <span className={`text-2xl font-bold uppercase tracking-wide${shadowClass} text-center`} style={{ color: textColor }}>
-                          {selectedCategory}
+                          {currentCategory}
                         </span>
                       </div>
                       <div className="w-full flex flex-col items-center mb-6 px-4 text-center">
                         <div className="flex items-center justify-center">
                           <span className={`text-base font-medium${shadowClass}`} style={{ color: textColor }}>
-                            {selectedColor?.colorCode || bg}
+                            {currentColor?.colorCode || bg}
                           </span>
                         </div>
-                        {selectedColor?.colorName && (
+                        {currentColor?.colorName && (
                           <span className={`text-xs font-semibold mt-1${shadowClass}`} style={{ color: textColor }}>
-                            {toSentenceCase(selectedColor.colorName)}
+                            {toSentenceCase(currentColor.colorName)}
                           </span>
                         )}
                       </div>
@@ -1634,12 +1898,20 @@ const BasicVisualiserPage: React.FC = () => {
             {/* RIGHT: Explanation Info */}
             <div className="flex-1 flex flex-col justify-center">
               {(() => {
-                const colorName = selectedColor ? toSentenceCase(selectedColor.colorName) : '';
-                const title = personalizeContent(COLOR_TYPE_SCIENCE[selectedCategory].title, colorName, selectedCategory);
-                const description = personalizeContent(COLOR_TYPE_SCIENCE[selectedCategory].description, colorName, selectedCategory);
-                const examples = personalizeContent(COLOR_TYPE_SCIENCE[selectedCategory].examples, colorName, selectedCategory);
+                const currentCategory = selectedCategory || initialData?.category || '';
+                const currentColor = selectedColor || initialData?.color;
+                
+                // Safety check: ensure category exists in COLOR_TYPE_SCIENCE
+                if (!currentCategory || !COLOR_TYPE_SCIENCE[currentCategory]) {
+                  return null;
+                }
+                
+                const colorName = currentColor ? toSentenceCase(currentColor.colorName) : '';
+                const title = personalizeContent(COLOR_TYPE_SCIENCE[currentCategory].title, colorName, currentCategory);
+                const description = personalizeContent(COLOR_TYPE_SCIENCE[currentCategory].description, colorName, currentCategory);
+                const examples = personalizeContent(COLOR_TYPE_SCIENCE[currentCategory].examples, colorName, currentCategory);
                 const d = getDetailsFromExamples(examples);
-                const tipsConfig = CATEGORY_TIPS[selectedCategory] || CATEGORY_TIPS.DEFAULT;
+                const tipsConfig = CATEGORY_TIPS[currentCategory] || CATEGORY_TIPS.DEFAULT;
                 
                 return (
                   <>
@@ -1651,7 +1923,25 @@ const BasicVisualiserPage: React.FC = () => {
                     </p>
                     {/* SEO paragraph referencing the selected color */}
                     <p className="text-gray-700 text-base mb-5 text-left">
-                      Explore {selectedColor ? `${colorName}—part of the ` : ''}the {selectedCategory.toUpperCase()} colour family—an excellent choice with {examples.replace('Recommended for: ', '').split('Benefits:')[0].trim()}.
+                      {(() => {
+                        try {
+                          const recommendedText = examples 
+                            ? examples.replace('Recommended for: ', '').split('Benefits:')[0].trim()
+                            : (d.recommendedFor || 'various spaces');
+                          
+                          if (currentColor && colorName) {
+                            return `Explore ${colorName} - part of the ${currentCategory.toUpperCase()} colour family - an excellent choice with ${recommendedText}.`;
+                          } else {
+                            return `Explore the ${currentCategory.toUpperCase()} colour family - an excellent choice with ${recommendedText}.`;
+                          }
+                        } catch (e) {
+                          // Fallback if string manipulation fails
+                          const recommendedText = d.recommendedFor || 'various spaces';
+                          return currentColor && colorName
+                            ? `Explore ${colorName} - part of the ${currentCategory.toUpperCase()} colour family - an excellent choice with ${recommendedText}.`
+                            : `Explore the ${currentCategory.toUpperCase()} colour family - an excellent choice with ${recommendedText}.`;
+                        }
+                      })()}
                     </p>
                     {/* Parse examples string into split sections */}
                     {d.recommendedFor && (
@@ -1682,16 +1972,19 @@ const BasicVisualiserPage: React.FC = () => {
                     </div>
 
                     {/* Visual Works well with (clickable thumbnails) */}
-                    {colorDatabase && Array.isArray(colors) && colors.length > 0 && pairingColors.length > 0 && (
+                    {(colorDatabase || initialData?.colorDatabase) && Array.isArray(colors) && colors.length > 0 && pairingColors.length > 0 && (
                       <div className="mt-6">
                         <span className="block font-semibold text-gray-900 mb-3">Works well with:</span>
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                          {pairingColors.map((c: any, i: number) => (
+                          {pairingColors.map((c: any, i: number) => {
+                              const currentCategory = selectedCategory || initialData?.category || '';
+                              const currentBrand = selectedBrand || initialData?.brand || '';
+                              return (
                               <button
-                                key={`${c.__cat || selectedCategory}-${c.colorName}-${c.colorCode}-${i}`}
+                                key={`${c.__cat || currentCategory}-${c.colorName}-${c.colorCode}-${i}`}
                                 onClick={() => {
                                   const cleanColorCode = c.colorCode.replace(/\s+/g, '-');
-                                  router.push(`/colour-visualiser/basic/${selectedBrand}/${c.__cat || selectedCategory}/${toKebabCase(c.colorName)}-${cleanColorCode}`, undefined, { scroll: false });
+                                  router.push(`/colour-visualiser/basic/${currentBrand}/${c.__cat || currentCategory}/${toKebabCase(c.colorName)}-${cleanColorCode}`, undefined, { scroll: false });
                                 }}
                                 className="flex items-center gap-2 p-2 rounded-lg border hover:shadow-sm transition bg-white min-w-0"
                                 aria-label={`Switch to ${toSentenceCase(c.colorName)} ${c.colorCode}`}
@@ -1702,16 +1995,25 @@ const BasicVisualiserPage: React.FC = () => {
                                   <span className="text-xs text-gray-500 text-left truncate w-full">{c.colorCode}</span>
                                 </div>
                               </button>
-                            ))}
+                            );
+                          })}
                         </div>
                       </div>
                     )}
 
                     {/* FAQ Accordion */}
                     {(() => {
-                      const baseFaqs = CATEGORY_FAQS[selectedCategory] || CATEGORY_FAQS.DEFAULT;
-                      const colorName = selectedColor?.colorName ? toSentenceCase(selectedColor.colorName) : selectedCategory.toLowerCase();
-                      const isLightColorSelected = selectedColor?.colorHex ? isLightColor(selectedColor.colorHex) : false;
+                      const faqCategory = selectedCategory || initialData?.category || '';
+                      const faqColor = selectedColor || initialData?.color;
+                      
+                      // Ensure we have a category before rendering FAQs
+                      if (!faqCategory) {
+                        return null;
+                      }
+                      
+                      const baseFaqs = CATEGORY_FAQS[faqCategory] || CATEGORY_FAQS.DEFAULT;
+                      const colorName = faqColor?.colorName ? toSentenceCase(faqColor.colorName) : faqCategory.toLowerCase();
+                      const isLightColorSelected = faqColor?.colorHex ? isLightColor(faqColor.colorHex) : false;
                       
                       // Generate contextual FAQs based on selected color properties
                       const faqs = baseFaqs.map((faq, idx) => {
@@ -1728,7 +2030,7 @@ const BasicVisualiserPage: React.FC = () => {
                         }
                         
                         // Replace generic color references with selected color name
-                        const categoryLower = selectedCategory.toLowerCase().replace(/s$/, '');
+                        const categoryLower = faqCategory.toLowerCase().replace(/s$/, '');
                         q = q.replace(new RegExp(`\\b${categoryLower}\\s+(walls|paint)`, 'gi'), colorName);
                         q = q.replace(new RegExp(`\\b${categoryLower}\\b`, 'gi'), colorName);
                         a = a.replace(new RegExp(`\\b${categoryLower}\\s+(walls|paint)`, 'gi'), colorName);
@@ -1758,11 +2060,10 @@ const BasicVisualiserPage: React.FC = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                   </svg>
                                 </button>
-                                {activeFaq === index && (
-                                  <div className="px-4 py-3 bg-gray-50 text-gray-700 border-t border-gray-200">
-                                    {faq.a}
-                                  </div>
-                                )}
+                                {/* Always render FAQ answer for SEO, use CSS to show/hide */}
+                                <div className={`px-4 py-3 bg-gray-50 text-gray-700 border-t border-gray-200 ${activeFaq === index ? '' : 'hidden'}`}>
+                                  {faq.a}
+                                </div>
                               </div>
                             ))}
                           </div>
@@ -1774,10 +2075,10 @@ const BasicVisualiserPage: React.FC = () => {
               })()}
             </div>
           </section>
-        )}
+        ) : null}
 
         {/* Brand Information Section */}
-        {selectedBrand && BRAND_INFO[selectedBrand] && (
+        {(selectedBrand || initialData?.brand) && BRAND_INFO[selectedBrand || initialData?.brand || ''] && (
           <section className="w-full max-w-4xl mt-12 mb-8 px-4">
             <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-sm border border-gray-100 p-8 lg:p-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-[#299dd7] mb-4 text-center">
@@ -1813,6 +2114,88 @@ const BasicVisualiserPage: React.FC = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<BasicVisualiserPageProps> = async ({ params }) => {
+  try {
+    // Validate params
+    if (!params || !params.brand) {
+      return {
+        props: {}
+      };
+    }
+
+    const brandParam = params.brand as string;
+    const categoryParam = params.category as string;
+    const colorParam = params.color as string;
+
+    // Find brand config
+    const brandConfig = BRAND_CONFIG.find(b => b.id === brandParam);
+    if (!brandConfig) {
+      return {
+        props: {}
+      };
+    }
+
+    // Load color data server-side
+    const filePath = path.join(process.cwd(), 'src', 'data', 'colors', brandConfig.fileName);
+    let colorDatabase;
+    
+    try {
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      colorDatabase = JSON.parse(fileContents);
+    } catch (error) {
+      console.error('Error loading color database:', error);
+      return {
+        props: {}
+      };
+    }
+
+    // Find category and color
+    const categories = Object.keys(colorDatabase.colorTypes || {});
+    const category = categoryParam && categories.includes(categoryParam) ? categoryParam : (categories[0] || '');
+    const colors = colorDatabase.colorTypes[category] || [];
+    
+    let selectedColor = null;
+    if (colorParam && colors.length > 0) {
+      // Find color by matching slug pattern
+      for (const color of colors) {
+        const expectedSlug = `${toKebabCase(color.colorName)}-${color.colorCode.replace(/\s+/g, '-')}`;
+        if (colorParam === expectedSlug) {
+          selectedColor = color;
+          break;
+        }
+      }
+    }
+    
+    // Fallback to first color if not found
+    if (!selectedColor && colors.length > 0) {
+      selectedColor = colors[0];
+    }
+
+    // Generate page title
+    const brandName = BRAND_CONFIG.find(b => b.id === brandParam)?.name || '';
+    const pageTitle = selectedColor
+      ? `${toSentenceCase(selectedColor.colorName)} | Colour Code ${selectedColor.colorCode} | ${toSentenceCase(brandName)} | Home Glazer`
+      : 'Basic Color Visualiser | Home Glazer';
+
+    return {
+      props: {
+        initialData: {
+          colorDatabase,
+          brand: brandParam,
+          category: category,
+          color: selectedColor,
+          pageTitle
+        }
+      }
+    };
+  } catch (error) {
+    console.error('Error in getServerSideProps:', error);
+    return {
+      props: {}
+    };
+  }
 };
 
 export default BasicVisualiserPage;

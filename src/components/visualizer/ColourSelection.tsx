@@ -52,6 +52,13 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Creams': '#FFFDD0',
   'Beige': '#F5F5DC',
   'Violet': '#800080',
+  // Nippon-specific categories
+  'Accents': '#FFD700', // Yellow/Orange for accents
+  'Blue Greens & Greens': '#20B2AA', // Teal/Blue-green
+  'Off White': '#F5F5DC', // Off-white/cream
+  'Purple & Blues': '#6A5ACD', // Slate blue (mix of purple and blue)
+  'Red & Pink': '#FF69B4', // Pink (represents both red and pink)
+  'Yellows & Oranges': '#FFA500', // Orange (mix of yellow and orange)
 };
 
 const ColourSelection: React.FC<ColourSelectionProps> = ({
@@ -242,7 +249,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
               >
                 <div className="flex gap-3 min-w-max px-4">
                   {colorTypes.map((colorType) => {
-                    const categoryColor = CATEGORY_COLORS[colorType] || '#ED276E';
+                    const categoryColor = CATEGORY_COLORS[colorType] || '#808080';
                     return (
                       <button
                         key={colorType}
