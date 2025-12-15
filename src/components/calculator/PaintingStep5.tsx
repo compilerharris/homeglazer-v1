@@ -1,17 +1,100 @@
 import React from 'react';
+import CalculationSummary from './CalculationSummary';
+import WoodPolishingSummary from './WoodPolishingSummary';
 
 interface PaintingStep5Props {
   onBack: () => void;
   onRestart: () => void;
   fullName: string;
   email: string;
+  selectedPaintingType?: string;
+  workType?: string;
+  area?: number;
+  areaTypes?: {
+    id: string;
+    label: string;
+    selected: boolean;
+  }[];
+  paintCategory?: string;
+  paintBrand?: string;
+  paintType?: string;
+  roofWorkType?: string;
+  roofArea?: number;
+  roofAreaTypes?: {
+    id: string;
+    label: string;
+    selected: boolean;
+  }[];
+  roofPaintCategory?: string;
+  roofPaintBrand?: string;
+  roofPaintType?: string;
+  exteriorPaintCategory?: string;
+  exteriorPaintBrand?: string;
+  exteriorPaintType?: string;
+  samePaintForCeiling?: boolean;
+  ceilingPaintCategory?: string;
+  ceilingPaintBrand?: string;
+  ceilingPaintType?: string;
+  carpetAreaOptions?: {
+    label: string;
+    value: number;
+  }[];
+  buildupAreaOptions?: {
+    label: string;
+    value: number;
+  }[];
+  // Wood polishing summary props
+  inputMethod?: 'area' | 'items';
+  woodPolishingArea?: number;
+  itemCounts?: {
+    doors: number;
+    windows: number;
+    wallPanels: number;
+    furnitureArea: number;
+  };
+  selectedWoodFinishType?: string;
+  selectedWoodFinishBrand?: string;
+  selectedWoodFinish?: {
+    value: string;
+    name: string;
+  } | null;
+  woodPolishingTotalEstimate?: number;
 }
 
 const PaintingStep5: React.FC<PaintingStep5Props> = ({
   onBack,
   onRestart,
   fullName,
-  email
+  email,
+  selectedPaintingType,
+  workType,
+  area,
+  areaTypes,
+  paintCategory,
+  paintBrand,
+  paintType,
+  roofWorkType,
+  roofArea,
+  roofAreaTypes,
+  roofPaintCategory,
+  roofPaintBrand,
+  roofPaintType,
+  exteriorPaintCategory,
+  exteriorPaintBrand,
+  exteriorPaintType,
+  samePaintForCeiling,
+  ceilingPaintCategory,
+  ceilingPaintBrand,
+  ceilingPaintType,
+  carpetAreaOptions,
+  buildupAreaOptions,
+  inputMethod,
+  woodPolishingArea,
+  itemCounts,
+  selectedWoodFinishType,
+  selectedWoodFinishBrand,
+  selectedWoodFinish,
+  woodPolishingTotalEstimate
 }) => {
   return (
     <div className="w-full max-w-4xl mx-auto text-center">
@@ -20,7 +103,7 @@ const PaintingStep5: React.FC<PaintingStep5Props> = ({
       </h2>
       
       <p className="text-xl text-[#ED276E] mb-12">
-        We will send you the mail for estimated wood polishing cost.
+        We have sent you the mail for estimated {inputMethod && selectedWoodFinish ? 'wood polishing' : 'painting'} cost.
       </p>
       
       <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 mb-12">
@@ -32,7 +115,7 @@ const PaintingStep5: React.FC<PaintingStep5Props> = ({
         
         <h3 className="text-2xl font-medium mb-4">Success!</h3>
         <p className="text-gray-600 mb-6">
-          Dear {fullName}, your wood polishing estimate request has been successfully submitted. 
+          Dear {fullName}, your {inputMethod && selectedWoodFinish ? 'wood polishing' : 'painting'} estimate request has been successfully submitted. 
           We've sent a confirmation email to {email} with your estimate details.
         </p>
         
@@ -45,7 +128,50 @@ const PaintingStep5: React.FC<PaintingStep5Props> = ({
         </p>
       </div>
       
-      <div className="flex justify-center gap-4">
+      {/* Calculation Summary - Only render if painting calculation data is provided */}
+      <div className="text-left">
+        {selectedPaintingType && areaTypes && carpetAreaOptions && buildupAreaOptions && (
+          <CalculationSummary
+            selectedPaintingType={selectedPaintingType}
+            workType={workType || ''}
+            area={area || 0}
+            areaTypes={areaTypes}
+            paintCategory={paintCategory || ''}
+            paintBrand={paintBrand || ''}
+            paintType={paintType || ''}
+            roofWorkType={roofWorkType || ''}
+            roofArea={roofArea || 0}
+            roofAreaTypes={roofAreaTypes || []}
+            roofPaintCategory={roofPaintCategory || ''}
+            roofPaintBrand={roofPaintBrand || ''}
+            roofPaintType={roofPaintType || ''}
+            exteriorPaintCategory={exteriorPaintCategory || ''}
+            exteriorPaintBrand={exteriorPaintBrand || ''}
+            exteriorPaintType={exteriorPaintType || ''}
+            samePaintForCeiling={samePaintForCeiling || false}
+            ceilingPaintCategory={ceilingPaintCategory || ''}
+            ceilingPaintBrand={ceilingPaintBrand || ''}
+            ceilingPaintType={ceilingPaintType || ''}
+            carpetAreaOptions={carpetAreaOptions}
+            buildupAreaOptions={buildupAreaOptions}
+          />
+        )}
+        
+        {/* Wood Polishing Summary - Only render if wood polishing data is provided */}
+        {inputMethod && selectedWoodFinish && itemCounts !== undefined && woodPolishingTotalEstimate !== undefined && (
+          <WoodPolishingSummary
+            inputMethod={inputMethod}
+            area={woodPolishingArea || 0}
+            itemCounts={itemCounts}
+            selectedWoodFinishType={selectedWoodFinishType || ''}
+            selectedWoodFinishBrand={selectedWoodFinishBrand || ''}
+            selectedWoodFinish={selectedWoodFinish}
+            totalEstimate={woodPolishingTotalEstimate}
+          />
+        )}
+      </div>
+      
+      <div className="flex justify-center gap-4 mt-8">
         <button
           onClick={onBack}
           className="px-6 py-3 rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50"

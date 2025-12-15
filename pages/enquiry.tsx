@@ -42,6 +42,12 @@ const EnquirePage: React.FC = () => {
   // Success state
   const [submitted, setSubmitted] = useState(false);
   
+  // Loading state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Error state for API errors
+  const [submitError, setSubmitError] = useState('');
+  
   // Handle form input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -92,12 +98,32 @@ const EnquirePage: React.FC = () => {
   };
   
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (validateForm()) {
-      // Here you would typically send the data to your backend
-      console.log('Enquiry form submitted:', formData);
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setSubmitError('');
+    
+    try {
+      const response = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit enquiry');
+      }
+      
+      // Success - show success message
       setSubmitted(true);
       
       // Reset form after submission
@@ -112,6 +138,11 @@ const EnquirePage: React.FC = () => {
         budget: '',
         message: ''
       });
+    } catch (error: any) {
+      console.error('Error submitting enquiry:', error);
+      setSubmitError(error.message || 'Failed to submit enquiry. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -212,7 +243,7 @@ const EnquirePage: React.FC = () => {
                   We've received your project details and our team will get back to you with a detailed quote within 24 hours.
                 </p>
                 <p className="text-green-700 mb-8">
-                  If you have any immediate questions, feel free to call us at +91 98765 43210.
+                  If you have any immediate questions, feel free to call us at +91-9717256514.
                 </p>
                 <button 
                   onClick={() => setSubmitted(false)}
@@ -421,11 +452,25 @@ const EnquirePage: React.FC = () => {
                   )}
                 </div>
                 
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                    <div className="flex items-center text-red-700">
+                      <AlertCircle className="h-5 w-5 mr-2" />
+                      <span className="text-sm">{submitError}</span>
+                    </div>
+                  </div>
+                )}
+                
                 <button 
                   type="submit" 
-                  className="w-full bg-[#ED276E] text-white font-semibold py-3 px-4 rounded-lg hover:bg-[#d51e5f] transition-colors"
+                  disabled={isSubmitting}
+                  className={`w-full bg-[#ED276E] text-white font-semibold py-3 px-4 rounded-lg transition-colors ${
+                    isSubmitting 
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : 'hover:bg-[#d51e5f]'
+                  }`}
                 >
-                  Submit Enquiry
+                  {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
                 </button>
               </form>
             )}
@@ -505,11 +550,13 @@ const EnquirePage: React.FC = () => {
               </p>
               <div className="flex items-center mb-2">
                 <Phone className="h-5 w-5 mr-2" />
-                <span>+91 98765 43210</span>
+                <span>+91-9717256514</span>
+              </div>
+              <div className="flex items-start mb-2">
+                <span className="text-sm">H-16/137 Sangam Vihar, New Delhi – 110080</span>
               </div>
               <div className="flex items-center">
-                <Clock className="h-5 w-5 mr-2" />
-                <span>Mon-Sat:.9:00 AM - 7:00 PM</span>
+                <span className="text-sm">homeglazer@gmail.com</span>
               </div>
             </div>
           </div>

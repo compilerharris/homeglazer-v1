@@ -1,4 +1,5 @@
 import React from 'react';
+import CalculationSummary from './CalculationSummary';
 
 interface PaintingOption {
   id: string;
@@ -1638,207 +1639,31 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
 
                 </div>
                 
-      {/* Add Result Display Section */}
-      {selectedPaintingType === 'interior' && 
-       workType && area > 0 && paintCategory && paintBrand && paintType && (
-        <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-          <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Calculation Summary</h3>
-          {/* Wall Paint Section */}
-          <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium mb-4 text-gray-800">Wall Paint Details</h4>
-            <div className="space-y-3">
-              <p><span className="font-medium">Work Type:</span> {workType === 'fresh' ? 'Fresh Painting' : 'Repainting'}</p>
-              <p><span className="font-medium">Area Type:</span> {getSelectedAreaType()}</p>
-              <p><span className="font-medium">Area Value:</span> {getDisplayArea()} sq.ft</p>
-              <p><span className="font-medium">Paint Category:</span> {paintCategory.charAt(0).toUpperCase() + paintCategory.slice(1)}</p>
-              <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-              <p><span className="font-medium">Selected Paint:</span> {getSelectedPaintName()}</p>
-              <div className="pt-3 border-t border-gray-200">
-                <p className="text-lg font-medium">
-                  <span className="text-[#ED276E]">Wall Paint Price:</span> ₹{formatIndianCurrency(calculateInteriorPrice())}
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* Ceiling Paint Section - Only show if different paint is selected */}
-          {showCeilingPaintSection && (
-            <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="text-lg font-medium mb-4 text-gray-800">Ceiling Paint Details</h4>
-              <div className="space-y-3">
-                <p><span className="font-medium">Paint Category:</span> {ceilingPaintCategory.charAt(0).toUpperCase() + ceilingPaintCategory.slice(1)}</p>
-                <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                <p><span className="font-medium">Selected Paint:</span> {getSelectedCeilingPaintName()}</p>
-                <p><span className="font-medium">Area Value:</span> {area - getDisplayArea()} sq.ft</p>
-                <div className="pt-3 border-t border-gray-200">
-                  <p className="text-lg font-medium">
-                    <span className="text-[#ED276E]">Ceiling Paint Price:</span> ₹{formatIndianCurrency(calculateCeilingPrice())}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-          {/* Total Price Section */}
-          <div className="pt-4 border-t-2 border-gray-200 bg-white p-4 rounded-lg shadow-sm">
-            <p className="text-xl font-semibold">
-              <span className="text-[#ED276E]">Total Price:</span> ₹{formatIndianCurrency(calculateTotalPrice())}
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Add Result Display Section for Exterior */}
-      {selectedPaintingType === 'exterior' && 
-       roofWorkType && area > 0 && exteriorPaintCategory && exteriorPaintBrand && exteriorPaintType && (
-        <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-          <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Calculation Summary</h3>
-          {/* Exterior Wall Paint Section */}
-          <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium mb-4 text-gray-800">Exterior Wall Paint Details</h4>
-            <div className="space-y-3">
-              <p><span className="font-medium">Work Type:</span> {roofWorkType === 'fresh' ? 'Fresh Painting' : 'Repainting'}</p>
-              <p><span className="font-medium">Area Type:</span> {getSelectedAreaType()}</p>
-              <p><span className="font-medium">Area Value:</span> {area} sq.ft</p>
-              <p><span className="font-medium">Paint Category:</span> {exteriorPaintCategory.charAt(0).toUpperCase() + exteriorPaintCategory.slice(1)}</p>
-              <p><span className="font-medium">Paint Brand:</span> {exteriorPaintBrand}</p>
-              <p><span className="font-medium">Selected Paint:</span> {exteriorPaintType}</p>
-              <div className="pt-3 border-t border-gray-200">
-                <p className="text-lg font-medium">
-                  <span className="text-[#ED276E]">Exterior Wall Paint Price:</span> ₹{formatIndianCurrency(calculateExteriorPrice())}
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* Roof Paint Section - Only show if roof paint is selected */}
-          {roofPaintType && (
-            <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="text-lg font-medium mb-4 text-gray-800">Roof Paint Details</h4>
-              <div className="space-y-3">
-                <p><span className="font-medium">Roof Area:</span> {roofArea} sq.ft</p>
-                <p><span className="font-medium">Paint Category:</span> {roofPaintCategory.charAt(0).toUpperCase() + roofPaintCategory.slice(1)}</p>
-                <p><span className="font-medium">Paint Brand:</span> {roofPaintBrand}</p>
-                <p><span className="font-medium">Selected Paint:</span> {roofPaintType}</p>
-                <div className="pt-3 border-t border-gray-200">
-                  <p className="text-lg font-medium">
-                    <span className="text-[#ED276E]">Roof Paint Price:</span> ₹{formatIndianCurrency(calculateRoofPrice())}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-          {/* Total Price Section */}
-          <div className="pt-4 border-t-2 border-gray-200 bg-white p-4 rounded-lg shadow-sm">
-            <p className="text-xl font-semibold">
-              <span className="text-[#ED276E]">Total Price:</span> ₹{formatIndianCurrency(calculateExteriorTotalPrice())}
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Combined Calculation Summary for Both Interior and Exterior */}
-      {selectedPaintingType === 'both' && 
-       ((workType && area > 0 && paintCategory && paintBrand && paintType) || 
-        (roofWorkType && area > 0 && paintCategory && paintBrand && paintType)) && (
-        <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-          <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Complete Calculation Summary</h3>
-          {/* Interior Section */}
-          {workType && area > 0 && paintCategory && paintBrand && paintType && (
-            <div className="mb-8">
-              <h4 className="text-xl font-medium mb-4 text-[#ED276E]">Interior Work</h4>
-              {/* Wall Paint Section */}
-              <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                <h5 className="text-lg font-medium mb-4 text-gray-800">Wall Paint Details</h5>
-                <div className="space-y-3">
-                  <p><span className="font-medium">Work Type:</span> {workType === 'fresh' ? 'Fresh Painting' : 'Repainting'}</p>
-                  <p><span className="font-medium">Area Type:</span> {getSelectedAreaType()}</p>
-                  <p><span className="font-medium">Area Value:</span> {area} sq.ft</p>
-                  <p><span className="font-medium">Paint Category:</span> {paintCategory.charAt(0).toUpperCase() + paintCategory.slice(1)}</p>
-                  <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                  <p><span className="font-medium">Selected Paint:</span> {getSelectedPaintName()}</p>
-                  <div className="pt-3 border-t border-gray-200">
-                    <p className="text-lg font-medium">
-                      <span className="text-[#ED276E]">Wall Paint Price:</span> ₹{formatIndianCurrency(calculateInteriorPrice())}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {/* Ceiling Paint Section - Only show if different paint is selected */}
-              {showCeilingPaintSection && (
-                <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                  <h5 className="text-lg font-medium mb-4 text-gray-800">Ceiling Paint Details</h5>
-                  <div className="space-y-3">
-                    <p><span className="font-medium">Paint Category:</span> {ceilingPaintCategory.charAt(0).toUpperCase() + ceilingPaintCategory.slice(1)}</p>
-                    <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                    <p><span className="font-medium">Selected Paint:</span> {getSelectedCeilingPaintName()}</p>
-                    <div className="pt-3 border-t border-gray-200">
-                      <p className="text-lg font-medium">
-                        <span className="text-[#ED276E]">Ceiling Paint Price:</span> ₹{formatIndianCurrency(calculateCeilingPrice())}
-                      </p>
-                  </div>
-                  </div>
-                </div>
-              )}
-              {/* Interior Total Section */}
-              <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                <p className="text-lg font-medium">
-                  <span className="text-[#ED276E]">Interior Total Price:</span> ₹{formatIndianCurrency(calculateTotalPrice())}
-                </p>
-              </div>
-            </div>
-          )}
-          {/* Exterior Section */}
-          {roofWorkType && area > 0 && paintCategory && paintBrand && paintType && (
-            <div className="mb-8">
-              <h4 className="text-xl font-medium mb-4 text-[#ED276E]">Exterior Work</h4>
-              {/* Exterior Wall Paint Section */}
-              <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                <h5 className="text-lg font-medium mb-4 text-gray-800">Exterior Wall Paint Details</h5>
-                <div className="space-y-3">
-                  <p><span className="font-medium">Work Type:</span> {roofWorkType === 'fresh' ? 'Fresh Painting' : 'Repainting'}</p>
-                  <p><span className="font-medium">Area Type:</span> {getSelectedAreaType()}</p>
-                  <p><span className="font-medium">Area Value:</span> {area} sq.ft</p>
-                  <p><span className="font-medium">Paint Category:</span> {paintCategory.charAt(0).toUpperCase() + paintCategory.slice(1)}</p>
-                  <p><span className="font-medium">Paint Brand:</span> {getPaintBrandName()}</p>
-                  <p><span className="font-medium">Selected Paint:</span> {getSelectedPaintName()}</p>
-                  <div className="pt-3 border-t border-gray-200">
-                    <p className="text-lg font-medium">
-                      <span className="text-[#ED276E]">Exterior Wall Paint Price:</span> ₹{formatIndianCurrency(calculateExteriorPrice())}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {/* Roof Paint Section - Only show if roof paint is selected */}
-              {roofPaintType && (
-                <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                  <h5 className="text-lg font-medium mb-4 text-gray-800">Roof Paint Details</h5>
-                  <div className="space-y-3">
-                    <p><span className="font-medium">Roof Area:</span> {roofArea} sq.ft</p>
-                    <p><span className="font-medium">Paint Category:</span> {roofPaintCategory.charAt(0).toUpperCase() + roofPaintCategory.slice(1)}</p>
-                    <p><span className="font-medium">Paint Brand:</span> {roofPaintBrand}</p>
-                    <p><span className="font-medium">Selected Paint:</span> {roofPaintType}</p>
-                    <div className="pt-3 border-t border-gray-200">
-                      <p className="text-lg font-medium">
-                        <span className="text-[#ED276E]">Roof Paint Price:</span> ₹{formatIndianCurrency(calculateRoofPrice())}
-                      </p>
-                  </div>
-                  </div>
-                </div>
-              )}
-              {/* Exterior Total Section */}
-              <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
-                <p className="text-lg font-medium">
-                  <span className="text-[#ED276E]">Exterior Total Price:</span> ₹{formatIndianCurrency(calculateExteriorTotalPrice())}
-                </p>
-      </div>
-            </div>
-          )}
-          {/* Grand Total Section */}
-          <div className="pt-4 border-t-2 border-gray-200 bg-white p-4 rounded-lg shadow-sm">
-            <p className="text-2xl font-semibold">
-              <span className="text-[#ED276E]">Grand Total Price:</span> ₹{formatIndianCurrency(calculateGrandTotal())}
-            </p>
-          </div>
-        </div>
-      )}
+      {/* Calculation Summary */}
+      <CalculationSummary
+        selectedPaintingType={selectedPaintingType}
+        workType={workType}
+        area={area}
+        areaTypes={areaTypes}
+        paintCategory={paintCategory}
+        paintBrand={paintBrand}
+        paintType={paintType}
+        roofWorkType={roofWorkType}
+        roofArea={roofArea}
+        roofAreaTypes={roofAreaTypes}
+        roofPaintCategory={roofPaintCategory}
+        roofPaintBrand={roofPaintBrand}
+        roofPaintType={roofPaintType}
+        exteriorPaintCategory={exteriorPaintCategory}
+        exteriorPaintBrand={exteriorPaintBrand}
+        exteriorPaintType={exteriorPaintType}
+        samePaintForCeiling={samePaintForCeiling}
+        ceilingPaintCategory={ceilingPaintCategory}
+        ceilingPaintBrand={ceilingPaintBrand}
+        ceilingPaintType={ceilingPaintType}
+        carpetAreaOptions={carpetAreaOptions}
+        buildupAreaOptions={buildupAreaOptions}
+      />
 
       {/* Navigation Buttons */}
       <div className="mt-8 flex justify-end">

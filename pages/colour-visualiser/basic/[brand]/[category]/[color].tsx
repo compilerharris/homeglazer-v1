@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { AlertCircle } from 'lucide-react';
 import Header from '../../../../../src/components/home/Header';
 import Footer from '../../../../../src/components/home/Footer';
 import Head from 'next/head';
@@ -1625,6 +1626,14 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
               </div>
             )}
           </div>
+        </div>
+        
+        {/* Disclaimer for all images - center aligned with page */}
+        <div className="w-full max-w-screen-xl mx-auto mt-6 px-4">
+          <p className="text-xs text-gray-500 italic text-center flex items-center justify-center gap-2">
+            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            Colors shown are for reference; actual paint may look different on your walls based on lighting, surface, and surroundings.
+          </p>
         </div>
         
         {/* Mobile & Tablet Dynamic Bottom Section (Palette + Category Types + Brand Selector) */}

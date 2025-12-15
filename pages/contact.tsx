@@ -164,9 +164,9 @@ const ContactPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Branch Information */}
           <div className="space-y-12">
-            {/* Home Branch */}
+            {/* Office Information */}
             <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-100">
-              <h2 className="text-2xl font-semibold text-[#ED276E] mb-6">Home Branch</h2>
+              <h2 className="text-2xl font-semibold text-[#ED276E] mb-6">Contact Information</h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="bg-pink-100 p-3 rounded-full">
@@ -174,7 +174,7 @@ const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-900">Address</h3>
-                    <p className="text-gray-600">123 Painting Avenue, Creative District, Mumbai, 400001</p>
+                    <p className="text-gray-600">H-16/137 Sangam Vihar, New Delhi – 110080</p>
                   </div>
                 </div>
                 
@@ -184,7 +184,7 @@ const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <p className="text-gray-600">+91-9717256514</p>
                   </div>
                 </div>
                 
@@ -194,67 +194,26 @@ const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-900">Email</h3>
-                    <p className="text-gray-600">contact@homeglazer.in</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="bg-pink-100 p-3 rounded-full">
-                    <Clock className="h-6 w-6 text-[#ED276E]" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">Hours</h3>
-                    <p className="text-gray-600">Monday - Saturday: 9:00 AM - 7:00 PM</p>
-                    <p className="text-gray-600">Sunday: 10:00 AM - 2:00 PM</p>
+                    <p className="text-gray-600">homeglazer@gmail.com</p>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Second Branch */}
+            {/* Google Maps Embed */}
             <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-100">
-              <h2 className="text-2xl font-semibold text-[#ED276E] mb-6">Delhi Branch</h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="bg-pink-100 p-3 rounded-full">
-                    <MapPin className="h-6 w-6 text-[#ED276E]" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">Address</h3>
-                    <p className="text-gray-600">456 Renovation Road, Modern Colony, Delhi, 110001</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="bg-pink-100 p-3 rounded-full">
-                    <Phone className="h-6 w-6 text-[#ED276E]" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+91 91234 56789</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="bg-pink-100 p-3 rounded-full">
-                    <Mail className="h-6 w-6 text-[#ED276E]" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">Email</h3>
-                    <p className="text-gray-600">delhi@homeglazer.in</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="bg-pink-100 p-3 rounded-full">
-                    <Clock className="h-6 w-6 text-[#ED276E]" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">Hours</h3>
-                    <p className="text-gray-600">Monday - Saturday: 9:00 AM - 7:00 PM</p>
-                    <p className="text-gray-600">Sunday: Closed</p>
-                  </div>
-                </div>
+              <h2 className="text-2xl font-semibold text-[#ED276E] mb-6">Find Us on Map</h2>
+              <div className="w-full overflow-hidden rounded-lg">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.217616931312!2d77.25132260000001!3d28.503099699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce10fc59c7de5%3A0x2894b4de983ee057!2sHome%20Glazer!5e0!3m2!1sen!2sin!4v1765807245812!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="450" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -397,24 +356,6 @@ const ContactPage: React.FC = () => {
                 </button>
               </form>
             )}
-          </div>
-        </div>
-      </section>
-      
-      {/* Google Maps Section */}
-      <section className="w-full py-12 bg-[#F9F9F9]">
-        <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
-          <h2 className="text-3xl font-semibold text-[#ED276E] mb-8 text-center">Our Locations</h2>
-          <div className="rounded-lg overflow-hidden shadow-lg h-[450px]">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30703867.071679905!2d64.40159368691856!3d20.04915895569306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1663011868644!5m2!1sen!2sin" 
-              width="100%" 
-              height="450" 
-              style={{ border: 0 }} 
-              allowFullScreen 
-              loading="lazy"
-              title="Homeglazer Locations"
-            ></iframe>
           </div>
         </div>
       </section>

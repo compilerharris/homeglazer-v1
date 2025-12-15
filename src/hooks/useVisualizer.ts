@@ -557,14 +557,12 @@ export function useVisualizer() {
         step: 4,
         isActive: step === 4
       });
-    }
-    
-    // Step 5: Final Preview
-    if (step === 5) {
+      
+      // Step 5: Final Preview - Show on step 4 and step 5
       breadcrumbs.push({
         label: 'Final Preview',
         step: 5,
-        isActive: true
+        isActive: step === 5
       });
     }
     

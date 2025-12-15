@@ -321,6 +321,28 @@ const MultiStepCalculator: React.FC = () => {
               onRestart={restart}
               fullName={fullName}
               email={email}
+              selectedPaintingType={paintingOptions.find(option => option.selected)?.id || ''}
+              workType={workType}
+              area={area}
+              areaTypes={areaTypes}
+              paintCategory={interiorPaintCategory}
+              paintBrand={interiorPaintBrand}
+              paintType={interiorPaintType}
+              roofWorkType={roofWorkType}
+              roofArea={roofArea}
+              roofAreaTypes={roofAreaTypes}
+              roofPaintCategory={roofPaintCategory}
+              roofPaintBrand={roofPaintBrand}
+              roofPaintType={roofPaintType}
+              exteriorPaintCategory={exteriorPaintCategory}
+              exteriorPaintBrand={exteriorPaintBrand}
+              exteriorPaintType={exteriorPaintType}
+              samePaintForCeiling={samePaintForCeiling}
+              ceilingPaintCategory={ceilingPaintCategory}
+              ceilingPaintBrand={ceilingPaintBrand}
+              ceilingPaintType={ceilingPaintType}
+              carpetAreaOptions={carpetAreaOptions}
+              buildupAreaOptions={buildupAreaOptions}
             />
           )}
         </div>

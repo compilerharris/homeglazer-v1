@@ -19,15 +19,15 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/colour-visualiser": [
+    "/contact": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/colour-visualiser.js"
+      "static/chunks/pages/contact.js"
     ],
-    "/colour-visualiser/basic/[brand]/[category]/[color]": [
+    "/enquiry": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/colour-visualiser/basic/[brand]/[category]/[color].js"
+      "static/chunks/pages/enquiry.js"
     ]
   },
   "ampFirstPages": []

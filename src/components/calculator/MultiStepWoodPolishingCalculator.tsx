@@ -327,6 +327,18 @@ const MultiStepWoodPolishingCalculator: React.FC = () => {
           email={email}
           onBack={prevStep}
           onRestart={restartCalculator}
+          inputMethod={inputMethod}
+          woodPolishingArea={quantity}
+          itemCounts={{
+            doors: doorCount,
+            windows: windowCount,
+            wallPanels: wallPanelCount,
+            furnitureArea: furnitureArea
+          }}
+          selectedWoodFinishType={selectedWoodFinishType}
+          selectedWoodFinishBrand={selectedWoodFinishBrand}
+          selectedWoodFinish={selectedWoodFinish}
+          woodPolishingTotalEstimate={totalEstimate}
         />
       );
     default:

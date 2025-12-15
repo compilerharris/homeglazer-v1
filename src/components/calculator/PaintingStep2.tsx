@@ -125,7 +125,7 @@ const PaintingStep2: React.FC<PaintingStep2Props> = ({
               : 'bg-[#299dd7] hover:bg-[#248ac2]'
           }`}
         >
-          Next
+          Send me Summary
         </button>
       </div>
     </div>

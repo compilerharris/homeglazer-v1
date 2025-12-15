@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { AlertCircle } from 'lucide-react';
 import { VariantManifest, ColorSwatch } from '../../hooks/useVisualizer';
 import Breadcrumbs from './Breadcrumbs';
 import PDFGenerationModal from './PDFGenerationModal';
@@ -332,6 +333,19 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           <Breadcrumbs items={breadcrumbs} onStepClick={onStepClick} />
         </div>
       )}
+      
+      <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Step 5: Final Preview</h2>
+      <p className="mb-6 text-gray-600 text-center max-w-xl">
+        Assign colours to different walls and surfaces. Click on a wall to paint it with your selected colours.
+      </p>
+      
+      {/* Disclaimer - center aligned with page */}
+      <div className="w-full max-w-screen-xl mx-auto mb-6 px-4">
+        <p className="text-xs text-gray-500 italic text-center flex items-center justify-center gap-2">
+          <AlertCircle className="w-4 h-4 flex-shrink-0" />
+          Colors shown are for reference; actual paint may look different on your walls based on lighting, surface, and surroundings.
+        </p>
+      </div>
       
       {/* Desktop Layout - Side by Side */}
       <div className="hidden lg:flex w-full max-w-6xl gap-8" style={{ maxWidth: isLargeScreen ? '1408px' : '1152px' }}>
