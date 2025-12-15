@@ -727,5 +727,19 @@
         }
       }
     ]
+  },
+  {
+    "roomType": "outdoor",
+    "label": "Outdoor",
+    "variants": [
+      {
+        "name": "outdoor1",
+        "label": "Outdoor 1",
+        "mainImage": "/assets/images/outdoor/outdoor1/outdoor1.jpg",
+        "walls": {
+          "front": "/assets/images/outdoor/outdoor1/front-wall.svg"
+        }
+      }
+    ]
   }
 ] 
