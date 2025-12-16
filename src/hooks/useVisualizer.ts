@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import type { RoomData, ColorSelection } from '../lib/pdfGenerator';
 
 // Import all color JSON files
@@ -177,7 +178,26 @@ export const COLOR_SWATCHES: { [brand: string]: { name: string; code: string }[]
   ],
 };
 
+// Step name to step number mapping
+const STEP_FROM_ROUTE: Record<string, number> = {
+  'choose-a-room-type': 1,
+  'choose-a-room-variant': 2,
+  'choose-a-paint-brand': 3,
+  'choose-colours': 4,
+  'final-preview': 5,
+};
+
+// Step number to step name mapping
+const STEP_ROUTES: Record<number, string> = {
+  1: 'choose-a-room-type',
+  2: 'choose-a-room-variant',
+  3: 'choose-a-paint-brand',
+  4: 'choose-colours',
+  5: 'final-preview',
+};
+
 export function useVisualizer() {
+  const router = useRouter();
   const [manifest, setManifest] = useState<RoomManifest[]>([]);
   const [brands, setBrands] = useState<BrandManifest[]>([]);
   const [loading, setLoading] = useState(true);
@@ -324,23 +344,55 @@ export function useVisualizer() {
     });
   }, [selectedVariant]);
 
+  // Helper function to update URL when step changes
+  // Use replace instead of push to avoid adding to history during programmatic navigation
+  const updateStepURL = (newStep: number) => {
+    if (typeof window !== 'undefined' && router.isReady) {
+      const routeName = STEP_ROUTES[newStep];
+      if (routeName) {
+        const currentPath = router.asPath;
+        const targetPath = `/colour-visualiser/advanced/${routeName}`;
+        // Only update URL if it's different from current path
+        if (currentPath !== targetPath) {
+          // Use replace with shallow to avoid flickering and history pollution
+          router.replace(targetPath, undefined, { shallow: true, scroll: false });
+        }
+      }
+    }
+  };
+
   // Handlers
   const handleSelectRoomType = (roomType: string) => {
     setSelectedRoomType(roomType);
     setSelectedVariantName(null);
+    // Reset dependent state when changing room type
+    setSelectedBrandId(null);
+    setSelectedColours([]);
+    setAssignments({});
+    setPalette([]);
+    setBrandData(null);
+    setSelectedColourType(null);
     setStep(2);
-    // Reset scroll to top when selecting a room type
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Batch URL update to prevent flickering
+    requestAnimationFrame(() => {
+      updateStepURL(2);
+      // Reset scroll to top when selecting a room type
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   };
   const handleSelectVariant = (variantName: string) => {
     setSelectedVariantName(variantName);
     setStep(3);
-    // Reset scroll to top when selecting a variant
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Batch URL update to prevent flickering
+    requestAnimationFrame(() => {
+      updateStepURL(3);
+      // Reset scroll to top when selecting a variant
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   };
   const handleSelectBrand = (brandId: string) => {
     // Only clear selections if we're actually changing to a different brand
@@ -353,10 +405,14 @@ export function useVisualizer() {
     setSelectedBrandId(brandId);
     loadBrandData(brandId);
     setStep(4);
-    // Reset scroll to top when selecting a brand
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Batch URL update to prevent flickering
+    requestAnimationFrame(() => {
+      updateStepURL(4);
+      // Reset scroll to top when selecting a brand
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   };
   const handleSelectColourType = (colourType: string) => {
     // Force a state update to ensure colors refresh properly
@@ -418,6 +474,11 @@ export function useVisualizer() {
   const handleClosePalette = () => setShowPalette(false);
   const handleDownload = () => {
     setShowPDFModal(true);
+  };
+  const handleResetAssignments = () => {
+    setAssignments({});
+    setShowPalette(false);
+    setActiveSide(null);
   };
 
   const handleGeneratePDF = async (clientName: string, dateOfDesign: string, roomPreviewRef?: React.RefObject<HTMLDivElement>) => {
@@ -496,24 +557,38 @@ export function useVisualizer() {
   // Navigation
   const goToStep = (n: number) => {
     setStep(n);
-    // Reset scroll to top when navigating between steps
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Batch URL update to prevent flickering
+    requestAnimationFrame(() => {
+      updateStepURL(n);
+      // Reset scroll to top when navigating between steps
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   };
   const nextStep = () => {
-    setStep(step + 1);
-    // Reset scroll to top when going to next step
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    const newStep = step + 1;
+    setStep(newStep);
+    // Batch URL update to prevent flickering
+    requestAnimationFrame(() => {
+      updateStepURL(newStep);
+      // Reset scroll to top when going to next step
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   };
   const prevStep = () => {
-    setStep(step - 1);
-    // Reset scroll to top when going to previous step
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    const newStep = step - 1;
+    setStep(newStep);
+    // Batch URL update to prevent flickering
+    requestAnimationFrame(() => {
+      updateStepURL(newStep);
+      // Reset scroll to top when going to previous step
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   };
 
   // Generate breadcrumbs based on current selections
@@ -617,6 +692,7 @@ export function useVisualizer() {
     handleBulkAssignColors,
     handleClosePalette,
     handleDownload,
+    handleResetAssignments,
     // PDF generation state
     showPDFModal,
     isGeneratingPDF,

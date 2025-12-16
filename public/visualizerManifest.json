@@ -737,7 +737,56 @@
         "label": "Outdoor 1",
         "mainImage": "/assets/images/outdoor/outdoor1/outdoor1.jpg",
         "walls": {
-          "front": "/assets/images/outdoor/outdoor1/front-wall.svg"
+          "front": "/assets/images/outdoor/outdoor1/front-wall.svg",
+          "window": "/assets/images/outdoor/outdoor1/window.svg",
+          "column": "/assets/images/outdoor/outdoor1/column.svg",
+          "edge": "/assets/images/outdoor/outdoor1/edge.svg",
+          "roof": "/assets/images/outdoor/outdoor1/roof-wall.svg"
+        }
+      },
+      {
+        "name": "outdoor2",
+        "label": "Outdoor 2",
+        "mainImage": "/assets/images/outdoor/outdoor2/outdoor2.jpg",
+        "walls": {
+          "front": "/assets/images/outdoor/outdoor2/front-wall.svg",
+          "left": "/assets/images/outdoor/outdoor2/left-wall.svg",
+          "roof": "/assets/images/outdoor/outdoor2/roof-wall.svg"
+        }
+      },
+      {
+        "name": "outdoor3",
+        "label": "Outdoor 3",
+        "mainImage": "/assets/images/outdoor/outdoor3/outdoor3.jpg",
+        "walls": {
+          "front": "/assets/images/outdoor/outdoor3/front-wall.svg",
+          "column": "/assets/images/outdoor/outdoor3/column.svg",
+          "edge": "/assets/images/outdoor/outdoor3/edge.svg"
+        }
+      },
+      {
+        "name": "outdoor4",
+        "label": "Outdoor 4",
+        "mainImage": "/assets/images/outdoor/outdoor4/outdoor4.jpg",
+        "walls": {
+          "front": "/assets/images/outdoor/outdoor4/front-wall.svg",
+          "right": "/assets/images/outdoor/outdoor4/right-wall.svg",
+          "base-front": "/assets/images/outdoor/outdoor4/base-front.svg",
+          "base-right": "/assets/images/outdoor/outdoor4/base-right.svg",
+          "roof": "/assets/images/outdoor/outdoor4/roof-wall.svg"
+        }
+      },
+      {
+        "name": "outdoor5",
+        "label": "Outdoor 5",
+        "mainImage": "/assets/images/outdoor/outdoor5/outdoor5.jpg",
+        "walls": {
+          "front": "/assets/images/outdoor/outdoor5/front-wall.svg",
+          "side": "/assets/images/outdoor/outdoor5/side-wall.svg",
+          "roof": "/assets/images/outdoor/outdoor5/roof-wall.svg",
+          "vase": "/assets/images/outdoor/outdoor5/vase.svg",
+          "sofa": "/assets/images/outdoor/outdoor5/sofa.svg",
+          "curtain": "/assets/images/outdoor/outdoor5/curtain.svg"
         }
       }
     ]

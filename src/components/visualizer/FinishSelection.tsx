@@ -24,10 +24,12 @@ interface FinishSelectionProps {
   onClosePalette: () => void;
   onBack: () => void;
   onDownload: () => void;
+  onResetAssignments?: () => void;
   backButtonText?: string;
   breadcrumbs?: BreadcrumbItem[];
   onStepClick?: (step: number) => void;
   selectedBrandId?: string | null;
+  selectedRoomType?: string | null;
   // PDF generation props
   showPDFModal?: boolean;
   isGeneratingPDF?: boolean;
@@ -51,6 +53,12 @@ const wallLabels: Record<string, string> = {
   'cabinet-upper-1': 'Cabinet Upper 1',
   'cabinet-upper-2': 'Cabinet Upper 2',
   'cabinet-lower': 'Cabinet Lower',
+  vase: 'Vase',
+  curtain: 'Curtain',
+  drawer: 'Drawer',
+  'base-front': 'Base Front',
+  'base-right': 'Base Right',
+  'side-wall': 'Side Wall',
 };
 
 // Utility function to capitalize first letter of each word
@@ -89,10 +97,12 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   onClosePalette,
   onBack,
   onDownload,
+  onResetAssignments,
   backButtonText = "Change Colours",
   breadcrumbs = [],
   onStepClick,
   selectedBrandId,
+  selectedRoomType,
   // PDF generation props
   showPDFModal,
   isGeneratingPDF,
@@ -150,7 +160,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // Function to randomly assign colors to walls (excluding roof)
+  // Function to randomly assign colors to walls (excluding roof, except for outdoor rooms)
   const handleRandomRecolor = () => {
     if (selectedColors.length === 0) return; // No colors selected, nothing to do
     
@@ -160,8 +170,11 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     // Get available colors (excluding white for more variety)
     const availableColors = selectedColors.map(color => color.colorHex);
     
-    // Get walls that can be recolored (exclude roof)
-    const recolorableWalls = wallKeys.filter(wallKey => wallKey !== 'roof');
+    // Get walls that can be recolored
+    // For outdoor rooms, include roof; for all other rooms, exclude roof
+    const recolorableWalls = selectedRoomType === 'outdoor'
+      ? wallKeys // Include all walls including roof for outdoor
+      : wallKeys.filter(wallKey => wallKey !== 'roof'); // Exclude roof for other room types
     
     // Create new assignments object with random colors
     const newAssignments = { ...assignments };
@@ -477,10 +490,21 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                 <div className="text-xs text-gray-400">Loading...</div>
               )}
             </div>
-                <span className="text-sm font-medium text-gray-700 text-center">{wallLabels[wallKey] || wallKey}</span>
+                <span className="text-sm font-medium text-gray-700 text-center">{wallLabels[wallKey] || capitalizeWords(wallKey.replace(/-/g, ' '))}</span>
               </button>
             ))}
           </div>
+          
+          {/* Reset Color Button */}
+          {onResetAssignments && (
+            <button
+              className="w-full px-4 py-2 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 mb-4"
+              onClick={onResetAssignments}
+              type="button"
+            >
+              Reset Colors
+            </button>
+          )}
           
           {/* Information Box */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
@@ -520,7 +544,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                         className={`w-3 h-3 rounded-full ${color === '#FFFFFF' ? 'border border-gray-300' : ''}`} 
                         style={{ background: color }} 
                       />
-                      <span className="text-xs text-gray-700">{wallLabels[wallKey] || wallKey}</span>
+                      <span className="text-xs text-gray-700">{wallLabels[wallKey] || capitalizeWords(wallKey.replace(/-/g, ' '))}</span>
                       {colorInfo && (
                         <span className="text-xs text-gray-500">({capitalizeWords(colorInfo.colorName)} - {colorInfo.colorCode})</span>
                       )}
@@ -766,7 +790,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                     <div className="text-xs text-gray-400">Loading...</div>
                   )}
                 </div>
-                <span className="text-sm md:text-base font-medium text-gray-700 text-center py-2 px-1">{wallLabels[wallKey] || wallKey}</span>
+                <span className="text-sm md:text-base font-medium text-gray-700 text-center py-2 px-1">{wallLabels[wallKey] || capitalizeWords(wallKey.replace(/-/g, ' '))}</span>
           </button>
         ))}
       </div>
@@ -781,6 +805,19 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             <span className="text-2xl">›</span>
           </button>
         </div>
+        
+        {/* Reset Color Button - Mobile */}
+        {onResetAssignments && (
+          <div className="w-full max-w-2xl mb-4">
+            <button
+              className="w-full px-4 py-2 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200"
+              onClick={onResetAssignments}
+              type="button"
+            >
+              Reset Colors
+            </button>
+          </div>
+        )}
         
         {/* Mobile/Tablet Information Box */}
         <div className="w-full lg:max-w-2xl mb-6" data-section="summary">
@@ -821,7 +858,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                         className={`w-3 h-3 rounded-full ${color === '#FFFFFF' ? 'border border-gray-300' : ''}`} 
                         style={{ background: color }} 
                       />
-                      <span className="text-xs text-gray-700">{wallLabels[wallKey] || wallKey}</span>
+                      <span className="text-xs text-gray-700">{wallLabels[wallKey] || capitalizeWords(wallKey.replace(/-/g, ' '))}</span>
                       {colorInfo && (
                         <span className="text-xs text-gray-500">({capitalizeWords(colorInfo.colorName)} - {colorInfo.colorCode})</span>
                       )}
