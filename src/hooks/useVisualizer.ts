@@ -376,10 +376,10 @@ export function useVisualizer() {
     // Batch URL update to prevent flickering
     requestAnimationFrame(() => {
       updateStepURL(2);
-      // Reset scroll to top when selecting a room type
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    // Reset scroll to top when selecting a room type
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     });
   };
   const handleSelectVariant = (variantName: string) => {
@@ -388,10 +388,10 @@ export function useVisualizer() {
     // Batch URL update to prevent flickering
     requestAnimationFrame(() => {
       updateStepURL(3);
-      // Reset scroll to top when selecting a variant
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    // Reset scroll to top when selecting a variant
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     });
   };
   const handleSelectBrand = (brandId: string) => {
@@ -408,10 +408,10 @@ export function useVisualizer() {
     // Batch URL update to prevent flickering
     requestAnimationFrame(() => {
       updateStepURL(4);
-      // Reset scroll to top when selecting a brand
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    // Reset scroll to top when selecting a brand
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     });
   };
   const handleSelectColourType = (colourType: string) => {
@@ -560,10 +560,10 @@ export function useVisualizer() {
     // Batch URL update to prevent flickering
     requestAnimationFrame(() => {
       updateStepURL(n);
-      // Reset scroll to top when navigating between steps
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    // Reset scroll to top when navigating between steps
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     });
   };
   const nextStep = () => {
@@ -572,10 +572,10 @@ export function useVisualizer() {
     // Batch URL update to prevent flickering
     requestAnimationFrame(() => {
       updateStepURL(newStep);
-      // Reset scroll to top when going to next step
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    // Reset scroll to top when going to next step
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     });
   };
   const prevStep = () => {
@@ -584,10 +584,10 @@ export function useVisualizer() {
     // Batch URL update to prevent flickering
     requestAnimationFrame(() => {
       updateStepURL(newStep);
-      // Reset scroll to top when going to previous step
-      if (typeof window !== 'undefined') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    // Reset scroll to top when going to previous step
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     });
   };
 
