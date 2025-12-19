@@ -249,10 +249,15 @@ export function useVisualizer() {
       const data: BrandColorData = brandConfig.data;
       setBrandData(data);
       
-      // Auto-select the first colour type if none is selected
+      // Reset and auto-select the first colour type
+      // This ensures swatches load properly when switching brands
       const colourTypeKeys = Object.keys(data.colorTypes);
-      if (colourTypeKeys.length > 0 && !selectedColourType) {
+      if (colourTypeKeys.length > 0) {
+        // Always reset to first color type when loading new brand data
+        // This ensures swatches are displayed even when returning to step 4
         setSelectedColourType(colourTypeKeys[0]);
+        // Force refresh of color type to trigger re-render
+        setColorTypeRefreshKey(prev => prev + 1);
       }
       
       // Don't clear selected colours - keep them persistent
@@ -285,15 +290,20 @@ export function useVisualizer() {
   // Ensure brand data is loaded when reaching step 4 or 5
   useEffect(() => {
     if ((step === 4 || step === 5) && selectedBrandId) {
-      // Always ensure brand data is loaded when reaching step 4 or 5
-      if (!brandData) {
+      // Check if brand data needs to be loaded or reloaded
+      // Reload if brandData is null OR if it doesn't match the current selectedBrandId
+      const brandConfig = BRAND_CONFIG.find(b => b.id === selectedBrandId);
+      const expectedBrandName = brandConfig?.name || '';
+      const needsReload = !brandData || (brandData.brand !== expectedBrandName);
+      
+      if (needsReload) {
         console.log('Loading brand data for step', step, ':', selectedBrandId);
         loadBrandData(selectedBrandId);
       } else {
-        console.log('Brand data already loaded, selected colours:', selectedColours.length);
+        console.log('Brand data already loaded for brand:', selectedBrandId, 'selected colours:', selectedColours.length);
       }
     }
-  }, [step, selectedBrandId]);
+  }, [step, selectedBrandId, brandData]);
 
   // Fetch and parse wall masks when variant changes
   useEffect(() => {

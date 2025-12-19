@@ -816,6 +816,47 @@
           "vase": "/assets/images/outdoor/outdoor7/vase.svg",
           "staircase": "/assets/images/outdoor/outdoor7/staircase.svg"
         }
+      },
+      {
+        "name": "outdoor8",
+        "label": "Outdoor 8",
+        "mainImage": "/assets/images/outdoor/outdoor8/outdoor8.jpg",
+        "walls": {
+          "front-wall": "/assets/images/outdoor/outdoor8/front-wall.svg",
+          "left-wall": "/assets/images/outdoor/outdoor8/left-wall.svg",
+          "roof": "/assets/images/outdoor/outdoor8/roof-wall.svg",
+          "favourite-wall": "/assets/images/outdoor/outdoor8/favourite-wall.svg",
+          "boundry": "/assets/images/outdoor/outdoor8/boundry.svg",
+          "floor": "/assets/images/outdoor/outdoor8/floor.svg",
+          "pool-wall": "/assets/images/outdoor/outdoor8/pool-wall.svg"
+        }
+      },
+      {
+        "name": "outdoor9",
+        "label": "Outdoor 9",
+        "mainImage": "/assets/images/outdoor/outdoor9/outdoor9.jpg",
+        "walls": {
+          "walls": "/assets/images/outdoor/outdoor9/walls.svg",
+          "edge": "/assets/images/outdoor/outdoor9/edge.svg",
+          "entrance": "/assets/images/outdoor/outdoor9/entrance.svg",
+          "mailbox": "/assets/images/outdoor/outdoor9/mailbox.svg",
+          "boundry": "/assets/images/outdoor/outdoor9/boundry.svg"
+        }
+      },
+      {
+        "name": "outdoor10",
+        "label": "Outdoor 10",
+        "mainImage": "/assets/images/outdoor/outdoor10/outdoor10.jpg",
+        "walls": {
+          "front-wall": "/assets/images/outdoor/outdoor10/front-wall.svg",
+          "left-wall": "/assets/images/outdoor/outdoor10/left-wall.svg",
+          "right-wall": "/assets/images/outdoor/outdoor10/right-wall.svg",
+          "roof": "/assets/images/outdoor/outdoor10/roof-wall.svg",
+          "sofa": "/assets/images/outdoor/outdoor10/sofa.svg",
+          "chair": "/assets/images/outdoor/outdoor10/chair.svg",
+          "pool-chair": "/assets/images/outdoor/outdoor10/pool-chair.svg",
+          "pool-wall": "/assets/images/outdoor/outdoor10/pool-wall.svg"
+        }
       }
     ]
   }
