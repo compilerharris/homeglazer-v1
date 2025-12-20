@@ -857,6 +857,20 @@
           "pool-chair": "/assets/images/outdoor/outdoor10/pool-chair.svg",
           "pool-wall": "/assets/images/outdoor/outdoor10/pool-wall.svg"
         }
+      },
+      {
+        "name": "outdoor11",
+        "label": "Outdoor 11",
+        "mainImage": "/assets/images/outdoor/outdoor11/outdoor11.jpg",
+        "walls": {
+          "front-wall": "/assets/images/outdoor/outdoor11/front-wall.svg",
+          "side-wall": "/assets/images/outdoor/outdoor11/side-wall.svg",
+          "columns": "/assets/images/outdoor/outdoor11/columns.svg",
+          "roof": "/assets/images/outdoor/outdoor11/roof-wall.svg",
+          "fan": "/assets/images/outdoor/outdoor11/fan.svg",
+          "kitchen-table": "/assets/images/outdoor/outdoor11/kitchen-table.svg",
+          "floor": "/assets/images/outdoor/outdoor11/floor.svg"
+        }
       }
     ]
   }

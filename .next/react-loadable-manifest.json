@@ -1,44 +1,26 @@
 {
   "node_modules/jspdf/dist/jspdf.es.min.js -> canvg": {
-    "id": 34668,
+    "id": "node_modules/jspdf/dist/jspdf.es.min.js -> canvg",
     "files": [
-      "static/chunks/72a30a16.55166ff982a853f6.js",
-      "static/chunks/385.4d480928fc60cf89.js"
+      "static/chunks/node_modules_canvg_lib_index_es_js.js"
     ]
   },
   "node_modules/jspdf/dist/jspdf.es.min.js -> dompurify": {
-    "id": 22424,
+    "id": "node_modules/jspdf/dist/jspdf.es.min.js -> dompurify",
     "files": [
-      "static/chunks/2424.bbfb30238f586292.js"
+      "static/chunks/node_modules_dompurify_dist_purify_es_mjs.js"
     ]
   },
   "node_modules/jspdf/dist/jspdf.es.min.js -> html2canvas": {
-    "id": 61120,
+    "id": "node_modules/jspdf/dist/jspdf.es.min.js -> html2canvas",
     "files": [
-      "static/chunks/ad7f724d.7d6657677b3cdf4c.js"
-    ]
-  },
-  "pages/admin/blogs/[id]/edit.tsx -> react-quill": {
-    "id": 71167,
-    "files": [
-      "static/chunks/eabe11fc.4993f027dca1b535.js",
-      "static/chunks/7127.711216b5de278e3e.js"
-    ]
-  },
-  "pages/admin/blogs/new.tsx -> react-quill": {
-    "id": 71167,
-    "files": [
-      "static/chunks/eabe11fc.4993f027dca1b535.js",
-      "static/chunks/7127.711216b5de278e3e.js"
+      "static/chunks/node_modules_html2canvas_dist_html2canvas_js.js"
     ]
   },
   "src/hooks/useVisualizer.ts -> ../lib/pdfGenerator": {
-    "id": 94363,
+    "id": "src/hooks/useVisualizer.ts -> ../lib/pdfGenerator",
     "files": [
-      "static/chunks/11e07bb4.51ab1c7b1d6ac823.js",
-      "static/chunks/e78312c5.f52cdb6f209320e1.js",
-      "static/chunks/6370.256a24596392b3fa.js",
-      "static/chunks/4363.ce468733c27fc3d5.js"
+      "static/chunks/src_lib_pdfGenerator_ts.js"
     ]
   }
 }
