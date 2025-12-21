@@ -871,6 +871,17 @@
           "kitchen-table": "/assets/images/outdoor/outdoor11/kitchen-table.svg",
           "floor": "/assets/images/outdoor/outdoor11/floor.svg"
         }
+      },
+      {
+        "name": "outdoor12",
+        "label": "Outdoor 12",
+        "mainImage": "/assets/images/outdoor/outdoor12/outdoor12.jpg",
+        "walls": {
+          "walls": "/assets/images/outdoor/outdoor12/walls.svg",
+          "edge": "/assets/images/outdoor/outdoor12/edge.svg",
+          "roof": "/assets/images/outdoor/outdoor12/roof-wall.svg",
+          "column-&-fence": "/assets/images/outdoor/outdoor12/column-fence.svg"
+        }
       }
     ]
   }

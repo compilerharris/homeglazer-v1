@@ -130,7 +130,8 @@ export default async function handler(
 
     // Get website URL for logo (use environment variable or default)
     const websiteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.homeglazer.com';
-    const logoUrl = `${websiteUrl}/assets/images/home-glazer-logo-1.png`;
+    // Use CDN URL for logo to ensure it loads in emails
+    const logoUrl = 'https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/e26e09b75bb9c4ab63f78d15296ed43e8713cb0b?placeholderIfAbsent=true';
 
     // Create email content
     const emailSubject = `New Enquiry from ${name}`;
@@ -143,7 +144,7 @@ export default async function handler(
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
             .container { max-width: 600px; margin: 0 auto; padding: 0; background-color: #ffffff; }
             .logo-section { text-align: center; padding: 20px; background-color: #ffffff; }
-            .logo-section img { max-width: 150px; height: auto; }
+            .logo-section img { max-width: 150px; height: auto; display: block; margin: 0 auto; }
             .tagline { text-align: center; color: #666; font-style: italic; font-size: 14px; margin-top: 5px; }
             .header { background-color: #299dd7; color: white; padding: 20px; text-align: center; }
             .content { background-color: #f9f9f9; padding: 20px; }
@@ -151,9 +152,12 @@ export default async function handler(
             .label { font-weight: bold; color: #299dd7; }
             .value { margin-top: 5px; }
             .cta-section { background-color: #f0f0f0; padding: 30px 20px; text-align: center; }
-            .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-            .cta-button { display: inline-block; background-color: #299dd7; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-            .cta-button:hover { background-color: #237bb0; }
+            .cta-buttons { display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; }
+            .cta-button { display: inline-block; color: white !important; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center; }
+            .cta-button.visualizer { background-color: #ED276E; }
+            .cta-button.visualizer:hover { background-color: #d51e5f; }
+            .cta-button.calculator { background-color: #299dd7; }
+            .cta-button.calculator:hover { background-color: #237bb0; }
             .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9; }
             .social-links { margin: 15px 0; }
             .social-links a { display: inline-block; margin: 0 8px; color: #299dd7; text-decoration: none; font-size: 13px; }
@@ -219,7 +223,7 @@ export default async function handler(
               </div>
             </div>
             <div class="footer">
-              <p><strong>Home Glazer</strong> - Transforming Spaces, Creating Dreams</p>
+              <p><strong>Home Glazer</strong> - We Paint Your Imaginations</p>
               <p>H-16/137 Sangam Vihar, New Delhi – 110080</p>
               <p>Email: <a href="mailto:homeglazer@gmail.com" style="color: #299dd7;">homeglazer@gmail.com</a> | Phone: <a href="tel:+919717256514" style="color: #299dd7;">+91-9717256514</a></p>
               <div class="social-links">
@@ -261,7 +265,7 @@ ${message ? `Additional Details:\n${message}\n` : ''}
 Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
 This enquiry was submitted through the Home Glazer website enquiry form.
 
-Home Glazer - Transforming Spaces, Creating Dreams
+Home Glazer - We Paint Your Imaginations
 H-16/137 Sangam Vihar, New Delhi – 110080
 Email: homeglazer@gmail.com | Phone: +91-9717256514
     `;
@@ -288,7 +292,7 @@ Email: homeglazer@gmail.com | Phone: +91-9717256514
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
             .container { max-width: 600px; margin: 0 auto; padding: 0; background-color: #ffffff; }
             .logo-section { text-align: center; padding: 20px; background-color: #ffffff; }
-            .logo-section img { max-width: 150px; height: auto; }
+            .logo-section img { max-width: 150px; height: auto; display: block; margin: 0 auto; }
             .tagline { text-align: center; color: #666; font-style: italic; font-size: 14px; margin-top: 5px; }
             .header { background-color: #299dd7; color: white; padding: 30px; text-align: center; }
             .content { background-color: #ffffff; padding: 30px; }
@@ -296,9 +300,12 @@ Email: homeglazer@gmail.com | Phone: +91-9717256514
             .summary-item { margin-bottom: 10px; }
             .summary-label { font-weight: bold; color: #299dd7; display: inline-block; min-width: 150px; }
             .cta-section { background-color: #f0f0f0; padding: 30px 20px; text-align: center; }
-            .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-            .cta-button { display: inline-block; background-color: #299dd7; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-            .cta-button:hover { background-color: #237bb0; }
+            .cta-buttons { display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; }
+            .cta-button { display: inline-block; color: white !important; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center; }
+            .cta-button.visualizer { background-color: #ED276E; }
+            .cta-button.visualizer:hover { background-color: #d51e5f; }
+            .cta-button.calculator { background-color: #299dd7; }
+            .cta-button.calculator:hover { background-color: #237bb0; }
             .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9; }
             .social-links { margin: 15px 0; }
             .social-links a { display: inline-block; margin: 0 8px; color: #299dd7; text-decoration: none; font-size: 13px; }
@@ -363,12 +370,12 @@ Email: homeglazer@gmail.com | Phone: +91-9717256514
             <div class="cta-section">
               <h3 style="margin-top: 0; color: #333;">Explore Our Tools</h3>
               <div class="cta-buttons">
-                <a href="${websiteUrl}/colour-visualiser/basic" class="cta-button">Try Visualizer</a>
-                <a href="${websiteUrl}/calculator" class="cta-button">Budget Calculator</a>
+                <a href="${websiteUrl}/colour-visualiser/basic" class="cta-button visualizer" style="color: white !important; background-color: #ED276E;">Try Visualizer</a>
+                <a href="${websiteUrl}/calculator" class="cta-button calculator" style="color: white !important; background-color: #299dd7;">Budget Calculator</a>
               </div>
             </div>
             <div class="footer">
-              <p><strong>Home Glazer</strong> - Transforming Spaces, Creating Dreams</p>
+              <p><strong>Home Glazer</strong> - We Paint Your Imaginations</p>
               <p>H-16/137 Sangam Vihar, New Delhi – 110080</p>
               <p>Email: <a href="mailto:homeglazer@gmail.com" style="color: #299dd7;">homeglazer@gmail.com</a> | Phone: <a href="tel:+919717256514" style="color: #299dd7;">+91-9717256514</a></p>
               <div class="social-links">
@@ -415,7 +422,7 @@ Best regards,
 The Home Glazer Team
 
 ---
-Home Glazer - Transforming Spaces, Creating Dreams
+Home Glazer - We Paint Your Imaginations
 H-16/137 Sangam Vihar, New Delhi – 110080
 Email: homeglazer@gmail.com | Phone: +91-9717256514
 
