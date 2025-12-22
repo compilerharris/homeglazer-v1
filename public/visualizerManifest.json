@@ -882,6 +882,21 @@
           "roof": "/assets/images/outdoor/outdoor12/roof-wall.svg",
           "column-&-fence": "/assets/images/outdoor/outdoor12/column-fence.svg"
         }
+      },
+      {
+        "name": "outdoor13",
+        "label": "Outdoor 13",
+        "mainImage": "/assets/images/outdoor/outdoor13/outdoor13.jpg",
+        "walls": {
+          "primary-walls": "/assets/images/outdoor/outdoor13/primary-walls.svg",
+          "walls": "/assets/images/outdoor/outdoor13/walls.svg",
+          "lamps": "/assets/images/outdoor/outdoor13/lamps.svg",
+          "staircase": "/assets/images/outdoor/outdoor13/staircase.svg",
+          "boundry": "/assets/images/outdoor/outdoor13/boundry.svg",
+          "umbrella": "/assets/images/outdoor/outdoor13/umbrella.svg",
+          "table": "/assets/images/outdoor/outdoor13/table.svg",
+          "chair": "/assets/images/outdoor/outdoor13/chair.svg"
+        }
       }
     ]
   }
