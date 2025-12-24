@@ -486,6 +486,34 @@
     ]
   },
   {
+    "roomType": "kidsroom",
+    "label": "Kids Room",
+    "variants": [
+      {
+        "name": "kidsroom1",
+        "label": "kidsroom 1",
+        "mainImage": "/assets/images/kidsroom/kidsroom1/kidsroom1.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom1/front-wall.svg",
+          "left": "/assets/images/kidsroom/kidsroom1/left-wall.svg",
+          "right": "/assets/images/kidsroom/kidsroom1/right-wall.svg",
+          "roof": "/assets/images/kidsroom/kidsroom1/roof-wall.svg",
+          "window": "/assets/images/kidsroom/kidsroom1/window.svg",
+          "door": "/assets/images/kidsroom/kidsroom1/door.svg",
+          "baby-bed": "/assets/images/kidsroom/kidsroom1/baby-bed.svg",
+          "table": "/assets/images/kidsroom/kidsroom1/table.svg",
+          "shelf": "/assets/images/kidsroom/kidsroom1/shelf.svg",
+          "vase": "/assets/images/kidsroom/kidsroom1/vase.svg",
+          "pillow": "/assets/images/kidsroom/kidsroom1/pillow.svg",
+          "sofa": "/assets/images/kidsroom/kidsroom1/sofa.svg",
+          "cupboard": "/assets/images/kidsroom/kidsroom1/cupboard.svg",
+          "lamp": "/assets/images/kidsroom/kidsroom1/lamp.svg",
+          "borders": "/assets/images/kidsroom/kidsroom1/borders.svg"
+        }
+      }
+    ]
+  },
+  {
     "roomType": "kitchen",
     "label": "Kitchen",
     "variants": [
