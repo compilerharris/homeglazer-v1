@@ -19,11 +19,11 @@ const CalculatorForm: React.FC = () => {
           {/* Painting Estimate Card */}
           <div className="flex flex-col items-center text-center">
             <h3 className="text-3xl font-bold text-[#ED276E] mb-3">
-              Painting Estimate
-            </h3>
+                Painting Estimate
+              </h3>
             <p className="text-gray-600 mb-6">
-              Here Is What Makes Express Painting A Great Choice
-            </p>
+                Here Is What Makes Express Painting A Great Choice
+              </p>
             <div className="relative w-full bg-gray-100 rounded-lg overflow-hidden mb-8" style={{ aspectRatio: '16/9' }}>
               <Image
                 src="/assets/images/Paint-Calculator.webp"
@@ -46,11 +46,11 @@ const CalculatorForm: React.FC = () => {
           {/* Wood Polishing Estimate Card */}
           <div className="flex flex-col items-center text-center">
             <h3 className="text-3xl font-bold text-[#ED276E] mb-3">
-              Wood Polishing Estimate
-            </h3>
+                Wood Polishing Estimate
+              </h3>
             <p className="text-gray-600 mb-6">
-              Add charm and beauty to woods, It makes the wood strong.
-            </p>
+                Add charm and beauty to woods, It makes the wood strong.
+              </p>
             <div className="relative w-full bg-gray-100 rounded-lg overflow-hidden mb-8" style={{ aspectRatio: '16/9' }}>
               <Image
                 src="/assets/images/Wood-Polish-Calculator.webp"

@@ -27,7 +27,7 @@ const ServicesHero: React.FC = () => {
               <CTAButton to="/contact" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#ED276E]">
                 Get Free Quote
               </CTAButton>
-              <CTAButton to="/calculator" className="bg-white text-[#ED276E] border border-white hover:bg-transparent hover:text-white">
+              <CTAButton to="/paint-budget-calculator" className="bg-white text-[#ED276E] border border-white hover:bg-transparent hover:text-white">
                 Try Budget Calculator
               </CTAButton>
             </div>

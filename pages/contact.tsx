@@ -369,7 +369,7 @@ const ContactPage: React.FC = () => {
           </p>
           <div className="inline-block">
             <a 
-              href="/calculator" 
+              href="/paint-budget-calculator" 
               className="bg-transparent border-2 border-white text-white hover:bg-[#0FA0CE] hover:border-[#0FA0CE] transition-colors duration-300 font-medium rounded-full px-8 py-4 text-lg"
             >
               Try Our Budget Calculator
@@ -384,7 +384,7 @@ const ContactPage: React.FC = () => {
           <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px]">
             Enquire Now
           </Link>
-          <Link href="/calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px]">
+          <Link href="/paint-budget-calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px]">
             Budget Calculator
           </Link>
         </div>

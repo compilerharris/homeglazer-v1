@@ -719,7 +719,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
             <CTAButton to="/contact" className="bg-transparent border-2 border-white text-white hover:bg-[#0FA0CE] hover:border-[#0FA0CE] text-xl px-8 py-4">
               Get a Free Quote
             </CTAButton>
-            <CTAButton to="/calculator" className="bg-transparent border-2 border-white text-white hover:bg-[#0FA0CE] hover:border-[#0FA0CE] text-xl px-8 py-4">
+            <CTAButton to="/paint-budget-calculator" className="bg-transparent border-2 border-white text-white hover:bg-[#0FA0CE] hover:border-[#0FA0CE] text-xl px-8 py-4">
               Try Our Budget Calculator
             </CTAButton>
           </div>
@@ -732,7 +732,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
           <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-3 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px] whitespace-nowrap">
             Enquire Now
           </Link>
-          <Link href="/calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-3 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px] whitespace-nowrap">
+          <Link href="/paint-budget-calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-3 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px] whitespace-nowrap">
             Budget Calculator
           </Link>
         </div>

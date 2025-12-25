@@ -2,9 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/enquiry": "pages/enquiry.js",
-  "/colour-visualiser": "pages/colour-visualiser.js",
-  "/calculator": "pages/calculator.js",
-  "/colour-visualiser/advanced": "pages/colour-visualiser/advanced.js",
-  "/colour-visualiser/advanced/[step]": "pages/colour-visualiser/advanced/[step].js"
+  "/404": "pages/404.js",
+  "/": "pages/index.js",
+  "/paint-budget-calculator": "pages/paint-budget-calculator.js"
 }
