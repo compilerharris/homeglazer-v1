@@ -510,6 +510,124 @@
           "lamp": "/assets/images/kidsroom/kidsroom1/lamp.svg",
           "borders": "/assets/images/kidsroom/kidsroom1/borders.svg"
         }
+      },
+      {
+        "name": "kidsroom2",
+        "label": "kidsroom 2",
+        "mainImage": "/assets/images/kidsroom/kidsroom2/kidsroom2.jpg",
+        "walls": {
+          "left": "/assets/images/kidsroom/kidsroom2/left-wall.svg",
+          "right": "/assets/images/kidsroom/kidsroom2/right-wall.svg",
+          "roof": "/assets/images/kidsroom/kidsroom2/roof-wall.svg",
+          "shelf": "/assets/images/kidsroom/kidsroom2/shelf.svg",
+          "table": "/assets/images/kidsroom/kidsroom2/table.svg",
+          "chair": "/assets/images/kidsroom/kidsroom2/chair.svg",
+          "edge": "/assets/images/kidsroom/kidsroom2/edge.svg",
+          "curtain": "/assets/images/kidsroom/kidsroom2/curtain.svg"
+        }
+      },
+      {
+        "name": "kidsroom3",
+        "label": "kidsroom 2",
+        "mainImage": "/assets/images/kidsroom/kidsroom3/kidsroom3.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom3/front-wall.svg",
+          "left": "/assets/images/kidsroom/kidsroom3/left-wall.svg",
+          "right": "/assets/images/kidsroom/kidsroom3/right-wall.svg",
+          "window": "/assets/images/kidsroom/kidsroom3/window.svg",
+          "table": "/assets/images/kidsroom/kidsroom3/table.svg",
+          "edge": "/assets/images/kidsroom/kidsroom3/edge.svg",
+          "door": "/assets/images/kidsroom/kidsroom3/door.svg",
+          "lamp": "/assets/images/kidsroom/kidsroom3/lamp.svg"
+        }
+      },
+      {
+        "name": "kidsroom4",
+        "label": "kidsroom 2",
+        "mainImage": "/assets/images/kidsroom/kidsroom4/kidsroom4.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom4/front-wall.svg",
+          "left": "/assets/images/kidsroom/kidsroom4/left-wall.svg",
+          "back": "/assets/images/kidsroom/kidsroom4/back-wall.svg",
+          "edge": "/assets/images/kidsroom/kidsroom4/edge.svg",
+          "cupboard": "/assets/images/kidsroom/kidsroom4/cupboard.svg"
+        }
+      },
+      {
+        "name": "kidsroom5",
+        "label": "kidsroom 5",
+        "mainImage": "/assets/images/kidsroom/kidsroom5/kidsroom5.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom5/front-wall.svg",
+          "window": "/assets/images/kidsroom/kidsroom5/window.svg",
+          "table": "/assets/images/kidsroom/kidsroom5/table.svg",
+          "edge": "/assets/images/kidsroom/kidsroom5/edge.svg",
+          "lamp": "/assets/images/kidsroom/kidsroom5/lamp.svg"
+        }
+      },
+      {
+        "name": "kidsroom6",
+        "label": "kidsroom 6",
+        "mainImage": "/assets/images/kidsroom/kidsroom6/kidsroom6.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom6/front-wall.svg",
+          "roof": "/assets/images/kidsroom/kidsroom6/roof-wall.svg",
+          "edge": "/assets/images/kidsroom/kidsroom6/edge.svg"
+        }
+      },
+      {
+        "name": "kidsroom7",
+        "label": "kidsroom 6",
+        "mainImage": "/assets/images/kidsroom/kidsroom7/kidsroom7.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom7/front-wall.svg",
+          "left": "/assets/images/kidsroom/kidsroom7/left-wall.svg",
+          "bed": "/assets/images/kidsroom/kidsroom7/bed.svg",
+          "cupboard": "/assets/images/kidsroom/kidsroom7/cupboard.svg",
+          "table": "/assets/images/kidsroom/kidsroom7/table.svg",
+          "edge": "/assets/images/kidsroom/kidsroom7/edge.svg"
+        }
+      },
+      {
+        "name": "kidsroom8",
+        "label": "kidsroom 8",
+        "mainImage": "/assets/images/kidsroom/kidsroom8/kidsroom8.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom8/front-wall.svg",
+          "left": "/assets/images/kidsroom/kidsroom8/left-wall.svg",
+          "right": "/assets/images/kidsroom/kidsroom8/right-wall.svg",
+          "roof": "/assets/images/kidsroom/kidsroom8/roof-wall.svg",
+          "kids-bed": "/assets/images/kidsroom/kidsroom8/kids-bed.svg",
+          "lamp": "/assets/images/kidsroom/kidsroom8/lamp.svg",
+          "shelf": "/assets/images/kidsroom/kidsroom8/shelf.svg",
+          "table": "/assets/images/kidsroom/kidsroom8/table.svg",
+          "edge": "/assets/images/kidsroom/kidsroom8/edge.svg"
+        }
+      },
+      {
+        "name": "kidsroom9",
+        "label": "kidsroom 9",
+        "mainImage": "/assets/images/kidsroom/kidsroom9/kidsroom9.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom9/front-wall.svg",
+          "left": "/assets/images/kidsroom/kidsroom9/left-wall.svg",
+          "right": "/assets/images/kidsroom/kidsroom9/right-wall.svg",
+          "staircase": "/assets/images/kidsroom/kidsroom9/staircase.svg",
+          "column": "/assets/images/kidsroom/kidsroom9/column.svg",
+          "bunker-walls": "/assets/images/kidsroom/kidsroom9/bunker-walls.svg"
+        }
+      },
+      {
+        "name": "kidsroom10",
+        "label": "kidsroom 10",
+        "mainImage": "/assets/images/kidsroom/kidsroom10/kidsroom10.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom10/front-wall.svg",
+          "left": "/assets/images/kidsroom/kidsroom10/left-wall.svg",
+          "right": "/assets/images/kidsroom/kidsroom10/right-wall.svg",
+          "roof": "/assets/images/kidsroom/kidsroom10/roof-wall.svg",
+          "tent": "/assets/images/kidsroom/kidsroom10/tent.svg"
+        }
       }
     ]
   },
