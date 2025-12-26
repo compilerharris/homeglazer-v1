@@ -25,7 +25,7 @@ const PaintingCalculator: React.FC = () => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="/calculator">Budget Calculator</BreadcrumbLink>
+              <BreadcrumbLink href="/paint-budget-calculator">Budget Calculator</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>

@@ -26,7 +26,7 @@ const Calculator: React.FC = () => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="/calculator">Budget Calculator</BreadcrumbLink>
+              <BreadcrumbLink href="/paint-budget-calculator">Budget Calculator</BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -71,4 +71,5 @@ const Calculator: React.FC = () => {
   );
 };
 
-export default Calculator; 
+export default Calculator;
+

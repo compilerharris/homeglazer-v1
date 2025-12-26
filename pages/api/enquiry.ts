@@ -227,8 +227,8 @@ export default async function handler(
             <div class="cta-section">
               <h3 style="margin-top: 0; color: #333;">Explore Our Tools</h3>
               <div class="cta-buttons">
-                <a href="/colour-visualiser" class="cta-button">Try Visualizer</a><br><br>
-                <a href="/calculator" class="cta-button">Budget Calculator</a>
+                <a href="https://www.homeglazer.com/colour-visualiser" class="cta-button">Try Visualizer</a><br><br>
+                <a href="https://www.homeglazer.com/paint-budget-calculator" class="cta-button">Budget Calculator</a>
               </div>
             </div>
             <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9;">
@@ -388,8 +388,8 @@ Email: homeglazer@gmail.com | Phone: +91-9717256514
             <div class="cta-section">
               <h3 style="margin-top: 0; color: #333;">Explore Our Tools</h3>
               <div class="cta-buttons">
-                <a href="/colour-visualiser" class="cta-button visualizer" style="color: white !important; background-color: #ED276E;">Try Visualizer</a><br><br>
-                <a href="/calculator" class="cta-button calculator" style="color: white !important; background-color: #299dd7;">Budget Calculator</a>
+                <a href="https://www.homeglazer.com/colour-visualiser" class="cta-button visualizer" style="color: white !important; background-color: #ED276E;">Try Visualizer</a><br><br>
+                <a href="https://www.homeglazer.com/paint-budget-calculator" class="cta-button calculator" style="color: white !important; background-color: #299dd7;">Budget Calculator</a>
               </div>
             </div>
             <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9;">
