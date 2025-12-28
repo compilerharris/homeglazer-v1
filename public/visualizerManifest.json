@@ -626,7 +626,11 @@
           "left": "/assets/images/kidsroom/kidsroom10/left-wall.svg",
           "right": "/assets/images/kidsroom/kidsroom10/right-wall.svg",
           "roof": "/assets/images/kidsroom/kidsroom10/roof-wall.svg",
-          "tent": "/assets/images/kidsroom/kidsroom10/tent.svg" 
+          "tent": "/assets/images/kidsroom/kidsroom10/tent.svg",
+          "shelf": "/assets/images/kidsroom/kidsroom10/shelf.svg",
+          "chair": "/assets/images/kidsroom/kidsroom10/chair.svg",
+          "table": "/assets/images/kidsroom/kidsroom10/table.svg",
+          "lamp": "/assets/images/kidsroom/kidsroom10/lamp.svg"
         }
       }
     ]
