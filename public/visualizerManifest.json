@@ -1049,5 +1049,142 @@
         }
       }
     ]
+  },
+  {
+    "roomType": "maingate",
+    "label": "Main Gate",
+    "variants": [
+      {
+        "name": "maingate1",
+        "label": "Main Gate 1",
+        "mainImage": "/assets/images/maingate/maingate1/maingate1.jpg",
+        "walls": {
+          "walls": "/assets/images/maingate/maingate1/walls.svg",
+          "columns": "/assets/images/maingate/maingate1/columns.svg",
+          "roof": "/assets/images/maingate/maingate1/roof-wall.svg",
+          "wall-pot": "/assets/images/maingate/maingate1/wall-pot.svg",
+          "door-lines": "/assets/images/maingate/maingate1/door-lines.svg",
+          "door-circles": "/assets/images/maingate/maingate1/door-circles.svg"
+        }
+      },
+      {
+        "name": "maingate2",
+        "label": "Main Gate 2",
+        "mainImage": "/assets/images/maingate/maingate2/maingate2.jpg",
+        "walls": {
+          "walls": "/assets/images/maingate/maingate2/walls.svg",
+          "columns": "/assets/images/maingate/maingate2/columns.svg",
+          "dome": "/assets/images/maingate/maingate2/dome.svg",
+          "gate": "/assets/images/maingate/maingate2/gate.svg"
+        }
+      },
+      {
+        "name": "maingate3",
+        "label": "Main Gate 3",
+        "mainImage": "/assets/images/maingate/maingate3/maingate3.jpg",
+        "walls": {
+          "frame": "/assets/images/maingate/maingate3/frame.svg",
+          "gate": "/assets/images/maingate/maingate3/gate.svg",
+          "door-net": "/assets/images/maingate/maingate3/door-net.svg"
+        }
+      },
+      {
+        "name": "maingate4",
+        "label": "Main Gate 4",
+        "mainImage": "/assets/images/maingate/maingate4/maingate4.jpg",
+        "walls": {
+          "walls": "/assets/images/maingate/maingate4/walls.svg",
+          "edge": "/assets/images/maingate/maingate4/frame.svg",
+          "gate": "/assets/images/maingate/maingate4/gate.svg",
+          "frame": "/assets/images/maingate/maingate4/edge.svg",
+          "gate-box": "/assets/images/maingate/maingate4/gate-box.svg"
+        }
+      },
+      {
+        "name": "maingate5",
+        "label": "Main Gate 5",
+        "mainImage": "/assets/images/maingate/maingate5/maingate5.jpg",
+        "walls": {
+          "edge": "/assets/images/maingate/maingate5/edge.svg",
+          "frame": "/assets/images/maingate/maingate5/frame.svg",
+          "gate": "/assets/images/maingate/maingate5/gate.svg",
+          "gate-design": "/assets/images/maingate/maingate5/gate-design.svg"
+        }
+      },
+      {
+        "name": "maingate6",
+        "label": "Main Gate 6",
+        "mainImage": "/assets/images/maingate/maingate6/maingate6.jpg",
+        "walls": {
+          "wall": "/assets/images/maingate/maingate6/wall.svg",
+          "door": "/assets/images/maingate/maingate6/door.svg",
+          "frame": "/assets/images/maingate/maingate6/frame.svg"
+        }
+      },
+      {
+        "name": "maingate7",
+        "label": "Main Gate 7",
+        "mainImage": "/assets/images/maingate/maingate7/maingate7.jpg",
+        "walls": {
+          "edge": "/assets/images/maingate/maingate7/edge.svg",
+          "frame": "/assets/images/maingate/maingate7/frame.svg",
+          "gate": "/assets/images/maingate/maingate7/gate.svg",
+          "gate-box": "/assets/images/maingate/maingate7/gate-box.svg"
+        }
+      },
+      {
+        "name": "maingate8",
+        "label": "Main Gate 8",
+        "mainImage": "/assets/images/maingate/maingate8/maingate8.jpg",
+        "walls": {
+          "frame": "/assets/images/maingate/maingate8/frame.svg",
+          "gate": "/assets/images/maingate/maingate8/gate.svg",
+          "gate-box": "/assets/images/maingate/maingate8/gate-box.svg"
+        }
+      },
+      {
+        "name": "maingate9",
+        "label": "Main Gate 9",
+        "mainImage": "/assets/images/maingate/maingate9/maingate9.jpg",
+        "walls": {
+          "wall": "/assets/images/maingate/maingate9/wall.svg",
+          "frame": "/assets/images/maingate/maingate9/frame.svg",
+          "gate": "/assets/images/maingate/maingate9/gate.svg",
+          "emboss": "/assets/images/maingate/maingate9/emboss.svg",
+          "window": "/assets/images/maingate/maingate9/window.svg"
+        }
+      },
+      {
+        "name": "maingate10",
+        "label": "Main Gate 10",
+        "mainImage": "/assets/images/maingate/maingate10/maingate10.jpg",
+        "walls": {
+          "wall": "/assets/images/maingate/maingate10/wall.svg",
+          "column": "/assets/images/maingate/maingate10/column.svg",
+          "frame": "/assets/images/maingate/maingate10/frame.svg",
+          "gate": "/assets/images/maingate/maingate10/gate.svg",
+          "light": "/assets/images/maingate/maingate10/light.svg"
+        }
+      },
+      {
+        "name": "maingate11",
+        "label": "Main Gate 11",
+        "mainImage": "/assets/images/maingate/maingate11/maingate11.jpg",
+        "walls": {
+          "wall": "/assets/images/maingate/maingate11/wall.svg",
+          "frame": "/assets/images/maingate/maingate11/frame.svg",
+          "gate": "/assets/images/maingate/maingate11/gate.svg"
+        }
+      },
+      {
+        "name": "maingate12",
+        "label": "Main Gate 12",
+        "mainImage": "/assets/images/maingate/maingate12/maingate12.jpg",
+        "walls": {
+          "columns": "/assets/images/maingate/maingate12/columns.svg",
+          "gate": "/assets/images/maingate/maingate12/gate.svg"
+        }
+      }
+    ]
   }
 ] 
