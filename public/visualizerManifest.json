@@ -1075,7 +1075,8 @@
           "walls": "/assets/images/maingate/maingate2/walls.svg",
           "columns": "/assets/images/maingate/maingate2/columns.svg",
           "dome": "/assets/images/maingate/maingate2/dome.svg",
-          "gate": "/assets/images/maingate/maingate2/gate.svg"
+          "gate": "/assets/images/maingate/maingate2/gate.svg",
+          "home": "/assets/images/maingate/maingate2/home.svg"
         }
       },
       {
@@ -1093,7 +1094,10 @@
         "label": "Main Gate 4",
         "mainImage": "/assets/images/maingate/maingate4/maingate4.jpg",
         "walls": {
-          "walls": "/assets/images/maingate/maingate4/walls.svg",
+          "wall": "/assets/images/maingate/maingate4/wall.svg",
+          "handrail": "/assets/images/maingate/maingate4/handrail.svg",
+          "columns": "/assets/images/maingate/maingate4/columns.svg",
+          "handrail-top": "/assets/images/maingate/maingate4/wall-top.svg",
           "edge": "/assets/images/maingate/maingate4/frame.svg",
           "gate": "/assets/images/maingate/maingate4/gate.svg",
           "frame": "/assets/images/maingate/maingate4/edge.svg",
@@ -1181,8 +1185,12 @@
         "label": "Main Gate 12",
         "mainImage": "/assets/images/maingate/maingate12/maingate12.jpg",
         "walls": {
+          "front-wall": "/assets/images/maingate/maingate12/front-wall.svg",
+          "back-wall": "/assets/images/maingate/maingate12/back-wall.svg",
           "columns": "/assets/images/maingate/maingate12/columns.svg",
-          "gate": "/assets/images/maingate/maingate12/gate.svg"
+          "gate": "/assets/images/maingate/maingate12/gate.svg",
+          "door": "/assets/images/maingate/maingate12/frame.svg",
+          "door-net": "/assets/images/maingate/maingate12/door-net.svg"
         }
       }
     ]
