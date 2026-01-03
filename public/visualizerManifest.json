@@ -226,6 +226,20 @@
           "roof": "/assets/images/bedroom/bedroom20/roof-wall.svg",
           "window": "/assets/images/bedroom/bedroom20/window.svg"
         }
+      },
+      {
+        "name": "bedroom21",
+        "label": "Bedroom 21",
+        "mainImage": "/assets/images/bedroom/bedroom21/bedroom21.jpg",
+        "walls": {
+          "front": "/assets/images/bedroom/bedroom21/front-wall.svg",
+          "left": "/assets/images/bedroom/bedroom21/left-wall.svg",
+          "roof": "/assets/images/bedroom/bedroom21/roof-wall.svg",
+          "window": "/assets/images/bedroom/bedroom21/window.svg",
+          "door": "/assets/images/bedroom/bedroom21/door.svg",
+          "table": "/assets/images/bedroom/bedroom21/table.svg",
+          "edge": "/assets/images/bedroom/bedroom21/edge.svg"
+        }
       }
     ]
   },
@@ -359,6 +373,21 @@
           "right": "/assets/images/livingroom/livingroom11/right-wall.svg",
           "sofa": "/assets/images/livingroom/livingroom11/sofa.svg"
         }
+      },
+      {
+        "name": "livingroom12",
+        "label": "Living Room 12",
+        "mainImage": "/assets/images/livingroom/livingroom12/livingroom12.jpg",
+        "walls": {
+          "front": "/assets/images/livingroom/livingroom12/front-wall.svg",
+          "front-left": "/assets/images/livingroom/livingroom12/front-left.svg",
+          "left": "/assets/images/livingroom/livingroom12/left-wall.svg",
+          "right": "/assets/images/livingroom/livingroom12/right-wall.svg",
+          "roof": "/assets/images/livingroom/livingroom12/roof-wall.svg",
+          "roof-left": "/assets/images/livingroom/livingroom12/roof-left.svg",
+          "doors": "/assets/images/livingroom/livingroom12/doors.svg",
+          "edge": "/assets/images/livingroom/livingroom12/edge.svg"
+        }
       }
     ]
   },
@@ -481,6 +510,31 @@
           "roof": "/assets/images/homeoffice/homeoffice10/roof-wall.svg",
           "window": "/assets/images/homeoffice/homeoffice10/window.svg",
           "edge": "/assets/images/homeoffice/homeoffice10/edge.svg"
+        }
+      },
+      {
+        "name": "homeoffice11",
+        "label": "Home Office 11",
+        "mainImage": "/assets/images/homeoffice/homeoffice11/homeoffice11.jpg",
+        "walls": {
+          "front": "/assets/images/homeoffice/homeoffice11/front-wall.svg",
+          "right": "/assets/images/homeoffice/homeoffice11/right-wall.svg",
+          "table": "/assets/images/homeoffice/homeoffice11/table.svg",
+          "window": "/assets/images/homeoffice/homeoffice11/window.svg",
+          "edge": "/assets/images/homeoffice/homeoffice11/edge.svg",
+          "cupboard": "/assets/images/homeoffice/homeoffice11/cupboard.svg",
+          "chair": "/assets/images/homeoffice/homeoffice11/chair.svg"
+        }
+      },
+      {
+        "name": "homeoffice12",
+        "label": "Home Office 12",
+        "mainImage": "/assets/images/homeoffice/homeoffice12/homeoffice12.jpg",
+        "walls": {
+          "right": "/assets/images/homeoffice/homeoffice12/right-wall.svg",
+          "left": "/assets/images/homeoffice/homeoffice12/left-wall.svg",
+          "table": "/assets/images/homeoffice/homeoffice12/table.svg",
+          "edge": "/assets/images/homeoffice/homeoffice12/edge.svg"
         }
       }
     ]
@@ -631,6 +685,34 @@
           "chair": "/assets/images/kidsroom/kidsroom10/chair.svg",
           "table": "/assets/images/kidsroom/kidsroom10/table.svg",
           "lamp": "/assets/images/kidsroom/kidsroom10/lamp.svg"
+        }
+      },
+      {
+        "name": "kidsroom11",
+        "label": "kidsroom 11",
+        "mainImage": "/assets/images/kidsroom/kidsroom11/kidsroom11.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom11/front-wall.svg",
+          "left": "/assets/images/kidsroom/kidsroom11/left-wall.svg",
+          "right": "/assets/images/kidsroom/kidsroom11/right-wall.svg",
+          "baby-bed": "/assets/images/kidsroom/kidsroom11/baby-bed.svg",
+          "edge": "/assets/images/kidsroom/kidsroom11/edge.svg"
+        }
+      },
+      {
+        "name": "kidsroom12",
+        "label": "kidsroom 12",
+        "mainImage": "/assets/images/kidsroom/kidsroom12/kidsroom12.jpg",
+        "walls": {
+          "front": "/assets/images/kidsroom/kidsroom12/front-wall.svg",
+          "left": "/assets/images/kidsroom/kidsroom12/left-wall.svg",
+          "right": "/assets/images/kidsroom/kidsroom12/right-wall.svg",
+          "roof": "/assets/images/kidsroom/kidsroom12/roof-wall.svg",
+          "bed": "/assets/images/kidsroom/kidsroom12/bed.svg",
+          "cupboard": "/assets/images/kidsroom/kidsroom12/cupboard.svg",
+          "edge": "/assets/images/kidsroom/kidsroom12/edge.svg",
+          "window": "/assets/images/kidsroom/kidsroom12/window.svg",
+          "lamp": "/assets/images/kidsroom/kidsroom12/lamp.svg"
         }
       }
     ]
@@ -874,6 +956,33 @@
           "window": "/assets/images/kitchen/kitchen19/window.svg",
           "cabinet-upper": "/assets/images/kitchen/kitchen19/cabinet-upper.svg",
           "cabinet-lower": "/assets/images/kitchen/kitchen19/cabinet-lower.svg"
+        }
+      },
+      {
+        "name": "kitchen20",
+        "label": "Kitchen 20",
+        "mainImage": "/assets/images/kitchen/kitchen20/kitchen20.jpg",
+        "walls": {
+          "walls": "/assets/images/kitchen/kitchen20/walls.svg",
+          "tiles": "/assets/images/kitchen/kitchen20/tiles.svg",
+          "roof": "/assets/images/kitchen/kitchen20/roof-wall.svg",
+          "window": "/assets/images/kitchen/kitchen20/window.svg",
+          "table": "/assets/images/kitchen/kitchen20/table.svg",
+          "chimney": "/assets/images/kitchen/kitchen20/chimney.svg",
+          "lamp": "/assets/images/kitchen/kitchen20/lamp.svg"
+        }
+      },
+      {
+        "name": "kitchen21",
+        "label": "Kitchen 21",
+        "mainImage": "/assets/images/kitchen/kitchen21/kitchen21.jpg",
+        "walls": {
+          "walls": "/assets/images/kitchen/kitchen21/walls.svg",
+          "window": "/assets/images/kitchen/kitchen21/window.svg",
+          "table": "/assets/images/kitchen/kitchen21/table.svg",
+          "lamp": "/assets/images/kitchen/kitchen21/lamp.svg",
+          "cabinet-upper": "/assets/images/kitchen/kitchen21/cabinet-upper.svg",
+          "cabinet-lower": "/assets/images/kitchen/kitchen21/cabinet-lower.svg"
         }
       }
     ]

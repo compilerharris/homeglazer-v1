@@ -101,76 +101,38 @@ const PaintingStep5: React.FC<PaintingStep5Props> = ({
       <h2 className="text-4xl font-medium text-center mb-6 text-[#ED276E]">
         Thank You For Your Time
       </h2>
-      
+
       <p className="text-xl text-[#ED276E] mb-12">
         We have sent you the mail for estimated {inputMethod && selectedWoodFinish ? 'wood polishing' : 'painting'} cost.
       </p>
-      
+
       <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 mb-12">
         <div className="w-24 h-24 bg-[#009966] rounded-full flex items-center justify-center mx-auto mb-6">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        
+
         <h3 className="text-2xl font-medium mb-4">Success!</h3>
         <p className="text-gray-600 mb-6">
-          Dear {fullName}, your {inputMethod && selectedWoodFinish ? 'wood polishing' : 'painting'} estimate request has been successfully submitted. 
+          Dear {fullName}, your {inputMethod && selectedWoodFinish ? 'wood polishing' : 'painting'} estimate request has been successfully submitted.
           We've sent a confirmation email to {email} with your estimate details.
         </p>
-        
+
         <p className="text-gray-600 mb-4">
           Our team will review your request and may contact you for any additional information needed.
         </p>
-        
+
         <p className="text-gray-800 font-medium">
           Thank you for choosing our services!
         </p>
       </div>
-      
+
       {/* Calculation Summary - Only render if painting calculation data is provided */}
       <div className="text-left">
-        {selectedPaintingType && areaTypes && carpetAreaOptions && buildupAreaOptions && (
-          <CalculationSummary
-            selectedPaintingType={selectedPaintingType}
-            workType={workType || ''}
-            area={area || 0}
-            areaTypes={areaTypes}
-            paintCategory={paintCategory || ''}
-            paintBrand={paintBrand || ''}
-            paintType={paintType || ''}
-            roofWorkType={roofWorkType || ''}
-            roofArea={roofArea || 0}
-            roofAreaTypes={roofAreaTypes || []}
-            roofPaintCategory={roofPaintCategory || ''}
-            roofPaintBrand={roofPaintBrand || ''}
-            roofPaintType={roofPaintType || ''}
-            exteriorPaintCategory={exteriorPaintCategory || ''}
-            exteriorPaintBrand={exteriorPaintBrand || ''}
-            exteriorPaintType={exteriorPaintType || ''}
-            samePaintForCeiling={samePaintForCeiling || false}
-            ceilingPaintCategory={ceilingPaintCategory || ''}
-            ceilingPaintBrand={ceilingPaintBrand || ''}
-            ceilingPaintType={ceilingPaintType || ''}
-            carpetAreaOptions={carpetAreaOptions}
-            buildupAreaOptions={buildupAreaOptions}
-          />
-        )}
-        
-        {/* Wood Polishing Summary - Only render if wood polishing data is provided */}
-        {inputMethod && selectedWoodFinish && itemCounts !== undefined && woodPolishingTotalEstimate !== undefined && (
-          <WoodPolishingSummary
-            inputMethod={inputMethod}
-            area={woodPolishingArea || 0}
-            itemCounts={itemCounts}
-            selectedWoodFinishType={selectedWoodFinishType || ''}
-            selectedWoodFinishBrand={selectedWoodFinishBrand || ''}
-            selectedWoodFinish={selectedWoodFinish}
-            totalEstimate={woodPolishingTotalEstimate}
-          />
-        )}
+        {/* Summaries are hidden in UI and sent via email per requirement */}
       </div>
-      
+
       <div className="flex justify-center gap-4 mt-8">
         <button
           onClick={onBack}

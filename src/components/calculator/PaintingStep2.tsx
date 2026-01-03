@@ -14,6 +14,7 @@ interface PaintingStep2Props {
   onNext: () => void;
   onBack: () => void;
   hideServiceType?: boolean;
+  isLoading?: boolean;
 }
 
 const PaintingStep2: React.FC<PaintingStep2Props> = ({
@@ -29,14 +30,15 @@ const PaintingStep2: React.FC<PaintingStep2Props> = ({
   onLocationChange,
   onNext,
   onBack,
-  hideServiceType = false
+  hideServiceType = false,
+  isLoading = false
 }) => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <h2 className="text-3xl font-medium text-center mb-8 text-[#ED276E]">
         Enter Your Details
       </h2>
-      
+
       <div className="space-y-6">
         <div>
           <label className="block text-lg font-medium mb-3">
@@ -108,24 +110,24 @@ const PaintingStep2: React.FC<PaintingStep2Props> = ({
           />
         </div>
       </div>
-      
+
       <div className="flex justify-between mt-12">
         <button
           onClick={onBack}
-          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50"
+          disabled={isLoading}
+          className={`px-6 py-3 rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
           BACK
         </button>
         <button
           onClick={onNext}
-          disabled={!fullName || !email || !phone || !location || (!hideServiceType && !serviceType)}
-          className={`px-6 py-3 rounded-lg text-white transition-colors ${
-            !fullName || !email || !phone || !location || (!hideServiceType && !serviceType)
-              ? 'bg-gray-400 cursor-not-allowed' 
+          disabled={!fullName || !email || !phone || !location || (!hideServiceType && !serviceType) || isLoading}
+          className={`px-6 py-3 rounded-lg text-white transition-colors ${!fullName || !email || !phone || !location || (!hideServiceType && !serviceType) || isLoading
+              ? 'bg-gray-400 cursor-not-allowed'
               : 'bg-[#299dd7] hover:bg-[#248ac2]'
-          }`}
+            }`}
         >
-          Send me Summary
+          {isLoading ? 'Sending...' : 'Send me Summary'}
         </button>
       </div>
     </div>
