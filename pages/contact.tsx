@@ -34,6 +34,12 @@ const ContactPage: React.FC = () => {
   // Success state
   const [submitted, setSubmitted] = useState(false);
   
+  // Loading state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Error state for API errors
+  const [submitError, setSubmitError] = useState('');
+  
   // Handle form input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -102,12 +108,32 @@ const ContactPage: React.FC = () => {
   };
   
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (validateForm()) {
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', formData);
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setSubmitError('');
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+      
+      // Success
       setSubmitted(true);
       
       // Reset form after submission
@@ -118,6 +144,11 @@ const ContactPage: React.FC = () => {
         service: '',
         message: ''
       });
+    } catch (error: any) {
+      console.error('Error submitting contact form:', error);
+      setSubmitError(error.message || 'Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -240,7 +271,7 @@ const ContactPage: React.FC = () => {
                 </svg>
                 <h3 className="text-xl font-medium text-green-800 mb-2">Thank You!</h3>
                 <p className="text-green-700">
-                  Your message has been sent successfully. We'll get back to you shortly.
+                  Your message has been sent successfully. We'll get back to you within 24 hours.
                 </p>
                 <button 
                   onClick={() => setSubmitted(false)}
@@ -348,11 +379,21 @@ const ContactPage: React.FC = () => {
                   )}
                 </div>
                 
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
+                    <div className="flex items-center justify-center text-red-600 text-sm">
+                      <AlertCircle className="h-4 w-4 mr-2" />
+                      <span>{submitError}</span>
+                    </div>
+                  </div>
+                )}
+                
                 <button 
                   type="submit" 
-                  className="w-full bg-[#ED276E] text-white font-semibold py-3 px-4 rounded-lg hover:bg-[#d51e5f] transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#ED276E] text-white font-semibold py-3 px-4 rounded-lg hover:bg-[#d51e5f] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             )}

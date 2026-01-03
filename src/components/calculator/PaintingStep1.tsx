@@ -69,8 +69,8 @@ interface PaintingStep1Props {
   onExteriorPaintTypeChange: (value: string) => void;
 }
 
-const PaintingStep1: React.FC<PaintingStep1Props> = ({ 
-  options, 
+const PaintingStep1: React.FC<PaintingStep1Props> = ({
+  options,
   onOptionSelect,
   workType,
   onWorkTypeChange,
@@ -116,6 +116,8 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
   exteriorPaintType,
   onExteriorPaintTypeChange
 }) => {
+
+
   // Add function to calculate display area
   const getDisplayArea = () => {
     if (!area) return 0;
@@ -190,7 +192,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
   // Get selected paint name
   const getSelectedPaintName = () => {
     if (!paintType) return '';
-    
+
     type PaintOption = {
       value: string;
       name: string;
@@ -203,7 +205,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
     type PaintOptions = {
       [key: string]: PaintCategory;
     };
-    
+
     // Find the paint name based on category, brand and selected value
     const paintOptions: PaintOptions = {
       economical: {
@@ -338,7 +340,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
   // Get selected ceiling paint name
   const getSelectedCeilingPaintName = () => {
     if (!ceilingPaintType) return '';
-    
+
     type PaintOption = {
       value: string;
       name: string;
@@ -351,7 +353,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
     type PaintOptions = {
       [key: string]: PaintCategory;
     };
-    
+
     const paintOptions: PaintOptions = {
       economical: {
         'asian-paints': [
@@ -502,7 +504,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
   // Get selected roof paint name
   const getSelectedRoofPaintName = () => {
     if (!roofPaintType) return '';
-    
+
     type PaintOption = {
       value: string;
       name: string;
@@ -515,7 +517,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
     type PaintOptions = {
       [key: string]: PaintCategory;
     };
-    
+
     const paintOptions: PaintOptions = {
       economical: {
         'asian-paints': [
@@ -665,7 +667,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
       <h2 className="text-3xl font-medium text-center mb-5 text-[#ED276E]">
         Painting Work Details
       </h2>
-      
+
       <div className="space-y-12">
         {/* Painting Type Selection */}
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
@@ -677,11 +679,10 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
               <button
                 key={option.id}
                 onClick={() => onOptionSelect(option.id)}
-                className={`p-6 rounded-lg border-2 text-center transition-colors font-medium mb-2 ${
-                  option.selected
-                    ? 'border-[#299dd7] bg-[#299dd7] text-white'
-                    : 'border-gray-200 hover:border-[#299dd7]'
-                }`}
+                className={`p-6 rounded-lg border-2 text-center transition-colors font-medium mb-2 ${option.selected
+                  ? 'border-[#299dd7] bg-[#299dd7] text-white'
+                  : 'border-gray-200 hover:border-[#299dd7]'
+                  }`}
               >
                 {option.title}
               </button>
@@ -726,20 +727,20 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     </label>
                   </div>
                 </div>
-                
+
                 <div>
                   <label className="block text-lg font-medium">
                     Enter The Required Measurement
                   </label>
-                  
+
                   <div className="mb-4">
                     <label className="block text-gray-700 mb-2">
                       Select Area Type
                     </label>
                     <div className="flex flex-wrap gap-4 md:gap-8">
                       {areaTypes.map((type) => (
-                        <label 
-                          key={type.id} 
+                        <label
+                          key={type.id}
                           className="flex items-center cursor-pointer"
                         >
                           <input
@@ -754,7 +755,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       ))}
                     </div>
                   </div>
-                  
+
                   {areaTypes.find(type => type.id === 'carpet')?.selected && (
                     <select
                       value={area || ''}
@@ -769,7 +770,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       ))}
                     </select>
                   )}
-                  
+
                   {areaTypes.find(type => type.id === 'buildup')?.selected && (
                     <select
                       value={area || ''}
@@ -784,17 +785,17 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       ))}
                     </select>
                   )}
-                  
-                  {!areaTypes.find(type => type.id === 'carpet')?.selected && 
-                   !areaTypes.find(type => type.id === 'buildup')?.selected && (
-                    <input
-                      type="number"
-                      value={area || ''}
-                      onChange={(e) => onAreaChange(Number(e.target.value))}
-                      placeholder="Enter The Area in Square Feet"
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966]"
-                    />
-                  )}
+
+                  {!areaTypes.find(type => type.id === 'carpet')?.selected &&
+                    !areaTypes.find(type => type.id === 'buildup')?.selected && (
+                      <input
+                        type="number"
+                        value={area || ''}
+                        onChange={(e) => onAreaChange(Number(e.target.value))}
+                        placeholder="Enter The Area in Square Feet"
+                        className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966]"
+                      />
+                    )}
                 </div>
               </div>
 
@@ -847,7 +848,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       </label>
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="block text-lg font-medium mb-3">
                       Select Your Brands
@@ -867,7 +868,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       <option value="jsw">JSW</option>
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-lg font-medium mb-3">
                       Select Your Paints
@@ -1054,7 +1055,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       <h4 className="text-lg font-medium text-[#ED276E]">
                         Ceiling Paint Selection
                       </h4>
-                      
+
                       <div>
                         <label className="block text-lg font-medium mb-3">
                           Select Your Paint Category
@@ -1095,7 +1096,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                           </label>
                         </div>
                       </div>
-                      
+
                       <div>
                         <label className="block text-lg font-medium mb-3">
                           Select Your Brands
@@ -1115,7 +1116,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                           <option value="jsw">JSW</option>
                         </select>
                       </div>
-                      
+
                       <div>
                         <label className="block text-lg font-medium mb-3">
                           Select Your Paints
@@ -1324,20 +1325,20 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     </label>
                   </div>
                 </div>
-                
+
                 <div>
                   <label className="block text-lg font-medium">
                     Enter The Required Measurement
                   </label>
-                  
+
                   <div className="mb-4">
                     <label className="block text-gray-700 mb-2">
                       Select Area Type
                     </label>
                     <div className="flex flex-wrap gap-4 md:gap-8">
                       {areaTypes.map((type) => (
-                        <label 
-                          key={type.id} 
+                        <label
+                          key={type.id}
                           className="flex items-center cursor-pointer"
                         >
                           <input
@@ -1352,7 +1353,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       ))}
                     </div>
                   </div>
-                  
+
                   {areaTypes.find(type => type.id === 'carpet')?.selected && (
                     <select
                       value={area || ''}
@@ -1367,7 +1368,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       ))}
                     </select>
                   )}
-                  
+
                   {areaTypes.find(type => type.id === 'buildup')?.selected && (
                     <select
                       value={area || ''}
@@ -1382,17 +1383,17 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       ))}
                     </select>
                   )}
-                  
-                  {!areaTypes.find(type => type.id === 'carpet')?.selected && 
-                   !areaTypes.find(type => type.id === 'buildup')?.selected && (
-                    <input
-                      type="number"
-                      value={area || ''}
-                      onChange={(e) => onAreaChange(Number(e.target.value))}
-                      placeholder="Enter The Area in Square Feet"
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966]"
-                    />
-                  )}
+
+                  {!areaTypes.find(type => type.id === 'carpet')?.selected &&
+                    !areaTypes.find(type => type.id === 'buildup')?.selected && (
+                      <input
+                        type="number"
+                        value={area || ''}
+                        onChange={(e) => onAreaChange(Number(e.target.value))}
+                        placeholder="Enter The Area in Square Feet"
+                        className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966]"
+                      />
+                    )}
                 </div>
               </div>
 
@@ -1419,7 +1420,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                           onChange={(e) => onExteriorPaintCategoryChange(e.target.value)}
                           className="w-5 h-5 mr-2"
                         />
-                        Econom
+                        Economical
                       </label>
                       <label className="flex items-center cursor-pointer">
                         <input
@@ -1445,7 +1446,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       </label>
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="block text-lg font-medium mb-3">
                       Select Your Brands
@@ -1453,7 +1454,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <select
                       value={exteriorPaintBrand}
                       onChange={(e) => onExteriorPaintBrandChange(e.target.value)}
-                      className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966]"
+                      className="w-full p-4 pr-16 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
                       disabled={!exteriorPaintCategory}
                     >
                       <option value="">Select Brand</option>
@@ -1466,7 +1467,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                       <option value="jsw">JSW</option>
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-lg font-medium mb-3">
                       Select Your Paints
@@ -1474,7 +1475,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
                     <select
                       value={exteriorPaintType}
                       onChange={(e) => onExteriorPaintTypeChange(e.target.value)}
-                      className="w-full p-4 pr-16 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
+                      className="w-full p-4 pr-16 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#009966] appearance-none bg-white bg-no-repeat bg-[length:20px] bg-[right_1rem_center] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E')]"
                       disabled={!exteriorPaintBrand}
                     >
                       <option value="">Select Paint</option>
@@ -1637,109 +1638,49 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
           </div>
         )}
 
-                </div>
-                
+      </div>
+
       {/* Calculation Summary */}
-      <CalculationSummary
-        selectedPaintingType={selectedPaintingType}
-        workType={workType}
-        area={area}
-        areaTypes={areaTypes}
-        paintCategory={paintCategory}
-        paintBrand={paintBrand}
-        paintType={paintType}
-        roofWorkType={roofWorkType}
-        roofArea={roofArea}
-        roofAreaTypes={roofAreaTypes}
-        roofPaintCategory={roofPaintCategory}
-        roofPaintBrand={roofPaintBrand}
-        roofPaintType={roofPaintType}
-        exteriorPaintCategory={exteriorPaintCategory}
-        exteriorPaintBrand={exteriorPaintBrand}
-        exteriorPaintType={exteriorPaintType}
-        samePaintForCeiling={samePaintForCeiling}
-        ceilingPaintCategory={ceilingPaintCategory}
-        ceilingPaintBrand={ceilingPaintBrand}
-        ceilingPaintType={ceilingPaintType}
-        carpetAreaOptions={carpetAreaOptions}
-        buildupAreaOptions={buildupAreaOptions}
-      />
+      {/* Calculation Summary - Hidden per requirement */}
+      {/* <CalculationSummary ... /> */}
 
       {/* Navigation Buttons */}
       <div className="mt-8 flex justify-end">
-        <button
-          onClick={onNext}
-          disabled={
-            !selectedPaintingType || // Check if any painting type is selected
-            (
-              selectedPaintingType === 'interior' && (
-                !workType ||
-                !area || 
-                !paintCategory || 
-                !paintBrand || 
-                !paintType || 
-                (showCeilingPaintCheckbox && samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
-              )
-            ) ||
-            (
-              selectedPaintingType === 'exterior' && (
-                !roofWorkType ||
-                !area || 
-                !paintCategory || 
-                !paintBrand || 
-                !paintType
-              )
-            ) ||
-            (
-              selectedPaintingType === 'both' && (
-                !workType ||
-                !roofWorkType ||
-                !area || 
-                !paintCategory || 
-                !paintBrand || 
-                !paintType || 
-                (showCeilingPaintCheckbox && samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
-              )
-            )
+        {(() => {
+          const isPaintingAreaSelected = areaTypes.find(type => type.id === 'painting')?.selected;
+          const isMainPaintingType = selectedPaintingType === 'interior' || selectedPaintingType === 'exterior' || selectedPaintingType === 'both';
+          const showCeilingPaintCheckbox = !(isPaintingAreaSelected && isMainPaintingType);
+
+          const isAreaInvalid = area <= 0;
+          const isInteriorIncomplete = !workType || paintCategory === '' || paintBrand === '' || paintType === '';
+          const isExteriorIncomplete = !roofWorkType || exteriorPaintCategory === '' || exteriorPaintBrand === '' || exteriorPaintType === '';
+          const isCeilingIncomplete = showCeilingPaintCheckbox && samePaintForCeiling && (ceilingPaintCategory === '' || ceilingPaintBrand === '' || ceilingPaintType === '');
+
+          let isNextDisabled = false;
+
+          if (!selectedPaintingType) {
+            isNextDisabled = true;
+          } else if (selectedPaintingType === 'interior') {
+            isNextDisabled = isAreaInvalid || isInteriorIncomplete || isCeilingIncomplete;
+          } else if (selectedPaintingType === 'exterior') {
+            isNextDisabled = isAreaInvalid || isExteriorIncomplete;
+          } else if (selectedPaintingType === 'both') {
+            isNextDisabled = isAreaInvalid || isInteriorIncomplete || isExteriorIncomplete || isCeilingIncomplete;
           }
-          className={`px-6 py-3 rounded-lg text-white transition-colors ${
-            !selectedPaintingType ||
-            (
-              selectedPaintingType === 'interior' && (
-                !workType ||
-                !area || 
-                !paintCategory || 
-                !paintBrand || 
-                !paintType || 
-                (showCeilingPaintCheckbox && samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
-              )
-            ) ||
-            (
-              selectedPaintingType === 'exterior' && (
-                !roofWorkType ||
-                !area || 
-                !paintCategory || 
-                !paintBrand || 
-                !paintType
-              )
-            ) ||
-            (
-              selectedPaintingType === 'both' && (
-                !workType ||
-                !roofWorkType ||
-                !area || 
-                !paintCategory || 
-                !paintBrand || 
-                !paintType || 
-                (showCeilingPaintCheckbox && samePaintForCeiling && (!ceilingPaintCategory || !ceilingPaintBrand || !ceilingPaintType))
-              )
-            )
-              ? 'bg-gray-400 cursor-not-allowed' 
-              : 'bg-[#299dd7] hover:bg-[#248ac2]'
-          }`}
-        >
-          Next
-        </button>
+
+          return (
+            <button
+              onClick={onNext}
+              disabled={isNextDisabled}
+              className={`px-6 py-3 rounded-lg text-white font-medium transition-colors ${isNextDisabled
+                ? 'bg-gray-400 cursor-not-allowed'
+                : 'bg-[#299dd7] hover:bg-[#248ac2]'
+                }`}
+            >
+              Next
+            </button>
+          );
+        })()}
       </div>
     </div>
   );

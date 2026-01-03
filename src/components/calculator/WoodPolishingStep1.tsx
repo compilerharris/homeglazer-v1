@@ -54,7 +54,8 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
   onNext,
   onBack
 }) => {
-  const [inputMethod, setInputMethod] = useState<'area' | 'items'>('area');
+  const inputMethod = workType;
+  const setInputMethod = onWorkTypeChange;
 
   const doorOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const windowOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -101,11 +102,18 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
 
   const totalEstimate = calculateWoodPolishingEstimate();
 
+  const isNextDisabled =
+    (inputMethod === 'area' && area <= 0) ||
+    (inputMethod === 'items' && (itemCounts.doors === 0 && itemCounts.windows === 0 && itemCounts.wallPanels === 0 && itemCounts.furnitureArea === 0)) ||
+    !selectedWoodFinishType ||
+    !selectedWoodFinishBrand ||
+    !selectedWoodFinish;
+
   return (
     <div className="w-full max-w-4xl mx-auto">
       <h2 className="text-3xl font-medium text-center mb-12 text-[#ED276E]">Work Details</h2>
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
-        
+
         {/* Input Method Selection */}
         <div className="mb-8">
           <h3 className="text-xl font-medium mb-6 text-[#ED276E]">
@@ -114,23 +122,21 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <button
               onClick={() => setInputMethod('area')}
-              className={`p-4 rounded-lg border-2 text-center transition-colors ${
-                inputMethod === 'area'
-                  ? 'border-[#299dd7] bg-[#299dd7] text-white'
-                  : 'border-gray-200 hover:border-[#299dd7]'
-              }`}
+              className={`p-4 rounded-lg border-2 text-center transition-colors ${inputMethod === 'area'
+                ? 'border-[#299dd7] bg-[#299dd7] text-white'
+                : 'border-gray-200 hover:border-[#299dd7]'
+                }`}
             >
               <h4 className="font-medium mb-2">Enter quantity in sq. ft.</h4>
               <p className="text-sm opacity-80">For users who already know the total area</p>
             </button>
-            
+
             <button
               onClick={() => setInputMethod('items')}
-              className={`p-4 rounded-lg border-2 text-center transition-colors ${
-                inputMethod === 'items'
-                  ? 'border-[#299dd7] bg-[#299dd7] text-white'
-                  : 'border-gray-200 hover:border-[#299dd7]'
-              }`}
+              className={`p-4 rounded-lg border-2 text-center transition-colors ${inputMethod === 'items'
+                ? 'border-[#299dd7] bg-[#299dd7] text-white'
+                : 'border-gray-200 hover:border-[#299dd7]'
+                }`}
             >
               <h4 className="font-medium mb-2">Estimate based on item count</h4>
               <p className="text-sm opacity-80">Doors, windows, wardrobes, furniture, etc.</p>
@@ -302,8 +308,8 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
           </div>
         </div>
 
-        {/* Calculation Summary */}
-        {selectedWoodFinish && (inputMethod === 'area' && area > 0 || inputMethod === 'items' && (itemCounts.doors > 0 || itemCounts.windows > 0 || itemCounts.wallPanels > 0 || itemCounts.furnitureArea > 0)) && (
+        {/* Calculation Summary - Hidden per requirement */}
+        {/* {selectedWoodFinish && (inputMethod === 'area' && area > 0 || inputMethod === 'items' && (itemCounts.doors > 0 || itemCounts.windows > 0 || itemCounts.wallPanels > 0 || itemCounts.furnitureArea > 0)) && (
           <div className="mt-8 pt-8 border-t-2 border-[#ED276E]">
             <h3 className="text-2xl font-semibold mb-6 text-[#ED276E]">Calculation Summary</h3>
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
@@ -332,19 +338,22 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
               </div>
             </div>
           </div>
-        )}
+        )} */}
 
       </div>
 
-        {/* Navigation Buttons */}
-        <div className="mt-8 flex justify-end">
-          <button
-            onClick={onNext}
-            className="px-6 py-3 rounded-lg bg-[#299dd7] text-white hover:bg-[#248ac2]"
-          >
-            Next
-          </button>
-        </div>
+      <div className="mt-8 flex justify-end">
+        <button
+          onClick={onNext}
+          disabled={isNextDisabled}
+          className={`px-6 py-3 rounded-lg text-white transition-colors ${isNextDisabled
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-[#299dd7] hover:bg-[#248ac2]'
+            }`}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
