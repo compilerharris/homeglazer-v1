@@ -2,7 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/enquiry": "pages/api/enquiry.js",
+  "/enquiry": "pages/enquiry.js",
+  "/colour-visualiser": "pages/colour-visualiser.js",
   "/colour-visualiser/advanced/[step]": "pages/colour-visualiser/advanced/[step].js",
-  "/enquiry": "pages/enquiry.js"
+  "/404": "pages/404.js"
 }

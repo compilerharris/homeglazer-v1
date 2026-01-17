@@ -506,7 +506,7 @@
         "walls": {
           "left": "/assets/images/homeoffice/homeoffice10/left-wall.svg",
           "front": "/assets/images/homeoffice/homeoffice10/front-wall.svg",
-          "back": "/assets/images/homeoffice/homeoffice10/back-wall.svg",
+          "back-wall": "/assets/images/homeoffice/homeoffice10/back-wall.svg",
           "roof": "/assets/images/homeoffice/homeoffice10/roof-wall.svg",
           "window": "/assets/images/homeoffice/homeoffice10/window.svg",
           "edge": "/assets/images/homeoffice/homeoffice10/edge.svg"
@@ -602,7 +602,7 @@
         "walls": {
           "front": "/assets/images/kidsroom/kidsroom4/front-wall.svg",
           "left": "/assets/images/kidsroom/kidsroom4/left-wall.svg",
-          "back": "/assets/images/kidsroom/kidsroom4/back-wall.svg",
+          "back-wall": "/assets/images/kidsroom/kidsroom4/back-wall.svg",
           "edge": "/assets/images/kidsroom/kidsroom4/edge.svg",
           "cupboard": "/assets/images/kidsroom/kidsroom4/cupboard.svg"
         }
@@ -983,6 +983,137 @@
           "lamp": "/assets/images/kitchen/kitchen21/lamp.svg",
           "cabinet-upper": "/assets/images/kitchen/kitchen21/cabinet-upper.svg",
           "cabinet-lower": "/assets/images/kitchen/kitchen21/cabinet-lower.svg"
+        }
+      }
+    ]
+  },
+  {
+    "roomType": "bathroom",
+    "label": "Bathroom",
+    "variants": [
+      {
+        "name": "bathroom1",
+        "label": "Bathroom 1",
+        "mainImage": "/assets/images/bathroom/bathroom1/bathroom1.jpg",
+        "walls": {
+          "front": "/assets/images/bathroom/bathroom1/front-wall.svg",
+          "left": "/assets/images/bathroom/bathroom1/left-wall.svg",
+          "right": "/assets/images/bathroom/bathroom1/right-wall.svg",
+          "roof": "/assets/images/bathroom/bathroom1/roof-wall.svg",
+          "window": "/assets/images/bathroom/bathroom1/window.svg",
+          "wall-pattern": "/assets/images/bathroom/bathroom1/wall-pattern.svg",
+          "edge": "/assets/images/bathroom/bathroom1/edge.svg"
+        }
+      },
+      {
+        "name": "bathroom2",
+        "label": "Bathroom 2",
+        "mainImage": "/assets/images/bathroom/bathroom2/bathroom2.jpg",
+        "walls": {
+          "front": "/assets/images/bathroom/bathroom2/front-wall.svg",
+          "left": "/assets/images/bathroom/bathroom2/left-wall.svg",
+          "right": "/assets/images/bathroom/bathroom2/right-wall.svg",
+          "back-wall": "/assets/images/bathroom/bathroom2/back-wall.svg",
+          "roof": "/assets/images/bathroom/bathroom2/roof-wall.svg",
+          "towel": "/assets/images/bathroom/bathroom2/towel.svg",
+          "table": "/assets/images/bathroom/bathroom2/table.svg",
+          "edge": "/assets/images/bathroom/bathroom2/edge.svg",
+          "door": "/assets/images/bathroom/bathroom2/door.svg"
+        }
+      },
+      {
+        "name": "bathroom3",
+        "label": "Bathroom 3",
+        "mainImage": "/assets/images/bathroom/bathroom3/bathroom3.jpg",
+        "walls": {
+          "front": "/assets/images/bathroom/bathroom3/front-wall.svg",
+          "right": "/assets/images/bathroom/bathroom3/right-wall.svg",
+          "back-wall": "/assets/images/bathroom/bathroom3/back-wall.svg",
+          "table": "/assets/images/bathroom/bathroom3/table.svg",
+          "window": "/assets/images/bathroom/bathroom3/window.svg"
+        }
+      },
+      {
+        "name": "bathroom4",
+        "label": "Bathroom 4",
+        "mainImage": "/assets/images/bathroom/bathroom4/bathroom4.jpg",
+        "walls": {
+          "front": "/assets/images/bathroom/bathroom4/front-wall.svg",
+          "right": "/assets/images/bathroom/bathroom4/right-wall.svg",
+          "table": "/assets/images/bathroom/bathroom4/table.svg",
+          "edge": "/assets/images/bathroom/bathroom4/edge.svg"
+        }
+      },
+      {
+        "name": "bathroom5",
+        "label": "Bathroom 5",
+        "mainImage": "/assets/images/bathroom/bathroom5/bathroom5.jpg",
+        "walls": {
+          "front": "/assets/images/bathroom/bathroom5/front-wall.svg",
+          "left": "/assets/images/bathroom/bathroom5/left-wall.svg",
+          "right": "/assets/images/bathroom/bathroom5/right-wall.svg",
+          "back-wall": "/assets/images/bathroom/bathroom5/back-wall.svg",
+          "wainscoting": "/assets/images/bathroom/bathroom5/wainscoting.svg",
+          "table": "/assets/images/bathroom/bathroom5/table.svg"
+        }
+      },
+      {
+        "name": "bathroom6",
+        "label": "Bathroom 6",
+        "mainImage": "/assets/images/bathroom/bathroom6/bathroom6.jpg",
+        "walls": {
+          "front": "/assets/images/bathroom/bathroom6/front-wall.svg",
+          "right": "/assets/images/bathroom/bathroom6/right-wall.svg",
+          "roof": "/assets/images/bathroom/bathroom6/roof-wall.svg",
+          "shower-wall": "/assets/images/bathroom/bathroom6/shower-wall.svg",
+          "door-edge": "/assets/images/bathroom/bathroom6/door-edge.svg",
+          "door": "/assets/images/bathroom/bathroom6/door.svg"
+        }
+      },
+      {
+        "name": "bathroom7",
+        "label": "Bathroom 7",
+        "mainImage": "/assets/images/bathroom/bathroom7/bathroom7.jpg",
+        "walls": {
+          "left": "/assets/images/bathroom/bathroom7/left-wall.svg",
+          "right": "/assets/images/bathroom/bathroom7/right-wall.svg",
+          "back-wall": "/assets/images/bathroom/bathroom7/back-wall.svg",
+          "roof": "/assets/images/bathroom/bathroom7/roof-wall.svg",
+          "tables": "/assets/images/bathroom/bathroom7/tables.svg",
+          "table-top": "/assets/images/bathroom/bathroom7/table-top.svg",
+          "edge": "/assets/images/bathroom/bathroom7/edge.svg"
+        }
+      },
+      {
+        "name": "bathroom8",
+        "label": "Bathroom 8",
+        "mainImage": "/assets/images/bathroom/bathroom8/bathroom8.jpg",
+        "walls": {
+          "front": "/assets/images/bathroom/bathroom8/front-wall.svg",
+          "left": "/assets/images/bathroom/bathroom8/left-wall.svg",
+          "right": "/assets/images/bathroom/bathroom8/right-wall.svg",
+          "front-wainscoting": "/assets/images/bathroom/bathroom8/front-wainscoting.svg",
+          "left-wainscoting": "/assets/images/bathroom/bathroom8/left-wainscoting.svg",
+          "right-wainscoting": "/assets/images/bathroom/bathroom8/right-wainscoting.svg",
+          "door": "/assets/images/bathroom/bathroom8/door.svg",
+          "window": "/assets/images/bathroom/bathroom8/window.svg",
+          "edge": "/assets/images/bathroom/bathroom8/edge.svg"
+        }
+      },
+      {
+        "name": "bathroom9",
+        "label": "Bathroom 9",
+        "mainImage": "/assets/images/bathroom/bathroom9/bathroom9.jpg",
+        "walls": {
+          "front": "/assets/images/bathroom/bathroom9/front-wall.svg",
+          "left": "/assets/images/bathroom/bathroom9/left-wall.svg",
+          "right": "/assets/images/bathroom/bathroom9/right-wall.svg",
+          "back-wall": "/assets/images/bathroom/bathroom9/back-wall.svg",
+          "roof": "/assets/images/bathroom/bathroom9/roof-wall.svg",
+          "mirror-border": "/assets/images/bathroom/bathroom9/mirror-border.svg",
+          "table-top": "/assets/images/bathroom/bathroom9/table-top.svg",
+          "edge": "/assets/images/bathroom/bathroom9/edge.svg",
+          "door": "/assets/images/bathroom/bathroom9/door.svg"
         }
       }
     ]
