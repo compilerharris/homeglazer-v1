@@ -172,11 +172,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <div class="tagline">We Paint Your Imagination</div>
             </div>
             <div class="header">
-              <h1>New Painting Estimate Request</h1>
+              <h1>New Paint Calculator Summary Received</h1>
             </div>
             <div class="content">
               <p>Dear HomeGlazer Team,</p>
-              <p>A new painting estimate request has been received from the website calculator.</p>
+              
+              <p>I am writing to share my painting calculation from your calculator. I would like to get an estimate for my project based on the following details:</p>
               
               <div class="field">
                 <div class="label">Customer Name:</div>
@@ -206,11 +207,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <div class="total-box">
                 <h2 style="margin: 0;">Grand Total Estimate: ₹${formatIndianCurrency(grandTotal)}</h2>
               </div>
+              
+              <p style="margin-top: 20px;">I look forward to hearing from you soon.</p>
+              
+              <p>Best regards,<br>
+              <strong>${fullName}</strong></p>
             </div>
-            <div class="footer">
-              <p><strong>Home Glazer</strong> - We Paint Your Imagination</p>
-              <p>H-16/137 Sangam Vihar, New Delhi – 110080</p>
-              <p>Email: homeglazer@gmail.com | Phone: +91-9717256514</p>
+            <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9;">
+              <p style="margin: 0 0 10px 0;"><strong>Home Glazer</strong> - We Paint Your Imagination</p>
+              <p style="margin: 0 0 10px 0;">H-16/137 Sangam Vihar, New Delhi – 110080</p>
+              <p style="margin: 0 0 15px 0;">Email: <a href="mailto:homeglazer@gmail.com" style="color: #299dd7; text-decoration: none;">homeglazer@gmail.com</a> | Phone: <a href="tel:+919717256514" style="color: #299dd7; text-decoration: none;">+91-9717256514</a></p>
+              <p style="margin: 0 0 15px 0;">
+                <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Facebook</a> |
+                <a href="https://in.linkedin.com/company/home-glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">LinkedIn</a> |
+                <a href="https://www.instagram.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Instagram</a> |
+                <a href="https://www.quora.com/profile/Home-Glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Quora</a> |
+                <a href="https://in.pinterest.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Pinterest</a> |
+                <a href="https://twitter.com/homeglazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Twitter</a>
+              </p>
+              <p style="margin-top: 15px; font-size: 11px; color: #999;">This estimate was submitted through the Home Glazer website paint calculator.</p>
+              <p style="font-size: 11px; color: #999; margin: 5px 0 0 0;">Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
             </div>
           </div>
         </body>
@@ -233,10 +249,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             .content { background-color: #ffffff; padding: 30px; }
             .total-box { background-color: #ED276E; color: white; padding: 20px; border-radius: 5px; text-align: center; margin-top: 20px; }
             .cta-section { background-color: #f0f0f0; padding: 30px 20px; text-align: center; }
-            .cta-button { display: block; color: white !important; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center; margin: 10px auto; max-width: 250px; }
+            .cta-buttons { text-align: center; }
+            .cta-button { display: inline-block; color: white !important; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center; }
             .cta-button.visualizer { background-color: #ED276E; }
+            .cta-button.visualizer:hover { background-color: #d51e5f; }
             .cta-button.calculator { background-color: #299dd7; }
-            .cta-button.wood { background-color: #8B4513; }
+            .cta-button.calculator:hover { background-color: #237bb0; }
             .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9; }
           </style>
         </head>
@@ -247,11 +265,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <div class="tagline">We Paint Your Imagination</div>
             </div>
             <div class="header">
-              <h1>Your Painting Estimate</h1>
+              <h1>Your Paint Calculator Summary</h1>
             </div>
             <div class="content">
               <p>Dear ${fullName},</p>
-              <p>Thank you for using Home Glazer's Paint Calculator! Here is the summary of your estimated costs.</p>
+              
+              <p>Thank you for using Home Glazer's Paint Calculator! We've received your calculation and here is the summary of your estimated costs.</p>
               
               ${summaryHtml}
               
@@ -261,19 +280,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             </div>
             <div class="cta-section">
               <h3 style="margin-top: 0; color: #333;">Explore Our Tools</h3>
-              <a href="https://www.homeglazer.com/colour-visualiser" class="cta-button visualizer">Try Color Visualizer</a>
-              <a href="https://www.homeglazer.com/wood-calculator" class="cta-button wood">Wood Polishing Calculator</a>
-              <a href="https://www.homeglazer.com/paint-budget-calculator" class="cta-button calculator">Paint Budget Calculator</a>
-            </div>
-            <div class="footer">
-              <p><strong>Home Glazer</strong> - We Paint Your Imagination</p>
-              <p>H-16/137 Sangam Vihar, New Delhi – 110080</p>
-              <p>Email: homeglazer@gmail.com | Phone: +91-9717256514</p>
-              <div style="margin-top: 10px;">
-                <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 5px;">Facebook</a>
-                <a href="https://in.linkedin.com/company/home-glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 5px;">LinkedIn</a>
-                <a href="https://www.instagram.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 5px;">Instagram</a>
+              <div class="cta-buttons">
+                <a href="https://www.homeglazer.com/colour-visualiser" class="cta-button visualizer" style="color: white !important; background-color: #ED276E;">Try Visualizer</a><br><br>
+                <a href="https://www.homeglazer.com/paint-budget-calculator" class="cta-button calculator" style="color: white !important; background-color: #299dd7;">Budget Calculator</a>
               </div>
+            </div>
+            <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9;">
+              <p style="margin: 0 0 10px 0;"><strong>Home Glazer</strong> - We Paint Your Imagination</p>
+              <p style="margin: 0 0 10px 0;">H-16/137 Sangam Vihar, New Delhi – 110080</p>
+              <p style="margin: 0 0 15px 0;">Email: <a href="mailto:homeglazer@gmail.com" style="color: #299dd7; text-decoration: none;">homeglazer@gmail.com</a> | Phone: <a href="tel:+919717256514" style="color: #299dd7; text-decoration: none;">+91-9717256514</a></p>
+              <p style="margin: 0 0 0 0;">
+                <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Facebook</a> |
+                <a href="https://in.linkedin.com/company/home-glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">LinkedIn</a> |
+                <a href="https://www.instagram.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Instagram</a> |
+                <a href="https://www.quora.com/profile/Home-Glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Quora</a> |
+                <a href="https://in.pinterest.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Pinterest</a> |
+                <a href="https://twitter.com/homeglazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Twitter</a>
+              </p>
             </div>
           </div>
         </body>
