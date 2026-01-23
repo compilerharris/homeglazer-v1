@@ -491,25 +491,16 @@ export function useVisualizer() {
     setActiveSide(null);
   };
 
-  const handleGeneratePDF = async (clientName: string, dateOfDesign: string, roomPreviewRef?: React.RefObject<HTMLDivElement>) => {
+  const handleGeneratePDF = async (clientName: string, email: string, phone: string, roomPreviewRef?: React.RefObject<HTMLDivElement>) => {
     if (!selectedRoom || !selectedVariantName || !selectedBrandId) {
-      alert('Please complete all selections before generating PDF');
+      alert('Please complete all selections before sending summary');
       return;
     }
 
     setIsGeneratingPDF(true);
     
     try {
-      // Dynamically import PDFGenerator to avoid SSR issues with dom-to-image-more
-      const { default: PDFGenerator } = await import('../lib/pdfGenerator');
-      
-      // Get the room preview element from ref
-      const roomPreviewElement = roomPreviewRef?.current;
-      
-      // Create PDF generator instance
-      const pdfGenerator = new PDFGenerator();
-      
-      // Prepare room data
+      // Prepare color selections
       const colorSelections: ColorSelection[] = Object.entries(assignments)
         .filter(([_, color]) => color)
         .map(([wallKey, color]) => {
@@ -522,37 +513,72 @@ export function useVisualizer() {
           };
         });
 
-      const roomData: RoomData = {
+      // Capture room preview image
+      let previewImage: string | undefined;
+      const roomPreviewElement = roomPreviewRef?.current;
+      
+      if (roomPreviewElement) {
+        try {
+          // Dynamically import dom-to-image-more for capturing
+          const domtoimage = (await import('dom-to-image-more')).default;
+          
+          // Use 2x scale for higher quality capture
+          const scale = 2;
+          const width = roomPreviewElement.offsetWidth;
+          const height = roomPreviewElement.offsetHeight;
+          
+          // Capture the room preview element at higher resolution
+          previewImage = await domtoimage.toPng(roomPreviewElement, {
+            quality: 1,
+            bgcolor: '#ffffff',
+            width: width * scale,
+            height: height * scale,
+            style: {
+              transform: `scale(${scale})`,
+              transformOrigin: 'top left',
+              width: `${width}px`,
+              height: `${height}px`,
+            },
+          });
+        } catch (captureError) {
+          console.warn('Failed to capture room preview:', captureError);
+        }
+      }
+
+      // Prepare API request data
+      const requestData = {
+        clientName,
+        email,
+        phone,
         roomType: selectedRoom.label,
         roomVariant: selectedVariantName,
         brand: BRAND_CONFIG.find(b => b.id === selectedBrandId)?.name || 'Unknown',
         colorSelections,
-        previewImageUrl: selectedRoom.variants.find(v => v.name === selectedVariantName)?.mainImage
+        previewImage,
       };
 
-      // Capture room preview if element exists
-      if (roomPreviewElement) {
-        try {
-          const previewImage = await pdfGenerator.captureRoomPreview(roomPreviewElement);
-          roomData.previewImageUrl = previewImage;
-        } catch (error) {
-          console.warn('Failed to capture room preview, using fallback image');
-        }
-      }
-
-      // Generate PDF
-      await pdfGenerator.generatePDF(roomData, {
-        clientName,
-        dateOfDesign
+      // Call API to send email with PDF
+      const response = await fetch('/api/visualizer/send-summary', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
       });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send summary');
+      }
 
       // Close modal and show success message
       setShowPDFModal(false);
-      alert('PDF generated successfully!');
+      alert('Summary sent successfully! Please check your email.');
       
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('Failed to generate PDF. Please try again.');
+    } catch (error: any) {
+      console.error('Error sending summary:', error);
+      alert(error.message || 'Failed to send summary. Please try again.');
     } finally {
       setIsGeneratingPDF(false);
     }

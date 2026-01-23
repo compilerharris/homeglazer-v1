@@ -122,8 +122,8 @@ const AdvancedVisualiserStep: React.FC = () => {
     }
   }, [router.isReady, urlStep]); // Only depend on urlStep to prevent flickering
 
-  const handleGeneratePDF = (clientName: string, dateOfDesign: string, roomPreviewRef: React.RefObject<HTMLDivElement>) => {
-    visualizer.handleGeneratePDF(clientName, dateOfDesign, roomPreviewRef);
+  const handleGeneratePDF = (clientName: string, email: string, phone: string, roomPreviewRef: React.RefObject<HTMLDivElement>) => {
+    visualizer.handleGeneratePDF(clientName, email, phone, roomPreviewRef);
   };
 
   // Get page title based on current step

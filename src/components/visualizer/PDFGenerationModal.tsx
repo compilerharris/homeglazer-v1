@@ -4,7 +4,7 @@ import { X } from 'lucide-react';
 interface PDFGenerationModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onGenerate: (clientName: string, dateOfDesign: string) => void;
+  onGenerate: (clientName: string, email: string, phone: string) => void;
   isGenerating: boolean;
 }
 
@@ -15,19 +15,21 @@ const PDFGenerationModal: React.FC<PDFGenerationModalProps> = ({
   isGenerating
 }) => {
   const [clientName, setClientName] = useState('');
-  const [dateOfDesign, setDateOfDesign] = useState(new Date().toISOString().split('T')[0]);
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (clientName.trim()) {
-      onGenerate(clientName.trim(), dateOfDesign);
+    if (clientName.trim() && email.trim() && phone.trim()) {
+      onGenerate(clientName.trim(), email.trim(), phone.trim());
     }
   };
 
   const handleClose = () => {
     if (!isGenerating) {
       setClientName('');
-      setDateOfDesign(new Date().toISOString().split('T')[0]);
+      setEmail('');
+      setPhone('');
       onClose();
     }
   };
@@ -39,7 +41,7 @@ const PDFGenerationModal: React.FC<PDFGenerationModalProps> = ({
       <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-800">Generate PDF</h2>
+          <h2 className="text-xl font-semibold text-gray-800">Send Summary</h2>
           <button
             onClick={handleClose}
             disabled={isGenerating}
@@ -52,37 +54,56 @@ const PDFGenerationModal: React.FC<PDFGenerationModalProps> = ({
         {/* Content */}
         <div className="p-6">
           <p className="text-gray-600 mb-6">
-            Please provide the following information to generate your personalized PDF:
+            Please provide your details to receive the colour visualization summary via email:
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Client Name */}
             <div>
               <label htmlFor="clientName" className="block text-sm font-medium text-gray-700 mb-2">
-                Client Name *
+                Name *
               </label>
               <input
                 type="text"
                 id="clientName"
                 value={clientName}
                 onChange={(e) => setClientName(e.target.value)}
-                placeholder="Enter client name"
+                placeholder="Enter your name"
                 required
                 disabled={isGenerating}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#299dd7] focus:border-transparent transition-all disabled:opacity-50"
               />
             </div>
 
-            {/* Date of Design */}
+            {/* Email */}
             <div>
-              <label htmlFor="dateOfDesign" className="block text-sm font-medium text-gray-700 mb-2">
-                Date of Design
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email *
               </label>
               <input
-                type="date"
-                id="dateOfDesign"
-                value={dateOfDesign}
-                onChange={(e) => setDateOfDesign(e.target.value)}
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+                disabled={isGenerating}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#299dd7] focus:border-transparent transition-all disabled:opacity-50"
+              />
+            </div>
+
+            {/* Phone */}
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                Phone *
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Enter your phone number"
+                required
                 disabled={isGenerating}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#299dd7] focus:border-transparent transition-all disabled:opacity-50"
               />
@@ -100,16 +121,16 @@ const PDFGenerationModal: React.FC<PDFGenerationModalProps> = ({
               </button>
               <button
                 type="submit"
-                disabled={!clientName.trim() || isGenerating}
+                disabled={!clientName.trim() || !email.trim() || !phone.trim() || isGenerating}
                 className="flex-1 px-4 py-3 bg-[#299dd7] text-white rounded-lg hover:bg-[#1e7bb8] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isGenerating ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Generating...
+                    Sending...
                   </>
                 ) : (
-                  'Generate PDF'
+                  'Send me Summary'
                 )}
               </button>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, Send } from 'lucide-react';
 import { VariantManifest, ColorSwatch } from '../../hooks/useVisualizer';
 import Breadcrumbs from './Breadcrumbs';
 import PDFGenerationModal from './PDFGenerationModal';
@@ -33,7 +33,7 @@ interface FinishSelectionProps {
   // PDF generation props
   showPDFModal?: boolean;
   isGeneratingPDF?: boolean;
-  onGeneratePDF?: (clientName: string, dateOfDesign: string, roomPreviewRef: React.RefObject<HTMLDivElement>) => void;
+  onGeneratePDF?: (clientName: string, email: string, phone: string, roomPreviewRef: React.RefObject<HTMLDivElement>) => void;
   onClosePDFModal?: () => void;
 }
 
@@ -329,9 +329,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     };
   }, []);
   
-  const handleGeneratePDF = (clientName: string, dateOfDesign: string) => {
+  const handleGeneratePDF = (clientName: string, email: string, phone: string) => {
     if (onGeneratePDF) {
-      onGeneratePDF(clientName, dateOfDesign, roomPreviewRef);
+      onGeneratePDF(clientName, email, phone, roomPreviewRef);
     }
   };
 
@@ -506,61 +506,14 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             </button>
           )}
           
-          {/* Information Box */}
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-3">Your Selection Summary</h3>
-            
-            {/* Room Information */}
-            <div className="mb-3">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-sm font-medium text-gray-600">Room:</span>
-                <span className="text-sm text-gray-800">{variant.label}</span>
-              </div>
-            </div>
-            
-            {/* Brand Information */}
-            <div className="mb-3">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-sm font-medium text-gray-600">Brand:</span>
-                <span className="text-sm text-gray-800">
-                  {getBrandName(selectedBrandId)}
-                </span>
-              </div>
-            </div>
-            
-            {/* Colours Applied */}
-            <div className="mb-4">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-sm font-medium text-gray-600">Colours Applied:</span>
-                <span className="text-sm text-gray-800">{Object.keys(assignments).filter(key => assignments[key]).length} walls</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {Object.entries(assignments).map(([wallKey, color]) => {
-                  if (!color) return null;
-                  const colorInfo = selectedColors.find(c => c.colorHex === color);
-                  return (
-                    <div key={wallKey} className="flex items-center gap-1 bg-white px-2 py-1 rounded border">
-                      <div 
-                        className={`w-3 h-3 rounded-full ${color === '#FFFFFF' ? 'border border-gray-300' : ''}`} 
-                        style={{ background: color }} 
-                      />
-                      <span className="text-xs text-gray-700">{wallLabels[wallKey] || capitalizeWords(wallKey.replace(/-/g, ' '))}</span>
-                      {colorInfo && (
-                        <span className="text-xs text-gray-500">({capitalizeWords(colorInfo.colorName)} - {colorInfo.colorCode})</span>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            
-            {/* Download Button */}
+          {/* Send Summary Button */}
+          <div className="mb-6">
             <button
               className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
               onClick={onDownload}
             >
-              <span>DOWNLOAD THIS LOOK</span>
-              <span className="text-lg">▼</span>
+              <span>EMAIL THIS LOOK</span>
+              <Send size={18} />
             </button>
           </div>
           
@@ -819,77 +772,15 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           </div>
         )}
         
-        {/* Mobile/Tablet Information Box */}
+        {/* Mobile/Tablet Send Summary Button */}
         <div className="w-full lg:max-w-2xl mb-6" data-section="summary">
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-            <h3 className="text-lg font-semibold text-gray-800 mb-3">Your Selection Summary</h3>
-            
-            {/* Room Information */}
-            <div className="mb-3">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-sm font-medium text-gray-600">Room:</span>
-                <span className="text-sm text-gray-800">{variant.label}</span>
-              </div>
-            </div>
-            
-            {/* Brand Information */}
-            <div className="mb-3">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-sm font-medium text-gray-600">Brand:</span>
-                <span className="text-sm text-gray-800">
-                  {getBrandName(selectedBrandId)}
-                </span>
-              </div>
-            </div>
-            
-            {/* Colours Applied */}
-            <div className="mb-4">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-sm font-medium text-gray-600">Colours Applied:</span>
-                <span className="text-sm text-gray-800">{Object.keys(assignments).filter(key => assignments[key]).length} walls</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {Object.entries(assignments).map(([wallKey, color]) => {
-                  if (!color) return null;
-                  const colorInfo = selectedColors.find(c => c.colorHex === color);
-                  return (
-                    <div key={wallKey} className="flex items-center gap-1 bg-white px-2 py-1 rounded border">
-                      <div 
-                        className={`w-3 h-3 rounded-full ${color === '#FFFFFF' ? 'border border-gray-300' : ''}`} 
-                        style={{ background: color }} 
-                      />
-                      <span className="text-xs text-gray-700">{wallLabels[wallKey] || capitalizeWords(wallKey.replace(/-/g, ' '))}</span>
-                      {colorInfo && (
-                        <span className="text-xs text-gray-500">({capitalizeWords(colorInfo.colorName)} - {colorInfo.colorCode})</span>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            
-            {/* Download Button - Desktop Only */}
-            <div className="hidden lg:block">
-              <button
-                className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
-                onClick={onDownload}
-              >
-                <span>DOWNLOAD THIS LOOK</span>
-                <span className="text-lg">▼</span>
-              </button>
-            </div>
-            
-            {/* Download Button - Mobile/Tablet (Inside Summary) */}
-            <div className="lg:hidden">
-              <button
-                className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
-                onClick={onDownload}
-              >
-                <span>DOWNLOAD THIS LOOK</span>
-                <span className="text-lg">▼</span>
-              </button>
-            </div>
-          </div>
+          <button
+            className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
+            onClick={onDownload}
+          >
+            <span>EMAIL THIS LOOK</span>
+            <Send size={18} />
+          </button>
         </div>
       </div>
 
