@@ -205,7 +205,7 @@ const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-900">Address</h3>
-                    <p className="text-gray-600">H-16/137 Sangam Vihar, New Delhi – 110080</p>
+                    <p className="text-gray-600">B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010</p>
                   </div>
                 </div>
                 

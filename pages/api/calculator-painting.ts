@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
+import fs from 'fs';
+import path from 'path';
 import {
   calculateInteriorPrice,
   calculateCeilingPrice,
@@ -10,8 +12,12 @@ import {
   getPaintName,
   getBrandName
 } from '../../src/lib/calculator-utils';
+import { generatePaintingEstimatePdf } from '../../src/lib/paintingEstimatePdf';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculator-painting.ts:18',message:'Handler called',data:{method:req.method},timestamp:Date.now(),sessionId:'debug-session',runId:'run3',hypothesisId:'C'})}).catch(()=>{});
+  // #endregion
   try {
     if (req.method !== 'POST') {
       return res.status(405).json({ message: 'Method not allowed' });
@@ -46,7 +52,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } = req.body;
 
     // Logo URL
-    const logoUrl = 'https://www.homeglazer.com/assets/images/home-glazer-logo-1.png';
+    // Use local logo file for email (embedded as CID attachment)
+    const logoPath = path.join(process.cwd(), 'public', 'assets', 'images', 'home-glazer-logo-1.png');
+    const logoCid = 'homeglazer-logo@cid';
+    const logoUrl = `cid:${logoCid}`; // CID reference for email
 
     // Calculate costs on server side to ensure accuracy
     let interiorTotal = 0;
@@ -111,6 +120,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const grandTotal = interiorTotal + exteriorTotal;
+    const grandTotalFormatted = formatIndianCurrency(grandTotal);
 
     // Gmail credentials
     const gmailUser = process.env.GMAIL_USER || 'homeglazer@gmail.com';
@@ -205,7 +215,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               ${summaryHtml}
               
               <div class="total-box">
-                <h2 style="margin: 0;">Grand Total Estimate: ₹${formatIndianCurrency(grandTotal)}</h2>
+                <h2 style="margin: 0;">Grand Total Estimate: ₹${grandTotalFormatted}</h2>
               </div>
               
               <p style="margin-top: 20px;">I look forward to hearing from you soon.</p>
@@ -215,7 +225,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             </div>
             <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9;">
               <p style="margin: 0 0 10px 0;"><strong>Home Glazer</strong> - We Paint Your Imagination</p>
-              <p style="margin: 0 0 10px 0;">H-16/137 Sangam Vihar, New Delhi – 110080</p>
+              <p style="margin: 0 0 10px 0;">B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010</p>
               <p style="margin: 0 0 15px 0;">Email: <a href="mailto:homeglazer@gmail.com" style="color: #299dd7; text-decoration: none;">homeglazer@gmail.com</a> | Phone: <a href="tel:+919717256514" style="color: #299dd7; text-decoration: none;">+91-9717256514</a></p>
               <p style="margin: 0 0 15px 0;">
                 <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Facebook</a> |
@@ -243,8 +253,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
             .container { max-width: 600px; margin: 0 auto; padding: 0; background-color: #ffffff; }
             .logo-section { text-align: center; padding: 20px; background-color: #ffffff; }
+            .logo-wrapper { display: inline-block; }
             .logo-section img { max-width: 150px; height: auto; display: block; margin: 0 auto; }
-            .tagline { text-align: center; color: #666; font-style: italic; font-size: 14px; margin-top: 5px; }
+            .generated-date { text-align: center; color: #666; font-size: 12px; margin-top: 10px; }
             .header { background-color: #299dd7; color: white; padding: 30px; text-align: center; }
             .content { background-color: #ffffff; padding: 30px; }
             .total-box { background-color: #ED276E; color: white; padding: 20px; border-radius: 5px; text-align: center; margin-top: 20px; }
@@ -261,8 +272,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         <body>
           <div class="container">
             <div class="logo-section">
-              <img src="${logoUrl}" alt="Home Glazer Logo" />
-              <div class="tagline">We Paint Your Imagination</div>
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: 0 auto;">
+                <tr>
+                  <td align="center" bgcolor="#ffffff" style="background-color: #ffffff; padding: 15px; border-radius: 8px;">
+                    <img src="${logoUrl}" alt="Home Glazer Logo" style="display: block; border: 0; outline: none; text-decoration: none; background-color: #ffffff;" />
+                  </td>
+                </tr>
+              </table>
             </div>
             <div class="header">
               <h1>Your Paint Calculator Summary</h1>
@@ -272,10 +288,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               
               <p>Thank you for using Home Glazer's Paint Calculator! We've received your calculation and here is the summary of your estimated costs.</p>
               
+              <p>We've also attached this estimate as a PDF for your reference and to share with others.</p>
+              
               ${summaryHtml}
               
               <div class="total-box">
-                <h2 style="margin: 0;">Estimated Total: ₹${formatIndianCurrency(grandTotal)}</h2>
+                <h2 style="margin: 0;">Estimated Total: ₹${grandTotalFormatted}</h2>
               </div>
             </div>
             <div class="cta-section">
@@ -285,17 +303,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 <a href="https://www.homeglazer.com/paint-budget-calculator" class="cta-button calculator" style="color: white !important; background-color: #299dd7;">Budget Calculator</a>
               </div>
             </div>
-            <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9;">
+            <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9; clear: both; display: block; width: 100%; overflow: visible;">
               <p style="margin: 0 0 10px 0;"><strong>Home Glazer</strong> - We Paint Your Imagination</p>
-              <p style="margin: 0 0 10px 0;">H-16/137 Sangam Vihar, New Delhi – 110080</p>
+              <p style="margin: 0 0 10px 0;">B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010</p>
               <p style="margin: 0 0 15px 0;">Email: <a href="mailto:homeglazer@gmail.com" style="color: #299dd7; text-decoration: none;">homeglazer@gmail.com</a> | Phone: <a href="tel:+919717256514" style="color: #299dd7; text-decoration: none;">+91-9717256514</a></p>
-              <p style="margin: 0 0 0 0;">
-                <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Facebook</a> |
-                <a href="https://in.linkedin.com/company/home-glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">LinkedIn</a> |
-                <a href="https://www.instagram.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Instagram</a> |
-                <a href="https://www.quora.com/profile/Home-Glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Quora</a> |
-                <a href="https://in.pinterest.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Pinterest</a> |
-                <a href="https://twitter.com/homeglazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Twitter</a>
+              <p style="margin: 0 0 0 0; word-wrap: break-word; overflow-wrap: break-word;">
+                <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Facebook</a> |
+                <a href="https://in.linkedin.com/company/home-glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">LinkedIn</a> |
+                <a href="https://www.instagram.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Instagram</a> |
+                <a href="https://www.quora.com/profile/Home-Glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Quora</a> |
+                <a href="https://in.pinterest.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Pinterest</a> |
+                <a href="https://twitter.com/homeglazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Twitter</a>
               </p>
             </div>
           </div>
@@ -303,16 +321,62 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       </html>
     `;
 
+    // Optionally generate PDF attachment for customer email
+    // #region agent log
+    setImmediate(() => { fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculator-painting.ts:313',message:'About to generate PDF',data:{summaryHtmlLength:summaryHtml.length,hasRupeeInHtml:summaryHtml.includes('₹'),grandTotalFormatted},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{}); });
+    // #endregion
+    let pdfBuffer: Buffer | null = null;
+    try {
+      pdfBuffer = await generatePaintingEstimatePdf({
+        fullName,
+        email,
+        phone,
+        location,
+        serviceType,
+        selectedPaintingType,
+        grandTotalFormatted,
+        summaryHtml,
+      });
+      // #region agent log
+      setImmediate(() => { fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculator-painting.ts:326',message:'PDF generated successfully',data:{pdfBufferSize:pdfBuffer?.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{}); });
+      // #endregion
+    } catch (pdfError: any) {
+      // #region agent log
+      setImmediate(() => { fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculator-painting.ts:328',message:'PDF generation error',data:{error:pdfError?.message},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{}); });
+      // #endregion
+      console.error('Error generating painting estimate PDF:', pdfError);
+      // Continue without PDF attachment
+    }
+
     // Send email to HomeGlazer (Primary)
     let mainMailSent = false;
     try {
-      await transporter.sendMail({
+      const homeglazerMailOptions: nodemailer.SendMailOptions = {
         from: `"Home Glazer" <${gmailUser}>`,
         to: gmailUser,
         replyTo: email,
         subject: `New Painting Estimate Request - ${fullName}`,
         html: homeglazerEmailHtml,
-      });
+      };
+
+      // Attach logo and PDF to Home Glazer email
+      const attachments: any[] = [
+        {
+          filename: 'home-glazer-logo.png',
+          path: logoPath,
+          cid: logoCid,
+        },
+      ];
+      if (pdfBuffer) {
+        attachments.push({
+          filename: 'homeglazer-paint-estimate.pdf',
+          content: pdfBuffer,
+          contentType: 'application/pdf',
+        });
+      }
+      homeglazerMailOptions.attachments = attachments;
+
+      await transporter.sendMail(homeglazerMailOptions);
       mainMailSent = true;
       console.log('Main estimate email sent successfully to', gmailUser);
     } catch (mainMailError) {
@@ -323,12 +387,31 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Send confirmation to customer (Secondary)
     if (mainMailSent) {
       try {
-        await transporter.sendMail({
+        const customerMailOptions: nodemailer.SendMailOptions = {
           from: `"Home Glazer" <${gmailUser}>`,
           to: email,
           subject: 'Your Home Glazer Painting Estimate',
           html: customerEmailHtml,
-        });
+        };
+
+        // Attach logo and PDF to customer email
+        const customerAttachments: any[] = [
+          {
+            filename: 'home-glazer-logo.png',
+            path: logoPath,
+            cid: logoCid,
+          },
+        ];
+        if (pdfBuffer) {
+          customerAttachments.push({
+            filename: 'homeglazer-paint-estimate.pdf',
+            content: pdfBuffer,
+            contentType: 'application/pdf',
+          });
+        }
+        customerMailOptions.attachments = customerAttachments;
+
+        await transporter.sendMail(customerMailOptions);
         console.log('Confirmation email sent successfully to customer:', email);
       } catch (customerMailError) {
         console.error('Error sending customer confirmation email:', customerMailError);
@@ -339,6 +422,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     return res.status(200).json({ success: true });
   } catch (error: any) {
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculator-painting.ts:423',message:'API Error caught',data:{error:error?.message,stack:error?.stack,errorType:error?.constructor?.name},timestamp:Date.now(),sessionId:'debug-session',runId:'run3',hypothesisId:'C'})}).catch(()=>{});
+    // #endregion
     console.error('Final API Error:', error);
     return res.status(500).json({
       error: 'Failed to send email. Please try again later.',

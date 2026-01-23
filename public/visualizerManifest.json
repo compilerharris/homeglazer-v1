@@ -1119,6 +1119,161 @@
     ]
   },
   {
+    "roomType": "office",
+    "label": "Office",
+    "variants": [
+      {
+        "name": "office1",
+        "label": "Office 1",
+        "mainImage": "/assets/images/office/office1/office1.jpg",
+        "walls": {
+          "front": "/assets/images/office/office1/front-wall.svg",
+          "left": "/assets/images/office/office1/left-wall.svg",
+          "column": "/assets/images/office/office1/column.svg",
+          "false-ceiling": "/assets/images/office/office1/false-ceiling.svg",
+          "window": "/assets/images/office/office1/window.svg",
+          "edge": "/assets/images/office/office1/edge.svg"
+        }
+      },
+      {
+        "name": "office2",
+        "label": "Office 2",
+        "mainImage": "/assets/images/office/office2/office2.jpg",
+        "walls": {
+          "left": "/assets/images/office/office2/left-wall.svg",
+          "right": "/assets/images/office/office2/right-wall.svg",
+          "false-ceiling": "/assets/images/office/office2/false-ceiling.svg",
+          "column": "/assets/images/office/office2/column.svg",
+          "windows": "/assets/images/office/office2/windows.svg"
+        }
+      },
+      {
+        "name": "office3",
+        "label": "Office 3",
+        "mainImage": "/assets/images/office/office3/office3.jpg",
+        "walls": {
+          "front": "/assets/images/office/office3/front-wall.svg",
+          "left": "/assets/images/office/office3/left-wall.svg",
+          "roof": "/assets/images/office/office3/roof-wall.svg",
+          "cupboard": "/assets/images/office/office3/cupboard.svg"
+        }
+      },
+      {
+        "name": "office4",
+        "label": "Office 4",
+        "mainImage": "/assets/images/office/office4/office4.jpg",
+        "walls": {
+          "left": "/assets/images/office/office4/left-wall.svg",
+          "right": "/assets/images/office/office4/right-wall.svg",
+          "roof": "/assets/images/office/office4/roof-wall.svg",
+          "column": "/assets/images/office/office4/column.svg",
+          "stair": "/assets/images/office/office4/stair.svg",
+          "table": "/assets/images/office/office4/table.svg",
+          "vass": "/assets/images/office/office4/vass.svg"
+        }
+      },
+      {
+        "name": "office5",
+        "label": "Office 5",
+        "mainImage": "/assets/images/office/office5/office5.jpg",
+        "walls": {
+          "front": "/assets/images/office/office5/front-wall.svg",
+          "table": "/assets/images/office/office5/table.svg",
+          "rug": "/assets/images/office/office5/rug.svg"
+        }
+      },
+      {
+        "name": "office6",
+        "label": "Office 6",
+        "mainImage": "/assets/images/office/office6/office6.jpg",
+        "walls": {
+          "front": "/assets/images/office/office6/front-wall.svg",
+          "roof": "/assets/images/office/office6/roof-wall.svg",
+          "column": "/assets/images/office/office6/column.svg",
+          "door": "/assets/images/office/office6/door.svg",
+          "sofa": "/assets/images/office/office6/sofa.svg",
+          "lamp": "/assets/images/office/office6/lamp.svg",
+          "vass": "/assets/images/office/office6/vass.svg"
+        }
+      },
+      {
+        "name": "office7",
+        "label": "Office 7",
+        "mainImage": "/assets/images/office/office7/office7.jpg",
+        "walls": {
+          "front": "/assets/images/office/office7/front-wall.svg",
+          "right": "/assets/images/office/office7/right-wall.svg",
+          "roof": "/assets/images/office/office7/roof-wall.svg",
+          "sofa": "/assets/images/office/office7/sofa.svg",
+          "table": "/assets/images/office/office7/table.svg"
+        }
+      },
+      {
+        "name": "office8",
+        "label": "Office 8",
+        "mainImage": "/assets/images/office/office8/office8.jpg",
+        "walls": {
+          "front": "/assets/images/office/office8/front-wall.svg",
+          "right": "/assets/images/office/office8/right-wall.svg",
+          "roof": "/assets/images/office/office8/roof-wall.svg"
+        }
+      },
+      {
+        "name": "office9",
+        "label": "Office 9",
+        "mainImage": "/assets/images/office/office9/office9.jpg",
+        "walls": {
+          "right": "/assets/images/office/office9/right-wall.svg",
+          "left": "/assets/images/office/office9/left-wall.svg",
+          "roof": "/assets/images/office/office9/roof-wall.svg",
+          "false-ceiling": "/assets/images/office/office9/false-ceiling.svg",
+          "vass": "/assets/images/office/office9/vass.svg",
+          "edge": "/assets/images/office/office9/edge.svg"
+        }
+      },
+      {
+        "name": "office10",
+        "label": "Office 10",
+        "mainImage": "/assets/images/office/office10/office10.jpg",
+        "walls": {
+          "front": "/assets/images/office/office10/front-wall.svg",
+          "right": "/assets/images/office/office10/right-wall.svg",
+          "left": "/assets/images/office/office10/left-wall.svg",
+          "roof": "/assets/images/office/office10/roof-wall.svg",
+          "roof-column": "/assets/images/office/office10/roof-column.svg"
+        }
+      },
+      {
+        "name": "office11",
+        "label": "Office 11",
+        "mainImage": "/assets/images/office/office11/office11.jpg",
+        "walls": {
+          "front": "/assets/images/office/office11/front-wall.svg",
+          "right": "/assets/images/office/office11/right-wall.svg",
+          "left": "/assets/images/office/office11/left-wall.svg",
+          "roof": "/assets/images/office/office11/roof-wall.svg",
+          "shelf": "/assets/images/office/office11/shelf.svg",
+          "door": "/assets/images/office/office11/door.svg",
+          "cupboard": "/assets/images/office/office11/cupboard.svg",
+          "table": "/assets/images/office/office11/table.svg"
+        }
+      },
+      {
+        "name": "office12",
+        "label": "Office 12",
+        "mainImage": "/assets/images/office/office12/office12.jpg",
+        "walls": {
+          "front": "/assets/images/office/office12/front-wall.svg",
+          "right": "/assets/images/office/office12/right-wall.svg",
+          "left": "/assets/images/office/office12/left-wall.svg",
+          "roof": "/assets/images/office/office12/roof-wall.svg",
+          "table": "/assets/images/office/office12/table.svg",
+          "edge": "/assets/images/office/office12/edge.svg"
+        }
+      }
+    ]
+  },
+  {
     "roomType": "outdoor",
     "label": "Outdoor",
     "variants": [

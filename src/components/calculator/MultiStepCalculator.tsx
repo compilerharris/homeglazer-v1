@@ -8,6 +8,7 @@ import { carpetAreaOptions, buildupAreaOptions } from '../../lib/calculator-cons
 const MultiStepCalculator: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSending, setIsSending] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   // Step 1 - Combined Painting Details
   const [paintingOptions, setPaintingOptions] = useState([
@@ -62,6 +63,7 @@ const MultiStepCalculator: React.FC = () => {
   // Helper functions for step management
   const nextStep = () => {
     setCurrentStep(currentStep + 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const prevStep = () => {
@@ -71,6 +73,7 @@ const MultiStepCalculator: React.FC = () => {
   const restart = () => {
     // Reset all state
     setCurrentStep(1);
+    setIsFormSubmitted(false);
     setPaintingOptions(paintingOptions.map(opt => ({ ...opt, selected: false })));
     setWorkType('');
     setArea(0);
@@ -207,6 +210,8 @@ const MultiStepCalculator: React.FC = () => {
       });
 
       if (response.ok) {
+        setIsFormSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         nextStep();
       } else {
         alert('Failed to send email. Please try again.');
@@ -224,7 +229,7 @@ const MultiStepCalculator: React.FC = () => {
   const steps = [
     { label: 'PAINTING DETAILS', completed: currentStep > 1 },
     { label: 'PERSONAL DETAILS', completed: currentStep > 2 },
-    { label: 'RESULT', completed: currentStep > 3 }
+    { label: 'RESULT', completed: isFormSubmitted || currentStep > 3 }
   ];
 
   return (

@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
+import fs from 'fs';
+import path from 'path';
 
 interface EnquiryFormData {
   name: string;
@@ -128,10 +130,10 @@ export default async function handler(
     const timelineDisplay = timeline ? timelineMap[timeline] || timeline : 'Not specified';
     const budgetDisplay = budget ? budgetMap[budget] || budget : 'Not specified';
 
-    // Get website URL for logo (use environment variable or default)
-    const websiteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.homeglazer.com';
-    // Use absolute URL for logo to ensure it loads in emails
-    const logoUrl = 'https://www.homeglazer.com/assets/images/home-glazer-logo-1.png';
+    // Use local logo file for email (embedded as CID attachment)
+    const logoPath = path.join(process.cwd(), 'public', 'assets', 'images', 'home-glazer-logo-1.png');
+    const logoCid = 'homeglazer-logo@cid';
+    const logoUrl = `cid:${logoCid}`; // CID reference for email
 
     // Create email content
     const emailSubject = `New Enquiry from ${name}`;
@@ -167,8 +169,13 @@ export default async function handler(
         <body>
           <div class="container">
             <div class="logo-section">
-              <img src="${logoUrl}" alt="Home Glazer Logo" />
-              <div class="tagline">We Paint Your Imagination</div>
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: 0 auto;">
+                <tr>
+                  <td align="center" bgcolor="#ffffff" style="background-color: #ffffff; padding: 15px; border-radius: 8px;">
+                    <img src="${logoUrl}" alt="Home Glazer Logo" style="display: block; border: 0; outline: none; text-decoration: none; background-color: #ffffff;" />
+                  </td>
+                </tr>
+              </table>
             </div>
             <div class="header">
               <h1>New Enquiry Received</h1>
@@ -231,17 +238,17 @@ export default async function handler(
                 <a href="https://www.homeglazer.com/paint-budget-calculator" class="cta-button">Budget Calculator</a>
               </div>
             </div>
-            <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9;">
+            <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9; clear: both; display: block; width: 100%; overflow: visible;">
               <p style="margin: 0 0 10px 0;"><strong>Home Glazer</strong> - We Paint Your Imagination</p>
-              <p style="margin: 0 0 10px 0;">H-16/137 Sangam Vihar, New Delhi – 110080</p>
+              <p style="margin: 0 0 10px 0;">B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010</p>
               <p style="margin: 0 0 15px 0;">Email: <a href="mailto:homeglazer@gmail.com" style="color: #299dd7; text-decoration: none;">homeglazer@gmail.com</a> | Phone: <a href="tel:+919717256514" style="color: #299dd7; text-decoration: none;">+91-9717256514</a></p>
-              <p style="margin: 0 0 15px 0;">
-                <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Facebook</a> |
+              <p style="margin: 0 0 15px 0; word-wrap: break-word; overflow-wrap: break-word;">
+                <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Facebook</a> |
                 <a href="https://in.linkedin.com/company/home-glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">LinkedIn</a> |
                 <a href="https://www.instagram.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Instagram</a> |
                 <a href="https://www.quora.com/profile/Home-Glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Quora</a> |
                 <a href="https://in.pinterest.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Pinterest</a> |
-                <a href="https://twitter.com/homeglazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Twitter</a>
+                <a href="https://twitter.com/homeglazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">X</a>
               </p>
               <p style="margin-top: 15px; font-size: 11px; color: #999;">This enquiry was submitted through the Home Glazer website enquiry form.</p>
               <p style="font-size: 11px; color: #999; margin: 5px 0 0 0;">Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
@@ -284,7 +291,7 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
 This enquiry was submitted through the Home Glazer website enquiry form.
 
 Home Glazer - We Paint Your Imagination
-H-16/137 Sangam Vihar, New Delhi – 110080
+B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010
 Email: homeglazer@gmail.com | Phone: +91-9717256514
     `;
 
@@ -296,6 +303,11 @@ Email: homeglazer@gmail.com | Phone: +91-9717256514
       subject: emailSubject,
       text: emailText,
       html: emailHtml,
+      attachments: [{
+        filename: 'home-glazer-logo.png',
+        path: logoPath,
+        cid: logoCid,
+      }],
     };
 
     await transporter.sendMail(homeglazerMailOptions);
@@ -333,8 +345,13 @@ Email: homeglazer@gmail.com | Phone: +91-9717256514
         <body>
           <div class="container">
             <div class="logo-section">
-              <img src="${logoUrl}" alt="Home Glazer Logo" />
-              <div class="tagline">We Paint Your Imagination</div>
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: 0 auto;">
+                <tr>
+                  <td align="center" bgcolor="#ffffff" style="background-color: #ffffff; padding: 15px; border-radius: 8px;">
+                    <img src="${logoUrl}" alt="Home Glazer Logo" style="display: block; border: 0; outline: none; text-decoration: none; background-color: #ffffff;" />
+                  </td>
+                </tr>
+              </table>
             </div>
             <div class="header">
               <h1>Thank You for Your Enquiry!</h1>
@@ -392,17 +409,17 @@ Email: homeglazer@gmail.com | Phone: +91-9717256514
                 <a href="https://www.homeglazer.com/paint-budget-calculator" class="cta-button calculator" style="color: white !important; background-color: #299dd7;">Budget Calculator</a>
               </div>
             </div>
-            <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9;">
+            <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9; clear: both; display: block; width: 100%; overflow: visible;">
               <p style="margin: 0 0 10px 0;"><strong>Home Glazer</strong> - We Paint Your Imagination</p>
-              <p style="margin: 0 0 10px 0;">H-16/137 Sangam Vihar, New Delhi – 110080</p>
+              <p style="margin: 0 0 10px 0;">B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010</p>
               <p style="margin: 0 0 15px 0;">Email: <a href="mailto:homeglazer@gmail.com" style="color: #299dd7; text-decoration: none;">homeglazer@gmail.com</a> | Phone: <a href="tel:+919717256514" style="color: #299dd7; text-decoration: none;">+91-9717256514</a></p>
-              <p style="margin: 0 0 0 0;">
-                <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Facebook</a> |
-                <a href="https://in.linkedin.com/company/home-glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">LinkedIn</a> |
-                <a href="https://www.instagram.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Instagram</a> |
-                <a href="https://www.quora.com/profile/Home-Glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Quora</a> |
-                <a href="https://in.pinterest.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Pinterest</a> |
-                <a href="https://twitter.com/homeglazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px;">Twitter</a>
+              <p style="margin: 0 0 0 0; word-wrap: break-word; overflow-wrap: break-word;">
+                <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Facebook</a> |
+                <a href="https://in.linkedin.com/company/home-glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">LinkedIn</a> |
+                <a href="https://www.instagram.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Instagram</a> |
+                <a href="https://www.quora.com/profile/Home-Glazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Quora</a> |
+                <a href="https://in.pinterest.com/homeglazer/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Pinterest</a> |
+                <a href="https://twitter.com/homeglazer" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">X</a>
               </p>
             </div>
           </div>
@@ -441,7 +458,7 @@ The Home Glazer Team
 
 ---
 Home Glazer - We Paint Your Imagination
-H-16/137 Sangam Vihar, New Delhi – 110080
+B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010
 Email: homeglazer@gmail.com | Phone: +91-9717256514
 
 Follow us on:
@@ -450,7 +467,7 @@ LinkedIn: https://in.linkedin.com/company/home-glazer
 Instagram: https://www.instagram.com/homeglazer/
 Quora: https://www.quora.com/profile/Home-Glazer
 Pinterest: https://in.pinterest.com/homeglazer/
-Twitter: https://twitter.com/homeglazer
+X: https://twitter.com/homeglazer
     `;
 
     const customerMailOptions = {
@@ -459,6 +476,11 @@ Twitter: https://twitter.com/homeglazer
       subject: 'Thank You for Your Enquiry - Home Glazer',
       text: customerThankYouText,
       html: customerThankYouHtml,
+      attachments: [{
+        filename: 'home-glazer-logo.png',
+        path: logoPath,
+        cid: logoCid,
+      }],
     };
 
     // Send customer email (don't fail if this fails, but log it)

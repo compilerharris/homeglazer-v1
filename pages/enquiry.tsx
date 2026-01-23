@@ -553,7 +553,7 @@ const EnquirePage: React.FC = () => {
                 <span>+91-9717256514</span>
               </div>
               <div className="flex items-start mb-2">
-                <span className="text-sm">H-16/137 Sangam Vihar, New Delhi – 110080</span>
+                <span className="text-sm">B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010</span>
               </div>
               <div className="flex items-center">
                 <span className="text-sm">homeglazer@gmail.com</span>

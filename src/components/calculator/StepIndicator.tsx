@@ -26,13 +26,24 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
           />
         )}
         
-        {/* Active progress line */}
-        {currentStep > 1 && currentStep <= steps.length && (
+        {/* Active progress line - only show if last step is not completed */}
+        {currentStep > 1 && currentStep <= steps.length && !steps[steps.length - 1].completed && (
           <div 
             className="absolute top-[24px] md:top-[32px] h-1 bg-[#299dd7] rounded z-1"
             style={{
               left: `${12 + ((currentStep - 2) / (steps.length - 1)) * 80}%`,
               width: `${80 / (steps.length - 1)}%`
+            }}
+          />
+        )}
+        
+        {/* Full green progress line when last step is completed */}
+        {steps[steps.length - 1].completed && (
+          <div 
+            className="absolute top-[24px] md:top-[32px] h-1 bg-[#70C9A0] rounded z-1"
+            style={{
+              left: '12%',
+              width: '80%'
             }}
           />
         )}
