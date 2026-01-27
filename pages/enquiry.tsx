@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Head from 'next/head';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -11,6 +12,8 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 import Link from 'next/link';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
 const EnquirePage: React.FC = () => {
   // Form state
@@ -147,8 +150,23 @@ const EnquirePage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center">
-      <Header />
+    <>
+      <Head>
+        <title>Get a Quote | HomeGlazer - Free Painting Estimate</title>
+        <meta name="description" content="Request a free painting quote from HomeGlazer. Fill our enquiry form and get a personalized estimate for interior, exterior, texture painting, and more within 24 hours." />
+        <meta name="keywords" content="painting quote, free estimate, painting services quote, home painting estimate, Delhi NCR" />
+        <meta property="og:title" content="Get a Quote | HomeGlazer - Free Painting Estimate" />
+        <meta property="og:description" content="Request a free painting quote from HomeGlazer. Get a personalized estimate within 24 hours." />
+        <meta property="og:image" content={`${SITE_URL}/uploads/consultation.png`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Get a Quote | HomeGlazer - Free Painting Estimate" />
+        <meta name="twitter:description" content="Request a free painting quote. Get a personalized estimate within 24 hours." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/consultation.png`} />
+      </Head>
+      <div className="bg-white flex flex-col overflow-hidden items-center">
+        <Header />
       
       {/* Breadcrumb */}
       <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto pt-28">
@@ -170,7 +188,7 @@ const EnquirePage: React.FC = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 bg-cover bg-center z-0" 
              style={{ 
-               backgroundImage: 'url("https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80")'
+               backgroundImage: 'url("/assets/images/bedroom/bedroom6/bedroom6.jpg")'
              }}>
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-85"></div>
         </div>
@@ -631,8 +649,9 @@ const EnquirePage: React.FC = () => {
       </div>
       
       <Footer />
-      <WhatsAppButton />
-    </div>
+        <WhatsAppButton />
+      </div>
+    </>
   );
 };
 

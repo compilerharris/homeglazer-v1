@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
@@ -13,10 +14,23 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 const Calculator: React.FC = () => {
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center">
-      <Header />
+    <>
+      <Head>
+        <title>Paint Budget Calculator | HomeGlazer - Free Estimate</title>
+        <meta name="description" content="Calculate your painting budget instantly with HomeGlazer's free paint budget calculator. Get accurate estimates for interior, exterior, and wood services." />
+        <meta property="og:title" content="Paint Budget Calculator | HomeGlazer - Free Estimate" />
+        <meta property="og:description" content="Calculate your painting budget instantly with our free calculator. Get accurate estimates for your painting project." />
+        <meta property="og:image" content={`${SITE_URL}/uploads/consultation.png`} />
+        <meta name="twitter:title" content="Paint Budget Calculator | HomeGlazer" />
+        <meta name="twitter:description" content="Calculate your painting budget instantly with our free calculator." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/consultation.png`} />
+      </Head>
+      <div className="bg-white flex flex-col overflow-hidden items-center">
+        <Header />
       
       <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
         <Breadcrumb>
@@ -66,8 +80,9 @@ const Calculator: React.FC = () => {
       </div>
       
       <Footer />
-      <WhatsAppButton />
-    </div>
+        <WhatsAppButton />
+      </div>
+    </>
   );
 };
 

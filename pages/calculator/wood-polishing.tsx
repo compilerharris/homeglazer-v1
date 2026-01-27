@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -12,10 +13,28 @@ import {
 } from "@/components/ui/breadcrumb";
 import Link from 'next/link';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 const WoodPolishingCalculator: React.FC = () => {
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center">
-      <Header />
+    <>
+      <Head>
+        <title>Wood Polishing Cost Calculator | HomeGlazer - Free Estimate</title>
+        <meta name="description" content="Calculate your wood polishing costs instantly with HomeGlazer's free calculator. Get accurate estimates for furniture, doors, and floor polishing projects." />
+        <meta name="keywords" content="wood polishing calculator, wood polishing cost, furniture polishing estimate, Delhi NCR" />
+        <meta property="og:title" content="Wood Polishing Cost Calculator | HomeGlazer" />
+        <meta property="og:description" content="Calculate your wood polishing costs instantly with our free calculator." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${SITE_URL}/uploads/wood-polishing.png`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Wood Polishing Cost Calculator | HomeGlazer" />
+        <meta name="twitter:description" content="Calculate your wood polishing costs instantly." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/wood-polishing.png`} />
+      </Head>
+      <div className="bg-white flex flex-col overflow-hidden items-center">
+        <Header />
       
       <div className="w-[90%] lg:w-[80%] mx-auto pt-20 md:pt-28">
         <Breadcrumb>
@@ -52,8 +71,9 @@ const WoodPolishingCalculator: React.FC = () => {
       </div>
       
       <Footer />
-      <WhatsAppButton />
-    </div>
+        <WhatsAppButton />
+      </div>
+    </>
   );
 };
 

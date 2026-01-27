@@ -18,7 +18,7 @@ const AboutMission: React.FC = () => {
           
           <div className="w-full md:w-1/2">
             <img 
-              src="/lovable-uploads/before-after.png" 
+              src="/uploads/before-after.png" 
               alt="Our Mission" 
               className="rounded-lg shadow-lg w-full h-auto"
             />

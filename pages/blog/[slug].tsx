@@ -1,13 +1,14 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { GetServerSideProps } from 'next';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
 import BlogContent from '@/components/blog/BlogContent';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 import CTAButton from '@/components/home/CTAButton';
-import { blogPosts, getPostBySlug, getRelatedPosts } from '@/data/blogPosts';
+import { prisma } from '@/lib/prisma';
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -16,33 +17,28 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
-const BlogPost: React.FC = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  
-  // Handle loading state or when slug is not yet available
-  if (router.isFallback || !slug) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-[#ED276E]"></div>
-      </div>
-    );
-  }
-  
-  // Get the post by slug
-  const post = getPostBySlug(slug as string);
-  
-  // If post doesn't exist, redirect to blog index
-  if (!post) {
-    // In a real app, we might want to handle this with a 404 page
-    if (typeof window !== 'undefined') {
-      router.push('/blog');
-    }
-    return null;
-  }
-  
-  // Get related posts
-  const relatedPosts = getRelatedPosts(post.id);
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
+// Define the BlogPost type for the component
+interface BlogPostData {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  readTime: string;
+  coverImage: string;
+  categories: string[];
+  content?: string;
+}
+
+interface BlogPostPageProps {
+  post: BlogPostData;
+  recentPosts: BlogPostData[];
+}
+
+const BlogPost: React.FC<BlogPostPageProps> = ({ post, recentPosts }) => {
 
   return (
     <div className="bg-white flex flex-col overflow-hidden items-center">
@@ -76,7 +72,7 @@ const BlogPost: React.FC = () => {
             
             {/* Sidebar column (right, smaller) */}
             <div className="w-full lg:w-1/3 mt-8 lg:mt-0">
-              <BlogSidebar currentPostId={post.id} />
+              <BlogSidebar currentPostId={post.id} recentPosts={recentPosts} />
             </div>
           </div>
         </div>
@@ -118,28 +114,100 @@ const BlogPost: React.FC = () => {
   );
 };
 
-export async function getStaticPaths() {
-  const paths = blogPosts.map((post) => ({
-    params: { slug: post.slug },
-  }));
+export const getServerSideProps: GetServerSideProps<BlogPostPageProps> = async ({ params }) => {
+  const slug = params?.slug as string;
 
-  return { paths, fallback: false };
-}
+  try {
+    // Fetch the blog post by slug from database
+    const blog = await prisma.blogPost.findUnique({
+      where: { slug, published: true },
+      select: {
+        id: true,
+        slug: true,
+        title: true,
+        excerpt: true,
+        author: true,
+        readTime: true,
+        coverImage: true,
+        categories: true,
+        content: true,
+        publishedAt: true,
+      },
+    });
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
-  
-  if (!post) {
-    return {
-      notFound: true,
+    if (!blog) {
+      return { notFound: true };
+    }
+
+    // Fetch recent posts for sidebar (excluding current post)
+    const recentBlogs = await prisma.blogPost.findMany({
+      where: { 
+        published: true,
+        id: { not: blog.id }
+      },
+      orderBy: { publishedAt: 'desc' },
+      take: 5,
+      select: {
+        id: true,
+        slug: true,
+        title: true,
+        excerpt: true,
+        author: true,
+        readTime: true,
+        coverImage: true,
+        categories: true,
+        publishedAt: true,
+      },
+    });
+
+    // Transform database records to match component interface
+    const post: BlogPostData = {
+      id: blog.id,
+      slug: blog.slug,
+      title: blog.title,
+      excerpt: blog.excerpt,
+      author: blog.author,
+      readTime: blog.readTime,
+      coverImage: blog.coverImage,
+      categories: blog.categories as string[],
+      content: blog.content,
+      date: blog.publishedAt 
+        ? new Date(blog.publishedAt).toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+          })
+        : '',
     };
-  }
 
-  return {
-    props: {
-      post,
-    },
-  };
-}
+    const recentPosts: BlogPostData[] = recentBlogs.map((b) => ({
+      id: b.id,
+      slug: b.slug,
+      title: b.title,
+      excerpt: b.excerpt,
+      author: b.author,
+      readTime: b.readTime,
+      coverImage: b.coverImage,
+      categories: b.categories as string[],
+      date: b.publishedAt 
+        ? new Date(b.publishedAt).toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+          })
+        : '',
+    }));
+
+    return {
+      props: {
+        post,
+        recentPosts,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching blog post:', error);
+    return { notFound: true };
+  }
+};
 
 export default BlogPost; 

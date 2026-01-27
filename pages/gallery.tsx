@@ -15,6 +15,8 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb"
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 export default function GalleryPage() {
   return (
     <>
@@ -25,6 +27,10 @@ export default function GalleryPage() {
         <meta property="og:title" content="Gallery - Before & After Room Transformations | HomeGlazer" />
         <meta property="og:description" content="Explore our stunning before and after room transformations. See how professional painting can transform bedrooms, living rooms, kitchens, and outdoor spaces." />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${SITE_URL}/uploads/before-after.png`} />
+        <meta name="twitter:title" content="Gallery - Before & After Room Transformations | HomeGlazer" />
+        <meta name="twitter:description" content="Explore our stunning before and after room transformations." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/before-after.png`} />
       </Head>
       
       <div className="bg-white flex flex-col overflow-hidden items-center">

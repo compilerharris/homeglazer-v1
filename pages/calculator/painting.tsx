@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -12,10 +13,28 @@ import {
 } from "@/components/ui/breadcrumb";
 import Link from 'next/link';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 const PaintingCalculator: React.FC = () => {
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center">
-      <Header />
+    <>
+      <Head>
+        <title>Painting Cost Calculator | HomeGlazer - Free Estimate</title>
+        <meta name="description" content="Calculate your painting costs instantly with HomeGlazer's free painting calculator. Get accurate estimates for interior, exterior, and texture painting projects." />
+        <meta name="keywords" content="painting calculator, painting cost estimate, interior painting cost, exterior painting cost, Delhi NCR" />
+        <meta property="og:title" content="Painting Cost Calculator | HomeGlazer" />
+        <meta property="og:description" content="Calculate your painting costs instantly with our free calculator." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${SITE_URL}/uploads/consultation.png`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Painting Cost Calculator | HomeGlazer" />
+        <meta name="twitter:description" content="Calculate your painting costs instantly." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/consultation.png`} />
+      </Head>
+      <div className="bg-white flex flex-col overflow-hidden items-center">
+        <Header />
       
       <div className="w-[90%] lg:w-[80%] mx-auto pt-20 md:pt-28">
         <Breadcrumb>
@@ -52,8 +71,9 @@ const PaintingCalculator: React.FC = () => {
       </div>
       
       <Footer />
-      <WhatsAppButton />
-    </div>
+        <WhatsAppButton />
+      </div>
+    </>
   );
 };
 

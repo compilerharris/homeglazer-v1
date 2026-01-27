@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../src/components/home/Header';
 import Footer from '../src/components/home/Footer';
 import DevToolsProtection from '../src/components/security/DevToolsProtection';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
 // Mini Room Visualizer Component for Split Screen
 const MiniRoomVisualizer: React.FC<{ 
@@ -196,6 +199,16 @@ const ColourVisualiserPage: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>Colour Visualiser | HomeGlazer - See Colours on Your Walls</title>
+        <meta name="description" content="Visualize paint colours on your walls before painting. Try HomeGlazer's free colour visualiser tool to find the perfect shade for your home." />
+        <meta property="og:title" content="Colour Visualiser | HomeGlazer - See Colours on Your Walls" />
+        <meta property="og:description" content="Visualize paint colours on your walls before painting. Find the perfect shade for your home." />
+        <meta property="og:image" content={`${SITE_URL}/uploads/living-room.jpg`} />
+        <meta name="twitter:title" content="Colour Visualiser | HomeGlazer" />
+        <meta name="twitter:description" content="Visualize paint colours on your walls before painting." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/living-room.jpg`} />
+      </Head>
       <DevToolsProtection />
       <Header />
       
@@ -241,7 +254,7 @@ const ColourVisualiserPage: React.FC = () => {
                 side="left"
                 currentColorIndex={colorIndex % warmColors.length}
                 colors={warmColors}
-                roomImage="/lovable-uploads/bedroom6.jpg"
+                roomImage="/uploads/bedroom6.jpg"
                 wallSvgs={wallSvgs}
               />
             </div>
@@ -293,7 +306,7 @@ const ColourVisualiserPage: React.FC = () => {
                 side="right"
                 currentColorIndex={colorIndex % coolColorSets.length}
                 colors={coolColorSets}
-                roomImage="/lovable-uploads/bedroom6.jpg"
+                roomImage="/uploads/bedroom6.jpg"
                 wallSvgs={wallSvgs}
               />
             </div>

@@ -24,7 +24,14 @@ const InteriorPainting: React.FC = () => {
         <meta property="og:description" content="Transform your home's interior with our professional interior painting services. Expert interior painters delivering quality painting with 35+ years of experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/interior-painting" />
+        <meta property="og:image" content="https://homeglazer.com/uploads/interior-painting.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/interior-painting" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Interior Painting Services | Home Glazer" />
+        <meta name="twitter:description" content="Transform your home's interior with professional interior painting services." />
+        <meta name="twitter:image" content="https://homeglazer.com/assets/images/bedroom/bedroom1/bedroom1.jpg" />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -58,11 +65,12 @@ const InteriorPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f" 
+              src="/assets/images/bedroom/bedroom1/bedroom1.jpg" 
               alt="Interior Painting Services"
               className="w-full h-full object-cover"
             />
           </div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative z-10 w-full">
             <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
@@ -93,11 +101,6 @@ const InteriorPainting: React.FC = () => {
                     <div className="text-center text-white">
                       <div className="text-4xl font-bold mb-2">4.9</div>
                       <div className="text-lg mb-4">★ RATING</div>
-                      <div className="flex justify-center space-x-2 mb-4">
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                      </div>
                       <p className="text-sm opacity-90">Based on 500+ reviews</p>
                     </div>
                   </div>
@@ -432,7 +435,7 @@ const InteriorPainting: React.FC = () => {
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
@@ -456,7 +459,7 @@ const InteriorPainting: React.FC = () => {
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -480,7 +483,7 @@ const InteriorPainting: React.FC = () => {
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>

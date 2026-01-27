@@ -1,12 +1,25 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../src/components/home/Header';
 import Footer from '../src/components/home/Footer';
 import FAQ from '../src/components/home/FAQ';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 const FAQPage: React.FC = () => {
   return (
     <>
+      <Head>
+        <title>Frequently Asked Questions | HomeGlazer</title>
+        <meta name="description" content="Find answers to common questions about HomeGlazer's painting services, pricing, timelines, paint brands, warranties, and more." />
+        <meta property="og:title" content="Frequently Asked Questions | HomeGlazer" />
+        <meta property="og:description" content="Find answers to common questions about our painting services, pricing, timelines, and warranties." />
+        <meta property="og:image" content={`${SITE_URL}/uploads/hero-banner.png`} />
+        <meta name="twitter:title" content="Frequently Asked Questions | HomeGlazer" />
+        <meta name="twitter:description" content="Find answers to common questions about our painting services." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/hero-banner.png`} />
+      </Head>
       <Header />
       <main className="min-h-screen bg-gray-50 pt-12 pb-24">
         <FAQ />

@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
@@ -14,6 +15,8 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 // Force dynamic rendering - prevents static generation at build time
 // This ensures Prisma client is only used at request time, not during build
 export const dynamic = 'force-dynamic';
@@ -25,7 +28,7 @@ const RIGHT_WALL_PATH = "M1256.66,472.47l8.58.42.13-100.16-8.85-.14.14,99.88ZM12
 
 const WINDOW_PATH = "M212.52,109.16l-.22,271.72,84.8-.9v23.17l-83.9,2.25-.9,81.88h-26.99l.45-78.05-1.57-2.25-53.98,1.35v-25.87l55.11-.67.9-276.44-56.01-9.67-.56-18.62,170.02,29.52-.31,16.99-86.82-14.4ZM185.27,504.54c8.64.19,11.91,1.54,11.91,1.54l14.98.38v-11.52h-26.99l.1,9.6ZM246.94,511.42s8.8,2.93,8.8,14.67.18,13.19.18,13.19l10.87-1.09-.3-28.91-19.56,2.15ZM271.39,509.07l-.05,28.48,15.49-1.72-.96-27.74-14.47.98ZM291.2,535.36l4.54-.7.29-27.93-4.89.78.06,27.85Z";
 
-const BEDROOM_IMAGE = "/lovable-uploads/bedroom6.jpg";
+const BEDROOM_IMAGE = "/uploads/bedroom6.jpg";
 
 // Animated color thumbnail component
 interface AnimatedRoomThumbnailProps {
@@ -223,11 +226,27 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
   };
 
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center">
-      <Header />
+    <>
+      <Head>
+        <title>{product.name} | {product.brand} - HomeGlazer</title>
+        <meta name="description" content={product.description || `${product.name} by ${product.brand}. Premium quality paint available at HomeGlazer. Find the perfect paint for your home.`} />
+        <meta name="keywords" content={`${product.name}, ${product.brand}, paint, ${product.sheenLevel || ''}, ${product.surfaceType || ''}, HomeGlazer`} />
+        <meta property="og:title" content={`${product.name} | ${product.brand} - HomeGlazer`} />
+        <meta property="og:description" content={product.description || `${product.name} by ${product.brand}. Premium quality paint.`} />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content={product.imageUrl && product.imageUrl.startsWith('http') ? product.imageUrl : `${SITE_URL}${product.imageUrl || '/uploads/color-bucket1.png'}`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${product.name} | ${product.brand}`} />
+        <meta name="twitter:description" content={product.description || `Premium quality paint by ${product.brand}.`} />
+        <meta name="twitter:image" content={product.imageUrl && product.imageUrl.startsWith('http') ? product.imageUrl : `${SITE_URL}${product.imageUrl || '/uploads/color-bucket1.png'}`} />
+      </Head>
+      <div className="bg-white flex flex-col overflow-hidden items-center">
+        <Header />
 
-      <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
-        <Breadcrumb>
+        <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
+          <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -739,8 +758,9 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
       </div>
 
       <Footer />
-      <WhatsAppButton />
-    </div>
+        <WhatsAppButton />
+      </div>
+    </>
   );
 };
 

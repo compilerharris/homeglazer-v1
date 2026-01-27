@@ -1,5 +1,6 @@
 
 import React from "react";
+import Head from "next/head";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
@@ -13,10 +14,23 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 const WoodServices: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Head>
+        <title>Wood Services | HomeGlazer - Polish, Coating & Carpentry</title>
+        <meta name="description" content="Professional wood services including polishing, coating, and carpentry. Restore and protect your wooden furniture and fixtures with HomeGlazer." />
+        <meta property="og:title" content="Wood Services | HomeGlazer - Polish, Coating & Carpentry" />
+        <meta property="og:description" content="Professional wood polishing, coating, and carpentry services for your home." />
+        <meta property="og:image" content={`${SITE_URL}/uploads/wood-polish.png`} />
+        <meta name="twitter:title" content="Wood Services | HomeGlazer" />
+        <meta name="twitter:description" content="Professional wood polishing, coating, and carpentry services." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/wood-polish.png`} />
+      </Head>
+      <div className="relative min-h-screen flex flex-col">
+        <Header />
       <main className="flex-grow pt-28">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <Breadcrumb>
@@ -41,7 +55,7 @@ const WoodServices: React.FC = () => {
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/lovable-uploads/wood-coating.png" 
+                src="/uploads/wood-coating.jpg" 
                 alt="Wood Coating" 
                 className="w-full h-64 object-cover"
               />
@@ -60,7 +74,7 @@ const WoodServices: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/lovable-uploads/wood-polishing.png" 
+                src="/uploads/services/wood-polish-thumb.jpg" 
                 alt="Wood Polishing" 
                 className="w-full h-64 object-cover"
               />
@@ -79,7 +93,7 @@ const WoodServices: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/lovable-uploads/carpentry.png" 
+                src="/uploads/services/carpentary-thumb.jpg" 
                 alt="Carpentry" 
                 className="w-full h-64 object-cover"
               />
@@ -112,8 +126,9 @@ const WoodServices: React.FC = () => {
       </div>
       
       <WhatsAppButton />
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

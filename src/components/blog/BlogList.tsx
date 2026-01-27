@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import BlogCard, { BlogPost } from './BlogCard';
 
 interface BlogListProps {
@@ -6,22 +6,18 @@ interface BlogListProps {
   featured?: boolean;
 }
 
-// Sample categories for the filter
-const categories = [
-  'All',
-  'Interior Painting',
-  'Exterior Painting', 
-  'Colour Ideas',
-  'DIY Projects',
-  'Trends',
-  'Tips & Tricks'
-];
-
 const POSTS_PER_PAGE = 6;
 
 const BlogList: React.FC<BlogListProps> = ({ posts, featured = false }) => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [visiblePosts, setVisiblePosts] = useState(POSTS_PER_PAGE);
+
+  // Dynamically generate categories from posts
+  const categories = useMemo(() => {
+    const allCategories = posts.flatMap(post => post.categories);
+    const uniqueCategories = [...new Set(allCategories)].sort();
+    return ['All', ...uniqueCategories];
+  }, [posts]);
   
   // Filter posts by category
   const filteredPosts = activeCategory === 'All' 

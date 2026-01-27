@@ -1,5 +1,6 @@
 
 import React from "react";
+import Head from "next/head";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
@@ -13,10 +14,23 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 const WallDecor: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Head>
+        <title>Wall Decor Services | HomeGlazer - Texture & Stencil</title>
+        <meta name="description" content="Transform your walls with HomeGlazer's wall decor services. Texture painting, stencil designs, and wallpapers to add personality to your space." />
+        <meta property="og:title" content="Wall Decor Services | HomeGlazer - Texture & Stencil" />
+        <meta property="og:description" content="Transform your walls with texture painting, stencil designs, and wallpapers." />
+        <meta property="og:image" content={`${SITE_URL}/uploads/wall-texture.png`} />
+        <meta name="twitter:title" content="Wall Decor Services | HomeGlazer" />
+        <meta name="twitter:description" content="Transform your walls with texture painting and stencil designs." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/wall-texture.png`} />
+      </Head>
+      <div className="relative min-h-screen flex flex-col">
+        <Header />
       <main className="flex-grow pt-28">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <Breadcrumb>
@@ -41,7 +55,7 @@ const WallDecor: React.FC = () => {
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/lovable-uploads/graffiti-painting.png" 
+                src="/uploads/graffiti-painting.png" 
                 alt="Graffiti Painting" 
                 className="w-full h-64 object-cover"
               />
@@ -60,7 +74,7 @@ const WallDecor: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/lovable-uploads/texture-painting.png" 
+                src="/uploads/texture-painting.jpg" 
                 alt="Texture Painting" 
                 className="w-full h-64 object-cover"
               />
@@ -79,7 +93,7 @@ const WallDecor: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/lovable-uploads/stencil-art.png" 
+                src="/uploads/stencil-art.jpg" 
                 alt="Stencil Art" 
                 className="w-full h-64 object-cover"
               />
@@ -97,8 +111,8 @@ const WallDecor: React.FC = () => {
             </div>
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
-              <img 
-                src="/lovable-uploads/wallpaper.png" 
+            <img 
+                src="/uploads/wallpaper.jpg" 
                 alt="Wallpaper" 
                 className="w-full h-64 object-cover"
               />
@@ -131,8 +145,9 @@ const WallDecor: React.FC = () => {
       </div>
       
       <WhatsAppButton />
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

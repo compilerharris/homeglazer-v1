@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
@@ -19,8 +20,21 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 const About: React.FC = () => {
-  return <div className="bg-white flex flex-col overflow-hidden items-center">
+  return <>
+    <Head>
+      <title>About Us | HomeGlazer - Our Story & Mission</title>
+      <meta name="description" content="Learn about HomeGlazer's journey, our expert team of painters, and our commitment to transforming spaces with quality painting services across India." />
+      <meta property="og:title" content="About Us | HomeGlazer - Our Story & Mission" />
+      <meta property="og:description" content="Learn about HomeGlazer's journey, our expert team of painters, and our commitment to transforming spaces with quality painting services." />
+      <meta property="og:image" content={`${SITE_URL}/uploads/team-pic.png`} />
+      <meta name="twitter:title" content="About Us | HomeGlazer - Our Story & Mission" />
+      <meta name="twitter:description" content="Learn about HomeGlazer's journey, our expert team of painters, and our commitment to quality painting services." />
+      <meta name="twitter:image" content={`${SITE_URL}/uploads/team-pic.png`} />
+    </Head>
+    <div className="bg-white flex flex-col overflow-hidden items-center">
       <Header />
       
       <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
@@ -81,7 +95,8 @@ const About: React.FC = () => {
       
       <Footer />
       <WhatsAppButton />
-    </div>;
+    </div>
+  </>;
 };
 
 export default About;

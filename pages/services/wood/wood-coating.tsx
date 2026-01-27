@@ -23,7 +23,14 @@ const WoodCoating: React.FC = () => {
         <meta property="og:description" content="Professional wood coating services for furniture, doors, windows, and outdoor wood surfaces. Expert wood finishing with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wood/wood-coating" />
+        <meta property="og:image" content="https://homeglazer.com/uploads/wood-coating.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wood/wood-coating" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Wood Coating Services | Home Glazer" />
+        <meta name="twitter:description" content="Professional wood coating services for furniture, doors, windows, and outdoor wood surfaces." />
+        <meta name="twitter:image" content="https://homeglazer.com/uploads/wood-coating.png" />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -57,16 +64,17 @@ const WoodCoating: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1200&h=800&fit=crop&q=80"
+              src="/uploads/wood-coating.jpg"
               alt="Wood Coating Services - Professional Wood Finishing and Protection"
               className="w-full h-full object-cover"
             />
           </div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative z-10 w-full">
             <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
                 <div className="text-white">
-                  <h1 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                  <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                     Wood Coating Services
                   </h1>
                   <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-95">
@@ -92,11 +100,6 @@ const WoodCoating: React.FC = () => {
                     <div className="text-center text-white">
                       <div className="text-4xl font-bold mb-2">35+</div>
                       <div className="text-lg mb-4">YEARS EXPERIENCE</div>
-                      <div className="flex justify-center space-x-2 mb-4">
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                      </div>
                       <p className="text-sm opacity-90">Trusted by thousands of customers</p>
                     </div>
                   </div>
@@ -129,7 +132,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&q=80" 
+                    src="/uploads/services/wood-coating-home.jpg" 
                     alt="Professional Wood Coating Services by Home Glazer"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -152,7 +155,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&q=80" 
+                    src="/uploads/services/wood-coating-what.jpg" 
                     alt="What is Wood Coating Services - Professional Wood Finishing"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -363,7 +366,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=600&h=400&fit=crop&q=80" 
+                    src="/uploads/services/How%20to%20Maintain%20Coated%20Wood%20Surfaces.png" 
                     alt="Maintaining Coated Wood Surfaces - Professional Care Tips"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -380,7 +383,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&q=80" 
+                    src="/uploads/services/What%20is%20the%20best%20way%20to%20protect%20my%20outdoor%20wood%20windows,%20balconies,%20and%20doors.png" 
                     alt="Protecting Outdoor Wood Windows, Balconies, and Doors"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -445,7 +448,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&q=80" 
+                    src="/uploads/services/How Can I Select Wood Paint Finishes for My Home Furniture.png" 
                     alt="Selecting Wood Paint Finishes for Home Furniture"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -638,7 +641,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=400&fit=crop&q=80" 
+                    src="/uploads/services/Wood Coating Applications & Uses.png" 
                     alt="Wood Coating Applications and Uses"
                     className="w-full h-full object-cover rounded-xl"
                   />

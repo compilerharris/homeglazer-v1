@@ -40,49 +40,112 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         />
       </div>
 
-      {/* This would be the actual blog content */}
-      <div className="blog-content">
-        <p className="text-gray-700">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, 
-          urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl. Sed euismod, velit vel bibendum bibendum, 
-          urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
-        </p>
-        
-        <p className="text-gray-700">
-          Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl. 
-          Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
-        </p>
-        
-        <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">Key Points to Consider</h2>
-        
-        <p className="text-gray-700">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, 
-          urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
-        </p>
-        
-        <ul className="list-disc pl-5 mt-4 mb-6 text-gray-700">
-          <li className="mb-2">First important point about painting</li>
-          <li className="mb-2">Second crucial consideration for your project</li>
-          <li className="mb-2">Third tip from our professional painters</li>
-          <li className="mb-2">Fourth recommendation for best results</li>
-        </ul>
-        
-        <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">Why This Matters</h2>
-        
-        <p className="text-gray-700">
-          Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl. 
-          Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
-        </p>
-        
-        <blockquote className="border-l-4 border-[#ED276E] pl-4 italic my-6 text-gray-600">
-          "The right color choice can completely transform a space and influence how you feel when you're in it."
-        </blockquote>
-        
-        <p className="text-gray-700">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, 
-          urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
-        </p>
-      </div>
+      {/* Blog content - render actual content if available, otherwise show placeholder */}
+      <style jsx global>{`
+        .blog-content h2 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #1f2937;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+        }
+        .blog-content h3 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #374151;
+          margin-top: 1.5rem;
+          margin-bottom: 0.75rem;
+        }
+        .blog-content p {
+          color: #4b5563;
+          margin-bottom: 1rem;
+          line-height: 1.75;
+        }
+        .blog-content ul {
+          list-style-type: disc;
+          padding-left: 1.5rem;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
+        .blog-content ol {
+          list-style-type: decimal;
+          padding-left: 1.5rem;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
+        .blog-content li {
+          color: #4b5563;
+          margin-bottom: 0.5rem;
+          line-height: 1.75;
+        }
+        .blog-content blockquote {
+          border-left: 4px solid #ED276E;
+          padding-left: 1rem;
+          font-style: italic;
+          margin: 1.5rem 0;
+          color: #6b7280;
+        }
+        .blog-content a {
+          color: #ED276E;
+          text-decoration: underline;
+        }
+        .blog-content a:hover {
+          color: #299dd7;
+        }
+        .blog-content strong {
+          font-weight: 600;
+          color: #1f2937;
+        }
+      `}</style>
+      {post.content ? (
+        <div 
+          className="blog-content max-w-none"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      ) : (
+        <div className="blog-content">
+          <p className="text-gray-700">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, 
+            urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl. Sed euismod, velit vel bibendum bibendum, 
+            urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
+          </p>
+          
+          <p className="text-gray-700">
+            Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl. 
+            Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
+          </p>
+          
+          <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">Key Points to Consider</h2>
+          
+          <p className="text-gray-700">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, 
+            urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
+          </p>
+          
+          <ul className="list-disc pl-5 mt-4 mb-6 text-gray-700">
+            <li className="mb-2">First important point about painting</li>
+            <li className="mb-2">Second crucial consideration for your project</li>
+            <li className="mb-2">Third tip from our professional painters</li>
+            <li className="mb-2">Fourth recommendation for best results</li>
+          </ul>
+          
+          <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">Why This Matters</h2>
+          
+          <p className="text-gray-700">
+            Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl. 
+            Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
+          </p>
+          
+          <blockquote className="border-l-4 border-[#ED276E] pl-4 italic my-6 text-gray-600">
+            "The right color choice can completely transform a space and influence how you feel when you're in it."
+          </blockquote>
+          
+          <p className="text-gray-700">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, 
+            urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
+          </p>
+        </div>
+      )}
       
       <div className="mt-10 pt-6 border-t border-gray-200">
         <h3 className="text-xl font-medium text-gray-900 mb-4">Share this article</h3>

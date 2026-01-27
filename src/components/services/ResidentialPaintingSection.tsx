@@ -29,7 +29,7 @@ const ResidentialPaintingSection = () => {
           <div className="bg-white shadow-sm rounded-lg overflow-hidden flex flex-col h-full">
             <div className="h-48">
               <img 
-                src="/lovable-uploads/painting-daunting-task.png" 
+                src="/uploads/painting-daunting-task.png" 
                 alt="Exterior Painting" 
                 className="w-full h-full object-cover"
               />
@@ -49,7 +49,7 @@ const ResidentialPaintingSection = () => {
           <div className="bg-white shadow-sm rounded-lg overflow-hidden flex flex-col h-full">
             <div className="h-48">
               <img 
-                src="/lovable-uploads/professional-painters.png" 
+                src="/uploads/professional-painters.png" 
                 alt="Professional Painters Tools" 
                 className="w-full h-full object-cover"
               />
@@ -69,7 +69,7 @@ const ResidentialPaintingSection = () => {
           <div className="bg-white shadow-sm rounded-lg overflow-hidden flex flex-col h-full">
             <div className="h-48">
               <img 
-                src="/lovable-uploads/painting-time-consuming.png" 
+                src="/uploads/painting-time-consuming.png" 
                 alt="Home Painting" 
                 className="w-full h-full object-cover"
               />

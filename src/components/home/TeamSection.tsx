@@ -8,32 +8,32 @@ const TeamSection: React.FC = () => {
     id: 1,
     name: "John Doe",
     position: "CEO & Founder",
-    image: "/lovable-uploads/team-thumbnail1.png"
+    image: "/uploads/team-thumbnail1.png"
   }, {
     id: 2,
     name: "Jane Smith",
     position: "Head of Operations",
-    image: "/lovable-uploads/team-thumbnail2.png"
+    image: "/uploads/team-thumbnail2.png"
   }, {
     id: 3,
     name: "Alex Johnson",
     position: "Lead Designer",
-    image: "/lovable-uploads/team-thumbnail3.png"
+    image: "/uploads/team-thumbnail3.png"
   }, {
     id: 4,
     name: "Jane Smith",
     position: "Head of Operations",
-    image: "/lovable-uploads/team-thumbnail2.png"
+    image: "/uploads/team-thumbnail2.png"
   }, {
     id: 5,
     name: "Alex Johnson",
     position: "Lead Designer",
-    image: "/lovable-uploads/team-thumbnail3.png"
+    image: "/uploads/team-thumbnail3.png"
   }, {
     id: 6,
     name: "Emily Williams",
     position: "Project Manager",
-    image: "/lovable-uploads/team-thumbnail2.png"
+    image: "/uploads/team-thumbnail2.png"
   }];
 
   return <section className="bg-[rgba(223,223,223,0.27)] w-full">
@@ -47,7 +47,7 @@ const TeamSection: React.FC = () => {
 
         <div className="w-full mx-auto flex justify-center">
           <SectionCarousel teamSection={true}>
-            {teamMembers.map(member => <CarouselItem key={member.id} className="flex justify-center">
+            {teamMembers.map(member => <CarouselItem key={member.id} className="basis-full md:basis-1/3 lg:basis-1/4 flex justify-center">
                 <div className="flex flex-col items-center p-4 text-center max-w-[300px]">
                   <div className="w-[200px] h-[200px] rounded-full overflow-hidden mb-4 bg-gray-100">
                     <img src={member.image} alt={`${member.name} photo`} className="w-full h-full object-cover" />

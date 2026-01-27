@@ -25,7 +25,14 @@ const OneDayPainting: React.FC = () => {
         <meta property="og:description" content="Transform your home or office in just ONE DAY with our WOW One Day Painting Services. Professional painters delivering quality painting in 24 hours." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/one-day-painting" />
+        <meta property="og:image" content="https://homeglazer.com/uploads/one-day-painting.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/one-day-painting" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="One Day Painting Services | Home Glazer" />
+        <meta name="twitter:description" content="Quick one-day painting services for fast room makeovers." />
+        <meta name="twitter:image" content="https://homeglazer.com/assets/images/bedroom/bedroom2/bedroom2.jpg" />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -59,11 +66,12 @@ const OneDayPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43" 
+              src="/assets/images/bedroom/bedroom2/bedroom2.jpg" 
               alt="WOW One Day Painting Services"
               className="w-full h-full object-cover"
             />
           </div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative z-10 w-full">
             <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
@@ -94,11 +102,6 @@ const OneDayPainting: React.FC = () => {
                     <div className="text-center text-white">
                       <div className="text-4xl font-bold mb-2">4.9</div>
                       <div className="text-lg mb-4">★ RATING</div>
-                      <div className="flex justify-center space-x-2 mb-4">
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                      </div>
                       <p className="text-sm opacity-90">Based on 500+ reviews</p>
                     </div>
                   </div>
@@ -155,7 +158,7 @@ const OneDayPainting: React.FC = () => {
               </div>
 
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                   </svg>
@@ -179,7 +182,7 @@ const OneDayPainting: React.FC = () => {
               </div>
 
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                   </svg>
@@ -203,7 +206,7 @@ const OneDayPainting: React.FC = () => {
               </div>
 
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
@@ -629,7 +632,7 @@ const OneDayPainting: React.FC = () => {
               </div>
 
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
-                <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
@@ -653,7 +656,7 @@ const OneDayPainting: React.FC = () => {
               </div>
 
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
-                <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
@@ -677,7 +680,7 @@ const OneDayPainting: React.FC = () => {
               </div>
 
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
-                <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>

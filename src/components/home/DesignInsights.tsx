@@ -47,7 +47,7 @@ const DesignInsights: React.FC = () => {
       <div className="w-full">
         <SectionCarousel slidesToShow={slidesToShow} blogSection={true}>
           {featuredBlogPosts.map((post) => (
-            <CarouselItem key={post.id}>
+            <CarouselItem key={post.id} className="basis-full md:basis-1/2 lg:basis-1/3" style={{ paddingRight: '1rem', paddingLeft: '0' }}>
               <Link href={`/blog/${post.slug}`} className="block">
                 <div className="relative flex flex-col h-[400px] rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                   <div className="h-[200px] overflow-hidden">

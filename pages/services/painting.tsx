@@ -1,5 +1,6 @@
 
 import React from "react";
+import Head from "next/head";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
@@ -13,10 +14,23 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 const PaintingServices: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Head>
+        <title>Painting Services | HomeGlazer - Residential & Commercial</title>
+        <meta name="description" content="Professional painting services for residential, commercial, and kids' rooms. Expert painters delivering quality finishes with premium paints." />
+        <meta property="og:title" content="Painting Services | HomeGlazer - Residential & Commercial" />
+        <meta property="og:description" content="Professional painting services for residential, commercial, and kids' rooms. Expert painters delivering quality finishes." />
+        <meta property="og:image" content={`${SITE_URL}/uploads/residential.png`} />
+        <meta name="twitter:title" content="Painting Services | HomeGlazer" />
+        <meta name="twitter:description" content="Professional painting services for residential and commercial spaces." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/residential.png`} />
+      </Head>
+      <div className="relative min-h-screen flex flex-col">
+        <Header />
       <main className="flex-grow pt-28">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <Breadcrumb>
@@ -41,7 +55,7 @@ const PaintingServices: React.FC = () => {
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/lovable-uploads/residential.png" 
+                src="/uploads/services/residential-painting.jpg" 
                 alt="Residential" 
                 className="w-full h-64 object-cover"
               />
@@ -60,7 +74,7 @@ const PaintingServices: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/lovable-uploads/Commercial.png" 
+                src="/uploads/services/commercial-painting.jpg" 
                 alt="Commercial" 
                 className="w-full h-64 object-cover"
               />
@@ -79,7 +93,7 @@ const PaintingServices: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/lovable-uploads/kids.png" 
+                src="/assets/images/kidsroom/kidsroom1/kidsroom1.jpg" 
                 alt="Kids Room" 
                 className="w-full h-64 object-cover"
               />
@@ -112,8 +126,9 @@ const PaintingServices: React.FC = () => {
       </div>
       
       <WhatsAppButton />
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

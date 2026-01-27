@@ -80,29 +80,29 @@ export const BRAND_CONFIG: BrandConfig[] = [
 ];
 
 export const CATEGORIES = [
-  { key: 'bedroom', label: 'Bedroom', img: '/lovable-uploads/bedroom.jpg' },
-  { key: 'living-room', label: 'Living Room', img: '/lovable-uploads/living-room.jpg' },
-  { key: 'kitchen', label: 'Kitchen', img: '/lovable-uploads/kitchen.jpg' },
+  { key: 'bedroom', label: 'Bedroom', img: '/uploads/bedroom.jpg' },
+  { key: 'living-room', label: 'Living Room', img: '/uploads/living-room.jpg' },
+  { key: 'kitchen', label: 'Kitchen', img: '/uploads/kitchen.jpg' },
   { key: 'bathroom', label: 'Bathroom', img: '/assets/images/image-21.png' },
   { key: 'home-office', label: 'Home Office', img: '/assets/images/image-16.png' },
-  { key: 'kids-room', label: 'Kids Room', img: '/lovable-uploads/kids.png' },
-  { key: 'office', label: 'Office', img: '/lovable-uploads/Commercial.png' },
-  { key: 'home-exterior', label: 'Home Exterior', img: '/lovable-uploads/exterior-painting.png' },
+  { key: 'kids-room', label: 'Kids Room', img: '/uploads/kids.png' },
+  { key: 'office', label: 'Office', img: '/uploads/Commercial.png' },
+  { key: 'home-exterior', label: 'Home Exterior', img: '/uploads/exterior-painting.png' },
 ];
 
 export const CATEGORY_IMAGES: Record<string, string[]> = {
   'bedroom': [
     '/assets/images/bedroom/bedroom1/bedroom1.jpg',
     '/assets/images/bedroom/bedroom2/bedroom2.jpg',
-    ...Array.from({length: 11}, (_, i) => `/lovable-uploads/bedroom.jpg`),
+    ...Array.from({length: 11}, (_, i) => `/uploads/bedroom.jpg`),
   ],
-  'living-room': Array.from({length: 12}, (_, i) => `/lovable-uploads/living-room.jpg`),
-  'kitchen': Array.from({length: 12}, (_, i) => `/lovable-uploads/kitchen.jpg`),
+  'living-room': Array.from({length: 12}, (_, i) => `/uploads/living-room.jpg`),
+  'kitchen': Array.from({length: 12}, (_, i) => `/uploads/kitchen.jpg`),
   'bathroom': Array.from({length: 12}, (_, i) => `/assets/images/image-21.png`),
   'home-office': Array.from({length: 12}, (_, i) => `/assets/images/image-16.png`),
-  'kids-room': Array.from({length: 12}, (_, i) => `/lovable-uploads/kids.png`),
-  'office': Array.from({length: 12}, (_, i) => `/lovable-uploads/Commercial.png`),
-  'home-exterior': Array.from({length: 12}, (_, i) => `/lovable-uploads/exterior-painting.png`),
+  'kids-room': Array.from({length: 12}, (_, i) => `/uploads/kids.png`),
+  'office': Array.from({length: 12}, (_, i) => `/uploads/Commercial.png`),
+  'home-exterior': Array.from({length: 12}, (_, i) => `/uploads/exterior-painting.png`),
 };
 
 export const COLOR_SWATCHES: { [brand: string]: { name: string; code: string }[] } = {

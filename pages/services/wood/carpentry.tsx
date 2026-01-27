@@ -24,7 +24,14 @@ export default function CarpentryServices() {
         <meta property="og:description" content="Professional carpentry services in Delhi NCR. Expert interior & exterior carpentry, custom woodworking, home renovation, and repair services." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wood/carpentry" />
+        <meta property="og:image" content="https://homeglazer.com/uploads/carpentry.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wood/carpentry" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Carpentry Services | Home Glazer" />
+        <meta name="twitter:description" content="Professional carpentry services in Delhi NCR. Expert interior & exterior carpentry." />
+        <meta name="twitter:image" content="https://homeglazer.com/uploads/carpentry.png" />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -58,11 +65,12 @@ export default function CarpentryServices() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1600&h=900&fit=crop&q=80" 
+              src="/uploads/services/carpentary.jpg" 
               alt="Professional Carpentry Services - Expert Woodworking and Custom Furniture"
               className="w-full h-full object-cover"
             />
           </div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative z-10 w-full">
             <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
@@ -138,7 +146,7 @@ export default function CarpentryServices() {
             
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1504917595217-4ef5b7eb63d9?w=800&h=600&fit=crop&q=80"
+                src="/uploads/services/Home%20Glazer%20at%20Carpentry%20Services.png"
                 alt="Home Glazer Carpentry Team - Skilled Craftsmen at Work"
                 className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
               />
@@ -215,7 +223,7 @@ export default function CarpentryServices() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <img
-                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop&q=80"
+                src="/uploads/services/Interior%20Carpentry%20Services.png"
                 alt="Interior Carpentry Services - Custom Furniture and Woodwork"
                 className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
               />
@@ -264,7 +272,7 @@ export default function CarpentryServices() {
             
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop&q=80"
+                src="/uploads/services/Exterior%20Carpentry%20Services.png"
                 alt="Exterior Carpentry Services - Outdoor Wooden Structures and Decks"
                 className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
               />
@@ -581,7 +589,7 @@ export default function CarpentryServices() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
               <img
-                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&q=80"
+                src="/uploads/services/Custom%20Kitchen%20Cabinets.png"
                 alt="Custom Kitchen Cabinets - Professional Carpentry Services"
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />
@@ -593,7 +601,7 @@ export default function CarpentryServices() {
             
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
               <img
-                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=400&fit=crop&q=80"
+                src="/uploads/services/Built-in%20Wardrobes.png"
                 alt="Built-in Wardrobes - Custom Storage Solutions"
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />
@@ -605,7 +613,7 @@ export default function CarpentryServices() {
             
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
               <img
-                src="https://images.unsplash.com/photo-1504917595217-4ef5b7eb63d9?w=600&h=400&fit=crop&q=80"
+                src="/uploads/services/Outdoor%20Decks.png"
                 alt="Outdoor Deck Construction - Exterior Carpentry"
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />

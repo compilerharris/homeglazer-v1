@@ -39,6 +39,11 @@ module.exports = {
   async redirects() {
     return [
       {
+        source: '/terms-of-service',
+        destination: '/terms-and-condition',
+        permanent: true,
+      },
+      {
         source: '/color-visualiser/:path*',
         destination: '/colour-visualiser/:path*',
         permanent: true,

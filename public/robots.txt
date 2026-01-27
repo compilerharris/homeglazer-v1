@@ -1,0 +1,32 @@
+# Robots.txt for HomeGlazer
+# This file will be overwritten by next-sitemap during production build
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# AI Crawlers - Allowed for AI search visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap location
+Sitemap: https://homeglazer.com/sitemap.xml

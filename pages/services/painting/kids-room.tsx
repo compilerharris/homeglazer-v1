@@ -26,7 +26,14 @@ const KidsRoom: React.FC = () => {
         <meta property="og:description" content="Home Glazer offers professional kids room painting services with safe, non-toxic paints and creative designs." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/painting/kids-room" />
+        <meta property="og:image" content="https://homeglazer.com/uploads/kids.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/painting/kids-room" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Kids Room Painting Services | Home Glazer" />
+        <meta name="twitter:description" content="Safe and colorful kids room painting services with child-friendly paints." />
+        <meta name="twitter:image" content="https://homeglazer.com/uploads/kids.png" />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -60,11 +67,12 @@ const KidsRoom: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/50"></div>
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
+              src="/assets/images/kidsroom/kidsroom1/kidsroom1.jpg"
               alt="Kids Room Painting Services"
               className="w-full h-full object-cover"
             />
           </div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative z-10 w-full">
             <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
@@ -95,11 +103,6 @@ const KidsRoom: React.FC = () => {
                     <div className="text-center text-white">
                       <div className="text-4xl font-bold mb-2 drop-shadow-lg">100%</div>
                       <div className="text-lg mb-4 drop-shadow-md">SAFE PAINTS</div>
-                      <div className="flex justify-center space-x-2 mb-4">
-                        <div className="w-10 h-10 rounded-full bg-white/30 border border-white/50"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/30 border border-white/50"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/30 border border-white/50"></div>
-                      </div>
                       <p className="text-sm opacity-90 drop-shadow-md">Non-toxic & child-friendly</p>
                     </div>
                   </div>
@@ -130,9 +133,9 @@ const KidsRoom: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/lovable-uploads/kids.png" 
+                    src="/assets/images/kidsroom/kidsroom2/kidsroom2.jpg" 
                     alt="Kids Room Painting"
-                    className="w-full h-full object-cover rounded-xl"
+                    className="w-full h-96 object-cover rounded-xl"
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-lg">
@@ -167,14 +170,12 @@ const KidsRoom: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-1">
-                <div className="bg-white rounded-2xl p-8 shadow-lg flex justify-center items-center">
-                  <div className="w-1/2">
-                    <img 
-                      src="/lovable-uploads/kids.png" 
-                      alt="Kids Room Design"
-                      className="w-full h-auto object-contain rounded-xl"
-                    />
-                  </div>
+                <div className="bg-white rounded-2xl p-8 shadow-lg">
+                  <img 
+                    src="/assets/images/kidsroom/kidsroom3/kidsroom3.jpg" 
+                    alt="Kids Room Design"
+                    className="w-full h-64 object-cover rounded-xl"
+                  />
                 </div>
               </div>
               <div className="order-1 lg:order-2">
@@ -425,9 +426,9 @@ const KidsRoom: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/lovable-uploads/team-pic.png" 
+                    src="/assets/images/kidsroom/kidsroom4/kidsroom4.jpg" 
                     alt="Professional Painters"
-                    className="w-full h-full object-cover rounded-xl"
+                    className="w-full h-96 object-cover rounded-xl"
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-6 shadow-lg">

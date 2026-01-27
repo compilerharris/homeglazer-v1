@@ -25,7 +25,14 @@ const StencilArt: React.FC = () => {
         <meta property="og:description" content="Professional stencil painting services for walls and ceilings. Expert stencil artists with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wall-decor/stencil-art" />
+        <meta property="og:image" content="https://homeglazer.com/uploads/stencil-art.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wall-decor/stencil-art" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Stencil Art Services | Home Glazer" />
+        <meta name="twitter:description" content="Professional stencil art and decorative wall painting services." />
+        <meta name="twitter:image" content="https://homeglazer.com/uploads/stencil-art.png" />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -59,16 +66,17 @@ const StencilArt: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=1200&h=800&fit=crop&q=80"
+              src="/uploads/services/stencil-art-hero.jpg"
               alt="Stencil Painting Services - Professional Wall Art and Design"
               className="w-full h-full object-cover"
             />
           </div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative z-10 w-full">
             <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
                 <div className="text-white">
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                     Stencil Painting Services
                   </h2>
                   <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-95">
@@ -94,11 +102,6 @@ const StencilArt: React.FC = () => {
                     <div className="text-center text-white">
                       <div className="text-4xl font-bold mb-2">35+</div>
                       <div className="text-lg mb-4">YEARS EXPERIENCE</div>
-                      <div className="flex justify-center space-x-2 mb-4">
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                      </div>
                       <p className="text-sm opacity-90">Trusted by thousands of customers</p>
                     </div>
                   </div>
@@ -129,7 +132,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&q=80" 
+                    src="/uploads/services/stencil-process.jpg" 
                     alt="Professional Stencil Painting Services"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -217,7 +220,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=400&fit=crop&q=80" 
+                    src="/uploads/services/stencil-benefits.jpg" 
                     alt="Stencil Painting Process and Results"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -342,7 +345,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=600&h=400&fit=crop&q=80" 
+                    src="/uploads/services/stencil-team-work.jpg" 
                     alt="Professional Stencil Painting Team"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -475,7 +478,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&q=80" 
+                    src="/uploads/services/stencil-applications.jpg" 
                     alt="Stencil Painting Applications and Uses"
                     className="w-full h-full object-cover rounded-xl"
                   />

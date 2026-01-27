@@ -70,7 +70,6 @@ const Footer: React.FC<FooterProps> = ({ showSentinel, onSentinelRef }) => {
                 <Link href="/blog" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Blog</Link>
                 <Link href="/contact" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Contact</Link>
                 <Link href="/enquiry" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Enquire Now</Link>
-                <Link href="/careers" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Careers</Link>
               </div>
             </div>
             <div className="w-full sm:w-1/2 lg:w-auto lg:flex-1 px-4 mb-8">
@@ -112,9 +111,8 @@ const Footer: React.FC<FooterProps> = ({ showSentinel, onSentinelRef }) => {
               </h3>
               <div className="flex flex-col gap-2 mt-2">
                 <Link href="/faq" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">FAQ</Link>
-                <Link href="/support" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Support</Link>
                 <Link href="/privacy-policy" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Privacy Policy</Link>
-                <Link href="/terms-of-service" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Terms of Service</Link>
+                <Link href="/terms-and-condition" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Terms &amp; Conditions</Link>
                 <Link href="/sitemap" className="text-[rgba(111,121,136,1)] text-sm tracking-[0.28px] hover:text-white transition-all duration-250">Sitemap</Link>
               </div>
             </div>
@@ -128,8 +126,8 @@ const Footer: React.FC<FooterProps> = ({ showSentinel, onSentinelRef }) => {
                 Privacy Policy
               </Link>
               <div className="bg-white self-stretch flex w-1 shrink-0 h-1 my-auto rounded-[17px]" />
-              <Link href="/terms-of-service" className="self-stretch rounded h-[17px] gap-[9px] my-auto hover:text-gray-300 transition-all duration-300">
-                Terms of Service
+              <Link href="/terms-and-condition" className="self-stretch rounded h-[17px] gap-[9px] my-auto hover:text-gray-300 transition-all duration-300">
+                Terms &amp; Conditions
               </Link>
               <div className="bg-white self-stretch flex w-1 shrink-0 h-1 my-auto rounded-[17px]" />
               <Link href="/cookie-policy" className="self-stretch rounded h-[17px] gap-[9px] my-auto hover:text-gray-300 transition-all duration-300">

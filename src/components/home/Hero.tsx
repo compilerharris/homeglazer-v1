@@ -35,22 +35,22 @@ const Hero: React.FC = () => {
     {
       title: "Expert Painting for Every Space",
       buttonText: "Get in touch",
-      backgroundImage: "/lovable-uploads/hero-banner.png"
+      backgroundImage: "/uploads/hero-banner.png"
     },
     {
       title: "Transform Your Home with Professional Painting",
       buttonText: "Get in touch",
-      backgroundImage: "/lovable-uploads/hero-banner.png"
+      backgroundImage: "/uploads/hero-banner.png"
     },
     {
       title: "Quality Paint Solutions for Every Surface",
       buttonText: "Get in touch",
-      backgroundImage: "/lovable-uploads/hero-banner.png"
+      backgroundImage: "/uploads/hero-banner.png"
     },
     {
       title: "Bring Your Vision to Life with Expert Painters",
       buttonText: "Get in touch",
-      backgroundImage: "/lovable-uploads/hero-banner.png"
+      backgroundImage: "/uploads/hero-banner.png"
     }
   ];
 

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { 
   Carousel, 
   CarouselContent, 
-  CarouselItem, 
   CarouselNext, 
   CarouselPrevious 
 } from "@/components/ui/carousel";
@@ -139,7 +138,7 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     loop: false,
     slidesToScroll: (teamSection || reviewsSection || paintBrandsSection) ? 1 : (slidesToShow ? slidesToShow : 1),
     dragFree: (teamSection || reviewsSection || paintBrandsSection) ? false : true,
-    containScroll: (teamSection || reviewsSection || paintBrandsSection) ? "keepSnaps" : (slidesToShow ? "trimSnaps" : false),
+    containScroll: "trimSnaps",
     skipSnaps: false,
     inViewThreshold: 0.7,
     duration: 5
@@ -149,28 +148,11 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     <div className={`w-full max-w-[1400px] mx-auto ${roomMakeoverSection ? 'pb-8' : paintBrandsSection ? 'pb-16' : colorVisualizerSection ? 'pb-0' : 'pb-20'} px-4 overflow-x-hidden relative`}>
       <Carousel
         opts={carouselOptions}
+        setApi={setApi}
         className="w-full"
       >
-        <CarouselContent className="gap-4">
-          {React.Children.map(children, (child, index) => (
-            <CarouselItem key={index} className={
-              paintBrandsSection ? 
-                slidesToShow ? 
-                  slidesToShow === 3 ? 'basis-full md:basis-1/2 lg:basis-1/3' :
-                  slidesToShow === 2 ? 'basis-full md:basis-1/2' :
-                  'basis-full' : 
-                'basis-1/3' : 
-              teamSection ? `basis-full md:basis-1/3 lg:basis-1/4` : 
-              reviewsSection ? `basis-full md:basis-1/2` : 
-              slidesToShow ? 
-                slidesToShow === 3 ? 'basis-full md:basis-1/2 lg:basis-1/3' :
-                slidesToShow === 2 ? 'basis-full md:basis-1/2' :
-                'basis-full' : 
-              ''
-            } style={blogSection ? { paddingRight: '1rem', paddingLeft: '0' } : undefined}>
-              {child}
-            </CarouselItem>
-          ))}
+        <CarouselContent>
+          {children}
         </CarouselContent>
         {!colorVisualizerSection && (
           <div className={`w-full flex justify-center gap-4 ${roomMakeoverSection ? 'relative mt-4' : paintBrandsSection ? 'absolute left-0 right-0 -bottom-15' : teamSection ? 'absolute left-0 right-0 -bottom-20' : slidesToShow ? 'absolute left-0 right-0 -bottom-16' : reviewsSection ? 'absolute left-0 right-0 -bottom-16' : 'absolute left-0 right-0 bottom-6 md:bottom-10'} z-30 pointer-events-none`}>

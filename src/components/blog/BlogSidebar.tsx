@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { House, Building2, Brush, Bed, Palmtree, PaintBucket } from 'lucide-react';
-import { blogPosts } from '@/data/blogPosts';
+import { House, Building2, Brush, Palmtree, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+
+// Define the BlogPost type for sidebar
+interface BlogPostData {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  readTime: string;
+  coverImage: string;
+  categories: string[];
+  content?: string;
+}
 
 interface BlogSidebarProps {
   currentPostId: string;
+  recentPosts?: BlogPostData[];
 }
 
 // Mini blog card for sidebar
@@ -47,23 +61,202 @@ const SidebarServiceCard: React.FC<{
   );
 };
 
-const BlogSidebar: React.FC<BlogSidebarProps> = ({ currentPostId }) => {
-  // Get recent posts (excluding current)
-  const recentPosts = blogPosts
-    .filter(post => post.id !== currentPostId)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+// Sidebar Enquiry Form with state management
+const SidebarEnquiryForm: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    mobile: '',
+    message: ''
+  });
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+    if (submitError) {
+      setSubmitError('');
+    }
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors: {[key: string]: string} = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      newErrors.email = 'Please enter a valid email';
+    }
+
+    if (!formData.mobile.trim()) {
+      newErrors.mobile = 'Phone is required';
+    } else if (!/^[0-9+\- ]{10,15}$/.test(formData.mobile.trim())) {
+      newErrors.mobile = 'Please enter a valid phone number';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message should be at least 10 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const response = await fetch('/api/homepage-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+
+      setSubmitted(true);
+      setFormData({ name: '', email: '', mobile: '', message: '' });
+    } catch (error: any) {
+      setSubmitError(error.message || 'Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div className="text-center py-4">
+        <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto mb-3" />
+        <h4 className="text-base font-medium text-gray-800 mb-2">Message Sent!</h4>
+        <p className="text-sm text-gray-600 mb-4">
+          We'll get back to you within 24 hours.
+        </p>
+        <button
+          onClick={() => setSubmitted(false)}
+          className="text-sm text-[#ED276E] hover:text-[#299dd7] font-medium transition-colors"
+        >
+          Send Another Message
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      {submitError && (
+        <div className="flex items-start gap-2 p-2 mb-3 bg-red-50 border border-red-200 rounded-md">
+          <AlertCircle className="h-4 w-4 text-red-500 flex-shrink-0 mt-0.5" />
+          <p className="text-xs text-red-700">{submitError}</p>
+        </div>
+      )}
+      <div className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Name <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            disabled={isSubmitting}
+            className={`w-full px-3 py-2 border ${errors.name ? 'border-red-500' : 'border-gray-200'} rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED276E]/20 focus:border-[#ED276E] disabled:opacity-50 disabled:cursor-not-allowed`}
+            placeholder="Your name"
+          />
+          {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Email <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            disabled={isSubmitting}
+            className={`w-full px-3 py-2 border ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED276E]/20 focus:border-[#ED276E] disabled:opacity-50 disabled:cursor-not-allowed`}
+            placeholder="Your email"
+          />
+          {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Phone <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="tel"
+            name="mobile"
+            value={formData.mobile}
+            onChange={handleChange}
+            disabled={isSubmitting}
+            className={`w-full px-3 py-2 border ${errors.mobile ? 'border-red-500' : 'border-gray-200'} rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED276E]/20 focus:border-[#ED276E] disabled:opacity-50 disabled:cursor-not-allowed`}
+            placeholder="Your phone number"
+          />
+          {errors.mobile && <p className="text-xs text-red-500 mt-1">{errors.mobile}</p>}
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Message <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            disabled={isSubmitting}
+            className={`w-full px-3 py-2 border ${errors.message ? 'border-red-500' : 'border-gray-200'} rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED276E]/20 focus:border-[#ED276E] resize-none disabled:opacity-50 disabled:cursor-not-allowed`}
+            rows={3}
+            placeholder="Tell us about your project"
+          ></textarea>
+          {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}
+        </div>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-[#ED276E] hover:bg-[#299dd7] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            'Submit Enquiry'
+          )}
+        </button>
+      </div>
+    </form>
+  );
+};
+
+const BlogSidebar: React.FC<BlogSidebarProps> = ({ currentPostId, recentPosts = [] }) => {
+  // Use recent posts passed as props (already filtered and sorted from server)
+  const displayRecentPosts = recentPosts.slice(0, 3);
   
-  // Get related posts (different from recent, by category match)
-  const currentPost = blogPosts.find(post => post.id === currentPostId);
-  const relatedPosts = currentPost 
-    ? blogPosts
-        .filter(post => 
-          post.id !== currentPostId && 
-          post.categories.some(cat => currentPost.categories.includes(cat))
-        )
-        .slice(0, 3)
-    : [];
+  // For related posts, we can filter by category from the recentPosts if needed
+  // For now, we'll show the next set of posts as related
+  const relatedPosts = recentPosts.slice(3, 6);
 
   // Best services
   const services = [
@@ -91,41 +284,23 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ currentPostId }) => {
 
   return (
     <aside className="space-y-8">
-      {/* Search */}
-      <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Search</h3>
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search blogs..."
-            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ED276E]/20 focus:border-[#ED276E]"
-          />
-          <button 
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#ED276E]"
-            aria-label="Search"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
       {/* Recent Posts */}
-      <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Recent Posts</h3>
-        <div className="space-y-3">
-          {recentPosts.map((post) => (
-            <SidebarBlogCard
-              key={post.id}
-              title={post.title}
-              date={post.date}
-              imageUrl={post.coverImage}
-              slug={post.slug}
-            />
-          ))}
+      {displayRecentPosts.length > 0 && (
+        <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+          <h3 className="text-lg font-medium text-gray-900 mb-4">Recent Posts</h3>
+          <div className="space-y-3">
+            {displayRecentPosts.map((post) => (
+              <SidebarBlogCard
+                key={post.id}
+                title={post.title}
+                date={post.date}
+                imageUrl={post.coverImage}
+                slug={post.slug}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
@@ -163,60 +338,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ currentPostId }) => {
       {/* Enquiry Form */}
       <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
         <h3 className="text-lg font-medium text-gray-900 mb-4">Get a Quote</h3>
-        <form>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Name
-              </label>
-              <input
-                type="text"
-                className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED276E]/20 focus:border-[#ED276E]"
-                placeholder="Your name"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Email
-              </label>
-              <input
-                type="email"
-                className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED276E]/20 focus:border-[#ED276E]"
-                placeholder="Your email"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Phone
-              </label>
-              <input
-                type="tel"
-                className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED276E]/20 focus:border-[#ED276E]"
-                placeholder="Your phone number"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Message
-              </label>
-              <textarea
-                className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED276E]/20 focus:border-[#ED276E] resize-none"
-                rows={3}
-                placeholder="Tell us about your project"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-[#ED276E] hover:bg-[#299dd7] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
-            >
-              Submit Enquiry
-            </button>
-          </div>
-        </form>
+        <SidebarEnquiryForm />
       </div>
     </aside>
   );

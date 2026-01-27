@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
@@ -11,6 +12,8 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
 const ContactPage: React.FC = () => {
   // Form state
@@ -153,8 +156,19 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center">
-      <Header />
+    <>
+      <Head>
+        <title>Contact Us | HomeGlazer - Get in Touch</title>
+        <meta name="description" content="Contact HomeGlazer for professional painting services. Visit our office in Faridabad or reach us via phone and email. Free consultation available!" />
+        <meta property="og:title" content="Contact Us | HomeGlazer - Get in Touch" />
+        <meta property="og:description" content="Contact HomeGlazer for professional painting services. Visit our office in Faridabad or reach us via phone and email." />
+        <meta property="og:image" content={`${SITE_URL}/uploads/consultation.png`} />
+        <meta name="twitter:title" content="Contact Us | HomeGlazer - Get in Touch" />
+        <meta name="twitter:description" content="Contact HomeGlazer for professional painting services. Free consultation available!" />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/consultation.png`} />
+      </Head>
+      <div className="bg-white flex flex-col overflow-hidden items-center">
+        <Header />
       
       {/* Breadcrumb */}
       <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
@@ -176,7 +190,7 @@ const ContactPage: React.FC = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 bg-cover bg-center z-0" 
              style={{ 
-               backgroundImage: 'url("https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80")'
+               backgroundImage: 'url("/uploads/services/contact-hero.jpg")'
              }}>
           <div className="absolute inset-0 bg-[#ED276E] opacity-80"></div>
         </div>
@@ -432,8 +446,9 @@ const ContactPage: React.FC = () => {
       </div>
       
       <Footer />
-      <WhatsAppButton />
-    </div>
+        <WhatsAppButton />
+      </div>
+    </>
   );
 };
 

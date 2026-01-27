@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@/components/home/Header';
 import Hero from '@/components/home/Hero';
@@ -16,10 +17,23 @@ import FAQ from '@/components/home/FAQ';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
 export default function Home() {
   // return <MacbookAir />;
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center">
+    <>
+      <Head>
+        <title>HomeGlazer - Professional Painting Services in India</title>
+        <meta name="description" content="Transform your space with HomeGlazer's professional painting services. Interior, exterior, texture painting, wall decor, and wood services. Get a free quote today!" />
+        <meta property="og:title" content="HomeGlazer - Professional Painting Services in India" />
+        <meta property="og:description" content="Transform your space with HomeGlazer's professional painting services. Interior, exterior, texture painting, wall decor, and wood services." />
+        <meta property="og:image" content={`${SITE_URL}/uploads/hero-banner.png`} />
+        <meta name="twitter:title" content="HomeGlazer - Professional Painting Services in India" />
+        <meta name="twitter:description" content="Transform your space with HomeGlazer's professional painting services. Interior, exterior, texture painting, wall decor, and wood services." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/hero-banner.png`} />
+      </Head>
+      <div className="bg-white flex flex-col overflow-hidden items-center">
       <Header />
       <Hero />
       <Services />
@@ -46,7 +60,8 @@ export default function Home() {
       </div>
       
       <Footer />
-      <WhatsAppButton />
-    </div>
+        <WhatsAppButton />
+      </div>
+    </>
   );
 }

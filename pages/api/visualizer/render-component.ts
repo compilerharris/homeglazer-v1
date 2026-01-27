@@ -29,7 +29,7 @@ function createVisualizerSVG(props: {
       }, [
         React.createElement('image', {
           key: 'bg-image',
-          href: `/lovable-uploads/${roomType}.jpg`,
+          href: `/uploads/${roomType}.jpg`,
           width: '1280',
           height: '650'
         })

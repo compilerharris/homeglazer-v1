@@ -15,6 +15,16 @@ const GraffitiPainting: React.FC = () => {
         <title>Graffiti Painting Services - Home Glazer</title>
         <meta name="description" content="Professional graffiti painting services in Delhi & NCR. Transform your walls with stunning street art and murals. Get expert graffiti artists at your doorstep." />
         <meta name="keywords" content="graffiti painting services, wall art, street art, mural painting, Delhi, NCR" />
+        <meta property="og:title" content="Graffiti Painting Services | Home Glazer" />
+        <meta property="og:description" content="Professional graffiti painting services in Delhi & NCR. Transform your walls with stunning street art and murals." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homeglazer.com/uploads/services/graffiti-hero.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Graffiti Painting Services | Home Glazer" />
+        <meta name="twitter:description" content="Professional graffiti painting services in Delhi & NCR." />
+        <meta name="twitter:image" content="https://homeglazer.com/uploads/services/graffiti-hero.jpg" />
       </Head>
 
       <Header />
@@ -48,11 +58,12 @@ const GraffitiPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="/lovable-uploads/graffiti-painting.png" 
+              src="/uploads/services/graffiti-hero.jpg" 
               alt="Graffiti Painting Services"
               className="w-full h-full object-cover"
             />
           </div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative z-10 w-full">
             <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
@@ -83,11 +94,6 @@ const GraffitiPainting: React.FC = () => {
                     <div className="text-center text-white">
                       <div className="text-4xl font-bold mb-2">35+</div>
                       <div className="text-lg mb-4">YEARS EXPERIENCE</div>
-                      <div className="flex justify-center space-x-2 mb-4">
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                      </div>
                       <div className="text-sm opacity-90">Trusted by thousands of customers</div>
                     </div>
                   </div>
@@ -121,7 +127,7 @@ const GraffitiPainting: React.FC = () => {
               
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/graffiti-artwork.png" 
+                  src="/uploads/services/graffiti-artwork.jpg" 
                   alt="Graffiti Artwork"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -143,7 +149,7 @@ const GraffitiPainting: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/graffiti-painting-process.png" 
+                  src="/uploads/services/graffiti-process.jpg" 
                   alt="Graffiti Painting Process"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -228,7 +234,7 @@ const GraffitiPainting: React.FC = () => {
               
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/graffiti-street-art.png" 
+                  src="/uploads/services/graffiti-street-art.jpg" 
                   alt="Street Graffiti Art"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -244,7 +250,7 @@ const GraffitiPainting: React.FC = () => {
             <div className="text-center mb-16">
               <div className="flex justify-center mb-6">
                 <img 
-                  src="/lovable-uploads/graffiti-features.png" 
+                  src="/uploads/services/graffiti-features.jpg" 
                   alt="Graffiti Features"
                   className="w-24 h-24 object-cover rounded-full shadow-lg"
                 />
@@ -306,7 +312,7 @@ const GraffitiPainting: React.FC = () => {
             <div className="text-center mb-16">
               <div className="flex justify-center mb-6">
                 <img 
-                  src="/lovable-uploads/graffiti-paints.png" 
+                  src="/uploads/services/graffiti-paints.jpg" 
                   alt="Graffiti Paints and Tools"
                   className="w-24 h-24 object-cover rounded-full shadow-lg"
                 />

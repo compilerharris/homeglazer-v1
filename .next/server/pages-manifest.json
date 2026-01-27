@@ -1,8 +1,10 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/colour-visualiser/advanced/[step]": "pages/colour-visualiser/advanced/[step].js",
-  "/colour-visualiser/advanced": "pages/colour-visualiser/advanced.js",
-  "/colour-visualiser": "pages/colour-visualiser.js"
+  "/_document": "pages/_document.js",
+  "/privacy-policy": "pages/privacy-policy.js",
+  "/cookie-policy": "pages/cookie-policy.js",
+  "/": "pages/index.js",
+  "/404": "pages/404.js",
+  "/admin/blogs": "pages/admin/blogs.js"
 }

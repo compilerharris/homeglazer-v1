@@ -25,7 +25,14 @@ const ExteriorPainting: React.FC = () => {
         <meta property="og:description" content="Transform your home's exterior with our professional exterior painting services. Expert house painters delivering quality exterior painting with 35+ years of experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/exterior-painting" />
+        <meta property="og:image" content="https://homeglazer.com/assets/images/outdoor/outdoor1/outdoor1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/exterior-painting" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Exterior Painting Services | Home Glazer" />
+        <meta name="twitter:description" content="Professional exterior painting services for homes and buildings." />
+        <meta name="twitter:image" content="https://homeglazer.com/assets/images/outdoor/outdoor1/outdoor1.jpg" />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -59,11 +66,12 @@ const ExteriorPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="https://images.unsplash.com/photo-1501854140801-50d01698950b" 
+              src="/assets/images/outdoor/outdoor1/outdoor1.jpg" 
               alt="Exterior Painting Services"
               className="w-full h-full object-cover"
             />
           </div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative z-10 w-full">
             <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
@@ -94,11 +102,6 @@ const ExteriorPainting: React.FC = () => {
                     <div className="text-center text-white">
                       <div className="text-4xl font-bold mb-2">4.9</div>
                       <div className="text-lg mb-4">★ RATING</div>
-                      <div className="flex justify-center space-x-2 mb-4">
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                      </div>
                       <p className="text-sm opacity-90">Trusted by 1000+ homeowners</p>
                     </div>
                   </div>
@@ -137,9 +140,9 @@ const ExteriorPainting: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-xl">
                   <img 
-                    src="/lovable-uploads/exterior-painting.png" 
+                    src="/assets/images/outdoor/outdoor3/outdoor3.jpg" 
                     alt="Professional Exterior Painting"
-                    className="w-full h-auto rounded-xl"
+                    className="w-full h-96 object-cover rounded-xl"
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-6 border border-gray-100">
@@ -192,9 +195,9 @@ const ExteriorPainting: React.FC = () => {
                 <div className="relative">
                   <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-6">
                     <img 
-                      src="/lovable-uploads/exterior-painting.png" 
+                      src="/assets/images/outdoor/outdoor2/outdoor2.jpg" 
                       alt="Exterior Painting Process"
-                      className="w-full h-auto rounded-xl"
+                      className="w-full h-96 object-cover rounded-xl"
                     />
                   </div>
                   <div className="absolute -bottom-4 -right-4 bg-[#ED276E] text-white rounded-xl p-4">
@@ -425,36 +428,36 @@ const ExteriorPainting: React.FC = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Essential Tools</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
                       </svg>
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-semibold text-gray-900">Ladders and Scaffolding</h4>
                       <p className="text-gray-600 text-sm">Exterior painting often requires working at heights. Having sturdy ladders and scaffolding ensures safe access to all areas of the house.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                       </svg>
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-semibold text-gray-900">Paint Brushes and Rollers</h4>
                       <p className="text-gray-600 text-sm">A variety of paint brushes and rollers are available to cater to different surfaces and textures.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                       </svg>
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-semibold text-gray-900">Pressure Washers</h4>
                       <p className="text-gray-600 text-sm">Before starting any painting project, it's important to thoroughly clean the surface. Pressure washers help remove dirt, grime, and loose paint.</p>
                     </div>
@@ -466,36 +469,36 @@ const ExteriorPainting: React.FC = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Professional Equipment</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
                       </svg>
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-semibold text-gray-900">Airless Paint Sprayers</h4>
                       <p className="text-gray-600 text-sm">These powerful sprayers are ideal for large-scale painting projects, such as commercial buildings and warehouses.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-semibold text-gray-900">Sanding Tools</h4>
                       <p className="text-gray-600 text-sm">Sanding is necessary to create a smooth and even surface before painting. Tools such as sandpaper, sanding blocks, and electric sanders.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="w-12 h-12 bg-[#299dd7] rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                       </svg>
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-semibold text-gray-900">Paint Mixers</h4>
                       <p className="text-gray-600 text-sm">For large quantities of paint, paint mixers ensure thorough mixing and consistency throughout the project.</p>
                     </div>
@@ -617,7 +620,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/lovable-uploads/exterior-painting.png" 
+                    src="/assets/images/livingroom/livingroom6/livingroom6.jpg" 
                     alt="Exterior Repainting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -659,7 +662,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/lovable-uploads/actual-residential-painting.png" 
+                    src="/uploads/actual-residential-painting.png" 
                     alt="First Time Painting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -701,7 +704,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/lovable-uploads/texture-painting.png" 
+                    src="/assets/images/bathroom/bathroom5/bathroom5.jpg" 
                     alt="Texture Painting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />

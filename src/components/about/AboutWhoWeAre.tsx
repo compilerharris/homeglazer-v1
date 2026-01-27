@@ -20,7 +20,7 @@ const AboutWhoWeAre: React.FC = () => {
         
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
           <img 
-            src="/lovable-uploads/team-pic.png" 
+            src="/uploads/team-pic.png" 
             alt="Before and After Transformation" 
             className="rounded-lg shadow-lg w-full h-auto"
           />

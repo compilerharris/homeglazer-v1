@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import Head from 'next/head';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -21,6 +22,8 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 import { fetchProducts, fetchBrands, transformProduct, transformBrand } from '@/lib/api';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
 const Products: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -126,8 +129,19 @@ const Products: React.FC = () => {
   };
 
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center">
-      <Header />
+    <>
+      <Head>
+        <title>Paint Products | HomeGlazer - Premium Paint Brands</title>
+        <meta name="description" content="Browse premium paint products from top brands like Asian Paints, Berger, Nerolac, JSW Paints, and Birla Opus. Find the perfect paint for your project." />
+        <meta property="og:title" content="Paint Products | HomeGlazer - Premium Paint Brands" />
+        <meta property="og:description" content="Browse premium paint products from top brands. Find the perfect paint for your project." />
+        <meta property="og:image" content={`${SITE_URL}/uploads/color-bucket1.png`} />
+        <meta name="twitter:title" content="Paint Products | HomeGlazer - Premium Paint Brands" />
+        <meta name="twitter:description" content="Browse premium paint products from top brands." />
+        <meta name="twitter:image" content={`${SITE_URL}/uploads/color-bucket1.png`} />
+      </Head>
+      <div className="bg-white flex flex-col overflow-hidden items-center">
+        <Header />
       
       <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
         <Breadcrumb>
@@ -318,10 +332,11 @@ const Products: React.FC = () => {
       )}
 
       <Footer />
-      <div className="[&_.whatsapp-button]:bottom-24 md:[&_.whatsapp-button]:bottom-8">
-        <WhatsAppButton />
+        <div className="[&_.whatsapp-button]:bottom-24 md:[&_.whatsapp-button]:bottom-8">
+          <WhatsAppButton />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

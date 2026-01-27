@@ -12,6 +12,7 @@ export interface BlogPost {
   readTime: string;
   coverImage: string;
   categories: string[];
+  content?: string;
 }
 
 interface BlogCardProps {

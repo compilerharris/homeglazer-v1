@@ -13,7 +13,6 @@ interface Blog {
   published: boolean;
   publishedAt: string | null;
   categories: string[];
-  viewCount: number;
   createdAt: string;
 }
 
@@ -147,9 +146,6 @@ export default function BlogsIndex() {
                       Categories
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Views
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Status
                     </th>
                     <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -175,9 +171,6 @@ export default function BlogsIndex() {
                             </span>
                           ))}
                         </div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-900">
-                        {blog.viewCount}
                       </td>
                       <td className="px-6 py-4">
                         {blog.published ? (

@@ -25,7 +25,14 @@ const PerDayPainting: React.FC = () => {
         <meta property="og:description" content="Hire professional painters on a per-day basis. Flexible, affordable painting services for small jobs and touch-ups." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/per-day-painting" />
+        <meta property="og:image" content="https://homeglazer.com/assets/images/livingroom/livingroom1/livingroom1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/per-day-painting" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Per Day Painting Services | Home Glazer" />
+        <meta name="twitter:description" content="Flexible per-day painting services that fit your schedule." />
+        <meta name="twitter:image" content="https://homeglazer.com/assets/images/livingroom/livingroom1/livingroom1.jpg" />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -59,11 +66,12 @@ const PerDayPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=1920&h=1080&fit=crop&q=80" 
+              src="/assets/images/livingroom/livingroom1/livingroom1.jpg" 
               alt="Professional on-demand painting services - expert painters at work"
               className="w-full h-full object-cover"
             />
           </div>
+          <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative z-10 w-full">
             <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
@@ -94,11 +102,6 @@ const PerDayPainting: React.FC = () => {
                     <div className="text-center text-white">
                       <div className="text-4xl font-bold mb-2">35+</div>
                       <div className="text-lg mb-4">YEARS EXPERIENCE</div>
-                      <div className="flex justify-center space-x-2 mb-4">
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                        <div className="w-10 h-10 rounded-full bg-white/20"></div>
-                      </div>
                       <div className="text-sm opacity-90">Trusted by thousands of customers</div>
                     </div>
                   </div>
@@ -130,7 +133,7 @@ const PerDayPainting: React.FC = () => {
               {/* Professional Painter Working Image */}
               <div className="relative group">
                 <img 
-                  src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop&q=80" 
+                  src="/uploads/services/per-day-intro.jpg" 
                   alt="Professional painter working efficiently in modern home interior"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />
@@ -153,7 +156,7 @@ const PerDayPainting: React.FC = () => {
               {/* Painting Tools and Equipment Image */}
               <div className="relative group">
                 <img 
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&q=80" 
+                  src="/uploads/services/per-day-opportunity.jpg" 
                   alt="Professional painting tools and equipment for quality interior work"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />

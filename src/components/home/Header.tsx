@@ -112,7 +112,7 @@ const Header: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   const closeMenu = () => setIsMenuOpen(false);
   
   // Updated service dropdown to only include the 4 main categories
@@ -153,14 +153,6 @@ const Header: React.FC = () => {
           {item.description}
         </ListItem>
       ))
-    }, 
-    {
-      label: 'Products',
-      path: '/products'
-    },
-    {
-      label: 'Gallery',
-      path: '/gallery'
     },
     {
       label: 'Budget Calculator',
@@ -182,16 +174,16 @@ const Header: React.FC = () => {
 
   return (
     <div className={cn(
-      "fixed left-0 right-0 z-50 transition-all duration-500 ease-out",
-      "w-[95%] mx-auto mt-4 sm:mt-2 lg:mt-3",
+      "fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out",
+      "w-max sm:w-max sm:max-w-[95vw] mx-auto mt-4 sm:mt-2 lg:mt-3",
       "bg-white/50 backdrop-blur-3xl",
       "border border-white/40",
       "shadow-[0_12px_40px_rgba(0,0,0,0.15)]",
       "rounded-3xl",
       isScrolled ? "bg-white/60 backdrop-blur-[50px] shadow-[0_16px_50px_rgba(0,0,0,0.2)]" : ""
     )}>
-      <div className="flex w-full items-center gap-4 justify-between lg:justify-center lg:gap-8 px-6 py-3 lg:px-8 lg:py-4">
-        <Link href="/" className="group">
+      <div className="flex flex-nowrap items-center gap-4 justify-between lg:justify-center lg:gap-8 px-6 py-3 lg:px-8 lg:py-4 w-auto">
+        <Link href="/" className="group flex-shrink-0">
           <img 
             src="https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/e26e09b75bb9c4ab63f78d15296ed43e8713cb0b?placeholderIfAbsent=true" 
             alt="Company Logo" 
@@ -209,7 +201,7 @@ const Header: React.FC = () => {
         </button>
         
         {/* Navigation for desktop */}
-        <nav className="hidden lg:flex self-stretch gap-3 justify-center flex-wrap my-auto">
+        <nav className="hidden lg:inline-flex gap-3 justify-center my-auto w-auto whitespace-nowrap">
           {navItems.map((item, index) => (
             <NavItem 
               key={index} 
@@ -247,12 +239,6 @@ const Header: React.FC = () => {
                     </div>
                   </details>
                 </div>
-                <Link href="/products" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
-                  Products
-                </Link>
-                <Link href="/gallery" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
-                  Gallery
-                </Link>
                 <Link href="/paint-budget-calculator" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
                   Budget Calculator
                 </Link>
