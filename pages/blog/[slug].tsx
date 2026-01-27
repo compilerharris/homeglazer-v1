@@ -180,7 +180,17 @@ export const getServerSideProps: GetServerSideProps<BlogPostPageProps> = async (
         : '',
     };
 
-    const recentPosts: BlogPostData[] = recentBlogs.map((b) => ({
+    const recentPosts: BlogPostData[] = recentBlogs.map((b: {
+      id: string;
+      slug: string;
+      title: string;
+      excerpt: string;
+      author: string;
+      readTime: string;
+      coverImage: string;
+      categories: any;
+      publishedAt: Date | null;
+    }) => ({
       id: b.id,
       slug: b.slug,
       title: b.title,

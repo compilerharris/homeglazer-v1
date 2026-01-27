@@ -14,8 +14,8 @@ const BlogList: React.FC<BlogListProps> = ({ posts, featured = false }) => {
 
   // Dynamically generate categories from posts
   const categories = useMemo(() => {
-    const allCategories = posts.flatMap(post => post.categories);
-    const uniqueCategories = [...new Set(allCategories)].sort();
+    const allCategories = posts.flatMap((post) => post.categories);
+    const uniqueCategories = Array.from(new Set(allCategories)).sort();
     return ['All', ...uniqueCategories];
   }, [posts]);
   

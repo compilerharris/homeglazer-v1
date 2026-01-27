@@ -138,7 +138,19 @@ export const getServerSideProps: GetServerSideProps<BlogProps> = async () => {
     });
 
     // Transform database records to match component interface
-    const transformedPosts: BlogPostData[] = blogs.map((blog) => ({
+    const transformedPosts: BlogPostData[] = blogs.map((blog: {
+      id: string;
+      slug: string;
+      title: string;
+      excerpt: string;
+      author: string;
+      readTime: string;
+      coverImage: string;
+      categories: any;
+      content: string | null;
+      publishedAt: Date | null;
+      featuredOrder: number | null;
+    }) => ({
       id: blog.id,
       slug: blog.slug,
       title: blog.title,

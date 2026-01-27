@@ -3,6 +3,12 @@ import BeforeAfterSlider from '@/components/ui/before-after-slider';
 import CTAButton from './CTAButton';
 
 const RoomMakeover: React.FC = () => {
+  // Toggle visibility; keep markup (including CTA) intact for future enablement
+  const showRoomMakeover = false;
+  if (!showRoomMakeover) {
+    return null;
+  }
+
   // Sample data for before/after images using homeoffice images as placeholders
   const makeoverData = {
     beforeImage: "/assets/images/homeoffice/homeoffice1/homeoffice1.jpg",
@@ -30,6 +36,10 @@ const RoomMakeover: React.FC = () => {
             <p className="text-xl text-[rgba(89,89,89,1)] font-light mt-[18px]">
               See how we transform space.
             </p>
+            <CTAButton to="/gallery" className="bg-[#ED276E] hover:bg-[#299dd7] text-white flex min-h-[60px] w-60 max-w-full items-center gap-[13px] text-[21px] font-normal text-center justify-center mt-7 pl-[19px] pr-[11px] py-[13px] rounded-[35px]">
+              <span className="self-stretch my-auto">View All Gallery</span>
+              <img alt="Arrow Icon" className="aspect-[1] object-contain w-[34px] self-stretch shrink-0 my-auto brightness-0 invert" src="/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />
+            </CTAButton>
           </div>
         </div>
       </div>

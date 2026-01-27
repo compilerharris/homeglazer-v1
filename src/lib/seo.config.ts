@@ -1,8 +1,6 @@
-import { DefaultSeoProps } from 'next-seo';
-
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
-const defaultSEOConfig: DefaultSeoProps = {
+const defaultSEOConfig = {
   defaultTitle: 'HomeGlazer - Professional Painting Services',
   titleTemplate: '%s | HomeGlazer',
   description: 'Professional painting services including interior, exterior, texture painting, wall decor, and wood services. Transform your space with HomeGlazer.',

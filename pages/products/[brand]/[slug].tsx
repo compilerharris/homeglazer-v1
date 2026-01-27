@@ -234,13 +234,13 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
         <meta property="og:title" content={`${product.name} | ${product.brand} - HomeGlazer`} />
         <meta property="og:description" content={product.description || `${product.name} by ${product.brand}. Premium quality paint.`} />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content={product.imageUrl && product.imageUrl.startsWith('http') ? product.imageUrl : `${SITE_URL}${product.imageUrl || '/uploads/color-bucket1.png'}`} />
+        <meta property="og:image" content={product.image && product.image.startsWith('http') ? product.image : `${SITE_URL}${product.image || '/uploads/color-bucket1.png'}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${product.name} | ${product.brand}`} />
         <meta name="twitter:description" content={product.description || `Premium quality paint by ${product.brand}.`} />
-        <meta name="twitter:image" content={product.imageUrl && product.imageUrl.startsWith('http') ? product.imageUrl : `${SITE_URL}${product.imageUrl || '/uploads/color-bucket1.png'}`} />
+        <meta name="twitter:image" content={product.image && product.image.startsWith('http') ? product.image : `${SITE_URL}${product.image || '/uploads/color-bucket1.png'}`} />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
         <Header />

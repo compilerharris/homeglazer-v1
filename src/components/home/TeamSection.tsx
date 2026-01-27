@@ -3,6 +3,12 @@ import SectionCarousel from './SectionCarousel';
 import { CarouselItem } from "@/components/ui/carousel";
 
 const TeamSection: React.FC = () => {
+  // Toggle visibility; keep content intact for future use
+  const showTeamSection = false;
+  if (!showTeamSection) {
+    return null;
+  }
+
   // Sample data for team members with updated image
   const teamMembers = [{
     id: 1,
