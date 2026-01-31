@@ -1,40 +1,22 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { faqItems as faqData, FAQItem } from '@/data/faq';
 
-interface FAQItem {
-  question: string;
-  answer: string;
-  isOpen: boolean;
+type FAQItemWithState = FAQItem & { isOpen: boolean };
+
+interface FAQProps {
+  limit?: number;
 }
 
-const FAQ: React.FC = () => {
-  const [faqItems, setFaqItems] = useState<FAQItem[]>([
-    {
-      question: "How many people work on your painting crew?",
-      answer: "The size of our crew strongly depends on the scope of work and timeline within the project needs to be completed. We usually utilise team of 2-6 professional painter to maximise the productivity.",
-      isOpen: true
-    },
-    {
-      question: "What are your working hours?",
-      answer: "Our standard working hours are Monday to Friday from 8:00 AM to 5:00 PM, and Saturday from 9:00 AM to 3:00 PM. However, we can accommodate special requests for after-hours or weekend work based on your needs.",
-      isOpen: false
-    },
-    {
-      question: "What is the difference between local painter and Home Glazer?",
-      answer: "Home Glazer offers professional, insured, and quality-controlled painting services with trained experts, while local painters may vary in quality and reliability. We provide comprehensive services including color consultation, premium materials, and a satisfaction guarantee.",
-      isOpen: false
-    },
-    {
-      question: "What are the prices? Is the price negotiable?",
-      answer: "Our pricing is based on the scope of work, materials required, and project complexity. We provide detailed, transparent quotes and offer competitive rates. While our prices reflect our quality standards, we're happy to discuss your budget constraints to find a solution that works for you.",
-      isOpen: false
-    },
-    {
-      question: "Will my house be cleaned after the painting job?",
-      answer: "Absolutely! We take pride in our clean-up process. After completing the painting job, our team will thoroughly clean the area, remove all painting materials, and ensure your space is left in pristine condition, ready for you to enjoy.",
-      isOpen: false
-    }
-  ]);
+const FAQ: React.FC<FAQProps> = ({ limit }) => {
+  const items = limit ? faqData.slice(0, limit) : faqData;
+
+  const [faqItems, setFaqItems] = useState<FAQItemWithState[]>(
+    items.map((item, index) => ({
+      ...item,
+      isOpen: index === 0,
+    }))
+  );
 
   const toggleFAQ = (index: number) => {
     setFaqItems(faqItems.map((item, i) => ({

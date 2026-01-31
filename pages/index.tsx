@@ -45,7 +45,15 @@ export default function Home() {
       <TeamSection />
       <Reviews />
       <DesignInsights />
-      <FAQ />
+      <FAQ limit={5} />
+      <div className="w-full flex justify-center px-4 mt-6 mb-12">
+        <Link
+          href="/faq"
+          className="inline-flex items-center justify-center rounded-lg bg-[#ED276E] px-6 py-3 text-white font-semibold shadow-md hover:bg-[#b81d5a] transition"
+        >
+          More FAQs
+        </Link>
+      </div>
       
       {/* Mobile & Tablet Action Buttons - Fixed at Bottom */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
