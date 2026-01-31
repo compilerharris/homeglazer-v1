@@ -98,7 +98,7 @@ const ColourVisualizer: React.FC = () => {
   };
   
   return (
-    <section className="bg-[rgba(223,223,223,0.27)] w-full mt-[50px] py-[35px] max-md:mt-10">
+    <section className="bg-[rgba(223,223,223,0.27)] w-full mt-0 py-[35px] max-md:mt-6">
       <div className="container mx-auto w-[80%] px-0 lg:px-8 flex flex-col lg:flex-row items-center gap-8 2xl:w-[1400px]">
         <div className="w-full lg:w-1/3 my-auto order-2 lg:order-1">
           <div className="max-w-[354px] mx-auto">

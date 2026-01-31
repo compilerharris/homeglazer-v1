@@ -322,7 +322,7 @@ const Commercial: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1587702068694-a909ef4aa346?w=800&q=80" 
+                    src="/assets/images/office/office6/office6.jpg" 
                     alt="Commercial Painter Team"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -449,7 +449,7 @@ const Commercial: React.FC = () => {
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="h-56 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center p-4">
                   <img 
-                    src="/uploads/services/commercial-intro.jpg" 
+                    src="/uploads/services/Retail%20&%20Shop%20Painting.png" 
                     alt="Retail & Shop Painting"
                     className="w-full h-full object-cover rounded-lg"
                   />

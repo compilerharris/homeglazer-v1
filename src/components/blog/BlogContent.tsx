@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { BlogPost } from './BlogCard';
 
 interface BlogContentProps {
@@ -6,6 +6,89 @@ interface BlogContentProps {
 }
 
 const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
+  const fallbackShareUrl = useMemo(() => {
+    const base =
+      (process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com').replace(
+        /\/$/,
+        ''
+      );
+    return `${base}/blog/${post.slug}`;
+  }, [post.slug]);
+
+  const getEffectiveShareUrl = useCallback(() => {
+    if (typeof window !== 'undefined' && window.location?.href) {
+      const href = window.location.href;
+      const host = window.location.hostname;
+      const isLocalHost =
+        host === 'localhost' || host === '127.0.0.1' || host.endsWith('.local');
+      if (!isLocalHost) {
+        return href;
+      }
+      return fallbackShareUrl;
+    }
+    return fallbackShareUrl;
+  }, [fallbackShareUrl]);
+
+  const openShareWindow = useCallback((url: string) => {
+    if (typeof window === 'undefined') return;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }, []);
+
+  const handleFacebookShare = useCallback(() => {
+    const urlToShare = getEffectiveShareUrl();
+    if (!urlToShare) return;
+    openShareWindow(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        urlToShare
+      )}&quote=${encodeURIComponent(post.title)}`
+    );
+  }, [getEffectiveShareUrl, openShareWindow, post.title]);
+
+  const handleTwitterShare = useCallback(() => {
+    const urlToShare = getEffectiveShareUrl();
+    if (!urlToShare) return;
+    openShareWindow(
+      `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+        urlToShare
+      )}&text=${encodeURIComponent(post.title)}`
+    );
+  }, [getEffectiveShareUrl, openShareWindow, post.title]);
+
+  const handleLinkedInShare = useCallback(() => {
+    const urlToShare = getEffectiveShareUrl();
+    if (!urlToShare) return;
+    openShareWindow(
+      `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+        urlToShare
+      )}&title=${encodeURIComponent(post.title)}`
+    );
+  }, [getEffectiveShareUrl, openShareWindow, post.title]);
+
+  const handleCopyOnly = useCallback(async () => {
+    const urlToShare = getEffectiveShareUrl();
+    if (!urlToShare) return;
+
+    if (
+      typeof navigator !== 'undefined' &&
+      navigator.clipboard &&
+      navigator.clipboard.writeText
+    ) {
+      try {
+        await navigator.clipboard.writeText(urlToShare);
+        if (typeof window !== 'undefined') {
+          window.alert('Link copied to clipboard');
+        }
+        return;
+      } catch (error) {
+        // fall through to prompt
+      }
+    }
+
+    if (typeof window !== 'undefined') {
+      window.prompt('Copy link to clipboard', urlToShare);
+    }
+  }, [getEffectiveShareUrl]);
+
   return (
     <article className="prose prose-lg max-w-none">
       <h1 className="text-3xl md:text-4xl font-medium text-[#ED276E] mb-6">{post.title}</h1>
@@ -96,6 +179,16 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
           font-weight: 600;
           color: #1f2937;
         }
+        .blog-content h1,
+        .blog-content h3,
+        .blog-content h5 {
+          color: #ed276e;
+        }
+        .blog-content h2,
+        .blog-content h4,
+        .blog-content h6 {
+          color: #299dd7;
+        }
       `}</style>
       {post.content ? (
         <div 
@@ -150,28 +243,47 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       <div className="mt-10 pt-6 border-t border-gray-200">
         <h3 className="text-xl font-medium text-gray-900 mb-4">Share this article</h3>
         <div className="flex space-x-4">
-          <button className="p-2 rounded-full bg-[#F5F5F5] hover:bg-gray-200 transition-colors">
+          <button
+            type="button"
+            aria-label="Share on Facebook"
+            onClick={handleFacebookShare}
+            className="p-2 rounded-full bg-[#F5F5F5] hover:bg-gray-200 transition-colors"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-700">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
             </svg>
           </button>
-          <button className="p-2 rounded-full bg-[#F5F5F5] hover:bg-gray-200 transition-colors">
+          <button
+            type="button"
+            aria-label="Share on Twitter"
+            onClick={handleTwitterShare}
+            className="p-2 rounded-full bg-[#F5F5F5] hover:bg-gray-200 transition-colors"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-700">
               <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
             </svg>
           </button>
-          <button className="p-2 rounded-full bg-[#F5F5F5] hover:bg-gray-200 transition-colors">
+          <button
+            type="button"
+            aria-label="Share on LinkedIn"
+            onClick={handleLinkedInShare}
+            className="p-2 rounded-full bg-[#F5F5F5] hover:bg-gray-200 transition-colors"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-700">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
               <rect x="2" y="9" width="4" height="12"></rect>
               <circle cx="4" cy="4" r="2"></circle>
             </svg>
           </button>
-          <button className="p-2 rounded-full bg-[#F5F5F5] hover:bg-gray-200 transition-colors">
+          <button
+            type="button"
+            aria-label="Copy link"
+            onClick={handleCopyOnly}
+            className="p-2 rounded-full bg-[#F5F5F5] hover:bg-gray-200 transition-colors"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-700">
-              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-              <polyline points="16 6 12 2 8 6"></polyline>
-              <line x1="12" y1="2" x2="12" y2="15"></line>
+              <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
           </button>
         </div>

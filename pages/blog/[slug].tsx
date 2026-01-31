@@ -31,6 +31,8 @@ interface BlogPostData {
   coverImage: string;
   categories: string[];
   content?: string;
+  metaDescription?: string | null;
+  metaKeywords?: string | null;
 }
 
 interface BlogPostPageProps {
@@ -42,6 +44,44 @@ const BlogPost: React.FC<BlogPostPageProps> = ({ post, recentPosts }) => {
 
   return (
     <div className="bg-white flex flex-col overflow-hidden items-center">
+      <Head>
+        <title>{post.title} | HomeGlazer</title>
+        <meta
+          name="description"
+          content={post.metaDescription || post.excerpt || ''}
+        />
+        {post.metaKeywords && (
+          <meta name="keywords" content={post.metaKeywords} />
+        )}
+        <link rel="canonical" href={`${SITE_URL}/blog/${post.slug}`} />
+        <meta property="og:title" content={`${post.title} | HomeGlazer`} />
+        <meta
+          property="og:description"
+          content={post.metaDescription || post.excerpt || ''}
+        />
+        <meta property="og:url" content={`${SITE_URL}/blog/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="HomeGlazer" />
+        <meta property="og:locale" content="en_US" />
+        {post.coverImage && (
+          <meta
+            property="og:image"
+            content={post.coverImage.startsWith('http') ? post.coverImage : `${SITE_URL}${post.coverImage}`}
+          />
+        )}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${post.title} | HomeGlazer`} />
+        <meta
+          name="twitter:description"
+          content={post.metaDescription || post.excerpt || ''}
+        />
+        {post.coverImage && (
+          <meta
+            name="twitter:image"
+            content={post.coverImage.startsWith('http') ? post.coverImage : `${SITE_URL}${post.coverImage}`}
+          />
+        )}
+      </Head>
       <Header />
       
       <div className="w-[90%] lg:w-[80%] mx-auto pt-28">
@@ -132,6 +172,8 @@ export const getServerSideProps: GetServerSideProps<BlogPostPageProps> = async (
         categories: true,
         content: true,
         publishedAt: true,
+        metaDescription: true,
+        metaKeywords: true,
       },
     });
 
@@ -171,6 +213,8 @@ export const getServerSideProps: GetServerSideProps<BlogPostPageProps> = async (
       coverImage: blog.coverImage,
       categories: blog.categories as string[],
       content: blog.content,
+      metaDescription: blog.metaDescription,
+      metaKeywords: blog.metaKeywords,
       date: blog.publishedAt 
         ? new Date(blog.publishedAt).toLocaleDateString('en-US', { 
             year: 'numeric', 

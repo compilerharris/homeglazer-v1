@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/DHxz7-WhF1qM0D_0ySnAF/_buildManifest.js",
-    "static/DHxz7-WhF1qM0D_0ySnAF/_ssgManifest.js"
+    "static/SOxRCeOeSSGDKCk3FDrSO/_buildManifest.js",
+    "static/SOxRCeOeSSGDKCk3FDrSO/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -17,9 +17,9 @@
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
       "static/chunks/382-6c55d7b831ee06dd.js",
-      "static/chunks/2246-c727ac765370a09e.js",
-      "static/chunks/8135-9872187da5be73c4.js",
-      "static/chunks/pages/index-a1cc4edd8a477492.js"
+      "static/chunks/2246-3eabe180a93bf944.js",
+      "static/chunks/8135-027c22423122cae9.js",
+      "static/chunks/pages/index-dd448274aa71b0a5.js"
     ],
     "/404": [
       "static/chunks/webpack-c10eebfdb4683f26.js",
@@ -31,8 +31,8 @@
       "static/chunks/webpack-c10eebfdb4683f26.js",
       "static/chunks/framework-840cff9d6bb95703.js",
       "static/chunks/main-ee80768669eb8f5c.js",
-      "static/css/aab2b7756b3a8d72.css",
-      "static/chunks/pages/_app-44f699245e5cfb75.js"
+      "static/css/01e283bf2e69618b.css",
+      "static/chunks/pages/_app-8e7926aae9ee7599.js"
     ],
     "/_error": [
       "static/chunks/webpack-c10eebfdb4683f26.js",
@@ -47,8 +47,8 @@
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
       "static/chunks/382-6c55d7b831ee06dd.js",
-      "static/chunks/2246-c727ac765370a09e.js",
-      "static/chunks/8135-9872187da5be73c4.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
+      "static/chunks/8135-027c22423122cae9.js",
       "static/chunks/pages/about-d46bf049752e0c63.js"
     ],
     "/admin": [
@@ -145,7 +145,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/blog-4b0999372fcb3683.js"
     ],
     "/blog/[slug]": [
@@ -155,8 +155,8 @@
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
       "static/chunks/1754-a3659f7dc0f79eda.js",
-      "static/chunks/2246-c727ac765370a09e.js",
-      "static/chunks/pages/blog/[slug]-e083d0f402c005c1.js"
+      "static/chunks/2246-3eabe180a93bf944.js",
+      "static/chunks/pages/blog/[slug]-49e6acdd7803c4f8.js"
     ],
     "/calculator/painting": [
       "static/chunks/webpack-c10eebfdb4683f26.js",
@@ -164,7 +164,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/4200-c716c9601f802911.js",
       "static/chunks/pages/calculator/painting-889a0c650ff65138.js"
     ],
@@ -174,7 +174,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/4200-c716c9601f802911.js",
       "static/chunks/pages/calculator/wood-polishing-87374437c0f40647.js"
     ],
@@ -184,7 +184,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/colour-visualiser-44070b34b4e8cc64.js"
     ],
     "/colour-visualiser/advanced": [
@@ -199,7 +199,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/9570-ee76b4c95df6dacb.js",
       "static/chunks/7027-285e328562531439.js",
       "static/chunks/9394-8176643f1296c4a9.js",
@@ -230,7 +230,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/colour-visualiser/basic/[brand]/[category]/[color]-53c1f095b95ef6f7.js"
     ],
     "/contact": [
@@ -239,7 +239,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/contact-f51e31aae3f2d77c.js"
     ],
     "/cookie-policy": [
@@ -248,7 +248,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/cookie-policy-b0af18aa1104039f.js"
     ],
     "/enquiry": [
@@ -257,7 +257,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/enquiry-bdbb8a6cab6363c4.js"
     ],
     "/faq": [
@@ -266,7 +266,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/faq-7cbee4f8bf7dd64a.js"
     ],
     "/gallery": [
@@ -275,7 +275,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/gallery-8bfe15024e082e89.js"
     ],
     "/paint-budget-calculator": [
@@ -285,7 +285,7 @@
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
       "static/chunks/6757-02ce8a41caf3881b.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/paint-budget-calculator-e9ba9d407ca056fb.js"
     ],
     "/privacy-policy": [
@@ -294,7 +294,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/privacy-policy-44d43cd2511406ab.js"
     ],
     "/products": [
@@ -303,7 +303,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/products-b2bb99c4fa803cc5.js"
     ],
     "/products/[brand]/[slug]": [
@@ -312,7 +312,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/products/[brand]/[slug]-588e2fef9ad30e35.js"
     ],
     "/protected-visualizer-demo": [
@@ -321,7 +321,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/protected-visualizer-demo-435d6b8494828976.js"
     ],
     "/services/customized-painting": [
@@ -330,7 +330,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/customized-painting-e8e466700bf91989.js"
     ],
     "/services/customized-painting/exterior-painting": [
@@ -339,8 +339,8 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
-      "static/chunks/pages/services/customized-painting/exterior-painting-db4f2e40b3ff4d72.js"
+      "static/chunks/2246-3eabe180a93bf944.js",
+      "static/chunks/pages/services/customized-painting/exterior-painting-4ecb76f14ff35e25.js"
     ],
     "/services/customized-painting/interior-painting": [
       "static/chunks/webpack-c10eebfdb4683f26.js",
@@ -348,7 +348,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/customized-painting/interior-painting-c4580e0daec6ef85.js"
     ],
     "/services/customized-painting/one-day-painting": [
@@ -357,8 +357,8 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
-      "static/chunks/pages/services/customized-painting/one-day-painting-c60a8f966069c24e.js"
+      "static/chunks/2246-3eabe180a93bf944.js",
+      "static/chunks/pages/services/customized-painting/one-day-painting-ae7fe13ab6e07b3c.js"
     ],
     "/services/customized-painting/per-day-painting": [
       "static/chunks/webpack-c10eebfdb4683f26.js",
@@ -366,8 +366,8 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
-      "static/chunks/pages/services/customized-painting/per-day-painting-7efcc4f062438299.js"
+      "static/chunks/2246-3eabe180a93bf944.js",
+      "static/chunks/pages/services/customized-painting/per-day-painting-0eedc0bcd37f86a5.js"
     ],
     "/services/painting": [
       "static/chunks/webpack-c10eebfdb4683f26.js",
@@ -375,7 +375,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/painting-3fd1ff9dfecd907c.js"
     ],
     "/services/painting/commercial": [
@@ -384,8 +384,8 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
-      "static/chunks/pages/services/painting/commercial-c82ace78888c2c10.js"
+      "static/chunks/2246-3eabe180a93bf944.js",
+      "static/chunks/pages/services/painting/commercial-8ecb1af14c649f72.js"
     ],
     "/services/painting/kids-room": [
       "static/chunks/webpack-c10eebfdb4683f26.js",
@@ -393,8 +393,8 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
-      "static/chunks/pages/services/painting/kids-room-116ff422e4a4396d.js"
+      "static/chunks/2246-3eabe180a93bf944.js",
+      "static/chunks/pages/services/painting/kids-room-f206d214acd5eacc.js"
     ],
     "/services/painting/residential": [
       "static/chunks/webpack-c10eebfdb4683f26.js",
@@ -402,8 +402,8 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
-      "static/chunks/pages/services/painting/residential-911ec0a7a73d4bb2.js"
+      "static/chunks/2246-3eabe180a93bf944.js",
+      "static/chunks/pages/services/painting/residential-4fe83e8dd1aa1f85.js"
     ],
     "/services/wall-decor": [
       "static/chunks/webpack-c10eebfdb4683f26.js",
@@ -411,7 +411,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/wall-decor-0bb96461756047d7.js"
     ],
     "/services/wall-decor/graffiti-painting": [
@@ -420,8 +420,8 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
-      "static/chunks/pages/services/wall-decor/graffiti-painting-201afb4b75e8be97.js"
+      "static/chunks/2246-3eabe180a93bf944.js",
+      "static/chunks/pages/services/wall-decor/graffiti-painting-545272b51992392e.js"
     ],
     "/services/wall-decor/stencil-art": [
       "static/chunks/webpack-c10eebfdb4683f26.js",
@@ -429,7 +429,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/wall-decor/stencil-art-5d5d961f2d5d2e2f.js"
     ],
     "/services/wall-decor/texture-painting": [
@@ -438,7 +438,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/wall-decor/texture-painting-e1064c8acf4a4f91.js"
     ],
     "/services/wall-decor/wallpaper": [
@@ -447,7 +447,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/wall-decor/wallpaper-bd5a527457a7baf0.js"
     ],
     "/services/wood-services": [
@@ -456,7 +456,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/wood-services-795700369d39a2cf.js"
     ],
     "/services/wood/carpentry": [
@@ -465,7 +465,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/wood/carpentry-fc2a9db4ca14e788.js"
     ],
     "/services/wood/wood-coating": [
@@ -474,7 +474,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/wood/wood-coating-0ea271cad255c3c0.js"
     ],
     "/services/wood/wood-polishing": [
@@ -483,7 +483,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/services/wood/wood-polishing-f063c1eb93fda6ce.js"
     ],
     "/sitemap": [
@@ -492,7 +492,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/sitemap-49ae99ba92e2afd1.js"
     ],
     "/terms-and-condition": [
@@ -501,7 +501,7 @@
       "static/chunks/main-ee80768669eb8f5c.js",
       "static/chunks/6110-4ae719befd1afe71.js",
       "static/chunks/7029-983759b89b558d4f.js",
-      "static/chunks/2246-c727ac765370a09e.js",
+      "static/chunks/2246-3eabe180a93bf944.js",
       "static/chunks/pages/terms-and-condition-afea280358557eb7.js"
     ]
   },

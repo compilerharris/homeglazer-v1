@@ -169,6 +169,10 @@ const Header: React.FC = () => {
     {
       label: 'About',
       path: '/about'
+    },
+    {
+      label: 'Blog',
+      path: '/blog'
     }
   ];
 
@@ -250,6 +254,9 @@ const Header: React.FC = () => {
                 </Link>
                 <Link href="/about" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
                   About
+                </Link>
+                <Link href="/blog" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  Blog
                 </Link>
               </nav>
             </div>

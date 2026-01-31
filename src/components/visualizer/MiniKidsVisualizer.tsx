@@ -57,19 +57,27 @@ const MiniKidsVisualizer: React.FC<MiniKidsVisualizerProps> = ({ className = '' 
     }
   ];
 
-  // Use existing bedroom1 assets
-  const roomImage = '/assets/images/bedroom/bedroom1/bedroom1.jpg';
+  // Use kidsroom2 assets (no roof mask)
+  const roomImage = '/assets/images/kidsroom/kidsroom2/kidsroom2.jpg';
   const wallSvgs = {
-    front: '/assets/images/bedroom/bedroom1/front-wall.svg',
-    left: '/assets/images/bedroom/bedroom1/left-wall.svg',
-    right: '/assets/images/bedroom/bedroom1/right-wall.svg'
+    left: '/assets/images/kidsroom/kidsroom2/left-wall.svg',
+    right: '/assets/images/kidsroom/kidsroom2/right-wall.svg',
+    chair: '/assets/images/kidsroom/kidsroom2/chair.svg',
+    curtain: '/assets/images/kidsroom/kidsroom2/curtain.svg',
+    edge: '/assets/images/kidsroom/kidsroom2/edge.svg',
+    shelf: '/assets/images/kidsroom/kidsroom2/shelf.svg',
+    table: '/assets/images/kidsroom/kidsroom2/table.svg',
   };
 
-  const wallKeys = ['front', 'left', 'right'];
+  const wallKeys = ['left', 'right', 'chair', 'curtain', 'edge', 'shelf', 'table'];
   const wallLabels: Record<string, string> = {
-    front: 'Front Wall',
     left: 'Left Wall', 
-    right: 'Right Wall'
+    right: 'Right Wall',
+    chair: 'Chair',
+    curtain: 'Curtain',
+    edge: 'Edge',
+    shelf: 'Shelf',
+    table: 'Table',
   };
 
   // Load wall masks from existing bedroom1 assets

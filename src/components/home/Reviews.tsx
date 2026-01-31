@@ -46,19 +46,19 @@ const Reviews: React.FC = () => {
             <img 
               src="/uploads/Google-Review-QR.jpeg" 
               alt="Scan to leave a Google Review" 
-              className="w-32 h-32 object-contain mb-4 rounded-lg"
+              className="w-32 h-32 object-contain mb-2 rounded-lg"
             />
             <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium">
               Google Reviews
             </h2>
-            <p className="text-xl text-[rgba(89,89,89,1)] font-light mt-[18px]">
+            <p className="text-xl text-[rgba(89,89,89,1)] font-light mt-3">
               See why our clients love our services!
             </p>
             <a 
               href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0TE8zSM7NTjE0YLRSNagwtjRITjU0SEs2tUw2T0k1tTKoMLKwNEkySUm1tDBOTTUwNffizsjPTVVIz0msSi0CAH89E50&q=home+glazer&rlz=1C9BKJA_enIN1146IN1146&oq=home+glazer&hl=en-GB&sourceid=chrome-mobile&ie=UTF-8&sei=H450ac_NOJGf4-EPhvOZ6A8&dlnr=1#ebo=0&lrd=0x390ce10fc59c7de5:0x2894b4de983ee057,1,,,,"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#ED276E] hover:bg-[#299dd7] text-white flex min-h-[60px] w-60 max-w-full items-center gap-[13px] text-[21px] font-normal text-center justify-center mt-7 pl-[18px] pr-[11px] py-[13px] rounded-[35px] transition-colors"
+              className="bg-[#ED276E] hover:bg-[#299dd7] text-white flex min-h-[60px] w-60 max-w-full items-center gap-[13px] text-[21px] font-normal text-center justify-center mt-4 pl-[18px] pr-[11px] py-[13px] rounded-[35px] transition-colors"
             >
               <span className="self-stretch my-auto">View All Reviews</span>
               <img alt="Arrow Icon" className="aspect-[1] object-contain w-[34px] self-stretch shrink-0 my-auto brightness-0 invert" src="/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />

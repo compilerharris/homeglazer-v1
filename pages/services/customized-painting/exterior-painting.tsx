@@ -509,97 +509,6 @@ const ExteriorPainting: React.FC = () => {
           </div>
         </section>
 
-        {/* When to Paint Section - New Style */}
-        <section className="py-20 bg-white">
-          <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-                TIMING
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
-                How Do You Know It Is Time to Paint the Outside of Your Home
-              </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                There are a few obvious signs, such as chipping and cracking paint, that show your home needs exterior painting.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-red-400 rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-white font-bold text-xl">3-7</span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Wood Siding</h3>
-                <p className="text-gray-700 text-center text-sm leading-relaxed">
-                  This can be repainted in 3-7 years. Averagely, it needs paintwork every four years due to staining.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-white font-bold text-xl">5-6</span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Stucco</h3>
-                <p className="text-gray-700 text-center text-sm leading-relaxed">
-                  This lasts 5-6 years if done professionally with proper maintenance and care.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-white font-bold text-xl">10-15</span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Cement Fiberboard</h3>
-                <p className="text-gray-700 text-center text-sm leading-relaxed">
-                  These can go for 10-15 years before repainting with proper installation and maintenance.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-white font-bold text-xl">5</span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Aluminum Siding</h3>
-                <p className="text-gray-700 text-center text-sm leading-relaxed">
-                  Paint usually last about five years depending on weather conditions and maintenance.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-white font-bold text-xl">15-20</span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Brick</h3>
-                <p className="text-gray-700 text-center text-sm leading-relaxed">
-                  Paint on brick can last 15-20 years with proper preparation and high-quality paint.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-indigo-400 rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-white font-bold text-xl">5-10</span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">General Guideline</h3>
-                <p className="text-gray-700 text-center text-sm leading-relaxed">
-                  Most experts advise that you paint your exterior walls every 5-10 years, depending on climate and previous paint job.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Services Overview */}
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
@@ -620,7 +529,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/assets/images/livingroom/livingroom6/livingroom6.jpg" 
+                    src="/uploads/services/Exterior%20Repainting.png" 
                     alt="Exterior Repainting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -662,7 +571,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/actual-residential-painting.png" 
+                    src="/uploads/services/Exterior%20First%20Time%20Painting.png" 
                     alt="First Time Painting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -704,7 +613,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/assets/images/bathroom/bathroom5/bathroom5.jpg" 
+                    src="/uploads/services/Exterior%20Texture%20Painting.png" 
                     alt="Texture Painting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />

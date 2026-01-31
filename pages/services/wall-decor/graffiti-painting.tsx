@@ -149,7 +149,7 @@ const GraffitiPainting: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <img 
-                  src="/uploads/services/graffiti-process.jpg" 
+                  src="/uploads/services/Home%20Glazer%20At%20Graffiti%20Paintings.png" 
                   alt="Graffiti Painting Process"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />

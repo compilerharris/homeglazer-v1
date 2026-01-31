@@ -587,7 +587,7 @@ const Residential: React.FC = () => {
               <div className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/actual-residential-painting.png" 
+                    src="/uploads/services/The Actual Residential Painting Work.png" 
                     alt="Actual Painting Work"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />

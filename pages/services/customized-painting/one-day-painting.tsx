@@ -66,7 +66,7 @@ const OneDayPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="/assets/images/bedroom/bedroom2/bedroom2.jpg" 
+              src="/assets/images/bedroom/bedroom10/bedroom10.jpg" 
               alt="WOW One Day Painting Services"
               className="w-full h-full object-cover"
             />

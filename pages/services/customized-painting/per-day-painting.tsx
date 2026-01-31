@@ -740,7 +740,7 @@ const PerDayPainting: React.FC = () => {
               {/* Professional Team Image */}
               <div className="relative group">
                 <img 
-                  src="https://images.unsplash.com/photo-1560435650-7470a0b0eaa7?w=800&h=600&fit=crop&q=80" 
+                  src="/uploads/services/Our%20Expert%20Painting%20Team.png" 
                   alt="Professional painting team working efficiently and professionally"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />
