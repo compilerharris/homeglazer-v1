@@ -128,7 +128,7 @@ export default function CarpentryServices() {
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Home Glazer at Carpentry Services
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
@@ -165,7 +165,7 @@ export default function CarpentryServices() {
       <section className="py-20 bg-gray-50">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               HomeGlazer Carpentry Services Process
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -178,7 +178,7 @@ export default function CarpentryServices() {
               <div className="w-16 h-16 bg-gradient-to-br from-[#ED276E] to-[#299dd7] rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">1</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Consultation</h3>
+              <h3 className="text-xl font-bold mb-3">Consultation</h3>
               <p className="text-gray-600 leading-relaxed">
                 Initial meeting to understand your requirements, budget, and timeline for the project.
               </p>
@@ -188,7 +188,7 @@ export default function CarpentryServices() {
               <div className="w-16 h-16 bg-gradient-to-br from-[#ED276E] to-[#299dd7] rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">2</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Planning</h3>
+              <h3 className="text-xl font-bold mb-3">Planning</h3>
               <p className="text-gray-600 leading-relaxed">
                 Detailed project planning including material selection, design approval, and timeline creation.
               </p>
@@ -198,7 +198,7 @@ export default function CarpentryServices() {
               <div className="w-16 h-16 bg-gradient-to-br from-[#ED276E] to-[#299dd7] rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">3</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Execution</h3>
+              <h3 className="text-xl font-bold mb-3">Execution</h3>
               <p className="text-gray-600 leading-relaxed">
                 Skilled craftsmen execute the project with precision, maintaining quality standards throughout.
               </p>
@@ -208,7 +208,7 @@ export default function CarpentryServices() {
               <div className="w-16 h-16 bg-gradient-to-br from-[#ED276E] to-[#299dd7] rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">4</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Check</h3>
+              <h3 className="text-xl font-bold mb-3">Quality Check</h3>
               <p className="text-gray-600 leading-relaxed">
                 Final inspection and quality assurance to ensure the project meets our high standards.
               </p>
@@ -230,7 +230,7 @@ export default function CarpentryServices() {
             </div>
             
             <div className="order-1 lg:order-2">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Interior Carpentry Services
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
@@ -254,7 +254,7 @@ export default function CarpentryServices() {
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Exterior Carpentry Services
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
@@ -291,7 +291,7 @@ export default function CarpentryServices() {
       <section className="py-20">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               How Contractors Provide Light Carpentry
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -306,7 +306,7 @@ export default function CarpentryServices() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Quick Repairs</h3>
+              <h3 className="text-xl font-bold mb-3 text-center">Quick Repairs</h3>
               <p className="text-gray-600 leading-relaxed text-center">
                 Fast fixes for minor issues like loose hinges, broken drawer handles, or small repairs that restore functionality.
               </p>
@@ -318,7 +318,7 @@ export default function CarpentryServices() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Installation</h3>
+              <h3 className="text-xl font-bold mb-3 text-center">Installation</h3>
               <p className="text-gray-600 leading-relaxed text-center">
                 Professional installation of pre-made items like shelves, hooks, or small decorative elements.
               </p>
@@ -330,7 +330,7 @@ export default function CarpentryServices() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Customization</h3>
+              <h3 className="text-xl font-bold mb-3 text-center">Customization</h3>
               <p className="text-gray-600 leading-relaxed text-center">
                 Minor modifications to existing furniture or structures to better suit your needs and preferences.
               </p>
@@ -343,7 +343,7 @@ export default function CarpentryServices() {
       <section className="py-20 bg-gray-50">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               The Benefits of Using a Skilled Carpentry Contractor for Home Repair Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -353,7 +353,7 @@ export default function CarpentryServices() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Professional Expertise</h3>
+              <h3 className="text-2xl font-bold mb-4">Professional Expertise</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -375,7 +375,7 @@ export default function CarpentryServices() {
             </div>
             
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Quality Assurance</h3>
+              <h3 className="text-2xl font-bold mb-4">Quality Assurance</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -403,7 +403,7 @@ export default function CarpentryServices() {
       <section className="py-20">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               How to Choose the Best Professional Carpenter Company
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -418,7 +418,7 @@ export default function CarpentryServices() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Check Credentials</h3>
+              <h3 className="text-xl font-bold mb-3">Check Credentials</h3>
               <p className="text-gray-600 leading-relaxed">
                 Verify licenses, insurance, and certifications to ensure the company meets industry standards.
               </p>
@@ -431,7 +431,7 @@ export default function CarpentryServices() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Review Portfolio</h3>
+              <h3 className="text-xl font-bold mb-3">Review Portfolio</h3>
               <p className="text-gray-600 leading-relaxed">
                 Examine previous work samples and client testimonials to assess quality and style.
               </p>
@@ -443,7 +443,7 @@ export default function CarpentryServices() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Get References</h3>
+              <h3 className="text-xl font-bold mb-3">Get References</h3>
               <p className="text-gray-600 leading-relaxed">
                 Request references from recent clients to verify satisfaction and work quality.
               </p>
@@ -456,7 +456,7 @@ export default function CarpentryServices() {
       <section className="py-20 bg-gray-50">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               What are the Different Types of Carpentry Work
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -467,21 +467,21 @@ export default function CarpentryServices() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Rough Carpentry</h3>
+                <h3 className="text-xl font-bold mb-3">Rough Carpentry</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Structural work including framing, roofing, and foundation elements. This type focuses on the skeleton of buildings and structures.
                 </p>
               </div>
               
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Finish Carpentry</h3>
+                <h3 className="text-xl font-bold mb-3">Finish Carpentry</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Detailed work including trim, molding, doors, and windows. This type focuses on the final touches that enhance aesthetics.
                 </p>
               </div>
               
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Cabinet Making</h3>
+                <h3 className="text-xl font-bold mb-3">Cabinet Making</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Specialized furniture construction including kitchen cabinets, wardrobes, and custom storage solutions.
                 </p>
@@ -490,21 +490,21 @@ export default function CarpentryServices() {
             
             <div className="space-y-6">
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Furniture Making</h3>
+                <h3 className="text-xl font-bold mb-3">Furniture Making</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Custom furniture construction from tables and chairs to specialized pieces designed for specific needs.
                 </p>
               </div>
               
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Restoration</h3>
+                <h3 className="text-xl font-bold mb-3">Restoration</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Repair and restoration of antique furniture and wooden structures, preserving their historical value.
                 </p>
               </div>
               
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Outdoor Carpentry</h3>
+                <h3 className="text-xl font-bold mb-3">Outdoor Carpentry</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Construction of decks, pergolas, outdoor furniture, and garden structures designed for outdoor use.
                 </p>
@@ -518,7 +518,7 @@ export default function CarpentryServices() {
       <section className="py-20">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Tips for Working with a Carpenter during your Home Renovation Project
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -528,7 +528,7 @@ export default function CarpentryServices() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Communication Tips</h3>
+              <h3 className="text-2xl font-bold mb-4">Communication Tips</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -550,7 +550,7 @@ export default function CarpentryServices() {
             </div>
             
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Planning Considerations</h3>
+              <h3 className="text-2xl font-bold mb-4">Planning Considerations</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -578,7 +578,7 @@ export default function CarpentryServices() {
       <section className="py-20 bg-gray-50">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Popular Carpentry Projects
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -593,7 +593,7 @@ export default function CarpentryServices() {
                 alt="Custom Kitchen Cabinets - Professional Carpentry Services"
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Custom Kitchen Cabinets</h3>
+              <h3 className="text-xl font-bold mb-3">Custom Kitchen Cabinets</h3>
               <p className="text-gray-600 leading-relaxed">
                 Tailored storage solutions that maximize space and enhance your kitchen's functionality and style.
               </p>
@@ -605,7 +605,7 @@ export default function CarpentryServices() {
                 alt="Built-in Wardrobes - Custom Storage Solutions"
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Built-in Wardrobes</h3>
+              <h3 className="text-xl font-bold mb-3">Built-in Wardrobes</h3>
               <p className="text-gray-600 leading-relaxed">
                 Custom closet systems designed to fit your space perfectly and organize your belongings efficiently.
               </p>
@@ -617,7 +617,7 @@ export default function CarpentryServices() {
                 alt="Outdoor Deck Construction - Exterior Carpentry"
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Outdoor Decks</h3>
+              <h3 className="text-xl font-bold mb-3">Outdoor Decks</h3>
               <p className="text-gray-600 leading-relaxed">
                 Beautiful outdoor living spaces that extend your home's functionality and increase property value.
               </p>
@@ -630,7 +630,7 @@ export default function CarpentryServices() {
       <section className="py-20">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Carpentry Applications & Uses
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -640,7 +640,7 @@ export default function CarpentryServices() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Residential Applications</h3>
+              <h3 className="text-2xl font-bold mb-4">Residential Applications</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -662,7 +662,7 @@ export default function CarpentryServices() {
             </div>
             
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Commercial Applications</h3>
+              <h3 className="text-2xl font-bold mb-4">Commercial Applications</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>

@@ -27,7 +27,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {/* Content Section - Flexible height */}
           <div className="flex-grow flex flex-col">
             {/* Product Name */}
-            <h3 className="font-semibold text-gray-900 text-sm md:text-lg mb-2 group-hover:text-[#299dd7] transition-colors duration-300 line-clamp-2">
+            <h3 className="font-semibold text-sm md:text-lg mb-2 line-clamp-2">
               {product.name}
             </h3>
             

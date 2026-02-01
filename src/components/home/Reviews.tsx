@@ -48,7 +48,7 @@ const Reviews: React.FC = () => {
               alt="Scan to leave a Google Review" 
               className="w-32 h-32 object-contain mb-2 rounded-lg"
             />
-            <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium">
+            <h2 className="text-[40px] font-medium">
               Google Reviews
             </h2>
             <p className="text-xl text-[rgba(89,89,89,1)] font-light mt-3">

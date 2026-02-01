@@ -64,7 +64,7 @@ const WoodPolishingSummary: React.FC<WoodPolishingSummaryProps> = ({
 
   return (
     <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-      <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Calculation Summary</h3>
+      <h3 className="text-2xl font-semibold mb-6 border-b-2 border-[var(--brand-pink)] pb-2">Calculation Summary</h3>
       <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
         <div className="space-y-3">
           <p><span className="font-medium">Input Method:</span> {inputMethod === 'area' ? 'Enter quantity in sq. ft.' : 'Estimate based on item count'}</p>

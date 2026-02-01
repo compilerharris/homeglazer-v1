@@ -79,7 +79,7 @@ export default function ProductsPage() {
       <AdminLayout>
         <div>
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-[#ED276E]">Products</h1>
+            <h1 className="text-3xl font-bold">Products</h1>
             <Button
               onClick={() => router.push('/admin/products/new')}
               className="bg-[#299dd7] hover:bg-[#237bb0] text-white"
@@ -121,7 +121,7 @@ export default function ProductsPage() {
               {products.map((product) => (
                 <div key={product.id} className="bg-white rounded-xl shadow p-6 border border-gray-200 flex flex-col">
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-[#ED276E]">
+                    <h3 className="text-lg font-bold">
                       {product.name}
                     </h3>
                   </div>

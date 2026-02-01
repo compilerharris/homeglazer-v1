@@ -93,7 +93,7 @@ const CustomizedPainting: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/assets/images/bedroom/bedroom2/bedroom2.jpg" 
+                src="/uploads/services/WOW%20One%20Day%20Painting%20Services%20thumb.png" 
                 alt="One-Day Painting" 
                 className="w-full h-64 object-cover"
               />
@@ -112,7 +112,7 @@ const CustomizedPainting: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/assets/images/livingroom/livingroom1/livingroom1.jpg" 
+                src="/uploads/services/WOW%20Per%20Day%20Painting%20Services%20thumb.png" 
                 alt="Per Day Painting" 
                 className="w-full h-64 object-cover"
               />

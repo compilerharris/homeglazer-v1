@@ -91,7 +91,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
 
   return (
     <article className="prose prose-lg max-w-none">
-      <h1 className="text-3xl md:text-4xl font-medium text-[#ED276E] mb-6">{post.title}</h1>
+      <h1 className="text-3xl md:text-4xl font-medium mb-6">{post.title}</h1>
       
       <div className="flex flex-wrap items-center gap-4 mb-8 pb-6 border-b border-gray-200">
         <div className="flex items-center">
@@ -182,12 +182,12 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         .blog-content h1,
         .blog-content h3,
         .blog-content h5 {
-          color: #ed276e;
+          color: var(--brand-pink);
         }
         .blog-content h2,
         .blog-content h4,
         .blog-content h6 {
-          color: #299dd7;
+          color: var(--brand-blue);
         }
       `}</style>
       {post.content ? (
@@ -208,7 +208,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
             Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl.
           </p>
           
-          <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">Key Points to Consider</h2>
+          <h2 className="text-2xl font-medium mt-8 mb-4">Key Points to Consider</h2>
           
           <p className="text-gray-700">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, 
@@ -222,7 +222,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
             <li className="mb-2">Fourth recommendation for best results</li>
           </ul>
           
-          <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">Why This Matters</h2>
+          <h2 className="text-2xl font-medium mt-8 mb-4">Why This Matters</h2>
           
           <p className="text-gray-700">
             Sed euismod, velit vel bibendum bibendum, urna nisl bibendum nunc, eget bibendum nisl nisl vel nisl. 
@@ -241,7 +241,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       )}
       
       <div className="mt-10 pt-6 border-t border-gray-200">
-        <h3 className="text-xl font-medium text-gray-900 mb-4">Share this article</h3>
+        <h3 className="text-xl font-medium mb-4">Share this article</h3>
         <div className="flex space-x-4">
           <button
             type="button"

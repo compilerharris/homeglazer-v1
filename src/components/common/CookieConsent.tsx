@@ -162,7 +162,7 @@ const CookieConsent: React.FC = () => {
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
                   Customize
                 </p>
-                <h3 className="text-xl font-semibold text-gray-900">Cookie preferences</h3>
+                <h3 className="text-xl font-semibold">Cookie preferences</h3>
                 <p className="text-sm text-gray-600">
                   Choose which cookies we can use. Essential cookies are always on so the site works
                   properly.

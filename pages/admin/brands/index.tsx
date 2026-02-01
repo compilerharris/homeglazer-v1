@@ -66,7 +66,7 @@ export default function BrandsPage() {
       <AdminLayout>
         <div>
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-[#ED276E]">Brands</h1>
+            <h1 className="text-3xl font-bold">Brands</h1>
             <Button
               onClick={() => router.push('/admin/brands/new')}
               className="bg-[#299dd7] hover:bg-[#237bb0] text-white"
@@ -97,7 +97,7 @@ export default function BrandsPage() {
               {brands.map((brand) => (
                 <div key={brand.id} className="bg-white rounded-xl shadow p-6 border border-gray-200 flex flex-col">
                   <div className="mb-4">
-                    <h2 className="text-xl font-bold text-[#ED276E]">{brand.name}</h2>
+                    <h2 className="text-xl font-bold">{brand.name}</h2>
                   </div>
                   <div className="space-y-3 flex-1">
                     <img src={brand.logo} alt={brand.name} className="h-20 object-contain mb-3" />

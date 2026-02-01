@@ -22,7 +22,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <img src={image} alt={title} className="h-full w-full object-cover" />
       </div>
       <div className="flex flex-col p-6 bg-[rgba(223,223,223,0.27)] flex-grow">
-        <h3 className="text-2xl font-medium text-gray-800">{title}</h3>
+        <h3 className="text-2xl font-medium">{title}</h3>
         <p className="mt-2 text-gray-600 flex-grow">{description}</p>
         <Link 
           href={path} 

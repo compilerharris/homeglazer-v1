@@ -47,7 +47,7 @@ const CookiePolicyPage: React.FC = () => {
         <section className="w-[90%] lg:w-[80%] mx-auto py-12 md:py-16">
           <div className="bg-white shadow-sm rounded-2xl p-6 md:p-10 space-y-10">
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Introduction</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Introduction</h2>
               <p className="text-gray-700 leading-relaxed">
                 This Cookie Policy explains how HomeGlazer (“we”, “us”, or “our”) uses cookies and similar
                 technologies when you visit www.homeglazer.com. By using our site, you agree to the use of
@@ -56,7 +56,7 @@ const CookiePolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">What are cookies?</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">What are cookies?</h2>
               <p className="text-gray-700 leading-relaxed">
                 Cookies are small text files placed on your device by websites you visit. They help the
                 site function, remember your preferences, and understand how you interact with pages so we
@@ -65,7 +65,7 @@ const CookiePolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Types of cookies we use</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Types of cookies we use</h2>
               <ul className="list-disc list-inside text-gray-700 space-y-2 leading-relaxed">
                 <li>
                   <span className="font-semibold">Essential cookies</span>: Required for site functionality
@@ -87,7 +87,7 @@ const CookiePolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Third-party cookies</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Third-party cookies</h2>
               <p className="text-gray-700 leading-relaxed">
                 We may allow trusted partners to set cookies to support analytics and advertising. These
                 may include providers such as Google Analytics or Google Ads, and Facebook. These third
@@ -96,7 +96,7 @@ const CookiePolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Managing cookies</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Managing cookies</h2>
               <p className="text-gray-700 leading-relaxed">
                 You can control or delete cookies through your browser settings. Most browsers allow you to
                 refuse cookies, delete existing ones, or receive a prompt before a cookie is stored.
@@ -112,7 +112,7 @@ const CookiePolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Updates to this policy</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Updates to this policy</h2>
               <p className="text-gray-700 leading-relaxed">
                 We may update this Cookie Policy to reflect changes in technology, applicable laws, or our
                 services. Please review this page periodically for the latest information.
@@ -120,9 +120,9 @@ const CookiePolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Contact</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Contact</h2>
               <div className="space-y-2 text-gray-700 leading-relaxed">
-                <p>H-16/137 Sangam Vihar, New Delhi – 110080</p>
+                <p>B-474, Basement, Greenfield Colony, Faridabad, Haryana - 121010</p>
                 <p>
                   Tel.:{' '}
                   <a href="tel:+919717256514" className="text-[#ED276E] underline">

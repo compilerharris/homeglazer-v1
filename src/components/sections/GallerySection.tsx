@@ -13,7 +13,7 @@ const GallerySection = memo(function GallerySection({ category }: GallerySection
         {/* Category Header */}
         <div className="text-center mb-12">
           <div className="mb-4">
-            <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium mb-2">
+            <h2 className="text-[40px] font-medium mb-2">
               {category.name}
             </h2>
             <p className="text-xl text-[rgba(89,89,89,1)] font-light">
@@ -35,7 +35,7 @@ const GallerySection = memo(function GallerySection({ category }: GallerySection
               
               {/* Project Details */}
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-[rgba(18,24,38,1)]">
+                <h3 className="text-xl font-semibold">
                   {item.title}
                 </h3>
                 <p className="text-[rgba(89,89,89,1)] font-light">

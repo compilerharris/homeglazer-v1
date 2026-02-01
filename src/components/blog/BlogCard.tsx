@@ -50,7 +50,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
         </div>
         
         <Link href={`/blog/${post.slug}`} className="block">
-          <h3 className="mb-2 text-xl font-medium text-[#ED276E] hover:text-[#d51e5f] transition-colors line-clamp-2">
+          <h3 className="mb-2 text-xl font-medium hover:text-[var(--brand-pink)] transition-colors line-clamp-2">
             {post.title}
           </h3>
         </Link>

@@ -1,7 +1,7 @@
 import React from 'react';
 const WhyChooseUs: React.FC = () => {
   return <section className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto flex max-w-full flex-col items-center mt-[50px] max-md:mt-10">
-      <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center leading-[150%]">
+      <h2 className="text-[40px] font-medium text-center leading-[150%]">
         Why Choose Us?
       </h2>
       <p className="text-[rgba(64,80,94,1)] text-xl font-light text-center mt-2">

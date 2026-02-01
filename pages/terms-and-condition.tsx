@@ -47,7 +47,7 @@ const TermsAndConditionPage: React.FC = () => {
         <section className="w-[90%] lg:w-[80%] mx-auto py-12 md:py-16">
           <div className="bg-white shadow-sm rounded-2xl p-6 md:p-10 space-y-10">
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Definitions</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Definitions</h2>
               <div className="space-y-2 text-gray-700 leading-relaxed">
                 <p>
                   “Client” signifies the organisation or individual who purchases Services. “Services”
@@ -58,7 +58,7 @@ const TermsAndConditionPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">General</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">General</h2>
               <p className="text-gray-700 leading-relaxed">
                 Payment schedules may change depending on the order size and will be communicated during
                 booking. Any modification to these Terms &amp; Conditions (including any additional terms)
@@ -67,7 +67,7 @@ const TermsAndConditionPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Commencement Date</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Commencement Date</h2>
               <div className="space-y-2 text-gray-700 leading-relaxed">
                 <p>
                   The customer will make full payment to the Service Provider according to the price
@@ -85,7 +85,7 @@ const TermsAndConditionPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Price and Payment</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Price and Payment</h2>
               <p className="text-gray-700 leading-relaxed">
                 The Service Provider will offer the Services with reasonable skill, expertise, and care,
                 consistent with standards in the residential and commercial painting sector.
@@ -93,7 +93,7 @@ const TermsAndConditionPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Customers Obligation</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Customers Obligation</h2>
               <p className="text-gray-700 leading-relaxed">
                 These Terms &amp; Conditions apply to sales of Services by the Service Provider to the
                 Client. Services will be carried out at the specified location determined by the Client,
@@ -102,7 +102,7 @@ const TermsAndConditionPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-semibold">
                 Arrangement of the Services
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -112,7 +112,7 @@ const TermsAndConditionPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-semibold">
                 Limitation of Liability
               </h2>
               <div className="space-y-2 text-gray-700 leading-relaxed">
@@ -129,7 +129,7 @@ const TermsAndConditionPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Outsider Links</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Outsider Links</h2>
               <div className="space-y-2 text-gray-700 leading-relaxed">
                 <p>
                   Our Services may include materials from third parties. Links to third-party websites are
@@ -150,7 +150,7 @@ const TermsAndConditionPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Contact Information</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Contact Information</h2>
               <div className="space-y-2 text-gray-700 leading-relaxed">
                 <p>
                   For questions about our privacy policy or these Terms &amp; Conditions, contact us at{' '}
@@ -159,7 +159,7 @@ const TermsAndConditionPage: React.FC = () => {
                   </a>{' '}
                   or call <a href="tel:+919717256514" className="text-[#ED276E] underline">+91-9717256514</a>.
                 </p>
-                <p>Address: H-16/137 Sangam Vihar, New Delhi – 110080</p>
+                <p>Address: B-474, Basement, Greenfield Colony, Faridabad, Haryana - 121010</p>
               </div>
             </div>
           </div>

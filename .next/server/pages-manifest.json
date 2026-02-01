@@ -2,7 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/blog": "pages/blog.js",
-  "/admin": "pages/admin.js"
+  "/admin": "pages/admin.js",
+  "/services/customized-painting": "pages/services/customized-painting.js",
+  "/services/customized-painting/per-day-painting": "pages/services/customized-painting/per-day-painting.js",
+  "/services/customized-painting/one-day-painting": "pages/services/customized-painting/one-day-painting.js"
 }

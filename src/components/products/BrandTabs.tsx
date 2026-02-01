@@ -55,7 +55,7 @@ const BrandTabs: React.FC<BrandTabsProps> = ({
 
   return (
     <div className="mb-8">
-      <h2 className="text-xl font-semibold text-[#299dd7] mb-4 text-center">Choose a Brand</h2>
+      <h2 className="text-xl font-semibold mb-4 text-center">Choose a Brand</h2>
       <p className="text-gray-600 text-center mb-6">Select your preferred paint brand to filter products</p>
       
       <div className="relative">

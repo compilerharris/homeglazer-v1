@@ -88,7 +88,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
                 
                 <div className="mt-4 text-center">
                   <p className="hidden md:block text-xs md:text-sm font-medium text-gray-500">STEP {index + 1}</p>
-                  <h3 className="text-xs md:text-base font-medium text-gray-500 md:text-gray-800 mt-1">{step.label}</h3>
+                  <h3 className="text-xs md:text-base font-medium mt-1">{step.label}</h3>
                   <span className={`inline-block mt-2 px-2 py-0.5 md:px-3 md:py-1 rounded-full text-xs font-medium ${statusClass}`}>{status}</span>
                 </div>
               </div>

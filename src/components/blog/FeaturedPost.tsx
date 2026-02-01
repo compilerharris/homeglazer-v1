@@ -11,7 +11,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
     <section className="w-full bg-white py-8">
       <div className="container mx-auto px-4 lg:px-8 2xl:w-[1400px]">
         <div className="mb-6">
-          <h2 className="text-3xl font-medium text-gray-900">Featured Article</h2>
+          <h2 className="text-3xl font-medium">Featured Article</h2>
           <div className="mt-2 h-1 w-20 bg-[#ED276E]"></div>
         </div>
         
@@ -43,7 +43,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
             </div>
             
             <Link href={`/blog/${post.slug}`} className="block">
-              <h3 className="mb-4 text-3xl font-medium text-[#ED276E] hover:text-[#d51e5f] transition-colors">
+              <h3 className="mb-4 text-3xl font-medium hover:text-[var(--brand-pink)] transition-colors">
                 {post.title}
               </h3>
             </Link>

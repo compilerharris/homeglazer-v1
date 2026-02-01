@@ -29,7 +29,7 @@ export const ProjectGallerySection = (): JSX.Element => {
       {/* Left content - Text and CTA */}
       <div className="flex flex-col items-start gap-7">
         <div className="flex flex-col max-w-[353.59px] items-start gap-[18px]">
-          <h2 className="w-[353px] [font-family:'Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] leading-normal">
+          <h2 className="w-[353px] [font-family:'Quicksand',Helvetica] font-medium text-[40px] leading-normal">
                               Visualise Your Colour
           </h2>
 

@@ -63,6 +63,8 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
+    --brand-pink: #ED276E;
+    --brand-blue: #299dd7;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -134,5 +136,24 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1 {
+    color: var(--brand-pink);
+  }
+
+  h2 {
+    color: var(--brand-blue);
+  }
+
+  h3 {
+    color: var(--brand-pink);
+  }
+
+  /* Allow headings inside white-text containers (e.g., dark heroes) to inherit */
+  .text-white h1,
+  .text-white h2,
+  .text-white h3 {
+    color: inherit;
   }
 }

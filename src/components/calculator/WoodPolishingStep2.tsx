@@ -31,11 +31,11 @@ const WoodPolishingStep2: React.FC<WoodPolishingStep2Props> = ({
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-8">
-      <h2 className="text-2xl font-semibold mb-6 text-[#ED276E] text-center">Wood Type & Finish</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-center">Wood Type & Finish</h2>
 
       {/* Wood Type Selection */}
       <div className="mb-8">
-        <h3 className="text-lg font-medium mb-4 text-gray-800">Select Wood Type</h3>
+        <h3 className="text-lg font-medium mb-4">Select Wood Type</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {woodTypeOptions.map((option) => (
             <button
@@ -55,7 +55,7 @@ const WoodPolishingStep2: React.FC<WoodPolishingStep2Props> = ({
 
       {/* Finish Type Selection */}
       <div className="mb-8">
-        <h3 className="text-lg font-medium mb-4 text-gray-800">Select Finish Type</h3>
+        <h3 className="text-lg font-medium mb-4">Select Finish Type</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {finishTypeOptions.map((option) => (
             <button

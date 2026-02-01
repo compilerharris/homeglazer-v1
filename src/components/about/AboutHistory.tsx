@@ -33,7 +33,7 @@ const AboutHistory: React.FC = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center mb-12">Our Journey</h2>
+        <h2 className="text-[40px] font-medium text-center mb-12">Our Journey</h2>
         
         <div className="relative">
           {/* Timeline line */}
@@ -44,7 +44,7 @@ const AboutHistory: React.FC = () => {
             {milestones.map((milestone, index) => (
               <div key={index} className={`flex flex-col md:flex-row items-center mb-16 ${index % 2 === 0 ? 'md:justify-start' : 'md:flex-row-reverse md:justify-end'}`}>
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-8 text-right' : 'md:pl-8 text-left'}`}>
-                  <h3 className="text-2xl font-bold text-[rgba(237,39,110,1)]">{milestone.year}</h3>
+                  <h3 className="text-2xl font-bold">{milestone.year}</h3>
                   <h4 className="text-xl font-medium mt-2">{milestone.title}</h4>
                   <p className="text-gray-600 mt-2">{milestone.description}</p>
                 </div>

@@ -1419,7 +1419,7 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
       </Head>
       <Header />
       <main className="min-h-screen bg-white pt-4 lg:pt-16 pb-20 lg:pb-2 flex flex-col items-center px-4 lg:px-0">
-        <h1 className="mt-20 lg:mt-12 text-3xl font-bold text-[#ED276E] mb-4 text-center">
+        <h1 className="mt-20 lg:mt-12 text-3xl font-bold mb-4 text-center">
           {(selectedColor || initialData?.color) ? `${toSentenceCase((selectedColor || initialData?.color)?.colorName || '')} | Colour Code ${(selectedColor || initialData?.color)?.colorCode || ''} | ${toSentenceCase(BRAND_CONFIG.find(b => b.id === (selectedBrand || initialData?.brand || ''))?.name || '')} | Home Glazer` : 'Basic Color Visualiser'}
         </h1>
         {/* Brand Tabs - Desktop Only */}
@@ -1580,7 +1580,7 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
           <div className="hidden lg:flex flex-1 lg:flex-[1] flex flex-col items-center">
             {selectedCategory && selectedColor && (
               <div className="sticky top-24 w-full flex flex-col items-center min-h-[500px]">
-                <h2 className="text-xl font-semibold text-[#299dd7] mb-2">{colorDatabase?.brand}</h2>
+                <h2 className="text-xl font-semibold mb-2">{colorDatabase?.brand}</h2>
                 <div className="grid w-full max-w-[400px] grid-cols-2 gap-3 md:gap-3 overflow-x-hidden flex-wrap max-h-[450px]">
                   {paginatedColors.map((color: any, idx: number) => (
                     <button
@@ -1806,7 +1806,7 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
 
               {/* Right: Content */}
               <div className="flex-1 flex flex-col justify-center">
-                <h3 className="text-3xl lg:text-4xl font-bold text-[#ED276E] mb-3">
+                <h3 className="text-3xl lg:text-4xl font-bold mb-3">
                   Advanced Visualiser
                 </h3>
                 <p className="text-gray-700 text-lg mb-4 leading-relaxed">
@@ -1924,7 +1924,7 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
                 
                 return (
                   <>
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-2 text-[#299dd7] text-left">
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-2 text-left">
                       {title}
                     </h3>
                     <p className="text-gray-700 text-lg mb-5 text-left">
@@ -2090,7 +2090,7 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
         {(selectedBrand || initialData?.brand) && BRAND_INFO[selectedBrand || initialData?.brand || ''] && (
           <section className="w-full max-w-4xl mt-12 mb-8 px-4">
             <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-sm border border-gray-100 p-8 lg:p-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#299dd7] mb-4 text-center">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-center">
                 About {BRAND_CONFIG.find(b => b.id === selectedBrand)?.name}
               </h2>
               <p className="text-gray-700 text-lg mb-8 text-center leading-relaxed">
@@ -2099,7 +2099,7 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
               <div className="space-y-6">
                 {BRAND_INFO[selectedBrand].sections.map((section, idx) => (
                   <div key={`brand-section-${idx}`}>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{section.heading}</h3>
+                    <h3 className="text-xl font-bold mb-2">{section.heading}</h3>
                     <p className="text-gray-700 leading-relaxed">{section.content}</p>
                   </div>
                 ))}

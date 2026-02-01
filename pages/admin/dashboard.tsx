@@ -40,7 +40,7 @@ export default function Dashboard() {
     <ProtectedRoute>
       <AdminLayout>
         <div className="w-full">
-          <h1 className="text-3xl font-bold text-[#ED276E] mb-8">Dashboard</h1>
+          <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
 
           {loading ? (
             <div className="text-center py-12">
@@ -50,12 +50,12 @@ export default function Dashboard() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-700 mb-2">Total Brands</h2>
+                <h2 className="text-lg font-semibold mb-2">Total Brands</h2>
                 <p className="text-4xl font-bold text-[#299dd7]">{stats.brands}</p>
               </div>
 
               <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-700 mb-2">Total Products</h2>
+                <h2 className="text-lg font-semibold mb-2">Total Products</h2>
                 <p className="text-4xl font-bold text-[#ED276E]">{stats.products}</p>
               </div>
             </div>

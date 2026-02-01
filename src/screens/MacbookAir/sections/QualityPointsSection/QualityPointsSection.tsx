@@ -53,7 +53,7 @@ export const QualityPointsSection = (): JSX.Element => {
       {/* Content Section */}
       <div className="flex flex-col items-start gap-7">
         <div className="flex flex-col w-[353.59px] items-start gap-[18px]">
-          <h2 className="font-medium text-[40px] text-[#ed276e] font-['Quicksand',Helvetica] tracking-[0] leading-normal">
+          <h2 className="font-medium text-[40px] font-['Quicksand',Helvetica] tracking-[0] leading-normal">
             {carouselData[0].title}
           </h2>
 

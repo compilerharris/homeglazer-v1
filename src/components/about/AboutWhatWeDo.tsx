@@ -33,7 +33,7 @@ const AboutWhatWeDo: React.FC = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center mb-12">What do we do?</h2>
+        <h2 className="text-[40px] font-medium text-center mb-12">What do we do?</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
@@ -41,7 +41,7 @@ const AboutWhatWeDo: React.FC = () => {
               <div className="mb-6">
                 {service.icon}
               </div>
-              <h3 className="font-bold text-2xl mb-2 text-gray-900">{service.title}</h3>
+              <h3 className="font-bold text-2xl mb-2">{service.title}</h3>
             </div>
           ))}
         </div>

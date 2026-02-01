@@ -228,7 +228,7 @@ const AdvancedVisualiserStep: React.FC = () => {
           ) : (
             <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
               <div className="text-center max-w-xl">
-                <h2 className="text-xl font-semibold text-[#299dd7] mb-4">Missing Required Selections</h2>
+                <h2 className="text-xl font-semibold mb-4">Missing Required Selections</h2>
                 <p className="text-gray-600 mb-6">
                   Please complete the previous steps before viewing the final preview.
                 </p>

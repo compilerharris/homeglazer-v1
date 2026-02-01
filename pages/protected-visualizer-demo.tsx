@@ -96,7 +96,7 @@ const ProtectedVisualizerDemo: React.FC = () => {
       <main className="min-h-screen bg-gray-50 pt-28 pb-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl font-bold mb-4">
               Protected Visualizer Demo
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -110,7 +110,7 @@ const ProtectedVisualizerDemo: React.FC = () => {
             <div className="lg:col-span-1 space-y-6">
               {/* Room Selection */}
               <div className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Select Room</h3>
+                <h3 className="text-lg font-semibold mb-4">Select Room</h3>
                 <div className="space-y-2">
                   {ROOM_TYPES.map(room => (
                     <label key={room.id} className="flex items-center">
@@ -133,7 +133,7 @@ const ProtectedVisualizerDemo: React.FC = () => {
 
               {/* Wall Colors */}
               <div className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Wall Colors</h3>
+                <h3 className="text-lg font-semibold mb-4">Wall Colors</h3>
                 
                 {currentWalls.map(wall => {
                   const currentColor = selectedColors.find(c => c.wall === wall);
@@ -192,7 +192,7 @@ const ProtectedVisualizerDemo: React.FC = () => {
               {/* Color Analysis */}
               {colorAnalysis && (
                 <div className="bg-white rounded-lg shadow-sm p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Color Analysis</h3>
+                  <h3 className="text-lg font-semibold mb-4">Color Analysis</h3>
                   <div className="space-y-2 text-sm">
                     <div>
                       <span className="font-medium">Mood:</span> 
@@ -215,7 +215,7 @@ const ProtectedVisualizerDemo: React.FC = () => {
             {/* Visualizer */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg font-semibold mb-4">
                   {ROOM_TYPES.find(r => r.id === selectedRoom)?.name} Visualizer
                 </h3>
                 

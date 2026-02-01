@@ -330,7 +330,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             {/* Text Content */}
             <div>
-              <h1 className="text-[#ED276E] text-3xl font-bold mb-4">
+              <h1 className="text-3xl font-bold mb-4">
                 {product.name}
               </h1>
               <p className="text-gray-600 text-lg mb-4">
@@ -372,7 +372,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Description */}
             <div>
-              <h2 className="text-[#ED276E] text-3xl font-bold mb-6">Product Description</h2>
+              <h2 className="text-3xl font-bold mb-6">Product Description</h2>
               <p className="text-gray-700 text-lg leading-relaxed mb-8">
                 {product.description}
               </p>
@@ -380,7 +380,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
               {/* Features */}
               {product.features && (
                 <div className="mb-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Features</h3>
+                  <h3 className="text-xl font-semibold mb-4">Key Features</h3>
                   <ul className="space-y-2">
                     {product.features.map((feature, index) => (
                       <li key={index} className="flex items-center text-gray-700">
@@ -396,7 +396,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
             {/* Specifications */}
             {product.specifications && (
               <div>
-                <h2 className="text-[#ED276E] text-3xl font-bold mb-6">Specifications</h2>
+                <h2 className="text-3xl font-bold mb-6">Specifications</h2>
                 <div className="grid grid-cols-2 gap-4">
                   {Object.entries(product.specifications).map(([key, value]) => (
                     <div key={key} className="bg-gray-50 p-4 rounded-lg">
@@ -417,7 +417,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Single Wall Visualizer */}
             <div className="flex flex-col">
-              <h3 className="text-3xl font-bold text-[#ED276E] mb-3">Single Wall Visualiser</h3>
+              <h3 className="text-3xl font-bold mb-3">Single Wall Visualiser</h3>
               <p className="text-gray-600 mb-6">
                 Quickly preview popular colours on sample rooms with ease. Simple and fast!
               </p>
@@ -437,7 +437,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
 
             {/* Advanced Visualizer */}
             <div className="flex flex-col">
-              <h3 className="text-3xl font-bold text-[#ED276E] mb-3">Advanced Visualiser</h3>
+              <h3 className="text-3xl font-bold mb-3">Advanced Visualiser</h3>
               <p className="text-gray-600 mb-6">
                 Choose different colours for each wall and ceiling across multiple room types and styles.
               </p>
@@ -463,7 +463,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
         <section className="w-full py-16 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
             {/* Main Title */}
-            <h2 className="text-[#ED276E] text-4xl font-bold mb-12 text-center">
+            <h2 className="text-4xl font-bold mb-12 text-center">
               User Guide For {product.name}
             </h2>
             
@@ -471,7 +471,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
               {/* Left Column - Step-by-Step Process (2/3 width) */}
               <div className="lg:col-span-2">
                 <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
-                  <h3 className="text-[#ED276E] text-2xl font-bold mb-6">
+                  <h3 className="text-2xl font-bold mb-6">
                     Step-by-Step Process
                   </h3>
                   <div className="space-y-6">
@@ -495,7 +495,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
                 {/* Materials */}
                 {product.userGuideMaterials && product.userGuideMaterials.length > 0 && (
                   <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                    <h3 className="text-[#ED276E] text-xl font-bold mb-4">
+                    <h3 className="text-xl font-bold mb-4">
                       Materials You'll Need
                     </h3>
                     <ul className="space-y-3">
@@ -512,7 +512,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
                 {/* Tips */}
                 {product.userGuideTips && product.userGuideTips.length > 0 && (
                   <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                    <h3 className="text-[#ED276E] text-xl font-bold mb-4">
+                    <h3 className="text-xl font-bold mb-4">
                       Tips
                     </h3>
                     <ul className="space-y-3">
@@ -576,7 +576,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
       {product.showFaqSection && product.faqs && product.faqs.length > 0 && (
         <section className="w-full py-16 bg-white">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-[#ED276E] text-4xl font-bold mb-12 text-center">
+            <h2 className="text-4xl font-bold mb-12 text-center">
               Frequently Asked Questions
             </h2>
             
@@ -589,7 +589,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
                       onClick={() => toggleFaq(index)}
                       className="flex justify-between items-center cursor-pointer p-6 hover:bg-gray-100 transition-colors w-full text-left"
                     >
-                      <h3 className="text-lg font-bold text-gray-900 pr-4">
+                      <h3 className="text-lg font-bold pr-4">
                         {faq.question}
                       </h3>
                       <svg 
@@ -624,7 +624,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
       {product.suggestedBlogs && product.suggestedBlogs.length > 0 && (
         <section className="w-full py-16 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-[#ED276E] text-3xl font-bold mb-8 text-center">
+            <h2 className="text-3xl font-bold mb-8 text-center">
               Want some suggestion?
             </h2>
             
@@ -655,7 +655,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
                         ))}
                       </div>
                     )}
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#ED276E] transition-colors">
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-[var(--brand-pink)] transition-colors">
                       {blog.title}
                     </h3>
                     <p className="text-gray-600 mb-4 line-clamp-2">
@@ -678,7 +678,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
       {relatedProducts.length > 0 && (
         <section className="w-full py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-[#ED276E] text-3xl font-bold mb-8 text-center">
+            <h2 className="text-3xl font-bold mb-8 text-center">
               Related Products
             </h2>
             <div className="relative">

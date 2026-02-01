@@ -47,7 +47,7 @@ const PrivacyPolicyPage: React.FC = () => {
         <section className="w-[90%] lg:w-[80%] mx-auto py-12 md:py-16">
           <div className="bg-white shadow-sm rounded-2xl p-6 md:p-10 space-y-10">
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Introduction</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Introduction</h2>
               <p className="text-gray-700 leading-relaxed">
                 At “Home Glazer” we respect every individual’s right to privacy. Our relationship with you
                 is our most valuable asset and the basis of our reputation. We understand the importance
@@ -69,7 +69,7 @@ const PrivacyPolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-semibold">
                 What personal details are collected on this website?
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -81,7 +81,7 @@ const PrivacyPolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-semibold">
                 Collecting information through cookies
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -100,7 +100,7 @@ const PrivacyPolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-semibold">
                 Do we sell or disclose your personal information to third parties?
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -111,7 +111,7 @@ const PrivacyPolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-semibold">
                 How do we use this personal information?
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -129,7 +129,7 @@ const PrivacyPolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Contacting the Website</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Contacting the Website</h2>
               <p className="text-gray-700 leading-relaxed">
                 This privacy policy applies to information collected through the website. By using this
                 site, you consent to our privacy policy. If you have any questions or concerns, please
@@ -142,9 +142,9 @@ const PrivacyPolicyPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Contact</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">Contact</h2>
               <div className="space-y-2 text-gray-700 leading-relaxed">
-                <p>H-16/137 Sangam Vihar, New Delhi – 110080</p>
+                <p>B-474, Basement, Greenfield Colony, Faridabad, Haryana - 121010</p>
                 <p>
                   Tel.:{' '}
                   <a href="tel:+919717256514" className="text-[#ED276E] underline">

@@ -124,7 +124,7 @@ export const MacbookAir = (): JSX.Element => {
                 <NavigationMenuList className="flex items-center gap-[70px]">
                   {navItems.map((item, index) => (
                     <NavigationMenuItem key={index}>
-                      <div className="font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-lg text-center">
+                      <div className="font-['Quicksand',Helvetica] font-medium text-[var(--brand-pink)] text-lg text-center">
                         {item}
                       </div>
                     </NavigationMenuItem>
@@ -148,7 +148,7 @@ export const MacbookAir = (): JSX.Element => {
         {/* Our Services Section */}
         <div className="w-full mt-16">
           <div className="flex flex-col items-center mb-8">
-            <h2 className="font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] text-center">
+            <h2 className="font-['Quicksand',Helvetica] font-medium text-[40px] text-center">
               Our Services
             </h2>
             <p className="font-['Quicksand',Helvetica] font-light text-[#3f505d] text-xl text-center">
@@ -165,7 +165,7 @@ export const MacbookAir = (): JSX.Element => {
         {/* Why Choose Us Section */}
         <div className="w-full mt-16 relative">
           <div className="flex flex-col items-center mb-8">
-            <h2 className="font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] text-center">
+            <h2 className="font-['Quicksand',Helvetica] font-medium text-[40px] text-center">
               Why Choose Us?
             </h2>
             <p className="font-['Quicksand',Helvetica] font-light text-[#3f505d] text-xl text-center">
@@ -230,7 +230,7 @@ export const MacbookAir = (): JSX.Element => {
         {/* Design Insights Section */}
         <div className="w-full mt-16">
           <div className="flex flex-col items-center mb-8">
-            <h2 className="font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] text-center">
+            <h2 className="font-['Quicksand',Helvetica] font-medium text-[40px] text-center">
               Design Insights
             </h2>
             <p className="font-['Quicksand',Helvetica] font-light text-[#3f505d] text-xl text-center">
@@ -246,7 +246,7 @@ export const MacbookAir = (): JSX.Element => {
         {/* FAQ Section */}
         <div className="w-full mt-16">
           <div className="flex flex-col items-center mb-8">
-            <h2 className="font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] text-center">
+            <h2 className="font-['Quicksand',Helvetica] font-medium text-[40px] text-center">
               FAQ
             </h2>
             <p className="font-['Quicksand',Helvetica] font-light text-[#3f505d] text-[28px] text-center">

@@ -209,7 +209,7 @@ const Products: React.FC = () => {
               ) : error ? (
                 <div className="text-center py-12">
                   <div className="text-red-400 text-6xl mb-4">⚠️</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold mb-2">
                     Error Loading Products
                   </h3>
                   <p className="text-gray-600 mb-6">{error}</p>
@@ -238,7 +238,7 @@ const Products: React.FC = () => {
               ) : (
                 <div className="text-center py-12">
                   <div className="text-gray-400 text-6xl mb-4">🎨</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold mb-2">
                     No products found
                   </h3>
                   <p className="text-gray-600 mb-6">
@@ -301,7 +301,7 @@ const Products: React.FC = () => {
         <div className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end">
           <div className="bg-white w-full max-h-[85vh] rounded-t-xl overflow-hidden flex flex-col">
             <div className="flex items-center justify-between p-4 border-b border-gray-200 flex-shrink-0">
-              <h2 className="text-xl font-semibold text-gray-900">Filters</h2>
+              <h2 className="text-xl font-semibold">Filters</h2>
               <button
                 onClick={() => setShowFilterModal(false)}
                 className="text-gray-500 hover:text-gray-700"

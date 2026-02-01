@@ -103,7 +103,7 @@ const CalculationSummary: React.FC<CalculationSummaryProps> = ({
     workType && area > 0 && paintCategory && paintBrand && paintType) {
     return (
       <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-        <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Calculation Summary</h3>
+        <h3 className="text-2xl font-semibold mb-6 border-b-2 border-[var(--brand-pink)] pb-2">Calculation Summary</h3>
         {/* Wall Paint Section */}
         <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
           <h4 className="text-lg font-medium mb-4 text-gray-800">Wall Paint Details</h4>
@@ -153,7 +153,7 @@ const CalculationSummary: React.FC<CalculationSummaryProps> = ({
     roofWorkType && area > 0 && exteriorPaintCategory && exteriorPaintBrand && exteriorPaintType) {
     return (
       <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-        <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Calculation Summary</h3>
+        <h3 className="text-2xl font-semibold mb-6 border-b-2 border-[var(--brand-pink)] pb-2">Calculation Summary</h3>
         {/* Exterior Wall Paint Section */}
         <div className="mb-8 bg-white p-4 rounded-lg shadow-sm">
           <h4 className="text-lg font-medium mb-4 text-gray-800">Exterior Wall Paint Details</h4>
@@ -204,7 +204,7 @@ const CalculationSummary: React.FC<CalculationSummaryProps> = ({
       (roofWorkType && area > 0 && paintCategory && paintBrand && paintType))) {
     return (
       <div className="mt-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-        <h3 className="text-2xl font-semibold mb-6 text-[#ED276E] border-b-2 border-[#ED276E] pb-2">Complete Calculation Summary</h3>
+        <h3 className="text-2xl font-semibold mb-6 border-b-2 border-[var(--brand-pink)] pb-2">Complete Calculation Summary</h3>
         {/* Interior Section */}
         {workType && area > 0 && paintCategory && paintBrand && paintType && (
           <div className="mb-8">

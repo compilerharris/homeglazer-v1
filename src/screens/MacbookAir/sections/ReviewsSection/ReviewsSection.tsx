@@ -61,7 +61,7 @@ export const ReviewsSection = (): JSX.Element => {
     <section className="w-full py-[35px] px-[84.86px] bg-[#dedede45] flex flex-wrap items-center gap-[42.43px]">
       <div className="flex flex-col items-start gap-7">
         <div className="flex flex-col max-w-[353.59px] w-[353.59px] items-start gap-[18px]">
-          <h2 className="w-full [font-family:'Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] leading-normal">
+          <h2 className="w-full [font-family:'Quicksand',Helvetica] font-medium text-[40px] leading-normal">
             Google Reviews
           </h2>
 
@@ -111,7 +111,7 @@ export const ReviewsSection = (): JSX.Element => {
                         }}
                       />
                       <div className="inline-flex flex-col items-start justify-center gap-[3.54px]">
-                        <h3 className="self-stretch mt-[-0.88px] [font-family:'Inter',Helvetica] text-[#2b2b2b] text-[17.7px] leading-normal font-semibold">
+                        <h3 className="self-stretch mt-[-0.88px] [font-family:'Inter',Helvetica] text-[17.7px] leading-normal font-semibold">
                           {review.author}
                         </h3>
                         <p className="self-stretch [font-family:'Inter',Helvetica] font-normal text-[#777777] text-[14.1px] leading-normal">

@@ -2,7 +2,7 @@ import React from 'react';
 const AboutWhyWeDoIt: React.FC = () => {
   return <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center mb-12">Why do we do it?</h2>
+        <h2 className="text-[40px] font-medium text-center mb-12">Why do we do it?</h2>
         
         <div className="flex flex-col sm:flex-row relative items-center justify-end">
           {/* Image Section */}

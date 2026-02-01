@@ -5,7 +5,7 @@ const ResidentialPaintingSection = () => {
   return (
     <section className="py-12 bg-white">
       <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
-        <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center mb-8">
+        <h2 className="text-[40px] font-medium text-center mb-8">
           Home Glazer at Residential painting
         </h2>
         
@@ -20,7 +20,7 @@ const ResidentialPaintingSection = () => {
           wherever we work
         </p>
         
-        <h3 className="text-[rgba(237,39,110,1)] text-3xl font-medium text-center mb-8">
+        <h3 className="text-3xl font-medium text-center mb-8">
           Benefits Of Professional Painting Services
         </h3>
         

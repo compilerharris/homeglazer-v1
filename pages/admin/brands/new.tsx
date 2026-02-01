@@ -69,7 +69,7 @@ export default function NewBrand() {
     <ProtectedRoute>
       <AdminLayout>
         <div>
-          <h1 className="text-3xl font-bold text-[#ED276E] mb-8">Create Brand</h1>
+          <h1 className="text-3xl font-bold mb-8">Create Brand</h1>
 
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">

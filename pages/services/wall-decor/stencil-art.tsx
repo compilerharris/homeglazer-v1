@@ -66,7 +66,7 @@ const StencilArt: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src="/uploads/services/stencil-art-hero.jpg"
+              src="/uploads/services/stencil.png"
               alt="Stencil Painting Services - Professional Wall Art and Design"
               className="w-full h-full object-cover"
             />
@@ -116,7 +116,7 @@ const StencilArt: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Home Glazer at Stencil Painting
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -132,7 +132,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/stencil-process.jpg" 
+                    src="/uploads/services/Home%20Glazer%20at%20Stencil%20Painting.png" 
                     alt="Professional Stencil Painting Services"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -151,7 +151,7 @@ const StencilArt: React.FC = () => {
         {/* 2. Our Stencil Painting Process Section */}
         <section className="py-16 bg-gray-50 w-full">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
-            <h2 className="text-[#ED276E] text-4xl font-medium text-center mb-12">
+            <h2 className="text-4xl font-medium text-center mb-12">
               Our Stencil Painting Process
             </h2>
             
@@ -160,7 +160,7 @@ const StencilArt: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">1</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Design Consultation</h3>
+                <h3 className="text-xl font-semibold mb-3">Design Consultation</h3>
                 <p className="text-gray-600">
                   We discuss your vision, space requirements, and design preferences to create the perfect stencil pattern for your space.
                 </p>
@@ -170,7 +170,7 @@ const StencilArt: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">2</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Surface Preparation</h3>
+                <h3 className="text-xl font-semibold mb-3">Surface Preparation</h3>
                 <p className="text-gray-600">
                   We prepare your walls or ceilings by cleaning, repairing, and priming surfaces to ensure optimal stencil adhesion.
                 </p>
@@ -180,7 +180,7 @@ const StencilArt: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">3</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Stencil Application</h3>
+                <h3 className="text-xl font-semibold mb-3">Stencil Application</h3>
                 <p className="text-gray-600">
                   Our expert artists carefully apply stencils and paint with precision, ensuring crisp lines and perfect pattern alignment.
                 </p>
@@ -190,7 +190,7 @@ const StencilArt: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">4</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Final Touches</h3>
+                <h3 className="text-xl font-semibold mb-3">Final Touches</h3>
                 <p className="text-gray-600">
                   We add finishing details, touch up any imperfections, and ensure your stencil design looks perfect and professional.
                 </p>
@@ -204,7 +204,7 @@ const StencilArt: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   What is Stencil Painting Process?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -220,7 +220,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/stencil-benefits.jpg" 
+                    src="/uploads/services/What%20is%20Stencil%20Painting%20Process.png" 
                     alt="Stencil Painting Process and Results"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -240,7 +240,7 @@ const StencilArt: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Advantages of Stencil Painting
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -255,7 +255,7 @@ const StencilArt: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Custom Design Flexibility</h3>
+                <h3 className="text-xl font-bold mb-3">Custom Design Flexibility</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Create unique patterns tailored to your style and space requirements, from simple borders to complex feature wall designs.
                 </p>
@@ -267,7 +267,7 @@ const StencilArt: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Long-Lasting Durability</h3>
+                <h3 className="text-xl font-bold mb-3">Long-Lasting Durability</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Unlike wallpaper, stencil designs are permanent and won't peel or fade, providing years of beautiful wall art.
                 </p>
@@ -279,7 +279,7 @@ const StencilArt: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Cost-Effective Solution</h3>
+                <h3 className="text-xl font-bold mb-3">Cost-Effective Solution</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Achieve high-end decorative results at a fraction of the cost of other wall treatment methods.
                 </p>
@@ -291,7 +291,7 @@ const StencilArt: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Easy Maintenance</h3>
+                <h3 className="text-xl font-bold mb-3">Easy Maintenance</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Stencil designs are easy to clean and maintain, making them perfect for high-traffic areas and busy households.
                 </p>
@@ -303,7 +303,7 @@ const StencilArt: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Versatile Applications</h3>
+                <h3 className="text-xl font-bold mb-3">Versatile Applications</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Suitable for walls, ceilings, furniture, and various surfaces including drywall, wood, metal, and concrete.
                 </p>
@@ -315,7 +315,7 @@ const StencilArt: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Quick Installation</h3>
+                <h3 className="text-xl font-bold mb-3">Quick Installation</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Professional stencil application is fast and efficient, minimizing disruption to your daily routine.
                 </p>
@@ -329,7 +329,7 @@ const StencilArt: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Why Choose HomeGlazer for the Stencil Painting Service?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -345,7 +345,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/stencil-team-work.jpg" 
+                    src="/uploads/services/Why%20Choose%20HomeGlazer%20for%20the%20Stencil%20Painting%20Service.png" 
                     alt="Professional Stencil Painting Team"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -365,7 +365,7 @@ const StencilArt: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Popular Stencil Patterns
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -380,7 +380,7 @@ const StencilArt: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Floral Patterns</h3>
+                <h3 className="text-lg font-bold mb-2">Floral Patterns</h3>
                 <p className="text-gray-600 text-sm">Elegant flower and leaf designs for a natural, organic feel</p>
               </div>
 
@@ -390,7 +390,7 @@ const StencilArt: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Geometric Shapes</h3>
+                <h3 className="text-lg font-bold mb-2">Geometric Shapes</h3>
                 <p className="text-gray-600 text-sm">Modern geometric patterns for contemporary spaces</p>
               </div>
 
@@ -400,7 +400,7 @@ const StencilArt: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Borders & Frames</h3>
+                <h3 className="text-lg font-bold mb-2">Borders & Frames</h3>
                 <p className="text-gray-600 text-sm">Classic border designs to frame walls and ceilings</p>
               </div>
 
@@ -410,7 +410,7 @@ const StencilArt: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Custom Designs</h3>
+                <h3 className="text-lg font-bold mb-2">Custom Designs</h3>
                 <p className="text-gray-600 text-sm">Unique patterns created specifically for your space</p>
               </div>
             </div>
@@ -421,7 +421,7 @@ const StencilArt: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Stencil Painting Applications & Uses
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -431,7 +431,7 @@ const StencilArt: React.FC = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Residential Applications</h3>
+                <h3 className="text-2xl font-bold mb-6">Residential Applications</h3>
                 <ul className="space-y-3 text-gray-600 mb-8">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -455,7 +455,7 @@ const StencilArt: React.FC = () => {
                   </li>
                 </ul>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Commercial Applications</h3>
+                <h3 className="text-2xl font-bold mb-6">Commercial Applications</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#299dd7] rounded-full mt-2 flex-shrink-0"></div>
@@ -478,7 +478,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/stencil-applications.jpg" 
+                    src="/uploads/services/Stencil%20Painting%20Applications%20&%20Uses.png" 
                     alt="Stencil Painting Applications and Uses"
                     className="w-full h-full object-cover rounded-xl"
                   />

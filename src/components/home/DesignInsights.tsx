@@ -38,7 +38,7 @@ const DesignInsights: React.FC = () => {
 
   return (
     <section className="w-[100%] lg:w-[100%] mx-auto flex flex-col items-center mt-[50px] py-10 max-md:mt-10 2xl:w-[1400px]">
-      <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium self-center leading-[150%] mb-4">
+      <h2 className="text-[40px] font-medium self-center leading-[150%] mb-4">
         Painting Blogs
       </h2>
       <p className="text-[rgba(64,80,94,1)] text-xl font-light text-center mb-10">
@@ -63,7 +63,7 @@ const DesignInsights: React.FC = () => {
                       <span className="mx-2">•</span>
                       <span>{post.readTime} min read</span>
                     </div>
-                    <h3 className="h-12 text-[rgba(237,39,110,1)] text-lg font-medium line-clamp-2 mb-2">
+                    <h3 className="h-12 text-lg font-medium line-clamp-2 mb-2">
                       {post.title}
                     </h3>
                     <p className="h-[60px] text-[rgba(64,80,94,1)] text-sm font-normal line-clamp-3 text-ellipsis mb-4">

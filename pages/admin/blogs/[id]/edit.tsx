@@ -187,7 +187,7 @@ export default function EditBlog() {
       <AdminLayout>
         <div className="space-y-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-8">
-            <h1 className="text-3xl font-bold text-[#ED276E]">Edit Blog Post</h1>
+            <h1 className="text-3xl font-bold">Edit Blog Post</h1>
             <Button
               variant="outline"
               onClick={() => router.push('/admin/blogs')}
@@ -216,7 +216,7 @@ export default function EditBlog() {
 
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-                  <h2 className="text-lg font-bold text-gray-900 mb-4">Basic Information</h2>
+                  <h2 className="text-lg font-bold mb-4">Basic Information</h2>
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -329,7 +329,7 @@ export default function EditBlog() {
                 </div>
 
                 <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-                  <h2 className="text-lg font-bold text-gray-900 mb-4">Content</h2>
+                  <h2 className="text-lg font-bold mb-4">Content</h2>
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -370,7 +370,7 @@ export default function EditBlog() {
                 </div>
 
                 <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-                  <h2 className="text-lg font-bold text-gray-900 mb-4">SEO Settings</h2>
+                  <h2 className="text-lg font-bold mb-4">SEO Settings</h2>
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="space-y-2">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -398,7 +398,7 @@ export default function EditBlog() {
                 </div>
 
                 <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-                  <h2 className="text-lg font-bold text-gray-900 mb-4">Publishing</h2>
+                  <h2 className="text-lg font-bold mb-4">Publishing</h2>
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="flex items-center gap-3">
                       <input

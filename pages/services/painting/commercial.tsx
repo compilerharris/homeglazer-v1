@@ -116,7 +116,7 @@ const Commercial: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Home Glazer at Commercial Painting Services
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -162,7 +162,7 @@ const Commercial: React.FC = () => {
                 </div>
               </div>
               <div className="order-1 lg:order-2">
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   What Is a Commercial Painter?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -181,7 +181,7 @@ const Commercial: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   What Is Commercial Painting?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -217,7 +217,7 @@ const Commercial: React.FC = () => {
         <section className="py-20 bg-gray-50 w-full">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 What Does a Commercial Painter Do?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -234,7 +234,7 @@ const Commercial: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Preparing the surfaces
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -252,7 +252,7 @@ const Commercial: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Choosing the right paint or coating
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -270,7 +270,7 @@ const Commercial: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Applying the paint or coating
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -288,7 +288,7 @@ const Commercial: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Maintaining a clean workspace
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -306,7 +306,7 @@ const Commercial: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Why Hire a Commercial Painter?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -342,7 +342,7 @@ const Commercial: React.FC = () => {
         <section className="py-20 bg-gray-50 w-full">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Commercial Painting Services: When To Use Them And What To Expect
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -352,7 +352,7 @@ const Commercial: React.FC = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <h3 className="text-2xl font-bold mb-6">
                   Residential vs Commercial Painting
                 </h3>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -372,7 +372,7 @@ const Commercial: React.FC = () => {
             </div>
             
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <h3 className="text-2xl font-bold mb-6">
                 What should you expect?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -401,7 +401,7 @@ const Commercial: React.FC = () => {
         <section className="py-20 bg-gray-50 w-full">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Our Commercial Painting Services
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -420,7 +420,7 @@ const Commercial: React.FC = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Office Painting</h3>
+                  <h3 className="text-xl font-bold mb-3">Office Painting</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     Transform your office environment with professional painting services that create a productive and welcoming atmosphere for employees and clients.
                   </p>
@@ -455,7 +455,7 @@ const Commercial: React.FC = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Retail & Shop Painting</h3>
+                  <h3 className="text-xl font-bold mb-3">Retail & Shop Painting</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     Enhance your retail space with professional painting that attracts customers and creates an inviting shopping environment.
                   </p>
@@ -490,7 +490,7 @@ src="/uploads/services/commercial-painter.jpg"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Industrial Painting</h3>
+                  <h3 className="text-xl font-bold mb-3">Industrial Painting</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     Durable painting solutions for warehouses, factories, and industrial facilities that withstand harsh conditions and heavy use.
                   </p>
@@ -525,7 +525,7 @@ src="/uploads/services/commercial-painter.jpg"
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 WHY CHOOSE US
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Benefits of Professional Commercial Painting
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -543,7 +543,7 @@ src="/uploads/services/commercial-painter.jpg"
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Professional Expertise
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -562,7 +562,7 @@ src="/uploads/services/commercial-painter.jpg"
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Minimal Business Disruption
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -581,7 +581,7 @@ src="/uploads/services/commercial-painter.jpg"
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Premium Quality Materials
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -600,7 +600,7 @@ src="/uploads/services/commercial-painter.jpg"
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Enhanced Brand Image
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -616,7 +616,7 @@ src="/uploads/services/commercial-painter.jpg"
         {/* Process Section */}
         <section className="py-16 bg-gray-50 w-full">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
-            <h2 className="text-[#ED276E] text-4xl font-medium text-center mb-12">
+            <h2 className="text-4xl font-medium text-center mb-12">
               Our Commercial Painting Process
             </h2>
             
@@ -625,7 +625,7 @@ src="/uploads/services/commercial-painter.jpg"
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">1</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Site Assessment</h3>
+                <h3 className="text-xl font-semibold mb-3">Site Assessment</h3>
                 <p className="text-gray-600">
                   We conduct a thorough assessment of your commercial space to understand the scope, requirements, and any specific challenges.
                 </p>
@@ -635,7 +635,7 @@ src="/uploads/services/commercial-painter.jpg"
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">2</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Planning & Scheduling</h3>
+                <h3 className="text-xl font-semibold mb-3">Planning & Scheduling</h3>
                 <p className="text-gray-600">
                   We develop a detailed plan and schedule that minimizes disruption to your business operations and ensures timely completion.
                 </p>
@@ -645,7 +645,7 @@ src="/uploads/services/commercial-painter.jpg"
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">3</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Professional Execution</h3>
+                <h3 className="text-xl font-semibold mb-3">Professional Execution</h3>
                 <p className="text-gray-600">
                   Our skilled team executes the painting project with precision, using commercial-grade materials and professional techniques.
                 </p>
@@ -655,7 +655,7 @@ src="/uploads/services/commercial-painter.jpg"
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">4</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Quality Assurance</h3>
+                <h3 className="text-xl font-semibold mb-3">Quality Assurance</h3>
                 <p className="text-gray-600">
                   We conduct thorough quality inspections to ensure the finished result meets commercial standards and your expectations.
                 </p>

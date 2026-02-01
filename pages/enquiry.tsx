@@ -205,7 +205,7 @@ const EnquirePage: React.FC = () => {
       {/* How It Works Section */}
       <section className="w-full py-16 bg-gray-50">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#ED276E] mb-12">How It Works</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Step 1 */}
@@ -249,7 +249,7 @@ const EnquirePage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Enquiry Form */}
           <div className="lg:col-span-2 bg-white rounded-lg shadow-lg p-8 border border-gray-100">
-            <h2 className="text-2xl font-semibold text-[#ED276E] mb-6">Tell Us About Your Project</h2>
+            <h2 className="text-2xl font-semibold mb-6">Tell Us About Your Project</h2>
             
             {submitted ? (
               <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
@@ -498,7 +498,7 @@ const EnquirePage: React.FC = () => {
           <div className="space-y-8">
             {/* Why Choose Us */}
             <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
-              <h3 className="text-xl font-semibold text-[#ED276E] mb-4">Why Choose Us</h3>
+              <h3 className="text-xl font-semibold mb-4">Why Choose Us</h3>
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -545,7 +545,7 @@ const EnquirePage: React.FC = () => {
             
             {/* Testimonial */}
             <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
-              <h3 className="text-xl font-semibold text-[#ED276E] mb-4">What Our Clients Say</h3>
+              <h3 className="text-xl font-semibold mb-4">What Our Clients Say</h3>
               
               <div className="italic text-gray-600 mb-4">
                 "Homeglazer transformed our living room with their expert painting. The attention to detail and professionalism was outstanding. Highly recommended!"
@@ -571,7 +571,7 @@ const EnquirePage: React.FC = () => {
                 <span>+91-9717256514</span>
               </div>
               <div className="flex items-start mb-2">
-                <span className="text-sm">B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010</span>
+                <span className="text-sm">B-474, Basement, Greenfield Colony, Faridabad, Haryana - 121010</span>
               </div>
               <div className="flex items-center">
                 <span className="text-sm">homeglazer@gmail.com</span>
@@ -584,32 +584,32 @@ const EnquirePage: React.FC = () => {
       {/* FAQ Section */}
       <section className="w-full py-16 bg-gray-50">
         <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
-          <h2 className="text-3xl font-semibold text-[#ED276E] mb-10 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-semibold mb-10 text-center">Frequently Asked Questions</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-medium text-gray-900 mb-2">How soon can you start the work?</h3>
+              <h3 className="text-lg font-medium mb-2">How soon can you start the work?</h3>
               <p className="text-gray-600">
                 Depending on our current schedule, we can typically start a project within 1-2 weeks of quote approval. For urgent requests, we do our best to accommodate your timeline.
               </p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Do you offer free consultations?</h3>
+              <h3 className="text-lg font-medium mb-2">Do you offer free consultations?</h3>
               <p className="text-gray-600">
                 Yes, we offer free consultations and estimates for all our services. Our experts will visit your property to understand your requirements and provide a detailed quote.
               </p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-medium text-gray-900 mb-2">What brands of paint do you use?</h3>
+              <h3 className="text-lg font-medium mb-2">What brands of paint do you use?</h3>
               <p className="text-gray-600">
                 We work with premium brands like Asian Paints, Berger, Nerolac, and Dulux. We can recommend the best option based on your needs and budget.
               </p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Do you provide a warranty for your work?</h3>
+              <h3 className="text-lg font-medium mb-2">Do you provide a warranty for your work?</h3>
               <p className="text-gray-600">
                 Yes, we offer a warranty of up to 3 years on our painting services, depending on the package you choose. This covers issues like peeling, fading, and cracking.
               </p>

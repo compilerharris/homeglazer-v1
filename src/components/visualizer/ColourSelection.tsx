@@ -179,21 +179,21 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
       {/* Breadcrumbs Section */}
       {breadcrumbs.length > 0 && (
         <div className="w-full mb-4">
-          <h3 className="text-sm font-medium text-gray-600 mb-2 text-center">
+          <h3 className="text-sm font-medium mb-2 text-center">
             Modify your selections here:
           </h3>
           <Breadcrumbs items={breadcrumbs} onStepClick={onStepClick} />
         </div>
       )}
       
-      <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Step 4: Select Your Colours</h2>
+      <h2 className="text-xl font-semibold mb-2 text-center">Step 4: Select Your Colours</h2>
       <p className="mb-6 text-gray-600 text-center max-w-xl">
         Choose colour types and select up to 12 colours for your room. You've selected {selectedColors.length}/12 colours.
       </p>
 
       {/* Selected Colours Display - Back to top */}
       <div className="w-full max-w-4xl mb-6" data-section="selected-colours">
-        <h3 className="text-lg font-medium text-gray-700 mb-3 text-center">Selected Colours</h3>
+        <h3 className="text-lg font-medium mb-3 text-center">Selected Colours</h3>
         <div className="flex gap-2 justify-center flex-wrap">
           {Array.from({length: 12}).map((_, idx) => (
             <div key={idx} className="w-11 h-11 border-2 border-gray-200 rounded-lg flex items-center justify-center bg-white relative flex-shrink-0">
@@ -226,7 +226,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
       <div className="hidden lg:block">
         {colorTypes.length > 0 && (
           <div className="w-full max-w-4xl mb-6">
-            <h3 className="text-lg font-medium text-gray-700 mb-3 text-center">Colour Types</h3>
+            <h3 className="text-lg font-medium mb-3 text-center">Colour Types</h3>
             <div className="relative">
               {showCategoryPrevArrow && (
                 <button
@@ -292,7 +292,7 @@ const ColourSelection: React.FC<ColourSelectionProps> = ({
       {/* Colour Swatches Grid - Center aligned */}
       {selectedColorType && colorsForType.length > 0 && (
         <div className={`w-full max-w-4xl md:mb-32 ${isButtonFixed ? 'mb-66' : 'mb-8'}`} key={`color-grid-${selectedColorType}`}>
-          <h3 className="text-lg font-medium text-gray-700 mb-3 text-center">
+          <h3 className="text-lg font-medium mb-3 text-center">
             {selectedColorType} Colours ({colorsForType.length} available)
           </h3>
           <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 justify-items-center" key={`swatches-${selectedColorType}`}>

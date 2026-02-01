@@ -241,7 +241,7 @@ const ColourVisualiserPage: React.FC = () => {
           {/* Content */}
           <div className="relative z-10 text-center max-w-lg mx-auto">
             {/* BIG PINK HEADING */}
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#ED276E] mb-6 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight text-[var(--brand-pink)]">
               Single Wall<br />Visualiser
             </h2>
             <p className="text-gray-700 mb-8 leading-relaxed text-lg">
@@ -293,7 +293,7 @@ const ColourVisualiserPage: React.FC = () => {
           {/* Content */}
           <div className="relative z-10 text-center max-w-lg mx-auto">
             {/* BIG PINK HEADING */}
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#ED276E] mb-6 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
               Advanced<br />Visualiser
             </h2>
             <p className="text-gray-700 mb-8 leading-relaxed text-lg">

@@ -107,7 +107,7 @@ const GraffitiPainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Why Are We So Successful as Graffiti Painters?
               </h2>
             </div>
@@ -141,7 +141,7 @@ const GraffitiPainting: React.FC = () => {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Our Services
               </h2>
             </div>
@@ -157,7 +157,7 @@ const GraffitiPainting: React.FC = () => {
               </div>
               
               <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                <h3 className="text-3xl font-bold mb-6">
                   Home Glazer At Graffiti Paintings
                 </h3>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -214,7 +214,7 @@ const GraffitiPainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 What is Graffiti Painting?
               </h2>
             </div>
@@ -255,49 +255,49 @@ const GraffitiPainting: React.FC = () => {
                   className="w-24 h-24 object-cover rounded-full shadow-lg"
                 />
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Features of Graffiti Painting
               </h2>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Graffiti Provides Self-expression</h3>
+                <h3 className="text-xl font-bold mb-4">Graffiti Provides Self-expression</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Individuals get the freedom to express themselves through graffiti. All you need is paint sprayers and an idea. Then, you can make every work of art you want. You can express an opinion or a political point and everyone will be able to see it.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Graffiti Brightens Up the Environment</h3>
+                <h3 className="text-xl font-bold mb-4">Graffiti Brightens Up the Environment</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Well-worked graffiti art is typically creative, colourful, and bold. Thus, it changes the character and vibe of the particular area where it appears. In many cases, this change is positive, since the art turns drab, monotone buildings and bare walls into interesting and eye-catching exhibitions of the imagination.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Graffiti Painting in Education</h3>
+                <h3 className="text-xl font-bold mb-4">Graffiti Painting in Education</h3>
                 <p className="text-gray-600 leading-relaxed">
                   For some, the problem lies in the medium; an individual might not enjoy traditional forms, such as painting and sculpture instance. While others fail to find art relevant within their lives. When graffiti is taught as an alternative medium of artwork, it may inspire these individuals.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Economically, Graffiti Encourages Residents and Tourists</h3>
+                <h3 className="text-xl font-bold mb-4">Economically, Graffiti Encourages Residents and Tourists</h3>
                 <p className="text-gray-600 leading-relaxed">
                   As Graffiti brighten up commercial space and make it more colourful, interesting, and peaceful, people are more likely to get attracted to it easily. In today's world, people are fond of clicking pictures with artistic backgrounds and a place with Graffiti is perfect.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Mystery & Intrigue</h3>
+                <h3 className="text-xl font-bold mb-4">Mystery & Intrigue</h3>
                 <p className="text-gray-600 leading-relaxed">
                   There are so many questions when you're a street art lover! Who did it? Why did someone put this work there? What does it mean? Does it even mean anything? But with the invention of Instagram, it's now easier than ever to find artists' official profiles and learn more about their work.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Sense of Community</h3>
+                <h3 className="text-xl font-bold mb-4">Sense of Community</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Street art is important to keep urban areas and their residents energized and inspired. In some areas, artists and building owners come together to foster the creation of artwork that can be viewed as beautifying and reviving a city, rather than destroying it.
                 </p>
@@ -317,7 +317,7 @@ const GraffitiPainting: React.FC = () => {
                   className="w-24 h-24 object-cover rounded-full shadow-lg"
                 />
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 What Type of Paint Do Graffiti Artist's Use?
               </h2>
             </div>
@@ -333,42 +333,42 @@ const GraffitiPainting: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Spray Paint</h3>
+                <h3 className="text-xl font-bold mb-4">Spray Paint</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Spray paint is the most popular medium for most graffiti styles. The main reason it's so popular is that it provides maximum freedom and control whilst painting compared to more traditional methods. Anything imaginable can be painted using spray paint to achieve a range of effects.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Low Pressure Spray Paint</h3>
+                <h3 className="text-xl font-bold mb-4">Low Pressure Spray Paint</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Low pressure spray paint is characterised by its lower level of output. This is because low pressure paint allows for more control over the can, meaning it's easier to achieve finer lines and fewer drips.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">High Pressure Spray Paint</h3>
+                <h3 className="text-xl font-bold mb-4">High Pressure Spray Paint</h3>
                 <p className="text-gray-600 leading-relaxed">
                   High pressure spray paint is defined by its higher level of paint output. High pressure paint is favoured by graffiti artists looking to get their pieces done quickly. It's also used by artists who are painting big pieces.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Paint Markers</h3>
+                <h3 className="text-xl font-bold mb-4">Paint Markers</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Although less iconic than spray paint, another popular medium for graffiti art is paint markers. Due to the lack of availability in the early days of graffiti, graffiti writers would often make their own paint markers.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Pump Markers</h3>
+                <h3 className="text-xl font-bold mb-4">Pump Markers</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Paint pump markers are characterised by their pump valve system. This means when the nib of the pen is pressed down on a surface, paint is released and flows down to the nib. This is unlike traditional gravity style markers.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Emulsion Paint</h3>
+                <h3 className="text-xl font-bold mb-4">Emulsion Paint</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Emulsion paint is your most common style of paint – the type that comes in a bucket and is used to paint things like walls and ceilings. Graffiti artists use emulsion paint more often than you'd think, especially for preparing walls before using spray paints.
                 </p>

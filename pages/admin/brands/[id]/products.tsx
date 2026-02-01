@@ -112,7 +112,7 @@ export default function BrandProducts() {
         <div>
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h1 className="text-3xl font-bold text-[#ED276E]">
+              <h1 className="text-3xl font-bold">
                 {brand?.name} Products
               </h1>
               {brand && (
@@ -152,7 +152,7 @@ export default function BrandProducts() {
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-[#ED276E] mb-1">
+                        <h3 className="text-lg font-semibold mb-1">
                           {product.name}
                         </h3>
                         <p className="text-sm text-gray-600 mb-2">

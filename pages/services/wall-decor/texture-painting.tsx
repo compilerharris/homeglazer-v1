@@ -115,7 +115,7 @@ const TexturePainting: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Home Glazer at Texture Painting
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -150,7 +150,7 @@ const TexturePainting: React.FC = () => {
         {/* 2. Our Texture Painting Process Section */}
         <section className="py-16 bg-gray-50 w-full">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
-            <h2 className="text-[#ED276E] text-4xl font-medium text-center mb-12">
+            <h2 className="text-4xl font-medium text-center mb-12">
               Our Texture Painting Process
             </h2>
             
@@ -159,7 +159,7 @@ const TexturePainting: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">1</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Surface Preparation</h3>
+                <h3 className="text-xl font-semibold mb-3">Surface Preparation</h3>
                 <p className="text-gray-600">
                   We thoroughly clean, repair, and prime your walls to ensure the texture paint adheres properly and lasts for years.
                 </p>
@@ -169,7 +169,7 @@ const TexturePainting: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">2</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Texture Application</h3>
+                <h3 className="text-xl font-semibold mb-3">Texture Application</h3>
                 <p className="text-gray-600">
                   Using specialized tools and techniques, we apply the texture material to create the desired pattern and depth.
                 </p>
@@ -179,7 +179,7 @@ const TexturePainting: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">3</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Pattern Creation</h3>
+                <h3 className="text-xl font-semibold mb-3">Pattern Creation</h3>
                 <p className="text-gray-600">
                   We carefully craft the texture pattern using rollers, brushes, or trowels to achieve the exact finish you want.
                 </p>
@@ -189,7 +189,7 @@ const TexturePainting: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">4</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Final Finishing</h3>
+                <h3 className="text-xl font-semibold mb-3">Final Finishing</h3>
                 <p className="text-gray-600">
                   We add final touches, ensure consistency across the surface, and clean up the work area completely.
                 </p>
@@ -203,7 +203,7 @@ const TexturePainting: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Is Texture Painting Good?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -239,7 +239,7 @@ const TexturePainting: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 What is Texture Paint Used For?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -254,7 +254,7 @@ const TexturePainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Wall Enhancement</h3>
+                <h3 className="text-xl font-bold mb-3">Wall Enhancement</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Transform plain walls into textured surfaces that add visual interest and depth to any room.
                 </p>
@@ -266,7 +266,7 @@ const TexturePainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Imperfection Concealment</h3>
+                <h3 className="text-xl font-bold mb-3">Imperfection Concealment</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Hide minor wall flaws, cracks, and uneven surfaces with textured finishes that mask imperfections.
                 </p>
@@ -278,7 +278,7 @@ const TexturePainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Acoustic Benefits</h3>
+                <h3 className="text-xl font-bold mb-3">Acoustic Benefits</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Improve room acoustics by reducing echo and sound reflection through textured surfaces.
                 </p>
@@ -290,7 +290,7 @@ const TexturePainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Design Flexibility</h3>
+                <h3 className="text-xl font-bold mb-3">Design Flexibility</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Create unique patterns and finishes that reflect your personal style and complement your decor.
                 </p>
@@ -302,7 +302,7 @@ const TexturePainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Durability</h3>
+                <h3 className="text-xl font-bold mb-3">Durability</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Provide long-lasting finishes that are resistant to wear, stains, and everyday damage.
                 </p>
@@ -314,7 +314,7 @@ const TexturePainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Easy Maintenance</h3>
+                <h3 className="text-xl font-bold mb-3">Easy Maintenance</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Textured surfaces are easier to clean and maintain compared to flat painted walls.
                 </p>
@@ -327,7 +327,7 @@ const TexturePainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Texture Paint Advantages and Disadvantages
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -337,7 +337,7 @@ const TexturePainting: React.FC = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 text-[#ED276E]">Advantages</h3>
+                <h3 className="text-2xl font-bold mb-6">Advantages</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -363,7 +363,7 @@ const TexturePainting: React.FC = () => {
               </div>
               
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 text-[#299dd7]">Disadvantages</h3>
+                <h3 className="text-2xl font-bold mb-6">Disadvantages</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#299dd7] rounded-full mt-2 flex-shrink-0"></div>
@@ -396,7 +396,7 @@ const TexturePainting: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Why Choose HomeGlazer for Texture Painting Service?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -432,7 +432,7 @@ const TexturePainting: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Popular Texture Patterns
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -447,7 +447,7 @@ const TexturePainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Orange Peel</h3>
+                <h3 className="text-lg font-bold mb-2">Orange Peel</h3>
                 <p className="text-gray-600 text-sm">Fine, subtle texture resembling orange peel surface</p>
               </div>
 
@@ -457,7 +457,7 @@ const TexturePainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Knockdown</h3>
+                <h3 className="text-lg font-bold mb-2">Knockdown</h3>
                 <p className="text-sm text-gray-600">Smooth, flattened texture with subtle peaks and valleys</p>
               </div>
 
@@ -467,7 +467,7 @@ const TexturePainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Popcorn</h3>
+                <h3 className="text-lg font-bold mb-2">Popcorn</h3>
                 <p className="text-sm text-gray-600">Heavy, bumpy texture perfect for ceilings</p>
               </div>
 
@@ -477,7 +477,7 @@ const TexturePainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Custom Patterns</h3>
+                <h3 className="text-lg font-bold mb-2">Custom Patterns</h3>
                 <p className="text-sm text-gray-600">Unique textures designed specifically for your space</p>
               </div>
             </div>
@@ -488,7 +488,7 @@ const TexturePainting: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Texture Painting Applications & Uses
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -498,7 +498,7 @@ const TexturePainting: React.FC = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Residential Applications</h3>
+                <h3 className="text-2xl font-bold mb-6">Residential Applications</h3>
                 <ul className="space-y-3 text-gray-600 mb-8">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -522,7 +522,7 @@ const TexturePainting: React.FC = () => {
                   </li>
                 </ul>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Commercial Applications</h3>
+                <h3 className="text-2xl font-bold mb-6">Commercial Applications</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#299dd7] rounded-full mt-2 flex-shrink-0"></div>

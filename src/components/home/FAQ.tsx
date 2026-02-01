@@ -27,7 +27,7 @@ const FAQ: React.FC<FAQProps> = ({ limit }) => {
 
   return (
     <section className="container flex w-[1100px] max-w-full flex-col items-stretch text-black mt-[50px] max-md:mt-10">
-      <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center self-center">
+      <h2 className="text-[40px] font-medium text-center self-center">
         FAQ
       </h2>
       <p className="text-[rgba(64,80,94,1)] text-[28px] font-light text-center self-center mt-[9px] max-md:max-w-full">

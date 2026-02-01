@@ -102,7 +102,7 @@ const ColourVisualizer: React.FC = () => {
       <div className="container mx-auto w-[80%] px-0 lg:px-8 flex flex-col lg:flex-row items-center gap-8 2xl:w-[1400px]">
         <div className="w-full lg:w-1/3 my-auto order-2 lg:order-1">
           <div className="max-w-[354px] mx-auto">
-            <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium leading-[150%]">
+            <h2 className="text-[40px] font-medium leading-[150%]">
               Visualise Your Colour
             </h2>
             <p className="text-xl text-[rgba(123,130,137,1)] font-light mt-[18px]">

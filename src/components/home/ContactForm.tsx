@@ -128,7 +128,7 @@ const ContactForm: React.FC = () => {
         <section className="bg-[rgba(246,246,246,1)] w-full mt-[50px] py-[23px] max-md:mt-10">
           <div className="w-[80%] 2xl:w-[1400px] mx-auto flex items-center gap-[40px] justify-center flex-wrap">
             <div className="self-stretch min-w-60 text-xl text-[rgba(89,89,89,1)] font-light w-[398px] my-auto">
-              <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium leading-[150%]">
+              <h2 className="text-[40px] font-medium leading-[150%]">
                 Get in Touch with Us
               </h2>
               <p className="mt-[33px]">
@@ -143,7 +143,7 @@ const ContactForm: React.FC = () => {
                 <div className="flex justify-center mb-4">
                   <CheckCircle2 className="h-16 w-16 text-green-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Message Sent!</h3>
+                <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
                 <p className="text-gray-600 mb-6">
                   Thank you for reaching out. We'll get back to you within 24 hours.
                 </p>
@@ -167,7 +167,7 @@ const ContactForm: React.FC = () => {
       <section className="bg-[rgba(246,246,246,1)] w-full mt-[50px] py-[23px] max-md:mt-10">
         <div className="w-[80%] 2xl:w-[1400px] mx-auto flex items-center gap-[40px] justify-center flex-wrap">
           <div className="self-stretch min-w-60 text-xl text-[rgba(89,89,89,1)] font-light w-[398px] my-auto">
-            <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium leading-[150%]">
+            <h2 className="text-[40px] font-medium leading-[150%]">
               Get in Touch with Us
             </h2>
             <p className="mt-[33px]">

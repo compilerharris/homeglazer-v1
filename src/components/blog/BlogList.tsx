@@ -82,7 +82,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts, featured = false }) => {
 
         {filteredPosts.length === 0 && (
           <div className="flex flex-col items-center justify-center py-12 text-center">
-            <h3 className="text-2xl font-medium text-gray-900 mb-2">No posts found</h3>
+            <h3 className="text-2xl font-medium mb-2">No posts found</h3>
             <p className="text-gray-600">No blog posts match your selected category.</p>
           </div>
         )}

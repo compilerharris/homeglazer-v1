@@ -15,8 +15,8 @@ const SurfaceSelection: React.FC<SurfaceSelectionProps> = ({
   loading,
 }) => (
   <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
-          <h1 className="text-3xl font-bold text-[#ED276E] mb-6 text-center">Advanced Colour Visualiser</h1>
-    <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Step 1: Choose a Room Type</h2>
+          <h1 className="text-3xl font-bold mb-6 text-center">Advanced Colour Visualiser</h1>
+    <h2 className="text-xl font-semibold mb-2 text-center">Step 1: Choose a Room Type</h2>
     <p className="mb-8 text-gray-600 text-center max-w-xl">Select the type of space you want to visualise. You can change this later.</p>
     {loading ? (
       <div className="text-gray-400">Loading...</div>

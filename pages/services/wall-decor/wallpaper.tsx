@@ -114,7 +114,7 @@ const Wallpaper: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Home Glazer at Customized Wallpaper Services
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -149,7 +149,7 @@ const Wallpaper: React.FC = () => {
         {/* 2. Our Wallpaper Installation Process Section */}
         <section className="py-16 bg-gray-50 w-full">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
-            <h2 className="text-[#ED276E] text-4xl font-medium text-center mb-12">
+            <h2 className="text-4xl font-medium text-center mb-12">
               Our Wallpaper Installation Process
             </h2>
             
@@ -158,7 +158,7 @@ const Wallpaper: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">1</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Design Consultation</h3>
+                <h3 className="text-xl font-semibold mb-3">Design Consultation</h3>
                 <p className="text-gray-600">
                   We discuss your vision, space requirements, and design preferences to select the perfect wallpaper for your space.
                 </p>
@@ -168,7 +168,7 @@ const Wallpaper: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">2</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Surface Preparation</h3>
+                <h3 className="text-xl font-semibold mb-3">Surface Preparation</h3>
                 <p className="text-gray-600">
                   We thoroughly clean, repair, and prime your walls to ensure optimal wallpaper adhesion and longevity.
                 </p>
@@ -178,7 +178,7 @@ const Wallpaper: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">3</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Precise Installation</h3>
+                <h3 className="text-xl font-semibold mb-3">Precise Installation</h3>
                 <p className="text-gray-600">
                   Our experts carefully measure, cut, and install each wallpaper strip with precision for seamless results.
                 </p>
@@ -188,7 +188,7 @@ const Wallpaper: React.FC = () => {
                 <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">4</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Final Finishing</h3>
+                <h3 className="text-xl font-semibold mb-3">Final Finishing</h3>
                 <p className="text-gray-600">
                   We trim edges, remove air bubbles, and ensure perfect alignment for a professional, finished look.
                 </p>
@@ -202,7 +202,7 @@ const Wallpaper: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   What are Customized Wallpapers?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -238,7 +238,7 @@ const Wallpaper: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Do You Need Customized Wallpaper Services?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -253,7 +253,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Unique Design Requirements</h3>
+                <h3 className="text-xl font-bold mb-3">Unique Design Requirements</h3>
                 <p className="text-gray-600 leading-relaxed">
                   When you need patterns, colors, or designs that aren't available in standard wallpaper collections.
                 </p>
@@ -265,7 +265,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Personal Branding</h3>
+                <h3 className="text-xl font-bold mb-3">Personal Branding</h3>
                 <p className="text-gray-600 leading-relaxed">
                   For commercial spaces where you want to incorporate your brand identity and company values.
                 </p>
@@ -277,7 +277,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Perfect Fit Requirements</h3>
+                <h3 className="text-xl font-bold mb-3">Perfect Fit Requirements</h3>
                 <p className="text-gray-600 leading-relaxed">
                   When you need wallpaper that fits perfectly with your room's dimensions and architectural features.
                 </p>
@@ -289,7 +289,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Special Occasions</h3>
+                <h3 className="text-xl font-bold mb-3">Special Occasions</h3>
                 <p className="text-gray-600 leading-relaxed">
                   For events, celebrations, or temporary installations that require unique, themed designs.
                 </p>
@@ -301,7 +301,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Assurance</h3>
+                <h3 className="text-xl font-bold mb-3">Quality Assurance</h3>
                 <p className="text-gray-600 leading-relaxed">
                   When you demand the highest quality materials and professional installation standards.
                 </p>
@@ -313,7 +313,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Time-Sensitive Projects</h3>
+                <h3 className="text-xl font-bold mb-3">Time-Sensitive Projects</h3>
                 <p className="text-gray-600 leading-relaxed">
                   For projects with specific deadlines that require expedited custom design and installation.
                 </p>
@@ -327,7 +327,7 @@ const Wallpaper: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Wallpapers Services - A perfect way to design your spaces!
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -363,7 +363,7 @@ const Wallpaper: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Wallpaper Material
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -378,7 +378,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Vinyl Wallpaper</h3>
+                <h3 className="text-xl font-bold mb-3">Vinyl Wallpaper</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Durable, washable, and perfect for high-traffic areas like kitchens and bathrooms. Resistant to moisture and easy to clean.
                 </p>
@@ -390,7 +390,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Non-Woven Wallpaper</h3>
+                <h3 className="text-xl font-bold mb-3">Non-Woven Wallpaper</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Easy to install and remove, breathable, and perfect for bedrooms and living rooms. Excellent for DIY projects.
                 </p>
@@ -402,7 +402,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Textured Wallpaper</h3>
+                <h3 className="text-xl font-bold mb-3">Textured Wallpaper</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Adds dimension and tactile interest to walls. Perfect for creating focal points and hiding minor imperfections.
                 </p>
@@ -414,7 +414,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Grasscloth Wallpaper</h3>
+                <h3 className="text-xl font-bold mb-3">Grasscloth Wallpaper</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Natural, eco-friendly option made from woven grasses. Adds organic texture and warmth to any space.
                 </p>
@@ -426,7 +426,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Fabric Wallpaper</h3>
+                <h3 className="text-xl font-bold mb-3">Fabric Wallpaper</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Luxurious, soft-textured option perfect for formal spaces. Excellent sound absorption and elegant appearance.
                 </p>
@@ -438,7 +438,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Custom Digital</h3>
+                <h3 className="text-xl font-bold mb-3">Custom Digital</h3>
                 <p className="text-gray-600 leading-relaxed">
                   High-resolution, personalized designs printed on demand. Perfect for creating unique, one-of-a-kind spaces.
                 </p>
@@ -453,7 +453,7 @@ const Wallpaper: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Popular Wallpaper Patterns
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -468,7 +468,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Geometric Patterns</h3>
+                <h3 className="text-lg font-bold mb-2">Geometric Patterns</h3>
                 <p className="text-gray-600 text-sm">Modern geometric designs for contemporary spaces</p>
               </div>
 
@@ -478,7 +478,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Floral Designs</h3>
+                <h3 className="text-lg font-bold mb-2">Floral Designs</h3>
                 <p className="text-sm text-gray-600">Elegant flower and botanical patterns for classic elegance</p>
               </div>
 
@@ -488,7 +488,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Abstract Art</h3>
+                <h3 className="text-lg font-bold mb-2">Abstract Art</h3>
                 <p className="text-sm text-gray-600">Contemporary abstract designs for artistic expression</p>
               </div>
 
@@ -498,7 +498,7 @@ const Wallpaper: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Custom Designs</h3>
+                <h3 className="text-lg font-bold mb-2">Custom Designs</h3>
                 <p className="text-sm text-gray-600">Unique patterns created specifically for your space</p>
               </div>
             </div>
@@ -509,7 +509,7 @@ const Wallpaper: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Wallpaper Applications & Uses
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -519,7 +519,7 @@ const Wallpaper: React.FC = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Residential Applications</h3>
+                <h3 className="text-2xl font-bold mb-6">Residential Applications</h3>
                 <ul className="space-y-3 text-gray-600 mb-8">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -543,7 +543,7 @@ const Wallpaper: React.FC = () => {
                   </li>
                 </ul>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Commercial Applications</h3>
+                <h3 className="text-2xl font-bold mb-6">Commercial Applications</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#299dd7] rounded-full mt-2 flex-shrink-0"></div>

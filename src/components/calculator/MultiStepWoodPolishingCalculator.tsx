@@ -14,6 +14,7 @@ interface Step {
 
 const MultiStepWoodPolishingCalculator: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [inputMethod, setInputMethod] = useState<'area' | 'items'>('area');
   const [quantity, setQuantity] = useState(0);
   const [doorCount, setDoorCount] = useState(0);
@@ -31,9 +32,9 @@ const MultiStepWoodPolishingCalculator: React.FC = () => {
   const [serviceType, setServiceType] = useState('');
 
   const steps: Step[] = [
-    { label: 'Work Details', completed: currentStep > 1 },
-    { label: 'Personal Details', completed: currentStep > 2 },
-    { label: 'Summary', completed: currentStep > 3 }
+    { label: 'WORK DETAILS', completed: currentStep > 1 },
+    { label: 'PERSONAL DETAILS', completed: currentStep > 2 },
+    { label: 'RESULT', completed: isFormSubmitted || currentStep > 3 }
   ];
 
   const handleInputMethodChange = (method: 'area' | 'items') => {
@@ -134,6 +135,7 @@ const MultiStepWoodPolishingCalculator: React.FC = () => {
         throw new Error('Failed to send summary');
       }
 
+      setIsFormSubmitted(true);
       nextStep();
     } catch (error) {
       console.error('Error sending wood polishing summary:', error);
@@ -144,7 +146,10 @@ const MultiStepWoodPolishingCalculator: React.FC = () => {
   };
 
   const nextStep = () => {
-    setCurrentStep(currentStep + 1);
+    setCurrentStep((prev) => prev + 1);
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const prevStep = () => {
@@ -153,6 +158,7 @@ const MultiStepWoodPolishingCalculator: React.FC = () => {
 
   const restartCalculator = () => {
     setCurrentStep(1);
+    setIsFormSubmitted(false);
     setInputMethod('area');
     setQuantity(0);
     setDoorCount(0);
@@ -186,90 +192,104 @@ const MultiStepWoodPolishingCalculator: React.FC = () => {
 
   const totalEstimate = calculateTotalEstimate();
 
-  switch (currentStep) {
-    case 1:
-      return (
-        <WoodPolishingStep1
-          workType={inputMethod}
-          onWorkTypeChange={handleInputMethodChange}
-          area={quantity}
-          onAreaChange={handleQuantityChange}
-          itemCounts={{
-            doors: doorCount,
-            windows: windowCount,
-            wallPanels: wallPanelCount,
-            furnitureArea: furnitureArea
-          }}
-          onItemCountChange={(item: string, value: number) => {
-            switch (item) {
-              case 'doors':
-                handleDoorCountChange(value);
-                break;
-              case 'windows':
-                handleWindowCountChange(value);
-                break;
-              case 'wallPanels':
-                handleWallPanelCountChange(value);
-                break;
-              case 'furnitureArea':
-                handleFurnitureAreaChange(value);
-                break;
-            }
-          }}
-          woodFinishOptions={woodFinishOptions}
-          selectedWoodFinishType={selectedWoodFinishType}
-          onWoodFinishTypeChange={handleWoodFinishTypeChange}
-          selectedWoodFinishBrand={selectedWoodFinishBrand}
-          onWoodFinishBrandChange={handleWoodFinishBrandChange}
-          selectedWoodFinish={selectedWoodFinish}
-          onWoodFinishChange={handleWoodFinishChange}
-          onNext={nextStep}
-          onBack={prevStep}
-        />
-      );
-    case 2:
-      return (
-        <PaintingStep2
-          fullName={fullName}
-          onFullNameChange={handleFullNameChange}
-          email={email}
-          onEmailChange={handleEmailChange}
-          phone={phone}
-          onPhoneChange={handlePhoneChange}
-          location={location}
-          onLocationChange={handleLocationChange}
-          serviceType="Wood Polishing"
-          onServiceTypeChange={handleServiceTypeChange}
-          onNext={handleSendSummary}
-          onBack={prevStep}
-          hideServiceType={true}
-          isLoading={isSending}
-        />
-      );
-    case 3:
-      return (
-        <PaintingStep5
-          fullName={fullName}
-          email={email}
-          onBack={prevStep}
-          onRestart={restartCalculator}
-          inputMethod={inputMethod}
-          woodPolishingArea={quantity}
-          itemCounts={{
-            doors: doorCount,
-            windows: windowCount,
-            wallPanels: wallPanelCount,
-            furnitureArea: furnitureArea
-          }}
-          selectedWoodFinishType={selectedWoodFinishType}
-          selectedWoodFinishBrand={selectedWoodFinishBrand}
-          selectedWoodFinish={selectedWoodFinish}
-          woodPolishingTotalEstimate={totalEstimate}
-        />
-      );
-    default:
-      return null;
-  }
+  const renderCurrentStep = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <WoodPolishingStep1
+            workType={inputMethod}
+            onWorkTypeChange={handleInputMethodChange}
+            area={quantity}
+            onAreaChange={handleQuantityChange}
+            itemCounts={{
+              doors: doorCount,
+              windows: windowCount,
+              wallPanels: wallPanelCount,
+              furnitureArea: furnitureArea
+            }}
+            onItemCountChange={(item: string, value: number) => {
+              switch (item) {
+                case 'doors':
+                  handleDoorCountChange(value);
+                  break;
+                case 'windows':
+                  handleWindowCountChange(value);
+                  break;
+                case 'wallPanels':
+                  handleWallPanelCountChange(value);
+                  break;
+                case 'furnitureArea':
+                  handleFurnitureAreaChange(value);
+                  break;
+              }
+            }}
+            woodFinishOptions={woodFinishOptions}
+            selectedWoodFinishType={selectedWoodFinishType}
+            onWoodFinishTypeChange={handleWoodFinishTypeChange}
+            selectedWoodFinishBrand={selectedWoodFinishBrand}
+            onWoodFinishBrandChange={handleWoodFinishBrandChange}
+            selectedWoodFinish={selectedWoodFinish}
+            onWoodFinishChange={handleWoodFinishChange}
+            onNext={nextStep}
+            onBack={prevStep}
+          />
+        );
+      case 2:
+        return (
+          <PaintingStep2
+            fullName={fullName}
+            onFullNameChange={handleFullNameChange}
+            email={email}
+            onEmailChange={handleEmailChange}
+            phone={phone}
+            onPhoneChange={handlePhoneChange}
+            location={location}
+            onLocationChange={handleLocationChange}
+            serviceType="Wood Polishing"
+            onServiceTypeChange={handleServiceTypeChange}
+            onNext={handleSendSummary}
+            onBack={prevStep}
+            hideServiceType={true}
+            isLoading={isSending}
+          />
+        );
+      case 3:
+        return (
+          <PaintingStep5
+            fullName={fullName}
+            email={email}
+            onBack={prevStep}
+            onRestart={restartCalculator}
+            inputMethod={inputMethod}
+            woodPolishingArea={quantity}
+            itemCounts={{
+              doors: doorCount,
+              windows: windowCount,
+              wallPanels: wallPanelCount,
+              furnitureArea: furnitureArea
+            }}
+            selectedWoodFinishType={selectedWoodFinishType}
+            selectedWoodFinishBrand={selectedWoodFinishBrand}
+            selectedWoodFinish={selectedWoodFinish}
+            woodPolishingTotalEstimate={totalEstimate}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="w-full pb-12 pt-0">
+      <div className="w-full container mx-auto">
+        <StepIndicator currentStep={currentStep} steps={steps} />
+
+        <div className="mt-0">
+          {renderCurrentStep()}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default MultiStepWoodPolishingCalculator; 

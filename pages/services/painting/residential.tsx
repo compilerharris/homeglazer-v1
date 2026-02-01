@@ -76,7 +76,7 @@ const Residential: React.FC = () => {
             <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
                 <div className="text-white">
-                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
                     Residential Painting Services
                   </h1>
                   <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-95">
@@ -119,7 +119,7 @@ const Residential: React.FC = () => {
                 <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                   ABOUT HOME GLAZER
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Home Glazer Residential Painting
                 </h2>
                 <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
@@ -165,7 +165,7 @@ const Residential: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 OUR SERVICES
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Our Residential Painting Services
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -185,7 +185,7 @@ const Residential: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Interior Painting</h3>
+                  <h3 className="text-2xl font-bold mb-4">Interior Painting</h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     Transform your living spaces with our professional interior painting services. From living rooms to bedrooms, we ensure perfect finishes.
                   </p>
@@ -221,7 +221,7 @@ const Residential: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Exterior Painting</h3>
+                  <h3 className="text-2xl font-bold mb-4">Exterior Painting</h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     Protect and beautify your home's exterior with our weather-resistant painting solutions and professional techniques.
                   </p>
@@ -257,7 +257,7 @@ const Residential: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Specialized Finishes</h3>
+                  <h3 className="text-2xl font-bold mb-4">Specialized Finishes</h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     Add character and style to your home with our specialized painting techniques and textured finishes.
                   </p>
@@ -292,7 +292,7 @@ const Residential: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 WHY CHOOSE US
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Benefits of Professional Painting Services
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -310,7 +310,7 @@ const Residential: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       They Have The Experience And Expertise
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -329,7 +329,7 @@ const Residential: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       They Have The Right Tools And Supplies
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -348,7 +348,7 @@ const Residential: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       It Can Save You Time
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -367,7 +367,7 @@ const Residential: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       It Will Boosts Your Mood And Mental Health
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -387,7 +387,7 @@ const Residential: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 COMPARISON
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Residential Painting vs. Commercial Painting
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -408,7 +408,7 @@ const Residential: React.FC = () => {
                 </div>
                 <div className="p-8">
                   <div className="inline-block bg-[#ED276E] text-white px-3 py-1 rounded-full text-sm font-medium mb-4">1</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Size of the Project</h3>
+                  <h3 className="text-xl font-bold mb-4">Size of the Project</h3>
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     The scope of a painting project is an indication of the type of painting service needed. Residential painting projects include houses, townhouses, condominiums, and other living spaces.
                   </p>
@@ -430,7 +430,7 @@ const Residential: React.FC = () => {
                 </div>
                 <div className="p-8">
                   <div className="inline-block bg-[#ED276E] text-white px-3 py-1 rounded-full text-sm font-medium mb-4">2</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Number of Painters</h3>
+                  <h3 className="text-xl font-bold mb-4">Number of Painters</h3>
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     Larger commercial buildings require more painters to cover the area of the building and meet deadlines. Commercial painting companies employ more people so that they can finish commercial painting projects on time.
                   </p>
@@ -452,7 +452,7 @@ const Residential: React.FC = () => {
                 </div>
                 <div className="p-8">
                   <div className="inline-block bg-[#ED276E] text-white px-3 py-1 rounded-full text-sm font-medium mb-4">3</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Materials and Equipment</h3>
+                  <h3 className="text-xl font-bold mb-4">Materials and Equipment</h3>
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     Residential painting contractors are focused solely on smaller residential projects. For this reason, the materials and equipment they use are not too different from paint supplies you can get on your own.
                   </p>
@@ -474,7 +474,7 @@ const Residential: React.FC = () => {
                 </div>
                 <div className="p-8">
                   <div className="inline-block bg-[#ED276E] text-white px-3 py-1 rounded-full text-sm font-medium mb-4">4</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Services Provided</h3>
+                  <h3 className="text-xl font-bold mb-4">Services Provided</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     Commercial painting contractors usually offer additional services than residential painting contractors. Some services include industrial painting and coating, special surface preparation, metalizing, epoxy coatings, sandblasting, and various other services related to businesses.
                   </p>
@@ -493,7 +493,7 @@ const Residential: React.FC = () => {
                 </div>
                 <div className="p-8">
                   <div className="inline-block bg-[#ED276E] text-white px-3 py-1 rounded-full text-sm font-medium mb-4">5</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Scheduling</h3>
+                  <h3 className="text-xl font-bold mb-4">Scheduling</h3>
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     Commercial painting is done according to the schedule of business owners and operations. Scheduling can be quite challenging for businesses, as most want to stay open for the customers as their establishments go through a renovation project at the same time.
                   </p>
@@ -515,7 +515,7 @@ const Residential: React.FC = () => {
                 </div>
                 <div className="p-8">
                   <div className="inline-block bg-[#ED276E] text-white px-3 py-1 rounded-full text-sm font-medium mb-4">6</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Increase Your Home Value</h3>
+                  <h3 className="text-xl font-bold mb-4">Increase Your Home Value</h3>
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     A well-painted home looks great and is much more likely to sell quickly and for a higher price than a home that hasn't been painted.
                   </p>
@@ -535,7 +535,7 @@ const Residential: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 OUR PROCESS
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Our Painting Process
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -557,7 +557,7 @@ const Residential: React.FC = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-[#ED276E] to-[#299dd7] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                     <span className="text-white font-bold text-xl">1</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Consultation</h3>
+                  <h3 className="text-2xl font-bold mb-4">Consultation</h3>
                   <p className="text-gray-600 leading-relaxed">
                     When you contact us then our representative will meet the client to discuss the project. The main aim of this is to find what type of taste has a client. What he wants in his dream house. Here we talk about trendy colours, the latest paints and discuss your ideas.
                   </p>
@@ -577,7 +577,7 @@ const Residential: React.FC = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-[#ED276E] to-[#299dd7] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                     <span className="text-white font-bold text-xl">2</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Scope of Work</h3>
+                  <h3 className="text-2xl font-bold mb-4">Scope of Work</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Before house winter comes to your house is a roadmap for good initiation. It contains the list of documentation warranty details which type of paint you want, primer, etc. The "Colour Schedule" lists the room colours and is prepared by a colour consultant or designer.
                   </p>
@@ -597,7 +597,7 @@ const Residential: React.FC = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-[#ED276E] to-[#299dd7] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                     <span className="text-white font-bold text-xl">3</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">The Actual Residential Painting Work</h3>
+                  <h3 className="text-2xl font-bold mb-4">The Actual Residential Painting Work</h3>
                   <p className="text-gray-600 leading-relaxed">
                     When our house painters start the work they properly ensure that all your belongings are safe. If not, they first cover all the things with plastic or cloth. They always ask your preference like Which room you want to go to first.
                   </p>

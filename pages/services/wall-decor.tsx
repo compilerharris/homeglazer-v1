@@ -55,7 +55,7 @@ const WallDecor: React.FC = () => {
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/graffiti-painting.png" 
+                src="/uploads/services/Graffiti%20Paintingthumb.png" 
                 alt="Graffiti Painting" 
                 className="w-full h-64 object-cover"
               />
@@ -93,7 +93,7 @@ const WallDecor: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/stencil-art.jpg" 
+                src="/uploads/services/stencil-thumb.png" 
                 alt="Stencil Art" 
                 className="w-full h-64 object-cover"
               />

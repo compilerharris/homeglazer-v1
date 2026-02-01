@@ -23,7 +23,7 @@ const AboutHowWeDoIt: React.FC = () => {
   }];
   return <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center mb-12">How do we do it?</h2>
+        <h2 className="text-[40px] font-medium text-center mb-12">How do we do it?</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {process.map((item, index) => <div key={index} className="flex flex-col items-center text-center">
@@ -37,7 +37,7 @@ const AboutHowWeDoIt: React.FC = () => {
                 </div>
                 <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-pink-500 rounded-full border-2 border-white"></div>
               </div>
-              <h3 className="font-bold text-xl mb-2 text-[rgba(237,39,110,1)]">{item.title}</h3>
+              <h3 className="font-bold text-xl mb-2">{item.title}</h3>
               <p className="text-gray-600 text-sm max-w-xs">{item.description}</p>
             </div>)}
         </div>

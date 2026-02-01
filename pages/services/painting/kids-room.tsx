@@ -117,7 +117,7 @@ const KidsRoom: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Home Glazer at Kids Room Painting
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -153,7 +153,7 @@ const KidsRoom: React.FC = () => {
         <section className="py-20 bg-gray-50 w-full">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Try Colors for Your Kids Room
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -179,7 +179,7 @@ const KidsRoom: React.FC = () => {
                 </div>
               </div>
               <div className="order-1 lg:order-2">
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Colour Your Kids Room
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -197,7 +197,7 @@ const KidsRoom: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Paint Kids Rooms with Them in Mind
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -214,7 +214,7 @@ const KidsRoom: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       1. Choose Soothing Colors for a Nursery
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -232,7 +232,7 @@ const KidsRoom: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       2. Think About the Future
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -250,7 +250,7 @@ const KidsRoom: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       3. Consider the Mood You Want to Set
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -268,7 +268,7 @@ const KidsRoom: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       4. Talk to Your Child
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -285,7 +285,7 @@ const KidsRoom: React.FC = () => {
         <section className="py-20 bg-gray-50 w-full">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Kids Room Wall Decor Ideas
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -301,7 +301,7 @@ const KidsRoom: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Wall Painting Ideas</h3>
+                  <h3 className="text-xl font-bold mb-4">Wall Painting Ideas</h3>
                   <p className="text-gray-600 leading-relaxed">
                     From bright yellow hues to glistening turquoise blue, children's room wall painting ideas are limitless. Blue is said to be a soothing, peaceful hue that promotes happiness and instils calmness within children.
                   </p>
@@ -315,7 +315,7 @@ const KidsRoom: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Texture Design Ideas</h3>
+                  <h3 className="text-xl font-bold mb-4">Texture Design Ideas</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Apart from wall decals and paintings, you can design your kid's room with fun textures like stripes, motifs, and flowers. Try experimenting with sea creatures, imprints, stamps, or anything quirky.
                   </p>
@@ -329,7 +329,7 @@ const KidsRoom: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Wallpaper Design Ideas</h3>
+                  <h3 className="text-xl font-bold mb-4">Wallpaper Design Ideas</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Cartoon characters like Chhota Bheema or Avengers are a hit among children. Bring these characters to life by installing your kid's favourite cartoon-themed wallpapers in their rooms.
                   </p>
@@ -343,7 +343,7 @@ const KidsRoom: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Wall Sticker Ideas</h3>
+                  <h3 className="text-xl font-bold mb-4">Wall Sticker Ideas</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Let children's wall stickers accentuate your child's room and add a joyous charm to it. Try adding unique space-themed, jungle-themed, or aqua-themed children's wall stickers.
                   </p>
@@ -357,7 +357,7 @@ const KidsRoom: React.FC = () => {
         <section className="py-20 bg-gray-50 w-full">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 How to Paint a Child's Room – A Step-by-Step Guide
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -371,7 +371,7 @@ const KidsRoom: React.FC = () => {
                   <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-6">
                     <span className="text-white font-bold text-xl">1</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Prepare the Room</h3>
+                  <h3 className="text-xl font-bold mb-4">Prepare the Room</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Ensure the room is well-ventilated. Move furniture away from the walls and cover it with drop cloths. Use painter's tape to protect windowsills, door frames, and baseboards.
                   </p>
@@ -383,7 +383,7 @@ const KidsRoom: React.FC = () => {
                   <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-6">
                     <span className="text-white font-bold text-xl">2</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Prime the Walls</h3>
+                  <h3 className="text-xl font-bold mb-4">Prime the Walls</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Applying a primer is crucial, especially if you're changing the wall colour significantly. Primer provides a smooth base for your topcoat and ensures better adhesion and truer colour.
                   </p>
@@ -395,7 +395,7 @@ const KidsRoom: React.FC = () => {
                   <div className="w-16 h-16 bg-[#ED276E] rounded-full flex items-center justify-center mx-auto mb-6">
                     <span className="text-white font-bold text-xl">3</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Painting</h3>
+                  <h3 className="text-xl font-bold mb-4">Painting</h3>
                   <p className="text-gray-600 leading-relaxed">
                     When painting, use rollers for large, flat areas and brushes for cutting in around corners and edges. Apply at least two coats for even coverage, allowing sufficient drying time between coats.
                   </p>
@@ -410,7 +410,7 @@ const KidsRoom: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Let the Professional House Painters Help
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">

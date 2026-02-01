@@ -30,7 +30,7 @@ const RoomMakeover: React.FC = () => {
         
         <div className="w-full lg:w-1/3 my-auto">
           <div className="max-w-[354px] mx-auto">
-            <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium">
+            <h2 className="text-[40px] font-medium">
               Room Makeover
             </h2>
             <p className="text-xl text-[rgba(89,89,89,1)] font-light mt-[18px]">

@@ -23,11 +23,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, imageUrl,
         className="absolute h-full w-full object-cover inset-0 transition-transform duration-500 group-hover:scale-105"
       />
       <div className="relative z-20 flex flex-col h-full justify-end p-5 text-white transition-all duration-500">
-        <div className="flex items-center mt-auto">
+        <div className="flex items-center mt-auto text-white">
           <div className="mr-3 text-white">
             {icon}
           </div>
-          <h3 className="text-xl md:text-2xl font-medium">{title}</h3>
+          <h3 className="text-xl md:text-2xl font-medium text-white">{title}</h3>
         </div>
         <p className="text-sm md:text-base opacity-0 group-hover:opacity-100 transition-all duration-500 max-h-0 group-hover:max-h-20 overflow-hidden line-clamp-3">{description}</p>
       </div>
@@ -84,7 +84,7 @@ const Services: React.FC = () => {
   return (
     <section className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto flex flex-col items-stretch mt-[50px] max-md:mt-10">
       <div className="self-center flex w-full max-w-[409px] flex-col items-stretch text-center">
-        <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium self-center leading-[150%]">
+        <h2 className="text-[40px] font-medium self-center leading-[150%]">
           Our Services
         </h2>
         <p className="text-[rgba(64,80,94,1)] text-xl font-light mt-[9px]">

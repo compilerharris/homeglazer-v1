@@ -270,7 +270,7 @@ const Sitemap: React.FC = () => {
       {/* Quick Links Section */}
       <section className="w-full bg-white py-12">
         <div className="w-[90%] lg:w-[80%] mx-auto">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
+          <h2 className="text-2xl font-semibold mb-6 text-center">
             Quick Links
           </h2>
           <div className="flex flex-wrap justify-center gap-4">

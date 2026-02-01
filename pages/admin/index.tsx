@@ -43,7 +43,7 @@ export default function AdminLogin() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#ED276E] to-[#299dd7] px-4">
       <div className="max-w-md w-full bg-white rounded-xl shadow-2xl p-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-[#ED276E] mb-2">Admin Login</h1>
+          <h1 className="text-3xl font-bold mb-2">Admin Login</h1>
           <p className="text-gray-600">Sign in to manage products and brands</p>
         </div>
 

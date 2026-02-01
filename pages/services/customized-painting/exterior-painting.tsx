@@ -119,7 +119,7 @@ const ExteriorPainting: React.FC = () => {
                 <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                   ABOUT HOME GLAZER
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Home Glazer at Exterior Painting
                 </h2>
                 <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
@@ -168,7 +168,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 KNOWLEDGE
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 What is Exterior Painting?
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -179,7 +179,7 @@ const ExteriorPainting: React.FC = () => {
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Exterior Home Painting Definition</h3>
+                  <h3 className="text-2xl font-bold mb-6">Exterior Home Painting Definition</h3>
                   <div className="space-y-4 text-gray-700 leading-relaxed">
                     <p>
                       Exterior home painting refers to the process of applying paint or protective coatings to the outer surfaces of a home or building. It involves coating the exterior walls, doors, windows, trims, and other outdoor elements with paint to enhance the appearance and protect the surfaces from weathering and damage.
@@ -219,7 +219,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 TECHNIQUES
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Techniques for Exterior Painting
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -234,7 +234,7 @@ const ExteriorPainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Prep the Surface</h3>
+                <h3 className="text-xl font-bold mb-4 text-center">Prep the Surface</h3>
                 <p className="text-gray-600 text-center leading-relaxed">
                   Begin by thoroughly cleaning the exterior surface, and removing dirt, grime, and loose paint. Repair any cracks or holes and ensure a smooth surface.
                 </p>
@@ -246,7 +246,7 @@ const ExteriorPainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Choose the Right Paint</h3>
+                <h3 className="text-xl font-bold mb-4 text-center">Choose the Right Paint</h3>
                 <p className="text-gray-600 text-center leading-relaxed">
                   Opt for high-quality exterior paint that is specifically designed for outdoor use. Consider factors like weather resistance and durability.
                 </p>
@@ -258,7 +258,7 @@ const ExteriorPainting: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Proper Timing</h3>
+                <h3 className="text-xl font-bold mb-4 text-center">Proper Timing</h3>
                 <p className="text-gray-600 text-center leading-relaxed">
                   Avoid painting in extreme temperatures or during rainy or humid weather as it can affect the drying and bonding process.
                 </p>
@@ -274,7 +274,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 COLOR GUIDE
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Choose Best Colours for Home Exterior Walls
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -287,7 +287,7 @@ const ExteriorPainting: React.FC = () => {
                 <div className="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="w-16 h-16 bg-yellow-400 rounded-full"></div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">Earthy Tones</h3>
+                <h3 className="text-lg font-bold mb-3">Earthy Tones</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Opt for earthy colours like beige, light yellow, or light brown for a warm and welcoming feel.
                 </p>
@@ -297,7 +297,7 @@ const ExteriorPainting: React.FC = () => {
                 <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="w-16 h-16 bg-gray-300 rounded-full"></div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">White</h3>
+                <h3 className="text-lg font-bold mb-3">White</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   White is considered auspicious and brings purity and clarity. It is a versatile choice that goes well with any architectural style.
                 </p>
@@ -307,7 +307,7 @@ const ExteriorPainting: React.FC = () => {
                 <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="w-16 h-16 bg-blue-400 rounded-full"></div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">Blues and Greens</h3>
+                <h3 className="text-lg font-bold mb-3">Blues and Greens</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Shades of blue and green are associated with tranquillity and abundance. They promote a sense of peace and harmony.
                 </p>
@@ -317,7 +317,7 @@ const ExteriorPainting: React.FC = () => {
                 <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="w-16 h-16 bg-red-400 rounded-full"></div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">Accent Colors</h3>
+                <h3 className="text-lg font-bold mb-3">Accent Colors</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Add pops of vibrant colours as accents on doors, windows, or other architectural features to create visual interest.
                 </p>
@@ -333,7 +333,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 PAINT TYPES
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Types Of Exterior Paint
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -343,7 +343,7 @@ const ExteriorPainting: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-400">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Latex or Water-based</h3>
+                <h3 className="text-2xl font-bold mb-4">Latex or Water-based</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed">
                   Latex paint is a popular choice for exterior walls due to its durability, easy application, and quick drying time. It is also resistant to cracking, peeling, and fading.
                 </p>
@@ -364,7 +364,7 @@ const ExteriorPainting: React.FC = () => {
               </div>
 
               <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-green-400">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Oil-based</h3>
+                <h3 className="text-2xl font-bold mb-4">Oil-based</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed">
                   Oil-based paints provide a more durable finish and are ideal for surfaces that require extra protection, such as wood or metal. They are known for their long-lasting performance.
                 </p>
@@ -385,7 +385,7 @@ const ExteriorPainting: React.FC = () => {
               </div>
 
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-purple-400">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Elastomeric</h3>
+                <h3 className="text-2xl font-bold mb-4">Elastomeric</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed">
                   Elastomeric paint is highly flexible and can expand and contract with temperature changes. It is ideal for areas prone to cracking, such as stucco or concrete walls.
                 </p>
@@ -415,7 +415,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 TOOLS & EQUIPMENT
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Tools and Equipment for Exterior Painting
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -425,7 +425,7 @@ const ExteriorPainting: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-2xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Essential Tools</h3>
+                <h3 className="text-2xl font-bold mb-6">Essential Tools</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
                     <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center flex-shrink-0">
@@ -466,7 +466,7 @@ const ExteriorPainting: React.FC = () => {
               </div>
 
               <div className="bg-white rounded-2xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Professional Equipment</h3>
+                <h3 className="text-2xl font-bold mb-6">Professional Equipment</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
                     <div className="w-12 h-12 bg-[#ED276E] rounded-lg flex items-center justify-center flex-shrink-0">
@@ -516,7 +516,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 OUR SERVICES
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Our Exterior Painting Services
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -536,7 +536,7 @@ const ExteriorPainting: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Repainting</h3>
+                  <h3 className="text-2xl font-bold mb-4">Repainting</h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     Professional repainting services to restore your home's exterior beauty and protection.
                   </p>
@@ -578,7 +578,7 @@ const ExteriorPainting: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">First Time Painting</h3>
+                  <h3 className="text-2xl font-bold mb-4">First Time Painting</h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     Complete exterior painting solutions for new homes and first-time painting projects.
                   </p>
@@ -620,7 +620,7 @@ const ExteriorPainting: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Texture Painting</h3>
+                  <h3 className="text-2xl font-bold mb-4">Texture Painting</h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     Add character and dimension to your home's exterior with our texture painting services.
                   </p>
@@ -655,7 +655,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 WHY CHOOSE US
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Benefits of Exterior Painting Services
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -673,7 +673,7 @@ const ExteriorPainting: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Makes Your House Stand Out
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -692,7 +692,7 @@ const ExteriorPainting: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Increases Home Value
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -711,7 +711,7 @@ const ExteriorPainting: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Repairs Damages
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -730,7 +730,7 @@ const ExteriorPainting: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold mb-3">
                       Protects from Elements
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -750,7 +750,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="inline-block bg-gradient-to-r from-[#ED276E] to-[#299dd7] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                 OUR PROCESS
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Our Exterior Painting Process
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -760,7 +760,7 @@ const ExteriorPainting: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-2xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Repainting Process</h3>
+                <h3 className="text-2xl font-bold mb-6 text-center">Repainting Process</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4">
                     <div className="w-8 h-8 bg-[#ED276E] text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">1</div>
@@ -808,7 +808,7 @@ const ExteriorPainting: React.FC = () => {
               </div>
 
               <div className="bg-white rounded-2xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">First Time Painting Process</h3>
+                <h3 className="text-2xl font-bold mb-6 text-center">First Time Painting Process</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4">
                     <div className="w-8 h-8 bg-[#299dd7] text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">1</div>

@@ -90,7 +90,7 @@ export default function BlogsIndex() {
       <AdminLayout>
         <div className="space-y-6">
           <div className="flex justify-between items-center">
-            <h1 className="text-3xl font-bold text-[#ED276E]">Blog Posts</h1>
+            <h1 className="text-3xl font-bold">Blog Posts</h1>
             <Link href="/admin/blogs/new">
               <Button className="bg-[#299dd7] hover:bg-[#237bb0]">
                 + New Blog Post

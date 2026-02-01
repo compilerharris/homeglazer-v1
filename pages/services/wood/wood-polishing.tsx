@@ -116,7 +116,7 @@ const WoodPolishing: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Home Glazer at Wood Polishing
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -168,7 +168,7 @@ const WoodPolishing: React.FC = () => {
                 </div>
               </div>
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Unveiling the Artistry of Wood Polishing
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -189,7 +189,7 @@ const WoodPolishing: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Crafting Bespoke Solutions
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -204,7 +204,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Custom Assessment</h3>
+                <h3 className="text-xl font-bold mb-3">Custom Assessment</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Thorough evaluation of your wooden surfaces to determine the best approach for restoration and polishing.
                 </p>
@@ -216,7 +216,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Tailored Techniques</h3>
+                <h3 className="text-xl font-bold mb-3">Tailored Techniques</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Selection of appropriate polishing methods and materials based on wood type, condition, and desired outcome.
                 </p>
@@ -228,7 +228,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Assurance</h3>
+                <h3 className="text-xl font-bold mb-3">Quality Assurance</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Rigorous quality checks throughout the process to ensure the final result meets our high standards.
                 </p>
@@ -242,7 +242,7 @@ const WoodPolishing: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   A Legacy of Excellence
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -294,7 +294,7 @@ const WoodPolishing: React.FC = () => {
                 </div>
               </div>
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Embracing Sustainability
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -315,7 +315,7 @@ const WoodPolishing: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Elevate Your Space with Home Glazer
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -325,7 +325,7 @@ const WoodPolishing: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Residential Transformation</h3>
+                <h3 className="text-2xl font-bold mb-6">Residential Transformation</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -347,7 +347,7 @@ const WoodPolishing: React.FC = () => {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Commercial Enhancement</h3>
+                <h3 className="text-2xl font-bold mb-6">Commercial Enhancement</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#299dd7] rounded-full mt-2 flex-shrink-0"></div>
@@ -376,7 +376,7 @@ const WoodPolishing: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   How does Home Glazer Offers The Best Wood polishing services?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -384,19 +384,19 @@ const WoodPolishing: React.FC = () => {
                 </p>
                 <div className="space-y-4">
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Expert Team</h3>
+                    <h3 className="font-semibold mb-2">Expert Team</h3>
                     <p className="text-gray-600">Highly skilled craftsmen with decades of experience in wood polishing and restoration techniques.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Premium Materials</h3>
+                    <h3 className="font-semibold mb-2">Premium Materials</h3>
                     <p className="text-gray-600">Use of high-quality, eco-friendly polishing compounds and natural oils for optimal results.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Advanced Techniques</h3>
+                    <h3 className="font-semibold mb-2">Advanced Techniques</h3>
                     <p className="text-gray-600">Combination of traditional methods and modern technology for superior finish quality.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Quality Assurance</h3>
+                    <h3 className="font-semibold mb-2">Quality Assurance</h3>
                     <p className="text-gray-600">Rigorous quality checks and customer satisfaction guarantee for every project.</p>
                   </div>
                 </div>
@@ -418,7 +418,7 @@ const WoodPolishing: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Know about the type of wood polishing that you might need
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -436,7 +436,7 @@ const WoodPolishing: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Lacquer Polish</h3>
+                    <h3 className="text-2xl font-bold mb-2">Lacquer Polish</h3>
                     <p className="text-gray-600 text-sm font-medium">Fast-drying, durable finish</p>
                   </div>
                 </div>
@@ -470,7 +470,7 @@ const WoodPolishing: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Melamine Polish</h3>
+                    <h3 className="text-2xl font-bold mb-2">Melamine Polish</h3>
                     <p className="text-gray-600 text-sm font-medium">Hard-wearing, moisture-resistant finish</p>
                   </div>
                 </div>
@@ -504,7 +504,7 @@ const WoodPolishing: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">DUCO Paint</h3>
+                    <h3 className="text-2xl font-bold mb-2">DUCO Paint</h3>
                     <p className="text-gray-600 text-sm font-medium">Automotive-grade finish for wood</p>
                   </div>
                 </div>
@@ -538,7 +538,7 @@ const WoodPolishing: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Clear PU Polish</h3>
+                    <h3 className="text-2xl font-bold mb-2">Clear PU Polish</h3>
                     <p className="text-gray-600 text-sm font-medium">Crystal clear, protective finish</p>
                   </div>
                 </div>
@@ -572,7 +572,7 @@ const WoodPolishing: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">PU Paint</h3>
+                    <h3 className="text-2xl font-bold mb-2">PU Paint</h3>
                     <p className="text-gray-600 text-sm font-medium">Versatile, durable paint finish</p>
                   </div>
                 </div>
@@ -606,7 +606,7 @@ const WoodPolishing: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Clear & Pigment Polyester Polish</h3>
+                    <h3 className="text-2xl font-bold mb-2">Clear & Pigment Polyester Polish</h3>
                     <p className="text-gray-600 text-sm font-medium">Industrial-grade, long-lasting finish</p>
                   </div>
                 </div>
@@ -648,7 +648,7 @@ const WoodPolishing: React.FC = () => {
                 </div>
               </div>
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Why You Should Hire Home Glazer?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -656,19 +656,19 @@ const WoodPolishing: React.FC = () => {
                 </p>
                 <div className="space-y-4">
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Proven Expertise</h3>
+                    <h3 className="font-semibold mb-2">Proven Expertise</h3>
                     <p className="text-gray-600">35+ years of experience in wood polishing and restoration across Delhi NCR.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Quality Guarantee</h3>
+                    <h3 className="font-semibold mb-2">Quality Guarantee</h3>
                     <p className="text-gray-600">We stand behind our work with comprehensive quality assurance and customer satisfaction guarantee.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Professional Team</h3>
+                    <h3 className="font-semibold mb-2">Professional Team</h3>
                     <p className="text-gray-600">Skilled craftsmen who are passionate about their work and committed to delivering excellence.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Competitive Pricing</h3>
+                    <h3 className="font-semibold mb-2">Competitive Pricing</h3>
                     <p className="text-gray-600">Fair and transparent pricing for premium quality wood polishing services.</p>
                   </div>
                 </div>
@@ -681,7 +681,7 @@ const WoodPolishing: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Home Glazer, The Best Wood Polish Services In Delhi NCR
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -696,7 +696,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">35+ Years Experience</h3>
+                <h3 className="text-xl font-semibold mb-3">35+ Years Experience</h3>
                 <p className="text-gray-600">
                   Decades of expertise in wood polishing and restoration techniques
                 </p>
@@ -708,7 +708,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Premium Materials</h3>
+                <h3 className="text-xl font-semibold mb-3">Premium Materials</h3>
                 <p className="text-gray-600">
                   Use of high-quality, eco-friendly polishing compounds and materials
                 </p>
@@ -720,7 +720,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Expert Team</h3>
+                <h3 className="text-xl font-semibold mb-3">Expert Team</h3>
                 <p className="text-gray-600">
                   Skilled craftsmen with specialized training in wood polishing
                 </p>
@@ -732,7 +732,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Customer Satisfaction</h3>
+                <h3 className="text-xl font-semibold mb-3">Customer Satisfaction</h3>
                 <p className="text-gray-600">
                   Proven track record of exceeding customer expectations
                 </p>
@@ -745,7 +745,7 @@ const WoodPolishing: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Popular Wood Polishing Finishes
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -760,7 +760,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Natural Finish</h3>
+                <h3 className="text-lg font-bold mb-2">Natural Finish</h3>
                 <p className="text-gray-600 text-sm">Enhance wood's natural beauty with transparent polishing</p>
               </div>
 
@@ -770,7 +770,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">High Gloss</h3>
+                <h3 className="text-lg font-bold mb-2">High Gloss</h3>
                 <p className="text-sm text-gray-600">Sleek, mirror-like finish for modern aesthetics</p>
               </div>
 
@@ -780,7 +780,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Satin Finish</h3>
+                <h3 className="text-lg font-bold mb-2">Satin Finish</h3>
                 <p className="text-sm text-gray-600">Elegant, low-sheen appearance for subtle beauty</p>
               </div>
 
@@ -790,7 +790,7 @@ const WoodPolishing: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Distressed Look</h3>
+                <h3 className="text-lg font-bold mb-2">Distressed Look</h3>
                 <p className="text-sm text-gray-600">Vintage, weathered appearance for rustic charm</p>
               </div>
             </div>
@@ -801,7 +801,7 @@ const WoodPolishing: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Wood Polishing Applications & Uses
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -811,7 +811,7 @@ const WoodPolishing: React.FC = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Residential Applications</h3>
+                <h3 className="text-2xl font-bold mb-6">Residential Applications</h3>
                 <ul className="space-y-3 text-gray-600 mb-8">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -835,7 +835,7 @@ const WoodPolishing: React.FC = () => {
                   </li>
                 </ul>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Commercial Applications</h3>
+                <h3 className="text-2xl font-bold mb-6">Commercial Applications</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#299dd7] rounded-full mt-2 flex-shrink-0"></div>

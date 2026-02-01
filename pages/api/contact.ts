@@ -177,7 +177,7 @@ export default async function handler(
             </div>
             <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9; clear: both; display: block; width: 100%; overflow: visible;">
               <p style="margin: 0 0 10px 0;"><strong>Home Glazer</strong> - We Paint Your Imagination</p>
-              <p style="margin: 0 0 10px 0;">B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010</p>
+              <p style="margin: 0 0 10px 0;">B-474, Basement, Greenfield Colony, Faridabad, Haryana - 121010</p>
               <p style="margin: 0 0 15px 0;">Email: <a href="mailto:homeglazer@gmail.com" style="color: #299dd7; text-decoration: none;">homeglazer@gmail.com</a> | Phone: <a href="tel:+919717256514" style="color: #299dd7; text-decoration: none;">+91-9717256514</a></p>
               <p style="margin: 0 0 15px 0;">
                 <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Facebook</a> |
@@ -225,7 +225,7 @@ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
 This message was submitted through the Home Glazer website contact form.
 
 Home Glazer - We Paint Your Imagination
-B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010
+B-474, Basement, Greenfield Colony, Faridabad, Haryana - 121010
 Email: homeglazer@gmail.com | Phone: +91-9717256514
     `;
 
@@ -291,7 +291,7 @@ Email: homeglazer@gmail.com | Phone: +91-9717256514
               <p>Thank you for reaching out to Home Glazer! We've received your message and our team will get back to you as soon as possible.</p>
               
               <div class="summary-box">
-                <h2 style="color: #ED276E; margin-top: 0;">Your Message Summary</h2>
+                <h2 style="color: #299dd7; margin-top: 0;">Your Message Summary</h2>
                 <div class="summary-item">
                   <span class="summary-label">Service Required:</span>
                   <span>${serviceType}</span>
@@ -326,7 +326,7 @@ Email: homeglazer@gmail.com | Phone: +91-9717256514
             </div>
             <div class="footer" style="text-align: center; padding: 20px; color: #666; font-size: 12px; background-color: #f9f9f9; clear: both; display: block; width: 100%; overflow: visible;">
               <p style="margin: 0 0 10px 0;"><strong>Home Glazer</strong> - We Paint Your Imagination</p>
-              <p style="margin: 0 0 10px 0;">B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010</p>
+              <p style="margin: 0 0 10px 0;">B-474, Basement, Greenfield Colony, Faridabad, Haryana - 121010</p>
               <p style="margin: 0 0 15px 0;">Email: <a href="mailto:homeglazer@gmail.com" style="color: #299dd7; text-decoration: none;">homeglazer@gmail.com</a> | Phone: <a href="tel:+919717256514" style="color: #299dd7; text-decoration: none;">+91-9717256514</a></p>
               <p style="margin: 0 0 0 0; word-wrap: break-word; overflow-wrap: break-word;">
                 <a href="https://www.facebook.com/homeglazers/" target="_blank" style="color: #299dd7; text-decoration: none; margin: 0 4px; display: inline-block;">Facebook</a> |
@@ -370,7 +370,7 @@ The Home Glazer Team
 
 ---
 Home Glazer - We Paint Your Imagination
-B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010
+B-474, Basement, Greenfield Colony, Faridabad, Haryana - 121010
 Email: homeglazer@gmail.com | Phone: +91-9717256514
 
 Follow us on:

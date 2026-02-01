@@ -57,7 +57,7 @@ export const CustomerTestimonialsSection = (): JSX.Element => {
 
       <div className="flex flex-col items-start gap-7">
         <div className="flex flex-col max-w-[353.59px] w-[353.59px] items-start gap-[18px]">
-          <h2 className="self-stretch mt-[-0.88px] font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-[40px] leading-normal">
+          <h2 className="self-stretch mt-[-0.88px] font-['Quicksand',Helvetica] font-medium text-[40px] leading-normal">
             Quality Paints
           </h2>
 

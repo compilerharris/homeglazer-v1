@@ -116,7 +116,7 @@ const WoodCoating: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Home Glazer at Wood Coating Services
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -168,7 +168,7 @@ const WoodCoating: React.FC = () => {
                 </div>
               </div>
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   What is Wood Coating Services?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -189,7 +189,7 @@ const WoodCoating: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Types of Wood Coating Services
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -204,7 +204,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Furniture Coating</h3>
+                <h3 className="text-xl font-bold mb-3">Furniture Coating</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Professional finishing for wooden furniture including tables, chairs, cabinets, and decorative pieces with durable protective coatings.
                 </p>
@@ -216,7 +216,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Door & Window Coating</h3>
+                <h3 className="text-xl font-bold mb-3">Door & Window Coating</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Protective coatings for wooden doors and windows to enhance durability and resistance to weather elements and daily wear.
                 </p>
@@ -228,7 +228,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Outdoor Wood Protection</h3>
+                <h3 className="text-xl font-bold mb-3">Outdoor Wood Protection</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Specialized coatings for outdoor wooden structures including decks, fences, pergolas, and garden furniture.
                 </p>
@@ -240,7 +240,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Commercial Wood Coating</h3>
+                <h3 className="text-xl font-bold mb-3">Commercial Wood Coating</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Large-scale wood coating projects for commercial spaces, offices, retail stores, and hospitality venues.
                 </p>
@@ -252,7 +252,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Restoration & Refinishing</h3>
+                <h3 className="text-xl font-bold mb-3">Restoration & Refinishing</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Restoration services for antique furniture and wooden surfaces, bringing new life to cherished pieces.
                 </p>
@@ -264,7 +264,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Custom Finishes</h3>
+                <h3 className="text-xl font-bold mb-3">Custom Finishes</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Personalized coating solutions tailored to specific design requirements and aesthetic preferences.
                 </p>
@@ -277,7 +277,7 @@ const WoodCoating: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Benefits of Professional Wood Coating Services
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -287,7 +287,7 @@ const WoodCoating: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Protection & Durability</h3>
+                <h3 className="text-2xl font-bold mb-6">Protection & Durability</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -309,7 +309,7 @@ const WoodCoating: React.FC = () => {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Aesthetic Enhancement</h3>
+                <h3 className="text-2xl font-bold mb-6">Aesthetic Enhancement</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#299dd7] rounded-full mt-2 flex-shrink-0"></div>
@@ -338,7 +338,7 @@ const WoodCoating: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   How to Maintain Coated Wood Surfaces?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -346,19 +346,19 @@ const WoodCoating: React.FC = () => {
                 </p>
                 <div className="space-y-4">
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Regular Cleaning</h3>
+                    <h3 className="font-semibold mb-2">Regular Cleaning</h3>
                     <p className="text-gray-600">Use a soft, damp cloth to remove dust and dirt. Avoid harsh chemicals that can damage the coating.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Avoid Direct Sunlight</h3>
+                    <h3 className="font-semibold mb-2">Avoid Direct Sunlight</h3>
                     <p className="text-gray-600">Protect wood surfaces from prolonged exposure to direct sunlight to prevent fading and damage.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Control Humidity</h3>
+                    <h3 className="font-semibold mb-2">Control Humidity</h3>
                     <p className="text-gray-600">Maintain consistent humidity levels to prevent wood expansion and contraction.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Professional Inspection</h3>
+                    <h3 className="font-semibold mb-2">Professional Inspection</h3>
                     <p className="text-gray-600">Schedule regular professional inspections to identify and address any issues early.</p>
                   </div>
                 </div>
@@ -390,7 +390,7 @@ const WoodCoating: React.FC = () => {
                 </div>
               </div>
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   What is the best way to protect my outdoor wood windows, balconies, and doors?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -398,15 +398,15 @@ const WoodCoating: React.FC = () => {
                 </p>
                 <div className="space-y-4">
                   <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h3 className="font-semibold text-gray-900 mb-2">Weather-Resistant Coatings</h3>
+                    <h3 className="font-semibold mb-2">Weather-Resistant Coatings</h3>
                     <p className="text-gray-600">Use specialized outdoor wood coatings that provide UV protection, water resistance, and temperature stability.</p>
                   </div>
                   <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h3 className="font-semibold text-gray-900 mb-2">Regular Maintenance Schedule</h3>
+                    <h3 className="font-semibold mb-2">Regular Maintenance Schedule</h3>
                     <p className="text-gray-600">Implement a maintenance routine that includes cleaning, inspection, and re-coating as needed.</p>
                   </div>
                   <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h3 className="font-semibold text-gray-900 mb-2">Professional Application</h3>
+                    <h3 className="font-semibold mb-2">Professional Application</h3>
                     <p className="text-gray-600">Ensure proper surface preparation and professional application for optimal protection and longevity.</p>
                   </div>
                 </div>
@@ -420,7 +420,7 @@ const WoodCoating: React.FC = () => {
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   How Can I Select Wood Paint Finishes for My Home Furniture?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -428,19 +428,19 @@ const WoodCoating: React.FC = () => {
                 </p>
                 <div className="space-y-4">
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Consider Wood Type</h3>
+                    <h3 className="font-semibold mb-2">Consider Wood Type</h3>
                     <p className="text-gray-600">Different wood species react differently to various finishes, affecting the final appearance and durability.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Assess Usage Requirements</h3>
+                    <h3 className="font-semibold mb-2">Assess Usage Requirements</h3>
                     <p className="text-gray-600">High-traffic areas need more durable finishes, while decorative pieces can use more delicate options.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Match Interior Design</h3>
+                    <h3 className="font-semibold mb-2">Match Interior Design</h3>
                     <p className="text-gray-600">Choose finishes that complement your overall interior design theme and color scheme.</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">Consult Professionals</h3>
+                    <h3 className="font-semibold mb-2">Consult Professionals</h3>
                     <p className="text-gray-600">Seek expert advice to understand the best options for your specific furniture and requirements.</p>
                   </div>
                 </div>
@@ -462,7 +462,7 @@ const WoodCoating: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 What makes Home Glazer unique and worthy?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -477,7 +477,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">35+ Years Experience</h3>
+                <h3 className="text-xl font-semibold mb-3">35+ Years Experience</h3>
                 <p className="text-gray-600">
                   Decades of expertise in wood coating and finishing techniques
                 </p>
@@ -489,7 +489,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Premium Materials</h3>
+                <h3 className="text-xl font-semibold mb-3">Premium Materials</h3>
                 <p className="text-gray-600">
                   Use of high-quality coatings and materials for lasting results
                 </p>
@@ -501,7 +501,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Expert Team</h3>
+                <h3 className="text-xl font-semibold mb-3">Expert Team</h3>
                 <p className="text-gray-600">
                   Skilled craftsmen with specialized training in wood finishing
                 </p>
@@ -513,7 +513,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Customer Satisfaction</h3>
+                <h3 className="text-xl font-semibold mb-3">Customer Satisfaction</h3>
                 <p className="text-gray-600">
                   Proven track record of exceeding customer expectations
                 </p>
@@ -528,7 +528,7 @@ const WoodCoating: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Popular Wood Coating Patterns
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -543,7 +543,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Natural Wood Grain</h3>
+                <h3 className="text-lg font-bold mb-2">Natural Wood Grain</h3>
                 <p className="text-gray-600 text-sm">Enhance the natural beauty of wood with transparent finishes</p>
               </div>
 
@@ -553,7 +553,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Distressed Finish</h3>
+                <h3 className="text-lg font-bold mb-2">Distressed Finish</h3>
                 <p className="text-sm text-gray-600">Vintage, weathered appearance for rustic charm</p>
               </div>
 
@@ -563,7 +563,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">High Gloss</h3>
+                <h3 className="text-lg font-bold mb-2">High Gloss</h3>
                 <p className="text-sm text-gray-600">Sleek, modern finish with maximum shine</p>
               </div>
 
@@ -573,7 +573,7 @@ const WoodCoating: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Matte Finish</h3>
+                <h3 className="text-lg font-bold mb-2">Matte Finish</h3>
                 <p className="text-sm text-gray-600">Subtle, elegant appearance without shine</p>
               </div>
             </div>
@@ -584,7 +584,7 @@ const WoodCoating: React.FC = () => {
         <section className="py-20 bg-gray-50">
           <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#ED276E] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Wood Coating Applications & Uses
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -594,7 +594,7 @@ const WoodCoating: React.FC = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Residential Applications</h3>
+                <h3 className="text-2xl font-bold mb-6">Residential Applications</h3>
                 <ul className="space-y-3 text-gray-600 mb-8">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#ED276E] rounded-full mt-2 flex-shrink-0"></div>
@@ -618,7 +618,7 @@ const WoodCoating: React.FC = () => {
                   </li>
                 </ul>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Commercial Applications</h3>
+                <h3 className="text-2xl font-bold mb-6">Commercial Applications</h3>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-[#299dd7] rounded-full mt-2 flex-shrink-0"></div>

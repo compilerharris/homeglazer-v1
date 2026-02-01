@@ -664,14 +664,14 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <h2 className="text-3xl font-medium text-center mb-5 text-[#ED276E]">
+      <h2 className="text-3xl font-medium text-center mb-5">
         Painting Work Details
       </h2>
 
       <div className="space-y-12">
         {/* Painting Type Selection */}
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
-          <h3 className="text-xl font-medium mb-6 text-[#ED276E]">
+          <h3 className="text-xl font-medium mb-6">
             Which Type Of Painting Work Do You Want?
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
@@ -693,7 +693,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
         {/* Work Details Section - Show based on selection */}
         {(selectedPaintingType === 'interior' || selectedPaintingType === 'both') && (
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
-            <h3 className="text-xl font-medium mb-6 text-[#ED276E]">
+            <h3 className="text-xl font-medium mb-6">
               Interior Work Details
             </h3>
             <div className="space-y-12">
@@ -1291,7 +1291,7 @@ const PaintingStep1: React.FC<PaintingStep1Props> = ({
 
         {(selectedPaintingType === 'exterior' || selectedPaintingType === 'both') && (
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
-            <h3 className="text-xl font-medium mb-6 text-[#ED276E]">
+            <h3 className="text-xl font-medium mb-6">
               Exterior Work Details
             </h3>
             <div className="space-y-12">

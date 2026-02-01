@@ -111,12 +111,12 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <h2 className="text-3xl font-medium text-center mb-12 text-[#ED276E]">Work Details</h2>
+      <h2 className="text-3xl font-medium text-center mb-12">Work Details</h2>
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
 
         {/* Input Method Selection */}
         <div className="mb-8">
-          <h3 className="text-xl font-medium mb-6 text-[#ED276E]">
+          <h3 className="text-xl font-medium mb-6">
             How would you like to estimate your polishing work?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -268,7 +268,7 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
 
         {/* Wood Finish Selection */}
         <div className="mt-8 pt-8 border-t border-gray-200">
-          <h3 className="text-xl font-medium mb-6 text-[#ED276E]">Select Wood Finish</h3>
+          <h3 className="text-xl font-medium mb-6">Select Wood Finish</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Finish Type Dropdown */}
             <div>
@@ -311,7 +311,7 @@ const WoodPolishingStep1: React.FC<WoodPolishingStep1Props> = ({
         {/* Calculation Summary - Hidden per requirement */}
         {/* {selectedWoodFinish && (inputMethod === 'area' && area > 0 || inputMethod === 'items' && (itemCounts.doors > 0 || itemCounts.windows > 0 || itemCounts.wallPanels > 0 || itemCounts.furnitureArea > 0)) && (
           <div className="mt-8 pt-8 border-t-2 border-[#ED276E]">
-            <h3 className="text-2xl font-semibold mb-6 text-[#ED276E]">Calculation Summary</h3>
+            <h3 className="text-2xl font-semibold mb-6">Calculation Summary</h3>
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="space-y-3">
                 <p><span className="font-medium">Input Method:</span> {inputMethod === 'area' ? 'Enter quantity in sq. ft.' : 'Estimate based on item count'}</p>

@@ -25,7 +25,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
 }) => {
   const FilterSection = ({ title, children }: { title: string; children: React.ReactNode }) => (
     <div className="mb-6">
-      <h3 className="font-semibold text-gray-900 mb-3">{title}</h3>
+      <h3 className="font-semibold mb-3">{title}</h3>
       {children}
     </div>
   );
@@ -81,7 +81,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
     <div className={`bg-white rounded-xl border border-gray-200 p-6 ${sticky ? 'sticky top-24' : ''}`}>
       {showHeader && (
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-900">Filters</h2>
+          <h2 className="text-xl font-semibold">Filters</h2>
           <button
             onClick={onClearFilters}
             className="text-sm text-[#299dd7] hover:underline"

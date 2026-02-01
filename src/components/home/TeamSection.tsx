@@ -44,7 +44,7 @@ const TeamSection: React.FC = () => {
 
   return <section className="bg-[rgba(223,223,223,0.27)] w-full">
       <div className="container mx-auto px-4 lg:px-8 mt-[50px] max-md:mt-10 text-center py-0 lg:py-[50px] 2xl:w-[1400px]">
-        <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium mb-5 leading-[150%]">
+        <h2 className="text-[40px] font-medium mb-5 leading-[150%]">
           The Hands That Build
         </h2>
         <p className="text-xl text-[rgba(64,80,94,1)] font-light mb-10 max-w-2xl mx-auto">
@@ -58,7 +58,7 @@ const TeamSection: React.FC = () => {
                   <div className="w-[200px] h-[200px] rounded-full overflow-hidden mb-4 bg-gray-100">
                     <img src={member.image} alt={`${member.name} photo`} className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-xl font-semibold text-[rgba(237,39,110,1)]">{member.name}</h3>
+                  <h3 className="text-xl font-semibold">{member.name}</h3>
                   <p className="text-[rgba(89,89,89,1)]">{member.position}</p>
                 </div>
               </CarouselItem>)}

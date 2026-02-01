@@ -196,7 +196,7 @@ const MiniKidsVisualizer: React.FC<MiniKidsVisualizerProps> = ({ className = '' 
         
         {/* Color Palette */}
         <div className="lg:pl-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          <h3 className="text-2xl font-bold mb-6">
             Popular Kids Room Colors
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -244,7 +244,7 @@ const MiniKidsVisualizer: React.FC<MiniKidsVisualizerProps> = ({ className = '' 
       
       {/* Mobile Color Palette - Horizontal Scrollable */}
       <div className="lg:hidden mt-8">
-        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
+        <h3 className="text-xl font-bold mb-4 text-center">
           Choose Your Color
         </h3>
         <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">

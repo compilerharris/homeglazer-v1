@@ -291,7 +291,7 @@ export class PDFGenerator {
     this.doc.rect(this.margin, this.currentY, this.contentWidth, 60, 'S');
     
     // General Company Contact Information
-    this.addText('Office Address: B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010', this.margin + 10, this.currentY + 8, 12);
+    this.addText('Office Address: B-474, Basement, Greenfield Colony, Faridabad, Haryana - 121010', this.margin + 10, this.currentY + 8, 12);
     this.currentY += 8;
     this.addText('Telephone: +91-9717256514', this.margin + 10, this.currentY + 8, 12);
     this.currentY += 8;

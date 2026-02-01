@@ -21,7 +21,7 @@ const RelatedPosts: React.FC<RelatedPostsProps> = ({ currentPostId, posts }) => 
     <section className="w-full py-12 bg-[#F5F5F5]">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-8">
-          <h2 className="text-3xl font-medium text-gray-900">Related Articles</h2>
+          <h2 className="text-3xl font-medium">Related Articles</h2>
           <div className="mt-2 h-1 w-20 bg-[#ED276E]"></div>
         </div>
         

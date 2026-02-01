@@ -31,7 +31,7 @@ const PaintingStep3: React.FC<PaintingStep3Props> = ({
 }) => {
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <h2 className="text-3xl font-medium text-center mb-8 text-[#ED276E]">
+      <h2 className="text-3xl font-medium text-center mb-8">
         Enter Your Personal Information
       </h2>
       

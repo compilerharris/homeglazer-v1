@@ -33,7 +33,7 @@ const MoreServicesSection = () => {
   return (
     <section className="py-12 bg-gray-50">
       <div className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto">
-        <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium text-center mb-12">
+        <h2 className="text-[40px] font-medium text-center mb-12">
           More Services
         </h2>
         
@@ -48,7 +48,7 @@ const MoreServicesSection = () => {
                 />
               </div>
               <div className="w-2/3 p-6">
-                <h3 className="text-gray-800 font-medium text-xl mb-2">{service.title}</h3>
+                <h3 className="font-medium text-xl mb-2">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <Link 
                   href={service.path} 

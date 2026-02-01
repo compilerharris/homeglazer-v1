@@ -9,7 +9,7 @@ const AboutWhoWeAre: React.FC = () => {
               <Info size={30} className="text-[rgba(237,39,110,1)]" />
             </div>
           </div>
-          <h2 className="text-[rgba(237,39,110,1)] text-[40px] font-medium mb-6">Who Are We?</h2>
+          <h2 className="text-[40px] font-medium mb-6">Who Are We?</h2>
           <p className="text-gray-700 text-lg mb-6">
             At Homeglazer, we are a team of passionate painting professionals dedicated to transforming spaces through the power of color and craftsmanship. Founded in 2008, we have grown from a small team to Delhi's premier painting service provider.
           </p>
@@ -25,7 +25,7 @@ const AboutWhoWeAre: React.FC = () => {
             className="rounded-lg shadow-lg w-full h-auto"
           />
           <div className="flex flex-col justify-center">
-            <h3 className="text-2xl font-medium text-[rgba(237,39,110,1)] mb-4">A Legacy of Excellence</h3>
+            <h3 className="text-2xl font-medium mb-4">A Legacy of Excellence</h3>
             <p className="text-gray-700">
               Our journey began with a simple mission - to provide exceptional painting services that exceed client expectations. Today, we've completed over 5,000 projects, helping thousands of homeowners and businesses transform their spaces into environments they love.
             </p>

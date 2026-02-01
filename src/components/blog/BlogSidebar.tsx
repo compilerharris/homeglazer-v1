@@ -287,7 +287,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ currentPostId, recentPosts = 
       {/* Recent Posts */}
       {displayRecentPosts.length > 0 && (
         <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-          <h3 className="text-lg font-medium text-gray-900 mb-4">Recent Posts</h3>
+          <h3 className="text-lg font-medium mb-4">Recent Posts</h3>
           <div className="space-y-3">
             {displayRecentPosts.map((post) => (
               <SidebarBlogCard
@@ -305,7 +305,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ currentPostId, recentPosts = 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
         <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-          <h3 className="text-lg font-medium text-gray-900 mb-4">Related Posts</h3>
+          <h3 className="text-lg font-medium mb-4">Related Posts</h3>
           <div className="space-y-3">
             {relatedPosts.map((post) => (
               <SidebarBlogCard
@@ -322,7 +322,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ currentPostId, recentPosts = 
 
       {/* Best Services */}
       <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Our Services</h3>
+        <h3 className="text-lg font-medium mb-4">Our Services</h3>
         <div className="divide-y divide-gray-100">
           {services.map((service, index) => (
             <SidebarServiceCard
@@ -337,7 +337,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ currentPostId, recentPosts = 
 
       {/* Enquiry Form */}
       <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Get a Quote</h3>
+        <h3 className="text-lg font-medium mb-4">Get a Quote</h3>
         <SidebarEnquiryForm />
       </div>
     </aside>

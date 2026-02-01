@@ -3,7 +3,7 @@ import React from "react";
 export const RoomMakeoverSection = (): JSX.Element => {
   return (
     <section className="flex flex-col w-full max-w-[522px] items-start gap-8 py-6">
-      <h2 className="font-['Quicksand',Helvetica] font-medium text-[#ed276e] text-4xl">
+      <h2 className="font-['Quicksand',Helvetica] font-medium text-4xl">
         Get in Touch with Us
       </h2>
 

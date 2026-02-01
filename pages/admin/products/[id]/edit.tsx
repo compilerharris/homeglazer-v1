@@ -557,7 +557,7 @@ export default function EditProduct() {
     <ProtectedRoute>
       <AdminLayout>
         <div>
-          <h1 className="text-3xl font-bold text-[#ED276E] mb-8">Edit Product</h1>
+          <h1 className="text-3xl font-bold mb-8">Edit Product</h1>
 
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">
@@ -568,7 +568,7 @@ export default function EditProduct() {
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Basic Information */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Basic Information</h2>
+              <h2 className="text-lg font-bold mb-4">Basic Information</h2>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Brand *</label>
@@ -705,7 +705,7 @@ export default function EditProduct() {
 
             {/* Product Specifications */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Product Specifications</h2>
+              <h2 className="text-lg font-bold mb-4">Product Specifications</h2>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Sheen Level *</label>
@@ -759,7 +759,7 @@ export default function EditProduct() {
 
             {/* Pricing */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Pricing</h2>
+              <h2 className="text-lg font-bold mb-4">Pricing</h2>
               <div className="space-y-4">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {(['1L', '4L', '10L', '20L'] as const).map((size) => (
@@ -784,7 +784,7 @@ export default function EditProduct() {
 
             {/* Colors */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Colors</h2>
+              <h2 className="text-lg font-bold mb-4">Colors</h2>
               <div className="space-y-3">
                 {formData.colors.map((color, index) => (
                   <div key={index} className="flex gap-2">
@@ -808,7 +808,7 @@ export default function EditProduct() {
 
             {/* Features */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Features</h2>
+              <h2 className="text-lg font-bold mb-4">Features</h2>
               <div className="space-y-3">
                 {formData.features.map((feature, index) => (
                   <div key={index} className="flex gap-2">
@@ -832,7 +832,7 @@ export default function EditProduct() {
 
             {/* Specifications */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Specifications</h2>
+              <h2 className="text-lg font-bold mb-4">Specifications</h2>
               <div className="space-y-3">
                 {Object.entries(formData.specifications).map(([key, value]) => (
                   <div key={key} className="flex gap-2">
@@ -856,7 +856,7 @@ export default function EditProduct() {
 
             {/* Related Products */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Related Products</h2>
+              <h2 className="text-lg font-bold mb-4">Related Products</h2>
               <div className="space-y-4">
                 <div>
                   <Input
@@ -910,7 +910,7 @@ export default function EditProduct() {
 
             {/* Suggested Blog Articles */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Suggested Blog Articles</h2>
+              <h2 className="text-lg font-bold mb-4">Suggested Blog Articles</h2>
               <p className="text-sm text-gray-600 mb-4">
                 Select blog articles to show in the "Want some suggestion?" section on the product page
               </p>
@@ -957,7 +957,7 @@ export default function EditProduct() {
 
             {/* User Guide */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">User Guide</h2>
+              <h2 className="text-lg font-bold mb-4">User Guide</h2>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 mb-4">
                   <input
@@ -1082,7 +1082,7 @@ export default function EditProduct() {
 
             {/* FAQ Section */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Frequently Asked Questions (FAQ)</h2>
+              <h2 className="text-lg font-bold mb-4">Frequently Asked Questions (FAQ)</h2>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 mb-4">
                   <input
@@ -1145,7 +1145,7 @@ export default function EditProduct() {
 
             {/* Product Information Sheet */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Product Information Sheet (PIS)</h2>
+              <h2 className="text-lg font-bold mb-4">Product Information Sheet (PIS)</h2>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 mb-4">
                   <input

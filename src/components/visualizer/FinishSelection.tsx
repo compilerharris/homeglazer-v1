@@ -340,14 +340,14 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       {/* Breadcrumbs Section */}
       {breadcrumbs.length > 0 && (
         <div className="w-full mb-4" ref={previewImageRef}>
-          <h3 className="text-sm font-medium text-gray-600 mb-2 text-center">
+          <h3 className="text-sm font-medium mb-2 text-center">
             Modify your selections here:
           </h3>
           <Breadcrumbs items={breadcrumbs} onStepClick={onStepClick} />
         </div>
       )}
       
-      <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Step 5: Final Preview</h2>
+      <h2 className="text-xl font-semibold mb-2 text-center">Step 5: Final Preview</h2>
       <p className="mb-6 text-gray-600 text-center max-w-xl">
         Assign colours to different walls and surfaces. Click on a wall to paint it with your selected colours.
       </p>
@@ -459,7 +459,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         
         {/* Right Column - Wall Selection - Fixed Width */}
         <div className="w-80 flex-shrink-0 relative">
-          <h2 className="text-xl font-semibold text-[#299dd7] mb-4">Select wall to paint:</h2>
+          <h2 className="text-xl font-semibold mb-4">Select wall to paint:</h2>
       {/* Wall sides grid */}
           <div className="grid grid-cols-2 gap-4 mb-6">
         {wallKeys.map((wallKey) => (
@@ -691,7 +691,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             </div>
           )}
         </div>
-        <h2 className="text-xl font-semibold text-[#299dd7] mb-2 text-center">Select wall to paint:</h2>
+        <h2 className="text-xl font-semibold mb-2 text-center">Select wall to paint:</h2>
         {/* Wall sides scrollable row - Mobile/Tablet */}
         <div className="lg:hidden w-full max-w-2xl mb-6 relative pb-2">
           <button

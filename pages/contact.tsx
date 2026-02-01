@@ -211,15 +211,15 @@ const ContactPage: React.FC = () => {
           <div className="space-y-12">
             {/* Office Information */}
             <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-100">
-              <h2 className="text-2xl font-semibold text-[#ED276E] mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="bg-pink-100 p-3 rounded-full">
                     <MapPin className="h-6 w-6 text-[#ED276E]" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-gray-900">Address</h3>
-                    <p className="text-gray-600">B-474, Basement, Greenfeild Colony, Faridabad, Harayana - 121010</p>
+                    <h3 className="font-medium">Address</h3>
+                    <p className="text-gray-600">B-474, Basement, Greenfield Colony, Faridabad, Haryana - 121010</p>
                   </div>
                 </div>
                 
@@ -228,7 +228,7 @@ const ContactPage: React.FC = () => {
                     <Phone className="h-6 w-6 text-[#ED276E]" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-gray-900">Phone</h3>
+                    <h3 className="font-medium">Phone</h3>
                     <p className="text-gray-600">+91-9717256514</p>
                   </div>
                 </div>
@@ -238,7 +238,7 @@ const ContactPage: React.FC = () => {
                     <Mail className="h-6 w-6 text-[#ED276E]" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-gray-900">Email</h3>
+                    <h3 className="font-medium">Email</h3>
                     <p className="text-gray-600">homeglazer@gmail.com</p>
                   </div>
                 </div>
@@ -247,7 +247,7 @@ const ContactPage: React.FC = () => {
             
             {/* Google Maps Embed */}
             <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-100">
-              <h2 className="text-2xl font-semibold text-[#ED276E] mb-6">Find Us on Map</h2>
+              <h2 className="text-2xl font-semibold mb-6">Find Us on Map</h2>
               <div className="w-full overflow-hidden rounded-lg">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.217616931312!2d77.25132260000001!3d28.503099699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce10fc59c7de5%3A0x2894b4de983ee057!2sHome%20Glazer!5e0!3m2!1sen!2sin!4v1765807245812!5m2!1sen!2sin" 
@@ -265,7 +265,7 @@ const ContactPage: React.FC = () => {
           
           {/* Contact Form with Validation */}
           <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-100 self-start">
-            <h2 className="text-2xl font-semibold text-[#ED276E] mb-6">Send Us a Message</h2>
+            <h2 className="text-2xl font-semibold mb-6">Send Us a Message</h2>
             
             {submitted ? (
               <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
