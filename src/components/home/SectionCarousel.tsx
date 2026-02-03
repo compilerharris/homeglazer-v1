@@ -20,6 +20,11 @@ interface SectionCarouselProps {
   roomMakeoverSection?: boolean;
   colorVisualizerSection?: boolean;
   blogSection?: boolean;
+  autoplay?: boolean;
+  autoplayInterval?: number;
+  loop?: boolean;
+  showDots?: boolean;
+  hideArrows?: boolean;
 }
 
 const SectionCarousel: React.FC<SectionCarouselProps> = ({ 
@@ -33,7 +38,12 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
   paintBrandsSection = false,
   roomMakeoverSection = false,
   colorVisualizerSection = false,
-  blogSection = false
+  blogSection = false,
+  autoplay = false,
+  autoplayInterval = 4000,
+  loop = false,
+  showDots = false,
+  hideArrows = false
 }) => {
   const isMobile = useIsMobile();
   
@@ -43,6 +53,8 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
   const [delayedBasis, setDelayedBasis] = useState<string | null>(null);
   const [canScrollNext, setCanScrollNext] = useState(true);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [snapCount, setSnapCount] = useState(0);
 
   // When activeSlideIndex changes externally (e.g., from color buttons), update the carousel
   useEffect(() => {
@@ -58,6 +70,8 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     const updateScrollButtons = () => {
       setCanScrollPrev(api.canScrollPrev());
       setCanScrollNext(api.canScrollNext());
+      setCurrentIndex(api.selectedScrollSnap());
+      setSnapCount(api.scrollSnapList().length);
     };
 
     api.on('select', updateScrollButtons);
@@ -75,6 +89,9 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     if (api && setActiveSlideIndex) {
       const currentIndex = api.selectedScrollSnap();
       setActiveSlideIndex(currentIndex);
+    }
+    if (api) {
+      setCurrentIndex(api.selectedScrollSnap());
     }
   }, [api, setActiveSlideIndex]);
 
@@ -135,13 +152,44 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
 
   const carouselOptions: EmblaOptionsType = {
     align: teamSection ? "start" : reviewsSection ? "start" : slidesToShow ? "start" : "center",
-    loop: false,
+    loop,
     slidesToScroll: (teamSection || reviewsSection || paintBrandsSection) ? 1 : (slidesToShow ? slidesToShow : 1),
     dragFree: (teamSection || reviewsSection || paintBrandsSection) ? false : true,
     containScroll: "trimSnaps",
     skipSnaps: false,
     inViewThreshold: 0.7,
     duration: 5
+  };
+
+  // Simple autoplay when enabled
+  useEffect(() => {
+    if (!api || !autoplay) return;
+    const interval = setInterval(() => {
+      if (!api) return;
+      if (api.canScrollNext()) {
+        api.scrollNext();
+      } else if (loop) {
+        api.scrollTo(0);
+      }
+    }, autoplayInterval);
+
+    return () => clearInterval(interval);
+  }, [api, autoplay, autoplayInterval, loop]);
+
+  const renderDots = () => {
+    if (!showDots || snapCount <= 1) return null;
+    return (
+      <div className="flex justify-center gap-2 mt-6">
+        {Array.from({ length: snapCount }).map((_, index) => (
+          <button
+            key={index}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-[#ED276E] scale-110' : 'bg-gray-300 hover:bg-gray-400'}`}
+            aria-label={`Go to slide ${index + 1}`}
+            onClick={() => api?.scrollTo(index)}
+          />
+        ))}
+      </div>
+    );
   };
 
   return (
@@ -154,7 +202,7 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
         <CarouselContent>
           {children}
         </CarouselContent>
-        {!colorVisualizerSection && (
+        {!colorVisualizerSection && !hideArrows && (
           <div className={`w-full flex justify-center gap-4 ${roomMakeoverSection ? 'relative mt-4' : paintBrandsSection ? 'absolute left-0 right-0 -bottom-15' : teamSection ? 'absolute left-0 right-0 -bottom-20' : slidesToShow ? 'absolute left-0 right-0 -bottom-16' : reviewsSection ? 'absolute left-0 right-0 -bottom-16' : 'absolute left-0 right-0 bottom-6 md:bottom-10'} z-30 pointer-events-none`}>
             <div className="pointer-events-auto flex justify-center items-center">
               <CarouselPrevious className={`static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full ${!canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''}`} />
@@ -165,6 +213,7 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
           </div>
         )}
       </Carousel>
+      {renderDots()}
     </div>
   );
 };

@@ -11,6 +11,7 @@ import RoomMakeover from '@/components/home/RoomMakeover';
 import ColourVisualizer from '@/components/home/ColourVisualizer';
 import PaintBrands from '@/components/home/PaintBrands';
 import TeamSection from '@/components/home/TeamSection';
+import Certificates from '@/components/home/Certificates';
 import Reviews from '@/components/home/Reviews';
 import DesignInsights from '@/components/home/DesignInsights';
 import FAQ from '@/components/home/FAQ';
@@ -43,6 +44,7 @@ export default function Home() {
       <ColourVisualizer />
       <PaintBrands />
       <TeamSection />
+      <Certificates />
       <Reviews />
       <DesignInsights />
       <FAQ limit={5} />
