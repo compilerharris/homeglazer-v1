@@ -15,6 +15,9 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const KIDS_HERO_IMAGE = "/assets/images/kidsroom/kidsroom1/kidsroom1.jpg";
+
 const KidsRoom: React.FC = () => {
   return (
     <>
@@ -26,14 +29,14 @@ const KidsRoom: React.FC = () => {
         <meta property="og:description" content="Home Glazer offers professional kids room painting services with safe, non-toxic paints and creative designs." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/painting/kids-room" />
-        <meta property="og:image" content="https://homeglazer.com/uploads/kids.png" />
+        <meta property="og:image" content={`${SITE_URL}${KIDS_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/painting/kids-room" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Kids Room Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Safe and colorful kids room painting services with child-friendly paints." />
-        <meta name="twitter:image" content="https://homeglazer.com/uploads/kids.png" />
+        <meta name="twitter:image" content={`${SITE_URL}${KIDS_HERO_IMAGE}`} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -67,7 +70,7 @@ const KidsRoom: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/50"></div>
           <div className="absolute inset-0">
             <img
-              src="/assets/images/kidsroom/kidsroom1/kidsroom1.jpg"
+              src={KIDS_HERO_IMAGE}
               alt="Kids Room Painting Services"
               className="w-full h-full object-cover"
             />

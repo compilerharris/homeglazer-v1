@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const ABOUT_HERO_IMAGE = `${SITE_URL}/assets/images/bedroom/bedroom12/bedroom12.jpg`;
 
 const About: React.FC = () => {
   return <>
@@ -29,10 +30,10 @@ const About: React.FC = () => {
       <meta name="description" content="Learn about HomeGlazer's journey, our expert team of painters, and our commitment to transforming spaces with quality painting services across India." />
       <meta property="og:title" content="About Us | HomeGlazer - Our Story & Mission" />
       <meta property="og:description" content="Learn about HomeGlazer's journey, our expert team of painters, and our commitment to transforming spaces with quality painting services." />
-      <meta property="og:image" content={`${SITE_URL}/uploads/team-pic.png`} />
+      <meta property="og:image" content={ABOUT_HERO_IMAGE} />
       <meta name="twitter:title" content="About Us | HomeGlazer - Our Story & Mission" />
       <meta name="twitter:description" content="Learn about HomeGlazer's journey, our expert team of painters, and our commitment to quality painting services." />
-      <meta name="twitter:image" content={`${SITE_URL}/uploads/team-pic.png`} />
+      <meta name="twitter:image" content={ABOUT_HERO_IMAGE} />
     </Head>
     <div className="bg-white flex flex-col overflow-hidden items-center">
       <Header />

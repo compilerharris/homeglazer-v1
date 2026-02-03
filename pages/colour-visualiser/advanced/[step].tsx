@@ -39,6 +39,9 @@ const STEP_TITLES: Record<string, string> = {
   'final-preview': 'Final Preview - Advanced Colour Visualiser',
 };
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const ADVANCED_VISUALISER_HERO_IMAGE = "/uploads/living-room.jpg";
+
 const AdvancedVisualiserStep: React.FC = () => {
   const router = useRouter();
   const { step: stepParam } = router.query;
@@ -140,13 +143,13 @@ const AdvancedVisualiserStep: React.FC = () => {
         <meta property="og:title" content={`${pageTitle} | HomeGlazer`} />
         <meta property="og:description" content="Visualize paint colours on your walls with our advanced colour visualiser." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://homeglazer.com/uploads/living-room.jpg" />
+        <meta property="og:image" content={`${SITE_URL}${ADVANCED_VISUALISER_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${pageTitle} | HomeGlazer`} />
         <meta name="twitter:description" content="Visualize paint colours on your walls before painting." />
-        <meta name="twitter:image" content="https://homeglazer.com/uploads/living-room.jpg" />
+        <meta name="twitter:image" content={`${SITE_URL}${ADVANCED_VISUALISER_HERO_IMAGE}`} />
       </Head>
       <Header />
       {visualizer.step === 1 && (

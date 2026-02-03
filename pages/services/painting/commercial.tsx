@@ -14,6 +14,9 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const COMMERCIAL_HERO_IMAGE = "/uploads/services/commercial-hero.jpg";
+
 const Commercial: React.FC = () => {
   return (
     <>
@@ -25,14 +28,14 @@ const Commercial: React.FC = () => {
         <meta property="og:description" content="Home Glazer offers professional commercial painting services for offices & shops. Expert office painting contractors with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/painting/commercial" />
-        <meta property="og:image" content="https://homeglazer.com/uploads/services/commercial-hero.jpg" />
+        <meta property="og:image" content={`${SITE_URL}${COMMERCIAL_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/painting/commercial" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Commercial Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Professional commercial painting services for offices, retail, and industrial spaces." />
-        <meta name="twitter:image" content="https://homeglazer.com/uploads/services/commercial-hero.jpg" />
+        <meta name="twitter:image" content={`${SITE_URL}${COMMERCIAL_HERO_IMAGE}`} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -66,7 +69,7 @@ const Commercial: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src="/uploads/services/commercial-hero.jpg"
+              src={COMMERCIAL_HERO_IMAGE}
               alt="Commercial Painting Services"
               className="w-full h-full object-cover"
             />

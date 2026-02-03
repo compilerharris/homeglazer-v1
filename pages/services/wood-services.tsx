@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const WOOD_SERVICES_HERO_IMAGE = "/uploads/wood-coating.jpg";
 
 const WoodServices: React.FC = () => {
   return (
@@ -24,10 +25,10 @@ const WoodServices: React.FC = () => {
         <meta name="description" content="Professional wood services including polishing, coating, and carpentry. Restore and protect your wooden furniture and fixtures with HomeGlazer." />
         <meta property="og:title" content="Wood Services | HomeGlazer - Polish, Coating & Carpentry" />
         <meta property="og:description" content="Professional wood polishing, coating, and carpentry services for your home." />
-        <meta property="og:image" content={`${SITE_URL}/uploads/wood-polish.png`} />
+        <meta property="og:image" content={`${SITE_URL}${WOOD_SERVICES_HERO_IMAGE}`} />
         <meta name="twitter:title" content="Wood Services | HomeGlazer" />
         <meta name="twitter:description" content="Professional wood polishing, coating, and carpentry services." />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/wood-polish.png`} />
+        <meta name="twitter:image" content={`${SITE_URL}${WOOD_SERVICES_HERO_IMAGE}`} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />

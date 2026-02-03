@@ -59,6 +59,29 @@ window._googlesitekitConsents = {"ad_personalization":"denied","ad_storage":"den
           }}
         />
         {/* End Google tag (gtag.js) Consent Mode dataLayer added by Site Kit */}
+
+        {/* Google tag (gtag.js) snippet added by Site Kit */}
+        <script
+          type="rocketlazyloadscript"
+          data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-N45TYM4KN3"
+          id="google_gtagjs-js"
+          async
+        />
+        <script
+          type="rocketlazyloadscript"
+          id="google_gtagjs-js-after"
+          dangerouslySetInnerHTML={{
+            __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["homeglazer.com"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "G-N45TYM4KN3", {"googlesitekit_post_type":"page"});
+            `,
+          }}
+        />
+        {/* End Google tag (gtag.js) snippet added by Site Kit */}
       </Head>
       <Component {...pageProps} />
       <CookieConsent />

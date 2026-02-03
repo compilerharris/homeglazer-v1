@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const CUSTOMIZED_HERO_IMAGE = "/assets/images/outdoor/outdoor1/outdoor1.jpg";
 
 const CustomizedPainting: React.FC = () => {
   return (
@@ -24,10 +25,10 @@ const CustomizedPainting: React.FC = () => {
         <meta name="description" content="Customized painting solutions including interior, exterior, one-day, and per-day painting services. Tailored to your schedule and budget." />
         <meta property="og:title" content="Customized Painting | HomeGlazer - Interior & Exterior" />
         <meta property="og:description" content="Customized painting solutions including interior, exterior, and flexible scheduling options." />
-        <meta property="og:image" content={`${SITE_URL}/uploads/interior-painting.png`} />
+        <meta property="og:image" content={`${SITE_URL}${CUSTOMIZED_HERO_IMAGE}`} />
         <meta name="twitter:title" content="Customized Painting | HomeGlazer" />
         <meta name="twitter:description" content="Customized painting solutions tailored to your schedule and budget." />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/interior-painting.png`} />
+        <meta name="twitter:image" content={`${SITE_URL}${CUSTOMIZED_HERO_IMAGE}`} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />
@@ -55,7 +56,7 @@ const CustomizedPainting: React.FC = () => {
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/assets/images/outdoor/outdoor1/outdoor1.jpg" 
+                src={CUSTOMIZED_HERO_IMAGE} 
                 alt="Exterior Painting" 
                 className="w-full h-64 object-cover"
               />

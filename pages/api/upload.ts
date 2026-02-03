@@ -18,7 +18,11 @@ const ensureUploadDir = (dir: string) => {
   }
 };
 
-const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+// NOTE:
+// We intentionally use a separate "media" base directory so that
+// large legacy assets under "public/uploads" (e.g. services, blogs)
+// are not pulled into the api/upload serverless function bundle.
+const uploadDir = path.join(process.cwd(), 'public', 'media');
 ensureUploadDir(path.join(uploadDir, 'brands'));
 ensureUploadDir(path.join(uploadDir, 'products'));
 ensureUploadDir(path.join(uploadDir, 'documents'));
@@ -89,7 +93,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (isPdf) {
       fs.renameSync(uploadedFile.filepath, targetPath);
       
-      const urlPath = `/uploads/${
+      const urlPath = `/media/${
         type === 'brand' ? 'brands' : type === 'document' ? 'documents' : type === 'blog' ? 'blogs' : 'products'
       }/${filename}`;
       
@@ -115,7 +119,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     // Return the URL path
     const imageFolder =
       type === 'brand' ? 'brands' : type === 'blog' ? 'blogs' : 'products';
-    const urlPath = `/uploads/${imageFolder}/${filename.replace(extension, '.webp')}`;
+    const urlPath = `/media/${imageFolder}/${filename.replace(extension, '.webp')}`;
 
     return res.status(200).json({
       success: true,

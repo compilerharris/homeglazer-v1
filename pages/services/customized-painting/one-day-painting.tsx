@@ -14,6 +14,9 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const ONE_DAY_HERO_IMAGE = "/assets/images/bedroom/bedroom10/bedroom10.jpg";
+
 const OneDayPainting: React.FC = () => {
   return (
     <>
@@ -25,14 +28,14 @@ const OneDayPainting: React.FC = () => {
         <meta property="og:description" content="Transform your home or office in just ONE DAY with our WOW One Day Painting Services. Professional painters delivering quality painting in 24 hours." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/one-day-painting" />
-        <meta property="og:image" content="https://homeglazer.com/uploads/one-day-painting.png" />
+        <meta property="og:image" content={`${SITE_URL}${ONE_DAY_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/one-day-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="One Day Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Quick one-day painting services for fast room makeovers." />
-        <meta name="twitter:image" content="https://homeglazer.com/assets/images/bedroom/bedroom2/bedroom2.jpg" />
+        <meta name="twitter:image" content={`${SITE_URL}${ONE_DAY_HERO_IMAGE}`} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -66,7 +69,7 @@ const OneDayPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="/assets/images/bedroom/bedroom10/bedroom10.jpg" 
+              src={ONE_DAY_HERO_IMAGE} 
               alt="WOW One Day Painting Services"
               className="w-full h-full object-cover"
             />

@@ -8,6 +8,9 @@ import WhatsAppButton from '@/components/home/WhatsAppButton';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import Link from 'next/link';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const GRAFFITI_HERO_IMAGE = "/uploads/services/graffiti-hero.jpg";
+
 const GraffitiPainting: React.FC = () => {
   return (
     <>
@@ -18,13 +21,13 @@ const GraffitiPainting: React.FC = () => {
         <meta property="og:title" content="Graffiti Painting Services | Home Glazer" />
         <meta property="og:description" content="Professional graffiti painting services in Delhi & NCR. Transform your walls with stunning street art and murals." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://homeglazer.com/uploads/services/graffiti-hero.jpg" />
+        <meta property="og:image" content={`${SITE_URL}${GRAFFITI_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Graffiti Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Professional graffiti painting services in Delhi & NCR." />
-        <meta name="twitter:image" content="https://homeglazer.com/uploads/services/graffiti-hero.jpg" />
+        <meta name="twitter:image" content={`${SITE_URL}${GRAFFITI_HERO_IMAGE}`} />
       </Head>
 
       <Header />
@@ -58,7 +61,7 @@ const GraffitiPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="/uploads/services/graffiti-hero.jpg" 
+              src={GRAFFITI_HERO_IMAGE} 
               alt="Graffiti Painting Services"
               className="w-full h-full object-cover"
             />

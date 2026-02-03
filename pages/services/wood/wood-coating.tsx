@@ -12,6 +12,9 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const WOOD_COATING_HERO_IMAGE = "/uploads/wood-coating.jpg";
+
 const WoodCoating: React.FC = () => {
   return (
     <>
@@ -23,14 +26,14 @@ const WoodCoating: React.FC = () => {
         <meta property="og:description" content="Professional wood coating services for furniture, doors, windows, and outdoor wood surfaces. Expert wood finishing with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wood/wood-coating" />
-        <meta property="og:image" content="https://homeglazer.com/uploads/wood-coating.png" />
+        <meta property="og:image" content={`${SITE_URL}${WOOD_COATING_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wood/wood-coating" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Wood Coating Services | Home Glazer" />
         <meta name="twitter:description" content="Professional wood coating services for furniture, doors, windows, and outdoor wood surfaces." />
-        <meta name="twitter:image" content="https://homeglazer.com/uploads/wood-coating.png" />
+        <meta name="twitter:image" content={`${SITE_URL}${WOOD_COATING_HERO_IMAGE}`} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -64,7 +67,7 @@ const WoodCoating: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src="/uploads/wood-coating.jpg"
+              src={WOOD_COATING_HERO_IMAGE}
               alt="Wood Coating Services - Professional Wood Finishing and Protection"
               className="w-full h-full object-cover"
             />

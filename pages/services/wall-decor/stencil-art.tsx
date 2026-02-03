@@ -14,6 +14,9 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const STENCIL_HERO_IMAGE = "/uploads/services/stencil.png";
+
 const StencilArt: React.FC = () => {
   return (
     <>
@@ -25,14 +28,14 @@ const StencilArt: React.FC = () => {
         <meta property="og:description" content="Professional stencil painting services for walls and ceilings. Expert stencil artists with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wall-decor/stencil-art" />
-        <meta property="og:image" content="https://homeglazer.com/uploads/stencil-art.png" />
+        <meta property="og:image" content={`${SITE_URL}${STENCIL_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wall-decor/stencil-art" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Stencil Art Services | Home Glazer" />
         <meta name="twitter:description" content="Professional stencil art and decorative wall painting services." />
-        <meta name="twitter:image" content="https://homeglazer.com/uploads/stencil-art.png" />
+        <meta name="twitter:image" content={`${SITE_URL}${STENCIL_HERO_IMAGE}`} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -66,7 +69,7 @@ const StencilArt: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src="/uploads/services/stencil.png"
+              src={STENCIL_HERO_IMAGE}
               alt="Stencil Painting Services - Professional Wall Art and Design"
               className="w-full h-full object-cover"
             />

@@ -14,6 +14,9 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const EXTERIOR_HERO_IMAGE = "/assets/images/outdoor/outdoor1/outdoor1.jpg";
+
 const ExteriorPainting: React.FC = () => {
   return (
     <>
@@ -25,14 +28,14 @@ const ExteriorPainting: React.FC = () => {
         <meta property="og:description" content="Transform your home's exterior with our professional exterior painting services. Expert house painters delivering quality exterior painting with 35+ years of experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/exterior-painting" />
-        <meta property="og:image" content="https://homeglazer.com/assets/images/outdoor/outdoor1/outdoor1.jpg" />
+        <meta property="og:image" content={`${SITE_URL}${EXTERIOR_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/exterior-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Exterior Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Professional exterior painting services for homes and buildings." />
-        <meta name="twitter:image" content="https://homeglazer.com/assets/images/outdoor/outdoor1/outdoor1.jpg" />
+        <meta name="twitter:image" content={`${SITE_URL}${EXTERIOR_HERO_IMAGE}`} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -66,7 +69,7 @@ const ExteriorPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="/assets/images/outdoor/outdoor1/outdoor1.jpg" 
+              src={EXTERIOR_HERO_IMAGE} 
               alt="Exterior Painting Services"
               className="w-full h-full object-cover"
             />

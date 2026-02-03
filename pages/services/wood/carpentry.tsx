@@ -13,6 +13,9 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const CARPENTRY_HERO_IMAGE = "/uploads/services/carpentary.jpg";
+
 export default function CarpentryServices() {
   return (
     <>
@@ -24,14 +27,14 @@ export default function CarpentryServices() {
         <meta property="og:description" content="Professional carpentry services in Delhi NCR. Expert interior & exterior carpentry, custom woodworking, home renovation, and repair services." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wood/carpentry" />
-        <meta property="og:image" content="https://homeglazer.com/uploads/carpentry.png" />
+        <meta property="og:image" content={`${SITE_URL}${CARPENTRY_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wood/carpentry" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Carpentry Services | Home Glazer" />
         <meta name="twitter:description" content="Professional carpentry services in Delhi NCR. Expert interior & exterior carpentry." />
-        <meta name="twitter:image" content="https://homeglazer.com/uploads/carpentry.png" />
+        <meta name="twitter:image" content={`${SITE_URL}${CARPENTRY_HERO_IMAGE}`} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -65,7 +68,7 @@ export default function CarpentryServices() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="/uploads/services/carpentary.jpg" 
+              src={CARPENTRY_HERO_IMAGE} 
               alt="Professional Carpentry Services - Expert Woodworking and Custom Furniture"
               className="w-full h-full object-cover"
             />

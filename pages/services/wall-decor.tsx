@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const WALL_DECOR_HERO_IMAGE = "/uploads/texture-painting.jpg";
 
 const WallDecor: React.FC = () => {
   return (
@@ -24,10 +25,10 @@ const WallDecor: React.FC = () => {
         <meta name="description" content="Transform your walls with HomeGlazer's wall decor services. Texture painting, stencil designs, and wallpapers to add personality to your space." />
         <meta property="og:title" content="Wall Decor Services | HomeGlazer - Texture & Stencil" />
         <meta property="og:description" content="Transform your walls with texture painting, stencil designs, and wallpapers." />
-        <meta property="og:image" content={`${SITE_URL}/uploads/wall-texture.png`} />
+        <meta property="og:image" content={`${SITE_URL}${WALL_DECOR_HERO_IMAGE}`} />
         <meta name="twitter:title" content="Wall Decor Services | HomeGlazer" />
         <meta name="twitter:description" content="Transform your walls with texture painting and stencil designs." />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/wall-texture.png`} />
+        <meta name="twitter:image" content={`${SITE_URL}${WALL_DECOR_HERO_IMAGE}`} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />

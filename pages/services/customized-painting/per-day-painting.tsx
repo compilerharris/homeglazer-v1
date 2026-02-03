@@ -14,6 +14,9 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const PER_DAY_HERO_IMAGE = "/assets/images/livingroom/livingroom1/livingroom1.jpg";
+
 const PerDayPainting: React.FC = () => {
   return (
     <>
@@ -25,14 +28,14 @@ const PerDayPainting: React.FC = () => {
         <meta property="og:description" content="Hire professional painters on a per-day basis. Flexible, affordable painting services for small jobs and touch-ups." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/per-day-painting" />
-        <meta property="og:image" content="https://homeglazer.com/assets/images/livingroom/livingroom1/livingroom1.jpg" />
+        <meta property="og:image" content={`${SITE_URL}${PER_DAY_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/per-day-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Per Day Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Flexible per-day painting services that fit your schedule." />
-        <meta name="twitter:image" content="https://homeglazer.com/assets/images/livingroom/livingroom1/livingroom1.jpg" />
+        <meta name="twitter:image" content={`${SITE_URL}${PER_DAY_HERO_IMAGE}`} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -66,7 +69,7 @@ const PerDayPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="/assets/images/livingroom/livingroom1/livingroom1.jpg" 
+              src={PER_DAY_HERO_IMAGE} 
               alt="Professional on-demand painting services - expert painters at work"
               className="w-full h-full object-cover"
             />

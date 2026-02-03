@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const PAINTING_HERO_IMAGE = "/uploads/services/residential-painting.jpg";
 
 const PaintingServices: React.FC = () => {
   return (
@@ -24,10 +25,10 @@ const PaintingServices: React.FC = () => {
         <meta name="description" content="Professional painting services for residential, commercial, and kids' rooms. Expert painters delivering quality finishes with premium paints." />
         <meta property="og:title" content="Painting Services | HomeGlazer - Residential & Commercial" />
         <meta property="og:description" content="Professional painting services for residential, commercial, and kids' rooms. Expert painters delivering quality finishes." />
-        <meta property="og:image" content={`${SITE_URL}/uploads/residential.png`} />
+        <meta property="og:image" content={`${SITE_URL}${PAINTING_HERO_IMAGE}`} />
         <meta name="twitter:title" content="Painting Services | HomeGlazer" />
         <meta name="twitter:description" content="Professional painting services for residential and commercial spaces." />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/residential.png`} />
+        <meta name="twitter:image" content={`${SITE_URL}${PAINTING_HERO_IMAGE}`} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />

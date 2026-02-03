@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const CONTACT_HERO_IMAGE = `${SITE_URL}/uploads/services/contact-hero.jpg`;
 
 const ContactPage: React.FC = () => {
   // Form state
@@ -162,10 +163,10 @@ const ContactPage: React.FC = () => {
         <meta name="description" content="Contact HomeGlazer for professional painting services. Visit our office in Faridabad or reach us via phone and email. Free consultation available!" />
         <meta property="og:title" content="Contact Us | HomeGlazer - Get in Touch" />
         <meta property="og:description" content="Contact HomeGlazer for professional painting services. Visit our office in Faridabad or reach us via phone and email." />
-        <meta property="og:image" content={`${SITE_URL}/uploads/consultation.png`} />
+        <meta property="og:image" content={CONTACT_HERO_IMAGE} />
         <meta name="twitter:title" content="Contact Us | HomeGlazer - Get in Touch" />
         <meta name="twitter:description" content="Contact HomeGlazer for professional painting services. Free consultation available!" />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/consultation.png`} />
+        <meta name="twitter:image" content={CONTACT_HERO_IMAGE} />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
         <Header />

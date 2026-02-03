@@ -14,6 +14,9 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const RESIDENTIAL_HERO_IMAGE = "/uploads/services/residential-painting.jpg";
+
 const Residential: React.FC = () => {
   return (
     <>
@@ -25,14 +28,14 @@ const Residential: React.FC = () => {
         <meta property="og:description" content="Transform your home with our professional residential painting services. Expert house painters delivering quality interior & exterior painting with 35+ years of experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/painting/residential" />
-        <meta property="og:image" content="https://homeglazer.com/uploads/residential.png" />
+        <meta property="og:image" content={`${SITE_URL}${RESIDENTIAL_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/painting/residential" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Residential Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Transform your home with professional residential painting services." />
-        <meta name="twitter:image" content="https://homeglazer.com/uploads/residential.png" />
+        <meta name="twitter:image" content={`${SITE_URL}${RESIDENTIAL_HERO_IMAGE}`} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -66,7 +69,7 @@ const Residential: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src="/uploads/services/residential-painting.jpg" 
+              src={RESIDENTIAL_HERO_IMAGE} 
               alt="Residential Painting Services"
               className="w-full h-full object-cover"
             />

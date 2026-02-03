@@ -13,6 +13,9 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+const TEXTURE_HERO_IMAGE = "/uploads/services/texture-hero.jpg";
+
 const TexturePainting: React.FC = () => {
   return (
     <>
@@ -24,14 +27,14 @@ const TexturePainting: React.FC = () => {
         <meta property="og:description" content="Professional texture painting services for walls and ceilings. Expert texture painters with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wall-decor/texture-painting" />
-        <meta property="og:image" content="https://homeglazer.com/uploads/services/texture-hero.jpg" />
+        <meta property="og:image" content={`${SITE_URL}${TEXTURE_HERO_IMAGE}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wall-decor/texture-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Texture Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Professional texture painting services for walls and ceilings." />
-        <meta name="twitter:image" content="https://homeglazer.com/uploads/services/texture-hero.jpg" />
+        <meta name="twitter:image" content={`${SITE_URL}${TEXTURE_HERO_IMAGE}`} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -65,7 +68,7 @@ const TexturePainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src="/uploads/services/texture-hero.jpg"
+              src={TEXTURE_HERO_IMAGE}
               alt="Texture Painting Services - Professional Wall Textures and Finishes"
               className="w-full h-full object-cover"
             />
