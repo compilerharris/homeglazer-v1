@@ -27,10 +27,40 @@
       "static/chunks/main.js",
       "static/chunks/pages/admin.js"
     ],
+    "/services/customized-painting": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/customized-painting.js"
+    ],
+    "/services/customized-painting/one-day-painting": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/customized-painting/one-day-painting.js"
+    ],
+    "/services/customized-painting/per-day-painting": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/customized-painting/per-day-painting.js"
+    ],
+    "/services/painting": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/painting.js"
+    ],
     "/services/wall-decor": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/services/wall-decor.js"
+    ],
+    "/services/wall-decor/graffiti-painting": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/wall-decor/graffiti-painting.js"
+    ],
+    "/services/wood-services": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/services/wood-services.js"
     ]
   },
   "ampFirstPages": []
