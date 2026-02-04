@@ -1,13 +1,9 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/services/wall-decor": "pages/services/wall-decor.js",
-  "/services/wall-decor/graffiti-painting": "pages/services/wall-decor/graffiti-painting.js",
-  "/services/painting": "pages/services/painting.js",
-  "/services/customized-painting": "pages/services/customized-painting.js",
-  "/services/customized-painting/one-day-painting": "pages/services/customized-painting/one-day-painting.js",
-  "/services/customized-painting/per-day-painting": "pages/services/customized-painting/per-day-painting.js",
-  "/admin": "pages/admin.js",
-  "/services/wood-services": "pages/services/wood-services.js"
+  "/_error": "pages/_error.js",
+  "/colour-visualiser/advanced/[step]": "pages/colour-visualiser/advanced/[step].js",
+  "/404": "pages/404.js",
+  "/": "pages/index.js",
+  "/api/visualizer/send-summary": "pages/api/visualizer/send-summary.js"
 }

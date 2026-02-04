@@ -46,6 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       brand,
       colorSelections,
       previewImage,
+      captureDiagnostic,
     } = req.body;
 
     // Validate required fields
@@ -68,7 +69,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (!gmailAppPassword) {
       console.error('GMAIL_APP_PASSWORD is not set');
-      return res.status(500).json({ error: 'Email service password not configured' });
+      return res.status(500).json({ error: 'Email service is temporarily unavailable. Please try again later or contact us.' });
     }
 
     // Create transporter
@@ -90,7 +91,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await transporter.verify();
     } catch (verifyError) {
       console.error('Transporter verification error:', verifyError);
-      return res.status(500).json({ error: 'Email service connection failed' });
+      return res.status(500).json({ error: 'Email service is temporarily unavailable. Please try again later or contact us.' });
     }
 
     // Build color selections summary HTML for email
@@ -111,7 +112,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
             .container { max-width: 600px; margin: 0 auto; padding: 0; background-color: #ffffff; }
             .logo-section { text-align: center; padding: 20px; background-color: #ffffff; }
-            .logo-section img { max-width: 150px; height: auto; display: block; margin: 0 auto; }
+            .logo-section img { max-width: 100px; height: auto; display: block; margin: 0 auto; }
+            .tagline { text-align: center; color: #666; font-style: italic; font-size: 14px; margin-top: 6px; }
             .header { background-color: #299dd7; color: white; padding: 20px; text-align: center; }
             .content { background-color: #f9f9f9; padding: 20px; }
             .field { margin-bottom: 15px; }
@@ -124,13 +126,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         <body>
           <div class="container">
             <div class="logo-section">
-              <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: 0 auto;">
-                <tr>
-                  <td align="center" bgcolor="#ffffff" style="background-color: #ffffff; padding: 15px; border-radius: 8px;">
-                    <img src="${logoUrl}" alt="Home Glazer Logo" style="display: block; border: 0; outline: none; text-decoration: none; background-color: #ffffff;" />
-                  </td>
-                </tr>
-              </table>
+              <img src="${logoUrl}" alt="Home Glazer Logo" />
+              <div class="tagline">We Paint Your Imagination</div>
             </div>
             <div class="header">
               <h1>New Colour Visualizer Summary</h1>
@@ -208,7 +205,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
             .container { max-width: 600px; margin: 0 auto; padding: 0; background-color: #ffffff; }
             .logo-section { text-align: center; padding: 20px; background-color: #ffffff; }
-            .logo-section img { max-width: 150px; height: auto; display: block; margin: 0 auto; }
+            .logo-section img { max-width: 100px; height: auto; display: block; margin: 0 auto; }
+            .tagline { text-align: center; color: #666; font-style: italic; font-size: 14px; margin-top: 6px; }
             .header { background-color: #299dd7; color: white; padding: 30px; text-align: center; }
             .content { background-color: #ffffff; padding: 30px; }
             .color-box { background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 10px; }
@@ -221,13 +219,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         <body>
           <div class="container">
             <div class="logo-section">
-              <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: 0 auto;">
-                <tr>
-                  <td align="center" bgcolor="#ffffff" style="background-color: #ffffff; padding: 15px; border-radius: 8px;">
-                    <img src="${logoUrl}" alt="Home Glazer Logo" style="display: block; border: 0; outline: none; text-decoration: none; background-color: #ffffff;" />
-                  </td>
-                </tr>
-              </table>
+              <img src="${logoUrl}" alt="Home Glazer Logo" />
+              <div class="tagline">We Paint Your Imagination</div>
             </div>
             <div class="header">
               <h1>Your Colour Visualizer Summary</h1>
@@ -291,6 +284,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         brand,
         colorSelections,
         previewImage,
+        captureDiagnostic,
       });
       console.log('PDF generated successfully, size:', pdfBuffer?.length);
     } catch (pdfError: any) {

@@ -19,6 +19,7 @@ export interface VisualizerEstimatePdfInput {
   brand: string;
   colorSelections: ColorSelection[];
   previewImage?: string; // base64 data URL
+  captureDiagnostic?: any;
 }
 
 // Helper function to read local image file
@@ -191,17 +192,39 @@ export async function generateVisualizerEstimatePdf(
           const base64Data = previewImage.replace(/^data:image\/\w+;base64,/, '');
           const imageBuffer = Buffer.from(base64Data, 'base64');
 
+          const DEBUG_VISUALIZER = process.env.NEXT_PUBLIC_VISUALIZER_DEBUG === '1';
+
+          // Log incoming preview size for diagnostics
+          if (DEBUG_VISUALIZER) console.log('Received preview image base64 length:', base64Data.length);
+
           // Get image metadata to calculate proper dimensions
           const metadata = await sharp(imageBuffer).metadata();
           const originalWidth = metadata.width || 800;
           const originalHeight = metadata.height || 600;
+          if (DEBUG_VISUALIZER) console.log('Preview image metadata:', originalWidth, 'x', originalHeight);
+
+          // If captureDiagnostic provided, log it
+          if ((data as any).captureDiagnostic && DEBUG_VISUALIZER) {
+            console.log('Capture diagnostic:', (data as any).captureDiagnostic);
+          }
           
           // Calculate aspect ratio
           const aspectRatio = originalWidth / originalHeight;
           
           // Maximum dimensions for the PDF (in points)
           const maxWidth = contentWidth - 20;
-          const maxHeight = 180;
+          const maxHeight = 260; // increased to allow taller previews
+
+          // Reject very small captures to avoid embedding narrow/corrupt images
+          // Lowered thresholds to allow typical room preview captures
+          const MIN_WIDTH = 300;
+          const MIN_HEIGHT = 200;
+
+          if (originalWidth < MIN_WIDTH || originalHeight < MIN_HEIGHT) {
+            if (DEBUG_VISUALIZER) console.warn('Preview image too small to embed (', originalWidth, 'x', originalHeight, '). Adding placeholder instead.');
+            doc.fontSize(10).fillColor('gray').text('Preview image not available in sufficient resolution', margin, doc.y);
+            doc.moveDown(1);
+          } else {
           
           // Calculate display dimensions maintaining aspect ratio
           let displayWidth = maxWidth;
@@ -213,33 +236,53 @@ export async function generateVisualizerEstimatePdf(
             displayWidth = displayHeight * aspectRatio;
           }
 
-          // Process image with sharp - keep high quality, don't downscale aggressively
-          const processedImage = await sharp(imageBuffer)
-            .png({ 
-              quality: 100, 
-              compressionLevel: 0 
-            })
-            .toBuffer();
+            // Process image with sharp - resize to computed display dimensions while
+            // preserving aspect ratio and flattening to white background to avoid transparency issues.
+            let processedImage: Buffer;
+            try {
+              const resizeWidth = Math.max(1, Math.round(displayWidth));
+              const resizeHeight = Math.max(1, Math.round(displayHeight));
 
-          const imageY = doc.y;
-          const boxHeight = displayHeight + 20; // Add padding
-          
-          // Center the image horizontally
-          const imageX = margin + (contentWidth - displayWidth) / 2;
-          
-          // Add border around image area
-          doc
-            .rect(margin, imageY, contentWidth, boxHeight)
-            .strokeColor('#e0e0e0')
-            .stroke();
+              processedImage = await sharp(imageBuffer)
+                .resize(resizeWidth, resizeHeight, {
+                  fit: 'contain',
+                  kernel: sharp.kernel.lanczos3,
+                  withoutEnlargement: true,
+                  background: { r: 255, g: 255, b: 255 },
+                })
+                .flatten({ background: { r: 255, g: 255, b: 255 } })
+                .png({ quality: 100, compressionLevel: 0 })
+                .toBuffer();
 
-          // Add the image - let PDFKit scale it properly
-          doc.image(processedImage, imageX, imageY + 10, {
-            width: displayWidth,
-            height: displayHeight,
-          });
+              if (DEBUG_VISUALIZER) {
+                try { const postMeta = await sharp(processedImage).metadata(); console.log('Processed preview image size:', postMeta.width, 'x', postMeta.height); } catch (e) {}
+              }
+            } catch (sharpErr) {
+              // Fallback to using original buffer if resizing fails
+              console.warn('Sharp resize failed for preview image, using original buffer:', sharpErr);
+              processedImage = imageBuffer;
+            }
 
-          doc.y = imageY + boxHeight + 10;
+            const imageY = doc.y;
+            const boxHeight = displayHeight + 30; // Add padding
+
+            // Center the image horizontally
+            const imageX = margin + (contentWidth - displayWidth) / 2;
+
+            // Add border around image area
+            doc
+              .rect(margin, imageY, contentWidth, boxHeight)
+              .strokeColor('#e0e0e0')
+              .stroke();
+
+            // Add the image - let PDFKit scale it properly
+            doc.image(processedImage, imageX, imageY + 10, {
+              width: displayWidth,
+              height: displayHeight,
+            });
+
+            doc.y = imageY + boxHeight + 10;
+          }
         } catch (imageError: any) {
           console.error('Error adding preview image to PDF:', imageError);
           doc.fontSize(10).fillColor('gray').text('Preview image could not be loaded');

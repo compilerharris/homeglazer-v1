@@ -52,7 +52,7 @@ export default async function handler(
             await transporter.verify();
         } catch (verifyError) {
             console.error('Nodemailer verification failed:', verifyError);
-            return res.status(500).json({ error: 'Email service configuration error' });
+            return res.status(500).json({ error: 'Email service is temporarily unavailable. Please try again later or contact us.' });
         }
 
         const formattedEstimate = formatIndianCurrency(woodPolishingTotalEstimate);

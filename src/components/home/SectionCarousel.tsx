@@ -115,10 +115,10 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
     // For blog posts specifically showing 3 at a time above 1023px
     if (slidesToShow) return slidesToShow;
     
-    // For reviews section showing 2 on desktop, 1 on mobile
+    // For reviews section showing 3 on desktop, 3 on tablet, 1 on mobile
     if (reviewsSection) {
-      if (window.innerWidth >= 1024) return 2; // desktop
-      if (window.innerWidth >= 768) return 2;  // tablet
+      if (window.innerWidth >= 1024) return 3; // desktop
+      if (window.innerWidth >= 768) return 3;  // tablet
       return 1; // mobile
     }
     

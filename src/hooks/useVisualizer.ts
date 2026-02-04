@@ -518,34 +518,129 @@ export function useVisualizer() {
       const roomPreviewElement = roomPreviewRef?.current;
       
       if (roomPreviewElement) {
+        // Wait for images inside the preview to load and stabilize before capturing
+        const waitForImagesToLoad = (root: HTMLElement, timeout = 3000) => {
+          return new Promise<void>((resolve) => {
+            const imgs = Array.from(root.querySelectorAll('img')) as HTMLImageElement[];
+            if (!imgs.length) return resolve();
+
+            let loaded = 0;
+            const checkDone = () => {
+              loaded++;
+              if (loaded >= imgs.length) resolve();
+            };
+
+            imgs.forEach((img) => {
+              if (img.complete) return checkDone();
+              const onEnd = () => {
+                img.removeEventListener('load', onEnd);
+                img.removeEventListener('error', onEnd);
+                checkDone();
+              };
+              img.addEventListener('load', onEnd);
+              img.addEventListener('error', onEnd);
+            });
+
+            // Safety timeout
+            setTimeout(() => resolve(), timeout);
+          });
+        };
+
         try {
+          // Ensure images and external resources inside the preview are loaded
+          await waitForImagesToLoad(roomPreviewElement);
+          // Wait for web fonts to be ready (if supported)
+          try { await (document as any).fonts?.ready; } catch (e) {}
+
+          // Small stabilization delay so layout finishes
+          await new Promise(r => setTimeout(r, 200));
+
           // Dynamically import dom-to-image-more for capturing
           const domtoimage = (await import('dom-to-image-more')).default;
-          
-          // Use 2x scale for higher quality capture
-          const scale = 2;
+
+          // Try higher capture scales (prefer high quality), fallback if result too large
           const width = roomPreviewElement.offsetWidth;
           const height = roomPreviewElement.offsetHeight;
-          
-          // Capture the room preview element at higher resolution
-          previewImage = await domtoimage.toPng(roomPreviewElement, {
-            quality: 1,
-            bgcolor: '#ffffff',
-            width: width * scale,
-            height: height * scale,
-            style: {
-              transform: `scale(${scale})`,
-              transformOrigin: 'top left',
-              width: `${width}px`,
-              height: `${height}px`,
-            },
+
+          const DEBUG_CAPTURE = process.env.NEXT_PUBLIC_CAPTURE_DEBUG === '1';
+          if (DEBUG_CAPTURE) console.log('Capture target element size:', width, 'x', height);
+
+          // Helper to perform capture for a given scale (avoid CSS transforms)
+          const captureAtScale = async (s: number) => {
+            const opts: any = {
+              quality: 1,
+              bgcolor: '#ffffff',
+              width: Math.round(width * s),
+              height: Math.round(height * s),
+              style: {
+                width: `${width}px`,
+                height: `${height}px`,
+                transformOrigin: 'top left',
+              },
+            };
+            return domtoimage.toPng(roomPreviewElement, opts);
+          };
+
+          // Validate captured data URL by loading it into an Image and checking natural dimensions
+          const validateDataUrl = (dataUrl: string, expectedW: number, expectedH: number) => new Promise<{ok: boolean, w: number, h: number}>((resolve) => {
+            const img = new Image();
+            img.onload = () => {
+              const ok = img.naturalWidth >= Math.round(expectedW * 0.8) && img.naturalHeight >= Math.round(expectedH * 0.8);
+              resolve({ ok, w: img.naturalWidth, h: img.naturalHeight });
+            };
+            img.onerror = () => resolve({ ok: false, w: 0, h: 0 });
+            img.src = dataUrl;
           });
+
+          // Try scales in order: 3, 2, 1 (fallback)
+          const MAX_BODY_CHARS = 8_000_000; // keep body under 10MB limit (base64 chars)
+          const scales = [3, 2, 1];
+          let attempts = 0;
+          let lastValidation: any = null;
+          for (const s of scales) {
+            attempts++;
+            try {
+              if (DEBUG_CAPTURE) console.log('Attempting capture at scale', s);
+              const dataUrl = await captureAtScale(s);
+              if (!dataUrl) continue;
+              // Quick size guard
+              if (dataUrl.length > MAX_BODY_CHARS && s > 1) {
+                if (DEBUG_CAPTURE) console.log('Captured image too large at scale', s, 'length', dataUrl.length);
+                continue; // try smaller scale
+              }
+              const validation = await validateDataUrl(dataUrl, Math.round(width * s), Math.round(height * s));
+              lastValidation = validation;
+              if (DEBUG_CAPTURE) console.log('Validation result', validation, 'base64 length', dataUrl.length);
+              if (validation.ok) {
+                previewImage = dataUrl;
+                break;
+              } else {
+                // Not acceptable, try next scale
+                if (DEBUG_CAPTURE) console.warn('Captured image failed validation at scale', s, validation);
+                continue;
+              }
+            } catch (err) {
+              if (DEBUG_CAPTURE) console.warn('Capture attempt failed at scale', s, err);
+              continue;
+            }
+          }
+
+          // If still no previewImage, log final diagnostic
+          if (!previewImage && DEBUG_CAPTURE) {
+            console.warn('All capture attempts failed. Last validation:', lastValidation);
+          }
+
+          // Attach diagnostic info to be sent with request if capture failed or for debugging
+          if (!previewImage) {
+            (window as any).__captureDiagnostic = { attempts, lastValidation };
+          }
         } catch (captureError) {
           console.warn('Failed to capture room preview:', captureError);
         }
       }
 
       // Prepare API request data
+      const captureDiagnostic = (typeof window !== 'undefined') ? (window as any).__captureDiagnostic : undefined;
       const requestData = {
         clientName,
         email,
@@ -555,6 +650,7 @@ export function useVisualizer() {
         brand: BRAND_CONFIG.find(b => b.id === selectedBrandId)?.name || 'Unknown',
         colorSelections,
         previewImage,
+        captureDiagnostic,
       };
 
       // Call API to send email with PDF

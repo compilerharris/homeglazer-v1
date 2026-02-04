@@ -179,7 +179,7 @@ const Header: React.FC = () => {
   return (
     <div className={cn(
       "fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out",
-      "w-max sm:w-max sm:max-w-[95vw] mx-auto mt-4 sm:mt-2 lg:mt-3",
+      "w-[90%] sm:w-[90%] md:w-max md:sm:max-w-[95vw] mx-auto mt-4 sm:mt-2 lg:mt-3",
       "bg-white/50 backdrop-blur-3xl",
       "border border-white/40",
       "shadow-[0_12px_40px_rgba(0,0,0,0.15)]",

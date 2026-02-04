@@ -128,7 +128,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (!gmailAppPassword) {
       console.error('GMAIL_APP_PASSWORD is not set');
-      return res.status(500).json({ error: 'Email service password not configured' });
+      return res.status(500).json({ error: 'Email service is temporarily unavailable. Please try again later or contact us.' });
     }
 
     // Create transporter
@@ -151,7 +151,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await transporter.verify();
     } catch (verifyError) {
       console.error('Transporter verification error:', verifyError);
-      return res.status(500).json({ error: 'Email service connection failed' });
+      return res.status(500).json({ error: 'Email service is temporarily unavailable. Please try again later or contact us.' });
     }
 
     // Email template for HomeGlazer

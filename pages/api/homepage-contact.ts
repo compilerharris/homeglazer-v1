@@ -61,7 +61,7 @@ export default async function handler(
     if (!gmailAppPassword) {
       console.error('GMAIL_APP_PASSWORD is not set in environment variables');
       return res.status(500).json({
-        error: 'Email service is not configured. Please contact support.',
+        error: 'Email service is temporarily unavailable. Please try again later or contact us.',
       });
     }
 
