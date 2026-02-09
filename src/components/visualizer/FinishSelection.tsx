@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, Send, X } from 'lucide-react';
 import { VariantManifest, ColorSwatch } from '../../hooks/useVisualizer';
 import Breadcrumbs from './Breadcrumbs';
 
@@ -611,7 +611,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             </button>
           )}
           <button
-            className="w-full px-4 py-2 text-white font-medium rounded-lg transition-colors duration-200 mb-4"
+            className="w-full px-4 py-2 text-white font-medium rounded-lg transition-colors duration-200 mb-4 flex items-center justify-center gap-2"
             style={{ backgroundColor: '#299dd7' }}
             onMouseOver={(e) => {
               e.currentTarget.style.backgroundColor = '#237bb0';
@@ -623,6 +623,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             type="button"
           >
             Email This Look
+            <Send className="w-4 h-4 flex-shrink-0" strokeWidth={2} />
           </button>
 
           {/* Desktop Color Palette - Popup overlay with dark background */}
@@ -897,12 +898,13 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         )}
         <div className="w-full max-w-2xl mb-4">
           <button
-            className="w-full px-4 py-2 text-white font-medium rounded-lg transition-colors duration-200"
+            className="w-full px-4 py-2 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
             style={{ backgroundColor: '#299dd7' }}
             onClick={handleEmailThisLook}
             type="button"
           >
             Email This Look
+            <Send className="w-4 h-4 flex-shrink-0" strokeWidth={2} />
           </button>
         </div>
 
@@ -941,86 +943,116 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       {emailModalPhase !== 'closed' && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black bg-opacity-40 p-4" onClick={closeEmailModal}>
           <div
-            className="bg-white rounded-xl shadow-xl max-w-md w-full p-6"
+            className="bg-white rounded-xl shadow-xl max-w-md w-full overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {emailModalPhase === 'form' && (
               <>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Email your visualiser summary</h3>
-                {emailError && (
-                  <p className="text-sm text-red-600 mb-3" role="alert">{emailError}</p>
-                )}
-                <div className="space-y-3 mb-4">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Name
-                    <input
-                      type="text"
-                      value={emailFullName}
-                      onChange={(e) => setEmailFullName(e.target.value)}
-                      className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-[#299dd7] focus:ring-1 focus:ring-[#299dd7]"
-                      placeholder="Your name"
-                    />
-                  </label>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Email
-                    <input
-                      type="email"
-                      value={emailEmail}
-                      onChange={(e) => setEmailEmail(e.target.value)}
-                      className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-[#299dd7] focus:ring-1 focus:ring-[#299dd7]"
-                      placeholder="your@email.com"
-                    />
-                  </label>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Mobile
-                    <input
-                      type="tel"
-                      value={emailMobile}
-                      onChange={(e) => setEmailMobile(e.target.value)}
-                      className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-[#299dd7] focus:ring-1 focus:ring-[#299dd7]"
-                      placeholder="Your mobile number"
-                    />
-                  </label>
-                </div>
-                <div className="flex gap-3">
+                {/* Header with title and close button */}
+                <div className="flex items-center justify-between px-6 pt-6 pb-2">
+                  <h3 className="text-lg font-bold" style={{ color: '#1890ff' }}>Send Summary</h3>
                   <button
                     type="button"
                     onClick={closeEmailModal}
-                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+                    className="p-1 rounded hover:bg-gray-100 text-gray-500 hover:text-gray-700 transition-colors"
+                    aria-label="Close"
                   >
-                    Cancel
+                    <X className="w-5 h-5" />
                   </button>
-                  <button
-                    type="button"
-                    onClick={handleEmailSubmit}
-                    className="flex-1 px-4 py-2 text-white rounded-lg font-medium"
-                    style={{ backgroundColor: '#299dd7' }}
-                  >
-                    Submit
-                  </button>
+                </div>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-700 mb-4">Please provide your details to receive the colour visualization summary via email:</p>
+                  {emailError && (
+                    <p className="text-sm text-red-600 mb-3" role="alert">{emailError}</p>
+                  )}
+                  <div className="space-y-4 mb-6">
+                    <label className="block">
+                      <span className="block text-sm font-medium text-gray-700 mb-1">Name *</span>
+                      <input
+                        type="text"
+                        value={emailFullName}
+                        onChange={(e) => setEmailFullName(e.target.value)}
+                        className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-[#299dd7] focus:ring-1 focus:ring-[#299dd7]"
+                        placeholder="Enter your name"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="block text-sm font-medium text-gray-700 mb-1">Email *</span>
+                      <input
+                        type="email"
+                        value={emailEmail}
+                        onChange={(e) => setEmailEmail(e.target.value)}
+                        className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-[#299dd7] focus:ring-1 focus:ring-[#299dd7]"
+                        placeholder="Enter your email"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="block text-sm font-medium text-gray-700 mb-1">Phone *</span>
+                      <input
+                        type="tel"
+                        value={emailMobile}
+                        onChange={(e) => setEmailMobile(e.target.value)}
+                        className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-[#299dd7] focus:ring-1 focus:ring-[#299dd7]"
+                        placeholder="Enter your phone number"
+                      />
+                    </label>
+                  </div>
+                  <div className="flex justify-end gap-3">
+                    <button
+                      type="button"
+                      onClick={closeEmailModal}
+                      className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleEmailSubmit}
+                      className="px-4 py-2 text-white rounded-lg font-medium"
+                      style={{ backgroundColor: '#82c8f0' }}
+                    >
+                      Send me Summary
+                    </button>
+                  </div>
                 </div>
               </>
             )}
             {emailModalPhase === 'loading' && (
-              <div className="py-8 flex flex-col items-center justify-center gap-4">
-                <div className="w-10 h-10 border-2 border-[#299dd7] border-t-transparent rounded-full animate-spin" />
-                <p className="text-gray-600">Sending…</p>
-              </div>
+              <>
+                <div className="flex items-center justify-between px-6 pt-6 pb-2">
+                  <h3 className="text-lg font-bold" style={{ color: '#1890ff' }}>Send Summary</h3>
+                  <button type="button" onClick={closeEmailModal} className="p-1 rounded hover:bg-gray-100 text-gray-500" aria-label="Close">
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                <div className="py-8 flex flex-col items-center justify-center gap-4">
+                  <div className="w-10 h-10 border-2 border-[#299dd7] border-t-transparent rounded-full animate-spin" />
+                  <p className="text-gray-600">Sending…</p>
+                </div>
+              </>
             )}
             {emailModalPhase === 'success' && (
-              <div className="py-4">
-                <p className="text-gray-800 font-medium mb-4">
-                  Your visualiser summary has been sent to your email.
-                </p>
-                <button
-                  type="button"
-                  onClick={closeEmailModal}
-                  className="w-full px-4 py-2 text-white rounded-lg font-medium"
-                  style={{ backgroundColor: '#299dd7' }}
-                >
-                  Close
-                </button>
-              </div>
+              <>
+                <div className="flex items-center justify-between px-6 pt-6 pb-2">
+                  <h3 className="text-lg font-bold" style={{ color: '#1890ff' }}>Send Summary</h3>
+                  <button type="button" onClick={closeEmailModal} className="p-1 rounded hover:bg-gray-100 text-gray-500" aria-label="Close">
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-800 font-medium mb-4">
+                    Your visualiser summary has been sent to your email.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={closeEmailModal}
+                    className="px-4 py-2 text-white rounded-lg font-medium"
+                    style={{ backgroundColor: '#82c8f0' }}
+                  >
+                    Close
+                  </button>
+                </div>
+              </>
             )}
           </div>
         </div>

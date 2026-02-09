@@ -1,8 +1,22 @@
 {
-  "src/components/visualizer/FinishSelection.tsx -> dom-to-image-more": {
-    "id": "src/components/visualizer/FinishSelection.tsx -> dom-to-image-more",
+  "pages/admin/blogs/[id]/edit.tsx -> react-quill": {
+    "id": 1167,
     "files": [
-      "static/chunks/node_modules_dom-to-image-more_dist_dom-to-image-more_min_js.js"
+      "static/chunks/eabe11fc.4e236081829622b8.js",
+      "static/chunks/7127.072bb2f59ccd8413.js"
+    ]
+  },
+  "pages/admin/blogs/new.tsx -> react-quill": {
+    "id": 1167,
+    "files": [
+      "static/chunks/eabe11fc.4e236081829622b8.js",
+      "static/chunks/7127.072bb2f59ccd8413.js"
+    ]
+  },
+  "src/components/visualizer/FinishSelection.tsx -> dom-to-image-more": {
+    "id": 6926,
+    "files": [
+      "static/chunks/6926.acae4cdc87fed480.js"
     ]
   }
 }

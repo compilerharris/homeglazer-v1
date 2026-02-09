@@ -230,7 +230,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       { filename: 'home-glazer-logo.png', path: logoPath, cid: LOGO_CID },
       {
         filename: 'homeglazer-visualiser-summary.pdf',
-        content: pdfBuffer,
+        content: pdfBuffer!,
         contentType: 'application/pdf',
       },
     ];
@@ -248,7 +248,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       { filename: 'home-glazer-logo.png', path: logoPath, cid: LOGO_CID },
       {
         filename: 'homeglazer-visualiser-summary.pdf',
-        content: pdfForCustomer,
+        content: pdfForCustomer!,
         contentType: 'application/pdf',
       },
     ];
