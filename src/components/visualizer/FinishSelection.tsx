@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { AlertCircle, Send } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 import { VariantManifest, ColorSwatch } from '../../hooks/useVisualizer';
 import Breadcrumbs from './Breadcrumbs';
-import PDFGenerationModal from './PDFGenerationModal';
 
 interface BreadcrumbItem {
   label: string;
@@ -23,18 +22,13 @@ interface FinishSelectionProps {
   onBulkAssignColors?: (assignments: { [side: string]: string }) => void;
   onClosePalette: () => void;
   onBack: () => void;
-  onDownload: () => void;
   onResetAssignments?: () => void;
   backButtonText?: string;
   breadcrumbs?: BreadcrumbItem[];
   onStepClick?: (step: number) => void;
   selectedBrandId?: string | null;
   selectedRoomType?: string | null;
-  // PDF generation props
-  showPDFModal?: boolean;
-  isGeneratingPDF?: boolean;
-  onGeneratePDF?: (clientName: string, email: string, phone: string, roomPreviewRef: React.RefObject<HTMLDivElement>) => void;
-  onClosePDFModal?: () => void;
+  roomTypeLabel?: string;
 }
 
 const wallLabels: Record<string, string> = {
@@ -96,25 +90,27 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   onBulkAssignColors,
   onClosePalette,
   onBack,
-  onDownload,
   onResetAssignments,
   backButtonText = "Change Colours",
   breadcrumbs = [],
   onStepClick,
   selectedBrandId,
   selectedRoomType,
-  // PDF generation props
-  showPDFModal,
-  isGeneratingPDF,
-  onGeneratePDF,
-  onClosePDFModal,
+  roomTypeLabel = '',
 }) => {
   const wallKeys = Object.keys(variant.walls);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const previewScrollRef = useRef<HTMLDivElement>(null);
   const previewImageRef = useRef<HTMLDivElement>(null);
   const mobilePreviewRef = useRef<HTMLDivElement>(null);
-  const roomPreviewRef = useRef<HTMLDivElement>(null);
+  const desktopPreviewRef = useRef<HTMLDivElement>(null);
+
+  type EmailModalPhase = 'closed' | 'form' | 'loading' | 'success';
+  const [emailModalPhase, setEmailModalPhase] = useState<EmailModalPhase>('closed');
+  const [emailFullName, setEmailFullName] = useState('');
+  const [emailEmail, setEmailEmail] = useState('');
+  const [emailMobile, setEmailMobile] = useState('');
+  const [emailError, setEmailError] = useState('');
   const [showSwipeHint, setShowSwipeHint] = useState(true);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -201,6 +197,108 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     setTimeout(() => {
       setIsRecoloring(false);
     }, 500);
+  };
+
+  const handleEmailThisLook = () => setEmailModalPhase('form');
+
+  const handleEmailSubmit = async () => {
+    const name = emailFullName.trim();
+    const emailVal = emailEmail.trim();
+    const mobile = emailMobile.trim();
+    setEmailError('');
+    if (!name || !emailVal || !mobile) {
+      setEmailError('Please fill in all fields: Name, Email, and Mobile are required.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+
+    setEmailModalPhase('loading');
+    setEmailError('');
+
+    const previewNode =
+      typeof window !== 'undefined' && window.innerWidth >= 1024
+        ? desktopPreviewRef.current
+        : mobilePreviewRef.current;
+
+    let previewImageBase64 = '';
+    if (previewNode && typeof window !== 'undefined') {
+      try {
+        const domtoimage = (await import('dom-to-image-more')).default;
+        const capturePromise = domtoimage.toPng(previewNode, {
+          quality: 0.95,
+          bgcolor: '#ffffff',
+          scale: 2,
+          width: previewNode.offsetWidth,
+          height: previewNode.offsetHeight,
+        });
+        const timeoutPromise = new Promise<string>((_, reject) =>
+          setTimeout(() => reject(new Error('Capture timeout')), 15000)
+        );
+        previewImageBase64 = await Promise.race([capturePromise, timeoutPromise]);
+      } catch (captureErr) {
+        console.error('Preview capture failed:', captureErr);
+      }
+    }
+
+    const colorSelections = Object.entries(assignments).map(([wallKey, colorHex]) => {
+      const wallLabel = wallLabels[wallKey] || capitalizeWords(wallKey.replace(/-/g, ' '));
+      const swatch =
+        colorHex === '#FFFFFF'
+          ? { colorName: 'White', colorCode: '#FFFFFF' }
+          : selectedColors.find((c) => c.colorHex === colorHex);
+      return {
+        wallKey,
+        wallLabel,
+        colorHex,
+        colorName: swatch?.colorName ?? colorHex,
+        colorCode: swatch?.colorCode ?? colorHex,
+      };
+    });
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 60000);
+      const res = await fetch('/api/email-visualiser-summary', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: name,
+          email: emailVal,
+          phone: mobile,
+          roomTypeLabel: roomTypeLabel || selectedRoomType || '',
+          roomVariantLabel: variant.label || '',
+          brandName: getBrandName(selectedBrandId),
+          colorSelections,
+          previewImageBase64,
+        }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setEmailError(data.error || 'Failed to send. Please try again.');
+        setEmailModalPhase('form');
+        return;
+      }
+      setEmailModalPhase('success');
+    } catch (err) {
+      console.error('Email visualiser summary error:', err);
+      const isTimeout = err instanceof Error && (err.name === 'AbortError' || err.message?.includes('timeout'));
+      setEmailError(
+        isTimeout
+          ? 'Request took too long. Please check your connection and try again.'
+          : 'Something went wrong. Please try again.'
+      );
+      setEmailModalPhase('form');
+    }
+  };
+
+  const closeEmailModal = () => {
+    setEmailModalPhase('closed');
+    setEmailError('');
   };
 
   // Spacebar key listener for random color assignment
@@ -329,12 +427,6 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     };
   }, []);
   
-  const handleGeneratePDF = (clientName: string, email: string, phone: string) => {
-    if (onGeneratePDF) {
-      onGeneratePDF(clientName, email, phone, roomPreviewRef);
-    }
-  };
-
   return (
     <main className="min-h-screen bg-white pt-28 flex flex-col items-center px-4 lg:px-0 relative pb-8">
       {/* Breadcrumbs Section */}
@@ -356,7 +448,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       <div className="w-full max-w-screen-xl mx-auto mb-6 px-4">
         <p className="text-xs text-gray-500 italic text-center flex items-center justify-center gap-2">
           <AlertCircle className="w-4 h-4 flex-shrink-0" />
-          Colors shown are for reference; actual paint may look different on your walls based on lighting, surface, and surroundings.
+          Colours shown are for reference; actual paint may look different on your walls based on lighting, surface, and surroundings.
         </p>
       </div>
       
@@ -364,7 +456,11 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       <div className="hidden lg:flex w-full max-w-6xl gap-8" style={{ maxWidth: isLargeScreen ? '1408px' : '1152px' }}>
         {/* Left Column - Room Preview */}
         <div className="flex-1 min-w-0">
-          <div ref={roomPreviewRef} className="relative room-preview-container overflow-hidden rounded-lg" style={{ aspectRatio: '16/9', width: '100%', height: 'auto' }}>
+          <div
+            ref={desktopPreviewRef}
+            className="relative room-preview-container overflow-hidden rounded-lg"
+            style={{ aspectRatio: '16/9', width: '100%', height: 'auto' }}
+          >
         <img
           src={variant.mainImage}
           alt={variant.label}
@@ -507,25 +603,28 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           {/* Reset Color Button */}
           {onResetAssignments && (
             <button
-              className="w-full px-4 py-2 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 mb-4"
+              className="w-full px-4 py-2 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 mb-2"
               onClick={onResetAssignments}
               type="button"
             >
-              Reset Colors
+              Reset Colours
             </button>
           )}
-          
-          {/* Send Summary Button */}
-          <div className="mb-6">
-            <button
-              className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
-              onClick={onDownload}
-            >
-              <span>EMAIL THIS LOOK</span>
-              <Send size={18} />
-            </button>
-          </div>
-          
+          <button
+            className="w-full px-4 py-2 text-white font-medium rounded-lg transition-colors duration-200 mb-4"
+            style={{ backgroundColor: '#299dd7' }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = '#237bb0';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = '#299dd7';
+            }}
+            onClick={handleEmailThisLook}
+            type="button"
+          >
+            Email This Look
+          </button>
+
           {/* Desktop Color Palette - Popup overlay with dark background */}
           {showPalette && (
             <>
@@ -548,7 +647,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                           }`}
                           style={{ background: color }}
                           onClick={() => onAssignColor(color)}
-                          aria-label={`Apply color ${color}`}
+                          aria-label={`Apply colour ${color}`}
                           title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color === '#FFFFFF' ? 'White (#FFFFFF)' : color}
                         />
                         {/* Tick icon for currently selected color */}
@@ -597,7 +696,11 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             }}
           >
             <div className={`${isZoomed ? 'w-full' : 'h-full flex items-center justify-center min-w-max'} transition-all duration-500 ease-in-out`}>
-              <div ref={roomPreviewRef} className={`relative room-preview-container overflow-hidden rounded-lg ${isZoomed ? 'w-full' : 'h-full flex items-center justify-center'} transition-all duration-500 ease-in-out`} style={{ minHeight: isZoomed ? 'auto' : '100%', aspectRatio: isZoomed ? '16/9' : 'auto' }}>
+              <div
+                ref={mobilePreviewRef}
+                className={`relative room-preview-container overflow-hidden rounded-lg ${isZoomed ? 'w-full' : 'h-full flex items-center justify-center'} transition-all duration-500 ease-in-out`}
+                style={{ minHeight: isZoomed ? 'auto' : '100%', aspectRatio: isZoomed ? '16/9' : 'auto' }}
+              >
                 <img
                   src={variant.mainImage}
                   alt={variant.label}
@@ -782,27 +885,27 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         
         {/* Reset Color Button - Mobile */}
         {onResetAssignments && (
-          <div className="w-full max-w-2xl mb-4">
+          <div className="w-full max-w-2xl mb-2">
             <button
               className="w-full px-4 py-2 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200"
               onClick={onResetAssignments}
               type="button"
             >
-              Reset Colors
+              Reset Colours
             </button>
           </div>
         )}
-        
-        {/* Mobile/Tablet Send Summary Button */}
-        <div className="w-full lg:max-w-2xl mb-6" data-section="summary">
+        <div className="w-full max-w-2xl mb-4">
           <button
-            className="w-full px-4 py-3 bg-[#299dd7] text-white font-semibold rounded-lg hover:bg-[#1e7bb8] transition-colors duration-200 flex items-center justify-center gap-2"
-            onClick={onDownload}
+            className="w-full px-4 py-2 text-white font-medium rounded-lg transition-colors duration-200"
+            style={{ backgroundColor: '#299dd7' }}
+            onClick={handleEmailThisLook}
+            type="button"
           >
-            <span>EMAIL THIS LOOK</span>
-            <Send size={18} />
+            Email This Look
           </button>
         </div>
+
       </div>
 
       {/* Floating Magic Button - Mobile/Tablet Only */}
@@ -834,6 +937,95 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         </button>
       </div>
 
+      {/* Email This Look modal */}
+      {emailModalPhase !== 'closed' && (
+        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black bg-opacity-40 p-4" onClick={closeEmailModal}>
+          <div
+            className="bg-white rounded-xl shadow-xl max-w-md w-full p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {emailModalPhase === 'form' && (
+              <>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Email your visualiser summary</h3>
+                {emailError && (
+                  <p className="text-sm text-red-600 mb-3" role="alert">{emailError}</p>
+                )}
+                <div className="space-y-3 mb-4">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Name
+                    <input
+                      type="text"
+                      value={emailFullName}
+                      onChange={(e) => setEmailFullName(e.target.value)}
+                      className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-[#299dd7] focus:ring-1 focus:ring-[#299dd7]"
+                      placeholder="Your name"
+                    />
+                  </label>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Email
+                    <input
+                      type="email"
+                      value={emailEmail}
+                      onChange={(e) => setEmailEmail(e.target.value)}
+                      className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-[#299dd7] focus:ring-1 focus:ring-[#299dd7]"
+                      placeholder="your@email.com"
+                    />
+                  </label>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Mobile
+                    <input
+                      type="tel"
+                      value={emailMobile}
+                      onChange={(e) => setEmailMobile(e.target.value)}
+                      className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-[#299dd7] focus:ring-1 focus:ring-[#299dd7]"
+                      placeholder="Your mobile number"
+                    />
+                  </label>
+                </div>
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={closeEmailModal}
+                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleEmailSubmit}
+                    className="flex-1 px-4 py-2 text-white rounded-lg font-medium"
+                    style={{ backgroundColor: '#299dd7' }}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </>
+            )}
+            {emailModalPhase === 'loading' && (
+              <div className="py-8 flex flex-col items-center justify-center gap-4">
+                <div className="w-10 h-10 border-2 border-[#299dd7] border-t-transparent rounded-full animate-spin" />
+                <p className="text-gray-600">Sending…</p>
+              </div>
+            )}
+            {emailModalPhase === 'success' && (
+              <div className="py-4">
+                <p className="text-gray-800 font-medium mb-4">
+                  Your visualiser summary has been sent to your email.
+                </p>
+                <button
+                  type="button"
+                  onClick={closeEmailModal}
+                  className="w-full px-4 py-2 text-white rounded-lg font-medium"
+                  style={{ backgroundColor: '#299dd7' }}
+                >
+                  Close
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Mobile Palette bottom sheet/modal */}
       {showPalette && (
         <div className="lg:hidden fixed inset-0 z-[60] flex items-end justify-center bg-black bg-opacity-40" onClick={onClosePalette}>
@@ -853,7 +1045,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                         }`}
                         style={{ background: color }}
                         onClick={() => onAssignColor(color)}
-                        aria-label={`Apply color ${color}`}
+                        aria-label={`Apply colour ${color}`}
                         title={selectedColors[idx] ? `${capitalizeWords(selectedColors[idx].colorName)} (${selectedColors[idx].colorCode})` : color === '#FFFFFF' ? 'White (#FFFFFF)' : color}
                       />
                       {/* Tick icon for currently selected color */}
@@ -885,13 +1077,6 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         </div>
       )}
       
-      {/* PDF Generation Modal */}
-      <PDFGenerationModal
-        isOpen={showPDFModal || false}
-        onClose={onClosePDFModal || (() => {})}
-        onGenerate={handleGeneratePDF}
-        isGenerating={isGeneratingPDF || false}
-      />
     </main>
   );
 };

@@ -125,10 +125,6 @@ const AdvancedVisualiserStep: React.FC = () => {
     }
   }, [router.isReady, urlStep]); // Only depend on urlStep to prevent flickering
 
-  const handleGeneratePDF = (clientName: string, email: string, phone: string, roomPreviewRef: React.RefObject<HTMLDivElement>) => {
-    visualizer.handleGeneratePDF(clientName, email, phone, roomPreviewRef);
-  };
-
   // Get page title based on current step
   const pageTitle = stepParam && typeof stepParam === 'string' 
     ? STEP_TITLES[stepParam] || 'Advanced Colour Visualiser'
@@ -215,18 +211,13 @@ const AdvancedVisualiserStep: React.FC = () => {
               onBulkAssignColors={visualizer.handleBulkAssignColors}
               onClosePalette={visualizer.handleClosePalette}
               onBack={visualizer.prevStep}
-              onDownload={visualizer.handleDownload}
               onResetAssignments={visualizer.handleResetAssignments}
               backButtonText="Change Colours"
               breadcrumbs={breadcrumbs}
               onStepClick={visualizer.setStep}
               selectedBrandId={visualizer.selectedBrandId}
               selectedRoomType={visualizer.selectedRoomType}
-              // PDF generation props
-              showPDFModal={visualizer.showPDFModal}
-              isGeneratingPDF={visualizer.isGeneratingPDF}
-              onGeneratePDF={handleGeneratePDF}
-              onClosePDFModal={visualizer.closePDFModal}
+              roomTypeLabel={visualizer.selectedRoom?.label ?? visualizer.selectedRoomType ?? ''}
             />
           ) : (
             <main className="min-h-screen bg-white pt-28 pb-8 flex flex-col items-center px-4 lg:px-0">
