@@ -412,17 +412,26 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               })}
             </svg>
         {loadingMasks && (
-          <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"
+            data-capture-ignore="true"
+          >
             <div className="text-gray-500">Loading masks...</div>
           </div>
         )}
         {imageLoading && !imageError && (
-          <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"
+            data-capture-ignore="true"
+          >
             <div className="text-gray-500">Loading image...</div>
           </div>
         )}
         {imageError && (
-          <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-gray-100 flex items-center justify-center"
+            data-capture-ignore="true"
+          >
             <div className="text-gray-500 text-center">
               <div className="text-sm">Image failed to load</div>
               <div className="text-xs mt-1">Using placeholder</div>
@@ -636,17 +645,26 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                   })}
                 </svg>
                 {loadingMasks && (
-                  <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
+                  <div
+                    className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"
+                    data-capture-ignore="true"
+                  >
                     <div className="text-gray-500">Loading masks...</div>
                   </div>
                 )}
                 {imageLoading && !imageError && (
-                  <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
+                  <div
+                    className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"
+                    data-capture-ignore="true"
+                  >
                     <div className="text-gray-500">Loading image...</div>
                   </div>
                 )}
                 {imageError && (
-                  <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+                  <div
+                    className="absolute inset-0 bg-gray-100 flex items-center justify-center"
+                    data-capture-ignore="true"
+                  >
                     <div className="text-gray-500 text-center">
                       <div className="text-sm">Image failed to load</div>
                       <div className="text-xs mt-1">Using placeholder</div>
@@ -676,7 +694,10 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           
           {/* Swipe hint overlay (original) - only show when not zoomed */}
           {showSwipeHint && !isZoomed && (
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20 transition-opacity duration-300">
+            <div
+              className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20 transition-opacity duration-300"
+              data-capture-ignore="true"
+            >
               <div className="bg-white rounded-lg p-6 shadow-lg text-center max-w-xs mx-4">
                 <div className="mb-3 flex justify-center">
                   <img 

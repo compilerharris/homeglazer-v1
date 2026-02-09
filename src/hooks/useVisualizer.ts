@@ -559,11 +559,22 @@ export function useVisualizer() {
           const domtoimage = (await import('dom-to-image-more')).default;
 
           // Try higher capture scales (prefer high quality), fallback if result too large
-          const width = roomPreviewElement.offsetWidth;
-          const height = roomPreviewElement.offsetHeight;
+          let width = roomPreviewElement.offsetWidth;
+          let height = roomPreviewElement.offsetHeight;
+
+          // Guard against zero/invalid sizes – fall back to bounding client rect
+          if (width <= 0 || height <= 0) {
+            const rect = roomPreviewElement.getBoundingClientRect();
+            width = rect.width || 800;
+            height = rect.height || 450;
+          }
 
           const DEBUG_CAPTURE = process.env.NEXT_PUBLIC_CAPTURE_DEBUG === '1';
           if (DEBUG_CAPTURE) console.log('Capture target element size:', width, 'x', height);
+
+          // #region agent log
+          fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'preview-pre-fix',hypothesisId:'H3',location:'useVisualizer.ts:572',message:'Room preview element size before capture',data:{width,height},timestamp:Date.now()})}).catch(()=>{});
+          // #endregion
 
           // Helper to perform capture for a given scale (avoid CSS transforms)
           const captureAtScale = async (s: number) => {
@@ -576,6 +587,10 @@ export function useVisualizer() {
                 width: `${width}px`,
                 height: `${height}px`,
                 transformOrigin: 'top left',
+              },
+              // Exclude overlay elements that should not appear in the captured preview
+              filter: (node: any) => {
+                return !(node instanceof HTMLElement && node.dataset?.captureIgnore === 'true');
               },
             };
             return domtoimage.toPng(roomPreviewElement, opts);
@@ -611,6 +626,10 @@ export function useVisualizer() {
               const validation = await validateDataUrl(dataUrl, Math.round(width * s), Math.round(height * s));
               lastValidation = validation;
               if (DEBUG_CAPTURE) console.log('Validation result', validation, 'base64 length', dataUrl.length);
+
+              // #region agent log
+              fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'preview-pre-fix',hypothesisId:'H4',location:'useVisualizer.ts:622',message:'Capture validation result at scale',data:{scale:s,expectedWidth:Math.round(width * s),expectedHeight:Math.round(height * s),validation,base64Length:dataUrl.length},timestamp:Date.now()})}).catch(()=>{});
+              // #endregion
               if (validation.ok) {
                 previewImage = dataUrl;
                 break;
@@ -652,6 +671,17 @@ export function useVisualizer() {
         previewImage,
         captureDiagnostic,
       };
+
+      // Log diagnostic info before sending
+      try {
+        console.log('visualizer: sending summary request', {
+          previewLength: previewImage ? previewImage.length : 0,
+          colorSelections: colorSelections?.length,
+          captureDiagnostic,
+        });
+      } catch (e) {
+        console.warn('visualizer: failed to log preview diagnostics', e);
+      }
 
       // Call API to send email with PDF
       const response = await fetch('/api/visualizer/send-summary', {

@@ -69,6 +69,20 @@ export async function generateVisualizerEstimatePdf(
 ): Promise<Buffer> {
   return new Promise<Buffer>(async (resolve, reject) => {
     try {
+      // Basic diagnostic logs to help track preview embedding issues
+      try {
+        const previewPresent = !!data.previewImage;
+        console.log('generateVisualizerEstimatePdf: previewImage present=', previewPresent, 'colorSelections=', (data.colorSelections || []).length);
+        if (previewPresent) {
+          const previewLen = (data.previewImage || '').length;
+          console.log('generateVisualizerEstimatePdf: previewImage length (chars)=', previewLen);
+        }
+        if ((data as any).captureDiagnostic) {
+          console.log('generateVisualizerEstimatePdf: captureDiagnostic=', JSON.stringify((data as any).captureDiagnostic));
+        }
+      } catch (diagErr) {
+        console.warn('generateVisualizerEstimatePdf: failed to log diagnostics', diagErr);
+      }
       const doc = new PDFDocument({ margin: 50 });
       const chunks: Buffer[] = [];
       const pageWidth = doc.page.width as number;
@@ -208,36 +222,48 @@ export async function generateVisualizerEstimatePdf(
             console.log('Capture diagnostic:', (data as any).captureDiagnostic);
           }
           
-          // Calculate aspect ratio
+          // Calculate aspect ratio for diagnostics (we'll still crop to fill)
           const aspectRatio = originalWidth / originalHeight;
           
-          // Maximum dimensions for the PDF (in points)
-          const maxWidth = contentWidth - 20;
-          const maxHeight = 260; // increased to allow taller previews
+          // Target inner preview box width (in points). We fix the width and
+          // compute height from the image aspect ratio so the full image is
+          // always visible without cropping.
+          const innerMaxWidth = contentWidth - 40;
+          const innerMaxHeight = 260;
+
+          // #region agent log
+          fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'preview-pre-fix',hypothesisId:'H1',location:'visualizerEstimatePdf.ts:228',message:'Preview image metadata and target box',data:{originalWidth,originalHeight,aspectRatio,innerMaxWidth,innerMaxHeight,pageWidth,contentWidth},timestamp:Date.now()})}).catch(()=>{});
+          // #endregion
 
           // Reject very small captures to avoid embedding narrow/corrupt images
-          // Lowered thresholds to allow typical room preview captures
-          const MIN_WIDTH = 300;
-          const MIN_HEIGHT = 200;
+          // Lower thresholds and fall back to best-effort embedding instead of a placeholder.
+          const MIN_WIDTH = 200;
+          const MIN_HEIGHT = 150;
 
-          if (originalWidth < MIN_WIDTH || originalHeight < MIN_HEIGHT) {
-            if (DEBUG_VISUALIZER) console.warn('Preview image too small to embed (', originalWidth, 'x', originalHeight, '). Adding placeholder instead.');
-            doc.fontSize(10).fillColor('gray').text('Preview image not available in sufficient resolution', margin, doc.y);
-            doc.moveDown(1);
-          } else {
-          
-          // Calculate display dimensions maintaining aspect ratio
-          let displayWidth = maxWidth;
-          let displayHeight = displayWidth / aspectRatio;
-          
-          // If height exceeds max, scale down
-          if (displayHeight > maxHeight) {
-            displayHeight = maxHeight;
-            displayWidth = displayHeight * aspectRatio;
+          const isLowResolution = originalWidth < MIN_WIDTH || originalHeight < MIN_HEIGHT;
+          if (isLowResolution && DEBUG_VISUALIZER) console.warn('Preview image low resolution (', originalWidth, 'x', originalHeight, '). Will embed best-effort version.');
+
+          // If low resolution, show a small advisory but still attempt to embed the image.
+          if (isLowResolution) {
+            doc.fontSize(10).fillColor('gray').text(`Preview image: low resolution (${originalWidth}x${originalHeight}). Displaying best-effort image.`, margin, doc.y);
+            doc.moveDown(0.5);
           }
 
-            // Process image with sharp - resize to computed display dimensions while
-            // preserving aspect ratio and flattening to white background to avoid transparency issues.
+          // Proceed to embed image (best-effort) for both normal and low-res captures
+          {
+          // Fixed width; compute height from aspect ratio and clamp to max.
+          const displayWidth = innerMaxWidth;
+          let displayHeight = displayWidth / aspectRatio;
+          if (displayHeight > innerMaxHeight) {
+            displayHeight = innerMaxHeight;
+          }
+
+          // #region agent log
+          fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'preview-pre-fix',hypothesisId:'H2',location:'visualizerEstimatePdf.ts:253',message:'Computed display size for preview',data:{displayWidth,displayHeight},timestamp:Date.now()})}).catch(()=>{});
+          // #endregion
+
+            // Process image with sharp - resize to the target dimensions using
+            // `contain` so the whole image is visible (no cropping).
             let processedImage: Buffer;
             try {
               const resizeWidth = Math.max(1, Math.round(displayWidth));
@@ -246,9 +272,10 @@ export async function generateVisualizerEstimatePdf(
               processedImage = await sharp(imageBuffer)
                 .resize(resizeWidth, resizeHeight, {
                   fit: 'contain',
-                  kernel: sharp.kernel.lanczos3,
-                  withoutEnlargement: true,
                   background: { r: 255, g: 255, b: 255 },
+                  kernel: sharp.kernel.lanczos3,
+                  // Allow enlargement for low-resolution captures so the PDF shows a visible preview.
+                  withoutEnlargement: false,
                 })
                 .flatten({ background: { r: 255, g: 255, b: 255 } })
                 .png({ quality: 100, compressionLevel: 0 })
@@ -260,31 +287,43 @@ export async function generateVisualizerEstimatePdf(
             } catch (sharpErr) {
               // Fallback to using original buffer if resizing fails
               console.warn('Sharp resize failed for preview image, using original buffer:', sharpErr);
+              // #region agent log
+              fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'preview-pre-fix',hypothesisId:'H5',location:'visualizerEstimatePdf.ts:281',message:'Sharp resize failed for preview image',data:{error:String(sharpErr)},timestamp:Date.now()})}).catch(()=>{});
+              // #endregion
               processedImage = imageBuffer;
             }
 
+          // Layout for preview frame and image
             const imageY = doc.y;
-            const boxHeight = displayHeight + 30; // Add padding
+            const framePadding = 10;
+            const frameWidth = displayWidth + framePadding * 2;
+            const frameHeight = displayHeight + framePadding * 2;
 
-            // Center the image horizontally
-            const imageX = margin + (contentWidth - displayWidth) / 2;
+            // Center the frame (and image) horizontally within the content area
+            const frameX = margin + (contentWidth - frameWidth) / 2;
+            const imageX = frameX + framePadding;
+            const imageYInner = imageY + framePadding;
 
-            // Add border around image area
+            // Draw border only around the image frame so we don't have large
+            // empty white space on the right-hand side.
             doc
-              .rect(margin, imageY, contentWidth, boxHeight)
+              .rect(frameX, imageY, frameWidth, frameHeight)
               .strokeColor('#e0e0e0')
               .stroke();
 
-            // Add the image - let PDFKit scale it properly
-            doc.image(processedImage, imageX, imageY + 10, {
+            // Add the image inside the frame
+            doc.image(processedImage, imageX, imageYInner, {
               width: displayWidth,
               height: displayHeight,
             });
 
-            doc.y = imageY + boxHeight + 10;
+            doc.y = imageY + frameHeight + 10;
           }
         } catch (imageError: any) {
           console.error('Error adding preview image to PDF:', imageError);
+          // #region agent log
+          fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'preview-pre-fix',hypothesisId:'H6',location:'visualizerEstimatePdf.ts:307',message:'Error adding preview image to PDF',data:{error:String(imageError)},timestamp:Date.now()})}).catch(()=>{});
+          // #endregion
           doc.fontSize(10).fillColor('gray').text('Preview image could not be loaded');
           doc.moveDown(1);
         }

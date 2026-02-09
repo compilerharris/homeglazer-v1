@@ -49,6 +49,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       captureDiagnostic,
     } = req.body;
 
+    // Log whether preview image was received (length only to avoid huge console output)
+    try {
+      console.log('send-summary: received request for', clientName, 'email=', email, 'phone=', phone);
+      if (previewImage) {
+        console.log('send-summary: previewImage received, length chars =', (previewImage as string).length);
+      } else {
+        console.log('send-summary: no previewImage received in request');
+      }
+      if (captureDiagnostic) {
+        console.log('send-summary: captureDiagnostic=', JSON.stringify(captureDiagnostic));
+      }
+    } catch (logErr) {
+      console.warn('send-summary: failed to log preview diagnostics', logErr);
+    }
+
     // Validate required fields
     if (!clientName || !email || !phone) {
       return res.status(400).json({ error: 'Name, email, and phone are required' });

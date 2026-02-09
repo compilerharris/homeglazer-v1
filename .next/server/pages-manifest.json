@@ -1,9 +1,6 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/colour-visualiser/advanced/[step]": "pages/colour-visualiser/advanced/[step].js",
-  "/404": "pages/404.js",
-  "/": "pages/index.js",
-  "/api/visualizer/send-summary": "pages/api/visualizer/send-summary.js"
+  "/_document": "pages/_document.js",
+  "/colour-visualiser/advanced/[step]": "pages/colour-visualiser/advanced/[step].js"
 }
