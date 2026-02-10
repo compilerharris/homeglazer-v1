@@ -377,6 +377,16 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
                 {product.description}
               </p>
 
+              {/* Available Sizes/Quantity */}
+              {product.prices && Object.keys(product.prices).length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold mb-4">Available Sizes</h3>
+                  <p className="text-gray-700">
+                    Available in {Object.keys(product.prices).sort().join(', ')}
+                  </p>
+                </div>
+              )}
+
               {/* Features */}
               {product.features && (
                 <div className="mb-8">

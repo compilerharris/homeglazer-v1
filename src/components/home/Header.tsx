@@ -155,6 +155,10 @@ const Header: React.FC = () => {
       ))
     },
     {
+      label: 'Products',
+      path: '/products'
+    },
+    {
       label: 'Budget Calculator',
       path: '/paint-budget-calculator'
     },
@@ -179,7 +183,7 @@ const Header: React.FC = () => {
   return (
     <div className={cn(
       "fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out",
-      "w-[90%] sm:w-[90%] md:w-max md:sm:max-w-[95vw] mx-auto mt-4 sm:mt-2 lg:mt-3",
+      "w-[90%] sm:w-[90%] md:w-[90%] lg:w-max lg:max-w-[95vw] mx-auto mt-4 sm:mt-2 lg:mt-3",
       "bg-white/50 backdrop-blur-3xl",
       "border border-white/40",
       "shadow-[0_12px_40px_rgba(0,0,0,0.15)]",
@@ -243,6 +247,9 @@ const Header: React.FC = () => {
                     </div>
                   </details>
                 </div>
+                <Link href="/products" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  Products
+                </Link>
                 <Link href="/paint-budget-calculator" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
                   Budget Calculator
                 </Link>

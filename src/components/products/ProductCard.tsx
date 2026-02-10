@@ -52,10 +52,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </p>
           </div>
           
-          {/* Price Range and View Details Button - Fixed at bottom */}
+          {/* Size/Quantity and View Details Button - Fixed at bottom */}
           <div className="space-y-2 md:space-y-3">
             <div className="text-xs md:text-sm text-gray-500">
-              Starting from ₹{Math.min(...Object.values(product.prices))}
+              {Object.keys(product.prices).length > 0
+                ? `Available in ${Object.keys(product.prices).sort().join(', ')}`
+                : 'Contact for sizes'}
             </div>
             <div className="w-full bg-[#299dd7] text-white py-2 px-3 md:px-4 rounded-lg font-medium text-xs md:text-sm text-center hover:bg-[#237bb0] transition-colors duration-300 group-hover:bg-[#237bb0]">
               View Details →
