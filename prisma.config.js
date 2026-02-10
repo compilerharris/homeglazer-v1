@@ -1,11 +1,12 @@
 /**
  * Prisma CLI config (replaces deprecated package.json#prisma).
+ * Using .js for Vercel/build environments that cannot parse TypeScript.
  * See: https://www.prisma.io/docs/orm/reference/prisma-config-reference
  */
-import 'dotenv/config';
-import { defineConfig } from 'prisma/config';
+require('dotenv/config');
+const { defineConfig } = require('prisma/config');
 
-export default defineConfig({
+module.exports = defineConfig({
   schema: 'prisma/schema.prisma',
   migrations: {
     path: 'prisma/migrations',
