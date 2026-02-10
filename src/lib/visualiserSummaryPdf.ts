@@ -20,6 +20,7 @@ export interface VisualiserSummaryPdfInput {
   brandName: string;
   colorSelections: ColorSelectionItem[];
   previewImageBase64: string;
+  mainImagePath?: string;
 }
 
 function readLocalImage(filePath: string): Promise<Buffer> {
@@ -80,6 +81,7 @@ export async function generateVisualiserSummaryPdf(
         brandName,
         colorSelections,
         previewImageBase64,
+        mainImagePath,
       } = data;
 
       const logoPath = path.join(process.cwd(), 'public', 'assets', 'images', 'home-glazer-logo-1.png');
@@ -150,6 +152,34 @@ export async function generateVisualiserSummaryPdf(
 
       // Room Preview (immediately below Customer Details)
       const maxPreviewBase64Length = 4 * 1024 * 1024; // 4MB
+      const maxEmbedWidth = contentWidth;
+      const maxEmbedHeight = Math.min(320, pageHeight * 0.4);
+
+      const embedRoomPreview = async (rawBuffer: Buffer) => {
+        const imageBuffer = await sharp(rawBuffer)
+          .resize(Math.round(maxEmbedWidth), Math.round(maxEmbedHeight), {
+            fit: 'inside',
+            withoutEnlargement: true,
+          })
+          .jpeg({ quality: 85 })
+          .toBuffer();
+        const meta = await sharp(imageBuffer).metadata();
+        const imgW = meta.width ?? maxEmbedWidth;
+        const imgH = meta.height ?? maxEmbedHeight;
+        const scale = Math.min(maxEmbedWidth / imgW, maxEmbedHeight / imgH, 1);
+        const displayW = imgW * scale;
+        const displayH = imgH * scale;
+        doc
+          .fontSize(13)
+          .font('Helvetica-Bold')
+          .fillColor(brandBlue)
+          .text('Room Preview');
+        doc.moveDown(0.5);
+        doc.image(imageBuffer, 50, doc.y, { width: displayW, height: displayH });
+        doc.y += displayH + 15;
+      };
+
+      let previewEmbedded = false;
       if (
         previewImageBase64 &&
         previewImageBase64.length > 50 &&
@@ -157,42 +187,28 @@ export async function generateVisualiserSummaryPdf(
       ) {
         try {
           const rawBuffer = parsePreviewImageBase64(previewImageBase64);
-          const pageHeight = (doc.page.height as number) || 842;
-          const maxEmbedWidth = contentWidth;
-          const maxEmbedHeight = Math.min(320, pageHeight * 0.4);
-          const imageBuffer = await sharp(rawBuffer)
-            .resize(Math.round(maxEmbedWidth), Math.round(maxEmbedHeight), {
-              fit: 'inside',
-              withoutEnlargement: true,
-            })
-            .jpeg({ quality: 85 })
-            .toBuffer();
-
-          const meta = await sharp(imageBuffer).metadata();
-          const imgW = meta.width ?? maxEmbedWidth;
-          const imgH = meta.height ?? maxEmbedHeight;
-          const ratio = imgW / imgH;
-          const scale = Math.min(maxEmbedWidth / imgW, maxEmbedHeight / imgH, 1);
-          const displayW = imgW * scale;
-          const displayH = imgH * scale;
-
-          doc
-            .fontSize(13)
-            .font('Helvetica-Bold')
-            .fillColor(brandBlue)
-            .text('Room Preview');
-          doc.moveDown(0.5);
-
-          doc.image(imageBuffer, 50, doc.y, {
-            width: displayW,
-            height: displayH,
-          });
-          doc.y += displayH + 15;
+          await embedRoomPreview(rawBuffer);
+          previewEmbedded = true;
         } catch (imgErr) {
           console.error('Error embedding preview image in PDF:', imgErr);
-          doc.font('Helvetica').fontSize(10).fillColor('black');
-          doc.text('Preview image could not be embedded.', 50, doc.y);
-          doc.moveDown(1);
+        }
+      }
+
+      // Fallback: use base room image from public assets when capture is missing
+      if (!previewEmbedded && mainImagePath) {
+        try {
+          const sanitized = mainImagePath.replace(/^\//, '');
+          if (!sanitized.includes('..') && sanitized.startsWith('assets/')) {
+            const publicPath = path.join(process.cwd(), 'public', sanitized);
+            const resolvedPath = path.resolve(publicPath);
+            const publicDir = path.resolve(process.cwd(), 'public');
+            if (resolvedPath.startsWith(publicDir)) {
+              const rawBuffer = await readLocalImage(publicPath);
+              await embedRoomPreview(rawBuffer);
+            }
+          }
+        } catch (e) {
+          console.error('Fallback room image failed:', e);
         }
       }
 

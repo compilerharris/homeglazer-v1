@@ -28,6 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const brandName = (body.brandName || '').trim();
     const colorSelections = Array.isArray(body.colorSelections) ? body.colorSelections : [];
     const previewImageBase64 = body.previewImageBase64 || '';
+    const mainImagePath = body.mainImagePath || '';
 
     if (!fullName || !email || !phone) {
       return res.status(400).json({
@@ -211,6 +212,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         brandName,
         colorSelections,
         previewImageBase64,
+        mainImagePath,
       });
     } catch (pdfError: unknown) {
       console.error('Error generating visualiser summary PDF:', pdfError);
@@ -235,14 +237,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     ];
 
-    await transporter.sendMail({
-      from: `"Home Glazer" <${gmailUser}>`,
-      to: gmailUser,
-      replyTo: email,
-      subject: `New Colour Visualiser Summary – ${fullName}`,
-      html: homeglazerEmailHtml,
-      attachments: homeglazerAttachments,
-    });
+    try {
+      await transporter.sendMail({
+        from: `"Home Glazer" <${gmailUser}>`,
+        to: gmailUser,
+        replyTo: email,
+        subject: `New Colour Visualiser Summary – ${fullName}`,
+        html: homeglazerEmailHtml,
+        attachments: homeglazerAttachments,
+      });
+    } catch (sendError) {
+      console.error('Error sending email to HomeGlazer:', sendError);
+      return res.status(500).json({
+        error: 'Failed to send. Please try again.',
+      });
+    }
 
     const customerAttachments: nodemailer.SendMailOptions['attachments'] = [
       { filename: 'home-glazer-logo.png', path: logoPath, cid: LOGO_CID },

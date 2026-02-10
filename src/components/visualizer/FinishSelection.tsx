@@ -199,7 +199,13 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     }, 500);
   };
 
-  const handleEmailThisLook = () => setEmailModalPhase('form');
+  const handleEmailThisLook = () => {
+    setEmailModalPhase('form');
+    // Preload dom-to-image-more so first capture is faster
+    if (typeof window !== 'undefined') {
+      import('dom-to-image-more').catch(() => {});
+    }
+  };
 
   const handleEmailSubmit = async () => {
     const name = emailFullName.trim();
@@ -217,6 +223,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
 
     setEmailModalPhase('loading');
     setEmailError('');
+
+    // Allow layout to settle and ensure preview is fully rendered
+    await new Promise((r) => setTimeout(r, 200));
 
     const previewNode =
       typeof window !== 'undefined' && window.innerWidth >= 1024
@@ -258,25 +267,43 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       };
     });
 
-    try {
+    const requestBody = {
+      fullName: name,
+      email: emailVal,
+      phone: mobile,
+      roomTypeLabel: roomTypeLabel || selectedRoomType || '',
+      roomVariantLabel: variant.label || '',
+      brandName: getBrandName(selectedBrandId),
+      colorSelections,
+      previewImageBase64,
+      mainImagePath: variant.mainImage || '',
+    };
+
+    const doFetch = async (): Promise<Response> => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 60000);
       const res = await fetch('/api/email-visualiser-summary', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fullName: name,
-          email: emailVal,
-          phone: mobile,
-          roomTypeLabel: roomTypeLabel || selectedRoomType || '',
-          roomVariantLabel: variant.label || '',
-          brandName: getBrandName(selectedBrandId),
-          colorSelections,
-          previewImageBase64,
-        }),
+        body: JSON.stringify(requestBody),
         signal: controller.signal,
       });
       clearTimeout(timeoutId);
+      return res;
+    };
+
+    try {
+      let res: Response;
+      try {
+        res = await doFetch();
+        if (!res.ok && res.status >= 500) {
+          await new Promise((r) => setTimeout(r, 1500));
+          res = await doFetch();
+        }
+      } catch (fetchErr) {
+        await new Promise((r) => setTimeout(r, 1500));
+        res = await doFetch();
+      }
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         setEmailError(data.error || 'Failed to send. Please try again.');
@@ -950,7 +977,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               <>
                 {/* Header with title and close button */}
                 <div className="flex items-center justify-between px-6 pt-6 pb-2">
-                  <h3 className="text-lg font-bold" style={{ color: '#1890ff' }}>Send Summary</h3>
+                  <h3 className="text-lg font-bold" style={{ color: '#ED276E' }}>Send Summary</h3>
                   <button
                     type="button"
                     onClick={closeEmailModal}
@@ -1008,8 +1035,14 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                     <button
                       type="button"
                       onClick={handleEmailSubmit}
-                      className="px-4 py-2 text-white rounded-lg font-medium"
-                      style={{ backgroundColor: '#82c8f0' }}
+                      disabled={!emailFullName.trim() || !emailEmail.trim() || !emailMobile.trim()}
+                      className="px-4 py-2 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                      style={{
+                        backgroundColor:
+                          emailFullName.trim() && emailEmail.trim() && emailMobile.trim()
+                            ? '#299dd7'
+                            : '#9ca3af',
+                      }}
                     >
                       Send me Summary
                     </button>
@@ -1018,41 +1051,35 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               </>
             )}
             {emailModalPhase === 'loading' && (
-              <>
-                <div className="flex items-center justify-between px-6 pt-6 pb-2">
-                  <h3 className="text-lg font-bold" style={{ color: '#1890ff' }}>Send Summary</h3>
-                  <button type="button" onClick={closeEmailModal} className="p-1 rounded hover:bg-gray-100 text-gray-500" aria-label="Close">
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-                <div className="py-8 flex flex-col items-center justify-center gap-4">
+              <div className="relative px-6 py-8">
+                <button
+                  type="button"
+                  onClick={closeEmailModal}
+                  className="absolute top-4 right-4 p-1 rounded hover:bg-gray-100 text-gray-500"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+                <div className="flex flex-col items-center justify-center gap-4">
                   <div className="w-10 h-10 border-2 border-[#299dd7] border-t-transparent rounded-full animate-spin" />
                   <p className="text-gray-600">Sending…</p>
                 </div>
-              </>
+              </div>
             )}
             {emailModalPhase === 'success' && (
-              <>
-                <div className="flex items-center justify-between px-6 pt-6 pb-2">
-                  <h3 className="text-lg font-bold" style={{ color: '#1890ff' }}>Send Summary</h3>
-                  <button type="button" onClick={closeEmailModal} className="p-1 rounded hover:bg-gray-100 text-gray-500" aria-label="Close">
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-                <div className="px-6 pb-6">
-                  <p className="text-gray-800 font-medium mb-4">
-                    Your visualiser summary has been sent to your email.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={closeEmailModal}
-                    className="px-4 py-2 text-white rounded-lg font-medium"
-                    style={{ backgroundColor: '#82c8f0' }}
-                  >
-                    Close
-                  </button>
-                </div>
-              </>
+              <div className="px-6 pb-6 pt-6">
+                <p className="text-gray-800 font-medium mb-4">
+                  Your visualiser summary has been sent to your email.
+                </p>
+                <button
+                  type="button"
+                  onClick={closeEmailModal}
+                  className="px-4 py-2 text-white rounded-lg font-medium"
+                  style={{ backgroundColor: '#299dd7' }}
+                >
+                  Close
+                </button>
+              </div>
             )}
           </div>
         </div>
