@@ -28,16 +28,6 @@ const ContactForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
-  const inspirationalQuoteBanner = (
-    <section className="w-full bg-gradient-to-r from-[rgba(237,39,110,1)] via-[rgba(237,39,110,0.9)] to-[rgba(59,130,246,1)] text-white py-10 px-4 shadow-[0px_12px_30px_rgba(0,0,0,0.12)]">
-      <div className="w-[80%] 2xl:w-[1400px] mx-auto text-center">
-        <p className="text-lg md:text-2xl font-semibold italic leading-relaxed">
-          "Taj would not have been so beautiful if Shahjahan asked for three Quotation and decided for the lowest!"
-        </p>
-      </div>
-    </section>
-  );
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -125,20 +115,20 @@ const ContactForm: React.FC = () => {
   if (submitted) {
     return (
       <>
-        <section className="bg-[rgba(246,246,246,1)] w-full mt-[50px] py-[23px] max-md:mt-10">
-          <div className="w-[80%] 2xl:w-[1400px] mx-auto flex items-center gap-[40px] justify-center flex-wrap">
-            <div className="self-stretch min-w-60 text-xl text-[rgba(89,89,89,1)] font-light w-[398px] my-auto">
+        <section className="bg-[rgba(246,246,246,1)] w-full mt-[50px] py-12 lg:py-16 max-md:mt-10 min-h-[550px] flex flex-col justify-center">
+          <div className="w-[95%] lg:w-[90%] 2xl:w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_358px] gap-[40px] items-center">
+            <div className="text-xl text-[rgba(89,89,89,1)] font-light min-w-0">
               <h2 className="text-[40px] font-medium leading-[150%]">
-                Get in Touch with Us
+                Make Your Home Look Beautiful for Years to Come
               </h2>
               <p className="mt-[33px]">
-                Send us a message, and we'll respond soon!
+                Every one love to spend time in a beautiful space. Painting is the most economical and fastest way to update overall look of your property especially when you are looking to accentuate the look of your home, office, shop, furniture.
               </p>
               <p className="mt-[33px]">
-                We're here to help transform your space with our professional painting services.
+                Home Glazer is professionally perfect for making your house look fabulous. You can completely leave the painting services up to Home Glazer team, we are the one-stop solution for all painting services. Our services have made many clients happy over many years. We believe in quality workmanship and clients' satisfaction.
               </p>
             </div>
-            <div className="bg-white shadow-[0px_5px_16px_rgba(8,15,52,0.06)] self-stretch min-w-60 w-[358px] my-auto pt-9 pb-5 px-[21px] rounded-xl">
+            <div className="bg-white shadow-[0px_5px_16px_rgba(8,15,52,0.06)] min-w-0 lg:w-[358px] pt-9 pb-5 px-[21px] rounded-xl">
               <div className="text-center py-8">
                 <div className="flex justify-center mb-4">
                   <CheckCircle2 className="h-16 w-16 text-green-500" />
@@ -154,30 +144,29 @@ const ContactForm: React.FC = () => {
                   Send Another Message
                 </button>
               </div>
-            </div>
           </div>
+        </div>
         </section>
-        {inspirationalQuoteBanner}
       </>
     );
   }
 
   return (
     <>
-      <section className="bg-[rgba(246,246,246,1)] w-full mt-[50px] py-[23px] max-md:mt-10">
-        <div className="w-[80%] 2xl:w-[1400px] mx-auto flex items-center gap-[40px] justify-center flex-wrap">
-          <div className="self-stretch min-w-60 text-xl text-[rgba(89,89,89,1)] font-light w-[398px] my-auto">
+      <section className="bg-[rgba(246,246,246,1)] w-full mt-[50px] py-12 lg:py-16 max-md:mt-10 min-h-[550px] flex flex-col justify-center">
+        <div className="w-[95%] lg:w-[90%] 2xl:w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_358px] gap-[40px] items-center">
+          <div className="text-xl text-[rgba(89,89,89,1)] font-light min-w-0">
             <h2 className="text-[40px] font-medium leading-[150%]">
-              Get in Touch with Us
+              Make Your Home Look Beautiful for Years to Come
             </h2>
             <p className="mt-[33px]">
-              Send us a message, and we'll respond soon!
+              Every one love to spend time in a beautiful space. Painting is the most economical and fastest way to update overall look of your property especially when you are looking to accentuate the look of your home, office, shop, furniture.
             </p>
             <p className="mt-[33px]">
-              We're here to help transform your space with our professional painting services.
+              Home Glazer is professionally perfect for making your house look fabulous. You can completely leave the painting services up to Home Glazer team, we are the one-stop solution for all painting services. Our services have made many clients happy over many years. We believe in quality workmanship and clients' satisfaction.
             </p>
           </div>
-          <div className="bg-white shadow-[0px_5px_16px_rgba(8,15,52,0.06)] self-stretch min-w-60 w-[358px] my-auto pt-9 pb-5 px-[21px] rounded-xl">
+          <div className="bg-white shadow-[0px_5px_16px_rgba(8,15,52,0.06)] min-w-0 lg:w-[358px] pt-9 pb-5 px-[21px] rounded-xl">
             <form onSubmit={handleSubmit}>
               {/* Submit Error Alert */}
               {submitError && (
@@ -292,7 +281,6 @@ const ContactForm: React.FC = () => {
           </div>
         </div>
       </section>
-      {inspirationalQuoteBanner}
     </>
   );
 };

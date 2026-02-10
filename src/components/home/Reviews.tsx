@@ -39,16 +39,56 @@ const Reviews: React.FC = () => {
     position: "Local Guide",
     initials: "HV"
   }];
+
+  const qrAndCta = (align: 'center' | 'end' = 'center') => (
+    <div className={`flex flex-col sm:flex-row items-center gap-4 sm:gap-6 ${align === 'end' ? 'justify-end' : 'justify-center'}`}>
+      <div className="flex flex-row items-center gap-3">
+        <p className="text-[rgba(89,89,89,1)] text-sm font-medium">Scan to Review</p>
+        <img 
+          src="/uploads/Google-Review-QR.jpeg" 
+          alt="Scan to leave a Google Review" 
+          className="w-20 h-20 sm:w-24 sm:h-24 object-contain rounded-[16px]"
+        />
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-[rgba(89,89,89,1)] font-medium">or</span>
+      </div>
+      <a 
+        href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0TE8zSM7NTjE0YLRSNagwtjRITjU0SEs2tUw2T0k1tTKoMLKwNEkySUm1tDBOTTUwNffizsjPTVVIz0msSi0CAH89E50&q=home+glazer&rlz=1C9BKJA_enIN1146IN1146&oq=home+glazer&hl=en-GB&sourceid=chrome-mobile&ie=UTF-8&sei=H450ac_NOJGf4-EPhvOZ6A8&dlnr=1#ebo=0&lrd=0x390ce10fc59c7de5:0x2894b4de983ee057,1,,,,"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-[#ED276E] hover:bg-[#c91f5d] text-white font-bold flex min-h-[48px] items-center gap-[13px] text-[16px] px-5 py-3 rounded-full transition-all hover:shadow-lg"
+      >
+        <span>View All Reviews</span>
+        <img alt="Arrow Icon" className="aspect-[1] object-contain w-[20px] brightness-0 invert" src="/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />
+      </a>
+    </div>
+  );
+
   return <section className="w-full mt-[50px] py-0 max-md:mt-10">
       <div className="container mx-auto px-4 lg:px-8 flex flex-col items-center gap-0 2xl:w-[1400px]">
-        <div className="w-full">
-          <div className="max-w-full">
-            <h2 className="text-[40px] font-medium text-center">
-              Google Reviews
-            </h2>
-            <p className="text-xl text-[rgba(89,89,89,1)] font-light mt-3 text-center">
+        <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
+          <div className="max-w-full flex flex-col items-center text-center lg:items-start lg:text-left">
+            <div className="flex items-center gap-2 mb-3">
+              <img 
+                src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
+                alt="Google" 
+                className="h-8 w-auto object-contain"
+              />
+              <span className="flex gap-0.5" aria-hidden="true">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <svg key={i} className="w-6 h-6 text-[#FBBC05]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </span>
+            </div>
+            <p className="text-xl text-[rgba(89,89,89,1)] font-light">
               See why our clients love our services!
             </p>
+          </div>
+          <div className="hidden lg:flex shrink-0">
+            {qrAndCta('end')}
           </div>
         </div>
         
@@ -77,39 +117,9 @@ const Reviews: React.FC = () => {
               </CarouselItem>)}
           </SectionCarousel>
         </div>
-        
-        <div className="w-full mt-12">
-          <div className="max-w-2xl mx-auto bg-gradient-to-r from-[#ED276E] to-[#299dd7] rounded-[10%] md:rounded-full p-8 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0">
-            {/* QR Code Section */}
-            <div className="flex-1 flex flex-col items-center">
-              <img 
-                src="/uploads/Google-Review-QR.jpeg" 
-                alt="Scan to leave a Google Review" 
-                className="w-32 h-32 object-contain rounded-[24px]"
-              />
-              <p className="text-white text-sm font-medium mt-3">Scan to Review</p>
-            </div>
-            
-            {/* OR Separator */}
-            <div className="flex-shrink-0">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white bg-opacity-30">
-                <p className="text-white font-bold text-lg">or</p>
-              </div>
-            </div>
-            
-            {/* CTA Button Section */}
-            <div className="flex-1 flex items-center justify-center">
-              <a 
-                href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0TE8zSM7NTjE0YLRSNagwtjRITjU0SEs2tUw2T0k1tTKoMLKwNEkySUm1tDBOTTUwNffizsjPTVVIz0msSi0CAH89E50&q=home+glazer&rlz=1C9BKJA_enIN1146IN1146&oq=home+glazer&hl=en-GB&sourceid=chrome-mobile&ie=UTF-8&sei=H450ac_NOJGf4-EPhvOZ6A8&dlnr=1#ebo=0&lrd=0x390ce10fc59c7de5:0x2894b4de983ee057,1,,,,"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-[#ED276E] hover:bg-opacity-90 font-bold flex min-h-[60px] items-center gap-[13px] text-[18px] px-6 py-3 rounded-full transition-all hover:shadow-lg pl-6 pr-4"
-              >
-                <span>View All Reviews</span>
-                <img alt="Arrow Icon" className="aspect-[1] object-contain w-[24px] brightness-0" src="/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />
-              </a>
-            </div>
-          </div>
+
+        <div className="w-full mt-8 flex lg:hidden justify-center">
+          {qrAndCta('center')}
         </div>
       </div>
     </section>;

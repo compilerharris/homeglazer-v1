@@ -1,6 +1,6 @@
 import React from 'react';
 const WhyChooseUs: React.FC = () => {
-  return <section className="w-[90%] lg:w-[80%] 2xl:w-[1400px] mx-auto flex max-w-full flex-col items-center mt-[50px] max-md:mt-10">
+  return <section className="w-[95%] lg:w-[90%] 2xl:w-[1400px] mx-auto flex max-w-full flex-col items-center mt-[50px] max-md:mt-10">
       <h2 className="text-[40px] font-medium text-center leading-[150%]">
         Why Choose Us?
       </h2>
