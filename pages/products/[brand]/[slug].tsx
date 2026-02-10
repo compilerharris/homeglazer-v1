@@ -164,10 +164,12 @@ interface ProductDetailsProps {
     description: string;
     shortDescription: string;
     category: string;
+    subCategory?: string | null;
     sheenLevel: string;
     surfaceType: string;
     usage: string;
     image: string;
+    bannerImage?: string | null;
     prices: Record<string, number>;
     colors?: string[];
     features?: string[];
@@ -205,6 +207,7 @@ interface ProductDetailsProps {
     shortDescription: string;
     description: string;
     category: string;
+    subCategory?: string | null;
     sheenLevel: string;
     surfaceType: string;
     usage: string;
@@ -268,18 +271,20 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
       </div>
 
       {/* Hero Section */}
-      <section className="w-full relative h-48 md:h-64 overflow-hidden">
+      <section className="w-full relative h-96 md:h-[32rem] overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/assets/images/bedroom/bedroom1/bedroom1.jpg)',
+            backgroundImage: product.bannerImage
+              ? `url(${product.bannerImage.startsWith('/') ? product.bannerImage : product.bannerImage})`
+              : 'url(/assets/images/bedroom/bedroom1/bedroom1.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
-        >
-          {/* Removed dark overlay */}
-        </div>
+        />
+        {/* 30% black overlay */}
+        <div className="absolute inset-0 bg-black/30" />
         
         {/* Content - Desktop Only */}
         <div className="relative z-10 h-full flex items-center hidden lg:flex">
@@ -300,6 +305,11 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
                   <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">
                     {product.category}
                   </span>
+                  {product.subCategory && (
+                    <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">
+                      {product.subCategory}
+                    </span>
+                  )}
                   <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">
                     {product.sheenLevel}
                   </span>
@@ -343,6 +353,11 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
                 <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
                   {product.category}
                 </span>
+                {product.subCategory && (
+                  <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                    {product.subCategory}
+                  </span>
+                )}
                 <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
                   {product.sheenLevel}
                 </span>
@@ -378,11 +393,14 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
               </p>
 
               {/* Available Sizes/Quantity */}
-              {product.prices && Object.keys(product.prices).length > 0 && (
+              {product.prices && Object.keys(product.prices).filter((k) => product.prices[k]).length > 0 && (
                 <div className="mb-8">
                   <h3 className="text-xl font-semibold mb-4">Available Sizes</h3>
                   <p className="text-gray-700">
-                    Available in {Object.keys(product.prices).sort().join(', ')}
+                    Available in {Object.keys(product.prices)
+                      .filter((k) => product.prices[k])
+                      .sort()
+                      .join(', ')}
                   </p>
                 </div>
               )}

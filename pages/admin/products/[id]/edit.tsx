@@ -5,6 +5,7 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { CATEGORY_OPTIONS, SUB_CATEGORY_OPTIONS, SIZE_UNIT_OPTIONS } from '@/lib/product-constants';
 
 interface Brand {
   id: string;
@@ -29,16 +30,13 @@ interface Product {
   description: string;
   shortDescription: string;
   category: string;
+  subCategory?: string | null;
   sheenLevel: string;
   surfaceType: string;
   usage: string;
   image: string;
-  prices: {
-    '1L': number;
-    '4L': number;
-    '10L': number;
-    '20L': number;
-  };
+  bannerImage?: string | null;
+  prices: Record<string, number>;
   colors: string[];
   features: string[];
   specifications: Record<string, string>;
@@ -77,6 +75,7 @@ export default function EditProduct() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
+  const [uploadingBannerImage, setUploadingBannerImage] = useState(false);
   const [uploadingPis, setUploadingPis] = useState(false);
   const [error, setError] = useState('');
   const [brands, setBrands] = useState<Brand[]>([]);
@@ -90,16 +89,14 @@ export default function EditProduct() {
     description: '',
     shortDescription: '',
     category: '',
+    subCategory: '',
     sheenLevel: 'Mat' as typeof SHEEN_LEVELS[number],
     surfaceType: 'Interior Wall' as typeof SURFACE_TYPES[number],
     usage: 'Home' as typeof USAGE_TYPES[number],
     image: '',
-    prices: {
-      '1L': 0,
-      '4L': 0,
-      '10L': 0,
-      '20L': 0,
-    },
+    bannerImage: '',
+    sizeUnit: 'L' as 'L' | 'K',
+    availableSizes: ['1', '4', '10', '20'],
     colors: [''],
     features: [''],
     specifications: {} as Record<string, string>,
@@ -237,12 +234,30 @@ export default function EditProduct() {
           slug: product.slug,
           description: product.description,
           shortDescription: product.shortDescription,
-          category: product.category,
+          category: CATEGORY_OPTIONS.includes(product.category as any)
+            ? product.category
+            : 'Interior & Exterior Both',
+          subCategory: product.subCategory && SUB_CATEGORY_OPTIONS.includes(product.subCategory as any)
+            ? product.subCategory
+            : '',
           sheenLevel: product.sheenLevel as typeof SHEEN_LEVELS[number],
           surfaceType: product.surfaceType as typeof SURFACE_TYPES[number],
           usage: product.usage as typeof USAGE_TYPES[number],
           image: product.image,
-          prices: product.prices,
+          bannerImage: product.bannerImage || '',
+          sizeUnit: (() => {
+            const keys = product.prices && typeof product.prices === 'object'
+              ? Object.keys(product.prices).filter((k) => product.prices[k])
+              : [];
+            const first = keys[0] || '';
+            return /K$/i.test(first) ? 'K' : 'L';
+          })(),
+          availableSizes: product.prices && typeof product.prices === 'object'
+            ? Object.keys(product.prices)
+                .filter((k) => product.prices[k])
+                .map((k) => k.replace(/^(\d+(?:\.\d+)?)[LK]$/i, '$1') || k)
+                .sort((a, b) => (parseFloat(a) || 0) - (parseFloat(b) || 0))
+            : ['1', '4', '10', '20'],
           colors: product.colors && product.colors.length > 0 ? product.colors : [''],
           features: product.features && product.features.length > 0 ? product.features : [''],
           specifications: product.specifications || {},
@@ -319,6 +334,23 @@ export default function EditProduct() {
     const newColors = [...formData.colors];
     newColors[index] = value;
     setFormData({ ...formData, colors: newColors });
+  };
+
+  const addSize = () => {
+    setFormData({ ...formData, availableSizes: [...formData.availableSizes, ''] });
+  };
+
+  const removeSize = (index: number) => {
+    setFormData({
+      ...formData,
+      availableSizes: formData.availableSizes.filter((_, i) => i !== index),
+    });
+  };
+
+  const updateSize = (index: number, value: string) => {
+    const newSizes = [...formData.availableSizes];
+    newSizes[index] = value;
+    setFormData({ ...formData, availableSizes: newSizes });
   };
 
   const addFeature = () => {
@@ -473,8 +505,21 @@ export default function EditProduct() {
       const userGuideSteps = formData.userGuideSteps.filter(s => s.title.trim() !== '' || s.description.trim() !== '');
       const faqs = formData.faqs.filter(f => f.question.trim() !== '' || f.answer.trim() !== '');
 
+      const unit = formData.sizeUnit || 'L';
+      const rawSizes = formData.availableSizes
+        .filter((s) => s.trim() !== '')
+        .map((s) => {
+          const t = s.trim();
+          const m = t.match(/^(\d+(?:\.\d+)?)[LK]$/i);
+          return m ? m[1] : t;
+        });
+      const uniqueSizes = Array.from(new Set(rawSizes));
+      const prices = Object.fromEntries(uniqueSizes.map((s) => [`${s}${unit}`, 1]));
+
+      const { availableSizes, ...restFormData } = formData;
       const payload = {
-        ...formData,
+        ...restFormData,
+        prices,
         colors,
         features,
         specifications: Object.fromEntries(
@@ -530,7 +575,7 @@ export default function EditProduct() {
       } else {
         console.error('Update failed with status:', response.status);
         console.error('Error data:', data);
-        setError(data.error || 'Failed to update product');
+        setError(data?.message || data?.error || 'Failed to update product');
       }
     } catch (err) {
       setError('Network error. Please try again.');
@@ -627,11 +672,34 @@ export default function EditProduct() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Category *</label>
-                  <Input
+                  <select
                     value={formData.category}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value as typeof CATEGORY_OPTIONS[number] })}
                     required
-                  />
+                    className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm"
+                  >
+                    {CATEGORY_OPTIONS.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Sub Category</label>
+                  <select
+                    value={formData.subCategory}
+                    onChange={(e) => setFormData({ ...formData, subCategory: e.target.value })}
+                    className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm"
+                  >
+                    <option value="">Select sub category (optional)</option>
+                    {SUB_CATEGORY_OPTIONS.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>
@@ -654,17 +722,18 @@ export default function EditProduct() {
                               const response = await fetch('/api/upload', {
                                 method: 'POST',
                                 body: formData,
+                                credentials: 'include',
                               });
                               
-                              const data = await response.json();
-                              if (data.success) {
+                              const data = await response.json().catch(() => ({}));
+                              if (response.ok && data.success) {
                                 setFormData(prev => ({ ...prev, image: data.url }));
                               } else {
-                                alert(data.error || 'Upload failed');
+                                alert(data.error || `Upload failed (${response.status})`);
                               }
                             } catch (err) {
                               console.error('Upload error:', err);
-                              alert('Failed to upload image');
+                              alert(err instanceof Error ? err.message : 'Failed to upload image');
                             } finally {
                               setUploadingImage(false);
                             }
@@ -692,6 +761,72 @@ export default function EditProduct() {
                           src={formData.image} 
                           alt="Product preview" 
                           className="h-32 w-auto object-contain border border-gray-200 rounded-lg"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Banner Image</label>
+                  <div className="space-y-3">
+                    <div>
+                      <input
+                        type="file"
+                        accept="image/jpeg,image/jpg,image/png,image/webp"
+                        disabled={uploadingBannerImage}
+                        onChange={async (e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            setUploadingBannerImage(true);
+                            const fd = new FormData();
+                            fd.append('image', file);
+                            fd.append('type', 'product');
+                            try {
+                              const response = await fetch('/api/upload', {
+                                method: 'POST',
+                                body: fd,
+                                credentials: 'include',
+                              });
+                              const data = await response.json().catch(() => ({}));
+                              if (response.ok && data.success) {
+                                setFormData(prev => ({ ...prev, bannerImage: data.url }));
+                              } else {
+                                alert(data.error || `Upload failed (${response.status})`);
+                              }
+                            } catch (err) {
+                              console.error('Upload error:', err);
+                              alert(err instanceof Error ? err.message : 'Failed to upload image');
+                            } finally {
+                              setUploadingBannerImage(false);
+                            }
+                          }
+                        }}
+                        className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#299dd7] file:text-white hover:file:bg-[#237bb0]"
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        type="text"
+                        value={formData.bannerImage}
+                        onChange={(e) => setFormData({ ...formData, bannerImage: e.target.value })}
+                        placeholder="Or enter image URL (e.g., /media/products/banner.jpg)"
+                        className="mt-2"
+                        disabled={uploadingBannerImage}
+                      />
+                      {uploadingBannerImage && (
+                        <p className="text-xs text-gray-500 mt-1">Uploading image...</p>
+                      )}
+                    </div>
+                    {formData.bannerImage && (
+                      <div className="mt-3 max-w-2xl">
+                        <img 
+                          src={formData.bannerImage} 
+                          alt="Banner preview" 
+                          className="w-full h-auto object-contain border border-gray-200 rounded-lg"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
                           }}
@@ -757,28 +892,50 @@ export default function EditProduct() {
               </div>
             </div>
 
-            {/* Pricing */}
+            {/* Available Sizes */}
             <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h2 className="text-lg font-bold mb-4">Pricing</h2>
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {(['1L', '4L', '10L', '20L'] as const).map((size) => (
-                    <div key={size}>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">{size}</label>
-                      <Input
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        value={formData.prices[size]}
-                        onChange={(e) => setFormData({
-                          ...formData,
-                          prices: { ...formData.prices, [size]: parseFloat(e.target.value) || 0 }
-                        })}
-                        required
-                      />
-                    </div>
-                  ))}
-                </div>
+              <h2 className="text-lg font-bold mb-4">Available Sizes</h2>
+              <div className="flex gap-6 mb-4">
+                {SIZE_UNIT_OPTIONS.map((opt) => (
+                  <label key={opt.value} className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="sizeUnit"
+                      value={opt.value}
+                      checked={formData.sizeUnit === opt.value}
+                      onChange={() => setFormData({ ...formData, sizeUnit: opt.value })}
+                      className="w-4 h-4 text-[#299dd7]"
+                    />
+                    <span className="text-sm font-medium">{opt.label}</span>
+                  </label>
+                ))}
+              </div>
+              <p className="text-sm text-gray-600 mb-4">
+                Add the sizes available for this product (e.g. 1, 4, 10, 20)
+              </p>
+              <div className="space-y-3">
+                {formData.availableSizes.map((size, index) => (
+                  <div key={index} className="flex gap-2">
+                    <Input
+                      value={size}
+                      onChange={(e) => updateSize(index, e.target.value)}
+                      placeholder={formData.sizeUnit === 'K' ? 'Size (e.g. 1, 5, 25)' : 'Size (e.g. 1, 4, 10, 20)'}
+                    />
+                    {formData.availableSizes.length > 1 && (
+                      <Button
+                        type="button"
+                        variant="destructive"
+                        size="sm"
+                        onClick={() => removeSize(index)}
+                      >
+                        Remove
+                      </Button>
+                    )}
+                  </div>
+                ))}
+                <Button type="button" variant="outline" onClick={addSize}>
+                  + Add Size
+                </Button>
               </div>
             </div>
 
@@ -1213,17 +1370,18 @@ export default function EditProduct() {
                                   const response = await fetch('/api/upload', {
                                     method: 'POST',
                                     body: formData,
+                                    credentials: 'include',
                                   });
                                   
-                                  const data = await response.json();
-                                  if (data.success) {
+                                  const data = await response.json().catch(() => ({}));
+                                  if (response.ok && data.success) {
                                     setFormData(prev => ({ ...prev, pisFileUrl: data.url }));
                                   } else {
-                                    alert(data.error || 'Upload failed');
+                                    alert(data.error || `Upload failed (${response.status})`);
                                   }
                                 } catch (err) {
                                   console.error('Upload error:', err);
-                                  alert('Failed to upload PDF');
+                                  alert(err instanceof Error ? err.message : 'Failed to upload PDF');
                                 } finally {
                                   setUploadingPis(false);
                                 }

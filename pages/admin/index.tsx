@@ -30,7 +30,8 @@ export default function AdminLogin() {
       if (response.ok) {
         router.push('/admin/dashboard');
       } else {
-        setError(data.error || 'Login failed');
+        const errMsg = data.message ? `${data.error}: ${data.message}` : (data.error || 'Login failed');
+        setError(errMsg);
       }
     } catch (err) {
       setError('Network error. Please try again.');

@@ -7,15 +7,11 @@ export interface Product {
   description: string;
   shortDescription: string;
   category: string;
+  subCategory?: string | null;
   sheenLevel: string;
   surfaceType: string;
   usage: string;
-  prices: {
-    '1L': number;
-    '4L': number;
-    '10L': number;
-    '20L': number;
-  };
+  prices: Record<string, number>; // { "1L": 1, "4L": 1, ... } — 1 = available size
   image: string;
   colors?: string[];
   features?: string[];
@@ -85,12 +81,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 450,
-      '4L': 1700,
-      '10L': 4200,
-      '20L': 8000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -120,12 +111,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 500,
-      '4L': 1900,
-      '10L': 4700,
-      '20L': 9000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -155,12 +141,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Low Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 480,
-      '4L': 1800,
-      '10L': 4400,
-      '20L': 8500
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -190,12 +171,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 400,
-      '4L': 1500,
-      '10L': 3700,
-      '20L': 7000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -225,12 +201,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 420,
-      '4L': 1600,
-      '10L': 3900,
-      '20L': 7500
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -260,12 +231,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 850,
-      '4L': 3200,
-      '10L': 7800,
-      '20L': 15000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -296,12 +262,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Low Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 900,
-      '4L': 3400,
-      '10L': 8300,
-      '20L': 16000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -331,12 +292,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Low Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 950,
-      '4L': 3600,
-      '10L': 8800,
-      '20L': 17000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -366,12 +322,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 950,
-      '4L': 3600,
-      '10L': 8800,
-      '20L': 17000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -401,12 +352,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'High Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 1000,
-      '4L': 3800,
-      '10L': 9200,
-      '20L': 17500
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -436,12 +382,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 1100,
-      '4L': 4200,
-      '10L': 10200,
-      '20L': 19500
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Off White', 'Light Grey', 'Beige'],
     features: [
@@ -473,12 +414,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Low Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 1200,
-      '4L': 4500,
-      '10L': 11000,
-      '20L': 21000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Cream', 'Light Blue', 'Pink'],
     features: [
@@ -510,12 +446,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'High Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 1300,
-      '4L': 4900,
-      '10L': 12000,
-      '20L': 23000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Cream', 'Light Blue', 'Pink'],
     features: [
@@ -549,12 +480,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'High Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 1400,
-      '4L': 5300,
-      '10L': 13000,
-      '20L': 25000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Cream', 'Light Blue', 'Pink'],
     features: [
@@ -584,12 +510,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 1500,
-      '4L': 5700,
-      '10L': 14000,
-      '20L': 27000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Cream', 'Light Blue', 'Pink'],
     features: [
@@ -620,12 +541,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'High Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 1600,
-      '4L': 6100,
-      '10L': 15000,
-      '20L': 29000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Cream', 'Light Blue', 'Pink'],
     features: [
@@ -655,12 +571,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Low Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 1700,
-      '4L': 6500,
-      '10L': 16000,
-      '20L': 31000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Cream', 'Light Blue', 'Pink'],
     features: [
@@ -691,12 +602,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Low Sheen',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 1800,
-      '4L': 6900,
-      '10L': 17000,
-      '20L': 33000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Cream', 'Light Blue', 'Pink'],
     features: [
@@ -728,12 +634,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Ultra Matt',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 1900,
-      '4L': 7300,
-      '10L': 18000,
-      '20L': 35000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Cream', 'Light Blue', 'Pink'],
     features: [
@@ -766,12 +667,7 @@ export const PRODUCTS: Product[] = [
     sheenLevel: 'Mat',
     surfaceType: 'Interior Wall',
     usage: 'Home',
-    prices: {
-      '1L': 2000,
-      '4L': 7700,
-      '10L': 19000,
-      '20L': 37000
-    },
+    prices: { '1L': 1, '4L': 1, '10L': 1, '20L': 1 },
     image: '/assets/images/bucket.png',
     colors: ['White', 'Cream', 'Light Blue', 'Pink'],
     features: [
@@ -837,7 +733,7 @@ export const filterProducts = (
     if (filters.sheenLevel && product.sheenLevel !== filters.sheenLevel) return false;
     if (filters.surfaceType && product.surfaceType !== filters.surfaceType) return false;
     if (filters.usage && product.usage !== filters.usage) return false;
-    if (filters.quantity && !product.prices[filters.quantity as keyof typeof product.prices]) return false;
+    if (filters.quantity && !product.prices[filters.quantity]) return false;
     return true;
   });
 }; 

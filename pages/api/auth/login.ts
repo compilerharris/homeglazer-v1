@@ -57,7 +57,10 @@ export default async function handler(
       console.error('  → Error stack:', prismaError?.stack);
       return res.status(500).json({
         error: 'Database connection failed',
-        message: 'Failed to initialize database connection. Please check server logs.',
+        message:
+          process.env.NODE_ENV === 'development'
+            ? prismaError?.message || 'Failed to initialize database connection. Check terminal for details.'
+            : 'Failed to initialize database connection. Please check server logs.',
       });
     }
 

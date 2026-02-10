@@ -12,7 +12,7 @@ const JSW_PRODUCTS = [
     surfaceType: "Interior Walls",
     usage: "Home",
     image: "/assets/images/bucket.png",
-    prices: { "1L": 450, "4L": 1650, "10L": 3800, "20L": 7200 },
+    prices: { "1L": 1, "4L": 1, "10L": 1, "20L": 1 },
     colors: ["Pure White", "Ivory White", "Cream White", "Pearly White"],
     features: [
       "Advanced stain-resistant technology",
@@ -32,7 +32,7 @@ const JSW_PRODUCTS = [
     surfaceType: "Interior Walls",
     usage: "Home",
     image: "/assets/images/bucket.png",
-    prices: { "1L": 520, "4L": 1920, "10L": 4400, "20L": 8400 },
+    prices: { "1L": 1, "4L": 1, "10L": 1, "20L": 1 },
     colors: ["Silk White", "Pearl White", "Bone White", "Off White"],
     features: [
       "Elegant silk finish",
@@ -52,7 +52,7 @@ const JSW_PRODUCTS = [
     surfaceType: "Interior Walls",
     usage: "Home",
     image: "/assets/images/bucket.png",
-    prices: { "1L": 580, "4L": 2100, "10L": 4800, "20L": 9200 },
+    prices: { "1L": 1, "4L": 1, "10L": 1, "20L": 1 },
     colors: ["Shine White", "Gloss White", "Bright White", "Premium White"],
     features: [
       "High sheen finish",
@@ -72,7 +72,7 @@ const JSW_PRODUCTS = [
     surfaceType: "Interior Walls",
     usage: "Home",
     image: "/assets/images/bucket.png",
-    prices: { "1L": 480, "4L": 1750, "10L": 4000, "20L": 7600 },
+    prices: { "1L": 1, "4L": 1, "10L": 1, "20L": 1 },
     colors: ["Ultra White", "Soft White", "Muted White", "Natural White"],
     features: [
       "Ultra matte finish",

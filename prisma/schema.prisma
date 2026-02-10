@@ -38,11 +38,14 @@ model Product {
   description       String
   shortDescription  String
   category          String
+  subCategory       String?   // Optional sub-category (e.g. Economy, Premium, Luxury)
   sheenLevel        String
   surfaceType       String
   usage             String
   image             String
-  prices            Json // { "1L": number, "4L": number, "10L": number, "20L": number }
+  bannerImage       String?   // Optional hero banner image URL
+  prices            Json // { "1L": 1, "4L": 1, ... } — 1 = available size
+  sizeUnit          String?  @default("L") // "L" = Liter, "K" = KG
   colors            Json? // string[]
   features          Json? // string[]
   specifications    Json? // Record<string, string>

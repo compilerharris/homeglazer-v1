@@ -12,15 +12,11 @@ export interface ApiProduct {
   description: string;
   shortDescription: string;
   category: string;
+  subCategory?: string | null;
   sheenLevel: string;
   surfaceType: string;
   usage: string;
-  prices: {
-    '1L': number;
-    '4L': number;
-    '10L': number;
-    '20L': number;
-  };
+  prices: Record<string, number>;
   image: string;
   colors?: string[];
   features?: string[];
@@ -84,6 +80,7 @@ export function transformProduct(apiProduct: ApiProduct): Product {
     description: apiProduct.description,
     shortDescription: apiProduct.shortDescription,
     category: apiProduct.category,
+    subCategory: apiProduct.subCategory,
     sheenLevel: apiProduct.sheenLevel,
     surfaceType: apiProduct.surfaceType,
     usage: apiProduct.usage,
@@ -105,15 +102,11 @@ export interface Product {
   description: string;
   shortDescription: string;
   category: string;
+  subCategory?: string | null;
   sheenLevel: string;
   surfaceType: string;
   usage: string;
-  prices: {
-    '1L': number;
-    '4L': number;
-    '10L': number;
-    '20L': number;
-  };
+  prices: Record<string, number>;
   image: string;
   colors?: string[];
   features?: string[];

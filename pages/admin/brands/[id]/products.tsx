@@ -19,13 +19,9 @@ interface Product {
   name: string;
   slug: string;
   category: string;
+  subCategory?: string | null;
   sheenLevel: string;
-  prices: {
-    '1L': number;
-    '4L': number;
-    '10L': number;
-    '20L': number;
-  };
+  prices: Record<string, number>;
 }
 
 export default function BrandProducts() {
@@ -156,15 +152,18 @@ export default function BrandProducts() {
                           {product.name}
                         </h3>
                         <p className="text-sm text-gray-600 mb-2">
-                          <span className="font-medium">Category:</span> {product.category} |
+                          <span className="font-medium">Category:</span> {product.category}
+                          {product.subCategory && ` → ${product.subCategory}`} |
                           <span className="font-medium ml-2">Sheen:</span> {product.sheenLevel}
                         </p>
                         <p className="text-xs text-gray-500">
-                          <span className="font-medium">Prices:</span> 
-                          1L: ₹{product.prices['1L']} | 
-                          4L: ₹{product.prices['4L']} | 
-                          10L: ₹{product.prices['10L']} | 
-                          20L: ₹{product.prices['20L']}
+                          <span className="font-medium">Available sizes:</span>{' '}
+                          {product.prices && Object.keys(product.prices).filter((k) => product.prices[k]).length > 0
+                            ? `Available in ${Object.keys(product.prices)
+                                .filter((k) => product.prices[k])
+                                .sort()
+                                .join(', ')}`
+                            : 'Contact for sizes'}
                         </p>
                       </div>
                       <div className="flex gap-2">

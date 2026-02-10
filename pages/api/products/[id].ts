@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { requireAuth } from '@/lib/middleware';
 import { prisma } from '@/lib/prisma';
+import { CATEGORY_OPTIONS, SUB_CATEGORY_OPTIONS } from '@/lib/product-constants';
 
 // Manual validation function to avoid Zod webpack issues
 function validateUpdateProduct(data: any): { isValid: boolean; errors: string[] } {
@@ -30,8 +31,26 @@ function validateUpdateProduct(data: any): { isValid: boolean; errors: string[] 
     errors.push('shortDescription must be a string');
   }
 
-  if (data.category !== undefined && typeof data.category !== 'string') {
-    errors.push('category must be a string');
+  if (data.category !== undefined) {
+    if (typeof data.category !== 'string') {
+      errors.push('category must be a string');
+    } else if (data.category.trim() !== '' && !CATEGORY_OPTIONS.includes(data.category.trim() as any)) {
+      errors.push(`category must be one of: ${CATEGORY_OPTIONS.join(', ')}`);
+    }
+  }
+
+  if (data.sizeUnit !== undefined && data.sizeUnit !== null && data.sizeUnit !== '') {
+    if (data.sizeUnit !== 'L' && data.sizeUnit !== 'K') {
+      errors.push('sizeUnit must be L (Liter) or K (KG)');
+    }
+  }
+
+  if (data.subCategory !== undefined && data.subCategory !== null && data.subCategory !== '') {
+    if (typeof data.subCategory !== 'string') {
+      errors.push('subCategory must be a string');
+    } else if (!SUB_CATEGORY_OPTIONS.includes(data.subCategory.trim() as any)) {
+      errors.push(`subCategory must be one of: ${SUB_CATEGORY_OPTIONS.join(', ')}`);
+    }
   }
 
   if (data.sheenLevel !== undefined) {
@@ -55,6 +74,17 @@ function validateUpdateProduct(data: any): { isValid: boolean; errors: string[] 
       errors.push('image must be a string');
     } else if (data.image.trim() !== '' && !data.image.startsWith('http://') && !data.image.startsWith('https://') && !data.image.startsWith('/')) {
       errors.push('image must be a valid URL or path starting with /');
+    }
+  }
+
+  if (data.bannerImage !== undefined && data.bannerImage !== null && data.bannerImage !== '') {
+    if (typeof data.bannerImage !== 'string') {
+      errors.push('Banner image must be a string');
+    } else {
+      const bannerValue = data.bannerImage.trim();
+      if (bannerValue && !bannerValue.startsWith('http://') && !bannerValue.startsWith('https://') && !bannerValue.startsWith('/')) {
+        errors.push('Banner image must be a valid URL or path starting with /');
+      }
     }
   }
 
@@ -255,26 +285,29 @@ async function updateProduct(req: NextApiRequest, res: NextApiResponse) {
 
     const data = bodyWithoutPrices;
 
-    // Manually validate and coerce prices if provided
+    // Manually validate and coerce prices (available sizes) if provided
     let validatedPrices: Record<string, number> | null = null;
     if (prices && typeof prices === 'object') {
       validatedPrices = {};
-      const priceKeys = ['1L', '4L', '10L', '20L'] as const;
-      for (const key of priceKeys) {
-        if (key in prices) {
-          const priceValue = prices[key];
-          const numPrice = typeof priceValue === 'string' ? parseFloat(priceValue) : Number(priceValue);
-          if (isNaN(numPrice) || numPrice < 0) {
+      const sizeKeyPattern = /^[a-zA-Z0-9\s\-]{1,30}$/;
+      const rawPrices = prices as Record<string, unknown>;
+      for (const key of Object.keys(rawPrices)) {
+        const trimmedKey = key.trim();
+        if (trimmedKey && sizeKeyPattern.test(trimmedKey)) {
+          const val = rawPrices[key];
+          const numVal = typeof val === 'boolean' ? (val ? 1 : 0) : Number(val);
+          if (isNaN(numVal) || numVal < 0 || numVal > 1) {
             return res.status(400).json({
-              error: `Invalid price for ${key}. Must be a non-negative number.`,
+              error: `Invalid value for ${key}. Must be 0 or 1 (available/unavailable).`,
             });
           }
-          validatedPrices[key] = numPrice;
+          if (numVal > 0) validatedPrices[trimmedKey] = 1;
         }
       }
-      // Only keep validatedPrices if we have validated values
       if (Object.keys(validatedPrices).length === 0) {
-        validatedPrices = null;
+        return res.status(400).json({
+          error: 'At least one size must be available.',
+        });
       }
     }
 
@@ -348,17 +381,42 @@ async function updateProduct(req: NextApiRequest, res: NextApiResponse) {
       console.log('This means relatedProductIds was not in the request body or was removed during validation');
     }
 
-    // If prices were provided and validated, merge with existing prices
+    // If prices (available sizes) were provided and validated, replace
     if (validatedPrices) {
-      const existingPrices = existingProduct.prices as Record<string, number>;
-      productData.prices = { ...existingPrices, ...validatedPrices };
+      productData.prices = validatedPrices;
     }
 
-    // Update product
+    // Normalize bannerImage: empty string -> null
+    if ('bannerImage' in productData) {
+      (productData as any).bannerImage = productData.bannerImage?.trim() || null;
+    }
+    // Normalize subCategory: empty string -> null
+    if ('subCategory' in productData) {
+      const val = (productData as any).subCategory;
+      (productData as any).subCategory = (typeof val === 'string' && val.trim()) ? val.trim() : null;
+    }
+    // Normalize sizeUnit: must be L or K
+    if ('sizeUnit' in productData) {
+      const val = (productData as any).sizeUnit;
+      (productData as any).sizeUnit = (val === 'K' || val === 'L') ? val : 'L';
+    }
+
+    // Build update data with only Prisma Product model fields (exclude relation names)
+    const updateData: Record<string, unknown> = {};
+    const allowedFields = ['name', 'slug', 'description', 'shortDescription', 'category', 'subCategory', 'sheenLevel', 'surfaceType', 'usage', 'image', 'bannerImage', 'prices', 'colors', 'features', 'specifications', 'pisHeading', 'pisDescription', 'pisFileUrl', 'showPisSection', 'userGuideSteps', 'userGuideMaterials', 'userGuideTips', 'showUserGuide', 'faqs', 'showFaqSection', 'sizeUnit', 'brand'];
+    for (const key of allowedFields) {
+      if (key in productData && (productData as any)[key] !== undefined) {
+        updateData[key] = (productData as any)[key];
+      }
+    }
+    if (newBrandId && newBrandId !== existingProduct.brandId) {
+      updateData.brand = { connect: { id: newBrandId } };
+    }
     console.log('Updating product with ID:', id);
+    console.log('Update data keys:', Object.keys(updateData));
     const product = await prisma.product.update({
       where: { id: id as string },
-      data: productData,
+      data: updateData,
       include: {
         brand: {
           select: {

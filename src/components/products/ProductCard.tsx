@@ -41,6 +41,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               <span className="inline-block bg-gray-100 text-gray-700 text-xs px-1.5 md:px-2 py-0.5 md:py-1 rounded-full">
                 {product.category}
               </span>
+              {product.subCategory && (
+                <span className="inline-block bg-gray-100 text-gray-700 text-xs px-1.5 md:px-2 py-0.5 md:py-1 rounded-full">
+                  {product.subCategory}
+                </span>
+              )}
               <span className="inline-block bg-gray-100 text-gray-700 text-xs px-1.5 md:px-2 py-0.5 md:py-1 rounded-full">
                 {product.sheenLevel}
               </span>
@@ -55,8 +60,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {/* Size/Quantity and View Details Button - Fixed at bottom */}
           <div className="space-y-2 md:space-y-3">
             <div className="text-xs md:text-sm text-gray-500">
-              {Object.keys(product.prices).length > 0
-                ? `Available in ${Object.keys(product.prices).sort().join(', ')}`
+              {product.prices && Object.keys(product.prices).filter((k) => product.prices[k]).length > 0
+                ? `Available in ${Object.keys(product.prices)
+                    .filter((k) => product.prices[k])
+                    .sort()
+                    .join(', ')}`
                 : 'Contact for sizes'}
             </div>
             <div className="w-full bg-[#299dd7] text-white py-2 px-3 md:px-4 rounded-lg font-medium text-xs md:text-sm text-center hover:bg-[#237bb0] transition-colors duration-300 group-hover:bg-[#237bb0]">

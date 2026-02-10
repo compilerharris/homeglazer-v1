@@ -17,13 +17,9 @@ interface Product {
     slug: string;
   };
   category: string;
+  subCategory?: string | null;
   sheenLevel: string;
-  prices: {
-    '1L': number;
-    '4L': number;
-    '10L': number;
-    '20L': number;
-  };
+  prices: Record<string, number>;
 }
 
 export default function ProductsPage() {
@@ -143,18 +139,21 @@ export default function ProductsPage() {
                     </p>
                     <p className="text-sm text-gray-600">
                       <span className="font-medium">Category:</span> {product.category}
+                      {product.subCategory && ` → ${product.subCategory}`}
                     </p>
                     <p className="text-sm text-gray-600">
                       <span className="font-medium">Sheen:</span> {product.sheenLevel}
                     </p>
                     <div className="pt-2 border-t border-gray-200">
-                      <p className="text-xs font-medium text-gray-700 mb-1">Prices:</p>
-                      <div className="grid grid-cols-2 gap-1 text-xs text-gray-500">
-                        <span>1L: ₹{product.prices['1L']}</span>
-                        <span>4L: ₹{product.prices['4L']}</span>
-                        <span>10L: ₹{product.prices['10L']}</span>
-                        <span>20L: ₹{product.prices['20L']}</span>
-                      </div>
+                      <p className="text-xs font-medium text-gray-700 mb-1">Available sizes:</p>
+                      <p className="text-xs text-gray-500">
+                        {product.prices && Object.keys(product.prices).filter((k) => product.prices[k]).length > 0
+                          ? `Available in ${Object.keys(product.prices)
+                              .filter((k) => product.prices[k])
+                              .sort()
+                              .join(', ')}`
+                          : 'Contact for sizes'}
+                      </p>
                     </div>
                   </div>
                   <div className="flex gap-2 mt-4 pt-4 border-t border-gray-200">

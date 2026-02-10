@@ -131,7 +131,13 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (error.code === 'LIMIT_FILE_SIZE') {
       return res.status(400).json({ error: 'File size too large. Maximum 5MB allowed.' });
     }
-    return res.status(500).json({ error: 'Internal server error' });
+    if (error.message?.includes('unsupported image format') || error.code === 'ERR_UNSUPPORTED') {
+      return res.status(400).json({ error: 'Unsupported image format. Use JPEG, PNG, or WebP.' });
+    }
+    const msg = process.env.NODE_ENV === 'development' && error?.message
+      ? error.message
+      : 'Internal server error';
+    return res.status(500).json({ error: msg });
   }
 }
 

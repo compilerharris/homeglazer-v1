@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { requireAuth } from '@/lib/middleware';
 import { prisma } from '@/lib/prisma';
+import { CATEGORY_OPTIONS, SUB_CATEGORY_OPTIONS } from '@/lib/product-constants';
 
 // Manual validation function to avoid Zod webpack issues
 function validateCreateProduct(data: any): { isValid: boolean; errors: string[] } {
@@ -31,6 +32,16 @@ function validateCreateProduct(data: any): { isValid: boolean; errors: string[] 
 
   if (!data.category || typeof data.category !== 'string' || data.category.trim() === '') {
     errors.push('Category is required');
+  } else if (!CATEGORY_OPTIONS.includes(data.category.trim() as any)) {
+    errors.push(`Category must be one of: ${CATEGORY_OPTIONS.join(', ')}`);
+  }
+
+  if (data.subCategory !== undefined && data.subCategory !== null && data.subCategory !== '') {
+    if (typeof data.subCategory !== 'string') {
+      errors.push('Sub category must be a string');
+    } else if (!SUB_CATEGORY_OPTIONS.includes(data.subCategory.trim() as any)) {
+      errors.push(`Sub category must be one of: ${SUB_CATEGORY_OPTIONS.join(', ')}`);
+    }
   }
 
   if (!data.sheenLevel || typeof data.sheenLevel !== 'string') {
@@ -56,21 +67,46 @@ function validateCreateProduct(data: any): { isValid: boolean; errors: string[] 
     }
   }
 
-  // Validate prices object
+  if (data.sizeUnit !== undefined && data.sizeUnit !== null && data.sizeUnit !== '') {
+    if (data.sizeUnit !== 'L' && data.sizeUnit !== 'K') {
+      errors.push('Size unit must be L (Liter) or K (KG)');
+    }
+  }
+
+  if (data.bannerImage !== undefined && data.bannerImage !== null && data.bannerImage !== '') {
+    if (typeof data.bannerImage !== 'string') {
+      errors.push('Banner image must be a string');
+    } else {
+      const bannerValue = data.bannerImage.trim();
+      if (bannerValue && !bannerValue.startsWith('http://') && !bannerValue.startsWith('https://') && !bannerValue.startsWith('/')) {
+        errors.push('Banner image must be a valid URL or path starting with /');
+      }
+    }
+  }
+
+  // Validate prices (available sizes) - object with size keys, value 1 = available
   if (!data.prices || typeof data.prices !== 'object' || Array.isArray(data.prices)) {
-    errors.push('Prices is required and must be an object');
+    errors.push('Prices (available sizes) is required and must be an object');
   } else {
-    const priceKeys = ['1L', '4L', '10L', '20L'] as const;
-    for (const key of priceKeys) {
-      if (!(key in data.prices)) {
-        errors.push(`Price for ${key} is required`);
+    const sizeKeyPattern = /^[a-zA-Z0-9\s\-]{1,30}$/;
+    const prices = data.prices as Record<string, unknown>;
+    let hasAvailableSize = false;
+    for (const key of Object.keys(prices)) {
+      if (!key || typeof key !== 'string') {
+        errors.push('Size key must be a non-empty string');
+      } else if (key.length > 30 || !sizeKeyPattern.test(key.trim())) {
+        errors.push(`Invalid size: "${key}". Must be 1-30 chars, alphanumeric with spaces/hyphens allowed`);
       } else {
-        const priceValue = data.prices[key];
-        const numPrice = typeof priceValue === 'string' ? parseFloat(priceValue) : Number(priceValue);
-        if (isNaN(numPrice) || numPrice < 0) {
-          errors.push(`Price for ${key} must be a non-negative number`);
+        const val = prices[key];
+        const numVal = typeof val === 'boolean' ? (val ? 1 : 0) : Number(val);
+        if (numVal > 0) hasAvailableSize = true;
+        if (isNaN(numVal) || numVal < 0 || numVal > 1) {
+          errors.push(`Size ${key} must be 0 or 1 (available/unavailable)`);
         }
       }
+    }
+    if (!hasAvailableSize) {
+      errors.push('At least one size must be available');
     }
   }
 
@@ -197,7 +233,8 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
         const descriptionMatch = product.description.toLowerCase().includes(searchLower);
         const brandMatch = product.brand.name.toLowerCase().includes(searchLower);
         const categoryMatch = product.category.toLowerCase().includes(searchLower);
-        return nameMatch || descriptionMatch || brandMatch || categoryMatch;
+        const subCategoryMatch = product.subCategory?.toLowerCase().includes(searchLower);
+        return nameMatch || descriptionMatch || brandMatch || categoryMatch || subCategoryMatch;
       });
     }
 
@@ -231,12 +268,16 @@ async function createProduct(req: NextApiRequest, res: NextApiResponse) {
 
     const data = req.body;
 
-    // Normalize prices - ensure they are numbers
+    // Normalize prices (available sizes) - only include sizes with value 1
+    const rawPrices = data.prices as Record<string, unknown>;
     const normalizedPrices: Record<string, number> = {};
-    const priceKeys = ['1L', '4L', '10L', '20L'] as const;
-    for (const key of priceKeys) {
-      const priceValue = data.prices[key];
-      normalizedPrices[key] = typeof priceValue === 'string' ? parseFloat(priceValue) : Number(priceValue);
+    for (const key of Object.keys(rawPrices)) {
+      const trimmedKey = key.trim();
+      if (trimmedKey && /^[a-zA-Z0-9\s\-]{1,30}$/.test(trimmedKey)) {
+        const val = rawPrices[key];
+        const numVal = typeof val === 'boolean' ? (val ? 1 : 0) : Number(val);
+        if (numVal > 0) normalizedPrices[trimmedKey] = 1;
+      }
     }
     data.prices = normalizedPrices;
 
@@ -279,14 +320,18 @@ async function createProduct(req: NextApiRequest, res: NextApiResponse) {
     }
 
     // Create product
+    const createData = {
+      ...productData,
+      colors: productData.colors || [],
+      features: productData.features || [],
+      specifications: productData.specifications || {},
+      bannerImage: productData.bannerImage?.trim() || null,
+      subCategory: productData.subCategory?.trim() || null,
+      sizeUnit: (productData.sizeUnit === 'K' || productData.sizeUnit === 'L') ? productData.sizeUnit : 'L',
+    };
     console.log('Creating product with data:', { name: data.name, brandId: data.brandId, slug: data.slug });
     const product = await prisma.product.create({
-      data: {
-        ...productData,
-        colors: productData.colors || [],
-        features: productData.features || [],
-        specifications: productData.specifications || {},
-      },
+      data: createData,
       include: {
         brand: {
           select: {
