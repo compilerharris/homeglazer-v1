@@ -4,6 +4,25 @@ const path = require('path');
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    // Exclude large static assets from serverless function bundles (Vercel 250MB limit)
+    outputFileTracingExcludes: {
+      '/api/email-visualiser-summary': [
+        'public/assets/Ai/**',
+        'public/uploads/**',
+        'public/assets/images/bathroom/**',
+        'public/assets/images/bedroom/**',
+        'public/assets/images/homeoffice/**',
+        'public/assets/images/kitchen/**',
+        'public/assets/images/kidsroom/**',
+        'public/assets/images/maingate/**',
+        'public/assets/images/office/**',
+        'public/assets/images/outdoor/**',
+        'public/assets/images/livingroom/**',
+        'public/assets/images/brand-logos/**',
+      ],
+    },
+  },
   // Don't transpile Prisma client - we're using compiled JavaScript files
   // transpilePackages: ['@prisma/client'],
   images: {
