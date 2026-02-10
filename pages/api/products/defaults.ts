@@ -14,7 +14,7 @@ function mostCommon<T>(arr: T[]): T | null {
   }
   let max = 0;
   let result: T | null = null;
-  for (const [k, c] of counts) {
+  for (const [k, c] of Array.from(counts.entries())) {
     if (c > max) {
       max = c;
       result = k;
@@ -45,15 +45,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     }
 
-    const category = mostCommon(products.map((p) => p.category as string)) ?? 'Interior & Exterior Both';
-    const subCategoryRaw = mostCommon(products.map((p) => p.subCategory).filter(Boolean) as string[]);
-    const sheenLevel = mostCommon(products.map((p) => p.sheenLevel)) ?? 'Mat';
-    const surfaceType = mostCommon(products.map((p) => p.surfaceType)) ?? 'Interior Wall';
-    const usage = mostCommon(products.map((p) => p.usage)) ?? 'Home';
+    type ProductRow = { category: string; subCategory: string | null; sheenLevel: string; surfaceType: string; usage: string; prices: unknown; sizeUnit: string | null };
+    const category = mostCommon(products.map((p: ProductRow) => p.category as string)) ?? 'Interior & Exterior Both';
+    const subCategoryRaw = mostCommon(products.map((p: ProductRow) => p.subCategory).filter(Boolean) as string[]);
+    const sheenLevel = mostCommon(products.map((p: ProductRow) => p.sheenLevel)) ?? 'Mat';
+    const surfaceType = mostCommon(products.map((p: ProductRow) => p.surfaceType)) ?? 'Interior Wall';
+    const usage = mostCommon(products.map((p: ProductRow) => p.usage)) ?? 'Home';
 
     // Collect all size keys from all products, pick most common set
     const allSizes: string[] = [];
-    for (const p of products) {
+    for (const p of products as ProductRow[]) {
       const prices = p.prices as Record<string, number> | null;
       if (prices && typeof prices === 'object') {
         for (const key of Object.keys(prices)) {
@@ -66,13 +67,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (s) sizeCounts.set(s, (sizeCounts.get(s) ?? 0) + 1);
     }
     const defaultSizes = ['1', '4', '10', '20'];
-    const sortedSizes = [...sizeCounts.entries()]
+    const sortedSizes = Array.from(sizeCounts.entries())
       .sort((a, b) => b[1] - a[1])
       .map(([k]) => k.replace(/^(\d+(?:\.\d+)?)[LK]$/i, '$1') || k);
     const availableSizes = sortedSizes.length > 0 ? sortedSizes : defaultSizes;
 
     // Ensure category is valid
-    const sizeUnitRaw = mostCommon(products.map((p) => p.sizeUnit).filter(Boolean) as string[]);
+    const sizeUnitRaw = mostCommon(products.map((p: ProductRow) => p.sizeUnit).filter(Boolean) as string[]);
     const validSizeUnit = (sizeUnitRaw === 'K' || sizeUnitRaw === 'L') ? sizeUnitRaw : 'L';
 
     const validCategory = CATEGORY_OPTIONS.includes(category as any) ? category : 'Interior & Exterior Both';
