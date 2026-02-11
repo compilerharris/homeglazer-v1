@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"src/components/visualizer/FinishSelection.tsx -> dom-to-image-more\":{\"id\":\"src/components/visualizer/FinishSelection.tsx -> dom-to-image-more\",\"files\":[\"static/chunks/node_modules_dom-to-image-more_dist_dom-to-image-more_min_js.js\"]}}"

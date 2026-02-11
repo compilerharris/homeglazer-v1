@@ -2,7 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/admin/products/[id]/edit": "pages/admin/products/[id]/edit.js",
-  "/api/products/by-slug": "pages/api/products/by-slug.js",
-  "/products/[brand]/[slug]": "pages/products/[brand]/[slug].js"
+  "/colour-visualiser/advanced/[step]": "pages/colour-visualiser/advanced/[step].js",
+  "/colour-visualiser/basic/[brand]/[category]/[color]": "pages/colour-visualiser/basic/[brand]/[category]/[color].js"
 }

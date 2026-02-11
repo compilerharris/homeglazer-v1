@@ -12,6 +12,7 @@ import path from 'path';
 
 const BRAND_CONFIG = [
   { id: 'asian-paints', name: 'Asian Paints', fileName: 'asian_paints_colors.json' },
+  { id: 'sherwin-williams', name: 'Sherwin Williams', fileName: 'sherwin_williams_colors.json' },
   { id: 'nerolac', name: 'Nerolac', fileName: 'nerolac_colors.json' },
   { id: 'berger', name: 'Berger', fileName: 'berger_colors.json' },
   { id: 'jsw', name: 'JSW', fileName: 'jsw_colors.json' },
@@ -759,6 +760,31 @@ const BRAND_INFO: Record<string, { intro: string; sections: Array<{ heading: str
       {
         heading: 'Professional Standard',
         content: 'NCS is the go-to system for high-stakes projects requiring exact color coordination across multiple materials and suppliers. From luxury hotels to corporate branding, NCS delivers the accuracy, reliability, and international recognition that professionals demand.'
+      }
+    ]
+  },
+  'sherwin-williams': {
+    intro: 'Sherwin-Williams is a leading global paint and coatings company, offering an extensive palette of colors including versatile neutrals that work in any space.',
+    sections: [
+      {
+        heading: 'American Heritage',
+        content: 'Founded in 1866, Sherwin-Williams has been a trusted name in paint for over 150 years. With a presence across North America and beyond, Sherwin-Williams delivers premium-quality paints known for durability, coverage, and consistent color reproduction.'
+      },
+      {
+        heading: 'Neutral Color Expertise',
+        content: 'Sherwin-Williams offers a carefully curated collection of neutral shades—from warm greiges and taupes to cool greys and soft ivories. Their neutrals are designed to complement any décor style and provide timeless, adaptable backdrops for residential and commercial spaces.'
+      },
+      {
+        heading: 'Premium Product Lines',
+        content: 'Sherwin-Williams features diverse product ranges including Emerald for luxury finishes, Duration for durability, and Cashmere for smooth application. Each line is engineered for superior coverage, washability, and long-lasting color retention.'
+      },
+      {
+        heading: 'Innovation & Color Tools',
+        content: 'Sherwin-Williams invests in color research and digital tools like ColorSnap Visualizer to help customers preview colors in their spaces. Their Color of the Year and curated palettes reflect current design trends while ensuring lasting appeal.'
+      },
+      {
+        heading: 'Trusted by Professionals',
+        content: 'Contractors, designers, and homeowners worldwide trust Sherwin-Williams for consistent quality and reliable performance. Whether repainting a single room or undertaking a full renovation, Sherwin-Williams delivers the expertise and products to bring any vision to life.'
       }
     ]
   }

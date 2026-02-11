@@ -24,10 +24,15 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/admin/products/[id]/edit.js"
     ],
-    "/products/[brand]/[slug]": [
+    "/colour-visualiser/advanced/[step]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/products/[brand]/[slug].js"
+      "static/chunks/pages/colour-visualiser/advanced/[step].js"
+    ],
+    "/colour-visualiser/basic/[brand]/[category]/[color]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/colour-visualiser/basic/[brand]/[category]/[color].js"
     ]
   },
   "ampFirstPages": []

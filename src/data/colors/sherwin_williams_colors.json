@@ -1,0 +1,7582 @@
+{
+  "brand": "Sherwin Williams",
+  "totalColors": 1512,
+  "colorTypes": {
+    "Neutrals": [
+      {
+        "colorName": "drift of mist",
+        "colorCode": "SW9166",
+        "colorHex": "#dcd8d0"
+      },
+      {
+        "colorName": "reflection",
+        "colorCode": "SW7661",
+        "colorHex": "#d3d5d3"
+      },
+      {
+        "colorName": "silverpointe",
+        "colorCode": "SW7653",
+        "colorHex": "#d1d2cb"
+      },
+      {
+        "colorName": "gossamer veil",
+        "colorCode": "SW9165",
+        "colorHex": "#d3cec4"
+      },
+      {
+        "colorName": "lattice",
+        "colorCode": "SW7654",
+        "colorHex": "#cecec6"
+      },
+      {
+        "colorName": "front porch",
+        "colorCode": "SW7651",
+        "colorHex": "#ccccc5"
+      },
+      {
+        "colorName": "evening shadow",
+        "colorCode": "SW7662",
+        "colorHex": "#c9cccd"
+      },
+      {
+        "colorName": "passive",
+        "colorCode": "SW7064",
+        "colorHex": "#cbccc9"
+      },
+      {
+        "colorName": "silver strand",
+        "colorCode": "SW7057",
+        "colorHex": "#c8cbc4"
+      },
+      {
+        "colorName": "gray screen",
+        "colorCode": "SW7071",
+        "colorHex": "#c6caca"
+      },
+      {
+        "colorName": "tinsmith",
+        "colorCode": "SW7657",
+        "colorHex": "#c5c8c4"
+      },
+      {
+        "colorName": "lazy gray",
+        "colorCode": "SW6254",
+        "colorHex": "#bec1c3"
+      },
+      {
+        "colorName": "silverplate",
+        "colorCode": "SW7649",
+        "colorHex": "#c2c0ba"
+      },
+      {
+        "colorName": "argos",
+        "colorCode": "SW7065",
+        "colorHex": "#bdbdb7"
+      },
+      {
+        "colorName": "monorail silver",
+        "colorCode": "SW7663",
+        "colorHex": "#b8bcbb"
+      },
+      {
+        "colorName": "jogging path",
+        "colorCode": "SW7638",
+        "colorHex": "#c0b9a9"
+      },
+      {
+        "colorName": "loggia",
+        "colorCode": "SW7506",
+        "colorHex": "#c4b7a5"
+      },
+      {
+        "colorName": "versatile gray",
+        "colorCode": "SW6072",
+        "colorHex": "#c1b6ab"
+      },
+      {
+        "colorName": "mindful gray",
+        "colorCode": "SW7016",
+        "colorHex": "#bcb7ad"
+      },
+      {
+        "colorName": "gray clouds",
+        "colorCode": "SW7658",
+        "colorHex": "#b7b7b2"
+      },
+      {
+        "colorName": "magnetic gray",
+        "colorCode": "SW7058",
+        "colorHex": "#b2b5af"
+      },
+      {
+        "colorName": "balanced beige",
+        "colorCode": "SW7037",
+        "colorHex": "#c0b2a2"
+      },
+      {
+        "colorName": "online",
+        "colorCode": "SW7072",
+        "colorHex": "#b0b5b5"
+      },
+      {
+        "colorName": "requisite gray",
+        "colorCode": "SW7023",
+        "colorHex": "#b9b2a9"
+      },
+      {
+        "colorName": "mineral deposit",
+        "colorCode": "SW7652",
+        "colorHex": "#abb0ac"
+      },
+      {
+        "colorName": "morning fog",
+        "colorCode": "SW6255",
+        "colorHex": "#a8aeb1"
+      },
+      {
+        "colorName": "ellie gray",
+        "colorCode": "SW7650",
+        "colorHex": "#aaa9a4"
+      },
+      {
+        "colorName": "gris",
+        "colorCode": "SW7659",
+        "colorHex": "#a5a9a8"
+      },
+      {
+        "colorName": "gray matters",
+        "colorCode": "SW7066",
+        "colorHex": "#a7a8a2"
+      },
+      {
+        "colorName": "unusual gray",
+        "colorCode": "SW7059",
+        "colorHex": "#a3a7a0"
+      },
+      {
+        "colorName": "network gray",
+        "colorCode": "SW7073",
+        "colorHex": "#a0a5a7"
+      },
+      {
+        "colorName": "stamped concrete",
+        "colorCode": "SW7655",
+        "colorHex": "#a0a09a"
+      },
+      {
+        "colorName": "dustblu",
+        "colorCode": "SW9161",
+        "colorHex": "#959ba0"
+      },
+      {
+        "colorName": "earl grey",
+        "colorCode": "SW7660",
+        "colorHex": "#969a96"
+      },
+      {
+        "colorName": "african gray",
+        "colorCode": "SW9162",
+        "colorHex": "#939899"
+      },
+      {
+        "colorName": "steely gray",
+        "colorCode": "SW7664",
+        "colorHex": "#90979b"
+      },
+      {
+        "colorName": "tin lizzie",
+        "colorCode": "SW9163",
+        "colorHex": "#939591"
+      },
+      {
+        "colorName": "illusive green",
+        "colorCode": "SW9164",
+        "colorHex": "#92948d"
+      },
+      {
+        "colorName": "serious gray",
+        "colorCode": "SW6256",
+        "colorHex": "#7d848b"
+      },
+      {
+        "colorName": "software",
+        "colorCode": "SW7074",
+        "colorHex": "#7f8486"
+      },
+      {
+        "colorName": "cityscape",
+        "colorCode": "SW7067",
+        "colorHex": "#7f817e"
+      },
+      {
+        "colorName": "attitude gray",
+        "colorCode": "SW7060",
+        "colorHex": "#7c7d75"
+      },
+      {
+        "colorName": "wall street",
+        "colorCode": "SW7665",
+        "colorHex": "#656d73"
+      },
+      {
+        "colorName": "slate tile",
+        "colorCode": "SW7624",
+        "colorHex": "#606e74"
+      },
+      {
+        "colorName": "homburg gray",
+        "colorCode": "SW7622",
+        "colorHex": "#666d69"
+      },
+      {
+        "colorName": "smoky blue",
+        "colorCode": "SW7604",
+        "colorHex": "#596e79"
+      },
+      {
+        "colorName": "gibraltar",
+        "colorCode": "SW6257",
+        "colorHex": "#626970"
+      },
+      {
+        "colorName": "web gray",
+        "colorCode": "SW7075",
+        "colorHex": "#616669"
+      },
+      {
+        "colorName": "grizzle gray",
+        "colorCode": "SW7068",
+        "colorHex": "#636562"
+      },
+      {
+        "colorName": "night owl",
+        "colorCode": "SW7061",
+        "colorHex": "#63655f"
+      },
+      {
+        "colorName": "peppercorn",
+        "colorCode": "SW7674",
+        "colorHex": "#585858"
+      },
+      {
+        "colorName": "sea serpent",
+        "colorCode": "SW7615",
+        "colorHex": "#3e4b54"
+      },
+      {
+        "colorName": "cyberspace",
+        "colorCode": "SW7076",
+        "colorHex": "#44484d"
+      },
+      {
+        "colorName": "laurel woods",
+        "colorCode": "SW7749",
+        "colorHex": "#44493d"
+      },
+      {
+        "colorName": "popular gray",
+        "colorCode": "SW6071",
+        "colorHex": "#d4ccc3"
+      },
+      {
+        "colorName": "agreeable gray",
+        "colorCode": "SW7029",
+        "colorHex": "#d1cbc1"
+      },
+      {
+        "colorName": "grayish",
+        "colorCode": "SW6001",
+        "colorHex": "#cfcac7"
+      },
+      {
+        "colorName": "useful gray",
+        "colorCode": "SW7050",
+        "colorHex": "#cfcabd"
+      },
+      {
+        "colorName": "repose gray",
+        "colorCode": "SW7015",
+        "colorHex": "#ccc9c0"
+      },
+      {
+        "colorName": "worldly gray",
+        "colorCode": "SW7043",
+        "colorHex": "#cec6bb"
+      },
+      {
+        "colorName": "alpaca",
+        "colorCode": "SW7022",
+        "colorHex": "#ccc5bd"
+      },
+      {
+        "colorName": "essential gray",
+        "colorCode": "SW6002",
+        "colorHex": "#bcb8b6"
+      },
+      {
+        "colorName": "versatile gray",
+        "colorCode": "SW6072",
+        "colorHex": "#c1b6ab"
+      },
+      {
+        "colorName": "mindful gray",
+        "colorCode": "SW7016",
+        "colorHex": "#bcb7ad"
+      },
+      {
+        "colorName": "analytical gray",
+        "colorCode": "SW7051",
+        "colorHex": "#bfb6a7"
+      },
+      {
+        "colorName": "anew gray",
+        "colorCode": "SW7030",
+        "colorHex": "#bfb6aa"
+      },
+      {
+        "colorName": "amazing gray",
+        "colorCode": "SW7044",
+        "colorHex": "#beb5a9"
+      },
+      {
+        "colorName": "requisite gray",
+        "colorCode": "SW7023",
+        "colorHex": "#b9b2a9"
+      },
+      {
+        "colorName": "perfect greige",
+        "colorCode": "SW6073",
+        "colorHex": "#b7ab9f"
+      },
+      {
+        "colorName": "proper gray",
+        "colorCode": "SW6003",
+        "colorHex": "#ada8a5"
+      },
+      {
+        "colorName": "dorian gray",
+        "colorCode": "SW7017",
+        "colorHex": "#aca79e"
+      },
+      {
+        "colorName": "gray area",
+        "colorCode": "SW7052",
+        "colorHex": "#afa696"
+      },
+      {
+        "colorName": "functional gray",
+        "colorCode": "SW7024",
+        "colorHex": "#aba39a"
+      },
+      {
+        "colorName": "mega greige",
+        "colorCode": "SW7031",
+        "colorHex": "#ada295"
+      },
+      {
+        "colorName": "intellectual gray",
+        "colorCode": "SW7045",
+        "colorHex": "#a8a093"
+      },
+      {
+        "colorName": "acier",
+        "colorCode": "SW9170",
+        "colorHex": "#9e9991"
+      },
+      {
+        "colorName": "polished concrete",
+        "colorCode": "SW9167",
+        "colorHex": "#9e9793"
+      },
+      {
+        "colorName": "chatura gray",
+        "colorCode": "SW9169",
+        "colorHex": "#a09287"
+      },
+      {
+        "colorName": "keystone gray",
+        "colorCode": "SW7504",
+        "colorHex": "#9e9284"
+      },
+      {
+        "colorName": "elephant ear",
+        "colorCode": "SW9168",
+        "colorHex": "#988f85"
+      },
+      {
+        "colorName": "felted wool",
+        "colorCode": "SW9171",
+        "colorHex": "#979083"
+      },
+      {
+        "colorName": "studio clay",
+        "colorCode": "SW9172",
+        "colorHex": "#958d7f"
+      },
+      {
+        "colorName": "dovetail",
+        "colorCode": "SW7018",
+        "colorHex": "#908a83"
+      },
+      {
+        "colorName": "spalding gray",
+        "colorCode": "SW6074",
+        "colorHex": "#8d7f75"
+      },
+      {
+        "colorName": "adaptive shade",
+        "colorCode": "SW7053",
+        "colorHex": "#867e70"
+      },
+      {
+        "colorName": "mink",
+        "colorCode": "SW6004",
+        "colorHex": "#847b77"
+      },
+      {
+        "colorName": "warm stone",
+        "colorCode": "SW7032",
+        "colorHex": "#887b6c"
+      },
+      {
+        "colorName": "backdrop",
+        "colorCode": "SW7025",
+        "colorHex": "#867a6f"
+      },
+      {
+        "colorName": "anonymous",
+        "colorCode": "SW7046",
+        "colorHex": "#817a6e"
+      },
+      {
+        "colorName": "gauntlet gray",
+        "colorCode": "SW7019",
+        "colorHex": "#78736e"
+      },
+      {
+        "colorName": "garret gray",
+        "colorCode": "SW6075",
+        "colorHex": "#756861"
+      },
+      {
+        "colorName": "brainstorm bronze",
+        "colorCode": "SW7033",
+        "colorHex": "#74685a"
+      },
+      {
+        "colorName": "folkstone",
+        "colorCode": "SW6005",
+        "colorHex": "#6d6562"
+      },
+      {
+        "colorName": "griffin",
+        "colorCode": "SW7026",
+        "colorHex": "#6f6459"
+      },
+      {
+        "colorName": "porpoise",
+        "colorCode": "SW7047",
+        "colorHex": "#6b645b"
+      },
+      {
+        "colorName": "manor house",
+        "colorCode": "SW7505",
+        "colorHex": "#665d57"
+      },
+      {
+        "colorName": "oak leaf brown",
+        "colorCode": "SW7054",
+        "colorHex": "#645a4b"
+      },
+      {
+        "colorName": "urbane bronze",
+        "colorCode": "SW7048",
+        "colorHex": "#54504a"
+      },
+      {
+        "colorName": "status bronze",
+        "colorCode": "SW7034",
+        "colorHex": "#5c4d3c"
+      },
+      {
+        "colorName": "chateau brown",
+        "colorCode": "SW7510",
+        "colorHex": "#5b4b44"
+      },
+      {
+        "colorName": "enduring bronze",
+        "colorCode": "SW7055",
+        "colorHex": "#554c3e"
+      },
+      {
+        "colorName": "black fox",
+        "colorCode": "SW7020",
+        "colorHex": "#4f4842"
+      },
+      {
+        "colorName": "hickory smoke",
+        "colorCode": "SW7027",
+        "colorHex": "#564537"
+      },
+      {
+        "colorName": "grecian ivory",
+        "colorCode": "SW7541",
+        "colorHex": "#d8cfbe"
+      },
+      {
+        "colorName": "rivers edge",
+        "colorCode": "SW7517",
+        "colorHex": "#dbcebd"
+      },
+      {
+        "colorName": "modern gray",
+        "colorCode": "SW7632",
+        "colorHex": "#d6cec3"
+      },
+      {
+        "colorName": "zircon",
+        "colorCode": "SW7667",
+        "colorHex": "#cac9c6"
+      },
+      {
+        "colorName": "accessible beige",
+        "colorCode": "SW7036",
+        "colorHex": "#d1c7b8"
+      },
+      {
+        "colorName": "bungalow beige",
+        "colorCode": "SW7511",
+        "colorHex": "#cdbfb0"
+      },
+      {
+        "colorName": "knitting needles",
+        "colorCode": "SW7672",
+        "colorHex": "#c3c1bc"
+      },
+      {
+        "colorName": "colonnade gray",
+        "colorCode": "SW7641",
+        "colorHex": "#c6c0b6"
+      },
+      {
+        "colorName": "twilight gray",
+        "colorCode": "SW0054",
+        "colorHex": "#c8bfb5"
+      },
+      {
+        "colorName": "light french gray",
+        "colorCode": "SW0055",
+        "colorHex": "#c2c0bb"
+      },
+      {
+        "colorName": "skyline steel",
+        "colorCode": "SW1015",
+        "colorHex": "#c6bfb3"
+      },
+      {
+        "colorName": "roycroft mist gray",
+        "colorCode": "SW2844",
+        "colorHex": "#c2bdb1"
+      },
+      {
+        "colorName": "shiitake",
+        "colorCode": "SW9173",
+        "colorHex": "#c8bcab"
+      },
+      {
+        "colorName": "dhurrie beige",
+        "colorCode": "SW7524",
+        "colorHex": "#cabaa8"
+      },
+      {
+        "colorName": "jogging path",
+        "colorCode": "SW7638",
+        "colorHex": "#c0b9a9"
+      },
+      {
+        "colorName": "march wind",
+        "colorCode": "SW7668",
+        "colorHex": "#bab9b6"
+      },
+      {
+        "colorName": "loggia",
+        "colorCode": "SW7506",
+        "colorHex": "#c4b7a5"
+      },
+      {
+        "colorName": "pavilion beige",
+        "colorCode": "SW7512",
+        "colorHex": "#c5b6a4"
+      },
+      {
+        "colorName": "colonial revival gray",
+        "colorCode": "SW2832",
+        "colorHex": "#b4b9b9"
+      },
+      {
+        "colorName": "chelsea gray",
+        "colorCode": "SW2850",
+        "colorHex": "#b6b7b0"
+      },
+      {
+        "colorName": "balanced beige",
+        "colorCode": "SW7037",
+        "colorHex": "#c0b2a2"
+      },
+      {
+        "colorName": "silver gray",
+        "colorCode": "SW0049",
+        "colorHex": "#b8b2a2"
+      },
+      {
+        "colorName": "pussywillow",
+        "colorCode": "SW7643",
+        "colorHex": "#b2ada4"
+      },
+      {
+        "colorName": "gateway gray",
+        "colorCode": "SW7644",
+        "colorHex": "#b2ac9c"
+      },
+      {
+        "colorName": "universal khaki",
+        "colorCode": "SW6150",
+        "colorHex": "#b8a992"
+      },
+      {
+        "colorName": "ethereal mood",
+        "colorCode": "SW7639",
+        "colorHex": "#aea594"
+      },
+      {
+        "colorName": "stone lion",
+        "colorCode": "SW7507",
+        "colorHex": "#b3a491"
+      },
+      {
+        "colorName": "tony taupe",
+        "colorCode": "SW7038",
+        "colorHex": "#b1a290"
+      },
+      {
+        "colorName": "morris room grey",
+        "colorCode": "SW0037",
+        "colorHex": "#ada193"
+      },
+      {
+        "colorName": "downing stone",
+        "colorCode": "SW2821",
+        "colorHex": "#a6a397"
+      },
+      {
+        "colorName": "taupe tone",
+        "colorCode": "SW7633",
+        "colorHex": "#ada090"
+      },
+      {
+        "colorName": "fawn brindle",
+        "colorCode": "SW7640",
+        "colorHex": "#a7a094"
+      },
+      {
+        "colorName": "palisade",
+        "colorCode": "SW7635",
+        "colorHex": "#aa9e95"
+      },
+      {
+        "colorName": "threshold taupe",
+        "colorCode": "SW7501",
+        "colorHex": "#ac9a8a"
+      },
+      {
+        "colorName": "rushing river",
+        "colorCode": "SW7746",
+        "colorHex": "#a19c8f"
+      },
+      {
+        "colorName": "pewter tankard",
+        "colorCode": "SW0023",
+        "colorHex": "#a39b90"
+      },
+      {
+        "colorName": "pavestone",
+        "colorCode": "SW7642",
+        "colorHex": "#a0998f"
+      },
+      {
+        "colorName": "sticks &amp; stones",
+        "colorCode": "SW7503",
+        "colorHex": "#a49689"
+      },
+      {
+        "colorName": "pewter cast",
+        "colorCode": "SW7673",
+        "colorHex": "#9b9893"
+      },
+      {
+        "colorName": "sanderling",
+        "colorCode": "SW7513",
+        "colorHex": "#a79582"
+      },
+      {
+        "colorName": "colonial revival stone",
+        "colorCode": "SW2827",
+        "colorHex": "#a7947c"
+      },
+      {
+        "colorName": "summit gray",
+        "colorCode": "SW7669",
+        "colorHex": "#959491"
+      },
+      {
+        "colorName": "gray shingle",
+        "colorCode": "SW7670",
+        "colorHex": "#949392"
+      },
+      {
+        "colorName": "moth wing",
+        "colorCode": "SW9174",
+        "colorHex": "#a0907f"
+      },
+      {
+        "colorName": "dry dock",
+        "colorCode": "SW7502",
+        "colorHex": "#a18d7d"
+      },
+      {
+        "colorName": "bunglehouse gray",
+        "colorCode": "SW2845",
+        "colorHex": "#988f7b"
+      },
+      {
+        "colorName": "tavern taupe",
+        "colorCode": "SW7508",
+        "colorHex": "#9c8a79"
+      },
+      {
+        "colorName": "sycamore tan",
+        "colorCode": "SW2855",
+        "colorHex": "#9c8a79"
+      },
+      {
+        "colorName": "hammered silver",
+        "colorCode": "SW2840",
+        "colorHex": "#978a7f"
+      },
+      {
+        "colorName": "curio gray",
+        "colorCode": "SW0024",
+        "colorHex": "#988977"
+      },
+      {
+        "colorName": "classic french gray",
+        "colorCode": "SW0077",
+        "colorHex": "#888782"
+      },
+      {
+        "colorName": "mountain road",
+        "colorCode": "SW7743",
+        "colorHex": "#868578"
+      },
+      {
+        "colorName": "weathered shingle",
+        "colorCode": "SW2841",
+        "colorHex": "#937f68"
+      },
+      {
+        "colorName": "downing slate",
+        "colorCode": "SW2819",
+        "colorHex": "#777f86"
+      },
+      {
+        "colorName": "downing earth",
+        "colorCode": "SW2820",
+        "colorHex": "#887b67"
+      },
+      {
+        "colorName": "virtual taupe",
+        "colorCode": "SW7039",
+        "colorHex": "#8a7a6a"
+      },
+      {
+        "colorName": "westchester gray",
+        "colorCode": "SW2849",
+        "colorHex": "#797978"
+      },
+      {
+        "colorName": "foothills",
+        "colorCode": "SW7514",
+        "colorHex": "#827466"
+      },
+      {
+        "colorName": "library pewter",
+        "colorCode": "SW0038",
+        "colorHex": "#7f7263"
+      },
+      {
+        "colorName": "tiki hut",
+        "colorCode": "SW7509",
+        "colorHex": "#826f5e"
+      },
+      {
+        "colorName": "grapy",
+        "colorCode": "SW7629",
+        "colorHex": "#786e70"
+      },
+      {
+        "colorName": "smokehouse",
+        "colorCode": "SW7040",
+        "colorHex": "#716354"
+      },
+      {
+        "colorName": "roycroft pewter",
+        "colorCode": "SW2848",
+        "colorHex": "#616564"
+      },
+      {
+        "colorName": "homestead brown",
+        "colorCode": "SW7515",
+        "colorHex": "#6e5f53"
+      },
+      {
+        "colorName": "mineral gray",
+        "colorCode": "SW2740",
+        "colorHex": "#515763"
+      },
+      {
+        "colorName": "dark brown",
+        "colorCode": "SW7520",
+        "colorHex": "#6a5143"
+      },
+      {
+        "colorName": "pier",
+        "colorCode": "SW7545",
+        "colorHex": "#63523d"
+      },
+      {
+        "colorName": "van dyke brown",
+        "colorCode": "SW7041",
+        "colorHex": "#564536"
+      },
+      {
+        "colorName": "charcoal blue",
+        "colorCode": "SW2739",
+        "colorHex": "#3d4450"
+      },
+      {
+        "colorName": "sealskin",
+        "colorCode": "SW7675",
+        "colorHex": "#48423c"
+      },
+      {
+        "colorName": "iron ore",
+        "colorCode": "SW7069",
+        "colorHex": "#434341"
+      },
+      {
+        "colorName": "dress blues",
+        "colorCode": "SW9176",
+        "colorHex": "#2b4360"
+      },
+      {
+        "colorName": "dark clove",
+        "colorCode": "SW9183",
+        "colorHex": "#4c3d31"
+      },
+      {
+        "colorName": "salty dog",
+        "colorCode": "SW9177",
+        "colorHex": "#234058"
+      },
+      {
+        "colorName": "turkish coffee",
+        "colorCode": "SW6076",
+        "colorHex": "#4d3930"
+      },
+      {
+        "colorName": "naval",
+        "colorCode": "SW6244",
+        "colorHex": "#2f3d4c"
+      },
+      {
+        "colorName": "rockweed",
+        "colorCode": "SW2735",
+        "colorHex": "#443735"
+      },
+      {
+        "colorName": "greenblack",
+        "colorCode": "SW6994",
+        "colorHex": "#373a3a"
+      },
+      {
+        "colorName": "bohemian black",
+        "colorCode": "SW6988",
+        "colorHex": "#3b373c"
+      },
+      {
+        "colorName": "black swan",
+        "colorCode": "SW6279",
+        "colorHex": "#3a373e"
+      },
+      {
+        "colorName": "rojo marrón",
+        "colorCode": "SW9182",
+        "colorHex": "#4b3029"
+      },
+      {
+        "colorName": "in the navy",
+        "colorCode": "SW9178",
+        "colorHex": "#283849"
+      },
+      {
+        "colorName": "black bean",
+        "colorCode": "SW6006",
+        "colorHex": "#403330"
+      },
+      {
+        "colorName": "black of night",
+        "colorCode": "SW6993",
+        "colorHex": "#323639"
+      },
+      {
+        "colorName": "inkwell",
+        "colorCode": "SW6992",
+        "colorHex": "#31363a"
+      },
+      {
+        "colorName": "deep forest brown",
+        "colorCode": "SW9175",
+        "colorHex": "#393437"
+      },
+      {
+        "colorName": "anchors aweigh",
+        "colorCode": "SW9179",
+        "colorHex": "#2b3441"
+      },
+      {
+        "colorName": "domino",
+        "colorCode": "SW6989",
+        "colorHex": "#353337"
+      },
+      {
+        "colorName": "black magic",
+        "colorCode": "SW6991",
+        "colorHex": "#323132"
+      },
+      {
+        "colorName": "caviar",
+        "colorCode": "SW6990",
+        "colorHex": "#313031"
+      },
+      {
+        "colorName": "tricorn black",
+        "colorCode": "SW6258",
+        "colorHex": "#2f2f30"
+      },
+      {
+        "colorName": "raisin",
+        "colorCode": "SW7630",
+        "colorHex": "#392b2d"
+      }
+    ],
+    "Whites": [
+      {
+        "colorName": "indian white",
+        "colorCode": "SW35",
+        "colorHex": "#eedac3"
+      },
+      {
+        "colorName": "white hyacinth",
+        "colorCode": "SW46",
+        "colorHex": "#f3e5d1"
+      },
+      {
+        "colorName": "classic ivory",
+        "colorCode": "SW51",
+        "colorHex": "#f2e0c3"
+      },
+      {
+        "colorName": "classical white",
+        "colorCode": "SW2829",
+        "colorHex": "#ece1cb"
+      },
+      {
+        "colorName": "snowfall",
+        "colorCode": "SW6000",
+        "colorHex": "#e0deda"
+      },
+      {
+        "colorName": "smart white",
+        "colorCode": "SW6007",
+        "colorHex": "#e4dbd8"
+      },
+      {
+        "colorName": "individual white",
+        "colorCode": "SW6008",
+        "colorHex": "#d4cdca"
+      },
+      {
+        "colorName": "dreamy white",
+        "colorCode": "SW6021",
+        "colorHex": "#e3d9d5"
+      },
+      {
+        "colorName": "white truffle",
+        "colorCode": "SW6029",
+        "colorHex": "#d7c8c2"
+      },
+      {
+        "colorName": "gauzy white",
+        "colorCode": "SW6035",
+        "colorHex": "#e3dbd4"
+      },
+      {
+        "colorName": "hush white",
+        "colorCode": "SW6042",
+        "colorHex": "#e5dad4"
+      },
+      {
+        "colorName": "gorgeous white",
+        "colorCode": "SW6049",
+        "colorHex": "#e7dbd3"
+      },
+      {
+        "colorName": "polite white",
+        "colorCode": "SW6056",
+        "colorHex": "#e9ddd4"
+      },
+      {
+        "colorName": "nice white",
+        "colorCode": "SW6063",
+        "colorHex": "#e6ddd5"
+      },
+      {
+        "colorName": "everyday white",
+        "colorCode": "SW6077",
+        "colorHex": "#e4dcd4"
+      },
+      {
+        "colorName": "modest white",
+        "colorCode": "SW6084",
+        "colorHex": "#e6ddd4"
+      },
+      {
+        "colorName": "reliable white",
+        "colorCode": "SW6091",
+        "colorHex": "#e8ded3"
+      },
+      {
+        "colorName": "pacer white",
+        "colorCode": "SW6098",
+        "colorHex": "#e5ddd0"
+      },
+      {
+        "colorName": "divine white",
+        "colorCode": "SW6105",
+        "colorHex": "#e6dccd"
+      },
+      {
+        "colorName": "antique white",
+        "colorCode": "SW6119",
+        "colorHex": "#e8dcc6"
+      },
+      {
+        "colorName": "navajo white",
+        "colorCode": "SW6126",
+        "colorHex": "#e9dcc6"
+      },
+      {
+        "colorName": "moderate white",
+        "colorCode": "SW6140",
+        "colorHex": "#e9decf"
+      },
+      {
+        "colorName": "panda white",
+        "colorCode": "SW6147",
+        "colorHex": "#eae2d4"
+      },
+      {
+        "colorName": "nonchalant white",
+        "colorCode": "SW6161",
+        "colorHex": "#deddd1"
+      },
+      {
+        "colorName": "moderne white",
+        "colorCode": "SW6168",
+        "colorHex": "#e2e0d7"
+      },
+      {
+        "colorName": "ethereal white",
+        "colorCode": "SW6182",
+        "colorHex": "#e3e2d9"
+      },
+      {
+        "colorName": "frosty white",
+        "colorCode": "SW6196",
+        "colorHex": "#ddddd6"
+      },
+      {
+        "colorName": "spare white",
+        "colorCode": "SW6203",
+        "colorHex": "#e4e4dd"
+      },
+      {
+        "colorName": "olympus white",
+        "colorCode": "SW6253",
+        "colorHex": "#d4d8d7"
+      },
+      {
+        "colorName": "spatial white",
+        "colorCode": "SW6259",
+        "colorHex": "#dddcdb"
+      },
+      {
+        "colorName": "intimate white",
+        "colorCode": "SW6322",
+        "colorHex": "#f0e1d8"
+      },
+      {
+        "colorName": "alluring white",
+        "colorCode": "SW6343",
+        "colorHex": "#efe1d2"
+      },
+      {
+        "colorName": "intricate ivory",
+        "colorCode": "SW6350",
+        "colorHex": "#edddca"
+      },
+      {
+        "colorName": "eggwhite",
+        "colorCode": "SW6364",
+        "colorHex": "#f3e5d2"
+      },
+      {
+        "colorName": "inviting ivory",
+        "colorCode": "SW6372",
+        "colorHex": "#f2d5b0"
+      },
+      {
+        "colorName": "dover white",
+        "colorCode": "SW6385",
+        "colorHex": "#f0eadc"
+      },
+      {
+        "colorName": "ionic ivory",
+        "colorCode": "SW6406",
+        "colorHex": "#e7dfc5"
+      },
+      {
+        "colorName": "restoration ivory",
+        "colorCode": "SW6413",
+        "colorHex": "#e9e1ca"
+      },
+      {
+        "colorName": "spinach white",
+        "colorCode": "SW6434",
+        "colorHex": "#e4e8da"
+      },
+      {
+        "colorName": "white mint",
+        "colorCode": "SW6441",
+        "colorHex": "#e0e7da"
+      },
+      {
+        "colorName": "snowdrop",
+        "colorCode": "SW6511",
+        "colorHex": "#e0e8e7"
+      },
+      {
+        "colorName": "welcome white",
+        "colorCode": "SW6658",
+        "colorHex": "#f3e3ca"
+      },
+      {
+        "colorName": "ibis white",
+        "colorCode": "SW7000",
+        "colorHex": "#f2ece6"
+      },
+      {
+        "colorName": "toque white",
+        "colorCode": "SW7003",
+        "colorHex": "#e7e2da"
+      },
+      {
+        "colorName": "snowbound",
+        "colorCode": "SW7004",
+        "colorHex": "#edeae5"
+      },
+      {
+        "colorName": "pure white",
+        "colorCode": "SW7005",
+        "colorHex": "#edece6"
+      },
+      {
+        "colorName": "extra white",
+        "colorCode": "SW7006",
+        "colorHex": "#eeefea"
+      },
+      {
+        "colorName": "ceiling bright white",
+        "colorCode": "SW7007",
+        "colorHex": "#e9ebe7"
+      },
+      {
+        "colorName": "alabaster",
+        "colorCode": "SW7008",
+        "colorHex": "#edeae0"
+      },
+      {
+        "colorName": "pearly white",
+        "colorCode": "SW7009",
+        "colorHex": "#e8e3d9"
+      },
+      {
+        "colorName": "white duck",
+        "colorCode": "SW7010",
+        "colorHex": "#e5dfd2"
+      },
+      {
+        "colorName": "ivory lace",
+        "colorCode": "SW7013",
+        "colorHex": "#ece5d8"
+      },
+      {
+        "colorName": "eider white",
+        "colorCode": "SW7014",
+        "colorHex": "#e2ded8"
+      },
+      {
+        "colorName": "simple white",
+        "colorCode": "SW7021",
+        "colorHex": "#dfd9d2"
+      },
+      {
+        "colorName": "incredible white",
+        "colorCode": "SW7028",
+        "colorHex": "#e3ded7"
+      },
+      {
+        "colorName": "aesthetic white",
+        "colorCode": "SW7035",
+        "colorHex": "#e3ddd3"
+      },
+      {
+        "colorName": "shoji white",
+        "colorCode": "SW7042",
+        "colorHex": "#e6dfd3"
+      },
+      {
+        "colorName": "reserved white",
+        "colorCode": "SW7056",
+        "colorHex": "#e0e0d9"
+      },
+      {
+        "colorName": "nebulous white",
+        "colorCode": "SW7063",
+        "colorHex": "#dedfdc"
+      },
+      {
+        "colorName": "site white",
+        "colorCode": "SW7070",
+        "colorHex": "#dcdedc"
+      },
+      {
+        "colorName": "original white",
+        "colorCode": "SW7077",
+        "colorHex": "#e2dedb"
+      },
+      {
+        "colorName": "arcade white",
+        "colorCode": "SW7100",
+        "colorHex": "#f3eee7"
+      },
+      {
+        "colorName": "white flour",
+        "colorCode": "SW7102",
+        "colorHex": "#f4efe5"
+      },
+      {
+        "colorName": "whitetail",
+        "colorCode": "SW7103",
+        "colorHex": "#f4efe4"
+      },
+      {
+        "colorName": "cotton white",
+        "colorCode": "SW7104",
+        "colorHex": "#f7efe3"
+      },
+      {
+        "colorName": "paperwhite",
+        "colorCode": "SW7105",
+        "colorHex": "#f7efde"
+      },
+      {
+        "colorName": "honied white",
+        "colorCode": "SW7106",
+        "colorHex": "#f8eedb"
+      },
+      {
+        "colorName": "kestrel white",
+        "colorCode": "SW7516",
+        "colorHex": "#e0d6c8"
+      },
+      {
+        "colorName": "grecian ivory",
+        "colorCode": "SW7541",
+        "colorHex": "#d8cfbe"
+      },
+      {
+        "colorName": "summer white",
+        "colorCode": "SW7557",
+        "colorHex": "#f4e9d6"
+      },
+      {
+        "colorName": "medici ivory",
+        "colorCode": "SW7558",
+        "colorHex": "#f3e9d7"
+      },
+      {
+        "colorName": "décor white",
+        "colorCode": "SW7559",
+        "colorHex": "#f2e5cf"
+      },
+      {
+        "colorName": "impressive ivory",
+        "colorCode": "SW7560",
+        "colorHex": "#f4dec3"
+      },
+      {
+        "colorName": "restful white",
+        "colorCode": "SW7563",
+        "colorHex": "#eee8d7"
+      },
+      {
+        "colorName": "westhighland white",
+        "colorCode": "SW7566",
+        "colorHex": "#f3eee3"
+      },
+      {
+        "colorName": "egret white",
+        "colorCode": "SW7570",
+        "colorHex": "#dfd9cf"
+      },
+      {
+        "colorName": "zurich white",
+        "colorCode": "SW7626",
+        "colorHex": "#e6e1d9"
+      },
+      {
+        "colorName": "white heron",
+        "colorCode": "SW7627",
+        "colorHex": "#e7e1d7"
+      },
+      {
+        "colorName": "windfresh white",
+        "colorCode": "SW7628",
+        "colorHex": "#ded8cf"
+      },
+      {
+        "colorName": "origami white",
+        "colorCode": "SW7636",
+        "colorHex": "#e5e2da"
+      },
+      {
+        "colorName": "oyster white",
+        "colorCode": "SW7637",
+        "colorHex": "#e2ddd0"
+      },
+      {
+        "colorName": "high reflective white",
+        "colorCode": "SW7757",
+        "colorHex": "#f7f7f1"
+      },
+      {
+        "colorName": "shell white",
+        "colorCode": "SW8917",
+        "colorHex": "#f0ebe0"
+      },
+      {
+        "colorName": "aged white",
+        "colorCode": "SW9180",
+        "colorHex": "#e8decd"
+      }
+    ],
+    "Greens": [
+      {
+        "colorName": "queen anne's lace",
+        "colorCode": "SW6420",
+        "colorHex": "#ecead5"
+      },
+      {
+        "colorName": "spinach white",
+        "colorCode": "SW6434",
+        "colorHex": "#e4e8da"
+      },
+      {
+        "colorName": "glimmer",
+        "colorCode": "SW6476",
+        "colorHex": "#e0e7e2"
+      },
+      {
+        "colorName": "white mint",
+        "colorCode": "SW6441",
+        "colorHex": "#e0e7da"
+      },
+      {
+        "colorName": "springtime",
+        "colorCode": "SW6708",
+        "colorHex": "#e9e5b3"
+      },
+      {
+        "colorName": "sprout",
+        "colorCode": "SW6427",
+        "colorHex": "#e4e4ce"
+      },
+      {
+        "colorName": "moonraker",
+        "colorCode": "SW6701",
+        "colorHex": "#eee3b2"
+      },
+      {
+        "colorName": "green vibes",
+        "colorCode": "SW6928",
+        "colorHex": "#d4e7c3"
+      },
+      {
+        "colorName": "sagey",
+        "colorCode": "SW6175",
+        "colorHex": "#e2e2d1"
+      },
+      {
+        "colorName": "lacewing",
+        "colorCode": "SW6729",
+        "colorHex": "#d7e3ca"
+      },
+      {
+        "colorName": "mint condition",
+        "colorCode": "SW6743",
+        "colorHex": "#d1e3d2"
+      },
+      {
+        "colorName": "lime granita",
+        "colorCode": "SW6715",
+        "colorHex": "#dce1b8"
+      },
+      {
+        "colorName": "nonchalant white",
+        "colorCode": "SW6161",
+        "colorHex": "#deddd1"
+      },
+      {
+        "colorName": "jocular green",
+        "colorCode": "SW6736",
+        "colorHex": "#cce2ca"
+      },
+      {
+        "colorName": "cucumber",
+        "colorCode": "SW6722",
+        "colorHex": "#d3dfc3"
+      },
+      {
+        "colorName": "lively yellow",
+        "colorCode": "SW6702",
+        "colorHex": "#e6d88e"
+      },
+      {
+        "colorName": "gleeful",
+        "colorCode": "SW6709",
+        "colorHex": "#dad790"
+      },
+      {
+        "colorName": "reclining green",
+        "colorCode": "SW6744",
+        "colorHex": "#b7d7bf"
+      },
+      {
+        "colorName": "primavera",
+        "colorCode": "SW9031",
+        "colorHex": "#d2d083"
+      },
+      {
+        "colorName": "romaine",
+        "colorCode": "SW6730",
+        "colorHex": "#c0d2ad"
+      },
+      {
+        "colorName": "jardin",
+        "colorCode": "SW6723",
+        "colorHex": "#bdd0ab"
+      },
+      {
+        "colorName": "blue sky",
+        "colorCode": "SW0063",
+        "colorHex": "#abd1c9"
+      },
+      {
+        "colorName": "kiwi",
+        "colorCode": "SW6737",
+        "colorHex": "#aed2b0"
+      },
+      {
+        "colorName": "dancing green",
+        "colorCode": "SW6716",
+        "colorHex": "#c5cd8f"
+      },
+      {
+        "colorName": "frolic",
+        "colorCode": "SW6703",
+        "colorHex": "#d9c661"
+      },
+      {
+        "colorName": "retro mint",
+        "colorCode": "SW9036",
+        "colorHex": "#9fcdb1"
+      },
+      {
+        "colorName": "oh pistachio",
+        "colorCode": "SW9033",
+        "colorHex": "#abca99"
+      },
+      {
+        "colorName": "mélange green",
+        "colorCode": "SW6710",
+        "colorHex": "#c4c476"
+      },
+      {
+        "colorName": "limón fresco",
+        "colorCode": "SW9030",
+        "colorHex": "#cebc55"
+      },
+      {
+        "colorName": "center stage",
+        "colorCode": "SW6920",
+        "colorHex": "#b2c216"
+      },
+      {
+        "colorName": "seawashed glass",
+        "colorCode": "SW9034",
+        "colorHex": "#a9c095"
+      },
+      {
+        "colorName": "picnic",
+        "colorCode": "SW6731",
+        "colorHex": "#99c285"
+      },
+      {
+        "colorName": "vegan",
+        "colorCode": "SW6738",
+        "colorHex": "#8ec298"
+      },
+      {
+        "colorName": "humorous green",
+        "colorCode": "SW6918",
+        "colorHex": "#c6b836"
+      },
+      {
+        "colorName": "lark green",
+        "colorCode": "SW6745",
+        "colorHex": "#8ac1a1"
+      },
+      {
+        "colorName": "lime rickey",
+        "colorCode": "SW6717",
+        "colorHex": "#afb96a"
+      },
+      {
+        "colorName": "hep green",
+        "colorCode": "SW6704",
+        "colorHex": "#c4b146"
+      },
+      {
+        "colorName": "mesclun green",
+        "colorCode": "SW6724",
+        "colorHex": "#9db682"
+      },
+      {
+        "colorName": "electric lime",
+        "colorCode": "SW6921",
+        "colorHex": "#9aba25"
+      },
+      {
+        "colorName": "parakeet",
+        "colorCode": "SW6711",
+        "colorHex": "#b4b05a"
+      },
+      {
+        "colorName": "stay in lime",
+        "colorCode": "SW9032",
+        "colorHex": "#9fac5c"
+      },
+      {
+        "colorName": "frosted emerald",
+        "colorCode": "SW9035",
+        "colorHex": "#78b185"
+      },
+      {
+        "colorName": "organic green",
+        "colorCode": "SW6732",
+        "colorHex": "#7fac6e"
+      },
+      {
+        "colorName": "overt green",
+        "colorCode": "SW6718",
+        "colorHex": "#97a554"
+      },
+      {
+        "colorName": "julep",
+        "colorCode": "SW6746",
+        "colorHex": "#57aa80"
+      },
+      {
+        "colorName": "eco green",
+        "colorCode": "SW6739",
+        "colorHex": "#68a678"
+      },
+      {
+        "colorName": "pickle",
+        "colorCode": "SW6725",
+        "colorHex": "#85a16a"
+      },
+      {
+        "colorName": "high strung",
+        "colorCode": "SW6705",
+        "colorHex": "#ac9825"
+      },
+      {
+        "colorName": "luau green",
+        "colorCode": "SW6712",
+        "colorHex": "#989746"
+      },
+      {
+        "colorName": "offbeat green",
+        "colorCode": "SW6706",
+        "colorHex": "#9c8b1f"
+      },
+      {
+        "colorName": "gecko",
+        "colorCode": "SW6719",
+        "colorHex": "#7a8833"
+      },
+      {
+        "colorName": "verdant",
+        "colorCode": "SW6713",
+        "colorHex": "#847e35"
+      },
+      {
+        "colorName": "envy",
+        "colorCode": "SW6925",
+        "colorHex": "#358c3f"
+      },
+      {
+        "colorName": "argyle",
+        "colorCode": "SW6747",
+        "colorHex": "#348a5d"
+      },
+      {
+        "colorName": "direct green",
+        "colorCode": "SW6924",
+        "colorHex": "#3f8a24"
+      },
+      {
+        "colorName": "kilkenny",
+        "colorCode": "SW6740",
+        "colorHex": "#498555"
+      },
+      {
+        "colorName": "grasshopper",
+        "colorCode": "SW6733",
+        "colorHex": "#4f854a"
+      },
+      {
+        "colorName": "talipot palm",
+        "colorCode": "SW6726",
+        "colorHex": "#648149"
+      },
+      {
+        "colorName": "lucky green",
+        "colorCode": "SW6926",
+        "colorHex": "#238652"
+      },
+      {
+        "colorName": "paradise",
+        "colorCode": "SW6720",
+        "colorHex": "#6c7b30"
+      },
+      {
+        "colorName": "houseplant",
+        "colorCode": "SW6727",
+        "colorHex": "#58713f"
+      },
+      {
+        "colorName": "greenbelt",
+        "colorCode": "SW6927",
+        "colorHex": "#017244"
+      },
+      {
+        "colorName": "greens",
+        "colorCode": "SW6748",
+        "colorHex": "#016844"
+      },
+      {
+        "colorName": "espalier",
+        "colorCode": "SW6734",
+        "colorHex": "#2f5f3a"
+      },
+      {
+        "colorName": "derbyshire",
+        "colorCode": "SW6741",
+        "colorHex": "#245e36"
+      },
+      {
+        "colorName": "gratifying green",
+        "colorCode": "SW6435",
+        "colorHex": "#dae2cd"
+      },
+      {
+        "colorName": "celery",
+        "colorCode": "SW6421",
+        "colorHex": "#e0ddbd"
+      },
+      {
+        "colorName": "honeydew",
+        "colorCode": "SW6428",
+        "colorHex": "#dbddbd"
+      },
+      {
+        "colorName": "supreme green",
+        "colorCode": "SW6442",
+        "colorHex": "#cfddc7"
+      },
+      {
+        "colorName": "breaktime",
+        "colorCode": "SW6463",
+        "colorHex": "#c4d9ce"
+      },
+      {
+        "colorName": "topiary tint",
+        "colorCode": "SW6449",
+        "colorHex": "#c8d8c4"
+      },
+      {
+        "colorName": "chartreuse",
+        "colorCode": "SW0073",
+        "colorHex": "#e1d286"
+      },
+      {
+        "colorName": "slow green",
+        "colorCode": "SW6456",
+        "colorHex": "#c6d5c9"
+      },
+      {
+        "colorName": "bonsai tint",
+        "colorCode": "SW6436",
+        "colorHex": "#c5d1b2"
+      },
+      {
+        "colorName": "baize green",
+        "colorCode": "SW6429",
+        "colorHex": "#c7cda8"
+      },
+      {
+        "colorName": "shagreen",
+        "colorCode": "SW6422",
+        "colorHex": "#cbc99d"
+      },
+      {
+        "colorName": "relish",
+        "colorCode": "SW6443",
+        "colorHex": "#b3cbaa"
+      },
+      {
+        "colorName": "aloe",
+        "colorCode": "SW6464",
+        "colorHex": "#accabc"
+      },
+      {
+        "colorName": "recycled glass",
+        "colorCode": "SW7747",
+        "colorHex": "#bdc0a0"
+      },
+      {
+        "colorName": "kind green",
+        "colorCode": "SW6457",
+        "colorHex": "#aac2b3"
+      },
+      {
+        "colorName": "easy green",
+        "colorCode": "SW6450",
+        "colorHex": "#acc2a8"
+      },
+      {
+        "colorName": "baby bok choy",
+        "colorCode": "SW9037",
+        "colorHex": "#bbb98a"
+      },
+      {
+        "colorName": "great green",
+        "colorCode": "SW6430",
+        "colorHex": "#abb486"
+      },
+      {
+        "colorName": "haven",
+        "colorCode": "SW6437",
+        "colorHex": "#a3b48c"
+      },
+      {
+        "colorName": "spearmint",
+        "colorCode": "SW6465",
+        "colorHex": "#94b5a6"
+      },
+      {
+        "colorName": "ryegrass",
+        "colorCode": "SW6423",
+        "colorHex": "#aeac7a"
+      },
+      {
+        "colorName": "nurture green",
+        "colorCode": "SW6451",
+        "colorHex": "#98b092"
+      },
+      {
+        "colorName": "restful",
+        "colorCode": "SW6458",
+        "colorHex": "#91af9d"
+      },
+      {
+        "colorName": "lounge green",
+        "colorCode": "SW6444",
+        "colorHex": "#8ba97f"
+      },
+      {
+        "colorName": "cucuzza verde",
+        "colorCode": "SW9038",
+        "colorHex": "#9ba373"
+      },
+      {
+        "colorName": "verdigreen",
+        "colorCode": "SW9042",
+        "colorHex": "#81a595"
+      },
+      {
+        "colorName": "agate green",
+        "colorCode": "SW7742",
+        "colorHex": "#8ea486"
+      },
+      {
+        "colorName": "broccoflower",
+        "colorCode": "SW9039",
+        "colorHex": "#8fa277"
+      },
+      {
+        "colorName": "parisian patina",
+        "colorCode": "SW9041",
+        "colorHex": "#7d9b89"
+      },
+      {
+        "colorName": "tansy green",
+        "colorCode": "SW6424",
+        "colorHex": "#95945c"
+      },
+      {
+        "colorName": "leapfrog",
+        "colorCode": "SW6431",
+        "colorHex": "#88915d"
+      },
+      {
+        "colorName": "reseda green",
+        "colorCode": "SW9040",
+        "colorHex": "#75946b"
+      },
+      {
+        "colorName": "grandview",
+        "colorCode": "SW6466",
+        "colorHex": "#6b927f"
+      },
+      {
+        "colorName": "dill",
+        "colorCode": "SW6438",
+        "colorHex": "#788d60"
+      },
+      {
+        "colorName": "alexandrite",
+        "colorCode": "SW0060",
+        "colorHex": "#598c74"
+      },
+      {
+        "colorName": "inland",
+        "colorCode": "SW6452",
+        "colorHex": "#6c8867"
+      },
+      {
+        "colorName": "gallery green",
+        "colorCode": "SW0015",
+        "colorHex": "#708672"
+      },
+      {
+        "colorName": "jadite",
+        "colorCode": "SW6459",
+        "colorHex": "#61826c"
+      },
+      {
+        "colorName": "garden grove",
+        "colorCode": "SW6445",
+        "colorHex": "#5e7f57"
+      },
+      {
+        "colorName": "garden spot",
+        "colorCode": "SW6432",
+        "colorHex": "#6d7645"
+      },
+      {
+        "colorName": "kendal green",
+        "colorCode": "SW6467",
+        "colorHex": "#547867"
+      },
+      {
+        "colorName": "relentless olive",
+        "colorCode": "SW6425",
+        "colorHex": "#71713e"
+      },
+      {
+        "colorName": "greenfield",
+        "colorCode": "SW6439",
+        "colorHex": "#60724f"
+      },
+      {
+        "colorName": "cilantro",
+        "colorCode": "SW6453",
+        "colorHex": "#537150"
+      },
+      {
+        "colorName": "kale green",
+        "colorCode": "SW6460",
+        "colorHex": "#4f6a56"
+      },
+      {
+        "colorName": "basque green",
+        "colorCode": "SW6426",
+        "colorHex": "#5f6033"
+      },
+      {
+        "colorName": "inverness",
+        "colorCode": "SW6433",
+        "colorHex": "#576238"
+      },
+      {
+        "colorName": "palm leaf",
+        "colorCode": "SW7735",
+        "colorHex": "#635936"
+      },
+      {
+        "colorName": "arugula",
+        "colorCode": "SW6446",
+        "colorHex": "#42603c"
+      },
+      {
+        "colorName": "billiard green",
+        "colorCode": "SW0016",
+        "colorHex": "#45584d"
+      },
+      {
+        "colorName": "courtyard",
+        "colorCode": "SW6440",
+        "colorHex": "#475842"
+      },
+      {
+        "colorName": "evergreens",
+        "colorCode": "SW6447",
+        "colorHex": "#405840"
+      },
+      {
+        "colorName": "isle of pines",
+        "colorCode": "SW6461",
+        "colorHex": "#3d5541"
+      },
+      {
+        "colorName": "hunt club",
+        "colorCode": "SW6468",
+        "colorHex": "#2a4f43"
+      },
+      {
+        "colorName": "shamrock",
+        "colorCode": "SW6454",
+        "colorHex": "#205134"
+      },
+      {
+        "colorName": "filmy green",
+        "colorCode": "SW6190",
+        "colorHex": "#d1d3c7"
+      },
+      {
+        "colorName": "sea salt",
+        "colorCode": "SW6204",
+        "colorHex": "#cdd2ca"
+      },
+      {
+        "colorName": "conservative gray",
+        "colorCode": "SW6183",
+        "colorHex": "#d1d0c6"
+      },
+      {
+        "colorName": "frostwork",
+        "colorCode": "SW0059",
+        "colorHex": "#cbd0c2"
+      },
+      {
+        "colorName": "liveable green",
+        "colorCode": "SW6176",
+        "colorHex": "#cecebd"
+      },
+      {
+        "colorName": "pearl gray",
+        "colorCode": "SW0052",
+        "colorHex": "#cbcec5"
+      },
+      {
+        "colorName": "ancient marble",
+        "colorCode": "SW6162",
+        "colorHex": "#d1ccb9"
+      },
+      {
+        "colorName": "acanthus",
+        "colorCode": "SW0029",
+        "colorHex": "#cdcdb4"
+      },
+      {
+        "colorName": "rainwashed",
+        "colorCode": "SW6211",
+        "colorHex": "#c2cdc5"
+      },
+      {
+        "colorName": "copen blue",
+        "colorCode": "SW0068",
+        "colorHex": "#c2ccc4"
+      },
+      {
+        "colorName": "aloof gray",
+        "colorCode": "SW6197",
+        "colorHex": "#c9c9c0"
+      },
+      {
+        "colorName": "cargo pants",
+        "colorCode": "SW7738",
+        "colorHex": "#cdc4ae"
+      },
+      {
+        "colorName": "comfort gray",
+        "colorCode": "SW6205",
+        "colorHex": "#bec3bb"
+      },
+      {
+        "colorName": "contented",
+        "colorCode": "SW6191",
+        "colorHex": "#bdc0b3"
+      },
+      {
+        "colorName": "austere gray",
+        "colorCode": "SW6184",
+        "colorHex": "#bebfb2"
+      },
+      {
+        "colorName": "lemongrass",
+        "colorCode": "SW7732",
+        "colorHex": "#c8bd98"
+      },
+      {
+        "colorName": "grassland",
+        "colorCode": "SW6163",
+        "colorHex": "#c1bca7"
+      },
+      {
+        "colorName": "softened green",
+        "colorCode": "SW6177",
+        "colorHex": "#bbbca7"
+      },
+      {
+        "colorName": "quietude",
+        "colorCode": "SW6212",
+        "colorHex": "#adbbb2"
+      },
+      {
+        "colorName": "sensible hue",
+        "colorCode": "SW6198",
+        "colorHex": "#b6b5ab"
+      },
+      {
+        "colorName": "koi pond",
+        "colorCode": "SW7727",
+        "colorHex": "#b9b292"
+      },
+      {
+        "colorName": "oyster bay",
+        "colorCode": "SW6206",
+        "colorHex": "#aeb3a9"
+      },
+      {
+        "colorName": "avenue tan",
+        "colorCode": "SW7543",
+        "colorHex": "#bcb099"
+      },
+      {
+        "colorName": "cascade green",
+        "colorCode": "SW0066",
+        "colorHex": "#acb19f"
+      },
+      {
+        "colorName": "sage",
+        "colorCode": "SW2860",
+        "colorHex": "#b3ae95"
+      },
+      {
+        "colorName": "majolica green",
+        "colorCode": "SW0013",
+        "colorHex": "#aeb08f"
+      },
+      {
+        "colorName": "svelte sage",
+        "colorCode": "SW6164",
+        "colorHex": "#b2ac96"
+      },
+      {
+        "colorName": "willow tree",
+        "colorCode": "SW7741",
+        "colorHex": "#aaad9c"
+      },
+      {
+        "colorName": "clary sage",
+        "colorCode": "SW6178",
+        "colorHex": "#acad97"
+      },
+      {
+        "colorName": "escape gray",
+        "colorCode": "SW6185",
+        "colorHex": "#abac9f"
+      },
+      {
+        "colorName": "halcyon green",
+        "colorCode": "SW6213",
+        "colorHex": "#9baaa2"
+      },
+      {
+        "colorName": "garden sage",
+        "colorCode": "SW7736",
+        "colorHex": "#b1a584"
+      },
+      {
+        "colorName": "rare gray",
+        "colorCode": "SW6199",
+        "colorHex": "#a6a69b"
+      },
+      {
+        "colorName": "prairie grass",
+        "colorCode": "SW7546",
+        "colorHex": "#b1a38e"
+      },
+      {
+        "colorName": "bamboo shoot",
+        "colorCode": "SW7733",
+        "colorHex": "#b3a479"
+      },
+      {
+        "colorName": "coastal plain",
+        "colorCode": "SW6192",
+        "colorHex": "#9fa694"
+      },
+      {
+        "colorName": "ruskin room green",
+        "colorCode": "SW0042",
+        "colorHex": "#aca17d"
+      },
+      {
+        "colorName": "green sprout",
+        "colorCode": "SW7728",
+        "colorHex": "#a29f80"
+      },
+      {
+        "colorName": "colonial revival green stone",
+        "colorCode": "SW2826",
+        "colorHex": "#a39b7e"
+      },
+      {
+        "colorName": "rookwood jade",
+        "colorCode": "SW2812",
+        "colorHex": "#979f7f"
+      },
+      {
+        "colorName": "herbal wash",
+        "colorCode": "SW7739",
+        "colorHex": "#a49b82"
+      },
+      {
+        "colorName": "acacia haze",
+        "colorCode": "SW9132",
+        "colorHex": "#969c92"
+      },
+      {
+        "colorName": "jasper stone",
+        "colorCode": "SW9133",
+        "colorHex": "#8d9e97"
+      },
+      {
+        "colorName": "at ease soldier",
+        "colorCode": "SW9127",
+        "colorHex": "#9e9985"
+      },
+      {
+        "colorName": "green onyx",
+        "colorCode": "SW9128",
+        "colorHex": "#989a82"
+      },
+      {
+        "colorName": "green earth",
+        "colorCode": "SW7748",
+        "colorHex": "#9a9883"
+      },
+      {
+        "colorName": "lemon verbena",
+        "colorCode": "SW7726",
+        "colorHex": "#9d986f"
+      },
+      {
+        "colorName": "san antonio sage",
+        "colorCode": "SW7731",
+        "colorHex": "#a69474"
+      },
+      {
+        "colorName": "evergreen fog",
+        "colorCode": "SW9130",
+        "colorHex": "#95978a"
+      },
+      {
+        "colorName": "jade dragon",
+        "colorCode": "SW9129",
+        "colorHex": "#909886"
+      },
+      {
+        "colorName": "cornwall slate",
+        "colorCode": "SW9131",
+        "colorHex": "#949488"
+      },
+      {
+        "colorName": "zeus",
+        "colorCode": "SW7744",
+        "colorHex": "#99907e"
+      },
+      {
+        "colorName": "underseas",
+        "colorCode": "SW6214",
+        "colorHex": "#7c8e87"
+      },
+      {
+        "colorName": "renwick olive",
+        "colorCode": "SW2815",
+        "colorHex": "#97896a"
+      },
+      {
+        "colorName": "sheraton sage",
+        "colorCode": "SW0014",
+        "colorHex": "#8f8666"
+      },
+      {
+        "colorName": "connected gray",
+        "colorCode": "SW6165",
+        "colorHex": "#898473"
+      },
+      {
+        "colorName": "privilege green",
+        "colorCode": "SW6193",
+        "colorHex": "#7a8775"
+      },
+      {
+        "colorName": "rookwood blue green",
+        "colorCode": "SW2811",
+        "colorHex": "#738478"
+      },
+      {
+        "colorName": "artichoke",
+        "colorCode": "SW6179",
+        "colorHex": "#7f8266"
+      },
+      {
+        "colorName": "retreat",
+        "colorCode": "SW6207",
+        "colorHex": "#7a8076"
+      },
+      {
+        "colorName": "dried thyme",
+        "colorCode": "SW6186",
+        "colorHex": "#7b8070"
+      },
+      {
+        "colorName": "link gray",
+        "colorCode": "SW6200",
+        "colorHex": "#7f7e72"
+      },
+      {
+        "colorName": "studio blue green",
+        "colorCode": "SW0047",
+        "colorHex": "#6d817b"
+      },
+      {
+        "colorName": "avocado",
+        "colorCode": "SW2861",
+        "colorHex": "#857c5d"
+      },
+      {
+        "colorName": "olive grove",
+        "colorCode": "SW7734",
+        "colorHex": "#857c5d"
+      },
+      {
+        "colorName": "edamame",
+        "colorCode": "SW7729",
+        "colorHex": "#827c5a"
+      },
+      {
+        "colorName": "messenger bag",
+        "colorCode": "SW7740",
+        "colorHex": "#7d745e"
+      },
+      {
+        "colorName": "sage green light",
+        "colorCode": "SW2851",
+        "colorHex": "#73705e"
+      },
+      {
+        "colorName": "roycroft brass",
+        "colorCode": "SW2843",
+        "colorHex": "#7a6a51"
+      },
+      {
+        "colorName": "rocky river",
+        "colorCode": "SW6215",
+        "colorHex": "#5e706a"
+      },
+      {
+        "colorName": "thunderous",
+        "colorCode": "SW6201",
+        "colorHex": "#6d6c62"
+      },
+      {
+        "colorName": "basil",
+        "colorCode": "SW6194",
+        "colorHex": "#626e60"
+      },
+      {
+        "colorName": "eclipse",
+        "colorCode": "SW6166",
+        "colorHex": "#6b6757"
+      },
+      {
+        "colorName": "rosemary",
+        "colorCode": "SW6187",
+        "colorHex": "#64695c"
+      },
+      {
+        "colorName": "oakmoss",
+        "colorCode": "SW6180",
+        "colorHex": "#65684c"
+      },
+      {
+        "colorName": "rookwood sash green",
+        "colorCode": "SW2810",
+        "colorHex": "#506a67"
+      },
+      {
+        "colorName": "cast iron",
+        "colorCode": "SW6202",
+        "colorHex": "#64645a"
+      },
+      {
+        "colorName": "pewter green",
+        "colorCode": "SW6208",
+        "colorHex": "#5e6259"
+      },
+      {
+        "colorName": "rookwood dark green",
+        "colorCode": "SW2816",
+        "colorHex": "#565c4a"
+      },
+      {
+        "colorName": "garden gate",
+        "colorCode": "SW6167",
+        "colorHex": "#5e5949"
+      },
+      {
+        "colorName": "roycroft bronze green",
+        "colorCode": "SW2846",
+        "colorHex": "#575449"
+      },
+      {
+        "colorName": "thunder gray",
+        "colorCode": "SW7645",
+        "colorHex": "#57534c"
+      },
+      {
+        "colorName": "vogue green",
+        "colorCode": "SW0065",
+        "colorHex": "#4b5645"
+      },
+      {
+        "colorName": "forestwood",
+        "colorCode": "SW7730",
+        "colorHex": "#4d5346"
+      },
+      {
+        "colorName": "rock garden",
+        "colorCode": "SW6195",
+        "colorHex": "#465448"
+      },
+      {
+        "colorName": "secret garden",
+        "colorCode": "SW6181",
+        "colorHex": "#4f523a"
+      },
+      {
+        "colorName": "shade-grown",
+        "colorCode": "SW6188",
+        "colorHex": "#4e5147"
+      },
+      {
+        "colorName": "rock bottom",
+        "colorCode": "SW7062",
+        "colorHex": "#484c49"
+      },
+      {
+        "colorName": "olympic range",
+        "colorCode": "SW7750",
+        "colorHex": "#424c44"
+      },
+      {
+        "colorName": "foxhall green",
+        "colorCode": "SW9184",
+        "colorHex": "#454b40"
+      },
+      {
+        "colorName": "ripe olive",
+        "colorCode": "SW6209",
+        "colorHex": "#44483d"
+      },
+      {
+        "colorName": "dard hunter green",
+        "colorCode": "SW0041",
+        "colorHex": "#3a4a3f"
+      },
+      {
+        "colorName": "andiron",
+        "colorCode": "SW6174",
+        "colorHex": "#424036"
+      },
+      {
+        "colorName": "roycroft bottle green",
+        "colorCode": "SW2847",
+        "colorHex": "#324038"
+      },
+      {
+        "colorName": "cascades",
+        "colorCode": "SW7623",
+        "colorHex": "#273e3e"
+      },
+      {
+        "colorName": "jasper",
+        "colorCode": "SW6216",
+        "colorHex": "#343b36"
+      },
+      {
+        "colorName": "rookwood shutter green",
+        "colorCode": "SW2809",
+        "colorHex": "#303b39"
+      }
+    ],
+    "Blues": [
+      {
+        "colorName": "snowdrop",
+        "colorCode": "SW6511",
+        "colorHex": "#e0e8e7"
+      },
+      {
+        "colorName": "embellished blue",
+        "colorCode": "SW6749",
+        "colorHex": "#d7ebe2"
+      },
+      {
+        "colorName": "sky high",
+        "colorCode": "SW6504",
+        "colorHex": "#dce7e8"
+      },
+      {
+        "colorName": "blue horizon",
+        "colorCode": "SW6497",
+        "colorHex": "#d8e7e6"
+      },
+      {
+        "colorName": "bravo blue",
+        "colorCode": "SW6784",
+        "colorHex": "#d3e7e9"
+      },
+      {
+        "colorName": "iceberg",
+        "colorCode": "SW6798",
+        "colorHex": "#d6e4e7"
+      },
+      {
+        "colorName": "green trance",
+        "colorCode": "SW6462",
+        "colorHex": "#d7e4db"
+      },
+      {
+        "colorName": "topsail",
+        "colorCode": "SW6217",
+        "colorHex": "#dae2e0"
+      },
+      {
+        "colorName": "fleeting green",
+        "colorCode": "SW6455",
+        "colorHex": "#d8e2d8"
+      },
+      {
+        "colorName": "tame teal",
+        "colorCode": "SW6757",
+        "colorHex": "#c1e6df"
+      },
+      {
+        "colorName": "mountain air",
+        "colorCode": "SW6224",
+        "colorHex": "#d8e0df"
+      },
+      {
+        "colorName": "swimming",
+        "colorCode": "SW6764",
+        "colorHex": "#c2e5e5"
+      },
+      {
+        "colorName": "opaline",
+        "colorCode": "SW6189",
+        "colorHex": "#dcdfd7"
+      },
+      {
+        "colorName": "aviary blue",
+        "colorCode": "SW6778",
+        "colorHex": "#c6e3e8"
+      },
+      {
+        "colorName": "window pane",
+        "colorCode": "SW6210",
+        "colorHex": "#d7dfd8"
+      },
+      {
+        "colorName": "waterfall",
+        "colorCode": "SW6750",
+        "colorHex": "#c0e3da"
+      },
+      {
+        "colorName": "bathe blue",
+        "colorCode": "SW6771",
+        "colorHex": "#c2e0e3"
+      },
+      {
+        "colorName": "quench blue",
+        "colorCode": "SW6785",
+        "colorHex": "#b4e0e7"
+      },
+      {
+        "colorName": "minor blue",
+        "colorCode": "SW6792",
+        "colorHex": "#b7dfe8"
+      },
+      {
+        "colorName": "spa",
+        "colorCode": "SW6765",
+        "colorHex": "#a7dcdc"
+      },
+      {
+        "colorName": "bluebell",
+        "colorCode": "SW6793",
+        "colorHex": "#a2d5e7"
+      },
+      {
+        "colorName": "tantalizing teal",
+        "colorCode": "SW6937",
+        "colorHex": "#87dcce"
+      },
+      {
+        "colorName": "liquid blue",
+        "colorCode": "SW6779",
+        "colorHex": "#a6d4de"
+      },
+      {
+        "colorName": "aqueduct",
+        "colorCode": "SW6758",
+        "colorHex": "#a1d5cb"
+      },
+      {
+        "colorName": "refresh",
+        "colorCode": "SW6751",
+        "colorHex": "#a1d4c8"
+      },
+      {
+        "colorName": "cay",
+        "colorCode": "SW6772",
+        "colorHex": "#a6d0d6"
+      },
+      {
+        "colorName": "cloudless",
+        "colorCode": "SW6786",
+        "colorHex": "#8fd0dd"
+      },
+      {
+        "colorName": "bora bora shore",
+        "colorCode": "SW9045",
+        "colorHex": "#92d0d0"
+      },
+      {
+        "colorName": "gentle aquamarine",
+        "colorCode": "SW9046",
+        "colorHex": "#97cbd2"
+      },
+      {
+        "colorName": "sky fall",
+        "colorCode": "SW9049",
+        "colorHex": "#89c6df"
+      },
+      {
+        "colorName": "after the rain",
+        "colorCode": "SW9047",
+        "colorHex": "#8bc4d1"
+      },
+      {
+        "colorName": "holiday turquoise",
+        "colorCode": "SW0075",
+        "colorHex": "#8ac6bd"
+      },
+      {
+        "colorName": "aquastone",
+        "colorCode": "SW9043",
+        "colorHex": "#89c6b7"
+      },
+      {
+        "colorName": "undercool",
+        "colorCode": "SW6957",
+        "colorHex": "#7fc3e1"
+      },
+      {
+        "colorName": "little blue box",
+        "colorCode": "SW9044",
+        "colorHex": "#8ac5ba"
+      },
+      {
+        "colorName": "rapture blue",
+        "colorCode": "SW6773",
+        "colorHex": "#7dc1cb"
+      },
+      {
+        "colorName": "surfin'",
+        "colorCode": "SW9048",
+        "colorHex": "#73c0d2"
+      },
+      {
+        "colorName": "mariner",
+        "colorCode": "SW6766",
+        "colorHex": "#6ec2c4"
+      },
+      {
+        "colorName": "nautilus",
+        "colorCode": "SW6780",
+        "colorHex": "#71b8c7"
+      },
+      {
+        "colorName": "cooled blue",
+        "colorCode": "SW6759",
+        "colorHex": "#75b9ae"
+      },
+      {
+        "colorName": "larchmere",
+        "colorCode": "SW6752",
+        "colorHex": "#70baa7"
+      },
+      {
+        "colorName": "fountain",
+        "colorCode": "SW6787",
+        "colorHex": "#56b5ca"
+      },
+      {
+        "colorName": "flyway",
+        "colorCode": "SW6794",
+        "colorHex": "#5db3d4"
+      },
+      {
+        "colorName": "calypso",
+        "colorCode": "SW6950",
+        "colorHex": "#01b0bb"
+      },
+      {
+        "colorName": "rivulet",
+        "colorCode": "SW6760",
+        "colorHex": "#61a89d"
+      },
+      {
+        "colorName": "aquarium",
+        "colorCode": "SW6767",
+        "colorHex": "#3aa9ae"
+      },
+      {
+        "colorName": "freshwater",
+        "colorCode": "SW6774",
+        "colorHex": "#4da6b2"
+      },
+      {
+        "colorName": "jamaica bay",
+        "colorCode": "SW6781",
+        "colorHex": "#34a3b6"
+      },
+      {
+        "colorName": "jargon jade",
+        "colorCode": "SW6753",
+        "colorHex": "#53a38f"
+      },
+      {
+        "colorName": "major blue",
+        "colorCode": "SW6795",
+        "colorHex": "#289ec4"
+      },
+      {
+        "colorName": "capri",
+        "colorCode": "SW6788",
+        "colorHex": "#01a0b8"
+      },
+      {
+        "colorName": "jitterbug jade",
+        "colorCode": "SW6987",
+        "colorHex": "#019d6e"
+      },
+      {
+        "colorName": "dynamic blue",
+        "colorCode": "SW6958",
+        "colorHex": "#0192c6"
+      },
+      {
+        "colorName": "splashy",
+        "colorCode": "SW6942",
+        "colorHex": "#019196"
+      },
+      {
+        "colorName": "thermal spring",
+        "colorCode": "SW6761",
+        "colorHex": "#3b8c80"
+      },
+      {
+        "colorName": "nifty turquoise",
+        "colorCode": "SW6941",
+        "colorHex": "#019187"
+      },
+      {
+        "colorName": "ionian",
+        "colorCode": "SW6754",
+        "colorHex": "#368976"
+      },
+      {
+        "colorName": "cruising",
+        "colorCode": "SW6782",
+        "colorHex": "#018498"
+      },
+      {
+        "colorName": "gulfstream",
+        "colorCode": "SW6768",
+        "colorHex": "#01858b"
+      },
+      {
+        "colorName": "briny",
+        "colorCode": "SW6775",
+        "colorHex": "#08808e"
+      },
+      {
+        "colorName": "blue mosque",
+        "colorCode": "SW6789",
+        "colorHex": "#01819e"
+      },
+      {
+        "colorName": "blue plate",
+        "colorCode": "SW6796",
+        "colorHex": "#017ca7"
+      },
+      {
+        "colorName": "intense teal",
+        "colorCode": "SW6943",
+        "colorHex": "#017680"
+      },
+      {
+        "colorName": "maxi teal",
+        "colorCode": "SW6769",
+        "colorHex": "#017478"
+      },
+      {
+        "colorName": "blue nile",
+        "colorCode": "SW6776",
+        "colorHex": "#01717e"
+      },
+      {
+        "colorName": "amalfi",
+        "colorCode": "SW6783",
+        "colorHex": "#016e85"
+      },
+      {
+        "colorName": "poseidon",
+        "colorCode": "SW6762",
+        "colorHex": "#016d60"
+      },
+      {
+        "colorName": "starboard",
+        "colorCode": "SW6755",
+        "colorHex": "#016c4f"
+      },
+      {
+        "colorName": "hyper blue",
+        "colorCode": "SW6965",
+        "colorHex": "#015f97"
+      },
+      {
+        "colorName": "adriatic sea",
+        "colorCode": "SW6790",
+        "colorHex": "#016081"
+      },
+      {
+        "colorName": "jay blue",
+        "colorCode": "SW6797",
+        "colorHex": "#015d87"
+      },
+      {
+        "colorName": "open air",
+        "colorCode": "SW6491",
+        "colorHex": "#c7dfe0"
+      },
+      {
+        "colorName": "byte blue",
+        "colorCode": "SW6498",
+        "colorHex": "#c5dce0"
+      },
+      {
+        "colorName": "atmospheric",
+        "colorCode": "SW6505",
+        "colorHex": "#c2dae0"
+      },
+      {
+        "colorName": "little boy blu",
+        "colorCode": "SW9054",
+        "colorHex": "#c7d8db"
+      },
+      {
+        "colorName": "meander blue",
+        "colorCode": "SW6484",
+        "colorHex": "#bedbd8"
+      },
+      {
+        "colorName": "tidewater",
+        "colorCode": "SW6477",
+        "colorHex": "#c3d7d3"
+      },
+      {
+        "colorName": "waterscape",
+        "colorCode": "SW6470",
+        "colorHex": "#bfd2c9"
+      },
+      {
+        "colorName": "jetstream",
+        "colorCode": "SW6492",
+        "colorHex": "#b0d2d6"
+      },
+      {
+        "colorName": "watery",
+        "colorCode": "SW6478",
+        "colorHex": "#b4ccc9"
+      },
+      {
+        "colorName": "stream",
+        "colorCode": "SW6499",
+        "colorHex": "#adccd3"
+      },
+      {
+        "colorName": "vast sky",
+        "colorCode": "SW6506",
+        "colorHex": "#a9c9d7"
+      },
+      {
+        "colorName": "billowy breeze",
+        "colorCode": "SW9055",
+        "colorHex": "#afc7cd"
+      },
+      {
+        "colorName": "raindrop",
+        "colorCode": "SW6485",
+        "colorHex": "#9ec6c6"
+      },
+      {
+        "colorName": "agua fría",
+        "colorCode": "SW9053",
+        "colorHex": "#9fc5cc"
+      },
+      {
+        "colorName": "hazel",
+        "colorCode": "SW6471",
+        "colorHex": "#a8c1b7"
+      },
+      {
+        "colorName": "aquaverde",
+        "colorCode": "SW9051",
+        "colorHex": "#a3c0bd"
+      },
+      {
+        "colorName": "rest assured",
+        "colorCode": "SW9061",
+        "colorHex": "#9bbfc9"
+      },
+      {
+        "colorName": "french moire",
+        "colorCode": "SW9056",
+        "colorHex": "#9fbbc3"
+      },
+      {
+        "colorName": "blithe blue",
+        "colorCode": "SW9052",
+        "colorHex": "#90bdbd"
+      },
+      {
+        "colorName": "ebbtide",
+        "colorCode": "SW6493",
+        "colorHex": "#84b4be"
+      },
+      {
+        "colorName": "vintage vessel",
+        "colorCode": "SW9050",
+        "colorHex": "#94b2a6"
+      },
+      {
+        "colorName": "resolute blue",
+        "colorCode": "SW6507",
+        "colorHex": "#85b0c4"
+      },
+      {
+        "colorName": "open seas",
+        "colorCode": "SW6500",
+        "colorHex": "#83afbc"
+      },
+      {
+        "colorName": "drizzle",
+        "colorCode": "SW6479",
+        "colorHex": "#8caeab"
+      },
+      {
+        "colorName": "reflecting pool",
+        "colorCode": "SW6486",
+        "colorHex": "#7bb1b2"
+      },
+      {
+        "colorName": "aquitaine",
+        "colorCode": "SW9057",
+        "colorHex": "#88abb4"
+      },
+      {
+        "colorName": "composed",
+        "colorCode": "SW6472",
+        "colorHex": "#7ea298"
+      },
+      {
+        "colorName": "bluebird feather",
+        "colorCode": "SW9062",
+        "colorHex": "#6f9db3"
+      },
+      {
+        "colorName": "lakeshore",
+        "colorCode": "SW6494",
+        "colorHex": "#5b96a2"
+      },
+      {
+        "colorName": "cloudburst",
+        "colorCode": "SW6487",
+        "colorHex": "#5c9598"
+      },
+      {
+        "colorName": "manitou blue",
+        "colorCode": "SW6501",
+        "colorHex": "#5b92a2"
+      },
+      {
+        "colorName": "secret cove",
+        "colorCode": "SW9058",
+        "colorHex": "#68909d"
+      },
+      {
+        "colorName": "secure blue",
+        "colorCode": "SW6508",
+        "colorHex": "#5389a1"
+      },
+      {
+        "colorName": "surf green",
+        "colorCode": "SW6473",
+        "colorHex": "#5f887d"
+      },
+      {
+        "colorName": "lagoon",
+        "colorCode": "SW6480",
+        "colorHex": "#518682"
+      },
+      {
+        "colorName": "grand canal",
+        "colorCode": "SW6488",
+        "colorHex": "#3c797d"
+      },
+      {
+        "colorName": "loch blue",
+        "colorCode": "SW6502",
+        "colorHex": "#2f778b"
+      },
+      {
+        "colorName": "silken peacock",
+        "colorCode": "SW9059",
+        "colorHex": "#427584"
+      },
+      {
+        "colorName": "great falls",
+        "colorCode": "SW6495",
+        "colorHex": "#217786"
+      },
+      {
+        "colorName": "raging sea",
+        "colorCode": "SW6474",
+        "colorHex": "#476f65"
+      },
+      {
+        "colorName": "green bay",
+        "colorCode": "SW6481",
+        "colorHex": "#2e6864"
+      },
+      {
+        "colorName": "georgian bay",
+        "colorCode": "SW6509",
+        "colorHex": "#22657f"
+      },
+      {
+        "colorName": "really teal",
+        "colorCode": "SW6489",
+        "colorHex": "#016367"
+      },
+      {
+        "colorName": "bosporus",
+        "colorCode": "SW6503",
+        "colorHex": "#015d75"
+      },
+      {
+        "colorName": "connor's lakefront",
+        "colorCode": "SW9060",
+        "colorHex": "#175a6c"
+      },
+      {
+        "colorName": "oceanside",
+        "colorCode": "SW6496",
+        "colorHex": "#015a6b"
+      },
+      {
+        "colorName": "cape verde",
+        "colorCode": "SW6482",
+        "colorHex": "#01554f"
+      },
+      {
+        "colorName": "blue peacock",
+        "colorCode": "SW0064",
+        "colorHex": "#014e4c"
+      },
+      {
+        "colorName": "country squire",
+        "colorCode": "SW6475",
+        "colorHex": "#124a42"
+      },
+      {
+        "colorName": "loyal blue",
+        "colorCode": "SW6510",
+        "colorHex": "#01455e"
+      },
+      {
+        "colorName": "open air",
+        "colorCode": "SW6491",
+        "colorHex": "#c7dfe0"
+      },
+      {
+        "colorName": "byte blue",
+        "colorCode": "SW6498",
+        "colorHex": "#c5dce0"
+      },
+      {
+        "colorName": "atmospheric",
+        "colorCode": "SW6505",
+        "colorHex": "#c2dae0"
+      },
+      {
+        "colorName": "little boy blu",
+        "colorCode": "SW9054",
+        "colorHex": "#c7d8db"
+      },
+      {
+        "colorName": "meander blue",
+        "colorCode": "SW6484",
+        "colorHex": "#bedbd8"
+      },
+      {
+        "colorName": "tidewater",
+        "colorCode": "SW6477",
+        "colorHex": "#c3d7d3"
+      },
+      {
+        "colorName": "waterscape",
+        "colorCode": "SW6470",
+        "colorHex": "#bfd2c9"
+      },
+      {
+        "colorName": "jetstream",
+        "colorCode": "SW6492",
+        "colorHex": "#b0d2d6"
+      },
+      {
+        "colorName": "watery",
+        "colorCode": "SW6478",
+        "colorHex": "#b4ccc9"
+      },
+      {
+        "colorName": "stream",
+        "colorCode": "SW6499",
+        "colorHex": "#adccd3"
+      },
+      {
+        "colorName": "vast sky",
+        "colorCode": "SW6506",
+        "colorHex": "#a9c9d7"
+      },
+      {
+        "colorName": "billowy breeze",
+        "colorCode": "SW9055",
+        "colorHex": "#afc7cd"
+      },
+      {
+        "colorName": "raindrop",
+        "colorCode": "SW6485",
+        "colorHex": "#9ec6c6"
+      },
+      {
+        "colorName": "agua fría",
+        "colorCode": "SW9053",
+        "colorHex": "#9fc5cc"
+      },
+      {
+        "colorName": "hazel",
+        "colorCode": "SW6471",
+        "colorHex": "#a8c1b7"
+      },
+      {
+        "colorName": "aquaverde",
+        "colorCode": "SW9051",
+        "colorHex": "#a3c0bd"
+      },
+      {
+        "colorName": "rest assured",
+        "colorCode": "SW9061",
+        "colorHex": "#9bbfc9"
+      },
+      {
+        "colorName": "french moire",
+        "colorCode": "SW9056",
+        "colorHex": "#9fbbc3"
+      },
+      {
+        "colorName": "blithe blue",
+        "colorCode": "SW9052",
+        "colorHex": "#90bdbd"
+      },
+      {
+        "colorName": "ebbtide",
+        "colorCode": "SW6493",
+        "colorHex": "#84b4be"
+      },
+      {
+        "colorName": "vintage vessel",
+        "colorCode": "SW9050",
+        "colorHex": "#94b2a6"
+      },
+      {
+        "colorName": "resolute blue",
+        "colorCode": "SW6507",
+        "colorHex": "#85b0c4"
+      },
+      {
+        "colorName": "open seas",
+        "colorCode": "SW6500",
+        "colorHex": "#83afbc"
+      },
+      {
+        "colorName": "drizzle",
+        "colorCode": "SW6479",
+        "colorHex": "#8caeab"
+      },
+      {
+        "colorName": "reflecting pool",
+        "colorCode": "SW6486",
+        "colorHex": "#7bb1b2"
+      },
+      {
+        "colorName": "aquitaine",
+        "colorCode": "SW9057",
+        "colorHex": "#88abb4"
+      },
+      {
+        "colorName": "composed",
+        "colorCode": "SW6472",
+        "colorHex": "#7ea298"
+      },
+      {
+        "colorName": "bluebird feather",
+        "colorCode": "SW9062",
+        "colorHex": "#6f9db3"
+      },
+      {
+        "colorName": "lakeshore",
+        "colorCode": "SW6494",
+        "colorHex": "#5b96a2"
+      },
+      {
+        "colorName": "cloudburst",
+        "colorCode": "SW6487",
+        "colorHex": "#5c9598"
+      },
+      {
+        "colorName": "manitou blue",
+        "colorCode": "SW6501",
+        "colorHex": "#5b92a2"
+      },
+      {
+        "colorName": "secret cove",
+        "colorCode": "SW9058",
+        "colorHex": "#68909d"
+      },
+      {
+        "colorName": "secure blue",
+        "colorCode": "SW6508",
+        "colorHex": "#5389a1"
+      },
+      {
+        "colorName": "surf green",
+        "colorCode": "SW6473",
+        "colorHex": "#5f887d"
+      },
+      {
+        "colorName": "lagoon",
+        "colorCode": "SW6480",
+        "colorHex": "#518682"
+      },
+      {
+        "colorName": "grand canal",
+        "colorCode": "SW6488",
+        "colorHex": "#3c797d"
+      },
+      {
+        "colorName": "loch blue",
+        "colorCode": "SW6502",
+        "colorHex": "#2f778b"
+      },
+      {
+        "colorName": "silken peacock",
+        "colorCode": "SW9059",
+        "colorHex": "#427584"
+      },
+      {
+        "colorName": "great falls",
+        "colorCode": "SW6495",
+        "colorHex": "#217786"
+      },
+      {
+        "colorName": "raging sea",
+        "colorCode": "SW6474",
+        "colorHex": "#476f65"
+      },
+      {
+        "colorName": "green bay",
+        "colorCode": "SW6481",
+        "colorHex": "#2e6864"
+      },
+      {
+        "colorName": "georgian bay",
+        "colorCode": "SW6509",
+        "colorHex": "#22657f"
+      },
+      {
+        "colorName": "really teal",
+        "colorCode": "SW6489",
+        "colorHex": "#016367"
+      },
+      {
+        "colorName": "bosporus",
+        "colorCode": "SW6503",
+        "colorHex": "#015d75"
+      },
+      {
+        "colorName": "connor's lakefront",
+        "colorCode": "SW9060",
+        "colorHex": "#175a6c"
+      },
+      {
+        "colorName": "oceanside",
+        "colorCode": "SW6496",
+        "colorHex": "#015a6b"
+      },
+      {
+        "colorName": "cape verde",
+        "colorCode": "SW6482",
+        "colorHex": "#01554f"
+      },
+      {
+        "colorName": "blue peacock",
+        "colorCode": "SW0064",
+        "colorHex": "#014e4c"
+      },
+      {
+        "colorName": "country squire",
+        "colorCode": "SW6475",
+        "colorHex": "#124a42"
+      },
+      {
+        "colorName": "loyal blue",
+        "colorCode": "SW6510",
+        "colorHex": "#01455e"
+      }
+    ],
+    "Reds": [
+      {
+        "colorName": "welcome white",
+        "colorCode": "SW6658",
+        "colorHex": "#f3e3ca"
+      },
+      {
+        "colorName": "champagne",
+        "colorCode": "SW6644",
+        "colorHex": "#f2e3ce"
+      },
+      {
+        "colorName": "gardenia",
+        "colorCode": "SW6665",
+        "colorHex": "#f3e2c9"
+      },
+      {
+        "colorName": "nearly peach",
+        "colorCode": "SW6336",
+        "colorHex": "#efded1"
+      },
+      {
+        "colorName": "alyssum",
+        "colorCode": "SW6589",
+        "colorHex": "#f2d5d7"
+      },
+      {
+        "colorName": "lighthearted pink",
+        "colorCode": "SW6568",
+        "colorHex": "#edd5dd"
+      },
+      {
+        "colorName": "priscilla",
+        "colorCode": "SW6575",
+        "colorHex": "#f1d3da"
+      },
+      {
+        "colorName": "impatiens petal",
+        "colorCode": "SW6582",
+        "colorHex": "#f1d2d7"
+      },
+      {
+        "colorName": "teaberry",
+        "colorCode": "SW6561",
+        "colorHex": "#ebd1db"
+      },
+      {
+        "colorName": "oleander",
+        "colorCode": "SW6603",
+        "colorHex": "#f2ccc5"
+      },
+      {
+        "colorName": "bella pink",
+        "colorCode": "SW6596",
+        "colorHex": "#f1c6c4"
+      },
+      {
+        "colorName": "loveable",
+        "colorCode": "SW6590",
+        "colorHex": "#f0c1c6"
+      },
+      {
+        "colorName": "azalea flower",
+        "colorCode": "SW6576",
+        "colorHex": "#efc0cb"
+      },
+      {
+        "colorName": "childlike",
+        "colorCode": "SW6569",
+        "colorHex": "#e8c0cf"
+      },
+      {
+        "colorName": "jazz age coral",
+        "colorCode": "SW0058",
+        "colorHex": "#f1bfb1"
+      },
+      {
+        "colorName": "in the pink",
+        "colorCode": "SW6583",
+        "colorHex": "#f0bcc9"
+      },
+      {
+        "colorName": "irresistible",
+        "colorCode": "SW6562",
+        "colorHex": "#e3c0cf"
+      },
+      {
+        "colorName": "hopeful",
+        "colorCode": "SW6597",
+        "colorHex": "#f0b3b2"
+      },
+      {
+        "colorName": "amaryllis",
+        "colorCode": "SW6591",
+        "colorHex": "#ed939d"
+      },
+      {
+        "colorName": "charisma",
+        "colorCode": "SW6605",
+        "colorHex": "#ee9489"
+      },
+      {
+        "colorName": "cheery",
+        "colorCode": "SW6584",
+        "colorHex": "#eb92a3"
+      },
+      {
+        "colorName": "haute pink",
+        "colorCode": "SW6570",
+        "colorHex": "#d899b1"
+      },
+      {
+        "colorName": "dishy coral",
+        "colorCode": "SW6598",
+        "colorHex": "#ed9190"
+      },
+      {
+        "colorName": "jaipur pink",
+        "colorCode": "SW6577",
+        "colorHex": "#e392a1"
+      },
+      {
+        "colorName": "rosebay",
+        "colorCode": "SW6563",
+        "colorHex": "#cb9aad"
+      },
+      {
+        "colorName": "tuberose",
+        "colorCode": "SW6578",
+        "colorHex": "#d47c8c"
+      },
+      {
+        "colorName": "coming up roses",
+        "colorCode": "SW6585",
+        "colorHex": "#dd7788"
+      },
+      {
+        "colorName": "coral reef",
+        "colorCode": "SW6606",
+        "colorHex": "#d9766c"
+      },
+      {
+        "colorName": "cyclamen",
+        "colorCode": "SW6571",
+        "colorHex": "#c47b95"
+      },
+      {
+        "colorName": "red clover",
+        "colorCode": "SW6564",
+        "colorHex": "#b87e93"
+      },
+      {
+        "colorName": "begonia",
+        "colorCode": "SW6599",
+        "colorHex": "#d76c6e"
+      },
+      {
+        "colorName": "grenadine",
+        "colorCode": "SW6592",
+        "colorHex": "#d66972"
+      },
+      {
+        "colorName": "dragon fruit",
+        "colorCode": "SW6855",
+        "colorHex": "#cc617f"
+      },
+      {
+        "colorName": "eros pink",
+        "colorCode": "SW6860",
+        "colorHex": "#c84f68"
+      },
+      {
+        "colorName": "heartfelt",
+        "colorCode": "SW6586",
+        "colorHex": "#bd4c5f"
+      },
+      {
+        "colorName": "exuberant pink",
+        "colorCode": "SW6840",
+        "colorHex": "#b54d7f"
+      },
+      {
+        "colorName": "coral bells",
+        "colorCode": "SW6593",
+        "colorHex": "#bb4b51"
+      },
+      {
+        "colorName": "enticing red",
+        "colorCode": "SW6600",
+        "colorHex": "#b74e4f"
+      },
+      {
+        "colorName": "ruby shade",
+        "colorCode": "SW6572",
+        "colorHex": "#a2566f"
+      },
+      {
+        "colorName": "gala pink",
+        "colorCode": "SW6579",
+        "colorHex": "#b04b63"
+      },
+      {
+        "colorName": "red tomato",
+        "colorCode": "SW6607",
+        "colorHex": "#b24743"
+      },
+      {
+        "colorName": "grandeur plum",
+        "colorCode": "SW6565",
+        "colorHex": "#92576f"
+      },
+      {
+        "colorName": "hot",
+        "colorCode": "SW6843",
+        "colorHex": "#ac4362"
+      },
+      {
+        "colorName": "real red",
+        "colorCode": "SW6868",
+        "colorHex": "#bf2d32"
+      },
+      {
+        "colorName": "cherries jubilee",
+        "colorCode": "SW6862",
+        "colorHex": "#ab3c51"
+      },
+      {
+        "colorName": "antique red",
+        "colorCode": "SW7587",
+        "colorHex": "#9f4442"
+      },
+      {
+        "colorName": "valentine",
+        "colorCode": "SW6587",
+        "colorHex": "#a53a4e"
+      },
+      {
+        "colorName": "rave red",
+        "colorCode": "SW6608",
+        "colorHex": "#a13b34"
+      },
+      {
+        "colorName": "tanager",
+        "colorCode": "SW6601",
+        "colorHex": "#a43834"
+      },
+      {
+        "colorName": "chinese red",
+        "colorCode": "SW0057",
+        "colorHex": "#9e3e33"
+      },
+      {
+        "colorName": "positive red",
+        "colorCode": "SW6871",
+        "colorHex": "#ad2c34"
+      },
+      {
+        "colorName": "dynamo",
+        "colorCode": "SW6841",
+        "colorHex": "#953d68"
+      },
+      {
+        "colorName": "heartthrob",
+        "colorCode": "SW6866",
+        "colorHex": "#a82e33"
+      },
+      {
+        "colorName": "poinsettia",
+        "colorCode": "SW6594",
+        "colorHex": "#9d373c"
+      },
+      {
+        "colorName": "radish",
+        "colorCode": "SW6861",
+        "colorHex": "#a42e41"
+      },
+      {
+        "colorName": "show stopper",
+        "colorCode": "SW7588",
+        "colorHex": "#a42e37"
+      },
+      {
+        "colorName": "cerise",
+        "colorCode": "SW6580",
+        "colorHex": "#99324e"
+      },
+      {
+        "colorName": "juneberry",
+        "colorCode": "SW6573",
+        "colorHex": "#854158"
+      },
+      {
+        "colorName": "forward fuchsia",
+        "colorCode": "SW6842",
+        "colorHex": "#92345b"
+      },
+      {
+        "colorName": "bolero",
+        "colorCode": "SW7600",
+        "colorHex": "#903934"
+      },
+      {
+        "colorName": "framboise",
+        "colorCode": "SW6566",
+        "colorHex": "#7c3655"
+      },
+      {
+        "colorName": "charming pink",
+        "colorCode": "SW6309",
+        "colorHex": "#edd3d2"
+      },
+      {
+        "colorName": "demure",
+        "colorCode": "SW6295",
+        "colorHex": "#e8d4d5"
+      },
+      {
+        "colorName": "innocence",
+        "colorCode": "SW6302",
+        "colorHex": "#ebd1cf"
+      },
+      {
+        "colorName": "romance",
+        "colorCode": "SW6323",
+        "colorHex": "#ebcfc3"
+      },
+      {
+        "colorName": "rosy outlook",
+        "colorCode": "SW6316",
+        "colorHex": "#ebcecb"
+      },
+      {
+        "colorName": "quaint peche",
+        "colorCode": "SW6330",
+        "colorHex": "#eacdc1"
+      },
+      {
+        "colorName": "rosebud",
+        "colorCode": "SW6288",
+        "colorHex": "#e0cdd1"
+      },
+      {
+        "colorName": "lotus flower",
+        "colorCode": "SW6310",
+        "colorHex": "#e6bdbd"
+      },
+      {
+        "colorName": "fading rose",
+        "colorCode": "SW6296",
+        "colorHex": "#dabdc1"
+      },
+      {
+        "colorName": "rachel pink",
+        "colorCode": "SW0026",
+        "colorHex": "#e8b9ae"
+      },
+      {
+        "colorName": "gracious rose",
+        "colorCode": "SW6317",
+        "colorHex": "#e3b7b1"
+      },
+      {
+        "colorName": "smoky salmon",
+        "colorCode": "SW6331",
+        "colorHex": "#e2b6a7"
+      },
+      {
+        "colorName": "mellow coral",
+        "colorCode": "SW6324",
+        "colorHex": "#e3b5a8"
+      },
+      {
+        "colorName": "rose colored",
+        "colorCode": "SW6303",
+        "colorHex": "#dcb6b5"
+      },
+      {
+        "colorName": "delightful",
+        "colorCode": "SW6289",
+        "colorHex": "#d2b6be"
+      },
+      {
+        "colorName": "rose embroidery",
+        "colorCode": "SW6297",
+        "colorHex": "#c79ea2"
+      },
+      {
+        "colorName": "coral island",
+        "colorCode": "SW6332",
+        "colorHex": "#ce9382"
+      },
+      {
+        "colorName": "pressed flower",
+        "colorCode": "SW6304",
+        "colorHex": "#c39393"
+      },
+      {
+        "colorName": "resounding rose",
+        "colorCode": "SW6318",
+        "colorHex": "#cd8e89"
+      },
+      {
+        "colorName": "rosé",
+        "colorCode": "SW6290",
+        "colorHex": "#b995a1"
+      },
+      {
+        "colorName": "constant coral",
+        "colorCode": "SW6325",
+        "colorHex": "#cd8e7f"
+      },
+      {
+        "colorName": "rosedust",
+        "colorCode": "SW0025",
+        "colorHex": "#cc8d84"
+      },
+      {
+        "colorName": "memorable rose",
+        "colorCode": "SW6311",
+        "colorHex": "#cf8a8d"
+      },
+      {
+        "colorName": "roycroft rose",
+        "colorCode": "SW0034",
+        "colorHex": "#c08f80"
+      },
+      {
+        "colorName": "coral rose",
+        "colorCode": "SW9004",
+        "colorHex": "#c37f7a"
+      },
+      {
+        "colorName": "audrey's blush",
+        "colorCode": "SW9001",
+        "colorHex": "#ae8087"
+      },
+      {
+        "colorName": "pink flamingo",
+        "colorCode": "SW0080",
+        "colorHex": "#cd717b"
+      },
+      {
+        "colorName": "coral clay",
+        "colorCode": "SW9005",
+        "colorHex": "#bf796e"
+      },
+      {
+        "colorName": "rita's rouge",
+        "colorCode": "SW9003",
+        "colorHex": "#ba7176"
+      },
+      {
+        "colorName": "salon rose",
+        "colorCode": "SW0061",
+        "colorHex": "#ab7878"
+      },
+      {
+        "colorName": "rojo dust",
+        "colorCode": "SW9006",
+        "colorHex": "#b57466"
+      },
+      {
+        "colorName": "carley's rose",
+        "colorCode": "SW9002",
+        "colorHex": "#a87376"
+      },
+      {
+        "colorName": "reddish",
+        "colorCode": "SW6319",
+        "colorHex": "#b56966"
+      },
+      {
+        "colorName": "henna shade",
+        "colorCode": "SW6326",
+        "colorHex": "#b3675d"
+      },
+      {
+        "colorName": "moss rose",
+        "colorCode": "SW6291",
+        "colorHex": "#9e6d79"
+      },
+      {
+        "colorName": "concerto",
+        "colorCode": "SW6298",
+        "colorHex": "#9e6b75"
+      },
+      {
+        "colorName": "redbud",
+        "colorCode": "SW6312",
+        "colorHex": "#ad5e65"
+      },
+      {
+        "colorName": "roycroft adobe",
+        "colorCode": "SW0040",
+        "colorHex": "#a76251"
+      },
+      {
+        "colorName": "foxy",
+        "colorCode": "SW6333",
+        "colorHex": "#a85e53"
+      },
+      {
+        "colorName": "rambling rose",
+        "colorCode": "SW6305",
+        "colorHex": "#995d62"
+      },
+      {
+        "colorName": "bold brick",
+        "colorCode": "SW6327",
+        "colorHex": "#a0584f"
+      },
+      {
+        "colorName": "bravado red",
+        "colorCode": "SW6320",
+        "colorHex": "#a0524e"
+      },
+      {
+        "colorName": "berry bush",
+        "colorCode": "SW6292",
+        "colorHex": "#8d5869"
+      },
+      {
+        "colorName": "rembrandt ruby",
+        "colorCode": "SW0033",
+        "colorHex": "#974f49"
+      },
+      {
+        "colorName": "aged wine",
+        "colorCode": "SW6299",
+        "colorHex": "#895460"
+      },
+      {
+        "colorName": "alaea",
+        "colorCode": "SW7579",
+        "colorHex": "#81585b"
+      },
+      {
+        "colorName": "kirsch red",
+        "colorCode": "SW6313",
+        "colorHex": "#974953"
+      },
+      {
+        "colorName": "cordial",
+        "colorCode": "SW6306",
+        "colorHex": "#864c52"
+      },
+      {
+        "colorName": "flower pot",
+        "colorCode": "SW6334",
+        "colorHex": "#8f4438"
+      },
+      {
+        "colorName": "cajun red",
+        "colorCode": "SW0008",
+        "colorHex": "#8d422f"
+      },
+      {
+        "colorName": "red barn",
+        "colorCode": "SW7591",
+        "colorHex": "#7c453d"
+      },
+      {
+        "colorName": "red bay",
+        "colorCode": "SW6321",
+        "colorHex": "#8e3738"
+      },
+      {
+        "colorName": "luxurious red",
+        "colorCode": "SW6314",
+        "colorHex": "#863a42"
+      },
+      {
+        "colorName": "fired brick",
+        "colorCode": "SW6335",
+        "colorHex": "#83382a"
+      },
+      {
+        "colorName": "salute",
+        "colorCode": "SW7582",
+        "colorHex": "#803532"
+      },
+      {
+        "colorName": "stolen kiss",
+        "colorCode": "SW7586",
+        "colorHex": "#813235"
+      },
+      {
+        "colorName": "fireweed",
+        "colorCode": "SW6328",
+        "colorHex": "#7b3730"
+      },
+      {
+        "colorName": "fine wine",
+        "colorCode": "SW6307",
+        "colorHex": "#723941"
+      },
+      {
+        "colorName": "wild currant",
+        "colorCode": "SW7583",
+        "colorHex": "#7c3239"
+      },
+      {
+        "colorName": "crabby apple",
+        "colorCode": "SW7592",
+        "colorHex": "#753531"
+      },
+      {
+        "colorName": "borscht",
+        "colorCode": "SW7578",
+        "colorHex": "#72353d"
+      },
+      {
+        "colorName": "fabulous grape",
+        "colorCode": "SW6293",
+        "colorHex": "#6d344f"
+      },
+      {
+        "colorName": "red theatre",
+        "colorCode": "SW7584",
+        "colorHex": "#6e3637"
+      },
+      {
+        "colorName": "rustic red",
+        "colorCode": "SW7593",
+        "colorHex": "#703229"
+      },
+      {
+        "colorName": "burgundy",
+        "colorCode": "SW6300",
+        "colorHex": "#63333e"
+      },
+      {
+        "colorName": "sun dried tomato",
+        "colorCode": "SW7585",
+        "colorHex": "#692b2b"
+      },
+      {
+        "colorName": "blackberry",
+        "colorCode": "SW7577",
+        "colorHex": "#533640"
+      },
+      {
+        "colorName": "reticence",
+        "colorCode": "SW6064",
+        "colorHex": "#d9cdc3"
+      },
+      {
+        "colorName": "unfussy beige",
+        "colorCode": "SW6043",
+        "colorHex": "#d6c8c0"
+      },
+      {
+        "colorName": "white truffle",
+        "colorCode": "SW6029",
+        "colorHex": "#d7c8c2"
+      },
+      {
+        "colorName": "abalone shell",
+        "colorCode": "SW6050",
+        "colorHex": "#dbc7bd"
+      },
+      {
+        "colorName": "simplify beige",
+        "colorCode": "SW6085",
+        "colorHex": "#d6c7b9"
+      },
+      {
+        "colorName": "pink shadow",
+        "colorCode": "SW0070",
+        "colorHex": "#dec3b9"
+      },
+      {
+        "colorName": "breathless",
+        "colorCode": "SW6022",
+        "colorHex": "#d6c2be"
+      },
+      {
+        "colorName": "appleblossom",
+        "colorCode": "SW0076",
+        "colorHex": "#dab5b4"
+      },
+      {
+        "colorName": "bona fide beige",
+        "colorCode": "SW6065",
+        "colorHex": "#cbb9ab"
+      },
+      {
+        "colorName": "likeable sand",
+        "colorCode": "SW6058",
+        "colorHex": "#d1b7a8"
+      },
+      {
+        "colorName": "sashay sand",
+        "colorCode": "SW6051",
+        "colorHex": "#cfb4a8"
+      },
+      {
+        "colorName": "doeskin",
+        "colorCode": "SW6044",
+        "colorHex": "#c6b3a9"
+      },
+      {
+        "colorName": "insightful rose",
+        "colorCode": "SW6023",
+        "colorHex": "#c9b0ab"
+      },
+      {
+        "colorName": "artistic taupe",
+        "colorCode": "SW6030",
+        "colorHex": "#c3b1ac"
+      },
+      {
+        "colorName": "sand dune",
+        "colorCode": "SW6086",
+        "colorHex": "#c5b1a2"
+      },
+      {
+        "colorName": "pinky beige",
+        "colorCode": "SW0079",
+        "colorHex": "#c9aa98"
+      },
+      {
+        "colorName": "sandbank",
+        "colorCode": "SW6052",
+        "colorHex": "#c3a497"
+      },
+      {
+        "colorName": "interface tan",
+        "colorCode": "SW6059",
+        "colorHex": "#c1a392"
+      },
+      {
+        "colorName": "sand trap",
+        "colorCode": "SW6066",
+        "colorHex": "#bba595"
+      },
+      {
+        "colorName": "cabbage rose",
+        "colorCode": "SW0003",
+        "colorHex": "#c59f91"
+      },
+      {
+        "colorName": "emerging taupe",
+        "colorCode": "SW6045",
+        "colorHex": "#b8a196"
+      },
+      {
+        "colorName": "glamour",
+        "colorCode": "SW6031",
+        "colorHex": "#b6a09a"
+      },
+      {
+        "colorName": "orchid",
+        "colorCode": "SW0071",
+        "colorHex": "#bc9c9e"
+      },
+      {
+        "colorName": "trusty tan",
+        "colorCode": "SW6087",
+        "colorHex": "#b59f8f"
+      },
+      {
+        "colorName": "dressy rose",
+        "colorCode": "SW6024",
+        "colorHex": "#b89d9a"
+      },
+      {
+        "colorName": "redend point",
+        "colorCode": "SW9081",
+        "colorHex": "#ae8e7e"
+      },
+      {
+        "colorName": "chocolate powder",
+        "colorCode": "SW9082",
+        "colorHex": "#a58c7b"
+      },
+      {
+        "colorName": "rosaline pearl",
+        "colorCode": "SW9077",
+        "colorHex": "#a38887"
+      },
+      {
+        "colorName": "cocoa berry",
+        "colorCode": "SW9078",
+        "colorHex": "#a08882"
+      },
+      {
+        "colorName": "velvety chestnut",
+        "colorCode": "SW9079",
+        "colorHex": "#a2877d"
+      },
+      {
+        "colorName": "hushed auburn",
+        "colorCode": "SW9080",
+        "colorHex": "#a8857a"
+      },
+      {
+        "colorName": "dusted truffle",
+        "colorCode": "SW9083",
+        "colorHex": "#9c8373"
+      },
+      {
+        "colorName": "moroccan spice",
+        "colorCode": "SW6060",
+        "colorHex": "#9d7868"
+      },
+      {
+        "colorName": "mocha",
+        "colorCode": "SW6067",
+        "colorHex": "#967a6a"
+      },
+      {
+        "colorName": "mulberry silk",
+        "colorCode": "SW0001",
+        "colorHex": "#94766c"
+      },
+      {
+        "colorName": "swing brown",
+        "colorCode": "SW6046",
+        "colorHex": "#947569"
+      },
+      {
+        "colorName": "socialite",
+        "colorCode": "SW6025",
+        "colorHex": "#907676"
+      },
+      {
+        "colorName": "reddened earth",
+        "colorCode": "SW6053",
+        "colorHex": "#9c6e63"
+      },
+      {
+        "colorName": "nuthatch",
+        "colorCode": "SW6088",
+        "colorHex": "#8e725f"
+      },
+      {
+        "colorName": "rose brocade",
+        "colorCode": "SW0004",
+        "colorHex": "#996c6e"
+      },
+      {
+        "colorName": "dutch cocoa",
+        "colorCode": "SW6032",
+        "colorHex": "#8c706a"
+      },
+      {
+        "colorName": "tanbark",
+        "colorCode": "SW6061",
+        "colorHex": "#896656"
+      },
+      {
+        "colorName": "hot cocoa",
+        "colorCode": "SW6047",
+        "colorHex": "#806257"
+      },
+      {
+        "colorName": "bateau brown",
+        "colorCode": "SW6033",
+        "colorHex": "#7a5f5a"
+      },
+      {
+        "colorName": "canyon clay",
+        "colorCode": "SW6054",
+        "colorHex": "#85594f"
+      },
+      {
+        "colorName": "toile red",
+        "colorCode": "SW0006",
+        "colorHex": "#8b534e"
+      },
+      {
+        "colorName": "grounded",
+        "colorCode": "SW6089",
+        "colorHex": "#785b47"
+      },
+      {
+        "colorName": "river rouge",
+        "colorCode": "SW6026",
+        "colorHex": "#76595d"
+      },
+      {
+        "colorName": "brevity brown",
+        "colorCode": "SW6068",
+        "colorHex": "#715243"
+      },
+      {
+        "colorName": "carriage door",
+        "colorCode": "SW7594",
+        "colorHex": "#6e423e"
+      },
+      {
+        "colorName": "vintage leather",
+        "colorCode": "SW6062",
+        "colorHex": "#694336"
+      },
+      {
+        "colorName": "aurora brown",
+        "colorCode": "SW2837",
+        "colorHex": "#6a4238"
+      },
+      {
+        "colorName": "java",
+        "colorCode": "SW6090",
+        "colorHex": "#634533"
+      },
+      {
+        "colorName": "deep maroon",
+        "colorCode": "SW0072",
+        "colorHex": "#623f45"
+      },
+      {
+        "colorName": "cordovan",
+        "colorCode": "SW6027",
+        "colorHex": "#5f3d3f"
+      },
+      {
+        "colorName": "fiery brown",
+        "colorCode": "SW6055",
+        "colorHex": "#5d3831"
+      },
+      {
+        "colorName": "sommelier",
+        "colorCode": "SW7595",
+        "colorHex": "#5d3736"
+      },
+      {
+        "colorName": "terra brun",
+        "colorCode": "SW6048",
+        "colorHex": "#5a382d"
+      },
+      {
+        "colorName": "dark auburn",
+        "colorCode": "SW6034",
+        "colorHex": "#5a3532"
+      },
+      {
+        "colorName": "rookwood red",
+        "colorCode": "SW2802",
+        "colorHex": "#622f2d"
+      },
+      {
+        "colorName": "french roast",
+        "colorCode": "SW6069",
+        "colorHex": "#4f3426"
+      },
+      {
+        "colorName": "rookwood dark red",
+        "colorCode": "SW2801",
+        "colorHex": "#4b2929"
+      },
+      {
+        "colorName": "polished mahogany",
+        "colorCode": "SW2838",
+        "colorHex": "#432722"
+      }
+    ],
+    "Yellows": [
+      {
+        "colorName": "pineapple cream",
+        "colorCode": "SW1668",
+        "colorHex": "#f2eac3"
+      },
+      {
+        "colorName": "daybreak",
+        "colorCode": "SW6700",
+        "colorHex": "#f3eac6"
+      },
+      {
+        "colorName": "crisp linen",
+        "colorCode": "SW6378",
+        "colorHex": "#f3e6d4"
+      },
+      {
+        "colorName": "lily",
+        "colorCode": "SW6693",
+        "colorHex": "#f3e8c2"
+      },
+      {
+        "colorName": "icy lemonade",
+        "colorCode": "SW1667",
+        "colorHex": "#f4e8b2"
+      },
+      {
+        "colorName": "they call it mellow",
+        "colorCode": "SW9015",
+        "colorHex": "#fbe4b3"
+      },
+      {
+        "colorName": "fun yellow",
+        "colorCode": "SW6908",
+        "colorHex": "#f7e594"
+      },
+      {
+        "colorName": "vanillin",
+        "colorCode": "SW6371",
+        "colorHex": "#f2e3ca"
+      },
+      {
+        "colorName": "venetian yellow",
+        "colorCode": "SW1666",
+        "colorHex": "#f6e3a1"
+      },
+      {
+        "colorName": "glad yellow",
+        "colorCode": "SW6694",
+        "colorHex": "#f5e1ac"
+      },
+      {
+        "colorName": "sunny veranda",
+        "colorCode": "SW9017",
+        "colorHex": "#fedf94"
+      },
+      {
+        "colorName": "la luna amarilla",
+        "colorCode": "SW9016",
+        "colorHex": "#fddfa0"
+      },
+      {
+        "colorName": "lantern light",
+        "colorCode": "SW6687",
+        "colorHex": "#f4e1ae"
+      },
+      {
+        "colorName": "friendly yellow",
+        "colorCode": "SW6680",
+        "colorHex": "#f5e0b1"
+      },
+      {
+        "colorName": "vital yellow",
+        "colorCode": "SW6392",
+        "colorHex": "#ede0c5"
+      },
+      {
+        "colorName": "restoration ivory",
+        "colorCode": "SW6413",
+        "colorHex": "#e9e1ca"
+      },
+      {
+        "colorName": "banana cream",
+        "colorCode": "SW6673",
+        "colorHex": "#f5deaf"
+      },
+      {
+        "colorName": "chamomile",
+        "colorCode": "SW6399",
+        "colorHex": "#e9e0c5"
+      },
+      {
+        "colorName": "butter up",
+        "colorCode": "SW6681",
+        "colorHex": "#f6dda3"
+      },
+      {
+        "colorName": "ionic ivory",
+        "colorCode": "SW6406",
+        "colorHex": "#e7dfc5"
+      },
+      {
+        "colorName": "lemon twist",
+        "colorCode": "SW6909",
+        "colorHex": "#fed95d"
+      },
+      {
+        "colorName": "daffodil",
+        "colorCode": "SW6901",
+        "colorHex": "#fad97a"
+      },
+      {
+        "colorName": "enjoyable yellow",
+        "colorCode": "SW6666",
+        "colorHex": "#f5d6a9"
+      },
+      {
+        "colorName": "midday",
+        "colorCode": "SW6695",
+        "colorHex": "#f7d78a"
+      },
+      {
+        "colorName": "honey bees",
+        "colorCode": "SW9018",
+        "colorHex": "#fbd682"
+      },
+      {
+        "colorName": "solaria",
+        "colorCode": "SW6688",
+        "colorHex": "#f5d68f"
+      },
+      {
+        "colorName": "naples yellow",
+        "colorCode": "SW9021",
+        "colorHex": "#f6d58f"
+      },
+      {
+        "colorName": "jonquil",
+        "colorCode": "SW6674",
+        "colorHex": "#f7d391"
+      },
+      {
+        "colorName": "daisy",
+        "colorCode": "SW6910",
+        "colorHex": "#fed340"
+      },
+      {
+        "colorName": "pollen powder",
+        "colorCode": "SW9014",
+        "colorHex": "#fbd187"
+      },
+      {
+        "colorName": "golden plumeria",
+        "colorCode": "SW9019",
+        "colorHex": "#fbd073"
+      },
+      {
+        "colorName": "funky yellow",
+        "colorCode": "SW6913",
+        "colorHex": "#edd26f"
+      },
+      {
+        "colorName": "afterglow",
+        "colorCode": "SW6667",
+        "colorHex": "#f6cd8e"
+      },
+      {
+        "colorName": "decisive yellow",
+        "colorCode": "SW6902",
+        "colorHex": "#fdcc4e"
+      },
+      {
+        "colorName": "afternoon",
+        "colorCode": "SW6675",
+        "colorHex": "#fbcb78"
+      },
+      {
+        "colorName": "yellow bird",
+        "colorCode": "SW9022",
+        "colorHex": "#f1cd7b"
+      },
+      {
+        "colorName": "confident yellow",
+        "colorCode": "SW6911",
+        "colorHex": "#fecb01"
+      },
+      {
+        "colorName": "forsythia",
+        "colorCode": "SW6907",
+        "colorHex": "#ffc801"
+      },
+      {
+        "colorName": "june day",
+        "colorCode": "SW6682",
+        "colorHex": "#f6c973"
+      },
+      {
+        "colorName": "cheerful",
+        "colorCode": "SW6903",
+        "colorHex": "#ffc723"
+      },
+      {
+        "colorName": "rayo de sol",
+        "colorCode": "SW9020",
+        "colorHex": "#f4c454"
+      },
+      {
+        "colorName": "sunrise",
+        "colorCode": "SW6668",
+        "colorHex": "#f4bf77"
+      },
+      {
+        "colorName": "overjoy",
+        "colorCode": "SW6689",
+        "colorHex": "#eec25f"
+      },
+      {
+        "colorName": "quilt gold",
+        "colorCode": "SW6696",
+        "colorHex": "#eac365"
+      },
+      {
+        "colorName": "butterfield",
+        "colorCode": "SW6676",
+        "colorHex": "#f7be5b"
+      },
+      {
+        "colorName": "goldfinch",
+        "colorCode": "SW6905",
+        "colorHex": "#fdb702"
+      },
+      {
+        "colorName": "bee",
+        "colorCode": "SW6683",
+        "colorHex": "#f1ba55"
+      },
+      {
+        "colorName": "olden amber",
+        "colorCode": "SW9013",
+        "colorHex": "#eeb76b"
+      },
+      {
+        "colorName": "goldenrod",
+        "colorCode": "SW6677",
+        "colorHex": "#f2af46"
+      },
+      {
+        "colorName": "eye catching",
+        "colorCode": "SW6914",
+        "colorHex": "#ddb835"
+      },
+      {
+        "colorName": "gusto gold",
+        "colorCode": "SW6904",
+        "colorHex": "#f8ac1d"
+      },
+      {
+        "colorName": "brittlebush",
+        "colorCode": "SW6684",
+        "colorHex": "#eaae47"
+      },
+      {
+        "colorName": "yarrow",
+        "colorCode": "SW6669",
+        "colorHex": "#ebad5e"
+      },
+      {
+        "colorName": "gambol gold",
+        "colorCode": "SW6690",
+        "colorHex": "#e1b047"
+      },
+      {
+        "colorName": "nugget",
+        "colorCode": "SW6697",
+        "colorHex": "#dbb04a"
+      },
+      {
+        "colorName": "citronella",
+        "colorCode": "SW6915",
+        "colorHex": "#cba901"
+      },
+      {
+        "colorName": "kingdom gold",
+        "colorCode": "SW6698",
+        "colorHex": "#d1a436"
+      },
+      {
+        "colorName": "sunflower",
+        "colorCode": "SW6678",
+        "colorHex": "#e39a33"
+      },
+      {
+        "colorName": "glitzy gold",
+        "colorCode": "SW6691",
+        "colorHex": "#d6a02b"
+      },
+      {
+        "colorName": "gold crest",
+        "colorCode": "SW6670",
+        "colorHex": "#df9938"
+      },
+      {
+        "colorName": "trinket",
+        "colorCode": "SW6685",
+        "colorHex": "#d69835"
+      },
+      {
+        "colorName": "crispy gold",
+        "colorCode": "SW6699",
+        "colorHex": "#c49832"
+      },
+      {
+        "colorName": "curry",
+        "colorCode": "SW6671",
+        "colorHex": "#d88f32"
+      },
+      {
+        "colorName": "auric",
+        "colorCode": "SW6692",
+        "colorHex": "#c48919"
+      },
+      {
+        "colorName": "olde world gold",
+        "colorCode": "SW7700",
+        "colorHex": "#8f6c3e"
+      },
+      {
+        "colorName": "lemon meringue",
+        "colorCode": "SW7561",
+        "colorHex": "#f5eacc"
+      },
+      {
+        "colorName": "morning sun",
+        "colorCode": "SW6672",
+        "colorHex": "#f3e6ce"
+      },
+      {
+        "colorName": "lemon chiffon",
+        "colorCode": "SW6686",
+        "colorHex": "#f5e5bc"
+      },
+      {
+        "colorName": "tea light",
+        "colorCode": "SW7681",
+        "colorHex": "#f8e4c2"
+      },
+      {
+        "colorName": "full moon",
+        "colorCode": "SW6679",
+        "colorHex": "#f4e3bc"
+      },
+      {
+        "colorName": "classical white",
+        "colorCode": "SW2829",
+        "colorHex": "#ece1cb"
+      },
+      {
+        "colorName": "classic ivory",
+        "colorCode": "SW0051",
+        "colorHex": "#f2e0c3"
+      },
+      {
+        "colorName": "paper lantern",
+        "colorCode": "SW7676",
+        "colorHex": "#f2e0c4"
+      },
+      {
+        "colorName": "optimistic yellow",
+        "colorCode": "SW6900",
+        "colorHex": "#f5e1a6"
+      },
+      {
+        "colorName": "impressive ivory",
+        "colorCode": "SW7560",
+        "colorHex": "#f4dec3"
+      },
+      {
+        "colorName": "buff",
+        "colorCode": "SW7683",
+        "colorHex": "#f1dfc1"
+      },
+      {
+        "colorName": "hinoki",
+        "colorCode": "SW7686",
+        "colorHex": "#f8ddb7"
+      },
+      {
+        "colorName": "solé",
+        "colorCode": "SW6896",
+        "colorHex": "#f7dda1"
+      },
+      {
+        "colorName": "napery",
+        "colorCode": "SW6386",
+        "colorHex": "#efddc1"
+      },
+      {
+        "colorName": "warm beige",
+        "colorCode": "SW0035",
+        "colorHex": "#eedac3"
+      },
+      {
+        "colorName": "cottage cream",
+        "colorCode": "SW7678",
+        "colorHex": "#eddbbd"
+      },
+      {
+        "colorName": "roycroft vellum",
+        "colorCode": "SW2833",
+        "colorHex": "#e8d9bd"
+      },
+      {
+        "colorName": "concord buff",
+        "colorCode": "SW7684",
+        "colorHex": "#edd6b1"
+      },
+      {
+        "colorName": "classical yellow",
+        "colorCode": "SW2865",
+        "colorHex": "#f8d492"
+      },
+      {
+        "colorName": "convivial yellow",
+        "colorCode": "SW6393",
+        "colorHex": "#e9d6b0"
+      },
+      {
+        "colorName": "travertine",
+        "colorCode": "SW7722",
+        "colorHex": "#ecd3b3"
+      },
+      {
+        "colorName": "sunbeam yellow",
+        "colorCode": "SW0078",
+        "colorHex": "#f0d39d"
+      },
+      {
+        "colorName": "crescent cream",
+        "colorCode": "SW7721",
+        "colorHex": "#edd1b1"
+      },
+      {
+        "colorName": "caen stone",
+        "colorCode": "SW0028",
+        "colorHex": "#ecd0b1"
+      },
+      {
+        "colorName": "rice paddy",
+        "colorCode": "SW6414",
+        "colorHex": "#dfd4b0"
+      },
+      {
+        "colorName": "peace yellow",
+        "colorCode": "SW2857",
+        "colorHex": "#eecf9e"
+      },
+      {
+        "colorName": "belvedere cream",
+        "colorCode": "SW0067",
+        "colorHex": "#f0cda0"
+      },
+      {
+        "colorName": "lucent yellow",
+        "colorCode": "SW6400",
+        "colorHex": "#e4d0a5"
+      },
+      {
+        "colorName": "ivoire",
+        "colorCode": "SW6127",
+        "colorHex": "#e4ceac"
+      },
+      {
+        "colorName": "sundew",
+        "colorCode": "SW7688",
+        "colorHex": "#e1cdae"
+      },
+      {
+        "colorName": "ancestral gold",
+        "colorCode": "SW6407",
+        "colorHex": "#ddcda6"
+      },
+      {
+        "colorName": "interactive cream",
+        "colorCode": "SW6113",
+        "colorHex": "#e4caad"
+      },
+      {
+        "colorName": "compatible cream",
+        "colorCode": "SW6387",
+        "colorHex": "#e8c89e"
+      },
+      {
+        "colorName": "pale yellow",
+        "colorCode": "SW7691",
+        "colorHex": "#e3c9a1"
+      },
+      {
+        "colorName": "august moon",
+        "colorCode": "SW7687",
+        "colorHex": "#e7c7a0"
+      },
+      {
+        "colorName": "colonial yellow",
+        "colorCode": "SW0030",
+        "colorHex": "#efc488"
+      },
+      {
+        "colorName": "straw harvest",
+        "colorCode": "SW7698",
+        "colorHex": "#dbc8a2"
+      },
+      {
+        "colorName": "colony buff",
+        "colorCode": "SW7723",
+        "colorHex": "#ddc6ab"
+      },
+      {
+        "colorName": "believable buff",
+        "colorCode": "SW6120",
+        "colorHex": "#dbc7a8"
+      },
+      {
+        "colorName": "toasted pine nut",
+        "colorCode": "SW7696",
+        "colorHex": "#dcc6a6"
+      },
+      {
+        "colorName": "birdseye maple",
+        "colorCode": "SW2834",
+        "colorHex": "#e4c495"
+      },
+      {
+        "colorName": "pale moss",
+        "colorCode": "SW9027",
+        "colorHex": "#dcc797"
+      },
+      {
+        "colorName": "croissant",
+        "colorCode": "SW7716",
+        "colorHex": "#dbc5a7"
+      },
+      {
+        "colorName": "white raisin",
+        "colorCode": "SW7685",
+        "colorHex": "#e5c28b"
+      },
+      {
+        "colorName": "buckram binding",
+        "colorCode": "SW0036",
+        "colorHex": "#d9c3a6"
+      },
+      {
+        "colorName": "sequin",
+        "colorCode": "SW6394",
+        "colorHex": "#e1c28d"
+      },
+      {
+        "colorName": "hubbard squash",
+        "colorCode": "SW0044",
+        "colorHex": "#e9bf8c"
+      },
+      {
+        "colorName": "gold vessel",
+        "colorCode": "SW7677",
+        "colorHex": "#eaba8a"
+      },
+      {
+        "colorName": "dakota wheat",
+        "colorCode": "SW9023",
+        "colorHex": "#e1bd8e"
+      },
+      {
+        "colorName": "blonde",
+        "colorCode": "SW6128",
+        "colorHex": "#dcbd92"
+      },
+      {
+        "colorName": "hearts of palm",
+        "colorCode": "SW6415",
+        "colorHex": "#cfc291"
+      },
+      {
+        "colorName": "classical gold",
+        "colorCode": "SW2831",
+        "colorHex": "#ebb875"
+      },
+      {
+        "colorName": "cupola yellow",
+        "colorCode": "SW7692",
+        "colorHex": "#dcbc8e"
+      },
+      {
+        "colorName": "row house tan",
+        "colorCode": "SW7689",
+        "colorHex": "#d2bb9d"
+      },
+      {
+        "colorName": "downing sand",
+        "colorCode": "SW2822",
+        "colorHex": "#cbbca5"
+      },
+      {
+        "colorName": "independent gold",
+        "colorCode": "SW6401",
+        "colorHex": "#d2ba83"
+      },
+      {
+        "colorName": "crewel tan",
+        "colorCode": "SW0011",
+        "colorHex": "#cbb99b"
+      },
+      {
+        "colorName": "bagel",
+        "colorCode": "SW6114",
+        "colorHex": "#d7b593"
+      },
+      {
+        "colorName": "colonial revival tan",
+        "colorCode": "SW2828",
+        "colorHex": "#d3b699"
+      },
+      {
+        "colorName": "whole wheat",
+        "colorCode": "SW6121",
+        "colorHex": "#cdb592"
+      },
+      {
+        "colorName": "bittersweet stem",
+        "colorCode": "SW7536",
+        "colorHex": "#cbb49a"
+      },
+      {
+        "colorName": "wheat grass",
+        "colorCode": "SW6408",
+        "colorHex": "#cbb584"
+      },
+      {
+        "colorName": "ligonier tan",
+        "colorCode": "SW7717",
+        "colorHex": "#d2b18f"
+      },
+      {
+        "colorName": "tarnished trumpet",
+        "colorCode": "SW9026",
+        "colorHex": "#d5b176"
+      },
+      {
+        "colorName": "restrained gold",
+        "colorCode": "SW6129",
+        "colorHex": "#d2b084"
+      },
+      {
+        "colorName": "new colonial yellow",
+        "colorCode": "SW2853",
+        "colorHex": "#d9ad7f"
+      },
+      {
+        "colorName": "golden gate",
+        "colorCode": "SW7679",
+        "colorHex": "#d9ad7f"
+      },
+      {
+        "colorName": "safari",
+        "colorCode": "SW7697",
+        "colorHex": "#ccb18b"
+      },
+      {
+        "colorName": "cool avocado",
+        "colorCode": "SW9029",
+        "colorHex": "#c4b47d"
+      },
+      {
+        "colorName": "golden fleece",
+        "colorCode": "SW6388",
+        "colorHex": "#d6ad78"
+      },
+      {
+        "colorName": "dromedary camel",
+        "colorCode": "SW7694",
+        "colorHex": "#caad87"
+      },
+      {
+        "colorName": "downing straw",
+        "colorCode": "SW2813",
+        "colorHex": "#caab7d"
+      },
+      {
+        "colorName": "stonebriar",
+        "colorCode": "SW7693",
+        "colorHex": "#cba97e"
+      },
+      {
+        "colorName": "townhall tan",
+        "colorCode": "SW7690",
+        "colorHex": "#c3aa8c"
+      },
+      {
+        "colorName": "camelback",
+        "colorCode": "SW6122",
+        "colorHex": "#c5aa85"
+      },
+      {
+        "colorName": "totally tan",
+        "colorCode": "SW6115",
+        "colorHex": "#cca683"
+      },
+      {
+        "colorName": "cork wedge",
+        "colorCode": "SW7539",
+        "colorHex": "#c1a98a"
+      },
+      {
+        "colorName": "harvest gold",
+        "colorCode": "SW2858",
+        "colorHex": "#d9a06a"
+      },
+      {
+        "colorName": "vintage gold",
+        "colorCode": "SW9024",
+        "colorHex": "#cba576"
+      },
+      {
+        "colorName": "deer valley",
+        "colorCode": "SW7720",
+        "colorHex": "#c7a485"
+      },
+      {
+        "colorName": "dusted olive",
+        "colorCode": "SW9028",
+        "colorHex": "#bea775"
+      },
+      {
+        "colorName": "sassy green",
+        "colorCode": "SW6416",
+        "colorHex": "#bba86a"
+      },
+      {
+        "colorName": "antiquity",
+        "colorCode": "SW6402",
+        "colorHex": "#c2a462"
+      },
+      {
+        "colorName": "alchemy",
+        "colorCode": "SW6395",
+        "colorHex": "#c99e53"
+      },
+      {
+        "colorName": "empire gold",
+        "colorCode": "SW0012",
+        "colorHex": "#c19f6e"
+      },
+      {
+        "colorName": "butternut",
+        "colorCode": "SW6389",
+        "colorHex": "#cc9b5c"
+      },
+      {
+        "colorName": "mesa tan",
+        "colorCode": "SW7695",
+        "colorHex": "#bd9c77"
+      },
+      {
+        "colorName": "coriander powder",
+        "colorCode": "SW9025",
+        "colorHex": "#ba9c75"
+      },
+      {
+        "colorName": "caramelized",
+        "colorCode": "SW9186",
+        "colorHex": "#c29871"
+      },
+      {
+        "colorName": "lanyard",
+        "colorCode": "SW7680",
+        "colorHex": "#c09972"
+      },
+      {
+        "colorName": "rustic city",
+        "colorCode": "SW7699",
+        "colorHex": "#ba9a67"
+      },
+      {
+        "colorName": "mannered gold",
+        "colorCode": "SW6130",
+        "colorHex": "#c19763"
+      },
+      {
+        "colorName": "escapade gold",
+        "colorCode": "SW6403",
+        "colorHex": "#b89b59"
+      },
+      {
+        "colorName": "artisan tan",
+        "colorCode": "SW7540",
+        "colorHex": "#b09879"
+      },
+      {
+        "colorName": "edgy gold",
+        "colorCode": "SW6409",
+        "colorHex": "#b1975f"
+      },
+      {
+        "colorName": "different gold",
+        "colorCode": "SW6396",
+        "colorHex": "#bc934d"
+      },
+      {
+        "colorName": "bosc pear",
+        "colorCode": "SW6390",
+        "colorHex": "#c09056"
+      },
+      {
+        "colorName": "eastlake gold",
+        "colorCode": "SW0009",
+        "colorHex": "#c28e61"
+      },
+      {
+        "colorName": "oak creek",
+        "colorCode": "SW7718",
+        "colorHex": "#bb8d6b"
+      },
+      {
+        "colorName": "baguette",
+        "colorCode": "SW6123",
+        "colorHex": "#b39167"
+      },
+      {
+        "colorName": "roycroft suede",
+        "colorCode": "SW2842",
+        "colorHex": "#a79473"
+      },
+      {
+        "colorName": "tatami tan",
+        "colorCode": "SW6116",
+        "colorHex": "#ba8c64"
+      },
+      {
+        "colorName": "peristyle brass",
+        "colorCode": "SW0043",
+        "colorHex": "#ae905e"
+      },
+      {
+        "colorName": "rookwood amber",
+        "colorCode": "SW2817",
+        "colorHex": "#c08650"
+      },
+      {
+        "colorName": "tupelo tree",
+        "colorCode": "SW6417",
+        "colorHex": "#9c9152"
+      },
+      {
+        "colorName": "chamois",
+        "colorCode": "SW6131",
+        "colorHex": "#ad8451"
+      },
+      {
+        "colorName": "butterscotch",
+        "colorCode": "SW6377",
+        "colorHex": "#b67d3c"
+      },
+      {
+        "colorName": "rookwood antique gold",
+        "colorCode": "SW2814",
+        "colorHex": "#a58258"
+      },
+      {
+        "colorName": "nankeen",
+        "colorCode": "SW6397",
+        "colorHex": "#aa803a"
+      },
+      {
+        "colorName": "meadowlark",
+        "colorCode": "SW7522",
+        "colorHex": "#9f8267"
+      },
+      {
+        "colorName": "brassy",
+        "colorCode": "SW6410",
+        "colorHex": "#9d8344"
+      },
+      {
+        "colorName": "grandiose",
+        "colorCode": "SW6404",
+        "colorHex": "#9c7f41"
+      },
+      {
+        "colorName": "rural green",
+        "colorCode": "SW6418",
+        "colorHex": "#8d844d"
+      },
+      {
+        "colorName": "smokey topaz",
+        "colorCode": "SW6117",
+        "colorHex": "#a57955"
+      },
+      {
+        "colorName": "cardboard",
+        "colorCode": "SW6124",
+        "colorHex": "#9c7a56"
+      },
+      {
+        "colorName": "gallant gold",
+        "colorCode": "SW6391",
+        "colorHex": "#a4763c"
+      },
+      {
+        "colorName": "fervent brass",
+        "colorCode": "SW6405",
+        "colorHex": "#95793d"
+      },
+      {
+        "colorName": "bengal grass",
+        "colorCode": "SW6411",
+        "colorHex": "#8e773f"
+      },
+      {
+        "colorName": "renwick golden oak",
+        "colorCode": "SW2824",
+        "colorHex": "#96724c"
+      },
+      {
+        "colorName": "sconce gold",
+        "colorCode": "SW6398",
+        "colorHex": "#996f32"
+      },
+      {
+        "colorName": "relic bronze",
+        "colorCode": "SW6132",
+        "colorHex": "#906a3a"
+      },
+      {
+        "colorName": "craft paper",
+        "colorCode": "SW6125",
+        "colorHex": "#8a6645"
+      },
+      {
+        "colorName": "leather bound",
+        "colorCode": "SW6118",
+        "colorHex": "#8d623d"
+      },
+      {
+        "colorName": "eminent bronze",
+        "colorCode": "SW6412",
+        "colorHex": "#7a6841"
+      },
+      {
+        "colorName": "burnished brandy",
+        "colorCode": "SW7523",
+        "colorHex": "#7c5c43"
+      },
+      {
+        "colorName": "saguaro",
+        "colorCode": "SW6419",
+        "colorHex": "#655f2d"
+      },
+      {
+        "colorName": "natural linen",
+        "colorCode": "SW9109",
+        "colorHex": "#dfd3c3"
+      },
+      {
+        "colorName": "maison blanche",
+        "colorCode": "SW7526",
+        "colorHex": "#dfd2bf"
+      },
+      {
+        "colorName": "natural tan",
+        "colorCode": "SW7567",
+        "colorHex": "#dcd2c3"
+      },
+      {
+        "colorName": "dirty martini",
+        "colorCode": "SW9119",
+        "colorHex": "#ddd0b6"
+      },
+      {
+        "colorName": "oyster bar",
+        "colorCode": "SW7565",
+        "colorHex": "#dbd0bb"
+      },
+      {
+        "colorName": "rice grain",
+        "colorCode": "SW6155",
+        "colorHex": "#dbd0b9"
+      },
+      {
+        "colorName": "netsuke",
+        "colorCode": "SW6134",
+        "colorHex": "#e0cfb0"
+      },
+      {
+        "colorName": "stucco",
+        "colorCode": "SW7569",
+        "colorHex": "#dccfba"
+      },
+      {
+        "colorName": "wool skein",
+        "colorCode": "SW6148",
+        "colorHex": "#d9cfba"
+      },
+      {
+        "colorName": "sedate gray",
+        "colorCode": "SW6169",
+        "colorHex": "#d1cdbf"
+      },
+      {
+        "colorName": "softer tan",
+        "colorCode": "SW6141",
+        "colorHex": "#dacab2"
+      },
+      {
+        "colorName": "sand beach",
+        "colorCode": "SW7529",
+        "colorHex": "#d4c5ad"
+      },
+      {
+        "colorName": "urban putty",
+        "colorCode": "SW7532",
+        "colorHex": "#cfc0ab"
+      },
+      {
+        "colorName": "nantucket dune",
+        "colorCode": "SW7527",
+        "colorHex": "#d0bfaa"
+      },
+      {
+        "colorName": "naturel",
+        "colorCode": "SW7542",
+        "colorHex": "#cbc0ad"
+      },
+      {
+        "colorName": "malabar",
+        "colorCode": "SW9110",
+        "colorHex": "#cfbea9"
+      },
+      {
+        "colorName": "sandbar",
+        "colorCode": "SW7547",
+        "colorHex": "#cbbfad"
+      },
+      {
+        "colorName": "ramie",
+        "colorCode": "SW6156",
+        "colorHex": "#cdbda2"
+      },
+      {
+        "colorName": "tumblin' tumbleweed",
+        "colorCode": "SW9120",
+        "colorHex": "#cdbb9c"
+      },
+      {
+        "colorName": "ecru",
+        "colorCode": "SW6135",
+        "colorHex": "#d0ba94"
+      },
+      {
+        "colorName": "relaxed khaki",
+        "colorCode": "SW6149",
+        "colorHex": "#c8bba3"
+      },
+      {
+        "colorName": "macadamia",
+        "colorCode": "SW6142",
+        "colorHex": "#ccb79b"
+      },
+      {
+        "colorName": "techno gray",
+        "colorCode": "SW6170",
+        "colorHex": "#bfb9aa"
+      },
+      {
+        "colorName": "windsor greige",
+        "colorCode": "SW7528",
+        "colorHex": "#c4b49c"
+      },
+      {
+        "colorName": "barcelona beige",
+        "colorCode": "SW7530",
+        "colorHex": "#c4b39c"
+      },
+      {
+        "colorName": "harmonic tan",
+        "colorCode": "SW6136",
+        "colorHex": "#c6b08a"
+      },
+      {
+        "colorName": "sawgrass basket",
+        "colorCode": "SW9121",
+        "colorHex": "#c3b090"
+      },
+      {
+        "colorName": "khaki shade",
+        "colorCode": "SW7533",
+        "colorHex": "#c0af97"
+      },
+      {
+        "colorName": "favorite tan",
+        "colorCode": "SW6157",
+        "colorHex": "#c1ae91"
+      },
+      {
+        "colorName": "antler velvet",
+        "colorCode": "SW9111",
+        "colorHex": "#c0ad96"
+      },
+      {
+        "colorName": "portico",
+        "colorCode": "SW7548",
+        "colorHex": "#bbab95"
+      },
+      {
+        "colorName": "basket beige",
+        "colorCode": "SW6143",
+        "colorHex": "#c0a98b"
+      },
+      {
+        "colorName": "chatroom",
+        "colorCode": "SW6171",
+        "colorHex": "#b0ab9c"
+      },
+      {
+        "colorName": "tamarind",
+        "colorCode": "SW7538",
+        "colorHex": "#c0a588"
+      },
+      {
+        "colorName": "outerbanks",
+        "colorCode": "SW7534",
+        "colorHex": "#b7a48b"
+      },
+      {
+        "colorName": "tarnished treasure",
+        "colorCode": "SW9118",
+        "colorHex": "#b9a47e"
+      },
+      {
+        "colorName": "dried edamame",
+        "colorCode": "SW9122",
+        "colorHex": "#b19f80"
+      },
+      {
+        "colorName": "fenland",
+        "colorCode": "SW7544",
+        "colorHex": "#ac9d83"
+      },
+      {
+        "colorName": "studio taupe",
+        "colorCode": "SW7549",
+        "colorHex": "#ad9c85"
+      },
+      {
+        "colorName": "song thrush",
+        "colorCode": "SW9112",
+        "colorHex": "#af987f"
+      },
+      {
+        "colorName": "serengeti grass",
+        "colorCode": "SW9116",
+        "colorHex": "#ab9579"
+      },
+      {
+        "colorName": "burlap",
+        "colorCode": "SW6137",
+        "colorHex": "#ac9571"
+      },
+      {
+        "colorName": "honed soapstone",
+        "colorCode": "SW9126",
+        "colorHex": "#9d9887"
+      },
+      {
+        "colorName": "urban jungle",
+        "colorCode": "SW9117",
+        "colorHex": "#a4947e"
+      },
+      {
+        "colorName": "sandy ridge",
+        "colorCode": "SW7535",
+        "colorHex": "#a18e77"
+      },
+      {
+        "colorName": "barro verde",
+        "colorCode": "SW9123",
+        "colorHex": "#9f8e71"
+      },
+      {
+        "colorName": "sawdust",
+        "colorCode": "SW6158",
+        "colorHex": "#998970"
+      },
+      {
+        "colorName": "mudslide",
+        "colorCode": "SW9113",
+        "colorHex": "#a08568"
+      },
+      {
+        "colorName": "artifact",
+        "colorCode": "SW6138",
+        "colorHex": "#9a815e"
+      },
+      {
+        "colorName": "hardware",
+        "colorCode": "SW6172",
+        "colorHex": "#8b8372"
+      },
+      {
+        "colorName": "rookwood clay",
+        "colorCode": "SW2823",
+        "colorHex": "#9a7e64"
+      },
+      {
+        "colorName": "meadow trail",
+        "colorCode": "SW7737",
+        "colorHex": "#8d8168"
+      },
+      {
+        "colorName": "dapper tan",
+        "colorCode": "SW6144",
+        "colorHex": "#947f65"
+      },
+      {
+        "colorName": "quiver tan",
+        "colorCode": "SW6151",
+        "colorHex": "#8e7f6a"
+      },
+      {
+        "colorName": "resort tan",
+        "colorCode": "SW7550",
+        "colorHex": "#907d66"
+      },
+      {
+        "colorName": "fallen leaves",
+        "colorCode": "SW9114",
+        "colorHex": "#8f7659"
+      },
+      {
+        "colorName": "verde marrón",
+        "colorCode": "SW9124",
+        "colorHex": "#877459"
+      },
+      {
+        "colorName": "thatch brown",
+        "colorCode": "SW6145",
+        "colorHex": "#867057"
+      },
+      {
+        "colorName": "high tea",
+        "colorCode": "SW6159",
+        "colorHex": "#7e6f59"
+      },
+      {
+        "colorName": "cocoon",
+        "colorCode": "SW6173",
+        "colorHex": "#726b5b"
+      },
+      {
+        "colorName": "superior bronze",
+        "colorCode": "SW6152",
+        "colorHex": "#786957"
+      },
+      {
+        "colorName": "mossy gold",
+        "colorCode": "SW6139",
+        "colorHex": "#7f6743"
+      },
+      {
+        "colorName": "umber",
+        "colorCode": "SW6146",
+        "colorHex": "#6e543c"
+      },
+      {
+        "colorName": "protégé bronze",
+        "colorCode": "SW6153",
+        "colorHex": "#66543e"
+      },
+      {
+        "colorName": "oliva oscuro",
+        "colorCode": "SW9125",
+        "colorHex": "#665439"
+      },
+      {
+        "colorName": "cowboy boots",
+        "colorCode": "SW9115",
+        "colorHex": "#695239"
+      },
+      {
+        "colorName": "muddled basil",
+        "colorCode": "SW7745",
+        "colorHex": "#5a5243"
+      },
+      {
+        "colorName": "best bronze",
+        "colorCode": "SW6160",
+        "colorHex": "#5d513e"
+      }
+    ],
+    "Purples": [
+      {
+        "colorName": "rarified air",
+        "colorCode": "SW6525",
+        "colorHex": "#e1e6e6"
+      },
+      {
+        "colorName": "quicksilver",
+        "colorCode": "SW6245",
+        "colorHex": "#dde2e0"
+      },
+      {
+        "colorName": "polite white",
+        "colorCode": "SW6056",
+        "colorHex": "#e9ddd4"
+      },
+      {
+        "colorName": "original white",
+        "colorCode": "SW7077",
+        "colorHex": "#e2dedb"
+      },
+      {
+        "colorName": "icicle",
+        "colorCode": "SW6238",
+        "colorHex": "#dbdfe0"
+      },
+      {
+        "colorName": "snowfall",
+        "colorCode": "SW6000",
+        "colorHex": "#e0deda"
+      },
+      {
+        "colorName": "spangle",
+        "colorCode": "SW6834",
+        "colorHex": "#e5dbe5"
+      },
+      {
+        "colorName": "cultured pearl",
+        "colorCode": "SW6028",
+        "colorHex": "#e5dcd6"
+      },
+      {
+        "colorName": "smart white",
+        "colorCode": "SW6007",
+        "colorHex": "#e4dbd8"
+      },
+      {
+        "colorName": "elation",
+        "colorCode": "SW6827",
+        "colorHex": "#dfdce5"
+      },
+      {
+        "colorName": "gorgeous white",
+        "colorCode": "SW6049",
+        "colorHex": "#e7dbd3"
+      },
+      {
+        "colorName": "spatial white",
+        "colorCode": "SW6259",
+        "colorHex": "#dddcdb"
+      },
+      {
+        "colorName": "hush white",
+        "colorCode": "SW6042",
+        "colorHex": "#e5dad4"
+      },
+      {
+        "colorName": "wishful blue",
+        "colorCode": "SW6813",
+        "colorHex": "#d8dde6"
+      },
+      {
+        "colorName": "dreamy white",
+        "colorCode": "SW6021",
+        "colorHex": "#e3d9d5"
+      },
+      {
+        "colorName": "inspired lilac",
+        "colorCode": "SW6820",
+        "colorHex": "#dfd9e4"
+      },
+      {
+        "colorName": "soar",
+        "colorCode": "SW6799",
+        "colorHex": "#c3dfe8"
+      },
+      {
+        "colorName": "simple white",
+        "colorCode": "SW7021",
+        "colorHex": "#dfd9d2"
+      },
+      {
+        "colorName": "rhythmic blue",
+        "colorCode": "SW6806",
+        "colorHex": "#ccdbe5"
+      },
+      {
+        "colorName": "icelandic",
+        "colorCode": "SW6526",
+        "colorHex": "#cbd8e1"
+      },
+      {
+        "colorName": "breathtaking",
+        "colorCode": "SW6814",
+        "colorHex": "#c7d1e2"
+      },
+      {
+        "colorName": "something blue",
+        "colorCode": "SW6800",
+        "colorHex": "#b0d6e6"
+      },
+      {
+        "colorName": "potentially purple",
+        "colorCode": "SW6821",
+        "colorHex": "#d1cbdf"
+      },
+      {
+        "colorName": "euphoric lilac",
+        "colorCode": "SW6835",
+        "colorHex": "#dac7da"
+      },
+      {
+        "colorName": "rhapsody lilac",
+        "colorCode": "SW6828",
+        "colorHex": "#d2c8dd"
+      },
+      {
+        "colorName": "hyacinth tint",
+        "colorCode": "SW6968",
+        "colorHex": "#c2cbe0"
+      },
+      {
+        "colorName": "wondrous blue",
+        "colorCode": "SW6807",
+        "colorHex": "#b8cddd"
+      },
+      {
+        "colorName": "blissful blue",
+        "colorCode": "SW6527",
+        "colorHex": "#b2c8d8"
+      },
+      {
+        "colorName": "agapanthus",
+        "colorCode": "SW9066",
+        "colorHex": "#bbc5de"
+      },
+      {
+        "colorName": "porch ceiling",
+        "colorCode": "SW9063",
+        "colorHex": "#9bc8de"
+      },
+      {
+        "colorName": "free spirit",
+        "colorCode": "SW6973",
+        "colorHex": "#cab2d2"
+      },
+      {
+        "colorName": "wisteria",
+        "colorCode": "SW6822",
+        "colorHex": "#bdb4d4"
+      },
+      {
+        "colorName": "magical",
+        "colorCode": "SW6829",
+        "colorHex": "#c0afd0"
+      },
+      {
+        "colorName": "awesome violet",
+        "colorCode": "SW6815",
+        "colorHex": "#a7b2d4"
+      },
+      {
+        "colorName": "celestial",
+        "colorCode": "SW6808",
+        "colorHex": "#97b3d0"
+      },
+      {
+        "colorName": "regale blue",
+        "colorCode": "SW6801",
+        "colorHex": "#7db5d3"
+      },
+      {
+        "colorName": "novel lilac",
+        "colorCode": "SW6836",
+        "colorHex": "#c2a4c2"
+      },
+      {
+        "colorName": "forever lilac",
+        "colorCode": "SW9067",
+        "colorHex": "#afa5c7"
+      },
+      {
+        "colorName": "berry frappé",
+        "colorCode": "SW9068",
+        "colorHex": "#b3a1c6"
+      },
+      {
+        "colorName": "cosmos",
+        "colorCode": "SW6528",
+        "colorHex": "#8ea9c2"
+      },
+      {
+        "colorName": "dahlia",
+        "colorCode": "SW6816",
+        "colorHex": "#8b98c4"
+      },
+      {
+        "colorName": "bluesy note",
+        "colorCode": "SW9064",
+        "colorHex": "#7c9ab5"
+      },
+      {
+        "colorName": "jacaranda",
+        "colorCode": "SW6802",
+        "colorHex": "#5a9ec0"
+      },
+      {
+        "colorName": "lobelia",
+        "colorCode": "SW6809",
+        "colorHex": "#7498be"
+      },
+      {
+        "colorName": "kismet",
+        "colorCode": "SW6830",
+        "colorHex": "#a18ab7"
+      },
+      {
+        "colorName": "brave purple",
+        "colorCode": "SW6823",
+        "colorHex": "#968db8"
+      },
+      {
+        "colorName": "baroness",
+        "colorCode": "SW6837",
+        "colorHex": "#a785a7"
+      },
+      {
+        "colorName": "scanda",
+        "colorCode": "SW6529",
+        "colorHex": "#6b8ca9"
+      },
+      {
+        "colorName": "perfect periwinkle",
+        "colorCode": "SW9065",
+        "colorHex": "#6487b0"
+      },
+      {
+        "colorName": "veri berri",
+        "colorCode": "SW9069",
+        "colorHex": "#937496"
+      },
+      {
+        "colorName": "gentian",
+        "colorCode": "SW6817",
+        "colorHex": "#6572a5"
+      },
+      {
+        "colorName": "lupine",
+        "colorCode": "SW6810",
+        "colorHex": "#4e739f"
+      },
+      {
+        "colorName": "danube",
+        "colorCode": "SW6803",
+        "colorHex": "#2377a2"
+      },
+      {
+        "colorName": "clematis",
+        "colorCode": "SW6831",
+        "colorHex": "#7e6596"
+      },
+      {
+        "colorName": "forget-me-not",
+        "colorCode": "SW6824",
+        "colorHex": "#716998"
+      },
+      {
+        "colorName": "revel blue",
+        "colorCode": "SW6530",
+        "colorHex": "#4c6b8a"
+      },
+      {
+        "colorName": "blue chip",
+        "colorCode": "SW6959",
+        "colorHex": "#016ea7"
+      },
+      {
+        "colorName": "vigorous violet",
+        "colorCode": "SW6838",
+        "colorHex": "#7c5a7e"
+      },
+      {
+        "colorName": "passionate purple",
+        "colorCode": "SW6981",
+        "colorHex": "#795484"
+      },
+      {
+        "colorName": "african violet",
+        "colorCode": "SW6982",
+        "colorHex": "#665385"
+      },
+      {
+        "colorName": "impulsive purple",
+        "colorCode": "SW6832",
+        "colorHex": "#624977"
+      },
+      {
+        "colorName": "fully purple",
+        "colorCode": "SW6983",
+        "colorHex": "#514c7e"
+      },
+      {
+        "colorName": "frank blue",
+        "colorCode": "SW6967",
+        "colorHex": "#225288"
+      },
+      {
+        "colorName": "morning glory",
+        "colorCode": "SW6971",
+        "colorHex": "#3c4c80"
+      },
+      {
+        "colorName": "blueblood",
+        "colorCode": "SW6966",
+        "colorHex": "#015086"
+      },
+      {
+        "colorName": "izmir purple",
+        "colorCode": "SW6825",
+        "colorHex": "#4d426e"
+      },
+      {
+        "colorName": "indigo",
+        "colorCode": "SW6531",
+        "colorHex": "#284a70"
+      },
+      {
+        "colorName": "dignity blue",
+        "colorCode": "SW6804",
+        "colorHex": "#094c73"
+      },
+      {
+        "colorName": "valiant violet",
+        "colorCode": "SW6818",
+        "colorHex": "#3e4371"
+      },
+      {
+        "colorName": "kimono violet",
+        "colorCode": "SW6839",
+        "colorHex": "#5d395f"
+      },
+      {
+        "colorName": "honorable blue",
+        "colorCode": "SW6811",
+        "colorHex": "#164576"
+      },
+      {
+        "colorName": "rarified air",
+        "colorCode": "SW6525",
+        "colorHex": "#e1e6e6"
+      },
+      {
+        "colorName": "quicksilver",
+        "colorCode": "SW6245",
+        "colorHex": "#dde2e0"
+      },
+      {
+        "colorName": "polite white",
+        "colorCode": "SW6056",
+        "colorHex": "#e9ddd4"
+      },
+      {
+        "colorName": "original white",
+        "colorCode": "SW7077",
+        "colorHex": "#e2dedb"
+      },
+      {
+        "colorName": "icicle",
+        "colorCode": "SW6238",
+        "colorHex": "#dbdfe0"
+      },
+      {
+        "colorName": "snowfall",
+        "colorCode": "SW6000",
+        "colorHex": "#e0deda"
+      },
+      {
+        "colorName": "spangle",
+        "colorCode": "SW6834",
+        "colorHex": "#e5dbe5"
+      },
+      {
+        "colorName": "cultured pearl",
+        "colorCode": "SW6028",
+        "colorHex": "#e5dcd6"
+      },
+      {
+        "colorName": "smart white",
+        "colorCode": "SW6007",
+        "colorHex": "#e4dbd8"
+      },
+      {
+        "colorName": "elation",
+        "colorCode": "SW6827",
+        "colorHex": "#dfdce5"
+      },
+      {
+        "colorName": "gorgeous white",
+        "colorCode": "SW6049",
+        "colorHex": "#e7dbd3"
+      },
+      {
+        "colorName": "spatial white",
+        "colorCode": "SW6259",
+        "colorHex": "#dddcdb"
+      },
+      {
+        "colorName": "hush white",
+        "colorCode": "SW6042",
+        "colorHex": "#e5dad4"
+      },
+      {
+        "colorName": "wishful blue",
+        "colorCode": "SW6813",
+        "colorHex": "#d8dde6"
+      },
+      {
+        "colorName": "dreamy white",
+        "colorCode": "SW6021",
+        "colorHex": "#e3d9d5"
+      },
+      {
+        "colorName": "inspired lilac",
+        "colorCode": "SW6820",
+        "colorHex": "#dfd9e4"
+      },
+      {
+        "colorName": "soar",
+        "colorCode": "SW6799",
+        "colorHex": "#c3dfe8"
+      },
+      {
+        "colorName": "simple white",
+        "colorCode": "SW7021",
+        "colorHex": "#dfd9d2"
+      },
+      {
+        "colorName": "rhythmic blue",
+        "colorCode": "SW6806",
+        "colorHex": "#ccdbe5"
+      },
+      {
+        "colorName": "icelandic",
+        "colorCode": "SW6526",
+        "colorHex": "#cbd8e1"
+      },
+      {
+        "colorName": "breathtaking",
+        "colorCode": "SW6814",
+        "colorHex": "#c7d1e2"
+      },
+      {
+        "colorName": "something blue",
+        "colorCode": "SW6800",
+        "colorHex": "#b0d6e6"
+      },
+      {
+        "colorName": "potentially purple",
+        "colorCode": "SW6821",
+        "colorHex": "#d1cbdf"
+      },
+      {
+        "colorName": "euphoric lilac",
+        "colorCode": "SW6835",
+        "colorHex": "#dac7da"
+      },
+      {
+        "colorName": "rhapsody lilac",
+        "colorCode": "SW6828",
+        "colorHex": "#d2c8dd"
+      },
+      {
+        "colorName": "hyacinth tint",
+        "colorCode": "SW6968",
+        "colorHex": "#c2cbe0"
+      },
+      {
+        "colorName": "wondrous blue",
+        "colorCode": "SW6807",
+        "colorHex": "#b8cddd"
+      },
+      {
+        "colorName": "blissful blue",
+        "colorCode": "SW6527",
+        "colorHex": "#b2c8d8"
+      },
+      {
+        "colorName": "agapanthus",
+        "colorCode": "SW9066",
+        "colorHex": "#bbc5de"
+      },
+      {
+        "colorName": "porch ceiling",
+        "colorCode": "SW9063",
+        "colorHex": "#9bc8de"
+      },
+      {
+        "colorName": "free spirit",
+        "colorCode": "SW6973",
+        "colorHex": "#cab2d2"
+      },
+      {
+        "colorName": "wisteria",
+        "colorCode": "SW6822",
+        "colorHex": "#bdb4d4"
+      },
+      {
+        "colorName": "magical",
+        "colorCode": "SW6829",
+        "colorHex": "#c0afd0"
+      },
+      {
+        "colorName": "awesome violet",
+        "colorCode": "SW6815",
+        "colorHex": "#a7b2d4"
+      },
+      {
+        "colorName": "celestial",
+        "colorCode": "SW6808",
+        "colorHex": "#97b3d0"
+      },
+      {
+        "colorName": "regale blue",
+        "colorCode": "SW6801",
+        "colorHex": "#7db5d3"
+      },
+      {
+        "colorName": "novel lilac",
+        "colorCode": "SW6836",
+        "colorHex": "#c2a4c2"
+      },
+      {
+        "colorName": "forever lilac",
+        "colorCode": "SW9067",
+        "colorHex": "#afa5c7"
+      },
+      {
+        "colorName": "berry frappé",
+        "colorCode": "SW9068",
+        "colorHex": "#b3a1c6"
+      },
+      {
+        "colorName": "cosmos",
+        "colorCode": "SW6528",
+        "colorHex": "#8ea9c2"
+      },
+      {
+        "colorName": "dahlia",
+        "colorCode": "SW6816",
+        "colorHex": "#8b98c4"
+      },
+      {
+        "colorName": "bluesy note",
+        "colorCode": "SW9064",
+        "colorHex": "#7c9ab5"
+      },
+      {
+        "colorName": "jacaranda",
+        "colorCode": "SW6802",
+        "colorHex": "#5a9ec0"
+      },
+      {
+        "colorName": "lobelia",
+        "colorCode": "SW6809",
+        "colorHex": "#7498be"
+      },
+      {
+        "colorName": "kismet",
+        "colorCode": "SW6830",
+        "colorHex": "#a18ab7"
+      },
+      {
+        "colorName": "brave purple",
+        "colorCode": "SW6823",
+        "colorHex": "#968db8"
+      },
+      {
+        "colorName": "baroness",
+        "colorCode": "SW6837",
+        "colorHex": "#a785a7"
+      },
+      {
+        "colorName": "scanda",
+        "colorCode": "SW6529",
+        "colorHex": "#6b8ca9"
+      },
+      {
+        "colorName": "perfect periwinkle",
+        "colorCode": "SW9065",
+        "colorHex": "#6487b0"
+      },
+      {
+        "colorName": "veri berri",
+        "colorCode": "SW9069",
+        "colorHex": "#937496"
+      },
+      {
+        "colorName": "gentian",
+        "colorCode": "SW6817",
+        "colorHex": "#6572a5"
+      },
+      {
+        "colorName": "lupine",
+        "colorCode": "SW6810",
+        "colorHex": "#4e739f"
+      },
+      {
+        "colorName": "danube",
+        "colorCode": "SW6803",
+        "colorHex": "#2377a2"
+      },
+      {
+        "colorName": "clematis",
+        "colorCode": "SW6831",
+        "colorHex": "#7e6596"
+      },
+      {
+        "colorName": "forget-me-not",
+        "colorCode": "SW6824",
+        "colorHex": "#716998"
+      },
+      {
+        "colorName": "revel blue",
+        "colorCode": "SW6530",
+        "colorHex": "#4c6b8a"
+      },
+      {
+        "colorName": "blue chip",
+        "colorCode": "SW6959",
+        "colorHex": "#016ea7"
+      },
+      {
+        "colorName": "vigorous violet",
+        "colorCode": "SW6838",
+        "colorHex": "#7c5a7e"
+      },
+      {
+        "colorName": "passionate purple",
+        "colorCode": "SW6981",
+        "colorHex": "#795484"
+      },
+      {
+        "colorName": "african violet",
+        "colorCode": "SW6982",
+        "colorHex": "#665385"
+      },
+      {
+        "colorName": "impulsive purple",
+        "colorCode": "SW6832",
+        "colorHex": "#624977"
+      },
+      {
+        "colorName": "fully purple",
+        "colorCode": "SW6983",
+        "colorHex": "#514c7e"
+      },
+      {
+        "colorName": "frank blue",
+        "colorCode": "SW6967",
+        "colorHex": "#225288"
+      },
+      {
+        "colorName": "morning glory",
+        "colorCode": "SW6971",
+        "colorHex": "#3c4c80"
+      },
+      {
+        "colorName": "blueblood",
+        "colorCode": "SW6966",
+        "colorHex": "#015086"
+      },
+      {
+        "colorName": "izmir purple",
+        "colorCode": "SW6825",
+        "colorHex": "#4d426e"
+      },
+      {
+        "colorName": "indigo",
+        "colorCode": "SW6531",
+        "colorHex": "#284a70"
+      },
+      {
+        "colorName": "dignity blue",
+        "colorCode": "SW6804",
+        "colorHex": "#094c73"
+      },
+      {
+        "colorName": "valiant violet",
+        "colorCode": "SW6818",
+        "colorHex": "#3e4371"
+      },
+      {
+        "colorName": "kimono violet",
+        "colorCode": "SW6839",
+        "colorHex": "#5d395f"
+      },
+      {
+        "colorName": "honorable blue",
+        "colorCode": "SW6811",
+        "colorHex": "#164576"
+      },
+      {
+        "colorName": "individual white",
+        "colorCode": "SW6008",
+        "colorHex": "#d4cdca"
+      },
+      {
+        "colorName": "sensitive tint",
+        "colorCode": "SW6267",
+        "colorHex": "#cec9cc"
+      },
+      {
+        "colorName": "minute mauve",
+        "colorCode": "SW7078",
+        "colorHex": "#cfc9c8"
+      },
+      {
+        "colorName": "destiny",
+        "colorCode": "SW6274",
+        "colorHex": "#cfc9c8"
+      },
+      {
+        "colorName": "unique gray",
+        "colorCode": "SW6260",
+        "colorHex": "#cbc9c9"
+      },
+      {
+        "colorName": "vaguely mauve",
+        "colorCode": "SW6015",
+        "colorHex": "#d1c5c4"
+      },
+      {
+        "colorName": "angora",
+        "colorCode": "SW6036",
+        "colorHex": "#d1c5be"
+      },
+      {
+        "colorName": "studio mauve",
+        "colorCode": "SW0062",
+        "colorHex": "#c6b9b8"
+      },
+      {
+        "colorName": "fashionable gray",
+        "colorCode": "SW6275",
+        "colorHex": "#bdb8b8"
+      },
+      {
+        "colorName": "imagine",
+        "colorCode": "SW6009",
+        "colorHex": "#c2b6b6"
+      },
+      {
+        "colorName": "queen anne lilac",
+        "colorCode": "SW0021",
+        "colorHex": "#c0b6b4"
+      },
+      {
+        "colorName": "ponder",
+        "colorCode": "SW7079",
+        "colorHex": "#bcb6b6"
+      },
+      {
+        "colorName": "veiled violet",
+        "colorCode": "SW6268",
+        "colorHex": "#bdb5b9"
+      },
+      {
+        "colorName": "chaise mauve",
+        "colorCode": "SW6016",
+        "colorHex": "#c1b2b3"
+      },
+      {
+        "colorName": "temperate taupe",
+        "colorCode": "SW6037",
+        "colorHex": "#bfb1aa"
+      },
+      {
+        "colorName": "swanky gray",
+        "colorCode": "SW6261",
+        "colorHex": "#b5b1b5"
+      },
+      {
+        "colorName": "chelsea mauve",
+        "colorCode": "SW0002",
+        "colorHex": "#beac9f"
+      },
+      {
+        "colorName": "mystical shade",
+        "colorCode": "SW6276",
+        "colorHex": "#aea9aa"
+      },
+      {
+        "colorName": "beguiling mauve",
+        "colorCode": "SW6269",
+        "colorHex": "#afa7ac"
+      },
+      {
+        "colorName": "quest gray",
+        "colorCode": "SW7080",
+        "colorHex": "#ada5a5"
+      },
+      {
+        "colorName": "intuitive",
+        "colorCode": "SW6017",
+        "colorHex": "#b3a3a5"
+      },
+      {
+        "colorName": "flexible gray",
+        "colorCode": "SW6010",
+        "colorHex": "#b1a3a1"
+      },
+      {
+        "colorName": "mysterious mauve",
+        "colorCode": "SW6262",
+        "colorHex": "#a6a3a9"
+      },
+      {
+        "colorName": "truly taupe",
+        "colorCode": "SW6038",
+        "colorHex": "#ac9e97"
+      },
+      {
+        "colorName": "auger shell",
+        "colorCode": "SW9159",
+        "colorHex": "#9f9291"
+      },
+      {
+        "colorName": "autumn orchid",
+        "colorCode": "SW9157",
+        "colorHex": "#9d9093"
+      },
+      {
+        "colorName": "slate violet",
+        "colorCode": "SW9155",
+        "colorHex": "#989192"
+      },
+      {
+        "colorName": "armadillo",
+        "colorCode": "SW9160",
+        "colorHex": "#9e9089"
+      },
+      {
+        "colorName": "moonlit orchid",
+        "colorCode": "SW9153",
+        "colorHex": "#949194"
+      },
+      {
+        "colorName": "coquina",
+        "colorCode": "SW9158",
+        "colorHex": "#9d8d8e"
+      },
+      {
+        "colorName": "gris morado",
+        "colorCode": "SW9156",
+        "colorHex": "#8f8a91"
+      },
+      {
+        "colorName": "poised taupe",
+        "colorCode": "SW6039",
+        "colorHex": "#8c7e78"
+      },
+      {
+        "colorName": "renwick heather",
+        "colorCode": "SW2818",
+        "colorHex": "#8b7d7b"
+      },
+      {
+        "colorName": "enigma",
+        "colorCode": "SW6018",
+        "colorHex": "#8b7c7e"
+      },
+      {
+        "colorName": "sensuous gray",
+        "colorCode": "SW7081",
+        "colorHex": "#837d7f"
+      },
+      {
+        "colorName": "chinchilla",
+        "colorCode": "SW6011",
+        "colorHex": "#867875"
+      },
+      {
+        "colorName": "soulmate",
+        "colorCode": "SW6270",
+        "colorHex": "#85777b"
+      },
+      {
+        "colorName": "special gray",
+        "colorCode": "SW6277",
+        "colorHex": "#7b787d"
+      },
+      {
+        "colorName": "exclusive plum",
+        "colorCode": "SW6263",
+        "colorHex": "#736f78"
+      },
+      {
+        "colorName": "patchwork plum",
+        "colorCode": "SW0022",
+        "colorHex": "#7e696a"
+      },
+      {
+        "colorName": "nutshell",
+        "colorCode": "SW6040",
+        "colorHex": "#756761"
+      },
+      {
+        "colorName": "browse brown",
+        "colorCode": "SW6012",
+        "colorHex": "#6e615f"
+      },
+      {
+        "colorName": "stunning shade",
+        "colorCode": "SW7082",
+        "colorHex": "#676064"
+      },
+      {
+        "colorName": "poetry plum",
+        "colorCode": "SW6019",
+        "colorHex": "#6f5c5f"
+      },
+      {
+        "colorName": "expressive plum",
+        "colorCode": "SW6271",
+        "colorHex": "#695c62"
+      },
+      {
+        "colorName": "cloak gray",
+        "colorCode": "SW6278",
+        "colorHex": "#605e63"
+      },
+      {
+        "colorName": "deepest mauve",
+        "colorCode": "SW0005",
+        "colorHex": "#6d595a"
+      },
+      {
+        "colorName": "midnight",
+        "colorCode": "SW6264",
+        "colorHex": "#5d5962"
+      },
+      {
+        "colorName": "perle noir",
+        "colorCode": "SW9154",
+        "colorHex": "#4f4d51"
+      },
+      {
+        "colorName": "quixotic plum",
+        "colorCode": "SW6265",
+        "colorHex": "#4a4653"
+      },
+      {
+        "colorName": "otter",
+        "colorCode": "SW6041",
+        "colorHex": "#56433b"
+      },
+      {
+        "colorName": "plum brown",
+        "colorCode": "SW6272",
+        "colorHex": "#4e4247"
+      },
+      {
+        "colorName": "carnelian",
+        "colorCode": "SW7580",
+        "colorHex": "#573e3e"
+      },
+      {
+        "colorName": "bitter chocolate",
+        "colorCode": "SW6013",
+        "colorHex": "#4d3c3c"
+      },
+      {
+        "colorName": "darkroom",
+        "colorCode": "SW7083",
+        "colorHex": "#443e40"
+      },
+      {
+        "colorName": "merlot",
+        "colorCode": "SW2704",
+        "colorHex": "#51323b"
+      },
+      {
+        "colorName": "marooned",
+        "colorCode": "SW6020",
+        "colorHex": "#4e3132"
+      }
+    ],
+    "Oranges": [
+      {
+        "colorName": "intimate white",
+        "colorCode": "SW6322",
+        "colorHex": "#f0e1d8"
+      },
+      {
+        "colorName": "faint coral",
+        "colorCode": "SW6329",
+        "colorHex": "#eeded5"
+      },
+      {
+        "colorName": "captivating cream",
+        "colorCode": "SW6659",
+        "colorHex": "#f4d9b1"
+      },
+      {
+        "colorName": "flan",
+        "colorCode": "SW6652",
+        "colorHex": "#f4d4af"
+      },
+      {
+        "colorName": "naive peach",
+        "colorCode": "SW6631",
+        "colorHex": "#f3d3bf"
+      },
+      {
+        "colorName": "flattering peach",
+        "colorCode": "SW6638",
+        "colorHex": "#f4d3b3"
+      },
+      {
+        "colorName": "comical coral",
+        "colorCode": "SW6876",
+        "colorHex": "#f3d1c8"
+      },
+      {
+        "colorName": "koral kicks",
+        "colorCode": "SW6610",
+        "colorHex": "#f2d1c3"
+      },
+      {
+        "colorName": "blushing",
+        "colorCode": "SW6617",
+        "colorHex": "#f0d1c3"
+      },
+      {
+        "colorName": "peach blossom",
+        "colorCode": "SW6624",
+        "colorHex": "#f3d0bd"
+      },
+      {
+        "colorName": "honey blush",
+        "colorCode": "SW6660",
+        "colorHex": "#f5cf9b"
+      },
+      {
+        "colorName": "delicious melon",
+        "colorCode": "SW6653",
+        "colorHex": "#f5c894"
+      },
+      {
+        "colorName": "avid apricot",
+        "colorCode": "SW6639",
+        "colorHex": "#f4c69f"
+      },
+      {
+        "colorName": "bellini fizz",
+        "colorCode": "SW9008",
+        "colorHex": "#f5c78e"
+      },
+      {
+        "colorName": "cosmetic peach",
+        "colorCode": "SW6618",
+        "colorHex": "#f3c1ab"
+      },
+      {
+        "colorName": "neighborly peach",
+        "colorCode": "SW6632",
+        "colorHex": "#f3c1a3"
+      },
+      {
+        "colorName": "certain peach",
+        "colorCode": "SW6625",
+        "colorHex": "#f2bda2"
+      },
+      {
+        "colorName": "jovial",
+        "colorCode": "SW6611",
+        "colorHex": "#f2b8a7"
+      },
+      {
+        "colorName": "melón meloso",
+        "colorCode": "SW9007",
+        "colorHex": "#f2b88c"
+      },
+      {
+        "colorName": "papaya",
+        "colorCode": "SW6661",
+        "colorHex": "#efb97b"
+      },
+      {
+        "colorName": "surprise amber",
+        "colorCode": "SW6654",
+        "colorHex": "#efb57a"
+      },
+      {
+        "colorName": "youthful coral",
+        "colorCode": "SW6604",
+        "colorHex": "#f0afa8"
+      },
+      {
+        "colorName": "tangerine",
+        "colorCode": "SW6640",
+        "colorHex": "#f2ac78"
+      },
+      {
+        "colorName": "summer day",
+        "colorCode": "SW6662",
+        "colorHex": "#eaaa62"
+      },
+      {
+        "colorName": "osage orange",
+        "colorCode": "SW6890",
+        "colorHex": "#f4a045"
+      },
+      {
+        "colorName": "adventure orange",
+        "colorCode": "SW6655",
+        "colorHex": "#e69f5f"
+      },
+      {
+        "colorName": "inventive orange",
+        "colorCode": "SW6633",
+        "colorHex": "#e89d6f"
+      },
+      {
+        "colorName": "ravishing coral",
+        "colorCode": "SW6612",
+        "colorHex": "#e79580"
+      },
+      {
+        "colorName": "sockeye",
+        "colorCode": "SW6619",
+        "colorHex": "#e49780"
+      },
+      {
+        "colorName": "outgoing orange",
+        "colorCode": "SW6641",
+        "colorHex": "#e6955f"
+      },
+      {
+        "colorName": "saffron thread",
+        "colorCode": "SW6663",
+        "colorHex": "#df984e"
+      },
+      {
+        "colorName": "sunset",
+        "colorCode": "SW6626",
+        "colorHex": "#e2946f"
+      },
+      {
+        "colorName": "carnival",
+        "colorCode": "SW6892",
+        "colorHex": "#eb882c"
+      },
+      {
+        "colorName": "navel",
+        "colorCode": "SW6887",
+        "colorHex": "#ec8430"
+      },
+      {
+        "colorName": "serape",
+        "colorCode": "SW6656",
+        "colorHex": "#d88b4d"
+      },
+      {
+        "colorName": "amber wave",
+        "colorCode": "SW6657",
+        "colorHex": "#d28240"
+      },
+      {
+        "colorName": "marigold",
+        "colorCode": "SW6664",
+        "colorHex": "#d28233"
+      },
+      {
+        "colorName": "lei flower",
+        "colorCode": "SW6613",
+        "colorHex": "#d87b6a"
+      },
+      {
+        "colorName": "copper harbor",
+        "colorCode": "SW6634",
+        "colorHex": "#d57e52"
+      },
+      {
+        "colorName": "rejuvenate",
+        "colorCode": "SW6620",
+        "colorHex": "#dd7861"
+      },
+      {
+        "colorName": "emberglow",
+        "colorCode": "SW6627",
+        "colorHex": "#d67c56"
+      },
+      {
+        "colorName": "invigorate",
+        "colorCode": "SW6886",
+        "colorHex": "#e47237"
+      },
+      {
+        "colorName": "knockout orange",
+        "colorCode": "SW6885",
+        "colorHex": "#e16f3e"
+      },
+      {
+        "colorName": "rhumba orange",
+        "colorCode": "SW6642",
+        "colorHex": "#cb7841"
+      },
+      {
+        "colorName": "yam",
+        "colorCode": "SW6643",
+        "colorHex": "#c36f3e"
+      },
+      {
+        "colorName": "quite coral",
+        "colorCode": "SW6614",
+        "colorHex": "#c76356"
+      },
+      {
+        "colorName": "determined orange",
+        "colorCode": "SW6635",
+        "colorHex": "#c56639"
+      },
+      {
+        "colorName": "obstinate orange",
+        "colorCode": "SW6884",
+        "colorHex": "#d7552a"
+      },
+      {
+        "colorName": "robust orange",
+        "colorCode": "SW6628",
+        "colorHex": "#c4633e"
+      },
+      {
+        "colorName": "emotional",
+        "colorCode": "SW6621",
+        "colorHex": "#c65f47"
+      },
+      {
+        "colorName": "husky orange",
+        "colorCode": "SW6636",
+        "colorHex": "#bb613e"
+      },
+      {
+        "colorName": "raucous orange",
+        "colorCode": "SW6883",
+        "colorHex": "#c35530"
+      },
+      {
+        "colorName": "peppery",
+        "colorCode": "SW6615",
+        "colorHex": "#b85444"
+      },
+      {
+        "colorName": "cayenne",
+        "colorCode": "SW6881",
+        "colorHex": "#c04d35"
+      },
+      {
+        "colorName": "earthen jug",
+        "colorCode": "SW7703",
+        "colorHex": "#a85e39"
+      },
+      {
+        "colorName": "jalapeño",
+        "colorCode": "SW6629",
+        "colorHex": "#b1533c"
+      },
+      {
+        "colorName": "habanero chile",
+        "colorCode": "SW7589",
+        "colorHex": "#b8473d"
+      },
+      {
+        "colorName": "hearty orange",
+        "colorCode": "SW6622",
+        "colorHex": "#b44b34"
+      },
+      {
+        "colorName": "stop",
+        "colorCode": "SW6869",
+        "colorHex": "#c33a36"
+      },
+      {
+        "colorName": "brick paver",
+        "colorCode": "SW7599",
+        "colorHex": "#93402f"
+      },
+      {
+        "colorName": "alluring white",
+        "colorCode": "SW6343",
+        "colorHex": "#efe1d2"
+      },
+      {
+        "colorName": "jersey cream",
+        "colorCode": "SW6379",
+        "colorHex": "#f5debb"
+      },
+      {
+        "colorName": "cachet cream",
+        "colorCode": "SW6365",
+        "colorHex": "#f3d9ba"
+      },
+      {
+        "colorName": "inviting ivory",
+        "colorCode": "SW6372",
+        "colorHex": "#f2d5b0"
+      },
+      {
+        "colorName": "spun sugar",
+        "colorCode": "SW6337",
+        "colorHex": "#edd2c0"
+      },
+      {
+        "colorName": "creamery",
+        "colorCode": "SW6358",
+        "colorHex": "#edd0b6"
+      },
+      {
+        "colorName": "peach fuzz",
+        "colorCode": "SW6344",
+        "colorHex": "#eccfbb"
+      },
+      {
+        "colorName": "pueblo",
+        "colorCode": "SW7711",
+        "colorHex": "#e6d0bd"
+      },
+      {
+        "colorName": "aristocrat peach",
+        "colorCode": "SW0027",
+        "colorHex": "#ecceb9"
+      },
+      {
+        "colorName": "sweet orange",
+        "colorCode": "SW6351",
+        "colorHex": "#ebccb3"
+      },
+      {
+        "colorName": "ambitious amber",
+        "colorCode": "SW6366",
+        "colorHex": "#f0cb97"
+      },
+      {
+        "colorName": "humble gold",
+        "colorCode": "SW6380",
+        "colorHex": "#edc796"
+      },
+      {
+        "colorName": "beige",
+        "colorCode": "SW2859",
+        "colorHex": "#dfc8b5"
+      },
+      {
+        "colorName": "townhouse tan",
+        "colorCode": "SW7712",
+        "colorHex": "#dfc8b5"
+      },
+      {
+        "colorName": "harvester",
+        "colorCode": "SW6373",
+        "colorHex": "#edc38e"
+      },
+      {
+        "colorName": "bee's wax",
+        "colorCode": "SW7682",
+        "colorHex": "#eabf86"
+      },
+      {
+        "colorName": "sociable",
+        "colorCode": "SW6359",
+        "colorHex": "#e8be9b"
+      },
+      {
+        "colorName": "warming peach",
+        "colorCode": "SW6338",
+        "colorHex": "#e4b9a2"
+      },
+      {
+        "colorName": "sumptuous peach",
+        "colorCode": "SW6345",
+        "colorHex": "#e5b99b"
+      },
+      {
+        "colorName": "classic sand",
+        "colorCode": "SW0056",
+        "colorHex": "#d6bcaa"
+      },
+      {
+        "colorName": "polvo de oro",
+        "colorCode": "SW9012",
+        "colorHex": "#e8b87f"
+      },
+      {
+        "colorName": "soft apricot",
+        "colorCode": "SW6352",
+        "colorHex": "#e0b392"
+      },
+      {
+        "colorName": "torchlight",
+        "colorCode": "SW6374",
+        "colorHex": "#e5ae6b"
+      },
+      {
+        "colorName": "tawny tan",
+        "colorCode": "SW7713",
+        "colorHex": "#ccb299"
+      },
+      {
+        "colorName": "viva gold",
+        "colorCode": "SW6367",
+        "colorHex": "#e3ac72"
+      },
+      {
+        "colorName": "sun bleached ochre",
+        "colorCode": "SW9011",
+        "colorHex": "#e3ab7b"
+      },
+      {
+        "colorName": "anjou pear",
+        "colorCode": "SW6381",
+        "colorHex": "#ddac6d"
+      },
+      {
+        "colorName": "windswept canyon",
+        "colorCode": "SW9010",
+        "colorHex": "#dba480"
+      },
+      {
+        "colorName": "fame orange",
+        "colorCode": "SW6346",
+        "colorHex": "#db9c7b"
+      },
+      {
+        "colorName": "ceremonial gold",
+        "colorCode": "SW6382",
+        "colorHex": "#d69e59"
+      },
+      {
+        "colorName": "persimmon",
+        "colorCode": "SW6339",
+        "colorHex": "#d9987c"
+      },
+      {
+        "colorName": "rose tan",
+        "colorCode": "SW0069",
+        "colorHex": "#cd9c85"
+      },
+      {
+        "colorName": "bakelite gold",
+        "colorCode": "SW6368",
+        "colorHex": "#d7995d"
+      },
+      {
+        "colorName": "folksy gold",
+        "colorCode": "SW6360",
+        "colorHex": "#d69969"
+      },
+      {
+        "colorName": "wickerwork",
+        "colorCode": "SW0010",
+        "colorHex": "#c19e80"
+      },
+      {
+        "colorName": "honeycomb",
+        "colorCode": "SW6375",
+        "colorHex": "#d59858"
+      },
+      {
+        "colorName": "chivalry copper",
+        "colorCode": "SW6353",
+        "colorHex": "#d4966e"
+      },
+      {
+        "colorName": "mellow mauve",
+        "colorCode": "SW0039",
+        "colorHex": "#c4957a"
+      },
+      {
+        "colorName": "golden rule",
+        "colorCode": "SW6383",
+        "colorHex": "#cc9249"
+      },
+      {
+        "colorName": "autumnal",
+        "colorCode": "SW6361",
+        "colorHex": "#cd8c5d"
+      },
+      {
+        "colorName": "subdued sienna",
+        "colorCode": "SW9009",
+        "colorHex": "#cc896c"
+      },
+      {
+        "colorName": "tassel",
+        "colorCode": "SW6369",
+        "colorHex": "#c6884a"
+      },
+      {
+        "colorName": "gold coast",
+        "colorCode": "SW6376",
+        "colorHex": "#c78538"
+      },
+      {
+        "colorName": "renwick rose beige",
+        "colorCode": "SW2804",
+        "colorHex": "#af8871"
+      },
+      {
+        "colorName": "armagnac",
+        "colorCode": "SW6354",
+        "colorHex": "#c38058"
+      },
+      {
+        "colorName": "copper wire",
+        "colorCode": "SW7707",
+        "colorHex": "#c67b57"
+      },
+      {
+        "colorName": "chrysanthemum",
+        "colorCode": "SW6347",
+        "colorHex": "#c47b5b"
+      },
+      {
+        "colorName": "pottery urn",
+        "colorCode": "SW7715",
+        "colorHex": "#aa866e"
+      },
+      {
+        "colorName": "cut the mustard",
+        "colorCode": "SW6384",
+        "colorHex": "#ba7f38"
+      },
+      {
+        "colorName": "baked clay",
+        "colorCode": "SW6340",
+        "colorHex": "#c1785c"
+      },
+      {
+        "colorName": "caribbean coral",
+        "colorCode": "SW2854",
+        "colorHex": "#be795e"
+      },
+      {
+        "colorName": "tigereye",
+        "colorCode": "SW6362",
+        "colorHex": "#bb7748"
+      },
+      {
+        "colorName": "spiced cider",
+        "colorCode": "SW7702",
+        "colorHex": "#b0785c"
+      },
+      {
+        "colorName": "saucy gold",
+        "colorCode": "SW6370",
+        "colorHex": "#b6743b"
+      },
+      {
+        "colorName": "decorous amber",
+        "colorCode": "SW0007",
+        "colorHex": "#ac7559"
+      },
+      {
+        "colorName": "truepenny",
+        "colorCode": "SW6355",
+        "colorHex": "#b46c42"
+      },
+      {
+        "colorName": "gingery",
+        "colorCode": "SW6363",
+        "colorHex": "#b06c3e"
+      },
+      {
+        "colorName": "reynard",
+        "colorCode": "SW6348",
+        "colorHex": "#b46848"
+      },
+      {
+        "colorName": "cavern clay",
+        "colorCode": "SW7701",
+        "colorHex": "#ac6b53"
+      },
+      {
+        "colorName": "copper pot",
+        "colorCode": "SW7709",
+        "colorHex": "#b16a37"
+      },
+      {
+        "colorName": "brandywine",
+        "colorCode": "SW7710",
+        "colorHex": "#a56c4a"
+      },
+      {
+        "colorName": "red cent",
+        "colorCode": "SW6341",
+        "colorHex": "#ad654c"
+      },
+      {
+        "colorName": "wheat penny",
+        "colorCode": "SW7705",
+        "colorHex": "#976b53"
+      },
+      {
+        "colorName": "copper mountain",
+        "colorCode": "SW6356",
+        "colorHex": "#a6613c"
+      },
+      {
+        "colorName": "antiquarian brown",
+        "colorCode": "SW0045",
+        "colorHex": "#946644"
+      },
+      {
+        "colorName": "pennywise",
+        "colorCode": "SW6349",
+        "colorHex": "#a2583a"
+      },
+      {
+        "colorName": "rookwood terra cotta",
+        "colorCode": "SW2803",
+        "colorHex": "#975840"
+      },
+      {
+        "colorName": "spicy hue",
+        "colorCode": "SW6342",
+        "colorHex": "#994b35"
+      },
+      {
+        "colorName": "sierra redwood",
+        "colorCode": "SW7598",
+        "colorHex": "#924e3c"
+      },
+      {
+        "colorName": "roycroft copper red",
+        "colorCode": "SW2839",
+        "colorHex": "#7b3728"
+      },
+      {
+        "colorName": "malted milk",
+        "colorCode": "SW6057",
+        "colorHex": "#decabd"
+      },
+      {
+        "colorName": "playa arenosa",
+        "colorCode": "SW9094",
+        "colorHex": "#dcc7b3"
+      },
+      {
+        "colorName": "lightweight beige",
+        "colorCode": "SW6092",
+        "colorHex": "#dac8b8"
+      },
+      {
+        "colorName": "tres naturale",
+        "colorCode": "SW9101",
+        "colorHex": "#dcc7ad"
+      },
+      {
+        "colorName": "realist beige",
+        "colorCode": "SW6078",
+        "colorHex": "#d3c8bd"
+      },
+      {
+        "colorName": "touch of sand",
+        "colorCode": "SW9085",
+        "colorHex": "#d5c7ba"
+      },
+      {
+        "colorName": "sand dollar",
+        "colorCode": "SW6099",
+        "colorHex": "#d7c5b3"
+      },
+      {
+        "colorName": "kilim beige",
+        "colorCode": "SW6106",
+        "colorHex": "#d7c5ae"
+      },
+      {
+        "colorName": "fresco cream",
+        "colorCode": "SW7719",
+        "colorHex": "#d8c4ae"
+      },
+      {
+        "colorName": "ginger root",
+        "colorCode": "SW9095",
+        "colorHex": "#d2b79e"
+      },
+      {
+        "colorName": "tower tan",
+        "colorCode": "SW7704",
+        "colorHex": "#d5b59b"
+      },
+      {
+        "colorName": "quinoa",
+        "colorCode": "SW9102",
+        "colorHex": "#cfb597"
+      },
+      {
+        "colorName": "cool beige",
+        "colorCode": "SW9086",
+        "colorHex": "#c6b5a7"
+      },
+      {
+        "colorName": "familiar beige",
+        "colorCode": "SW6093",
+        "colorHex": "#cab3a0"
+      },
+      {
+        "colorName": "diverse beige",
+        "colorCode": "SW6079",
+        "colorHex": "#c2b4a7"
+      },
+      {
+        "colorName": "beach house",
+        "colorCode": "SW7518",
+        "colorHex": "#c9b29c"
+      },
+      {
+        "colorName": "practical beige",
+        "colorCode": "SW6100",
+        "colorHex": "#c9b29c"
+      },
+      {
+        "colorName": "nomadic desert",
+        "colorCode": "SW6107",
+        "colorHex": "#c7b198"
+      },
+      {
+        "colorName": "renwick beige",
+        "colorCode": "SW2805",
+        "colorHex": "#c3b09d"
+      },
+      {
+        "colorName": "beige intenso",
+        "colorCode": "SW9096",
+        "colorHex": "#c5a88d"
+      },
+      {
+        "colorName": "smoky beige",
+        "colorCode": "SW9087",
+        "colorHex": "#b9a796"
+      },
+      {
+        "colorName": "farro",
+        "colorCode": "SW9103",
+        "colorHex": "#c1a485"
+      },
+      {
+        "colorName": "sensational sand",
+        "colorCode": "SW6094",
+        "colorHex": "#bfa38d"
+      },
+      {
+        "colorName": "utterly beige",
+        "colorCode": "SW6080",
+        "colorHex": "#b5a597"
+      },
+      {
+        "colorName": "oak barrel",
+        "colorCode": "SW7714",
+        "colorHex": "#bfa287"
+      },
+      {
+        "colorName": "sands of time",
+        "colorCode": "SW6101",
+        "colorHex": "#bca38b"
+      },
+      {
+        "colorName": "latte",
+        "colorCode": "SW6108",
+        "colorHex": "#baa185"
+      },
+      {
+        "colorName": "woven wicker",
+        "colorCode": "SW9104",
+        "colorHex": "#b99974"
+      },
+      {
+        "colorName": "canoe",
+        "colorCode": "SW7724",
+        "colorHex": "#b7987b"
+      },
+      {
+        "colorName": "soft fawn",
+        "colorCode": "SW9097",
+        "colorHex": "#b59778"
+      },
+      {
+        "colorName": "mexican sand",
+        "colorCode": "SW7519",
+        "colorHex": "#af9781"
+      },
+      {
+        "colorName": "dormer brown",
+        "colorCode": "SW7521",
+        "colorHex": "#ad947c"
+      },
+      {
+        "colorName": "craftsman brown",
+        "colorCode": "SW2835",
+        "colorHex": "#ae9278"
+      },
+      {
+        "colorName": "nearly brown",
+        "colorCode": "SW9093",
+        "colorHex": "#a88e76"
+      },
+      {
+        "colorName": "utaupeia",
+        "colorCode": "SW9088",
+        "colorHex": "#a58f7b"
+      },
+      {
+        "colorName": "cocoa whip",
+        "colorCode": "SW9084",
+        "colorHex": "#a08e7e"
+      },
+      {
+        "colorName": "double latte",
+        "colorCode": "SW9108",
+        "colorHex": "#a78c71"
+      },
+      {
+        "colorName": "yearling",
+        "colorCode": "SW7725",
+        "colorHex": "#ad896a"
+      },
+      {
+        "colorName": "almond roca",
+        "colorCode": "SW9105",
+        "colorHex": "#a78361"
+      },
+      {
+        "colorName": "iced mocha",
+        "colorCode": "SW9092",
+        "colorHex": "#a3846c"
+      },
+      {
+        "colorName": "hopsack",
+        "colorCode": "SW6109",
+        "colorHex": "#9e8163"
+      },
+      {
+        "colorName": "portabello",
+        "colorCode": "SW6102",
+        "colorHex": "#947a62"
+      },
+      {
+        "colorName": "llama wool",
+        "colorCode": "SW9089",
+        "colorHex": "#917864"
+      },
+      {
+        "colorName": "down home",
+        "colorCode": "SW6081",
+        "colorHex": "#907865"
+      },
+      {
+        "colorName": "toasty",
+        "colorCode": "SW6095",
+        "colorHex": "#957258"
+      },
+      {
+        "colorName": "tree branch",
+        "colorCode": "SW7525",
+        "colorHex": "#8a7362"
+      },
+      {
+        "colorName": "el caramelo",
+        "colorCode": "SW9106",
+        "colorHex": "#946e48"
+      },
+      {
+        "colorName": "steady brown",
+        "colorCode": "SW6110",
+        "colorHex": "#8a6b4d"
+      },
+      {
+        "colorName": "quartersawn oak",
+        "colorCode": "SW2836",
+        "colorHex": "#85695b"
+      },
+      {
+        "colorName": "baked cookie",
+        "colorCode": "SW9098",
+        "colorHex": "#89674a"
+      },
+      {
+        "colorName": "tea chest",
+        "colorCode": "SW6103",
+        "colorHex": "#7d644d"
+      },
+      {
+        "colorName": "cobble brown",
+        "colorCode": "SW6082",
+        "colorHex": "#7a6455"
+      },
+      {
+        "colorName": "rookwood brown",
+        "colorCode": "SW2806",
+        "colorHex": "#7f614a"
+      },
+      {
+        "colorName": "jute brown",
+        "colorCode": "SW6096",
+        "colorHex": "#815d40"
+      },
+      {
+        "colorName": "caraïbe",
+        "colorCode": "SW9090",
+        "colorHex": "#785f4c"
+      },
+      {
+        "colorName": "über umber",
+        "colorCode": "SW9107",
+        "colorHex": "#7b5838"
+      },
+      {
+        "colorName": "coconut husk",
+        "colorCode": "SW6111",
+        "colorHex": "#70573f"
+      },
+      {
+        "colorName": "umber rust",
+        "colorCode": "SW9100",
+        "colorHex": "#765138"
+      },
+      {
+        "colorName": "saddle up",
+        "colorCode": "SW9099",
+        "colorHex": "#725237"
+      },
+      {
+        "colorName": "rookwood medium brown",
+        "colorCode": "SW2807",
+        "colorHex": "#6e5241"
+      },
+      {
+        "colorName": "kaffee",
+        "colorCode": "SW6104",
+        "colorHex": "#65503d"
+      },
+      {
+        "colorName": "rookwood dark brown",
+        "colorCode": "SW2808",
+        "colorHex": "#5f4d43"
+      },
+      {
+        "colorName": "half-caff",
+        "colorCode": "SW9091",
+        "colorHex": "#604c3d"
+      },
+      {
+        "colorName": "sable",
+        "colorCode": "SW6083",
+        "colorHex": "#5f4b3f"
+      },
+      {
+        "colorName": "sturdy brown",
+        "colorCode": "SW6097",
+        "colorHex": "#69482c"
+      },
+      {
+        "colorName": "fairfax brown",
+        "colorCode": "SW2856",
+        "colorHex": "#61463a"
+      }
+    ]
+  }
+}

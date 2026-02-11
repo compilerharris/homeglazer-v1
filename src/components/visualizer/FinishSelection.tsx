@@ -71,7 +71,8 @@ const getBrandName = (brandId: string | null | undefined): string => {
     { id: 'jsw', name: 'JSW' },
     { id: 'birla-opus', name: 'Birla Opus' },
     { id: 'ncs', name: 'NCS' },
-    { id: 'ral', name: 'RAL' }
+    { id: 'ral', name: 'RAL' },
+    { id: 'sherwin-williams', name: 'Sherwin Williams' }
   ].find(b => b.id === brandId);
   
   return brandConfig?.name || brandId;
