@@ -13,6 +13,7 @@ import path from 'path';
 const BRAND_CONFIG = [
   { id: 'asian-paints', name: 'Asian Paints', fileName: 'asian_paints_colors.json' },
   { id: 'sherwin-williams', name: 'Sherwin Williams', fileName: 'sherwin_williams_colors.json' },
+  { id: 'mrf-paints', name: 'MRF Paints', fileName: 'mrf_colors.json' },
   { id: 'nerolac', name: 'Nerolac', fileName: 'nerolac_colors.json' },
   { id: 'berger', name: 'Berger', fileName: 'berger_colors.json' },
   { id: 'jsw', name: 'JSW', fileName: 'jsw_colors.json' },
@@ -785,6 +786,19 @@ const BRAND_INFO: Record<string, { intro: string; sections: Array<{ heading: str
       {
         heading: 'Trusted by Professionals',
         content: 'Contractors, designers, and homeowners worldwide trust Sherwin-Williams for consistent quality and reliable performance. Whether repainting a single room or undertaking a full renovation, Sherwin-Williams delivers the expertise and products to bring any vision to life.'
+      }
+    ]
+  },
+  'mrf-paints': {
+    intro: 'MRF Paints is an Indian paint brand known for quality finishes and a diverse colour palette for residential and commercial use.',
+    sections: [
+      {
+        heading: 'Trusted Indian Brand',
+        content: 'MRF Paints brings decades of expertise from the MRF group to the paint industry, offering reliable products for interior and exterior applications.'
+      },
+      {
+        heading: 'Quality & Durability',
+        content: 'MRF Paints products are formulated for excellent coverage, washability, and long-lasting colour retention suitable for Indian climate conditions.'
       }
     ]
   }

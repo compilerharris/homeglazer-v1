@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 const BRAND_CONFIG = [
   { id: 'asian-paints', name: 'Asian Paints', fileName: 'asian_paints_colors.json' },
   { id: 'sherwin-williams', name: 'Sherwin Williams', fileName: 'sherwin_williams_colors.json' },
+  { id: 'mrf-paints', name: 'MRF Paints', fileName: 'mrf_colors.json' },
   { id: 'nerolac', name: 'Nerolac', fileName: 'nerolac_colors.json' },
   { id: 'berger', name: 'Berger', fileName: 'berger_colors.json' },
   { id: 'jsw', name: 'JSW', fileName: 'jsw_colors.json' },
