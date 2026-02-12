@@ -68,7 +68,6 @@ export interface BrandConfig {
 export const BRAND_CONFIG: BrandConfig[] = [
   { id: 'asian-paints', name: 'Asian Paints', data: asianPaintsColors as BrandColorData, logo: '/assets/images/brand-logos/asian-paints-logo.webp' },
   { id: 'sherwin-williams', name: 'Sherwin Williams', data: sherwinWilliamsColors as BrandColorData, logo: '/assets/images/brand-logos/sherwin-williams-logo.webp' },
-  { id: 'mrf-paints', name: 'MRF Paints', data: mrfColors as BrandColorData, logo: '/assets/images/brand-logos/mrf-paint-logo.webp' },
   { id: 'nerolac', name: 'Nerolac', data: nerolacColors as BrandColorData, logo: '/assets/images/brand-logos/nerolac-logo.webp' },
   { id: 'berger', name: 'Berger', data: bergerColors as BrandColorData, logo: '/assets/images/brand-logos/berger-logo.webp' },
   { id: 'jsw', name: 'JSW', data: jswColors as BrandColorData, logo: '/assets/images/brand-logos/jsw-logo.webp' },
@@ -77,8 +76,9 @@ export const BRAND_CONFIG: BrandConfig[] = [
   { id: 'jk-maxx', name: 'JK Maxx', data: jkMaxxColors as BrandColorData, logo: '/assets/images/brand-logos/jk-logo.webp' },
   { id: 'shalimar', name: 'Shalimar', data: shalimarColors as BrandColorData, logo: '/assets/images/brand-logos/shalimar-logo.webp' },
   { id: 'nippon', name: 'Nippon', data: nipponColors as BrandColorData, logo: '/assets/images/brand-logos/nippon-logo.webp' },
-  { id: 'ncs', name: 'NCS', data: ncsColors as BrandColorData, logo: '/assets/images/brand-logos/ncs-logo.webp' },
+  { id: 'mrf-paints', name: 'MRF Paints', data: mrfColors as BrandColorData, logo: '/assets/images/brand-logos/mrf-paint-logo.webp' },
   { id: 'ral', name: 'RAL', data: ralColors as BrandColorData, logo: '/assets/images/brand-logos/ral-logo.webp' },
+  { id: 'ncs', name: 'NCS', data: ncsColors as BrandColorData, logo: '/assets/images/brand-logos/ncs-logo.webp' },
 ];
 
 export const CATEGORIES = [
