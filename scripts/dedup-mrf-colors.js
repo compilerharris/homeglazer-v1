@@ -42,17 +42,31 @@ function rgbToHsl(r, g, b) {
 function getBestCategory(hex, validCategories) {
   const rgb = hexToRgb(hex);
   if (!rgb) return validCategories[0];
-  const { h, s } = rgbToHsl(rgb.r, rgb.g, rgb.b);
+  const { h, s, l } = rgbToHsl(rgb.r, rgb.g, rgb.b);
   // Hue: 0=red, 60=yellow, 120=green, 240=blue, 300=magenta
+  // Whites/off-whites: high lightness or very low saturation
+  if (validCategories.includes('Whites') && (l >= 88 || s < 6)) return 'Whites';
+  // Greys: low saturation (neutral/desaturated)
+  if (validCategories.includes('Greys') && s < 18) return 'Greys';
+  // Browns: warm tones (h 15-55) with lower lightness - tan, beige, brown
+  if (validCategories.includes('Browns') && h >= 15 && h <= 55 && l < 82) return 'Browns';
   if (s < 12) return validCategories[0]; // greyish - keep in first (source order)
   // Yellows: ~48-72 (warm yellows)
+  // Oranges: ~15-48 (red-orange, orange, yellow-orange)
   // Greens: ~85-165 (yellow-green, green, cyan-green)
+  // Blues: ~165-250 (cyan, blue, blue-violet)
   // Purples: ~210-340 (blue-purple, violet, lavender, magenta)
-  // Pinks: ~340-360, 0-48 (red, pink, coral)
+  // Reds: 0-25, 335-360 (true red + red-orange); when Reds in validCategories, prefer it for this range
+  // Pinks: 320-335 (magenta-pink)
+  // Oranges: 25-48 (orange, yellow-orange)
   let preferred = validCategories[0];
   if (h >= 48 && h <= 72) preferred = 'Yellows';
+  else if (h >= 25 && h <= 48) preferred = 'Oranges';
   else if (h >= 85 && h <= 165) preferred = 'Greens';
-  else if (h >= 210 && h <= 340) preferred = 'Purples';
+  else if (h >= 165 && h <= 250) preferred = 'Blues';
+  else if (h >= 210 && h <= 320) preferred = 'Purples';
+  else if (validCategories.includes('Reds') && ((h >= 0 && h <= 25) || h >= 335)) preferred = 'Reds';
+  else if (h >= 320 && h < 335) preferred = 'Pinks';
   else preferred = 'Pinks';
   if (validCategories.includes(preferred)) return preferred;
   return validCategories[0];

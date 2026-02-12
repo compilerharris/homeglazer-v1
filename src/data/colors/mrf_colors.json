@@ -1,18 +1,8 @@
 {
   "brand": "MRF Paints",
-  "totalColors": 1083,
+  "totalColors": 1109,
   "colorTypes": {
     "Yellows": [
-      {
-        "colorName": "snow bird",
-        "colorCode": "MRF-1",
-        "colorHex": "#eaecda"
-      },
-      {
-        "colorName": "trivial",
-        "colorCode": "MRF-23",
-        "colorHex": "#e9ecda"
-      },
       {
         "colorName": "fanciful",
         "colorCode": "MRF-29",
@@ -27,16 +17,6 @@
         "colorName": "conservative lime",
         "colorCode": "MRF-99",
         "colorHex": "#dfe6c9"
-      },
-      {
-        "colorName": "pure",
-        "colorCode": "MRF-108",
-        "colorHex": "#eaefdb"
-      },
-      {
-        "colorName": "plausible",
-        "colorCode": "MRF-112",
-        "colorHex": "#e9eed5"
       },
       {
         "colorName": "bashful",
@@ -54,16 +34,6 @@
         "colorHex": "#eff0c8"
       },
       {
-        "colorName": "dainty",
-        "colorCode": "MRF-127",
-        "colorHex": "#ebecdb"
-      },
-      {
-        "colorName": "gentle",
-        "colorCode": "MRF-132",
-        "colorHex": "#ebedd5"
-      },
-      {
         "colorName": "honesty",
         "colorCode": "MRF-136",
         "colorHex": "#eaeacd"
@@ -79,66 +49,6 @@
         "colorHex": "#efe9c0"
       },
       {
-        "colorName": "chic coconut",
-        "colorCode": "MRF-329",
-        "colorHex": "#eddab7"
-      },
-      {
-        "colorName": "loazzolo sun",
-        "colorCode": "MRF-332",
-        "colorHex": "#ecd5a9"
-      },
-      {
-        "colorName": "torino yellow",
-        "colorCode": "MRF-335",
-        "colorHex": "#ecbf7b"
-      },
-      {
-        "colorName": "vinsato gold",
-        "colorCode": "MRF-337",
-        "colorHex": "#dda658"
-      },
-      {
-        "colorName": "tuscan summer",
-        "colorCode": "MRF-339",
-        "colorHex": "#e3ba79"
-      },
-      {
-        "colorName": "livorno love",
-        "colorCode": "MRF-341",
-        "colorHex": "#e7d3aa"
-      },
-      {
-        "colorName": "pale florence",
-        "colorCode": "MRF-344",
-        "colorHex": "#e5d8b8"
-      },
-      {
-        "colorName": "cavali souffle",
-        "colorCode": "MRF-347",
-        "colorHex": "#e5e1d1"
-      },
-      {
-        "colorName": "sour lemon",
-        "colorCode": "MRF-355",
-        "colorHex": "#edc787"
-      },
-      {
-        "colorName": "armani vogue",
-        "colorCode": "MRF-359",
-        "colorHex": "#c69754"
-      },
-      {
-        "colorName": "pineapple upside down cake",
-        "colorCode": "MRF-361",
-        "colorHex": "#e3c182"
-      },
-      {
-        "colorName": "lemon icing",
-        "colorCode": "MRF-362",
-        "colorHex": "#e7d5a7"
-      },
-      {
         "colorName": "smooth as butter",
         "colorCode": "MRF-364",
         "colorHex": "#e7e1bf"
@@ -149,79 +59,9 @@
         "colorHex": "#e9e1ba"
       },
       {
-        "colorName": "marengo",
-        "colorCode": "MRF-367",
-        "colorHex": "#dbba88"
-      },
-      {
-        "colorName": "gallant gold",
-        "colorCode": "MRF-370",
-        "colorHex": "#cc9f5c"
-      },
-      {
-        "colorName": "spicy citrus",
-        "colorCode": "MRF-374",
-        "colorHex": "#d1a65e"
-      },
-      {
-        "colorName": "golden fields",
-        "colorCode": "MRF-376",
-        "colorHex": "#dbba83"
-      },
-      {
-        "colorName": "sunflower yellow",
-        "colorCode": "MRF-378",
-        "colorHex": "#ead09d"
-      },
-      {
-        "colorName": "flicker of light",
-        "colorCode": "MRF-380",
-        "colorHex": "#e6d6b5"
-      },
-      {
-        "colorName": "zesty lemon peel",
-        "colorCode": "MRF-381",
-        "colorHex": "#eccf96"
-      },
-      {
-        "colorName": "hay day",
-        "colorCode": "MRF-383",
-        "colorHex": "#daae5e"
-      },
-      {
-        "colorName": "tomato pickle",
-        "colorCode": "MRF-385",
-        "colorHex": "#c69850"
-      },
-      {
-        "colorName": "trianon",
-        "colorCode": "MRF-387",
-        "colorHex": "#ecd9b2"
-      },
-      {
-        "colorName": "jackpot gold",
-        "colorCode": "MRF-388",
-        "colorHex": "#e1ad5d"
-      },
-      {
-        "colorName": "cosmic yellow",
-        "colorCode": "MRF-390",
-        "colorHex": "#e3d6a7"
-      },
-      {
-        "colorName": "hidden beauty",
-        "colorCode": "MRF-391",
-        "colorHex": "#f5d9aa"
-      },
-      {
         "colorName": "by the light of the moon",
         "colorCode": "MRF-392",
         "colorHex": "#e3ddba"
-      },
-      {
-        "colorName": "dreamy",
-        "colorCode": "MRF-394",
-        "colorHex": "#f8d08d"
       },
       {
         "colorName": "happy face",
@@ -229,49 +69,9 @@
         "colorHex": "#e6e0b0"
       },
       {
-        "colorName": "potentilla",
-        "colorCode": "MRF-396",
-        "colorHex": "#ead294"
-      },
-      {
-        "colorName": "ray of sun",
-        "colorCode": "MRF-398",
-        "colorHex": "#f6c36e"
-      },
-      {
-        "colorName": "crocus yellow",
-        "colorCode": "MRF-399",
-        "colorHex": "#edc156"
-      },
-      {
-        "colorName": "hot sun",
-        "colorCode": "MRF-401",
-        "colorHex": "#f4af3e"
-      },
-      {
-        "colorName": "quartzite gold",
-        "colorCode": "MRF-402",
-        "colorHex": "#d3a940"
-      },
-      {
-        "colorName": "edens garden",
-        "colorCode": "MRF-404",
-        "colorHex": "#cfae6a"
-      },
-      {
-        "colorName": "field day",
-        "colorCode": "MRF-408",
-        "colorHex": "#dec697"
-      },
-      {
         "colorName": "lily pond",
         "colorCode": "MRF-409",
         "colorHex": "#dfd196"
-      },
-      {
-        "colorName": "gold mine",
-        "colorCode": "MRF-410",
-        "colorHex": "#f7c76f"
       },
       {
         "colorName": "feeble citron",
@@ -284,24 +84,9 @@
         "colorHex": "#ebde9f"
       },
       {
-        "colorName": "friendly yellow",
-        "colorCode": "MRF-413",
-        "colorHex": "#efd6a8"
-      },
-      {
         "colorName": "delightful yellow",
         "colorCode": "MRF-414",
         "colorHex": "#e8d87e"
-      },
-      {
-        "colorName": "headlight yellow",
-        "colorCode": "MRF-418",
-        "colorHex": "#ecbf42"
-      },
-      {
-        "colorName": "make my day yellow",
-        "colorCode": "MRF-421",
-        "colorHex": "#eccb5e"
       },
       {
         "colorName": "gingham yellow",
@@ -384,11 +169,6 @@
         "colorHex": "#cbdcb3"
       },
       {
-        "colorName": "clothesline yellow",
-        "colorCode": "MRF-498",
-        "colorHex": "#ecdfbd"
-      },
-      {
         "colorName": "florence yellow",
         "colorCode": "MRF-500",
         "colorHex": "#e9e0b0"
@@ -397,21 +177,6 @@
         "colorName": "swag lavender",
         "colorCode": "MRF-507",
         "colorHex": "#ac9ba5"
-      },
-      {
-        "colorName": "fresh pineapple",
-        "colorCode": "MRF-511",
-        "colorHex": "#f4d395"
-      },
-      {
-        "colorName": "tuscan villa",
-        "colorCode": "MRF-512",
-        "colorHex": "#f0b962"
-      },
-      {
-        "colorName": "etruscan gold",
-        "colorCode": "MRF-513",
-        "colorHex": "#f6b751"
       },
       {
         "colorName": "holy moly guacamol e",
@@ -429,39 +194,9 @@
         "colorHex": "#d5dfb9"
       },
       {
-        "colorName": "sheer radiance",
-        "colorCode": "MRF-524",
-        "colorHex": "#f1cb82"
-      },
-      {
         "colorName": "cornsilk",
         "colorCode": "MRF-528",
         "colorHex": "#ebe2bb"
-      },
-      {
-        "colorName": "golden flicker",
-        "colorCode": "MRF-531",
-        "colorHex": "#f5dd9f"
-      },
-      {
-        "colorName": "bandini museum yellow",
-        "colorCode": "MRF-533",
-        "colorHex": "#f6d18b"
-      },
-      {
-        "colorName": "fresh yellow",
-        "colorCode": "MRF-534",
-        "colorHex": "#f8cf6e"
-      },
-      {
-        "colorName": "countryside y orange",
-        "colorCode": "MRF-535",
-        "colorHex": "#fab750"
-      },
-      {
-        "colorName": "farro yellow",
-        "colorCode": "MRF-544",
-        "colorHex": "#f9c972"
       },
       {
         "colorName": "oatmeal",
@@ -474,11 +209,6 @@
         "colorHex": "#dfdfd3"
       },
       {
-        "colorName": "cream cheese",
-        "colorCode": "MRF-565",
-        "colorHex": "#e5e9da"
-      },
-      {
         "colorName": "italian cream",
         "colorCode": "MRF-566",
         "colorHex": "#e2e3ce"
@@ -489,114 +219,9 @@
         "colorHex": "#dfe0cb"
       },
       {
-        "colorName": "uffizi gallery white",
-        "colorCode": "MRF-568",
-        "colorHex": "#dfe3dd"
-      },
-      {
-        "colorName": "campanile gray",
-        "colorCode": "MRF-570",
-        "colorHex": "#d7dad8"
-      },
-      {
-        "colorName": "palazzo pitti gray",
-        "colorCode": "MRF-571",
-        "colorHex": "#d0d5d3"
-      },
-      {
-        "colorName": "davids gray",
-        "colorCode": "MRF-572",
-        "colorHex": "#ccd1d0"
-      },
-      {
-        "colorName": "wish you were here",
-        "colorCode": "MRF-573",
-        "colorHex": "#c6cccc"
-      },
-      {
-        "colorName": "maltese",
-        "colorCode": "MRF-574",
-        "colorHex": "#e6e8df"
-      },
-      {
-        "colorName": "leaning tower beige",
-        "colorCode": "MRF-575",
-        "colorHex": "#e0e2de"
-      },
-      {
-        "colorName": "de medici cream",
-        "colorCode": "MRF-576",
-        "colorHex": "#d9dcd7"
-      },
-      {
-        "colorName": "white marble",
-        "colorCode": "MRF-577",
-        "colorHex": "#d2d4ce"
-      },
-      {
-        "colorName": "cathedral gray",
-        "colorCode": "MRF-578",
-        "colorHex": "#cacdc9"
-      },
-      {
-        "colorName": "greige scallop",
-        "colorCode": "MRF-580",
-        "colorHex": "#e0e1d6"
-      },
-      {
-        "colorName": "succulent shellfish",
-        "colorCode": "MRF-581",
-        "colorHex": "#d3d9d1"
-      },
-      {
-        "colorName": "shelled mussel",
-        "colorCode": "MRF-582",
-        "colorHex": "#d1d4cc"
-      },
-      {
-        "colorName": "ageless marble",
-        "colorCode": "MRF-583",
-        "colorHex": "#c1cac9"
-      },
-      {
-        "colorName": "easy linen",
-        "colorCode": "MRF-584",
-        "colorHex": "#e5e7dc"
-      },
-      {
         "colorName": "caravaggio linen",
         "colorCode": "MRF-585",
         "colorHex": "#ddddd2"
-      },
-      {
-        "colorName": "canvas",
-        "colorCode": "MRF-586",
-        "colorHex": "#d6d3c6"
-      },
-      {
-        "colorName": "tanned taupe",
-        "colorCode": "MRF-587",
-        "colorHex": "#d3cfc2"
-      },
-      {
-        "colorName": "sinuous leather",
-        "colorCode": "MRF-588",
-        "colorHex": "#cbc6b9"
-      },
-      {
-        "colorName": "overcast rose",
-        "colorCode": "MRF-589",
-        "colorHex": "#e5e3df"
-      },
-      {
-        "colorName": "cloud 9 pink",
-        "colorCode": "MRF-594",
-        "colorHex": "#e6e9e5"
-      },
-      {
-        "colorName": "rosevale",
-        "colorCode": "MRF-598",
-        "colorHex": "#e4e3e0"
       },
       {
         "colorName": "dazzling dianthus",
@@ -604,44 +229,9 @@
         "colorHex": "#e0dedc"
       },
       {
-        "colorName": "cinder lilac",
-        "colorCode": "MRF-600",
-        "colorHex": "#d4d1d0"
-      },
-      {
-        "colorName": "happy hour white",
-        "colorCode": "MRF-601",
-        "colorHex": "#ecebe0"
-      },
-      {
-        "colorName": "cologne cream",
-        "colorCode": "MRF-603",
-        "colorHex": "#ededde"
-      },
-      {
-        "colorName": "sugar cookie",
-        "colorCode": "MRF-604",
-        "colorHex": "#e9e8d8"
-      },
-      {
         "colorName": "lovely linen",
         "colorCode": "MRF-605",
         "colorHex": "#e7e4d4"
-      },
-      {
-        "colorName": "strike a happy medium",
-        "colorCode": "MRF-606",
-        "colorHex": "#e5dfc9"
-      },
-      {
-        "colorName": "pins   needles pink",
-        "colorCode": "MRF-649",
-        "colorHex": "#e4dac9"
-      },
-      {
-        "colorName": "dream come true",
-        "colorCode": "MRF-655",
-        "colorHex": "#e4dac6"
       },
       {
         "colorName": "shred of truth",
@@ -649,104 +239,9 @@
         "colorHex": "#dcd9c9"
       },
       {
-        "colorName": "make believe",
-        "colorCode": "MRF-657",
-        "colorHex": "#b8b5ae"
-      },
-      {
-        "colorName": "exclusively yours",
-        "colorCode": "MRF-658",
-        "colorHex": "#948a7f"
-      },
-      {
-        "colorName": "warm regards",
-        "colorCode": "MRF-659",
-        "colorHex": "#817564"
-      },
-      {
-        "colorName": "holy cow brown",
-        "colorCode": "MRF-660",
-        "colorHex": "#8d8579"
-      },
-      {
-        "colorName": "take it or leave it",
-        "colorCode": "MRF-661",
-        "colorHex": "#cfc3b1"
-      },
-      {
-        "colorName": "blessing in disguise",
-        "colorCode": "MRF-662",
-        "colorHex": "#e3dcc8"
-      },
-      {
-        "colorName": "mind your manners",
-        "colorCode": "MRF-667",
-        "colorHex": "#af9166"
-      },
-      {
-        "colorName": "compatible cream",
-        "colorCode": "MRF-669",
-        "colorHex": "#e5dabe"
-      },
-      {
         "colorName": "jump for joy",
         "colorCode": "MRF-670",
         "colorHex": "#e2e1d0"
-      },
-      {
-        "colorName": "an open invitation",
-        "colorCode": "MRF-671",
-        "colorHex": "#d3cdba"
-      },
-      {
-        "colorName": "tan u imagine",
-        "colorCode": "MRF-672",
-        "colorHex": "#b8af99"
-      },
-      {
-        "colorName": "cork caress",
-        "colorCode": "MRF-673",
-        "colorHex": "#84775c"
-      },
-      {
-        "colorName": "rabbits jacket",
-        "colorCode": "MRF-674",
-        "colorHex": "#958977"
-      },
-      {
-        "colorName": "go for green",
-        "colorCode": "MRF-675",
-        "colorHex": "#9f9788"
-      },
-      {
-        "colorName": "never a dull moment",
-        "colorCode": "MRF-676",
-        "colorHex": "#d1cebe"
-      },
-      {
-        "colorName": "no hard feelings",
-        "colorCode": "MRF-677",
-        "colorHex": "#ded0b1"
-      },
-      {
-        "colorName": "lions mane",
-        "colorCode": "MRF-679",
-        "colorHex": "#a68c62"
-      },
-      {
-        "colorName": "penny for your thoughts",
-        "colorCode": "MRF-680",
-        "colorHex": "#9a7e51"
-      },
-      {
-        "colorName": "reap the benefits",
-        "colorCode": "MRF-681",
-        "colorHex": "#a48a5c"
-      },
-      {
-        "colorName": "bees with honey",
-        "colorCode": "MRF-682",
-        "colorHex": "#ddc9a6"
       },
       {
         "colorName": "saltine cracker",
@@ -754,204 +249,14 @@
         "colorHex": "#e6e3cd"
       },
       {
-        "colorName": "trebbiano",
-        "colorCode": "MRF-684",
-        "colorHex": "#e3dfd0"
-      },
-      {
-        "colorName": "bicycle tour",
-        "colorCode": "MRF-685",
-        "colorHex": "#c3ae90"
-      },
-      {
-        "colorName": "filicudi",
-        "colorCode": "MRF-688",
-        "colorHex": "#a99163"
-      },
-      {
-        "colorName": "stromboli",
-        "colorCode": "MRF-689",
-        "colorHex": "#c3af85"
-      },
-      {
-        "colorName": "salina",
-        "colorCode": "MRF-690",
-        "colorHex": "#ded2b6"
-      },
-      {
-        "colorName": "lombardy cave",
-        "colorCode": "MRF-691",
-        "colorHex": "#d6d1be"
-      },
-      {
-        "colorName": "everything etruscan",
-        "colorCode": "MRF-692",
-        "colorHex": "#e3d4b2"
-      },
-      {
-        "colorName": "salento reverie",
-        "colorCode": "MRF-693",
-        "colorHex": "#d2bc92"
-      },
-      {
-        "colorName": "caper",
-        "colorCode": "MRF-694",
-        "colorHex": "#8b7c5e"
-      },
-      {
-        "colorName": "olive pomace",
-        "colorCode": "MRF-695",
-        "colorHex": "#9c8b65"
-      },
-      {
-        "colorName": "grana padano",
-        "colorCode": "MRF-696",
-        "colorHex": "#c3b28b"
-      },
-      {
-        "colorName": "reggiano",
-        "colorCode": "MRF-697",
-        "colorHex": "#d1c8ac"
-      },
-      {
-        "colorName": "hop   skip     jump",
-        "colorCode": "MRF-698",
-        "colorHex": "#e6dbb9"
-      },
-      {
-        "colorName": "hot off the press",
-        "colorCode": "MRF-699",
-        "colorHex": "#dac289"
-      },
-      {
-        "colorName": "edge of your seat",
-        "colorCode": "MRF-700",
-        "colorHex": "#b7a163"
-      },
-      {
-        "colorName": "gut feeling gold",
-        "colorCode": "MRF-701",
-        "colorHex": "#aa8d54"
-      },
-      {
-        "colorName": "all that jazz",
-        "colorCode": "MRF-702",
-        "colorHex": "#caa862"
-      },
-      {
-        "colorName": "burning candle",
-        "colorCode": "MRF-703",
-        "colorHex": "#ddca9a"
-      },
-      {
-        "colorName": "just the facts",
-        "colorCode": "MRF-704",
-        "colorHex": "#e5dfb7"
-      },
-      {
-        "colorName": "its about time",
-        "colorCode": "MRF-705",
-        "colorHex": "#e4dfb3"
-      },
-      {
-        "colorName": "birds   the bees",
-        "colorCode": "MRF-706",
-        "colorHex": "#ddce85"
-      },
-      {
-        "colorName": "believe it or not",
-        "colorCode": "MRF-707",
-        "colorHex": "#bbab5a"
-      },
-      {
-        "colorName": "lake garda",
-        "colorCode": "MRF-709",
-        "colorHex": "#b69c4a"
-      },
-      {
-        "colorName": "palmetto green",
-        "colorCode": "MRF-711",
-        "colorHex": "#b4a26e"
-      },
-      {
-        "colorName": "enough is enough",
-        "colorCode": "MRF-713",
-        "colorHex": "#d5caa3"
-      },
-      {
-        "colorName": "artists canvas",
-        "colorCode": "MRF-714",
-        "colorHex": "#ded7c1"
-      },
-      {
         "colorName": "too good 2 b true",
         "colorCode": "MRF-715",
         "colorHex": "#e5e2c2"
       },
       {
-        "colorName": "yellow belly",
-        "colorCode": "MRF-716",
-        "colorHex": "#e2d9ae"
-      },
-      {
-        "colorName": "good   plenty",
-        "colorCode": "MRF-717",
-        "colorHex": "#c6bc88"
-      },
-      {
-        "colorName": "golden glitter",
-        "colorCode": "MRF-719",
-        "colorHex": "#a99b5c"
-      },
-      {
-        "colorName": "marjoram",
-        "colorCode": "MRF-721",
-        "colorHex": "#beb287"
-      },
-      {
-        "colorName": "water chestnut",
-        "colorCode": "MRF-722",
-        "colorHex": "#cac59f"
-      },
-      {
-        "colorName": "glistening gold",
-        "colorCode": "MRF-723",
-        "colorHex": "#e3ddba"
-      },
-      {
         "colorName": "bridge of sighs",
         "colorCode": "MRF-724",
         "colorHex": "#e5e1c4"
-      },
-      {
-        "colorName": "make up your mind",
-        "colorCode": "MRF-725",
-        "colorHex": "#e0d7b4"
-      },
-      {
-        "colorName": "middle of nowhere",
-        "colorCode": "MRF-726",
-        "colorHex": "#bdb082"
-      },
-      {
-        "colorName": "more than meets the eye",
-        "colorCode": "MRF-727",
-        "colorHex": "#a29763"
-      },
-      {
-        "colorName": "safe   sound",
-        "colorCode": "MRF-728",
-        "colorHex": "#aba68c"
-      },
-      {
-        "colorName": "second nature",
-        "colorCode": "MRF-730",
-        "colorHex": "#beb9a1"
-      },
-      {
-        "colorName": "play it safe",
-        "colorCode": "MRF-732",
-        "colorHex": "#cecdb9"
       },
       {
         "colorName": "easy going",
@@ -992,31 +297,6 @@
         "colorName": "go getter",
         "colorCode": "MRF-741",
         "colorHex": "#e5e2c5"
-      },
-      {
-        "colorName": "wheat grass",
-        "colorCode": "MRF-742",
-        "colorHex": "#bbb590"
-      },
-      {
-        "colorName": "edge of innocence",
-        "colorCode": "MRF-743",
-        "colorHex": "#95895b"
-      },
-      {
-        "colorName": "fork in the road",
-        "colorCode": "MRF-744",
-        "colorHex": "#675e3d"
-      },
-      {
-        "colorName": "nights in naples",
-        "colorCode": "MRF-745",
-        "colorHex": "#c1ba96"
-      },
-      {
-        "colorName": "half moon",
-        "colorCode": "MRF-746",
-        "colorHex": "#d5cfae"
       },
       {
         "colorName": "iconic ivory",
@@ -1079,41 +359,6 @@
         "colorHex": "#dbdcbf"
       },
       {
-        "colorName": "spiaggia sand",
-        "colorCode": "MRF-762",
-        "colorHex": "#c8cfc5"
-      },
-      {
-        "colorName": "capri cascade",
-        "colorCode": "MRF-764",
-        "colorHex": "#b8c1b5"
-      },
-      {
-        "colorName": "grand beach green",
-        "colorCode": "MRF-766",
-        "colorHex": "#a1a89a"
-      },
-      {
-        "colorName": "steep slope",
-        "colorCode": "MRF-768",
-        "colorHex": "#6f7363"
-      },
-      {
-        "colorName": "ancient ruins",
-        "colorCode": "MRF-770",
-        "colorHex": "#a2a89f"
-      },
-      {
-        "colorName": "vesuvius gray",
-        "colorCode": "MRF-771",
-        "colorHex": "#caccc0"
-      },
-      {
-        "colorName": "moorish cream",
-        "colorCode": "MRF-772",
-        "colorHex": "#e4e7da"
-      },
-      {
         "colorName": "sea cliff sage",
         "colorCode": "MRF-773",
         "colorHex": "#b2b9a4"
@@ -1122,11 +367,6 @@
         "colorName": "shaken   not stirred",
         "colorCode": "MRF-775",
         "colorHex": "#8b8e74"
-      },
-      {
-        "colorName": "caspian olive",
-        "colorCode": "MRF-776",
-        "colorHex": "#726e55"
       },
       {
         "colorName": "summer resort",
@@ -1159,34 +399,9 @@
         "colorHex": "#c7cfc6"
       },
       {
-        "colorName": "peaceful green",
-        "colorCode": "MRF-788",
-        "colorHex": "#9da69d"
-      },
-      {
-        "colorName": "getaway green",
-        "colorCode": "MRF-789",
-        "colorHex": "#6e7469"
-      },
-      {
         "colorName": "greenhouse green",
         "colorCode": "MRF-790",
         "colorHex": "#6d745f"
-      },
-      {
-        "colorName": "steely green",
-        "colorCode": "MRF-791",
-        "colorHex": "#7d8279"
-      },
-      {
-        "colorName": "restricted gray",
-        "colorCode": "MRF-792",
-        "colorHex": "#abb2b1"
-      },
-      {
-        "colorName": "grim gray",
-        "colorCode": "MRF-793",
-        "colorHex": "#bac0bd"
       },
       {
         "colorName": "charity green",
@@ -1199,219 +414,14 @@
         "colorHex": "#cbd4cd"
       },
       {
-        "colorName": "cannon gray",
-        "colorCode": "MRF-821",
-        "colorHex": "#76868c"
-      },
-      {
-        "colorName": "obscure licorice",
-        "colorCode": "MRF-822",
-        "colorHex": "#4e5758"
-      },
-      {
-        "colorName": "gunmetal gray",
-        "colorCode": "MRF-823",
-        "colorHex": "#707d76"
-      },
-      {
-        "colorName": "armor gray",
-        "colorCode": "MRF-824",
-        "colorHex": "#89989a"
-      },
-      {
-        "colorName": "11th hour",
-        "colorCode": "MRF-825",
-        "colorHex": "#c9d2ce"
-      },
-      {
-        "colorName": "gray skies",
-        "colorCode": "MRF-826",
-        "colorHex": "#cbd1d3"
-      },
-      {
-        "colorName": "thundery",
-        "colorCode": "MRF-829",
-        "colorHex": "#68757f"
-      },
-      {
-        "colorName": "suave mauve",
-        "colorCode": "MRF-834",
-        "colorHex": "#dcdcdb"
-      },
-      {
-        "colorName": "trendy lilac",
-        "colorCode": "MRF-836",
-        "colorHex": "#c3c4c6"
-      },
-      {
-        "colorName": "keeping it real",
-        "colorCode": "MRF-838",
-        "colorHex": "#848e9a"
-      },
-      {
-        "colorName": "raise the bar purple",
-        "colorCode": "MRF-840",
-        "colorHex": "#5d5f66"
-      },
-      {
-        "colorName": "jack horners plum",
-        "colorCode": "MRF-842",
-        "colorHex": "#91959c"
-      },
-      {
-        "colorName": "somewhat purple",
-        "colorCode": "MRF-844",
-        "colorHex": "#c6c8c9"
-      },
-      {
-        "colorName": "muffled mallow",
-        "colorCode": "MRF-846",
-        "colorHex": "#deded9"
-      },
-      {
         "colorName": "original off white",
         "colorCode": "MRF-847",
         "colorHex": "#e2e1d1"
       },
       {
-        "colorName": "china doll",
-        "colorCode": "MRF-849",
-        "colorHex": "#ceccbf"
-      },
-      {
-        "colorName": "sculpture gray",
-        "colorCode": "MRF-850",
-        "colorHex": "#acab9f"
-      },
-      {
-        "colorName": "mid century mauve",
-        "colorCode": "MRF-851",
-        "colorHex": "#8e9091"
-      },
-      {
-        "colorName": "cinder block",
-        "colorCode": "MRF-852",
-        "colorHex": "#9ba1a1"
-      },
-      {
-        "colorName": "roomy gray",
-        "colorCode": "MRF-853",
-        "colorHex": "#b6bcb9"
-      },
-      {
-        "colorName": "gray nuance",
-        "colorCode": "MRF-854",
-        "colorHex": "#cbcec7"
-      },
-      {
-        "colorName": "malta gray",
-        "colorCode": "MRF-855",
-        "colorHex": "#bfbfb6"
-      },
-      {
-        "colorName": "baroque taupe",
-        "colorCode": "MRF-856",
-        "colorHex": "#8e938e"
-      },
-      {
-        "colorName": "hi tech obsidian",
-        "colorCode": "MRF-857",
-        "colorHex": "#65665e"
-      },
-      {
-        "colorName": "slippery rock",
-        "colorCode": "MRF-858",
-        "colorHex": "#878d87"
-      },
-      {
-        "colorName": "oyster shell",
-        "colorCode": "MRF-859",
-        "colorHex": "#cfcfc6"
-      },
-      {
-        "colorName": "bauhaus beige",
-        "colorCode": "MRF-860",
-        "colorHex": "#dfded2"
-      },
-      {
-        "colorName": "bacchus khaki",
-        "colorCode": "MRF-861",
-        "colorHex": "#d8d4c8"
-      },
-      {
-        "colorName": "valletta khaki",
-        "colorCode": "MRF-862",
-        "colorHex": "#acac9e"
-      },
-      {
-        "colorName": "army green",
-        "colorCode": "MRF-863",
-        "colorHex": "#918e7b"
-      },
-      {
-        "colorName": "camouflage green",
-        "colorCode": "MRF-864",
-        "colorHex": "#837b66"
-      },
-      {
-        "colorName": "fieldstone",
-        "colorCode": "MRF-865",
-        "colorHex": "#89826f"
-      },
-      {
-        "colorName": "uffizi tan",
-        "colorCode": "MRF-866",
-        "colorHex": "#aeaa95"
-      },
-      {
         "colorName": "vittoriosa",
         "colorCode": "MRF-867",
         "colorHex": "#dbd9c3"
-      },
-      {
-        "colorName": "golden nero",
-        "colorCode": "MRF-884",
-        "colorHex": "#d99421"
-      },
-      {
-        "colorName": "venetian lights",
-        "colorCode": "MRF-885",
-        "colorHex": "#f49813"
-      },
-      {
-        "colorName": "pinot grigio",
-        "colorCode": "MRF-890",
-        "colorHex": "#efc14d"
-      },
-      {
-        "colorName": "chardonnay",
-        "colorCode": "MRF-891",
-        "colorHex": "#efc12a"
-      },
-      {
-        "colorName": "verragio yellow",
-        "colorCode": "MRF-892",
-        "colorHex": "#e7ae33"
-      },
-      {
-        "colorName": "grapefruit attack",
-        "colorCode": "MRF-893",
-        "colorHex": "#f2b428"
-      },
-      {
-        "colorName": "golden groove",
-        "colorCode": "MRF-894",
-        "colorHex": "#e4a52f"
-      },
-      {
-        "colorName": "heroic gold",
-        "colorCode": "MRF-895",
-        "colorHex": "#f5a52c"
-      },
-      {
-        "colorName": "hypnotic gold",
-        "colorCode": "MRF-896",
-        "colorHex": "#eda114"
       },
       {
         "colorName": "lime slice",
@@ -1422,11 +432,6 @@
         "colorName": "dandelion green",
         "colorCode": "MRF-898",
         "colorHex": "#b1b534"
-      },
-      {
-        "colorName": "herbal green",
-        "colorCode": "MRF-899",
-        "colorHex": "#a69b31"
       },
       {
         "colorName": "shocking lime",
@@ -1444,131 +449,6 @@
         "colorHex": "#617838"
       },
       {
-        "colorName": "purple passion",
-        "colorCode": "MRF-942",
-        "colorHex": "#3d3b48"
-      },
-      {
-        "colorName": "radcliffe brown",
-        "colorCode": "MRF-947",
-        "colorHex": "#45413d"
-      },
-      {
-        "colorName": "biscotti brown",
-        "colorCode": "MRF-948",
-        "colorHex": "#3a3a38"
-      },
-      {
-        "colorName": "chocolate chip",
-        "colorCode": "MRF-949",
-        "colorHex": "#45403a"
-      },
-      {
-        "colorName": "zibellina brown",
-        "colorCode": "MRF-954",
-        "colorHex": "#4c4a44"
-      },
-      {
-        "colorName": "flambeau burgundy",
-        "colorCode": "MRF-955",
-        "colorHex": "#47413b"
-      },
-      {
-        "colorName": "licorice whip",
-        "colorCode": "MRF-956",
-        "colorHex": "#353937"
-      },
-      {
-        "colorName": "italian cream cake",
-        "colorCode": "MRF-967",
-        "colorHex": "#7b6545"
-      },
-      {
-        "colorName": "nuts about nutmeg",
-        "colorCode": "MRF-968",
-        "colorHex": "#7e6844"
-      },
-      {
-        "colorName": "wedding band gold",
-        "colorCode": "MRF-971",
-        "colorHex": "#ad8b4e"
-      },
-      {
-        "colorName": "bronzed gold",
-        "colorCode": "MRF-972",
-        "colorHex": "#906f40"
-      },
-      {
-        "colorName": "old world brown",
-        "colorCode": "MRF-975",
-        "colorHex": "#635741"
-      },
-      {
-        "colorName": "modish olive",
-        "colorCode": "MRF-976",
-        "colorHex": "#68583c"
-      },
-      {
-        "colorName": "golden years",
-        "colorCode": "MRF-980",
-        "colorHex": "#aa8340"
-      },
-      {
-        "colorName": "butternut bazaar",
-        "colorCode": "MRF-983",
-        "colorHex": "#92723f"
-      },
-      {
-        "colorName": "pot of gold",
-        "colorCode": "MRF-984",
-        "colorHex": "#97783b"
-      },
-      {
-        "colorName": "cerignola olive",
-        "colorCode": "MRF-985",
-        "colorHex": "#988444"
-      },
-      {
-        "colorName": "olive green",
-        "colorCode": "MRF-986",
-        "colorHex": "#836b35"
-      },
-      {
-        "colorName": "angrignon olive",
-        "colorCode": "MRF-987",
-        "colorHex": "#67603d"
-      },
-      {
-        "colorName": "manzanilla olive",
-        "colorCode": "MRF-988",
-        "colorHex": "#67603d"
-      },
-      {
-        "colorName": "sicilian olive",
-        "colorCode": "MRF-989",
-        "colorHex": "#5a553b"
-      },
-      {
-        "colorName": "lucque olive",
-        "colorCode": "MRF-990",
-        "colorHex": "#4c503d"
-      },
-      {
-        "colorName": "gaeta olive",
-        "colorCode": "MRF-991",
-        "colorHex": "#4c4d3e"
-      },
-      {
-        "colorName": "haunted forest",
-        "colorCode": "MRF-993",
-        "colorHex": "#404b3e"
-      },
-      {
-        "colorName": "huntsman green",
-        "colorCode": "MRF-994",
-        "colorHex": "#5d5d41"
-      },
-      {
         "colorName": "enchanted forest",
         "colorCode": "MRF-995",
         "colorHex": "#5e6242"
@@ -1584,119 +464,9 @@
         "colorHex": "#606542"
       },
       {
-        "colorName": "granny apple",
-        "colorCode": "MRF-998",
-        "colorHex": "#908851"
-      },
-      {
-        "colorName": "chimney gray",
-        "colorCode": "MRF-1005",
-        "colorHex": "#4d5657"
-      },
-      {
-        "colorName": "malachite",
-        "colorCode": "MRF-1009",
-        "colorHex": "#4d5758"
-      },
-      {
-        "colorName": "rock bottom gray",
-        "colorCode": "MRF-1010",
-        "colorHex": "#4f5656"
-      },
-      {
-        "colorName": "gallery gray",
-        "colorCode": "MRF-1011",
-        "colorHex": "#404b4b"
-      },
-      {
-        "colorName": "smokestack gray",
-        "colorCode": "MRF-1012",
-        "colorHex": "#424b4c"
-      },
-      {
-        "colorName": "raven",
-        "colorCode": "MRF-1013",
-        "colorHex": "#323a3a"
-      },
-      {
-        "colorName": "sovereign gray",
-        "colorCode": "MRF-1016",
-        "colorHex": "#777b7a"
-      },
-      {
-        "colorName": "sunspot",
-        "colorCode": "MRF-1017",
-        "colorHex": "#f7d698"
-      },
-      {
-        "colorName": "over the moon yellow",
-        "colorCode": "MRF-1018",
-        "colorHex": "#f6ddaf"
-      },
-      {
         "colorName": "angola yellow",
         "colorCode": "MRF-1019",
         "colorHex": "#e6e6c4"
-      },
-      {
-        "colorName": "yellow quartz",
-        "colorCode": "MRF-1021",
-        "colorHex": "#ebe5b4"
-      },
-      {
-        "colorName": "lemon curd",
-        "colorCode": "MRF-1037",
-        "colorHex": "#e9bb6c"
-      },
-      {
-        "colorName": "tart lemon",
-        "colorCode": "MRF-1049",
-        "colorHex": "#f3c63b"
-      },
-      {
-        "colorName": "golden glean",
-        "colorCode": "MRF-1050",
-        "colorHex": "#ecbf4a"
-      },
-      {
-        "colorName": "fairytale gold",
-        "colorCode": "MRF-1051",
-        "colorHex": "#f0d987"
-      },
-      {
-        "colorName": "country kitchen yellow",
-        "colorCode": "MRF-1052",
-        "colorHex": "#ece5b5"
-      },
-      {
-        "colorName": "sunny terrace",
-        "colorCode": "MRF-1053",
-        "colorHex": "#ede7b5"
-      },
-      {
-        "colorName": "majolica yellow",
-        "colorCode": "MRF-1056",
-        "colorHex": "#efdf89"
-      },
-      {
-        "colorName": "renaissance garden",
-        "colorCode": "MRF-1057",
-        "colorHex": "#eddc7d"
-      },
-      {
-        "colorName": "limoncello",
-        "colorCode": "MRF-1058",
-        "colorHex": "#edc62b"
-      },
-      {
-        "colorName": "cats eye",
-        "colorCode": "MRF-1059",
-        "colorHex": "#ebcd65"
-      },
-      {
-        "colorName": "etichette",
-        "colorCode": "MRF-1060",
-        "colorHex": "#ecd686"
       },
       {
         "colorName": "san leo yellow",
@@ -1722,11 +492,6 @@
         "colorName": "queen bee",
         "colorCode": "MRF-1079",
         "colorHex": "#ebe064"
-      },
-      {
-        "colorName": "practical jokester",
-        "colorCode": "MRF-1080",
-        "colorHex": "#e5e1d3"
       },
       {
         "colorName": "go bananas",
@@ -1779,44 +544,9 @@
         "colorHex": "#dcdfab"
       },
       {
-        "colorName": "spanish steps",
-        "colorCode": "MRF-1119",
-        "colorHex": "#ebd8bd"
-      },
-      {
-        "colorName": "cocoa butter",
-        "colorCode": "MRF-1121",
-        "colorHex": "#e7d6bb"
-      },
-      {
-        "colorName": "peach shake",
-        "colorCode": "MRF-1127",
-        "colorHex": "#e5d0b2"
-      },
-      {
-        "colorName": "tuscan wind",
-        "colorCode": "MRF-1129",
-        "colorHex": "#e9dabd"
-      },
-      {
         "colorName": "parchment paper",
         "colorCode": "MRF-1133",
         "colorHex": "#e5e2cc"
-      },
-      {
-        "colorName": "sun stone",
-        "colorCode": "MRF-1134",
-        "colorHex": "#e7c99a"
-      },
-      {
-        "colorName": "my honey",
-        "colorCode": "MRF-1135",
-        "colorHex": "#e6c089"
-      },
-      {
-        "colorName": "golden gossamer",
-        "colorCode": "MRF-1138",
-        "colorHex": "#daac66"
       },
       {
         "colorName": "karma green",
@@ -1842,71 +572,6 @@
         "colorName": "celery crunch",
         "colorCode": "MRF-1146",
         "colorHex": "#d5dfb0"
-      },
-      {
-        "colorName": "yellow cologne",
-        "colorCode": "MRF-1160",
-        "colorHex": "#e7dac3"
-      },
-      {
-        "colorName": "ivory lace",
-        "colorCode": "MRF-1163",
-        "colorHex": "#e7e1ca"
-      },
-      {
-        "colorName": "clear vision blue",
-        "colorCode": "MRF-1212",
-        "colorHex": "#dde2df"
-      },
-      {
-        "colorName": "rock   roll amethyst",
-        "colorCode": "MRF-1221",
-        "colorHex": "#d9d4d5"
-      },
-      {
-        "colorName": "plum pudding",
-        "colorCode": "MRF-1223",
-        "colorHex": "#a19cac"
-      },
-      {
-        "colorName": "gone with the wind",
-        "colorCode": "MRF-1232",
-        "colorHex": "#cdcbcb"
-      },
-      {
-        "colorName": "smoky grape",
-        "colorCode": "MRF-1234",
-        "colorHex": "#90909b"
-      },
-      {
-        "colorName": "soul mate",
-        "colorCode": "MRF-1235",
-        "colorHex": "#6f7187"
-      },
-      {
-        "colorName": "winter velvet",
-        "colorCode": "MRF-1236",
-        "colorHex": "#9b98aa"
-      },
-      {
-        "colorName": "rarely regal",
-        "colorCode": "MRF-1237",
-        "colorHex": "#b8b6c0"
-      },
-      {
-        "colorName": "final engagement",
-        "colorCode": "MRF-1241",
-        "colorHex": "#998c8e"
-      },
-      {
-        "colorName": "muskrat love",
-        "colorCode": "MRF-1242",
-        "colorHex": "#7c6b67"
-      },
-      {
-        "colorName": "antique mauve",
-        "colorCode": "MRF-1243",
-        "colorHex": "#a79695"
       }
     ],
     "Purples": [
@@ -1939,11 +604,6 @@
         "colorName": "head over heels",
         "colorCode": "MRF-40",
         "colorHex": "#d7cde0"
-      },
-      {
-        "colorName": "heart of glass",
-        "colorCode": "MRF-52",
-        "colorHex": "#e0e2e6"
       },
       {
         "colorName": "heart to heart",
@@ -2144,29 +804,9 @@
         "colorName": "ce volte violet",
         "colorCode": "MRF-875",
         "colorHex": "#814874"
-      },
-      {
-        "colorName": "ps qs orchid",
-        "colorCode": "MRF-1222",
-        "colorHex": "#b7b2bf"
-      },
-      {
-        "colorName": "sensitive heather",
-        "colorCode": "MRF-1233",
-        "colorHex": "#b2afb3"
-      },
-      {
-        "colorName": "fairest one of all",
-        "colorCode": "MRF-1238",
-        "colorHex": "#c9c4c8"
       }
     ],
     "Pinks": [
-      {
-        "colorName": "get with it coral",
-        "colorCode": "MRF-3",
-        "colorHex": "#cc6872"
-      },
       {
         "colorName": "fancy pink",
         "colorCode": "MRF-8",
@@ -2176,11 +816,6 @@
         "colorName": "playful pink",
         "colorCode": "MRF-18",
         "colorHex": "#e3b1bc"
-      },
-      {
-        "colorName": "diamond in the rough",
-        "colorCode": "MRF-19",
-        "colorHex": "#e2e1e5"
       },
       {
         "colorName": "pink polka dot",
@@ -2293,36 +928,6 @@
         "colorHex": "#e5cdcd"
       },
       {
-        "colorName": "under water",
-        "colorCode": "MRF-96",
-        "colorHex": "#8cc9e0"
-      },
-      {
-        "colorName": "genoa aqua",
-        "colorCode": "MRF-98",
-        "colorHex": "#b9dde1"
-      },
-      {
-        "colorName": "its a boy",
-        "colorCode": "MRF-100",
-        "colorHex": "#b7dbe1"
-      },
-      {
-        "colorName": "little boy blue",
-        "colorCode": "MRF-101",
-        "colorHex": "#9cccdd"
-      },
-      {
-        "colorName": "medley blue",
-        "colorCode": "MRF-102",
-        "colorHex": "#7ebfdc"
-      },
-      {
-        "colorName": "gondola ride",
-        "colorCode": "MRF-103",
-        "colorHex": "#1e7cab"
-      },
-      {
         "colorName": "loves me not",
         "colorCode": "MRF-104",
         "colorHex": "#e6c7c1"
@@ -2336,26 +941,6 @@
         "colorName": "amber tide",
         "colorCode": "MRF-106",
         "colorHex": "#d78e88"
-      },
-      {
-        "colorName": "marine breeze",
-        "colorCode": "MRF-109",
-        "colorHex": "#73b5d4"
-      },
-      {
-        "colorName": "test the waters",
-        "colorCode": "MRF-111",
-        "colorHex": "#8cc8e1"
-      },
-      {
-        "colorName": "watered down",
-        "colorCode": "MRF-113",
-        "colorHex": "#bdd9db"
-      },
-      {
-        "colorName": "duck to water",
-        "colorCode": "MRF-115",
-        "colorHex": "#b5d5df"
       },
       {
         "colorName": "orange festival",
@@ -2378,54 +963,9 @@
         "colorHex": "#eacfc4"
       },
       {
-        "colorName": "peach fizz",
-        "colorCode": "MRF-123",
-        "colorHex": "#e8c7bb"
-      },
-      {
-        "colorName": "ice water",
-        "colorCode": "MRF-124",
-        "colorHex": "#a8cddb"
-      },
-      {
         "colorName": "flattering apricot",
         "colorCode": "MRF-125",
         "colorHex": "#dfb4ac"
-      },
-      {
-        "colorName": "watering hole",
-        "colorCode": "MRF-126",
-        "colorHex": "#88b8d3"
-      },
-      {
-        "colorName": "candied carrot",
-        "colorCode": "MRF-128",
-        "colorHex": "#e7a38a"
-      },
-      {
-        "colorName": "bold blue",
-        "colorCode": "MRF-129",
-        "colorHex": "#4882b7"
-      },
-      {
-        "colorName": "water under the bridge",
-        "colorCode": "MRF-131",
-        "colorHex": "#5ea1cc"
-      },
-      {
-        "colorName": "fresh water",
-        "colorCode": "MRF-133",
-        "colorHex": "#aad2e0"
-      },
-      {
-        "colorName": "salt water",
-        "colorCode": "MRF-135",
-        "colorHex": "#c5e0e8"
-      },
-      {
-        "colorName": "rain shower",
-        "colorCode": "MRF-137",
-        "colorHex": "#c4d6da"
       },
       {
         "colorName": "humble",
@@ -2463,24 +1003,9 @@
         "colorHex": "#e6937a"
       },
       {
-        "colorName": "raining cats   dogs",
-        "colorCode": "MRF-148",
-        "colorHex": "#abccdb"
-      },
-      {
         "colorName": "whipped papaya",
         "colorCode": "MRF-149",
         "colorHex": "#f0b8a7"
-      },
-      {
-        "colorName": "lemon ice",
-        "colorCode": "MRF-150",
-        "colorHex": "#f2e8d2"
-      },
-      {
-        "colorName": "frosted peach",
-        "colorCode": "MRF-151",
-        "colorHex": "#e8d7cc"
       },
       {
         "colorName": "witty",
@@ -2498,54 +1023,9 @@
         "colorHex": "#f7e0ba"
       },
       {
-        "colorName": "coast to coast",
-        "colorCode": "MRF-156",
-        "colorHex": "#7aa3c2"
-      },
-      {
-        "colorName": "sink or swim",
-        "colorCode": "MRF-158",
-        "colorHex": "#4c84af"
-      },
-      {
-        "colorName": "smooth apricot",
-        "colorCode": "MRF-159",
-        "colorHex": "#eec0a9"
-      },
-      {
-        "colorName": "making waves",
-        "colorCode": "MRF-160",
-        "colorHex": "#71aacb"
-      },
-      {
-        "colorName": "slippery as an eel",
-        "colorCode": "MRF-161",
-        "colorHex": "#99c1da"
-      },
-      {
-        "colorName": "organza",
-        "colorCode": "MRF-162",
-        "colorHex": "#eeb69e"
-      },
-      {
-        "colorName": "over board",
-        "colorCode": "MRF-163",
-        "colorHex": "#a5cce0"
-      },
-      {
-        "colorName": "fiery orange",
-        "colorCode": "MRF-164",
-        "colorHex": "#e9926d"
-      },
-      {
         "colorName": "philosophy",
         "colorCode": "MRF-165",
         "colorHex": "#f6ddb3"
-      },
-      {
-        "colorName": "ordinary orange",
-        "colorCode": "MRF-166",
-        "colorHex": "#df7951"
       },
       {
         "colorName": "all of a sudden",
@@ -2553,24 +1033,9 @@
         "colorHex": "#e78c6e"
       },
       {
-        "colorName": "blushing",
-        "colorCode": "MRF-168",
-        "colorHex": "#eee3d6"
-      },
-      {
-        "colorName": "plenty of fish",
-        "colorCode": "MRF-170",
-        "colorHex": "#a4d0e4"
-      },
-      {
         "colorName": "shy",
         "colorCode": "MRF-171",
         "colorHex": "#f0e3d3"
-      },
-      {
-        "colorName": "smooth sailing",
-        "colorCode": "MRF-172",
-        "colorHex": "#94c5e1"
       },
       {
         "colorName": "modish",
@@ -2578,89 +1043,14 @@
         "colorHex": "#edded2"
       },
       {
-        "colorName": "hook   line   sinker",
-        "colorCode": "MRF-174",
-        "colorHex": "#679ec6"
-      },
-      {
         "colorName": "milky peach",
         "colorCode": "MRF-175",
         "colorHex": "#ebd4c6"
       },
       {
-        "colorName": "hob nob orange",
-        "colorCode": "MRF-176",
-        "colorHex": "#eaaf97"
-      },
-      {
-        "colorName": "larger than life",
-        "colorCode": "MRF-177",
-        "colorHex": "#486ea2"
-      },
-      {
-        "colorName": "hummingbird",
-        "colorCode": "MRF-178",
-        "colorHex": "#edccbb"
-      },
-      {
-        "colorName": "way of life",
-        "colorCode": "MRF-179",
-        "colorHex": "#83a7d2"
-      },
-      {
-        "colorName": "sweet salmon",
-        "colorCode": "MRF-180",
-        "colorHex": "#e7d5c5"
-      },
-      {
-        "colorName": "prime of life",
-        "colorCode": "MRF-182",
-        "colorHex": "#8fbcdf"
-      },
-      {
-        "colorName": "malibu peach",
-        "colorCode": "MRF-183",
-        "colorHex": "#edcab1"
-      },
-      {
-        "colorName": "silver spoon",
-        "colorCode": "MRF-184",
-        "colorHex": "#b5d2e6"
-      },
-      {
-        "colorName": "cherish cream",
-        "colorCode": "MRF-185",
-        "colorHex": "#ebb597"
-      },
-      {
         "colorName": "serious salmon",
         "colorCode": "MRF-186",
         "colorHex": "#e6c8bf"
-      },
-      {
-        "colorName": "sleepy time lavender",
-        "colorCode": "MRF-187",
-        "colorHex": "#bac8de"
-      },
-      {
-        "colorName": "illusion",
-        "colorCode": "MRF-188",
-        "colorHex": "#e9e8e1"
-      },
-      {
-        "colorName": "outrageous orange",
-        "colorCode": "MRF-190",
-        "colorHex": "#e78953"
-      },
-      {
-        "colorName": "alluring blossom",
-        "colorCode": "MRF-191",
-        "colorHex": "#ebb29a"
-      },
-      {
-        "colorName": "drowsy iris",
-        "colorCode": "MRF-193",
-        "colorHex": "#b4c2de"
       },
       {
         "colorName": "fairy pink",
@@ -2683,54 +1073,9 @@
         "colorHex": "#e2c0b8"
       },
       {
-        "colorName": "ambrosia",
-        "colorCode": "MRF-199",
-        "colorHex": "#e8e7de"
-      },
-      {
-        "colorName": "posy",
-        "colorCode": "MRF-201",
-        "colorHex": "#eec8af"
-      },
-      {
-        "colorName": "coquette peach",
-        "colorCode": "MRF-202",
-        "colorHex": "#ecdccd"
-      },
-      {
-        "colorName": "portofino peach",
-        "colorCode": "MRF-203",
-        "colorHex": "#ebcdb1"
-      },
-      {
-        "colorName": "freckle orange",
-        "colorCode": "MRF-204",
-        "colorHex": "#f1c09b"
-      },
-      {
-        "colorName": "orange custard",
-        "colorCode": "MRF-205",
-        "colorHex": "#e2a476"
-      },
-      {
         "colorName": "at ease",
         "colorCode": "MRF-206",
         "colorHex": "#e5ded6"
-      },
-      {
-        "colorName": "bumble berry",
-        "colorCode": "MRF-207",
-        "colorHex": "#93a8d3"
-      },
-      {
-        "colorName": "quiet iris",
-        "colorCode": "MRF-209",
-        "colorHex": "#e3ecea"
-      },
-      {
-        "colorName": "jack o lantern",
-        "colorCode": "MRF-210",
-        "colorHex": "#e98435"
       },
       {
         "colorName": "lullaby",
@@ -2738,34 +1083,9 @@
         "colorHex": "#e8dcd2"
       },
       {
-        "colorName": "paradox purple",
-        "colorCode": "MRF-212",
-        "colorHex": "#576ea3"
-      },
-      {
-        "colorName": "mine for keeps",
-        "colorCode": "MRF-213",
-        "colorHex": "#dde5e5"
-      },
-      {
-        "colorName": "peach slush",
-        "colorCode": "MRF-214",
-        "colorHex": "#ed9e73"
-      },
-      {
-        "colorName": "hip honey",
-        "colorCode": "MRF-215",
-        "colorHex": "#f1c096"
-      },
-      {
         "colorName": "natural",
         "colorCode": "MRF-218",
         "colorHex": "#ded1ca"
-      },
-      {
-        "colorName": "cashew craving",
-        "colorCode": "MRF-219",
-        "colorHex": "#ebdac5"
       },
       {
         "colorName": "parma pink",
@@ -2773,44 +1093,9 @@
         "colorHex": "#dfcdc4"
       },
       {
-        "colorName": "hard to believe",
-        "colorCode": "MRF-221",
-        "colorHex": "#dce4e8"
-      },
-      {
-        "colorName": "pink tinge",
-        "colorCode": "MRF-222",
-        "colorHex": "#e8e9e3"
-      },
-      {
-        "colorName": "sunlit country",
-        "colorCode": "MRF-223",
-        "colorHex": "#eddec3"
-      },
-      {
-        "colorName": "elegant evening",
-        "colorCode": "MRF-224",
-        "colorHex": "#82a5d0"
-      },
-      {
-        "colorName": "wishful wisteria",
-        "colorCode": "MRF-226",
-        "colorHex": "#c8d7e1"
-      },
-      {
-        "colorName": "honey pot",
-        "colorCode": "MRF-227",
-        "colorHex": "#f1c289"
-      },
-      {
         "colorName": "sweetheart rose",
         "colorCode": "MRF-228",
         "colorHex": "#ede8e2"
-      },
-      {
-        "colorName": "wisteria from scratch",
-        "colorCode": "MRF-229",
-        "colorHex": "#c2d2e1"
       },
       {
         "colorName": "pale pink",
@@ -2818,39 +1103,9 @@
         "colorHex": "#ede4e0"
       },
       {
-        "colorName": "magical moment",
-        "colorCode": "MRF-231",
-        "colorHex": "#d6e3e7"
-      },
-      {
-        "colorName": "apricot sauce",
-        "colorCode": "MRF-232",
-        "colorHex": "#f2ad5e"
-      },
-      {
-        "colorName": "mandarin slice",
-        "colorCode": "MRF-233",
-        "colorHex": "#e28646"
-      },
-      {
-        "colorName": "heart on your sleeve",
-        "colorCode": "MRF-234",
-        "colorHex": "#9ebdde"
-      },
-      {
-        "colorName": "mouthwatering mango",
-        "colorCode": "MRF-235",
-        "colorHex": "#e9a773"
-      },
-      {
         "colorName": "teeny tiny",
         "colorCode": "MRF-238",
         "colorHex": "#ecdfdd"
-      },
-      {
-        "colorName": "slippery slope",
-        "colorCode": "MRF-239",
-        "colorHex": "#d0e1e7"
       },
       {
         "colorName": "possessive pink",
@@ -2858,29 +1113,9 @@
         "colorHex": "#eededc"
       },
       {
-        "colorName": "hollow violet",
-        "colorCode": "MRF-241",
-        "colorHex": "#cadde6"
-      },
-      {
-        "colorName": "wise wisteria",
-        "colorCode": "MRF-242",
-        "colorHex": "#c0d9ea"
-      },
-      {
-        "colorName": "restrained rose",
-        "colorCode": "MRF-243",
-        "colorHex": "#ece7e0"
-      },
-      {
         "colorName": "placid",
         "colorCode": "MRF-245",
         "colorHex": "#dbeae6"
-      },
-      {
-        "colorName": "pink satin sash",
-        "colorCode": "MRF-246",
-        "colorHex": "#eee2db"
       },
       {
         "colorName": "pillowcase pink",
@@ -2896,11 +1131,6 @@
         "colorName": "50s pink",
         "colorCode": "MRF-249",
         "colorHex": "#e7cec9"
-      },
-      {
-        "colorName": "frou frou",
-        "colorCode": "MRF-250",
-        "colorHex": "#ebe4e4"
       },
       {
         "colorName": "all dressed up",
@@ -2923,29 +1153,9 @@
         "colorHex": "#e7d6df"
       },
       {
-        "colorName": "peaceful pink",
-        "colorCode": "MRF-256",
-        "colorHex": "#ebe9e5"
-      },
-      {
-        "colorName": "bacio blue",
-        "colorCode": "MRF-257",
-        "colorHex": "#d2e6e4"
-      },
-      {
-        "colorName": "something blue",
-        "colorCode": "MRF-259",
-        "colorHex": "#c4e2e5"
-      },
-      {
         "colorName": "suddenly pink",
         "colorCode": "MRF-260",
         "colorHex": "#e6dfe3"
-      },
-      {
-        "colorName": "reserved blue",
-        "colorCode": "MRF-261",
-        "colorHex": "#add4dc"
       },
       {
         "colorName": "heavenly pink",
@@ -2958,34 +1168,9 @@
         "colorHex": "#e1d2e1"
       },
       {
-        "colorName": "call it a day blue",
-        "colorCode": "MRF-264",
-        "colorHex": "#9fcbd6"
-      },
-      {
         "colorName": "prada pink",
         "colorCode": "MRF-265",
         "colorHex": "#dfcbdf"
-      },
-      {
-        "colorName": "venice sky",
-        "colorCode": "MRF-266",
-        "colorHex": "#e0eae4"
-      },
-      {
-        "colorName": "scusi",
-        "colorCode": "MRF-267",
-        "colorHex": "#e6e4e5"
-      },
-      {
-        "colorName": "snow cap",
-        "colorCode": "MRF-270",
-        "colorHex": "#cee6e7"
-      },
-      {
-        "colorName": "bed   breakfast blue",
-        "colorCode": "MRF-273",
-        "colorHex": "#cce5e4"
       },
       {
         "colorName": "be my guest",
@@ -2993,294 +1178,9 @@
         "colorHex": "#dfd8df"
       },
       {
-        "colorName": "coastline blue",
-        "colorCode": "MRF-276",
-        "colorHex": "#c4dfe2"
-      },
-      {
-        "colorName": "cloud less blue",
-        "colorCode": "MRF-280",
-        "colorHex": "#b9dce4"
-      },
-      {
-        "colorName": "aloof blue",
-        "colorCode": "MRF-281",
-        "colorHex": "#d1e6e4"
-      },
-      {
-        "colorName": "cherubic blue",
-        "colorCode": "MRF-282",
-        "colorHex": "#cae5e8"
-      },
-      {
-        "colorName": "chit chat",
-        "colorCode": "MRF-283",
-        "colorHex": "#e4e6e9"
-      },
-      {
-        "colorName": "blithe blue",
-        "colorCode": "MRF-285",
-        "colorHex": "#c4e2e2"
-      },
-      {
-        "colorName": "mediterranean sky",
-        "colorCode": "MRF-287",
-        "colorHex": "#addae2"
-      },
-      {
-        "colorName": "amalfi blue",
-        "colorCode": "MRF-288",
-        "colorHex": "#a4d5e3"
-      },
-      {
-        "colorName": "silent cyan",
-        "colorCode": "MRF-290",
-        "colorHex": "#cae6e3"
-      },
-      {
         "colorName": "yours truly",
         "colorCode": "MRF-291",
         "colorHex": "#dedbe7"
-      },
-      {
-        "colorName": "medici aqua",
-        "colorCode": "MRF-292",
-        "colorHex": "#cbe7e2"
-      },
-      {
-        "colorName": "auqa tude",
-        "colorCode": "MRF-293",
-        "colorHex": "#c1e4e1"
-      },
-      {
-        "colorName": "luna",
-        "colorCode": "MRF-294",
-        "colorHex": "#b7e0e2"
-      },
-      {
-        "colorName": "tuscany tide",
-        "colorCode": "MRF-295",
-        "colorHex": "#a9dcdf"
-      },
-      {
-        "colorName": "delicate opal",
-        "colorCode": "MRF-296",
-        "colorHex": "#d2e8e3"
-      },
-      {
-        "colorName": "windswept wintergreen",
-        "colorCode": "MRF-297",
-        "colorHex": "#c1e4e1"
-      },
-      {
-        "colorName": "mojito mint",
-        "colorCode": "MRF-299",
-        "colorHex": "#bae1e1"
-      },
-      {
-        "colorName": "fresh mint",
-        "colorCode": "MRF-300",
-        "colorHex": "#b4e1df"
-      },
-      {
-        "colorName": "mint chip green",
-        "colorCode": "MRF-301",
-        "colorHex": "#a4dadc"
-      },
-      {
-        "colorName": "hot burmese",
-        "colorCode": "MRF-306",
-        "colorHex": "#ddc299"
-      },
-      {
-        "colorName": "yellow brick road",
-        "colorCode": "MRF-307",
-        "colorHex": "#d2af7f"
-      },
-      {
-        "colorName": "daring mustard",
-        "colorCode": "MRF-308",
-        "colorHex": "#b98757"
-      },
-      {
-        "colorName": "forbidden village",
-        "colorCode": "MRF-309",
-        "colorHex": "#eec088"
-      },
-      {
-        "colorName": "peach sangria",
-        "colorCode": "MRF-310",
-        "colorHex": "#f0dfc3"
-      },
-      {
-        "colorName": "peach yogurt",
-        "colorCode": "MRF-311",
-        "colorHex": "#f5d5ac"
-      },
-      {
-        "colorName": "golden sand",
-        "colorCode": "MRF-312",
-        "colorHex": "#d8b785"
-      },
-      {
-        "colorName": "italian breadstick",
-        "colorCode": "MRF-313",
-        "colorHex": "#e3d0ae"
-      },
-      {
-        "colorName": "peter cottontail",
-        "colorCode": "MRF-315",
-        "colorHex": "#e5dcca"
-      },
-      {
-        "colorName": "night light",
-        "colorCode": "MRF-316",
-        "colorHex": "#e6e0cb"
-      },
-      {
-        "colorName": "lovebird lavender",
-        "colorCode": "MRF-317",
-        "colorHex": "#bfd3e4"
-      },
-      {
-        "colorName": "italian silk",
-        "colorCode": "MRF-318",
-        "colorHex": "#d9b984"
-      },
-      {
-        "colorName": "bit of honey",
-        "colorCode": "MRF-319",
-        "colorHex": "#c8a978"
-      },
-      {
-        "colorName": "pharoahs gold",
-        "colorCode": "MRF-320",
-        "colorHex": "#b68d55"
-      },
-      {
-        "colorName": "golden brown",
-        "colorCode": "MRF-321",
-        "colorHex": "#bd9665"
-      },
-      {
-        "colorName": "maple sugar",
-        "colorCode": "MRF-324",
-        "colorHex": "#d2b688"
-      },
-      {
-        "colorName": "pumpkin oil",
-        "colorCode": "MRF-326",
-        "colorHex": "#f7c791"
-      },
-      {
-        "colorName": "buttered popcorn",
-        "colorCode": "MRF-327",
-        "colorHex": "#dfcaa2"
-      },
-      {
-        "colorName": "vibrant orange",
-        "colorCode": "MRF-330",
-        "colorHex": "#f8bb78"
-      },
-      {
-        "colorName": "love is blind",
-        "colorCode": "MRF-331",
-        "colorHex": "#c4c2d7"
-      },
-      {
-        "colorName": "sizzling orange",
-        "colorCode": "MRF-333",
-        "colorHex": "#f09756"
-      },
-      {
-        "colorName": "night   day",
-        "colorCode": "MRF-334",
-        "colorHex": "#afafd1"
-      },
-      {
-        "colorName": "now or never",
-        "colorCode": "MRF-338",
-        "colorHex": "#8b89b8"
-      },
-      {
-        "colorName": "wing   a prayer",
-        "colorCode": "MRF-340",
-        "colorHex": "#bbbad6"
-      },
-      {
-        "colorName": "mystery to me",
-        "colorCode": "MRF-343",
-        "colorHex": "#cbcadb"
-      },
-      {
-        "colorName": "toffee orange",
-        "colorCode": "MRF-346",
-        "colorHex": "#f4bc85"
-      },
-      {
-        "colorName": "orange dream",
-        "colorCode": "MRF-349",
-        "colorHex": "#f6cca1"
-      },
-      {
-        "colorName": "parody peach",
-        "colorCode": "MRF-356",
-        "colorHex": "#f4ddbf"
-      },
-      {
-        "colorName": "golden appeal",
-        "colorCode": "MRF-358",
-        "colorHex": "#dca159"
-      },
-      {
-        "colorName": "apple jack",
-        "colorCode": "MRF-360",
-        "colorHex": "#f5d2a1"
-      },
-      {
-        "colorName": "plume tangelo",
-        "colorCode": "MRF-363",
-        "colorHex": "#f7c890"
-      },
-      {
-        "colorName": "au gratin orange",
-        "colorCode": "MRF-366",
-        "colorHex": "#f9bb72"
-      },
-      {
-        "colorName": "tasty nectarine",
-        "colorCode": "MRF-369",
-        "colorHex": "#ec9643"
-      },
-      {
-        "colorName": "verdetto",
-        "colorCode": "MRF-371",
-        "colorHex": "#cde7e1"
-      },
-      {
-        "colorName": "enthusiastic gold",
-        "colorCode": "MRF-372",
-        "colorHex": "#b6843f"
-      },
-      {
-        "colorName": "lucky stars",
-        "colorCode": "MRF-373",
-        "colorHex": "#757198"
-      },
-      {
-        "colorName": "for the birds",
-        "colorCode": "MRF-375",
-        "colorHex": "#a19ebf"
-      },
-      {
-        "colorName": "summer fun",
-        "colorCode": "MRF-379",
-        "colorHex": "#e6a465"
-      },
-      {
-        "colorName": "semolina",
-        "colorCode": "MRF-382",
-        "colorHex": "#f0c189"
       },
       {
         "colorName": "spice of life",
@@ -3388,11 +1288,6 @@
         "colorHex": "#ccbbbe"
       },
       {
-        "colorName": "villa medici lemon",
-        "colorCode": "MRF-521",
-        "colorHex": "#efaf60"
-      },
-      {
         "colorName": "high maintenance",
         "colorCode": "MRF-523",
         "colorHex": "#e5cfcd"
@@ -3428,11 +1323,6 @@
         "colorHex": "#e4cbc6"
       },
       {
-        "colorName": "cameo coral",
-        "colorCode": "MRF-541",
-        "colorHex": "#e8d3ca"
-      },
-      {
         "colorName": "naked truth coral",
         "colorCode": "MRF-543",
         "colorHex": "#e0aeab"
@@ -3441,11 +1331,6 @@
         "colorName": "totally teaberry",
         "colorCode": "MRF-545",
         "colorHex": "#ca7c77"
-      },
-      {
-        "colorName": "nouveau red",
-        "colorCode": "MRF-546",
-        "colorHex": "#a4554c"
       },
       {
         "colorName": "innocent rose beige",
@@ -3458,49 +1343,9 @@
         "colorHex": "#e0bfb7"
       },
       {
-        "colorName": "ortler fog",
-        "colorCode": "MRF-558",
-        "colorHex": "#d8e1df"
-      },
-      {
-        "colorName": "breithorn gray",
-        "colorCode": "MRF-559",
-        "colorHex": "#d6e1df"
-      },
-      {
-        "colorName": "matterhorn haze",
-        "colorCode": "MRF-561",
-        "colorHex": "#cedcdb"
-      },
-      {
-        "colorName": "marmolada vapor",
-        "colorCode": "MRF-562",
-        "colorHex": "#c6d3d5"
-      },
-      {
         "colorName": "tiffany tan",
         "colorCode": "MRF-590",
         "colorHex": "#e1ddd9"
-      },
-      {
-        "colorName": "polite pink",
-        "colorCode": "MRF-591",
-        "colorHex": "#ded9d4"
-      },
-      {
-        "colorName": "breathless",
-        "colorCode": "MRF-592",
-        "colorHex": "#d7d0cc"
-      },
-      {
-        "colorName": "vague rose",
-        "colorCode": "MRF-593",
-        "colorHex": "#d3cac6"
-      },
-      {
-        "colorName": "rose h20",
-        "colorCode": "MRF-596",
-        "colorHex": "#e9ece7"
       },
       {
         "colorName": "pink lady",
@@ -3558,11 +1403,6 @@
         "colorHex": "#bfaaa8"
       },
       {
-        "colorName": "short but sweet",
-        "colorCode": "MRF-626",
-        "colorHex": "#d1c1bb"
-      },
-      {
         "colorName": "marble mauve",
         "colorCode": "MRF-627",
         "colorHex": "#d6c0b9"
@@ -3578,16 +1418,6 @@
         "colorHex": "#80645d"
       },
       {
-        "colorName": "catch 22 brown",
-        "colorCode": "MRF-630",
-        "colorHex": "#6d5c56"
-      },
-      {
-        "colorName": "hat trick",
-        "colorCode": "MRF-631",
-        "colorHex": "#776058"
-      },
-      {
         "colorName": "all or nothing",
         "colorCode": "MRF-632",
         "colorHex": "#9d8b87"
@@ -3596,151 +1426,6 @@
         "colorName": "thank heavens",
         "colorCode": "MRF-633",
         "colorHex": "#cdc1bd"
-      },
-      {
-        "colorName": "in like flynn",
-        "colorCode": "MRF-634",
-        "colorHex": "#e2cab7"
-      },
-      {
-        "colorName": "follow your heart",
-        "colorCode": "MRF-635",
-        "colorHex": "#bfa99e"
-      },
-      {
-        "colorName": "hickory tan",
-        "colorCode": "MRF-636",
-        "colorHex": "#a5897f"
-      },
-      {
-        "colorName": "wild west red",
-        "colorCode": "MRF-637",
-        "colorHex": "#7a5f4f"
-      },
-      {
-        "colorName": "howdy partner",
-        "colorCode": "MRF-639",
-        "colorHex": "#a9948d"
-      },
-      {
-        "colorName": "lilac tan",
-        "colorCode": "MRF-640",
-        "colorHex": "#d0c2bc"
-      },
-      {
-        "colorName": "ancient scroll",
-        "colorCode": "MRF-641",
-        "colorHex": "#e3d8cf"
-      },
-      {
-        "colorName": "love bug",
-        "colorCode": "MRF-642",
-        "colorHex": "#dbcbb8"
-      },
-      {
-        "colorName": "wild goose chase",
-        "colorCode": "MRF-643",
-        "colorHex": "#b09e8b"
-      },
-      {
-        "colorName": "joking around brown",
-        "colorCode": "MRF-644",
-        "colorHex": "#8b7059"
-      },
-      {
-        "colorName": "knock on wood",
-        "colorCode": "MRF-645",
-        "colorHex": "#604a41"
-      },
-      {
-        "colorName": "loose cannon",
-        "colorCode": "MRF-646",
-        "colorHex": "#806258"
-      },
-      {
-        "colorName": "on the same page",
-        "colorCode": "MRF-647",
-        "colorHex": "#a38b83"
-      },
-      {
-        "colorName": "on the fence",
-        "colorCode": "MRF-648",
-        "colorHex": "#decac1"
-      },
-      {
-        "colorName": "off the hook peach",
-        "colorCode": "MRF-650",
-        "colorHex": "#d1c1b4"
-      },
-      {
-        "colorName": "toasted wheat",
-        "colorCode": "MRF-651",
-        "colorHex": "#b6a28b"
-      },
-      {
-        "colorName": "no strings attached",
-        "colorCode": "MRF-652",
-        "colorHex": "#745a40"
-      },
-      {
-        "colorName": "tie the knot",
-        "colorCode": "MRF-653",
-        "colorHex": "#8d7458"
-      },
-      {
-        "colorName": "sand dollar",
-        "colorCode": "MRF-654",
-        "colorHex": "#c9b9a6"
-      },
-      {
-        "colorName": "amber glow",
-        "colorCode": "MRF-663",
-        "colorHex": "#d5c7b5"
-      },
-      {
-        "colorName": "deers fur",
-        "colorCode": "MRF-664",
-        "colorHex": "#b5a288"
-      },
-      {
-        "colorName": "call it a day",
-        "colorCode": "MRF-665",
-        "colorHex": "#ac9371"
-      },
-      {
-        "colorName": "cowboy up",
-        "colorCode": "MRF-666",
-        "colorHex": "#886a43"
-      },
-      {
-        "colorName": "figure it out",
-        "colorCode": "MRF-668",
-        "colorHex": "#c7ab85"
-      },
-      {
-        "colorName": "nuts about you",
-        "colorCode": "MRF-678",
-        "colorHex": "#bea380"
-      },
-      {
-        "colorName": "vulcano",
-        "colorCode": "MRF-686",
-        "colorHex": "#a88c67"
-      },
-      {
-        "colorName": "lipari",
-        "colorCode": "MRF-687",
-        "colorHex": "#9c8567"
-      },
-      {
-        "colorName": "ercolanus blue",
-        "colorCode": "MRF-796",
-        "colorHex": "#adcac7"
-      },
-      {
-        "colorName": "neapolitan gulf",
-        "colorCode": "MRF-797",
-        "colorHex": "#8cafa8"
       },
       {
         "colorName": "soulful green",
@@ -3753,79 +1438,14 @@
         "colorHex": "#90a6a6"
       },
       {
-        "colorName": "marble blue",
-        "colorCode": "MRF-812",
-        "colorHex": "#bbcccb"
-      },
-      {
-        "colorName": "heaven above",
-        "colorCode": "MRF-814",
-        "colorHex": "#b3d0d6"
-      },
-      {
-        "colorName": "lorenzetti blue",
-        "colorCode": "MRF-815",
-        "colorHex": "#47646d"
-      },
-      {
-        "colorName": "franciscan blue",
-        "colorCode": "MRF-816",
-        "colorHex": "#8ea8ae"
-      },
-      {
-        "colorName": "dignity blue",
-        "colorCode": "MRF-817",
-        "colorHex": "#c4d8d7"
-      },
-      {
-        "colorName": "realistic gray",
-        "colorCode": "MRF-820",
-        "colorHex": "#b1c2c1"
-      },
-      {
-        "colorName": "chance of rain",
-        "colorCode": "MRF-827",
-        "colorHex": "#a2b5bf"
-      },
-      {
-        "colorName": "end of the line",
-        "colorCode": "MRF-828",
-        "colorHex": "#81929f"
-      },
-      {
-        "colorName": "turbulent waters",
-        "colorCode": "MRF-831",
-        "colorHex": "#76909d"
-      },
-      {
-        "colorName": "crack of dawn",
-        "colorCode": "MRF-832",
-        "colorHex": "#bdd0d5"
-      },
-      {
         "colorName": "hot pink",
         "colorCode": "MRF-869",
         "colorHex": "#954854"
       },
       {
-        "colorName": "candy apple red",
-        "colorCode": "MRF-870",
-        "colorHex": "#973f4b"
-      },
-      {
-        "colorName": "red hot",
-        "colorCode": "MRF-871",
-        "colorHex": "#853538"
-      },
-      {
         "colorName": "racy raspberry",
         "colorCode": "MRF-872",
         "colorHex": "#823a4f"
-      },
-      {
-        "colorName": "ravello red",
-        "colorCode": "MRF-873",
-        "colorHex": "#79363f"
       },
       {
         "colorName": "maiori purple",
@@ -3841,816 +1461,6 @@
         "colorName": "roasting sorrento",
         "colorCode": "MRF-877",
         "colorHex": "#bd4737"
-      },
-      {
-        "colorName": "popular poppy",
-        "colorCode": "MRF-878",
-        "colorHex": "#ad4d3f"
-      },
-      {
-        "colorName": "vicario blaze",
-        "colorCode": "MRF-879",
-        "colorHex": "#a14039"
-      },
-      {
-        "colorName": "rum runner",
-        "colorCode": "MRF-880",
-        "colorHex": "#a04034"
-      },
-      {
-        "colorName": "cherry jam",
-        "colorCode": "MRF-881",
-        "colorHex": "#ae4848"
-      },
-      {
-        "colorName": "veneto rose",
-        "colorCode": "MRF-882",
-        "colorHex": "#b6474e"
-      },
-      {
-        "colorName": "torino tangerine",
-        "colorCode": "MRF-883",
-        "colorHex": "#ec9c37"
-      },
-      {
-        "colorName": "paglia gold",
-        "colorCode": "MRF-886",
-        "colorHex": "#dc8b23"
-      },
-      {
-        "colorName": "mainly mandarin",
-        "colorCode": "MRF-887",
-        "colorHex": "#ed8b3c"
-      },
-      {
-        "colorName": "de simone orange",
-        "colorCode": "MRF-888",
-        "colorHex": "#e2772d"
-      },
-      {
-        "colorName": "picassos pick",
-        "colorCode": "MRF-889",
-        "colorHex": "#d66238"
-      },
-      {
-        "colorName": "midnight walk",
-        "colorCode": "MRF-917",
-        "colorHex": "#274640"
-      },
-      {
-        "colorName": "real teal",
-        "colorCode": "MRF-918",
-        "colorHex": "#026b5c"
-      },
-      {
-        "colorName": "teal jolt",
-        "colorCode": "MRF-919",
-        "colorHex": "#1b4f48"
-      },
-      {
-        "colorName": "venice lake",
-        "colorCode": "MRF-921",
-        "colorHex": "#005a59"
-      },
-      {
-        "colorName": "striking green",
-        "colorCode": "MRF-923",
-        "colorHex": "#165150"
-      },
-      {
-        "colorName": "at sea",
-        "colorCode": "MRF-925",
-        "colorHex": "#185b5b"
-      },
-      {
-        "colorName": "deep blue sea",
-        "colorCode": "MRF-927",
-        "colorHex": "#254349"
-      },
-      {
-        "colorName": "bottom line blue",
-        "colorCode": "MRF-928",
-        "colorHex": "#0e505e"
-      },
-      {
-        "colorName": "monet blue",
-        "colorCode": "MRF-929",
-        "colorHex": "#315772"
-      },
-      {
-        "colorName": "starry night blue",
-        "colorCode": "MRF-930",
-        "colorHex": "#223e56"
-      },
-      {
-        "colorName": "once in a blue moon",
-        "colorCode": "MRF-931",
-        "colorHex": "#194e6e"
-      },
-      {
-        "colorName": "evening gown",
-        "colorCode": "MRF-932",
-        "colorHex": "#1a5186"
-      },
-      {
-        "colorName": "blueberry bash",
-        "colorCode": "MRF-933",
-        "colorHex": "#2a476d"
-      },
-      {
-        "colorName": "blue ribbon blue",
-        "colorCode": "MRF-934",
-        "colorHex": "#135579"
-      },
-      {
-        "colorName": "out of the blue sapphire",
-        "colorCode": "MRF-935",
-        "colorHex": "#284159"
-      },
-      {
-        "colorName": "blue velvet",
-        "colorCode": "MRF-936",
-        "colorHex": "#44669e"
-      },
-      {
-        "colorName": "very violet",
-        "colorCode": "MRF-937",
-        "colorHex": "#2d4978"
-      },
-      {
-        "colorName": "frankly speaking blue",
-        "colorCode": "MRF-938",
-        "colorHex": "#243d63"
-      },
-      {
-        "colorName": "purple ette",
-        "colorCode": "MRF-939",
-        "colorHex": "#3b4a7d"
-      },
-      {
-        "colorName": "plum season",
-        "colorCode": "MRF-940",
-        "colorHex": "#363a4f"
-      },
-      {
-        "colorName": "loganberry violet",
-        "colorCode": "MRF-941",
-        "colorHex": "#3b3c54"
-      },
-      {
-        "colorName": "rogue brown",
-        "colorCode": "MRF-943",
-        "colorHex": "#8e5146"
-      },
-      {
-        "colorName": "brazilian rosewood",
-        "colorCode": "MRF-944",
-        "colorHex": "#845344"
-      },
-      {
-        "colorName": "sumptuous suede",
-        "colorCode": "MRF-945",
-        "colorHex": "#936257"
-      },
-      {
-        "colorName": "gourmet chocolate",
-        "colorCode": "MRF-946",
-        "colorHex": "#5d4f48"
-      },
-      {
-        "colorName": "daredevil toffee",
-        "colorCode": "MRF-950",
-        "colorHex": "#7d593f"
-      },
-      {
-        "colorName": "bogie brown",
-        "colorCode": "MRF-951",
-        "colorHex": "#6f5442"
-      },
-      {
-        "colorName": "cordovan leather",
-        "colorCode": "MRF-952",
-        "colorHex": "#53443c"
-      },
-      {
-        "colorName": "tobacco seed",
-        "colorCode": "MRF-953",
-        "colorHex": "#574d43"
-      },
-      {
-        "colorName": "carnival orange",
-        "colorCode": "MRF-957",
-        "colorHex": "#ca865e"
-      },
-      {
-        "colorName": "toredor orange",
-        "colorCode": "MRF-958",
-        "colorHex": "#c77f59"
-      },
-      {
-        "colorName": "bountiful orange",
-        "colorCode": "MRF-959",
-        "colorHex": "#9e664e"
-      },
-      {
-        "colorName": "bonfire orange",
-        "colorCode": "MRF-960",
-        "colorHex": "#b27246"
-      },
-      {
-        "colorName": "orange currant",
-        "colorCode": "MRF-961",
-        "colorHex": "#af5a2f"
-      },
-      {
-        "colorName": "polynesian orange",
-        "colorCode": "MRF-962",
-        "colorHex": "#9a603d"
-      },
-      {
-        "colorName": "zanzibar rust",
-        "colorCode": "MRF-963",
-        "colorHex": "#9d5a3d"
-      },
-      {
-        "colorName": "praline brown",
-        "colorCode": "MRF-964",
-        "colorHex": "#95785b"
-      },
-      {
-        "colorName": "wild goat brown",
-        "colorCode": "MRF-965",
-        "colorHex": "#765c3f"
-      },
-      {
-        "colorName": "coral brown",
-        "colorCode": "MRF-966",
-        "colorHex": "#755f47"
-      },
-      {
-        "colorName": "carmel cupcake",
-        "colorCode": "MRF-969",
-        "colorHex": "#735d44"
-      },
-      {
-        "colorName": "mild molasses",
-        "colorCode": "MRF-970",
-        "colorHex": "#584b39"
-      },
-      {
-        "colorName": "up the creek",
-        "colorCode": "MRF-973",
-        "colorHex": "#8c6b40"
-      },
-      {
-        "colorName": "umber brown",
-        "colorCode": "MRF-974",
-        "colorHex": "#6b5539"
-      },
-      {
-        "colorName": "florentine brass",
-        "colorCode": "MRF-977",
-        "colorHex": "#775a3b"
-      },
-      {
-        "colorName": "yukon gold",
-        "colorCode": "MRF-978",
-        "colorHex": "#ce8733"
-      },
-      {
-        "colorName": "midas myth gold",
-        "colorCode": "MRF-979",
-        "colorHex": "#be863b"
-      },
-      {
-        "colorName": "beehive gold",
-        "colorCode": "MRF-981",
-        "colorHex": "#b67e41"
-      },
-      {
-        "colorName": "mango salsa",
-        "colorCode": "MRF-982",
-        "colorHex": "#ad773a"
-      },
-      {
-        "colorName": "violet hush",
-        "colorCode": "MRF-999",
-        "colorHex": "#486c89"
-      },
-      {
-        "colorName": "blue  knew",
-        "colorCode": "MRF-1000",
-        "colorHex": "#4e757f"
-      },
-      {
-        "colorName": "blue jeans",
-        "colorCode": "MRF-1001",
-        "colorHex": "#4c5f67"
-      },
-      {
-        "colorName": "dragonfly blue",
-        "colorCode": "MRF-1002",
-        "colorHex": "#39708d"
-      },
-      {
-        "colorName": "forbidden blue",
-        "colorCode": "MRF-1003",
-        "colorHex": "#4e7698"
-      },
-      {
-        "colorName": "aeolian islands",
-        "colorCode": "MRF-1004",
-        "colorHex": "#506079"
-      },
-      {
-        "colorName": "steel blue",
-        "colorCode": "MRF-1006",
-        "colorHex": "#435458"
-      },
-      {
-        "colorName": "dark knight",
-        "colorCode": "MRF-1008",
-        "colorHex": "#38464a"
-      },
-      {
-        "colorName": "angelic sky",
-        "colorCode": "MRF-1014",
-        "colorHex": "#cce0e1"
-      },
-      {
-        "colorName": "marseilles blue",
-        "colorCode": "MRF-1015",
-        "colorHex": "#9cc2cf"
-      },
-      {
-        "colorName": "vain coral",
-        "colorCode": "MRF-1022",
-        "colorHex": "#e7cabe"
-      },
-      {
-        "colorName": "bleached peach",
-        "colorCode": "MRF-1023",
-        "colorHex": "#e9c8b9"
-      },
-      {
-        "colorName": "ideal peach",
-        "colorCode": "MRF-1024",
-        "colorHex": "#d5a092"
-      },
-      {
-        "colorName": "continuous coral",
-        "colorCode": "MRF-1025",
-        "colorHex": "#c2867c"
-      },
-      {
-        "colorName": "faultless brick",
-        "colorCode": "MRF-1026",
-        "colorHex": "#ac6149"
-      },
-      {
-        "colorName": "welcoming rose",
-        "colorCode": "MRF-1028",
-        "colorHex": "#bf8c85"
-      },
-      {
-        "colorName": "welcome aboard",
-        "colorCode": "MRF-1029",
-        "colorHex": "#e6bdb0"
-      },
-      {
-        "colorName": "creamy risotto",
-        "colorCode": "MRF-1030",
-        "colorHex": "#e7dcd2"
-      },
-      {
-        "colorName": "wiley peach",
-        "colorCode": "MRF-1032",
-        "colorHex": "#e9d5c9"
-      },
-      {
-        "colorName": "lifes a peach",
-        "colorCode": "MRF-1033",
-        "colorHex": "#e5c3b2"
-      },
-      {
-        "colorName": "stylish shrimp",
-        "colorCode": "MRF-1034",
-        "colorHex": "#d4997f"
-      },
-      {
-        "colorName": "naval orange",
-        "colorCode": "MRF-1035",
-        "colorHex": "#b57056"
-      },
-      {
-        "colorName": "valencia orange",
-        "colorCode": "MRF-1036",
-        "colorHex": "#d39271"
-      },
-      {
-        "colorName": "shell flower",
-        "colorCode": "MRF-1045",
-        "colorHex": "#e4c1ab"
-      },
-      {
-        "colorName": "wall flower",
-        "colorCode": "MRF-1046",
-        "colorHex": "#ebd9c8"
-      },
-      {
-        "colorName": "pitti palace",
-        "colorCode": "MRF-1048",
-        "colorHex": "#a1ccc3"
-      },
-      {
-        "colorName": "pie in the sky",
-        "colorCode": "MRF-1055",
-        "colorHex": "#eadcc9"
-      },
-      {
-        "colorName": "3rd degree teal",
-        "colorCode": "MRF-1061",
-        "colorHex": "#7db6b2"
-      },
-      {
-        "colorName": "pat a cake",
-        "colorCode": "MRF-1062",
-        "colorHex": "#d7b499"
-      },
-      {
-        "colorName": "fantasy aqua",
-        "colorCode": "MRF-1063",
-        "colorHex": "#5f8e89"
-      },
-      {
-        "colorName": "play it by ear",
-        "colorCode": "MRF-1065",
-        "colorHex": "#c18f6c"
-      },
-      {
-        "colorName": "hat trick terra",
-        "colorCode": "MRF-1067",
-        "colorHex": "#b77858"
-      },
-      {
-        "colorName": "carte blanche coral",
-        "colorCode": "MRF-1068",
-        "colorHex": "#c78f79"
-      },
-      {
-        "colorName": "working it peach",
-        "colorCode": "MRF-1070",
-        "colorHex": "#e1b89f"
-      },
-      {
-        "colorName": "piccalilli peach",
-        "colorCode": "MRF-1074",
-        "colorHex": "#e8cdb2"
-      },
-      {
-        "colorName": "architect apricot",
-        "colorCode": "MRF-1082",
-        "colorHex": "#e8c9a6"
-      },
-      {
-        "colorName": "arena chapel peach",
-        "colorCode": "MRF-1083",
-        "colorHex": "#e5b793"
-      },
-      {
-        "colorName": "madonna orange",
-        "colorCode": "MRF-1084",
-        "colorHex": "#cd885b"
-      },
-      {
-        "colorName": "salvation orange",
-        "colorCode": "MRF-1085",
-        "colorHex": "#c88c61"
-      },
-      {
-        "colorName": "assisi tangelo",
-        "colorCode": "MRF-1087",
-        "colorHex": "#e9b48b"
-      },
-      {
-        "colorName": "cathedral whisper",
-        "colorCode": "MRF-1088",
-        "colorHex": "#ebceb1"
-      },
-      {
-        "colorName": "crinkled taffeta",
-        "colorCode": "MRF-1090",
-        "colorHex": "#ecdecb"
-      },
-      {
-        "colorName": "fountain grass",
-        "colorCode": "MRF-1091",
-        "colorHex": "#b4d0cc"
-      },
-      {
-        "colorName": "giggling bisque",
-        "colorCode": "MRF-1092",
-        "colorHex": "#d4b395"
-      },
-      {
-        "colorName": "gossiping topaz",
-        "colorCode": "MRF-1093",
-        "colorHex": "#c49068"
-      },
-      {
-        "colorName": "nietzsches nap",
-        "colorCode": "MRF-1094",
-        "colorHex": "#90aeaa"
-      },
-      {
-        "colorName": "teal tantrum",
-        "colorCode": "MRF-1095",
-        "colorHex": "#5c8686"
-      },
-      {
-        "colorName": "tie the knot teal",
-        "colorCode": "MRF-1102",
-        "colorHex": "#7aadb2"
-      },
-      {
-        "colorName": "boot shaped blue",
-        "colorCode": "MRF-1103",
-        "colorHex": "#add3d7"
-      },
-      {
-        "colorName": "pumpkin pie",
-        "colorCode": "MRF-1105",
-        "colorHex": "#bb7a3f"
-      },
-      {
-        "colorName": "honey do list",
-        "colorCode": "MRF-1106",
-        "colorHex": "#d0945d"
-      },
-      {
-        "colorName": "tout de suite blue",
-        "colorCode": "MRF-1110",
-        "colorHex": "#bedddd"
-      },
-      {
-        "colorName": "delphinium",
-        "colorCode": "MRF-1112",
-        "colorHex": "#90c5cf"
-      },
-      {
-        "colorName": "lake orta blue",
-        "colorCode": "MRF-1114",
-        "colorHex": "#85bdca"
-      },
-      {
-        "colorName": "borromeo blue",
-        "colorCode": "MRF-1116",
-        "colorHex": "#3d98a2"
-      },
-      {
-        "colorName": "honey bird",
-        "colorCode": "MRF-1117",
-        "colorHex": "#e7b589"
-      },
-      {
-        "colorName": "retreat for 2 blue",
-        "colorCode": "MRF-1120",
-        "colorHex": "#6dbcc9"
-      },
-      {
-        "colorName": "winter wheat",
-        "colorCode": "MRF-1122",
-        "colorHex": "#dbbf9c"
-      },
-      {
-        "colorName": "just in time blue",
-        "colorCode": "MRF-1123",
-        "colorHex": "#87cad2"
-      },
-      {
-        "colorName": "glazed apricot",
-        "colorCode": "MRF-1124",
-        "colorHex": "#b48c63"
-      },
-      {
-        "colorName": "butterscotch rum",
-        "colorCode": "MRF-1125",
-        "colorHex": "#b08357"
-      },
-      {
-        "colorName": "paloma tan",
-        "colorCode": "MRF-1126",
-        "colorHex": "#e0b082"
-      },
-      {
-        "colorName": "napoleans refuge blue",
-        "colorCode": "MRF-1128",
-        "colorHex": "#b9ddda"
-      },
-      {
-        "colorName": "romeo   romeo blue",
-        "colorCode": "MRF-1130",
-        "colorHex": "#dee5e0"
-      },
-      {
-        "colorName": "raindrops keep falling",
-        "colorCode": "MRF-1132",
-        "colorHex": "#aed8e0"
-      },
-      {
-        "colorName": "caesar pegna",
-        "colorCode": "MRF-1136",
-        "colorHex": "#cc974e"
-      },
-      {
-        "colorName": "azure skies",
-        "colorCode": "MRF-1150",
-        "colorHex": "#8ac9dd"
-      },
-      {
-        "colorName": "visa vis blue",
-        "colorCode": "MRF-1152",
-        "colorHex": "#306886"
-      },
-      {
-        "colorName": "row your boat blue",
-        "colorCode": "MRF-1154",
-        "colorHex": "#70abc6"
-      },
-      {
-        "colorName": "hope floats blue",
-        "colorCode": "MRF-1156",
-        "colorHex": "#abcfdb"
-      },
-      {
-        "colorName": "brass tacks blue",
-        "colorCode": "MRF-1157",
-        "colorHex": "#bcd2d6"
-      },
-      {
-        "colorName": "straw yellow",
-        "colorCode": "MRF-1158",
-        "colorHex": "#e9c18b"
-      },
-      {
-        "colorName": "takes the cake blue",
-        "colorCode": "MRF-1159",
-        "colorHex": "#b7d2d8"
-      },
-      {
-        "colorName": "grain of salt blue",
-        "colorCode": "MRF-1162",
-        "colorHex": "#93c1d3"
-      },
-      {
-        "colorName": "to the bitter end blue",
-        "colorCode": "MRF-1164",
-        "colorHex": "#83b3ca"
-      },
-      {
-        "colorName": "thats all folks blue",
-        "colorCode": "MRF-1167",
-        "colorHex": "#4985a2"
-      },
-      {
-        "colorName": "vicious circle blue",
-        "colorCode": "MRF-1169",
-        "colorHex": "#6eacc0"
-      },
-      {
-        "colorName": "fish out of h20 blue",
-        "colorCode": "MRF-1170",
-        "colorHex": "#88c1d3"
-      },
-      {
-        "colorName": "sea 2 shining sea blue",
-        "colorCode": "MRF-1172",
-        "colorHex": "#b1d3d9"
-      },
-      {
-        "colorName": "fair   square periwinkle",
-        "colorCode": "MRF-1173",
-        "colorHex": "#c6d2df"
-      },
-      {
-        "colorName": "lackadaisical lavender",
-        "colorCode": "MRF-1175",
-        "colorHex": "#acc3d7"
-      },
-      {
-        "colorName": "last but not least lilac",
-        "colorCode": "MRF-1177",
-        "colorHex": "#87a4ce"
-      },
-      {
-        "colorName": "pure periwinkle",
-        "colorCode": "MRF-1178",
-        "colorHex": "#5b7ba9"
-      },
-      {
-        "colorName": "aquamarine",
-        "colorCode": "MRF-1184",
-        "colorHex": "#89d5c5"
-      },
-      {
-        "colorName": "giuseppe green",
-        "colorCode": "MRF-1203",
-        "colorHex": "#7ebfb2"
-      },
-      {
-        "colorName": "eternally yours",
-        "colorCode": "MRF-1204",
-        "colorHex": "#45a096"
-      },
-      {
-        "colorName": "pretty peacock",
-        "colorCode": "MRF-1205",
-        "colorHex": "#6dbfb6"
-      },
-      {
-        "colorName": "faithful aqua",
-        "colorCode": "MRF-1206",
-        "colorHex": "#8ed5cd"
-      },
-      {
-        "colorName": "cooing aqua",
-        "colorCode": "MRF-1207",
-        "colorHex": "#bae2d9"
-      },
-      {
-        "colorName": "wink of an eye",
-        "colorCode": "MRF-1209",
-        "colorHex": "#7ca4ce"
-      },
-      {
-        "colorName": "twinkle twinkle periwinkle",
-        "colorCode": "MRF-1210",
-        "colorHex": "#a5c6dd"
-      },
-      {
-        "colorName": "less is more lilac",
-        "colorCode": "MRF-1211",
-        "colorHex": "#bdd6df"
-      },
-      {
-        "colorName": "lets roll lilac",
-        "colorCode": "MRF-1213",
-        "colorHex": "#c8d6db"
-      },
-      {
-        "colorName": "lickety split lavender",
-        "colorCode": "MRF-1214",
-        "colorHex": "#97a7bd"
-      },
-      {
-        "colorName": "purple mountain majesty",
-        "colorCode": "MRF-1215",
-        "colorHex": "#64758c"
-      },
-      {
-        "colorName": "plum to the point",
-        "colorCode": "MRF-1217",
-        "colorHex": "#aabbdb"
-      },
-      {
-        "colorName": "lifelong lilac",
-        "colorCode": "MRF-1218",
-        "colorHex": "#c8d2e1"
-      },
-      {
-        "colorName": "purple pucker",
-        "colorCode": "MRF-1219",
-        "colorHex": "#d6dce1"
-      },
-      {
-        "colorName": "plums the word",
-        "colorCode": "MRF-1224",
-        "colorHex": "#6b7297"
-      },
-      {
-        "colorName": "prime time lavender",
-        "colorCode": "MRF-1226",
-        "colorHex": "#969cbc"
-      },
-      {
-        "colorName": "diamonds r forever lavender",
-        "colorCode": "MRF-1228",
-        "colorHex": "#b9bbcf"
-      },
-      {
-        "colorName": "play it again purple",
-        "colorCode": "MRF-1230",
-        "colorHex": "#cfd1da"
-      },
-      {
-        "colorName": "babe in the woods",
-        "colorCode": "MRF-1239",
-        "colorHex": "#d8cdc9"
-      },
-      {
-        "colorName": "back in the day",
-        "colorCode": "MRF-1240",
-        "colorHex": "#d8cdc9"
       }
     ],
     "Greens": [
@@ -4670,29 +1480,9 @@
         "colorHex": "#3c9a97"
       },
       {
-        "colorName": "murano glass",
-        "colorCode": "MRF-10",
-        "colorHex": "#83cacb"
-      },
-      {
         "colorName": "ciao bella",
         "colorCode": "MRF-13",
         "colorHex": "#b0dbd6"
-      },
-      {
-        "colorName": "scuba suit",
-        "colorCode": "MRF-45",
-        "colorHex": "#3d8586"
-      },
-      {
-        "colorName": "fantasia teal",
-        "colorCode": "MRF-72",
-        "colorHex": "#169695"
-      },
-      {
-        "colorName": "breezy",
-        "colorCode": "MRF-303",
-        "colorHex": "#e3eee6"
       },
       {
         "colorName": "cascade",
@@ -4713,11 +1503,6 @@
         "colorName": "swan lake",
         "colorCode": "MRF-325",
         "colorHex": "#bbe8d9"
-      },
-      {
-        "colorName": "crystal clear",
-        "colorCode": "MRF-328",
-        "colorHex": "#ddebe4"
       },
       {
         "colorName": "kind hearted",
@@ -4760,11 +1545,6 @@
         "colorHex": "#b9d8ce"
       },
       {
-        "colorName": "meager aqua",
-        "colorCode": "MRF-389",
-        "colorHex": "#deece4"
-      },
-      {
         "colorName": "pasty pistaschio",
         "colorCode": "MRF-407",
         "colorHex": "#d4eadc"
@@ -4785,16 +1565,6 @@
         "colorHex": "#c3e8d5"
       },
       {
-        "colorName": "white willow",
-        "colorCode": "MRF-422",
-        "colorHex": "#e3ece1"
-      },
-      {
-        "colorName": "madrigal",
-        "colorCode": "MRF-427",
-        "colorHex": "#e2ecde"
-      },
-      {
         "colorName": "sleep tight lime",
         "colorCode": "MRF-443",
         "colorHex": "#cbe7b6"
@@ -4803,16 +1573,6 @@
         "colorName": "audacious green",
         "colorCode": "MRF-444",
         "colorHex": "#c8dfab"
-      },
-      {
-        "colorName": "white grape",
-        "colorCode": "MRF-449",
-        "colorHex": "#e3eedf"
-      },
-      {
-        "colorName": "enchanting",
-        "colorCode": "MRF-455",
-        "colorHex": "#d8ecdc"
       },
       {
         "colorName": "iceberg lettuce",
@@ -4835,11 +1595,6 @@
         "colorHex": "#77a651"
       },
       {
-        "colorName": "caprice",
-        "colorCode": "MRF-465",
-        "colorHex": "#e5ebe2"
-      },
-      {
         "colorName": "kiwi berries",
         "colorCode": "MRF-467",
         "colorHex": "#85b85a"
@@ -4850,24 +1605,9 @@
         "colorHex": "#b6d09c"
       },
       {
-        "colorName": "marina sand",
-        "colorCode": "MRF-470",
-        "colorHex": "#e5ece4"
-      },
-      {
-        "colorName": "wavy green",
-        "colorCode": "MRF-473",
-        "colorHex": "#e1eade"
-      },
-      {
         "colorName": "green river",
         "colorCode": "MRF-476",
         "colorHex": "#cae0c8"
-      },
-      {
-        "colorName": "appian way",
-        "colorCode": "MRF-478",
-        "colorHex": "#dae7da"
       },
       {
         "colorName": "cricket green",
@@ -4898,11 +1638,6 @@
         "colorName": "mint condition",
         "colorCode": "MRF-489",
         "colorHex": "#d1e4d3"
-      },
-      {
-        "colorName": "winterfresh",
-        "colorCode": "MRF-490",
-        "colorHex": "#e4ece3"
       },
       {
         "colorName": "pixie green",
@@ -5000,16 +1735,6 @@
         "colorHex": "#c9ddc0"
       },
       {
-        "colorName": "hazy alps",
-        "colorCode": "MRF-551",
-        "colorHex": "#e4ebe3"
-      },
-      {
-        "colorName": "scala green",
-        "colorCode": "MRF-553",
-        "colorHex": "#dbe6de"
-      },
-      {
         "colorName": "beggars opera",
         "colorCode": "MRF-554",
         "colorHex": "#d1ddd8"
@@ -5018,16 +1743,6 @@
         "colorName": "apothecary green",
         "colorCode": "MRF-555",
         "colorHex": "#c8d9d2"
-      },
-      {
-        "colorName": "mont blanc",
-        "colorCode": "MRF-556",
-        "colorHex": "#e1e9e4"
-      },
-      {
-        "colorName": "vaccaro white",
-        "colorCode": "MRF-579",
-        "colorHex": "#dee2d9"
       },
       {
         "colorName": "arezzo green",
@@ -5115,16 +1830,6 @@
         "colorHex": "#d6e3dc"
       },
       {
-        "colorName": "minerva gray",
-        "colorCode": "MRF-819",
-        "colorHex": "#d9e3db"
-      },
-      {
-        "colorName": "euro gray",
-        "colorCode": "MRF-833",
-        "colorHex": "#ced9d2"
-      },
-      {
         "colorName": "italy federation green",
         "colorCode": "MRF-903",
         "colorHex": "#5d7d41"
@@ -5195,11 +1900,6 @@
         "colorHex": "#0e5845"
       },
       {
-        "colorName": "caesar salad",
-        "colorCode": "MRF-992",
-        "colorHex": "#536349"
-      },
-      {
         "colorName": "mother nature",
         "colorCode": "MRF-1038",
         "colorHex": "#b7d5c0"
@@ -5208,21 +1908,6 @@
         "colorName": "garden shed",
         "colorCode": "MRF-1039",
         "colorHex": "#b0cfb8"
-      },
-      {
-        "colorName": "magari",
-        "colorCode": "MRF-1040",
-        "colorHex": "#a1ba9f"
-      },
-      {
-        "colorName": "green as grass",
-        "colorCode": "MRF-1041",
-        "colorHex": "#6c8961"
-      },
-      {
-        "colorName": "green thumb",
-        "colorCode": "MRF-1042",
-        "colorHex": "#90b192"
       },
       {
         "colorName": "give me the  green light",
@@ -5423,6 +2108,3463 @@
         "colorName": "lake como sky",
         "colorCode": "MRF-1208",
         "colorHex": "#bbd7cc"
+      }
+    ],
+    "Whites": [
+      {
+        "colorName": "snow bird",
+        "colorCode": "MRF-11",
+        "colorHex": "#eaecda"
+      },
+      {
+        "colorName": "diamond in the rough",
+        "colorCode": "MRF-17",
+        "colorHex": "#e2e1e5"
+      },
+      {
+        "colorName": "trivial",
+        "colorCode": "MRF-28",
+        "colorHex": "#e9ecda"
+      },
+      {
+        "colorName": "be my guest lilac",
+        "colorCode": "MRF-42",
+        "colorHex": "#e8e8e4"
+      },
+      {
+        "colorName": "heart of glass",
+        "colorCode": "MRF-43",
+        "colorHex": "#e0e2e6"
+      },
+      {
+        "colorName": "quiet iris",
+        "colorCode": "MRF-87",
+        "colorHex": "#e3ecea"
+      },
+      {
+        "colorName": "pure",
+        "colorCode": "MRF-110",
+        "colorHex": "#eaefdb"
+      },
+      {
+        "colorName": "plausible",
+        "colorCode": "MRF-114",
+        "colorHex": "#e9eed5"
+      },
+      {
+        "colorName": "dainty",
+        "colorCode": "MRF-130",
+        "colorHex": "#ebecdb"
+      },
+      {
+        "colorName": "gentle",
+        "colorCode": "MRF-134",
+        "colorHex": "#ebedd5"
+      },
+      {
+        "colorName": "lemon ice",
+        "colorCode": "MRF-150",
+        "colorHex": "#f2e8d2"
+      },
+      {
+        "colorName": "blushing",
+        "colorCode": "MRF-168",
+        "colorHex": "#eee3d6"
+      },
+      {
+        "colorName": "illusion",
+        "colorCode": "MRF-188",
+        "colorHex": "#e9e8e1"
+      },
+      {
+        "colorName": "ambrosia",
+        "colorCode": "MRF-199",
+        "colorHex": "#e8e7de"
+      },
+      {
+        "colorName": "mine for keeps",
+        "colorCode": "MRF-213",
+        "colorHex": "#dde5e5"
+      },
+      {
+        "colorName": "pink tinge",
+        "colorCode": "MRF-222",
+        "colorHex": "#e8e9e3"
+      },
+      {
+        "colorName": "restrained rose",
+        "colorCode": "MRF-243",
+        "colorHex": "#ece7e0"
+      },
+      {
+        "colorName": "frou frou",
+        "colorCode": "MRF-250",
+        "colorHex": "#ebe4e4"
+      },
+      {
+        "colorName": "peaceful pink",
+        "colorCode": "MRF-256",
+        "colorHex": "#ebe9e5"
+      },
+      {
+        "colorName": "scusi",
+        "colorCode": "MRF-267",
+        "colorHex": "#e6e4e5"
+      },
+      {
+        "colorName": "venice sky",
+        "colorCode": "MRF-268",
+        "colorHex": "#e0eae4"
+      },
+      {
+        "colorName": "chit chat",
+        "colorCode": "MRF-283",
+        "colorHex": "#e4e6e9"
+      },
+      {
+        "colorName": "breezy",
+        "colorCode": "MRF-304",
+        "colorHex": "#e3eee6"
+      },
+      {
+        "colorName": "crystal clear",
+        "colorCode": "MRF-336",
+        "colorHex": "#ddebe4"
+      },
+      {
+        "colorName": "meager aqua",
+        "colorCode": "MRF-406",
+        "colorHex": "#deece4"
+      },
+      {
+        "colorName": "white willow",
+        "colorCode": "MRF-425",
+        "colorHex": "#e3ece1"
+      },
+      {
+        "colorName": "madrigal",
+        "colorCode": "MRF-445",
+        "colorHex": "#e2ecde"
+      },
+      {
+        "colorName": "white grape",
+        "colorCode": "MRF-449",
+        "colorHex": "#e3eedf"
+      },
+      {
+        "colorName": "enchanting",
+        "colorCode": "MRF-455",
+        "colorHex": "#d8ecdc"
+      },
+      {
+        "colorName": "caprice",
+        "colorCode": "MRF-465",
+        "colorHex": "#e5ebe2"
+      },
+      {
+        "colorName": "marina sand",
+        "colorCode": "MRF-470",
+        "colorHex": "#e5ece4"
+      },
+      {
+        "colorName": "wavy green",
+        "colorCode": "MRF-473",
+        "colorHex": "#e1eade"
+      },
+      {
+        "colorName": "appian way",
+        "colorCode": "MRF-478",
+        "colorHex": "#dae7da"
+      },
+      {
+        "colorName": "winterfresh",
+        "colorCode": "MRF-490",
+        "colorHex": "#e4ece3"
+      },
+      {
+        "colorName": "hazy alps",
+        "colorCode": "MRF-551",
+        "colorHex": "#e4ebe3"
+      },
+      {
+        "colorName": "scala green",
+        "colorCode": "MRF-553",
+        "colorHex": "#dbe6de"
+      },
+      {
+        "colorName": "mont blanc",
+        "colorCode": "MRF-556",
+        "colorHex": "#e1e9e4"
+      },
+      {
+        "colorName": "cream cheese",
+        "colorCode": "MRF-565",
+        "colorHex": "#e5e9da"
+      },
+      {
+        "colorName": "campanile gray",
+        "colorCode": "MRF-570",
+        "colorHex": "#d7dad8"
+      },
+      {
+        "colorName": "palazzo pitti gray",
+        "colorCode": "MRF-571",
+        "colorHex": "#d0d5d3"
+      },
+      {
+        "colorName": "davids gray",
+        "colorCode": "MRF-572",
+        "colorHex": "#ccd1d0"
+      },
+      {
+        "colorName": "wish you were here",
+        "colorCode": "MRF-573",
+        "colorHex": "#c6cccc"
+      },
+      {
+        "colorName": "maltese",
+        "colorCode": "MRF-574",
+        "colorHex": "#e6e8df"
+      },
+      {
+        "colorName": "cathedral gray",
+        "colorCode": "MRF-578",
+        "colorHex": "#cacdc9"
+      },
+      {
+        "colorName": "easy linen",
+        "colorCode": "MRF-584",
+        "colorHex": "#e5e7dc"
+      },
+      {
+        "colorName": "overcast rose",
+        "colorCode": "MRF-589",
+        "colorHex": "#e5e3df"
+      },
+      {
+        "colorName": "cloud 9 pink",
+        "colorCode": "MRF-594",
+        "colorHex": "#e6e9e5"
+      },
+      {
+        "colorName": "rose h20",
+        "colorCode": "MRF-596",
+        "colorHex": "#e9ece7"
+      },
+      {
+        "colorName": "rosevale",
+        "colorCode": "MRF-598",
+        "colorHex": "#e4e3e0"
+      },
+      {
+        "colorName": "cinder lilac",
+        "colorCode": "MRF-600",
+        "colorHex": "#d4d1d0"
+      },
+      {
+        "colorName": "happy hour white",
+        "colorCode": "MRF-601",
+        "colorHex": "#ecebe0"
+      },
+      {
+        "colorName": "cologne cream",
+        "colorCode": "MRF-603",
+        "colorHex": "#ededde"
+      },
+      {
+        "colorName": "sugar cookie",
+        "colorCode": "MRF-604",
+        "colorHex": "#e9e8d8"
+      },
+      {
+        "colorName": "ancient ruins",
+        "colorCode": "MRF-770",
+        "colorHex": "#a2a89f"
+      },
+      {
+        "colorName": "moorish cream",
+        "colorCode": "MRF-772",
+        "colorHex": "#e4e7da"
+      },
+      {
+        "colorName": "peaceful green",
+        "colorCode": "MRF-788",
+        "colorHex": "#9da69d"
+      },
+      {
+        "colorName": "getaway green",
+        "colorCode": "MRF-789",
+        "colorHex": "#6e7469"
+      },
+      {
+        "colorName": "steely green",
+        "colorCode": "MRF-791",
+        "colorHex": "#7d8279"
+      },
+      {
+        "colorName": "restricted gray",
+        "colorCode": "MRF-792",
+        "colorHex": "#abb2b1"
+      },
+      {
+        "colorName": "grim gray",
+        "colorCode": "MRF-793",
+        "colorHex": "#bac0bd"
+      },
+      {
+        "colorName": "gunmetal gray",
+        "colorCode": "MRF-823",
+        "colorHex": "#707d76"
+      },
+      {
+        "colorName": "suave mauve",
+        "colorCode": "MRF-834",
+        "colorHex": "#dcdcdb"
+      },
+      {
+        "colorName": "trendy lilac",
+        "colorCode": "MRF-836",
+        "colorHex": "#c3c4c6"
+      },
+      {
+        "colorName": "raise the bar purple",
+        "colorCode": "MRF-840",
+        "colorHex": "#5d5f66"
+      },
+      {
+        "colorName": "jack horners plum",
+        "colorCode": "MRF-842",
+        "colorHex": "#91959c"
+      },
+      {
+        "colorName": "somewhat purple",
+        "colorCode": "MRF-844",
+        "colorHex": "#c6c8c9"
+      },
+      {
+        "colorName": "mid century mauve",
+        "colorCode": "MRF-851",
+        "colorHex": "#8e9091"
+      },
+      {
+        "colorName": "cinder block",
+        "colorCode": "MRF-852",
+        "colorHex": "#9ba1a1"
+      },
+      {
+        "colorName": "roomy gray",
+        "colorCode": "MRF-853",
+        "colorHex": "#b6bcb9"
+      },
+      {
+        "colorName": "baroque taupe",
+        "colorCode": "MRF-856",
+        "colorHex": "#8e938e"
+      },
+      {
+        "colorName": "hi tech obsidian",
+        "colorCode": "MRF-857",
+        "colorHex": "#65665e"
+      },
+      {
+        "colorName": "slippery rock",
+        "colorCode": "MRF-858",
+        "colorHex": "#878d87"
+      },
+      {
+        "colorName": "biscotti brown",
+        "colorCode": "MRF-948",
+        "colorHex": "#3a3a38"
+      },
+      {
+        "colorName": "zibellina brown",
+        "colorCode": "MRF-954",
+        "colorHex": "#4c4a44"
+      },
+      {
+        "colorName": "licorice whip",
+        "colorCode": "MRF-956",
+        "colorHex": "#353937"
+      },
+      {
+        "colorName": "rock bottom gray",
+        "colorCode": "MRF-1010",
+        "colorHex": "#4f5656"
+      },
+      {
+        "colorName": "sovereign gray",
+        "colorCode": "MRF-1016",
+        "colorHex": "#777b7a"
+      },
+      {
+        "colorName": "romeo   romeo blue",
+        "colorCode": "MRF-1130",
+        "colorHex": "#dee5e0"
+      },
+      {
+        "colorName": "gone with the wind",
+        "colorCode": "MRF-1232",
+        "colorHex": "#cdcbcb"
+      },
+      {
+        "colorName": "sensitive heather",
+        "colorCode": "MRF-1233",
+        "colorHex": "#b2afb3"
+      },
+      {
+        "colorName": "smoky grape",
+        "colorCode": "MRF-1234",
+        "colorHex": "#90909b"
+      },
+      {
+        "colorName": "fairest one of all",
+        "colorCode": "MRF-1238",
+        "colorHex": "#c9c4c8"
+      },
+      {
+        "colorName": "final engagement",
+        "colorCode": "MRF-1241",
+        "colorHex": "#998c8e"
+      }
+    ],
+    "Blues": [
+      {
+        "colorName": "murano glass",
+        "colorCode": "MRF-12",
+        "colorHex": "#83cacb"
+      },
+      {
+        "colorName": "bellagio blue",
+        "colorCode": "MRF-15",
+        "colorHex": "#ccdfdc"
+      },
+      {
+        "colorName": "sky high",
+        "colorCode": "MRF-27",
+        "colorHex": "#c2dedc"
+      },
+      {
+        "colorName": "turquoise river",
+        "colorCode": "MRF-30",
+        "colorHex": "#abd8d9"
+      },
+      {
+        "colorName": "stunning eyes",
+        "colorCode": "MRF-34",
+        "colorHex": "#70b4b9"
+      },
+      {
+        "colorName": "scuba suit",
+        "colorCode": "MRF-46",
+        "colorHex": "#3d8586"
+      },
+      {
+        "colorName": "dive in",
+        "colorCode": "MRF-47",
+        "colorHex": "#6db4b4"
+      },
+      {
+        "colorName": "fair   square teal",
+        "colorCode": "MRF-48",
+        "colorHex": "#91c9c7"
+      },
+      {
+        "colorName": "fair game turquoise",
+        "colorCode": "MRF-49",
+        "colorHex": "#bfe0d8"
+      },
+      {
+        "colorName": "falling 4 blue",
+        "colorCode": "MRF-50",
+        "colorHex": "#94d5db"
+      },
+      {
+        "colorName": "far   wide",
+        "colorCode": "MRF-51",
+        "colorHex": "#77c7d2"
+      },
+      {
+        "colorName": "amazing adriatic",
+        "colorCode": "MRF-57",
+        "colorHex": "#3caeb9"
+      },
+      {
+        "colorName": "ioanian illusion",
+        "colorCode": "MRF-59",
+        "colorHex": "#1899a3"
+      },
+      {
+        "colorName": "italian boot blue",
+        "colorCode": "MRF-60",
+        "colorHex": "#1399af"
+      },
+      {
+        "colorName": "abysmal sea",
+        "colorCode": "MRF-62",
+        "colorHex": "#53b9d0"
+      },
+      {
+        "colorName": "zephyr blue",
+        "colorCode": "MRF-64",
+        "colorHex": "#82cbda"
+      },
+      {
+        "colorName": "diverse blue",
+        "colorCode": "MRF-66",
+        "colorHex": "#84cece"
+      },
+      {
+        "colorName": "milan mosaic",
+        "colorCode": "MRF-70",
+        "colorHex": "#63c1c6"
+      },
+      {
+        "colorName": "bottled water",
+        "colorCode": "MRF-71",
+        "colorHex": "#37acb2"
+      },
+      {
+        "colorName": "fantasia teal",
+        "colorCode": "MRF-73",
+        "colorHex": "#169695"
+      },
+      {
+        "colorName": "turquoise ring",
+        "colorCode": "MRF-74",
+        "colorHex": "#5ebcb3"
+      },
+      {
+        "colorName": "aquatint",
+        "colorCode": "MRF-76",
+        "colorHex": "#79cac6"
+      },
+      {
+        "colorName": "swimming pool",
+        "colorCode": "MRF-77",
+        "colorHex": "#aee1de"
+      },
+      {
+        "colorName": "spa treatment",
+        "colorCode": "MRF-89",
+        "colorHex": "#85cbde"
+      },
+      {
+        "colorName": "chic blue",
+        "colorCode": "MRF-90",
+        "colorHex": "#5fbedc"
+      },
+      {
+        "colorName": "aquarium water",
+        "colorCode": "MRF-91",
+        "colorHex": "#2da9cb"
+      },
+      {
+        "colorName": "deep diving",
+        "colorCode": "MRF-92",
+        "colorHex": "#3682a6"
+      },
+      {
+        "colorName": "pilot whale",
+        "colorCode": "MRF-93",
+        "colorHex": "#68b7d7"
+      },
+      {
+        "colorName": "under water",
+        "colorCode": "MRF-96",
+        "colorHex": "#8cc9e0"
+      },
+      {
+        "colorName": "genoa aqua",
+        "colorCode": "MRF-98",
+        "colorHex": "#b9dde1"
+      },
+      {
+        "colorName": "its a boy",
+        "colorCode": "MRF-100",
+        "colorHex": "#b7dbe1"
+      },
+      {
+        "colorName": "little boy blue",
+        "colorCode": "MRF-101",
+        "colorHex": "#9cccdd"
+      },
+      {
+        "colorName": "medley blue",
+        "colorCode": "MRF-102",
+        "colorHex": "#7ebfdc"
+      },
+      {
+        "colorName": "gondola ride",
+        "colorCode": "MRF-103",
+        "colorHex": "#1e7cab"
+      },
+      {
+        "colorName": "marine breeze",
+        "colorCode": "MRF-109",
+        "colorHex": "#73b5d4"
+      },
+      {
+        "colorName": "test the waters",
+        "colorCode": "MRF-111",
+        "colorHex": "#8cc8e1"
+      },
+      {
+        "colorName": "watered down",
+        "colorCode": "MRF-113",
+        "colorHex": "#bdd9db"
+      },
+      {
+        "colorName": "duck to water",
+        "colorCode": "MRF-115",
+        "colorHex": "#b5d5df"
+      },
+      {
+        "colorName": "ice water",
+        "colorCode": "MRF-124",
+        "colorHex": "#a8cddb"
+      },
+      {
+        "colorName": "watering hole",
+        "colorCode": "MRF-126",
+        "colorHex": "#88b8d3"
+      },
+      {
+        "colorName": "bold blue",
+        "colorCode": "MRF-129",
+        "colorHex": "#4882b7"
+      },
+      {
+        "colorName": "water under the bridge",
+        "colorCode": "MRF-131",
+        "colorHex": "#5ea1cc"
+      },
+      {
+        "colorName": "fresh water",
+        "colorCode": "MRF-133",
+        "colorHex": "#aad2e0"
+      },
+      {
+        "colorName": "salt water",
+        "colorCode": "MRF-135",
+        "colorHex": "#c5e0e8"
+      },
+      {
+        "colorName": "rain shower",
+        "colorCode": "MRF-137",
+        "colorHex": "#c4d6da"
+      },
+      {
+        "colorName": "raining cats   dogs",
+        "colorCode": "MRF-148",
+        "colorHex": "#abccdb"
+      },
+      {
+        "colorName": "coast to coast",
+        "colorCode": "MRF-156",
+        "colorHex": "#7aa3c2"
+      },
+      {
+        "colorName": "sink or swim",
+        "colorCode": "MRF-158",
+        "colorHex": "#4c84af"
+      },
+      {
+        "colorName": "making waves",
+        "colorCode": "MRF-160",
+        "colorHex": "#71aacb"
+      },
+      {
+        "colorName": "slippery as an eel",
+        "colorCode": "MRF-161",
+        "colorHex": "#99c1da"
+      },
+      {
+        "colorName": "over board",
+        "colorCode": "MRF-163",
+        "colorHex": "#a5cce0"
+      },
+      {
+        "colorName": "plenty of fish",
+        "colorCode": "MRF-170",
+        "colorHex": "#a4d0e4"
+      },
+      {
+        "colorName": "smooth sailing",
+        "colorCode": "MRF-172",
+        "colorHex": "#94c5e1"
+      },
+      {
+        "colorName": "hook   line   sinker",
+        "colorCode": "MRF-174",
+        "colorHex": "#679ec6"
+      },
+      {
+        "colorName": "larger than life",
+        "colorCode": "MRF-177",
+        "colorHex": "#486ea2"
+      },
+      {
+        "colorName": "way of life",
+        "colorCode": "MRF-179",
+        "colorHex": "#83a7d2"
+      },
+      {
+        "colorName": "prime of life",
+        "colorCode": "MRF-182",
+        "colorHex": "#8fbcdf"
+      },
+      {
+        "colorName": "silver spoon",
+        "colorCode": "MRF-184",
+        "colorHex": "#b5d2e6"
+      },
+      {
+        "colorName": "sleepy time lavender",
+        "colorCode": "MRF-187",
+        "colorHex": "#bac8de"
+      },
+      {
+        "colorName": "drowsy iris",
+        "colorCode": "MRF-193",
+        "colorHex": "#b4c2de"
+      },
+      {
+        "colorName": "bumble berry",
+        "colorCode": "MRF-207",
+        "colorHex": "#93a8d3"
+      },
+      {
+        "colorName": "paradox purple",
+        "colorCode": "MRF-212",
+        "colorHex": "#576ea3"
+      },
+      {
+        "colorName": "hard to believe",
+        "colorCode": "MRF-221",
+        "colorHex": "#dce4e8"
+      },
+      {
+        "colorName": "elegant evening",
+        "colorCode": "MRF-224",
+        "colorHex": "#82a5d0"
+      },
+      {
+        "colorName": "wishful wisteria",
+        "colorCode": "MRF-226",
+        "colorHex": "#c8d7e1"
+      },
+      {
+        "colorName": "wisteria from scratch",
+        "colorCode": "MRF-229",
+        "colorHex": "#c2d2e1"
+      },
+      {
+        "colorName": "magical moment",
+        "colorCode": "MRF-231",
+        "colorHex": "#d6e3e7"
+      },
+      {
+        "colorName": "heart on your sleeve",
+        "colorCode": "MRF-234",
+        "colorHex": "#9ebdde"
+      },
+      {
+        "colorName": "slippery slope",
+        "colorCode": "MRF-239",
+        "colorHex": "#d0e1e7"
+      },
+      {
+        "colorName": "hollow violet",
+        "colorCode": "MRF-241",
+        "colorHex": "#cadde6"
+      },
+      {
+        "colorName": "wise wisteria",
+        "colorCode": "MRF-242",
+        "colorHex": "#c0d9ea"
+      },
+      {
+        "colorName": "bacio blue",
+        "colorCode": "MRF-257",
+        "colorHex": "#d2e6e4"
+      },
+      {
+        "colorName": "something blue",
+        "colorCode": "MRF-259",
+        "colorHex": "#c4e2e5"
+      },
+      {
+        "colorName": "reserved blue",
+        "colorCode": "MRF-261",
+        "colorHex": "#add4dc"
+      },
+      {
+        "colorName": "call it a day blue",
+        "colorCode": "MRF-264",
+        "colorHex": "#9fcbd6"
+      },
+      {
+        "colorName": "snow cap",
+        "colorCode": "MRF-270",
+        "colorHex": "#cee6e7"
+      },
+      {
+        "colorName": "bed   breakfast blue",
+        "colorCode": "MRF-273",
+        "colorHex": "#cce5e4"
+      },
+      {
+        "colorName": "coastline blue",
+        "colorCode": "MRF-276",
+        "colorHex": "#c4dfe2"
+      },
+      {
+        "colorName": "cloud less blue",
+        "colorCode": "MRF-280",
+        "colorHex": "#b9dce4"
+      },
+      {
+        "colorName": "aloof blue",
+        "colorCode": "MRF-281",
+        "colorHex": "#d1e6e4"
+      },
+      {
+        "colorName": "cherubic blue",
+        "colorCode": "MRF-282",
+        "colorHex": "#cae5e8"
+      },
+      {
+        "colorName": "blithe blue",
+        "colorCode": "MRF-285",
+        "colorHex": "#c4e2e2"
+      },
+      {
+        "colorName": "mediterranean sky",
+        "colorCode": "MRF-287",
+        "colorHex": "#addae2"
+      },
+      {
+        "colorName": "amalfi blue",
+        "colorCode": "MRF-288",
+        "colorHex": "#a4d5e3"
+      },
+      {
+        "colorName": "silent cyan",
+        "colorCode": "MRF-290",
+        "colorHex": "#cae6e3"
+      },
+      {
+        "colorName": "medici aqua",
+        "colorCode": "MRF-292",
+        "colorHex": "#cbe7e2"
+      },
+      {
+        "colorName": "auqa tude",
+        "colorCode": "MRF-293",
+        "colorHex": "#c1e4e1"
+      },
+      {
+        "colorName": "luna",
+        "colorCode": "MRF-294",
+        "colorHex": "#b7e0e2"
+      },
+      {
+        "colorName": "tuscany tide",
+        "colorCode": "MRF-295",
+        "colorHex": "#a9dcdf"
+      },
+      {
+        "colorName": "delicate opal",
+        "colorCode": "MRF-296",
+        "colorHex": "#d2e8e3"
+      },
+      {
+        "colorName": "windswept wintergreen",
+        "colorCode": "MRF-297",
+        "colorHex": "#c1e4e1"
+      },
+      {
+        "colorName": "mojito mint",
+        "colorCode": "MRF-299",
+        "colorHex": "#bae1e1"
+      },
+      {
+        "colorName": "fresh mint",
+        "colorCode": "MRF-300",
+        "colorHex": "#b4e1df"
+      },
+      {
+        "colorName": "mint chip green",
+        "colorCode": "MRF-301",
+        "colorHex": "#a4dadc"
+      },
+      {
+        "colorName": "lovebird lavender",
+        "colorCode": "MRF-317",
+        "colorHex": "#bfd3e4"
+      },
+      {
+        "colorName": "love is blind",
+        "colorCode": "MRF-331",
+        "colorHex": "#c4c2d7"
+      },
+      {
+        "colorName": "night   day",
+        "colorCode": "MRF-334",
+        "colorHex": "#afafd1"
+      },
+      {
+        "colorName": "now or never",
+        "colorCode": "MRF-338",
+        "colorHex": "#8b89b8"
+      },
+      {
+        "colorName": "wing   a prayer",
+        "colorCode": "MRF-340",
+        "colorHex": "#bbbad6"
+      },
+      {
+        "colorName": "mystery to me",
+        "colorCode": "MRF-343",
+        "colorHex": "#cbcadb"
+      },
+      {
+        "colorName": "verdetto",
+        "colorCode": "MRF-371",
+        "colorHex": "#cde7e1"
+      },
+      {
+        "colorName": "lucky stars",
+        "colorCode": "MRF-373",
+        "colorHex": "#757198"
+      },
+      {
+        "colorName": "for the birds",
+        "colorCode": "MRF-375",
+        "colorHex": "#a19ebf"
+      },
+      {
+        "colorName": "ortler fog",
+        "colorCode": "MRF-558",
+        "colorHex": "#d8e1df"
+      },
+      {
+        "colorName": "matterhorn haze",
+        "colorCode": "MRF-561",
+        "colorHex": "#cedcdb"
+      },
+      {
+        "colorName": "marmolada vapor",
+        "colorCode": "MRF-562",
+        "colorHex": "#c6d3d5"
+      },
+      {
+        "colorName": "ercolanus blue",
+        "colorCode": "MRF-796",
+        "colorHex": "#adcac7"
+      },
+      {
+        "colorName": "neapolitan gulf",
+        "colorCode": "MRF-797",
+        "colorHex": "#8cafa8"
+      },
+      {
+        "colorName": "marble blue",
+        "colorCode": "MRF-812",
+        "colorHex": "#bbcccb"
+      },
+      {
+        "colorName": "heaven above",
+        "colorCode": "MRF-814",
+        "colorHex": "#b3d0d6"
+      },
+      {
+        "colorName": "lorenzetti blue",
+        "colorCode": "MRF-815",
+        "colorHex": "#47646d"
+      },
+      {
+        "colorName": "franciscan blue",
+        "colorCode": "MRF-816",
+        "colorHex": "#8ea8ae"
+      },
+      {
+        "colorName": "dignity blue",
+        "colorCode": "MRF-817",
+        "colorHex": "#c4d8d7"
+      },
+      {
+        "colorName": "chance of rain",
+        "colorCode": "MRF-827",
+        "colorHex": "#a2b5bf"
+      },
+      {
+        "colorName": "crack of dawn",
+        "colorCode": "MRF-832",
+        "colorHex": "#bdd0d5"
+      },
+      {
+        "colorName": "midnight walk",
+        "colorCode": "MRF-917",
+        "colorHex": "#274640"
+      },
+      {
+        "colorName": "real teal",
+        "colorCode": "MRF-918",
+        "colorHex": "#026b5c"
+      },
+      {
+        "colorName": "teal jolt",
+        "colorCode": "MRF-919",
+        "colorHex": "#1b4f48"
+      },
+      {
+        "colorName": "venice lake",
+        "colorCode": "MRF-921",
+        "colorHex": "#005a59"
+      },
+      {
+        "colorName": "striking green",
+        "colorCode": "MRF-923",
+        "colorHex": "#165150"
+      },
+      {
+        "colorName": "at sea",
+        "colorCode": "MRF-925",
+        "colorHex": "#185b5b"
+      },
+      {
+        "colorName": "deep blue sea",
+        "colorCode": "MRF-927",
+        "colorHex": "#254349"
+      },
+      {
+        "colorName": "bottom line blue",
+        "colorCode": "MRF-928",
+        "colorHex": "#0e505e"
+      },
+      {
+        "colorName": "monet blue",
+        "colorCode": "MRF-929",
+        "colorHex": "#315772"
+      },
+      {
+        "colorName": "starry night blue",
+        "colorCode": "MRF-930",
+        "colorHex": "#223e56"
+      },
+      {
+        "colorName": "once in a blue moon",
+        "colorCode": "MRF-931",
+        "colorHex": "#194e6e"
+      },
+      {
+        "colorName": "evening gown",
+        "colorCode": "MRF-932",
+        "colorHex": "#1a5186"
+      },
+      {
+        "colorName": "blueberry bash",
+        "colorCode": "MRF-933",
+        "colorHex": "#2a476d"
+      },
+      {
+        "colorName": "blue ribbon blue",
+        "colorCode": "MRF-934",
+        "colorHex": "#135579"
+      },
+      {
+        "colorName": "out of the blue sapphire",
+        "colorCode": "MRF-935",
+        "colorHex": "#284159"
+      },
+      {
+        "colorName": "blue velvet",
+        "colorCode": "MRF-936",
+        "colorHex": "#44669e"
+      },
+      {
+        "colorName": "very violet",
+        "colorCode": "MRF-937",
+        "colorHex": "#2d4978"
+      },
+      {
+        "colorName": "frankly speaking blue",
+        "colorCode": "MRF-938",
+        "colorHex": "#243d63"
+      },
+      {
+        "colorName": "purple ette",
+        "colorCode": "MRF-939",
+        "colorHex": "#3b4a7d"
+      },
+      {
+        "colorName": "plum season",
+        "colorCode": "MRF-940",
+        "colorHex": "#363a4f"
+      },
+      {
+        "colorName": "violet hush",
+        "colorCode": "MRF-999",
+        "colorHex": "#486c89"
+      },
+      {
+        "colorName": "blue  knew",
+        "colorCode": "MRF-1000",
+        "colorHex": "#4e757f"
+      },
+      {
+        "colorName": "dragonfly blue",
+        "colorCode": "MRF-1002",
+        "colorHex": "#39708d"
+      },
+      {
+        "colorName": "forbidden blue",
+        "colorCode": "MRF-1003",
+        "colorHex": "#4e7698"
+      },
+      {
+        "colorName": "aeolian islands",
+        "colorCode": "MRF-1004",
+        "colorHex": "#506079"
+      },
+      {
+        "colorName": "angelic sky",
+        "colorCode": "MRF-1014",
+        "colorHex": "#cce0e1"
+      },
+      {
+        "colorName": "marseilles blue",
+        "colorCode": "MRF-1015",
+        "colorHex": "#9cc2cf"
+      },
+      {
+        "colorName": "pitti palace",
+        "colorCode": "MRF-1048",
+        "colorHex": "#a1ccc3"
+      },
+      {
+        "colorName": "3rd degree teal",
+        "colorCode": "MRF-1061",
+        "colorHex": "#7db6b2"
+      },
+      {
+        "colorName": "fantasy aqua",
+        "colorCode": "MRF-1063",
+        "colorHex": "#5f8e89"
+      },
+      {
+        "colorName": "fountain grass",
+        "colorCode": "MRF-1091",
+        "colorHex": "#b4d0cc"
+      },
+      {
+        "colorName": "teal tantrum",
+        "colorCode": "MRF-1095",
+        "colorHex": "#5c8686"
+      },
+      {
+        "colorName": "tie the knot teal",
+        "colorCode": "MRF-1102",
+        "colorHex": "#7aadb2"
+      },
+      {
+        "colorName": "boot shaped blue",
+        "colorCode": "MRF-1103",
+        "colorHex": "#add3d7"
+      },
+      {
+        "colorName": "tout de suite blue",
+        "colorCode": "MRF-1110",
+        "colorHex": "#bedddd"
+      },
+      {
+        "colorName": "delphinium",
+        "colorCode": "MRF-1112",
+        "colorHex": "#90c5cf"
+      },
+      {
+        "colorName": "lake orta blue",
+        "colorCode": "MRF-1114",
+        "colorHex": "#85bdca"
+      },
+      {
+        "colorName": "borromeo blue",
+        "colorCode": "MRF-1116",
+        "colorHex": "#3d98a2"
+      },
+      {
+        "colorName": "retreat for 2 blue",
+        "colorCode": "MRF-1120",
+        "colorHex": "#6dbcc9"
+      },
+      {
+        "colorName": "just in time blue",
+        "colorCode": "MRF-1123",
+        "colorHex": "#87cad2"
+      },
+      {
+        "colorName": "napoleans refuge blue",
+        "colorCode": "MRF-1128",
+        "colorHex": "#b9ddda"
+      },
+      {
+        "colorName": "raindrops keep falling",
+        "colorCode": "MRF-1132",
+        "colorHex": "#aed8e0"
+      },
+      {
+        "colorName": "azure skies",
+        "colorCode": "MRF-1150",
+        "colorHex": "#8ac9dd"
+      },
+      {
+        "colorName": "visa vis blue",
+        "colorCode": "MRF-1152",
+        "colorHex": "#306886"
+      },
+      {
+        "colorName": "row your boat blue",
+        "colorCode": "MRF-1154",
+        "colorHex": "#70abc6"
+      },
+      {
+        "colorName": "hope floats blue",
+        "colorCode": "MRF-1156",
+        "colorHex": "#abcfdb"
+      },
+      {
+        "colorName": "brass tacks blue",
+        "colorCode": "MRF-1157",
+        "colorHex": "#bcd2d6"
+      },
+      {
+        "colorName": "takes the cake blue",
+        "colorCode": "MRF-1159",
+        "colorHex": "#b7d2d8"
+      },
+      {
+        "colorName": "grain of salt blue",
+        "colorCode": "MRF-1162",
+        "colorHex": "#93c1d3"
+      },
+      {
+        "colorName": "to the bitter end blue",
+        "colorCode": "MRF-1164",
+        "colorHex": "#83b3ca"
+      },
+      {
+        "colorName": "thats all folks blue",
+        "colorCode": "MRF-1167",
+        "colorHex": "#4985a2"
+      },
+      {
+        "colorName": "vicious circle blue",
+        "colorCode": "MRF-1169",
+        "colorHex": "#6eacc0"
+      },
+      {
+        "colorName": "fish out of h20 blue",
+        "colorCode": "MRF-1170",
+        "colorHex": "#88c1d3"
+      },
+      {
+        "colorName": "sea 2 shining sea blue",
+        "colorCode": "MRF-1172",
+        "colorHex": "#b1d3d9"
+      },
+      {
+        "colorName": "fair   square periwinkle",
+        "colorCode": "MRF-1173",
+        "colorHex": "#c6d2df"
+      },
+      {
+        "colorName": "lackadaisical lavender",
+        "colorCode": "MRF-1175",
+        "colorHex": "#acc3d7"
+      },
+      {
+        "colorName": "last but not least lilac",
+        "colorCode": "MRF-1177",
+        "colorHex": "#87a4ce"
+      },
+      {
+        "colorName": "pure periwinkle",
+        "colorCode": "MRF-1178",
+        "colorHex": "#5b7ba9"
+      },
+      {
+        "colorName": "aquamarine",
+        "colorCode": "MRF-1184",
+        "colorHex": "#89d5c5"
+      },
+      {
+        "colorName": "giuseppe green",
+        "colorCode": "MRF-1203",
+        "colorHex": "#7ebfb2"
+      },
+      {
+        "colorName": "eternally yours",
+        "colorCode": "MRF-1204",
+        "colorHex": "#45a096"
+      },
+      {
+        "colorName": "pretty peacock",
+        "colorCode": "MRF-1205",
+        "colorHex": "#6dbfb6"
+      },
+      {
+        "colorName": "faithful aqua",
+        "colorCode": "MRF-1206",
+        "colorHex": "#8ed5cd"
+      },
+      {
+        "colorName": "cooing aqua",
+        "colorCode": "MRF-1207",
+        "colorHex": "#bae2d9"
+      },
+      {
+        "colorName": "wink of an eye",
+        "colorCode": "MRF-1209",
+        "colorHex": "#7ca4ce"
+      },
+      {
+        "colorName": "twinkle twinkle periwinkle",
+        "colorCode": "MRF-1210",
+        "colorHex": "#a5c6dd"
+      },
+      {
+        "colorName": "less is more lilac",
+        "colorCode": "MRF-1211",
+        "colorHex": "#bdd6df"
+      },
+      {
+        "colorName": "lets roll lilac",
+        "colorCode": "MRF-1213",
+        "colorHex": "#c8d6db"
+      },
+      {
+        "colorName": "lickety split lavender",
+        "colorCode": "MRF-1214",
+        "colorHex": "#97a7bd"
+      },
+      {
+        "colorName": "plum to the point",
+        "colorCode": "MRF-1217",
+        "colorHex": "#aabbdb"
+      },
+      {
+        "colorName": "lifelong lilac",
+        "colorCode": "MRF-1218",
+        "colorHex": "#c8d2e1"
+      },
+      {
+        "colorName": "prime time lavender",
+        "colorCode": "MRF-1226",
+        "colorHex": "#969cbc"
+      },
+      {
+        "colorName": "diamonds r forever lavender",
+        "colorCode": "MRF-1228",
+        "colorHex": "#b9bbcf"
+      }
+    ],
+    "Oranges": [
+      {
+        "colorName": "peach fizz",
+        "colorCode": "MRF-123",
+        "colorHex": "#e8c7bb"
+      },
+      {
+        "colorName": "candied carrot",
+        "colorCode": "MRF-128",
+        "colorHex": "#e7a38a"
+      },
+      {
+        "colorName": "frosted peach",
+        "colorCode": "MRF-151",
+        "colorHex": "#e8d7cc"
+      },
+      {
+        "colorName": "smooth apricot",
+        "colorCode": "MRF-159",
+        "colorHex": "#eec0a9"
+      },
+      {
+        "colorName": "organza",
+        "colorCode": "MRF-162",
+        "colorHex": "#eeb69e"
+      },
+      {
+        "colorName": "fiery orange",
+        "colorCode": "MRF-164",
+        "colorHex": "#e9926d"
+      },
+      {
+        "colorName": "ordinary orange",
+        "colorCode": "MRF-166",
+        "colorHex": "#df7951"
+      },
+      {
+        "colorName": "hob nob orange",
+        "colorCode": "MRF-176",
+        "colorHex": "#eaaf97"
+      },
+      {
+        "colorName": "hummingbird",
+        "colorCode": "MRF-178",
+        "colorHex": "#edccbb"
+      },
+      {
+        "colorName": "sweet salmon",
+        "colorCode": "MRF-180",
+        "colorHex": "#e7d5c5"
+      },
+      {
+        "colorName": "malibu peach",
+        "colorCode": "MRF-183",
+        "colorHex": "#edcab1"
+      },
+      {
+        "colorName": "cherish cream",
+        "colorCode": "MRF-185",
+        "colorHex": "#ebb597"
+      },
+      {
+        "colorName": "outrageous orange",
+        "colorCode": "MRF-190",
+        "colorHex": "#e78953"
+      },
+      {
+        "colorName": "alluring blossom",
+        "colorCode": "MRF-191",
+        "colorHex": "#ebb29a"
+      },
+      {
+        "colorName": "posy",
+        "colorCode": "MRF-201",
+        "colorHex": "#eec8af"
+      },
+      {
+        "colorName": "coquette peach",
+        "colorCode": "MRF-202",
+        "colorHex": "#ecdccd"
+      },
+      {
+        "colorName": "portofino peach",
+        "colorCode": "MRF-203",
+        "colorHex": "#ebcdb1"
+      },
+      {
+        "colorName": "freckle orange",
+        "colorCode": "MRF-204",
+        "colorHex": "#f1c09b"
+      },
+      {
+        "colorName": "orange custard",
+        "colorCode": "MRF-205",
+        "colorHex": "#e2a476"
+      },
+      {
+        "colorName": "jack o lantern",
+        "colorCode": "MRF-210",
+        "colorHex": "#e98435"
+      },
+      {
+        "colorName": "peach slush",
+        "colorCode": "MRF-214",
+        "colorHex": "#ed9e73"
+      },
+      {
+        "colorName": "hip honey",
+        "colorCode": "MRF-215",
+        "colorHex": "#f1c096"
+      },
+      {
+        "colorName": "cashew craving",
+        "colorCode": "MRF-219",
+        "colorHex": "#ebdac5"
+      },
+      {
+        "colorName": "sunlit country",
+        "colorCode": "MRF-223",
+        "colorHex": "#eddec3"
+      },
+      {
+        "colorName": "honey pot",
+        "colorCode": "MRF-227",
+        "colorHex": "#f1c289"
+      },
+      {
+        "colorName": "apricot sauce",
+        "colorCode": "MRF-232",
+        "colorHex": "#f2ad5e"
+      },
+      {
+        "colorName": "mandarin slice",
+        "colorCode": "MRF-233",
+        "colorHex": "#e28646"
+      },
+      {
+        "colorName": "pink satin sash",
+        "colorCode": "MRF-246",
+        "colorHex": "#eee2db"
+      },
+      {
+        "colorName": "yellow brick road",
+        "colorCode": "MRF-307",
+        "colorHex": "#d2af7f"
+      },
+      {
+        "colorName": "forbidden village",
+        "colorCode": "MRF-309",
+        "colorHex": "#eec088"
+      },
+      {
+        "colorName": "peach sangria",
+        "colorCode": "MRF-310",
+        "colorHex": "#f0dfc3"
+      },
+      {
+        "colorName": "peach yogurt",
+        "colorCode": "MRF-311",
+        "colorHex": "#f5d5ac"
+      },
+      {
+        "colorName": "peter cottontail",
+        "colorCode": "MRF-315",
+        "colorHex": "#e5dcca"
+      },
+      {
+        "colorName": "night light",
+        "colorCode": "MRF-316",
+        "colorHex": "#e6e0cb"
+      },
+      {
+        "colorName": "pumpkin oil",
+        "colorCode": "MRF-326",
+        "colorHex": "#f7c791"
+      },
+      {
+        "colorName": "chic coconut",
+        "colorCode": "MRF-329",
+        "colorHex": "#eddab7"
+      },
+      {
+        "colorName": "vibrant orange",
+        "colorCode": "MRF-330",
+        "colorHex": "#f8bb78"
+      },
+      {
+        "colorName": "loazzolo sun",
+        "colorCode": "MRF-332",
+        "colorHex": "#ecd5a9"
+      },
+      {
+        "colorName": "sizzling orange",
+        "colorCode": "MRF-333",
+        "colorHex": "#f09756"
+      },
+      {
+        "colorName": "torino yellow",
+        "colorCode": "MRF-335",
+        "colorHex": "#ecbf7b"
+      },
+      {
+        "colorName": "vinsato gold",
+        "colorCode": "MRF-337",
+        "colorHex": "#dda658"
+      },
+      {
+        "colorName": "tuscan summer",
+        "colorCode": "MRF-339",
+        "colorHex": "#e3ba79"
+      },
+      {
+        "colorName": "livorno love",
+        "colorCode": "MRF-341",
+        "colorHex": "#e7d3aa"
+      },
+      {
+        "colorName": "pale florence",
+        "colorCode": "MRF-344",
+        "colorHex": "#e5d8b8"
+      },
+      {
+        "colorName": "toffee orange",
+        "colorCode": "MRF-346",
+        "colorHex": "#f4bc85"
+      },
+      {
+        "colorName": "cavali souffle",
+        "colorCode": "MRF-347",
+        "colorHex": "#e5e1d1"
+      },
+      {
+        "colorName": "orange dream",
+        "colorCode": "MRF-349",
+        "colorHex": "#f6cca1"
+      },
+      {
+        "colorName": "sour lemon",
+        "colorCode": "MRF-355",
+        "colorHex": "#edc787"
+      },
+      {
+        "colorName": "parody peach",
+        "colorCode": "MRF-356",
+        "colorHex": "#f4ddbf"
+      },
+      {
+        "colorName": "golden appeal",
+        "colorCode": "MRF-358",
+        "colorHex": "#dca159"
+      },
+      {
+        "colorName": "armani vogue",
+        "colorCode": "MRF-359",
+        "colorHex": "#c69754"
+      },
+      {
+        "colorName": "apple jack",
+        "colorCode": "MRF-360",
+        "colorHex": "#f5d2a1"
+      },
+      {
+        "colorName": "pineapple upside down cake",
+        "colorCode": "MRF-361",
+        "colorHex": "#e3c182"
+      },
+      {
+        "colorName": "lemon icing",
+        "colorCode": "MRF-362",
+        "colorHex": "#e7d5a7"
+      },
+      {
+        "colorName": "plume tangelo",
+        "colorCode": "MRF-363",
+        "colorHex": "#f7c890"
+      },
+      {
+        "colorName": "au gratin orange",
+        "colorCode": "MRF-366",
+        "colorHex": "#f9bb72"
+      },
+      {
+        "colorName": "marengo",
+        "colorCode": "MRF-367",
+        "colorHex": "#dbba88"
+      },
+      {
+        "colorName": "tasty nectarine",
+        "colorCode": "MRF-369",
+        "colorHex": "#ec9643"
+      },
+      {
+        "colorName": "gallant gold",
+        "colorCode": "MRF-370",
+        "colorHex": "#cc9f5c"
+      },
+      {
+        "colorName": "enthusiastic gold",
+        "colorCode": "MRF-372",
+        "colorHex": "#b6843f"
+      },
+      {
+        "colorName": "spicy citrus",
+        "colorCode": "MRF-374",
+        "colorHex": "#d1a65e"
+      },
+      {
+        "colorName": "golden fields",
+        "colorCode": "MRF-376",
+        "colorHex": "#dbba83"
+      },
+      {
+        "colorName": "sunflower yellow",
+        "colorCode": "MRF-378",
+        "colorHex": "#ead09d"
+      },
+      {
+        "colorName": "summer fun",
+        "colorCode": "MRF-379",
+        "colorHex": "#e6a465"
+      },
+      {
+        "colorName": "flicker of light",
+        "colorCode": "MRF-380",
+        "colorHex": "#e6d6b5"
+      },
+      {
+        "colorName": "zesty lemon peel",
+        "colorCode": "MRF-381",
+        "colorHex": "#eccf96"
+      },
+      {
+        "colorName": "semolina",
+        "colorCode": "MRF-382",
+        "colorHex": "#f0c189"
+      },
+      {
+        "colorName": "hay day",
+        "colorCode": "MRF-383",
+        "colorHex": "#daae5e"
+      },
+      {
+        "colorName": "tomato pickle",
+        "colorCode": "MRF-385",
+        "colorHex": "#c69850"
+      },
+      {
+        "colorName": "trianon",
+        "colorCode": "MRF-387",
+        "colorHex": "#ecd9b2"
+      },
+      {
+        "colorName": "jackpot gold",
+        "colorCode": "MRF-388",
+        "colorHex": "#e1ad5d"
+      },
+      {
+        "colorName": "cosmic yellow",
+        "colorCode": "MRF-390",
+        "colorHex": "#e3d6a7"
+      },
+      {
+        "colorName": "hidden beauty",
+        "colorCode": "MRF-391",
+        "colorHex": "#f5d9aa"
+      },
+      {
+        "colorName": "dreamy",
+        "colorCode": "MRF-394",
+        "colorHex": "#f8d08d"
+      },
+      {
+        "colorName": "potentilla",
+        "colorCode": "MRF-396",
+        "colorHex": "#ead294"
+      },
+      {
+        "colorName": "ray of sun",
+        "colorCode": "MRF-398",
+        "colorHex": "#f6c36e"
+      },
+      {
+        "colorName": "crocus yellow",
+        "colorCode": "MRF-399",
+        "colorHex": "#edc156"
+      },
+      {
+        "colorName": "hot sun",
+        "colorCode": "MRF-401",
+        "colorHex": "#f4af3e"
+      },
+      {
+        "colorName": "quartzite gold",
+        "colorCode": "MRF-402",
+        "colorHex": "#d3a940"
+      },
+      {
+        "colorName": "edens garden",
+        "colorCode": "MRF-404",
+        "colorHex": "#cfae6a"
+      },
+      {
+        "colorName": "field day",
+        "colorCode": "MRF-408",
+        "colorHex": "#dec697"
+      },
+      {
+        "colorName": "gold mine",
+        "colorCode": "MRF-410",
+        "colorHex": "#f7c76f"
+      },
+      {
+        "colorName": "friendly yellow",
+        "colorCode": "MRF-413",
+        "colorHex": "#efd6a8"
+      },
+      {
+        "colorName": "headlight yellow",
+        "colorCode": "MRF-418",
+        "colorHex": "#ecbf42"
+      },
+      {
+        "colorName": "make my day yellow",
+        "colorCode": "MRF-421",
+        "colorHex": "#eccb5e"
+      },
+      {
+        "colorName": "clothesline yellow",
+        "colorCode": "MRF-498",
+        "colorHex": "#ecdfbd"
+      },
+      {
+        "colorName": "fresh pineapple",
+        "colorCode": "MRF-511",
+        "colorHex": "#f4d395"
+      },
+      {
+        "colorName": "tuscan villa",
+        "colorCode": "MRF-512",
+        "colorHex": "#f0b962"
+      },
+      {
+        "colorName": "etruscan gold",
+        "colorCode": "MRF-513",
+        "colorHex": "#f6b751"
+      },
+      {
+        "colorName": "villa medici lemon",
+        "colorCode": "MRF-521",
+        "colorHex": "#efaf60"
+      },
+      {
+        "colorName": "sheer radiance",
+        "colorCode": "MRF-524",
+        "colorHex": "#f1cb82"
+      },
+      {
+        "colorName": "golden flicker",
+        "colorCode": "MRF-531",
+        "colorHex": "#f5dd9f"
+      },
+      {
+        "colorName": "bandini museum yellow",
+        "colorCode": "MRF-533",
+        "colorHex": "#f6d18b"
+      },
+      {
+        "colorName": "fresh yellow",
+        "colorCode": "MRF-534",
+        "colorHex": "#f8cf6e"
+      },
+      {
+        "colorName": "countryside y orange",
+        "colorCode": "MRF-535",
+        "colorHex": "#fab750"
+      },
+      {
+        "colorName": "cameo coral",
+        "colorCode": "MRF-541",
+        "colorHex": "#e8d3ca"
+      },
+      {
+        "colorName": "farro yellow",
+        "colorCode": "MRF-544",
+        "colorHex": "#f9c972"
+      },
+      {
+        "colorName": "polite pink",
+        "colorCode": "MRF-591",
+        "colorHex": "#ded9d4"
+      },
+      {
+        "colorName": "breathless",
+        "colorCode": "MRF-592",
+        "colorHex": "#d7d0cc"
+      },
+      {
+        "colorName": "strike a happy medium",
+        "colorCode": "MRF-606",
+        "colorHex": "#e5dfc9"
+      },
+      {
+        "colorName": "ancient scroll",
+        "colorCode": "MRF-641",
+        "colorHex": "#e3d8cf"
+      },
+      {
+        "colorName": "pins   needles pink",
+        "colorCode": "MRF-649",
+        "colorHex": "#e4dac9"
+      },
+      {
+        "colorName": "dream come true",
+        "colorCode": "MRF-655",
+        "colorHex": "#e4dac6"
+      },
+      {
+        "colorName": "blessing in disguise",
+        "colorCode": "MRF-662",
+        "colorHex": "#e3dcc8"
+      },
+      {
+        "colorName": "compatible cream",
+        "colorCode": "MRF-669",
+        "colorHex": "#e5dabe"
+      },
+      {
+        "colorName": "trebbiano",
+        "colorCode": "MRF-684",
+        "colorHex": "#e3dfd0"
+      },
+      {
+        "colorName": "over the moon yellow",
+        "colorCode": "MRF-1018",
+        "colorHex": "#f6ddaf"
+      },
+      {
+        "colorName": "creamy risotto",
+        "colorCode": "MRF-1030",
+        "colorHex": "#e7dcd2"
+      },
+      {
+        "colorName": "wall flower",
+        "colorCode": "MRF-1046",
+        "colorHex": "#ebd9c8"
+      },
+      {
+        "colorName": "pie in the sky",
+        "colorCode": "MRF-1055",
+        "colorHex": "#eadcc9"
+      },
+      {
+        "colorName": "practical jokester",
+        "colorCode": "MRF-1080",
+        "colorHex": "#e5e1d3"
+      },
+      {
+        "colorName": "crinkled taffeta",
+        "colorCode": "MRF-1090",
+        "colorHex": "#ecdecb"
+      },
+      {
+        "colorName": "spanish steps",
+        "colorCode": "MRF-1119",
+        "colorHex": "#ebd8bd"
+      },
+      {
+        "colorName": "tuscan wind",
+        "colorCode": "MRF-1129",
+        "colorHex": "#e9dabd"
+      },
+      {
+        "colorName": "yellow cologne",
+        "colorCode": "MRF-1160",
+        "colorHex": "#e7dac3"
+      },
+      {
+        "colorName": "ivory lace",
+        "colorCode": "MRF-1163",
+        "colorHex": "#e7e1ca"
+      }
+    ],
+    "Browns": [
+      {
+        "colorName": "mouthwatering mango",
+        "colorCode": "MRF-237",
+        "colorHex": "#e9a773"
+      },
+      {
+        "colorName": "hot burmese",
+        "colorCode": "MRF-306",
+        "colorHex": "#ddc299"
+      },
+      {
+        "colorName": "daring mustard",
+        "colorCode": "MRF-308",
+        "colorHex": "#b98757"
+      },
+      {
+        "colorName": "golden sand",
+        "colorCode": "MRF-312",
+        "colorHex": "#d8b785"
+      },
+      {
+        "colorName": "italian breadstick",
+        "colorCode": "MRF-313",
+        "colorHex": "#e3d0ae"
+      },
+      {
+        "colorName": "italian silk",
+        "colorCode": "MRF-318",
+        "colorHex": "#d9b984"
+      },
+      {
+        "colorName": "bit of honey",
+        "colorCode": "MRF-319",
+        "colorHex": "#c8a978"
+      },
+      {
+        "colorName": "pharoahs gold",
+        "colorCode": "MRF-320",
+        "colorHex": "#b68d55"
+      },
+      {
+        "colorName": "golden brown",
+        "colorCode": "MRF-321",
+        "colorHex": "#bd9665"
+      },
+      {
+        "colorName": "maple sugar",
+        "colorCode": "MRF-324",
+        "colorHex": "#d2b688"
+      },
+      {
+        "colorName": "buttered popcorn",
+        "colorCode": "MRF-327",
+        "colorHex": "#dfcaa2"
+      },
+      {
+        "colorName": "canvas",
+        "colorCode": "MRF-586",
+        "colorHex": "#d6d3c6"
+      },
+      {
+        "colorName": "tanned taupe",
+        "colorCode": "MRF-587",
+        "colorHex": "#d3cfc2"
+      },
+      {
+        "colorName": "sinuous leather",
+        "colorCode": "MRF-588",
+        "colorHex": "#cbc6b9"
+      },
+      {
+        "colorName": "vague rose",
+        "colorCode": "MRF-593",
+        "colorHex": "#d3cac6"
+      },
+      {
+        "colorName": "short but sweet",
+        "colorCode": "MRF-626",
+        "colorHex": "#d1c1bb"
+      },
+      {
+        "colorName": "catch 22 brown",
+        "colorCode": "MRF-630",
+        "colorHex": "#6d5c56"
+      },
+      {
+        "colorName": "hat trick",
+        "colorCode": "MRF-631",
+        "colorHex": "#776058"
+      },
+      {
+        "colorName": "in like flynn",
+        "colorCode": "MRF-634",
+        "colorHex": "#e2cab7"
+      },
+      {
+        "colorName": "follow your heart",
+        "colorCode": "MRF-635",
+        "colorHex": "#bfa99e"
+      },
+      {
+        "colorName": "hickory tan",
+        "colorCode": "MRF-636",
+        "colorHex": "#a5897f"
+      },
+      {
+        "colorName": "wild west red",
+        "colorCode": "MRF-637",
+        "colorHex": "#7a5f4f"
+      },
+      {
+        "colorName": "howdy partner",
+        "colorCode": "MRF-639",
+        "colorHex": "#a9948d"
+      },
+      {
+        "colorName": "lilac tan",
+        "colorCode": "MRF-640",
+        "colorHex": "#d0c2bc"
+      },
+      {
+        "colorName": "love bug",
+        "colorCode": "MRF-642",
+        "colorHex": "#dbcbb8"
+      },
+      {
+        "colorName": "wild goose chase",
+        "colorCode": "MRF-643",
+        "colorHex": "#b09e8b"
+      },
+      {
+        "colorName": "joking around brown",
+        "colorCode": "MRF-644",
+        "colorHex": "#8b7059"
+      },
+      {
+        "colorName": "knock on wood",
+        "colorCode": "MRF-645",
+        "colorHex": "#604a41"
+      },
+      {
+        "colorName": "loose cannon",
+        "colorCode": "MRF-646",
+        "colorHex": "#806258"
+      },
+      {
+        "colorName": "on the same page",
+        "colorCode": "MRF-647",
+        "colorHex": "#a38b83"
+      },
+      {
+        "colorName": "on the fence",
+        "colorCode": "MRF-648",
+        "colorHex": "#decac1"
+      },
+      {
+        "colorName": "off the hook peach",
+        "colorCode": "MRF-650",
+        "colorHex": "#d1c1b4"
+      },
+      {
+        "colorName": "toasted wheat",
+        "colorCode": "MRF-651",
+        "colorHex": "#b6a28b"
+      },
+      {
+        "colorName": "no strings attached",
+        "colorCode": "MRF-652",
+        "colorHex": "#745a40"
+      },
+      {
+        "colorName": "tie the knot",
+        "colorCode": "MRF-653",
+        "colorHex": "#8d7458"
+      },
+      {
+        "colorName": "sand dollar",
+        "colorCode": "MRF-654",
+        "colorHex": "#c9b9a6"
+      },
+      {
+        "colorName": "make believe",
+        "colorCode": "MRF-657",
+        "colorHex": "#b8b5ae"
+      },
+      {
+        "colorName": "exclusively yours",
+        "colorCode": "MRF-658",
+        "colorHex": "#948a7f"
+      },
+      {
+        "colorName": "warm regards",
+        "colorCode": "MRF-659",
+        "colorHex": "#817564"
+      },
+      {
+        "colorName": "holy cow brown",
+        "colorCode": "MRF-660",
+        "colorHex": "#8d8579"
+      },
+      {
+        "colorName": "take it or leave it",
+        "colorCode": "MRF-661",
+        "colorHex": "#cfc3b1"
+      },
+      {
+        "colorName": "amber glow",
+        "colorCode": "MRF-663",
+        "colorHex": "#d5c7b5"
+      },
+      {
+        "colorName": "deers fur",
+        "colorCode": "MRF-664",
+        "colorHex": "#b5a288"
+      },
+      {
+        "colorName": "call it a day",
+        "colorCode": "MRF-665",
+        "colorHex": "#ac9371"
+      },
+      {
+        "colorName": "cowboy up",
+        "colorCode": "MRF-666",
+        "colorHex": "#886a43"
+      },
+      {
+        "colorName": "mind your manners",
+        "colorCode": "MRF-667",
+        "colorHex": "#af9166"
+      },
+      {
+        "colorName": "figure it out",
+        "colorCode": "MRF-668",
+        "colorHex": "#c7ab85"
+      },
+      {
+        "colorName": "an open invitation",
+        "colorCode": "MRF-671",
+        "colorHex": "#d3cdba"
+      },
+      {
+        "colorName": "tan u imagine",
+        "colorCode": "MRF-672",
+        "colorHex": "#b8af99"
+      },
+      {
+        "colorName": "cork caress",
+        "colorCode": "MRF-673",
+        "colorHex": "#84775c"
+      },
+      {
+        "colorName": "rabbits jacket",
+        "colorCode": "MRF-674",
+        "colorHex": "#958977"
+      },
+      {
+        "colorName": "go for green",
+        "colorCode": "MRF-675",
+        "colorHex": "#9f9788"
+      },
+      {
+        "colorName": "never a dull moment",
+        "colorCode": "MRF-676",
+        "colorHex": "#d1cebe"
+      },
+      {
+        "colorName": "no hard feelings",
+        "colorCode": "MRF-677",
+        "colorHex": "#ded0b1"
+      },
+      {
+        "colorName": "nuts about you",
+        "colorCode": "MRF-678",
+        "colorHex": "#bea380"
+      },
+      {
+        "colorName": "lions mane",
+        "colorCode": "MRF-679",
+        "colorHex": "#a68c62"
+      },
+      {
+        "colorName": "penny for your thoughts",
+        "colorCode": "MRF-680",
+        "colorHex": "#9a7e51"
+      },
+      {
+        "colorName": "reap the benefits",
+        "colorCode": "MRF-681",
+        "colorHex": "#a48a5c"
+      },
+      {
+        "colorName": "bees with honey",
+        "colorCode": "MRF-682",
+        "colorHex": "#ddc9a6"
+      },
+      {
+        "colorName": "bicycle tour",
+        "colorCode": "MRF-685",
+        "colorHex": "#c3ae90"
+      },
+      {
+        "colorName": "vulcano",
+        "colorCode": "MRF-686",
+        "colorHex": "#a88c67"
+      },
+      {
+        "colorName": "lipari",
+        "colorCode": "MRF-687",
+        "colorHex": "#9c8567"
+      },
+      {
+        "colorName": "filicudi",
+        "colorCode": "MRF-688",
+        "colorHex": "#a99163"
+      },
+      {
+        "colorName": "stromboli",
+        "colorCode": "MRF-689",
+        "colorHex": "#c3af85"
+      },
+      {
+        "colorName": "salina",
+        "colorCode": "MRF-690",
+        "colorHex": "#ded2b6"
+      },
+      {
+        "colorName": "lombardy cave",
+        "colorCode": "MRF-691",
+        "colorHex": "#d6d1be"
+      },
+      {
+        "colorName": "everything etruscan",
+        "colorCode": "MRF-692",
+        "colorHex": "#e3d4b2"
+      },
+      {
+        "colorName": "salento reverie",
+        "colorCode": "MRF-693",
+        "colorHex": "#d2bc92"
+      },
+      {
+        "colorName": "caper",
+        "colorCode": "MRF-694",
+        "colorHex": "#8b7c5e"
+      },
+      {
+        "colorName": "olive pomace",
+        "colorCode": "MRF-695",
+        "colorHex": "#9c8b65"
+      },
+      {
+        "colorName": "grana padano",
+        "colorCode": "MRF-696",
+        "colorHex": "#c3b28b"
+      },
+      {
+        "colorName": "reggiano",
+        "colorCode": "MRF-697",
+        "colorHex": "#d1c8ac"
+      },
+      {
+        "colorName": "hop   skip     jump",
+        "colorCode": "MRF-698",
+        "colorHex": "#e6dbb9"
+      },
+      {
+        "colorName": "hot off the press",
+        "colorCode": "MRF-699",
+        "colorHex": "#dac289"
+      },
+      {
+        "colorName": "edge of your seat",
+        "colorCode": "MRF-700",
+        "colorHex": "#b7a163"
+      },
+      {
+        "colorName": "gut feeling gold",
+        "colorCode": "MRF-701",
+        "colorHex": "#aa8d54"
+      },
+      {
+        "colorName": "all that jazz",
+        "colorCode": "MRF-702",
+        "colorHex": "#caa862"
+      },
+      {
+        "colorName": "burning candle",
+        "colorCode": "MRF-703",
+        "colorHex": "#ddca9a"
+      },
+      {
+        "colorName": "just the facts",
+        "colorCode": "MRF-704",
+        "colorHex": "#e5dfb7"
+      },
+      {
+        "colorName": "its about time",
+        "colorCode": "MRF-705",
+        "colorHex": "#e4dfb3"
+      },
+      {
+        "colorName": "birds   the bees",
+        "colorCode": "MRF-706",
+        "colorHex": "#ddce85"
+      },
+      {
+        "colorName": "believe it or not",
+        "colorCode": "MRF-707",
+        "colorHex": "#bbab5a"
+      },
+      {
+        "colorName": "lake garda",
+        "colorCode": "MRF-709",
+        "colorHex": "#b69c4a"
+      },
+      {
+        "colorName": "palmetto green",
+        "colorCode": "MRF-711",
+        "colorHex": "#b4a26e"
+      },
+      {
+        "colorName": "enough is enough",
+        "colorCode": "MRF-713",
+        "colorHex": "#d5caa3"
+      },
+      {
+        "colorName": "artists canvas",
+        "colorCode": "MRF-714",
+        "colorHex": "#ded7c1"
+      },
+      {
+        "colorName": "yellow belly",
+        "colorCode": "MRF-716",
+        "colorHex": "#e2d9ae"
+      },
+      {
+        "colorName": "good   plenty",
+        "colorCode": "MRF-717",
+        "colorHex": "#c6bc88"
+      },
+      {
+        "colorName": "golden glitter",
+        "colorCode": "MRF-719",
+        "colorHex": "#a99b5c"
+      },
+      {
+        "colorName": "marjoram",
+        "colorCode": "MRF-721",
+        "colorHex": "#beb287"
+      },
+      {
+        "colorName": "water chestnut",
+        "colorCode": "MRF-722",
+        "colorHex": "#cac59f"
+      },
+      {
+        "colorName": "glistening gold",
+        "colorCode": "MRF-723",
+        "colorHex": "#e3ddba"
+      },
+      {
+        "colorName": "make up your mind",
+        "colorCode": "MRF-725",
+        "colorHex": "#e0d7b4"
+      },
+      {
+        "colorName": "middle of nowhere",
+        "colorCode": "MRF-726",
+        "colorHex": "#bdb082"
+      },
+      {
+        "colorName": "more than meets the eye",
+        "colorCode": "MRF-727",
+        "colorHex": "#a29763"
+      },
+      {
+        "colorName": "second nature",
+        "colorCode": "MRF-730",
+        "colorHex": "#beb9a1"
+      },
+      {
+        "colorName": "wheat grass",
+        "colorCode": "MRF-742",
+        "colorHex": "#bbb590"
+      },
+      {
+        "colorName": "edge of innocence",
+        "colorCode": "MRF-743",
+        "colorHex": "#95895b"
+      },
+      {
+        "colorName": "fork in the road",
+        "colorCode": "MRF-744",
+        "colorHex": "#675e3d"
+      },
+      {
+        "colorName": "nights in naples",
+        "colorCode": "MRF-745",
+        "colorHex": "#c1ba96"
+      },
+      {
+        "colorName": "half moon",
+        "colorCode": "MRF-746",
+        "colorHex": "#d5cfae"
+      },
+      {
+        "colorName": "caspian olive",
+        "colorCode": "MRF-776",
+        "colorHex": "#726e55"
+      },
+      {
+        "colorName": "torino tangerine",
+        "colorCode": "MRF-883",
+        "colorHex": "#ec9c37"
+      },
+      {
+        "colorName": "golden nero",
+        "colorCode": "MRF-884",
+        "colorHex": "#d99421"
+      },
+      {
+        "colorName": "venetian lights",
+        "colorCode": "MRF-885",
+        "colorHex": "#f49813"
+      },
+      {
+        "colorName": "paglia gold",
+        "colorCode": "MRF-886",
+        "colorHex": "#dc8b23"
+      },
+      {
+        "colorName": "mainly mandarin",
+        "colorCode": "MRF-887",
+        "colorHex": "#ed8b3c"
+      },
+      {
+        "colorName": "de simone orange",
+        "colorCode": "MRF-888",
+        "colorHex": "#e2772d"
+      },
+      {
+        "colorName": "picassos pick",
+        "colorCode": "MRF-889",
+        "colorHex": "#d66238"
+      },
+      {
+        "colorName": "pinot grigio",
+        "colorCode": "MRF-890",
+        "colorHex": "#efc14d"
+      },
+      {
+        "colorName": "chardonnay",
+        "colorCode": "MRF-891",
+        "colorHex": "#efc12a"
+      },
+      {
+        "colorName": "verragio yellow",
+        "colorCode": "MRF-892",
+        "colorHex": "#e7ae33"
+      },
+      {
+        "colorName": "grapefruit attack",
+        "colorCode": "MRF-893",
+        "colorHex": "#f2b428"
+      },
+      {
+        "colorName": "golden groove",
+        "colorCode": "MRF-894",
+        "colorHex": "#e4a52f"
+      },
+      {
+        "colorName": "heroic gold",
+        "colorCode": "MRF-895",
+        "colorHex": "#f5a52c"
+      },
+      {
+        "colorName": "hypnotic gold",
+        "colorCode": "MRF-896",
+        "colorHex": "#eda114"
+      },
+      {
+        "colorName": "herbal green",
+        "colorCode": "MRF-899",
+        "colorHex": "#a69b31"
+      },
+      {
+        "colorName": "daredevil toffee",
+        "colorCode": "MRF-950",
+        "colorHex": "#7d593f"
+      },
+      {
+        "colorName": "bogie brown",
+        "colorCode": "MRF-951",
+        "colorHex": "#6f5442"
+      },
+      {
+        "colorName": "carnival orange",
+        "colorCode": "MRF-957",
+        "colorHex": "#ca865e"
+      },
+      {
+        "colorName": "toredor orange",
+        "colorCode": "MRF-958",
+        "colorHex": "#c77f59"
+      },
+      {
+        "colorName": "bountiful orange",
+        "colorCode": "MRF-959",
+        "colorHex": "#9e664e"
+      },
+      {
+        "colorName": "bonfire orange",
+        "colorCode": "MRF-960",
+        "colorHex": "#b27246"
+      },
+      {
+        "colorName": "orange currant",
+        "colorCode": "MRF-961",
+        "colorHex": "#af5a2f"
+      },
+      {
+        "colorName": "polynesian orange",
+        "colorCode": "MRF-962",
+        "colorHex": "#9a603d"
+      },
+      {
+        "colorName": "zanzibar rust",
+        "colorCode": "MRF-963",
+        "colorHex": "#9d5a3d"
+      },
+      {
+        "colorName": "praline brown",
+        "colorCode": "MRF-964",
+        "colorHex": "#95785b"
+      },
+      {
+        "colorName": "wild goat brown",
+        "colorCode": "MRF-965",
+        "colorHex": "#765c3f"
+      },
+      {
+        "colorName": "coral brown",
+        "colorCode": "MRF-966",
+        "colorHex": "#755f47"
+      },
+      {
+        "colorName": "italian cream cake",
+        "colorCode": "MRF-967",
+        "colorHex": "#7b6545"
+      },
+      {
+        "colorName": "nuts about nutmeg",
+        "colorCode": "MRF-968",
+        "colorHex": "#7e6844"
+      },
+      {
+        "colorName": "carmel cupcake",
+        "colorCode": "MRF-969",
+        "colorHex": "#735d44"
+      },
+      {
+        "colorName": "mild molasses",
+        "colorCode": "MRF-970",
+        "colorHex": "#584b39"
+      },
+      {
+        "colorName": "wedding band gold",
+        "colorCode": "MRF-971",
+        "colorHex": "#ad8b4e"
+      },
+      {
+        "colorName": "bronzed gold",
+        "colorCode": "MRF-972",
+        "colorHex": "#906f40"
+      },
+      {
+        "colorName": "up the creek",
+        "colorCode": "MRF-973",
+        "colorHex": "#8c6b40"
+      },
+      {
+        "colorName": "umber brown",
+        "colorCode": "MRF-974",
+        "colorHex": "#6b5539"
+      },
+      {
+        "colorName": "old world brown",
+        "colorCode": "MRF-975",
+        "colorHex": "#635741"
+      },
+      {
+        "colorName": "modish olive",
+        "colorCode": "MRF-976",
+        "colorHex": "#68583c"
+      },
+      {
+        "colorName": "florentine brass",
+        "colorCode": "MRF-977",
+        "colorHex": "#775a3b"
+      },
+      {
+        "colorName": "yukon gold",
+        "colorCode": "MRF-978",
+        "colorHex": "#ce8733"
+      },
+      {
+        "colorName": "midas myth gold",
+        "colorCode": "MRF-979",
+        "colorHex": "#be863b"
+      },
+      {
+        "colorName": "golden years",
+        "colorCode": "MRF-980",
+        "colorHex": "#aa8340"
+      },
+      {
+        "colorName": "beehive gold",
+        "colorCode": "MRF-981",
+        "colorHex": "#b67e41"
+      },
+      {
+        "colorName": "mango salsa",
+        "colorCode": "MRF-982",
+        "colorHex": "#ad773a"
+      },
+      {
+        "colorName": "butternut bazaar",
+        "colorCode": "MRF-983",
+        "colorHex": "#92723f"
+      },
+      {
+        "colorName": "pot of gold",
+        "colorCode": "MRF-984",
+        "colorHex": "#97783b"
+      },
+      {
+        "colorName": "cerignola olive",
+        "colorCode": "MRF-985",
+        "colorHex": "#988444"
+      },
+      {
+        "colorName": "olive green",
+        "colorCode": "MRF-986",
+        "colorHex": "#836b35"
+      },
+      {
+        "colorName": "angrignon olive",
+        "colorCode": "MRF-987",
+        "colorHex": "#67603d"
+      },
+      {
+        "colorName": "manzanilla olive",
+        "colorCode": "MRF-988",
+        "colorHex": "#67603d"
+      },
+      {
+        "colorName": "sicilian olive",
+        "colorCode": "MRF-989",
+        "colorHex": "#5a553b"
+      },
+      {
+        "colorName": "granny apple",
+        "colorCode": "MRF-998",
+        "colorHex": "#908851"
+      },
+      {
+        "colorName": "sunspot",
+        "colorCode": "MRF-1017",
+        "colorHex": "#f7d698"
+      },
+      {
+        "colorName": "yellow quartz",
+        "colorCode": "MRF-1021",
+        "colorHex": "#ebe5b4"
+      },
+      {
+        "colorName": "bleached peach",
+        "colorCode": "MRF-1023",
+        "colorHex": "#e9c8b9"
+      },
+      {
+        "colorName": "lifes a peach",
+        "colorCode": "MRF-1033",
+        "colorHex": "#e5c3b2"
+      },
+      {
+        "colorName": "stylish shrimp",
+        "colorCode": "MRF-1034",
+        "colorHex": "#d4997f"
+      },
+      {
+        "colorName": "naval orange",
+        "colorCode": "MRF-1035",
+        "colorHex": "#b57056"
+      },
+      {
+        "colorName": "valencia orange",
+        "colorCode": "MRF-1036",
+        "colorHex": "#d39271"
+      },
+      {
+        "colorName": "lemon curd",
+        "colorCode": "MRF-1037",
+        "colorHex": "#e9bb6c"
+      },
+      {
+        "colorName": "shell flower",
+        "colorCode": "MRF-1045",
+        "colorHex": "#e4c1ab"
+      },
+      {
+        "colorName": "tart lemon",
+        "colorCode": "MRF-1049",
+        "colorHex": "#f3c63b"
+      },
+      {
+        "colorName": "golden glean",
+        "colorCode": "MRF-1050",
+        "colorHex": "#ecbf4a"
+      },
+      {
+        "colorName": "fairytale gold",
+        "colorCode": "MRF-1051",
+        "colorHex": "#f0d987"
+      },
+      {
+        "colorName": "country kitchen yellow",
+        "colorCode": "MRF-1052",
+        "colorHex": "#ece5b5"
+      },
+      {
+        "colorName": "sunny terrace",
+        "colorCode": "MRF-1053",
+        "colorHex": "#ede7b5"
+      },
+      {
+        "colorName": "majolica yellow",
+        "colorCode": "MRF-1056",
+        "colorHex": "#efdf89"
+      },
+      {
+        "colorName": "renaissance garden",
+        "colorCode": "MRF-1057",
+        "colorHex": "#eddc7d"
+      },
+      {
+        "colorName": "limoncello",
+        "colorCode": "MRF-1058",
+        "colorHex": "#edc62b"
+      },
+      {
+        "colorName": "cats eye",
+        "colorCode": "MRF-1059",
+        "colorHex": "#ebcd65"
+      },
+      {
+        "colorName": "etichette",
+        "colorCode": "MRF-1060",
+        "colorHex": "#ecd686"
+      },
+      {
+        "colorName": "pat a cake",
+        "colorCode": "MRF-1062",
+        "colorHex": "#d7b499"
+      },
+      {
+        "colorName": "play it by ear",
+        "colorCode": "MRF-1065",
+        "colorHex": "#c18f6c"
+      },
+      {
+        "colorName": "hat trick terra",
+        "colorCode": "MRF-1067",
+        "colorHex": "#b77858"
+      },
+      {
+        "colorName": "carte blanche coral",
+        "colorCode": "MRF-1068",
+        "colorHex": "#c78f79"
+      },
+      {
+        "colorName": "working it peach",
+        "colorCode": "MRF-1070",
+        "colorHex": "#e1b89f"
+      },
+      {
+        "colorName": "piccalilli peach",
+        "colorCode": "MRF-1074",
+        "colorHex": "#e8cdb2"
+      },
+      {
+        "colorName": "architect apricot",
+        "colorCode": "MRF-1082",
+        "colorHex": "#e8c9a6"
+      },
+      {
+        "colorName": "arena chapel peach",
+        "colorCode": "MRF-1083",
+        "colorHex": "#e5b793"
+      },
+      {
+        "colorName": "madonna orange",
+        "colorCode": "MRF-1084",
+        "colorHex": "#cd885b"
+      },
+      {
+        "colorName": "salvation orange",
+        "colorCode": "MRF-1085",
+        "colorHex": "#c88c61"
+      },
+      {
+        "colorName": "assisi tangelo",
+        "colorCode": "MRF-1087",
+        "colorHex": "#e9b48b"
+      },
+      {
+        "colorName": "cathedral whisper",
+        "colorCode": "MRF-1088",
+        "colorHex": "#ebceb1"
+      },
+      {
+        "colorName": "giggling bisque",
+        "colorCode": "MRF-1092",
+        "colorHex": "#d4b395"
+      },
+      {
+        "colorName": "gossiping topaz",
+        "colorCode": "MRF-1093",
+        "colorHex": "#c49068"
+      },
+      {
+        "colorName": "pumpkin pie",
+        "colorCode": "MRF-1105",
+        "colorHex": "#bb7a3f"
+      },
+      {
+        "colorName": "honey do list",
+        "colorCode": "MRF-1106",
+        "colorHex": "#d0945d"
+      },
+      {
+        "colorName": "honey bird",
+        "colorCode": "MRF-1117",
+        "colorHex": "#e7b589"
+      },
+      {
+        "colorName": "cocoa butter",
+        "colorCode": "MRF-1121",
+        "colorHex": "#e7d6bb"
+      },
+      {
+        "colorName": "winter wheat",
+        "colorCode": "MRF-1122",
+        "colorHex": "#dbbf9c"
+      },
+      {
+        "colorName": "glazed apricot",
+        "colorCode": "MRF-1124",
+        "colorHex": "#b48c63"
+      },
+      {
+        "colorName": "butterscotch rum",
+        "colorCode": "MRF-1125",
+        "colorHex": "#b08357"
+      },
+      {
+        "colorName": "paloma tan",
+        "colorCode": "MRF-1126",
+        "colorHex": "#e0b082"
+      },
+      {
+        "colorName": "peach shake",
+        "colorCode": "MRF-1127",
+        "colorHex": "#e5d0b2"
+      },
+      {
+        "colorName": "sun stone",
+        "colorCode": "MRF-1134",
+        "colorHex": "#e7c99a"
+      },
+      {
+        "colorName": "my honey",
+        "colorCode": "MRF-1135",
+        "colorHex": "#e6c089"
+      },
+      {
+        "colorName": "caesar pegna",
+        "colorCode": "MRF-1136",
+        "colorHex": "#cc974e"
+      },
+      {
+        "colorName": "golden gossamer",
+        "colorCode": "MRF-1138",
+        "colorHex": "#daac66"
+      },
+      {
+        "colorName": "straw yellow",
+        "colorCode": "MRF-1158",
+        "colorHex": "#e9c18b"
+      }
+    ],
+    "Greys": [
+      {
+        "colorName": "breithorn gray",
+        "colorCode": "MRF-560",
+        "colorHex": "#d6e1df"
+      },
+      {
+        "colorName": "uffizi gallery white",
+        "colorCode": "MRF-569",
+        "colorHex": "#dfe3dd"
+      },
+      {
+        "colorName": "leaning tower beige",
+        "colorCode": "MRF-575",
+        "colorHex": "#e0e2de"
+      },
+      {
+        "colorName": "de medici cream",
+        "colorCode": "MRF-576",
+        "colorHex": "#d9dcd7"
+      },
+      {
+        "colorName": "white marble",
+        "colorCode": "MRF-577",
+        "colorHex": "#d2d4ce"
+      },
+      {
+        "colorName": "vaccaro white",
+        "colorCode": "MRF-579",
+        "colorHex": "#dee2d9"
+      },
+      {
+        "colorName": "greige scallop",
+        "colorCode": "MRF-580",
+        "colorHex": "#e0e1d6"
+      },
+      {
+        "colorName": "succulent shellfish",
+        "colorCode": "MRF-581",
+        "colorHex": "#d3d9d1"
+      },
+      {
+        "colorName": "shelled mussel",
+        "colorCode": "MRF-582",
+        "colorHex": "#d1d4cc"
+      },
+      {
+        "colorName": "ageless marble",
+        "colorCode": "MRF-583",
+        "colorHex": "#c1cac9"
+      },
+      {
+        "colorName": "safe   sound",
+        "colorCode": "MRF-729",
+        "colorHex": "#aba68c"
+      },
+      {
+        "colorName": "play it safe",
+        "colorCode": "MRF-733",
+        "colorHex": "#cecdb9"
+      },
+      {
+        "colorName": "spiaggia sand",
+        "colorCode": "MRF-763",
+        "colorHex": "#c8cfc5"
+      },
+      {
+        "colorName": "capri cascade",
+        "colorCode": "MRF-765",
+        "colorHex": "#b8c1b5"
+      },
+      {
+        "colorName": "grand beach green",
+        "colorCode": "MRF-767",
+        "colorHex": "#a1a89a"
+      },
+      {
+        "colorName": "steep slope",
+        "colorCode": "MRF-769",
+        "colorHex": "#6f7363"
+      },
+      {
+        "colorName": "vesuvius gray",
+        "colorCode": "MRF-771",
+        "colorHex": "#caccc0"
+      },
+      {
+        "colorName": "minerva gray",
+        "colorCode": "MRF-819",
+        "colorHex": "#d9e3db"
+      },
+      {
+        "colorName": "realistic gray",
+        "colorCode": "MRF-820",
+        "colorHex": "#b1c2c1"
+      },
+      {
+        "colorName": "cannon gray",
+        "colorCode": "MRF-821",
+        "colorHex": "#76868c"
+      },
+      {
+        "colorName": "obscure licorice",
+        "colorCode": "MRF-822",
+        "colorHex": "#4e5758"
+      },
+      {
+        "colorName": "armor gray",
+        "colorCode": "MRF-824",
+        "colorHex": "#89989a"
+      },
+      {
+        "colorName": "11th hour",
+        "colorCode": "MRF-825",
+        "colorHex": "#c9d2ce"
+      },
+      {
+        "colorName": "gray skies",
+        "colorCode": "MRF-826",
+        "colorHex": "#cbd1d3"
+      },
+      {
+        "colorName": "end of the line",
+        "colorCode": "MRF-828",
+        "colorHex": "#81929f"
+      },
+      {
+        "colorName": "thundery",
+        "colorCode": "MRF-829",
+        "colorHex": "#68757f"
+      },
+      {
+        "colorName": "turbulent waters",
+        "colorCode": "MRF-831",
+        "colorHex": "#76909d"
+      },
+      {
+        "colorName": "euro gray",
+        "colorCode": "MRF-833",
+        "colorHex": "#ced9d2"
+      },
+      {
+        "colorName": "keeping it real",
+        "colorCode": "MRF-838",
+        "colorHex": "#848e9a"
+      },
+      {
+        "colorName": "muffled mallow",
+        "colorCode": "MRF-846",
+        "colorHex": "#deded9"
+      },
+      {
+        "colorName": "china doll",
+        "colorCode": "MRF-849",
+        "colorHex": "#ceccbf"
+      },
+      {
+        "colorName": "sculpture gray",
+        "colorCode": "MRF-850",
+        "colorHex": "#acab9f"
+      },
+      {
+        "colorName": "gray nuance",
+        "colorCode": "MRF-854",
+        "colorHex": "#cbcec7"
+      },
+      {
+        "colorName": "malta gray",
+        "colorCode": "MRF-855",
+        "colorHex": "#bfbfb6"
+      },
+      {
+        "colorName": "oyster shell",
+        "colorCode": "MRF-859",
+        "colorHex": "#cfcfc6"
+      },
+      {
+        "colorName": "bauhaus beige",
+        "colorCode": "MRF-860",
+        "colorHex": "#dfded2"
+      },
+      {
+        "colorName": "bacchus khaki",
+        "colorCode": "MRF-861",
+        "colorHex": "#d8d4c8"
+      },
+      {
+        "colorName": "valletta khaki",
+        "colorCode": "MRF-862",
+        "colorHex": "#acac9e"
+      },
+      {
+        "colorName": "army green",
+        "colorCode": "MRF-863",
+        "colorHex": "#918e7b"
+      },
+      {
+        "colorName": "camouflage green",
+        "colorCode": "MRF-864",
+        "colorHex": "#837b66"
+      },
+      {
+        "colorName": "fieldstone",
+        "colorCode": "MRF-865",
+        "colorHex": "#89826f"
+      },
+      {
+        "colorName": "uffizi tan",
+        "colorCode": "MRF-866",
+        "colorHex": "#aeaa95"
+      },
+      {
+        "colorName": "loganberry violet",
+        "colorCode": "MRF-941",
+        "colorHex": "#3b3c54"
+      },
+      {
+        "colorName": "purple passion",
+        "colorCode": "MRF-942",
+        "colorHex": "#3d3b48"
+      },
+      {
+        "colorName": "gourmet chocolate",
+        "colorCode": "MRF-946",
+        "colorHex": "#5d4f48"
+      },
+      {
+        "colorName": "radcliffe brown",
+        "colorCode": "MRF-947",
+        "colorHex": "#45413d"
+      },
+      {
+        "colorName": "chocolate chip",
+        "colorCode": "MRF-949",
+        "colorHex": "#45403a"
+      },
+      {
+        "colorName": "cordovan leather",
+        "colorCode": "MRF-952",
+        "colorHex": "#53443c"
+      },
+      {
+        "colorName": "tobacco seed",
+        "colorCode": "MRF-953",
+        "colorHex": "#574d43"
+      },
+      {
+        "colorName": "flambeau burgundy",
+        "colorCode": "MRF-955",
+        "colorHex": "#47413b"
+      },
+      {
+        "colorName": "lucque olive",
+        "colorCode": "MRF-990",
+        "colorHex": "#4c503d"
+      },
+      {
+        "colorName": "gaeta olive",
+        "colorCode": "MRF-991",
+        "colorHex": "#4c4d3e"
+      },
+      {
+        "colorName": "caesar salad",
+        "colorCode": "MRF-992",
+        "colorHex": "#536349"
+      },
+      {
+        "colorName": "haunted forest",
+        "colorCode": "MRF-993",
+        "colorHex": "#404b3e"
+      },
+      {
+        "colorName": "huntsman green",
+        "colorCode": "MRF-994",
+        "colorHex": "#5d5d41"
+      },
+      {
+        "colorName": "blue jeans",
+        "colorCode": "MRF-1001",
+        "colorHex": "#4c5f67"
+      },
+      {
+        "colorName": "chimney gray",
+        "colorCode": "MRF-1005",
+        "colorHex": "#4d5657"
+      },
+      {
+        "colorName": "steel blue",
+        "colorCode": "MRF-1006",
+        "colorHex": "#435458"
+      },
+      {
+        "colorName": "dark knight",
+        "colorCode": "MRF-1008",
+        "colorHex": "#38464a"
+      },
+      {
+        "colorName": "malachite",
+        "colorCode": "MRF-1009",
+        "colorHex": "#4d5758"
+      },
+      {
+        "colorName": "gallery gray",
+        "colorCode": "MRF-1011",
+        "colorHex": "#404b4b"
+      },
+      {
+        "colorName": "smokestack gray",
+        "colorCode": "MRF-1012",
+        "colorHex": "#424b4c"
+      },
+      {
+        "colorName": "raven",
+        "colorCode": "MRF-1013",
+        "colorHex": "#323a3a"
+      },
+      {
+        "colorName": "magari",
+        "colorCode": "MRF-1040",
+        "colorHex": "#a1ba9f"
+      },
+      {
+        "colorName": "green as grass",
+        "colorCode": "MRF-1041",
+        "colorHex": "#6c8961"
+      },
+      {
+        "colorName": "green thumb",
+        "colorCode": "MRF-1042",
+        "colorHex": "#90b192"
+      },
+      {
+        "colorName": "nietzsches nap",
+        "colorCode": "MRF-1094",
+        "colorHex": "#90aeaa"
+      },
+      {
+        "colorName": "clear vision blue",
+        "colorCode": "MRF-1212",
+        "colorHex": "#dde2df"
+      },
+      {
+        "colorName": "purple mountain majesty",
+        "colorCode": "MRF-1215",
+        "colorHex": "#64758c"
+      },
+      {
+        "colorName": "purple pucker",
+        "colorCode": "MRF-1219",
+        "colorHex": "#d6dce1"
+      },
+      {
+        "colorName": "rock   roll amethyst",
+        "colorCode": "MRF-1221",
+        "colorHex": "#d9d4d5"
+      },
+      {
+        "colorName": "ps qs orchid",
+        "colorCode": "MRF-1222",
+        "colorHex": "#b7b2bf"
+      },
+      {
+        "colorName": "plum pudding",
+        "colorCode": "MRF-1223",
+        "colorHex": "#a19cac"
+      },
+      {
+        "colorName": "plums the word",
+        "colorCode": "MRF-1224",
+        "colorHex": "#6b7297"
+      },
+      {
+        "colorName": "play it again purple",
+        "colorCode": "MRF-1230",
+        "colorHex": "#cfd1da"
+      },
+      {
+        "colorName": "soul mate",
+        "colorCode": "MRF-1235",
+        "colorHex": "#6f7187"
+      },
+      {
+        "colorName": "winter velvet",
+        "colorCode": "MRF-1236",
+        "colorHex": "#9b98aa"
+      },
+      {
+        "colorName": "rarely regal",
+        "colorCode": "MRF-1237",
+        "colorHex": "#b8b6c0"
+      },
+      {
+        "colorName": "babe in the woods",
+        "colorCode": "MRF-1239",
+        "colorHex": "#d8cdc9"
+      },
+      {
+        "colorName": "back in the day",
+        "colorCode": "MRF-1240",
+        "colorHex": "#d8cdc9"
+      },
+      {
+        "colorName": "muskrat love",
+        "colorCode": "MRF-1242",
+        "colorHex": "#7c6b67"
+      },
+      {
+        "colorName": "antique mauve",
+        "colorCode": "MRF-1243",
+        "colorHex": "#a79695"
+      }
+    ],
+    "Reds": [
+      {
+        "colorName": "nouveau red",
+        "colorCode": "MRF-546",
+        "colorHex": "#a4554c"
+      },
+      {
+        "colorName": "get with it coral",
+        "colorCode": "MRF-624",
+        "colorHex": "#cc6872"
+      },
+      {
+        "colorName": "candy apple red",
+        "colorCode": "MRF-870",
+        "colorHex": "#973f4b"
+      },
+      {
+        "colorName": "red hot",
+        "colorCode": "MRF-871",
+        "colorHex": "#853538"
+      },
+      {
+        "colorName": "ravello red",
+        "colorCode": "MRF-873",
+        "colorHex": "#79363f"
+      },
+      {
+        "colorName": "popular poppy",
+        "colorCode": "MRF-878",
+        "colorHex": "#ad4d3f"
+      },
+      {
+        "colorName": "vicario blaze",
+        "colorCode": "MRF-879",
+        "colorHex": "#a14039"
+      },
+      {
+        "colorName": "rum runner",
+        "colorCode": "MRF-880",
+        "colorHex": "#a04034"
+      },
+      {
+        "colorName": "cherry jam",
+        "colorCode": "MRF-881",
+        "colorHex": "#ae4848"
+      },
+      {
+        "colorName": "veneto rose",
+        "colorCode": "MRF-882",
+        "colorHex": "#b6474e"
+      },
+      {
+        "colorName": "rogue brown",
+        "colorCode": "MRF-943",
+        "colorHex": "#8e5146"
+      },
+      {
+        "colorName": "brazilian rosewood",
+        "colorCode": "MRF-944",
+        "colorHex": "#845344"
+      },
+      {
+        "colorName": "sumptuous suede",
+        "colorCode": "MRF-945",
+        "colorHex": "#936257"
+      },
+      {
+        "colorName": "vain coral",
+        "colorCode": "MRF-1022",
+        "colorHex": "#e7cabe"
+      },
+      {
+        "colorName": "ideal peach",
+        "colorCode": "MRF-1024",
+        "colorHex": "#d5a092"
+      },
+      {
+        "colorName": "continuous coral",
+        "colorCode": "MRF-1025",
+        "colorHex": "#c2867c"
+      },
+      {
+        "colorName": "faultless brick",
+        "colorCode": "MRF-1026",
+        "colorHex": "#ac6149"
+      },
+      {
+        "colorName": "welcoming rose",
+        "colorCode": "MRF-1028",
+        "colorHex": "#bf8c85"
+      },
+      {
+        "colorName": "welcome aboard",
+        "colorCode": "MRF-1029",
+        "colorHex": "#e6bdb0"
+      },
+      {
+        "colorName": "wiley peach",
+        "colorCode": "MRF-1032",
+        "colorHex": "#e9d5c9"
       }
     ]
   }

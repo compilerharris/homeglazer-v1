@@ -3,5 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/colour-visualiser/advanced/[step]": "pages/colour-visualiser/advanced/[step].js",
+  "/admin/products/[id]/edit": "pages/admin/products/[id]/edit.js",
   "/colour-visualiser/basic/[brand]/[category]/[color]": "pages/colour-visualiser/basic/[brand]/[category]/[color].js"
 }

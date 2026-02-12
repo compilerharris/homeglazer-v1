@@ -50,7 +50,7 @@ function getSectionHtml(html, sectionName) {
   if (!match) return html;
   const startIdx = match.index + match[0].length;
   // Find next section: <!-- Word --> where Word is a section name (Greens, Oranges, etc.)
-  const nextSection = html.slice(startIdx).match(/\n\s*<!--\s*(?:Yellows|Pinks|Greens|Blues|Reds|Oranges|Purple|Purples|Neutrals|Whites|Green)\s*-->/i);
+  const nextSection = html.slice(startIdx).match(/\n\s*<!--\s*(?:Yellows|Pinks|Greens|Blues|Reds|Oranges|Purple|Purples|Neutrals|Whites|Greys|Grays|Green|Blue|Brown|Browns)\s*-->/i);
   const endIdx = nextSection ? startIdx + nextSection.index : html.length;
   return html.slice(startIdx, endIdx).trim();
 }
