@@ -95,7 +95,7 @@ export default function EditProduct() {
     usage: 'Home' as typeof USAGE_TYPES[number],
     image: '',
     bannerImage: '',
-    sizeUnit: 'L' as 'L' | 'K',
+    sizeUnit: 'L' as 'L' | 'K' | 'P',
     availableSizes: ['1', '4', '10', '20'],
     colors: [''],
     features: [''],
@@ -250,12 +250,14 @@ export default function EditProduct() {
               ? Object.keys(product.prices).filter((k) => product.prices[k])
               : [];
             const first = keys[0] || '';
-            return /K$/i.test(first) ? 'K' : 'L';
+            if (/K$/i.test(first)) return 'K';
+            if (/P$/i.test(first)) return 'P';
+            return 'L';
           })(),
           availableSizes: product.prices && typeof product.prices === 'object'
             ? Object.keys(product.prices)
                 .filter((k) => product.prices[k])
-                .map((k) => k.replace(/^(\d+(?:\.\d+)?)[LK]$/i, '$1') || k)
+                .map((k) => k.replace(/^(\d+(?:\.\d+)?)[LKP]$/i, '$1') || k)
                 .sort((a, b) => (parseFloat(a) || 0) - (parseFloat(b) || 0))
             : ['1', '4', '10', '20'],
           colors: product.colors && product.colors.length > 0 ? product.colors : [''],
@@ -510,7 +512,7 @@ export default function EditProduct() {
         .filter((s) => s.trim() !== '')
         .map((s) => {
           const t = s.trim();
-          const m = t.match(/^(\d+(?:\.\d+)?)[LK]$/i);
+          const m = t.match(/^(\d+(?:\.\d+)?)[LKP]$/i);
           return m ? m[1] : t;
         });
       const uniqueSizes = Array.from(new Set(rawSizes));
@@ -919,7 +921,7 @@ export default function EditProduct() {
                     <Input
                       value={size}
                       onChange={(e) => updateSize(index, e.target.value)}
-                      placeholder={formData.sizeUnit === 'K' ? 'Size (e.g. 1, 5, 25)' : 'Size (e.g. 1, 4, 10, 20)'}
+                      placeholder={formData.sizeUnit === 'K' ? 'Size (e.g. 1, 5, 25)' : formData.sizeUnit === 'P' ? 'Size (e.g. 1, 5, 10)' : 'Size (e.g. 1, 4, 10, 20)'}
                     />
                     {formData.availableSizes.length > 1 && (
                       <Button

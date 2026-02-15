@@ -22,22 +22,54 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 import { fetchProducts, fetchBrands, transformProduct, transformBrand } from '@/lib/api';
+import { sortBrandsByDisplayOrder } from '@/lib/brand-order';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
+
+type SortOption = 'name-asc' | 'name-desc' | 'size-asc' | 'size-desc';
+const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: 'name-asc', label: 'Name A-Z' },
+  { value: 'name-desc', label: 'Name Z-A' },
+  { value: 'size-asc', label: 'Size: Small to Large' },
+  { value: 'size-desc', label: 'Size: Large to Small' },
+];
+
+function getMinSizeValue(prices: Record<string, number>): number {
+  const keys = Object.keys(prices || {}).filter(k => prices[k]);
+  if (keys.length === 0) return Infinity;
+  const values = keys.map(k => {
+    const num = parseFloat(k.replace(/[LKP]$/i, '')) || 0;
+    const isKg = /k$/i.test(k);
+    return isKg ? num * 1000 : num;
+  });
+  return Math.min(...values);
+}
+function getMaxSizeValue(prices: Record<string, number>): number {
+  const keys = Object.keys(prices || {}).filter(k => prices[k]);
+  if (keys.length === 0) return -Infinity;
+  const values = keys.map(k => {
+    const num = parseFloat(k.replace(/[LKP]$/i, '')) || 0;
+    const isKg = /k$/i.test(k);
+    return isKg ? num * 1000 : num;
+  });
+  return Math.max(...values);
+}
 
 const Products: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [brands, setBrands] = useState(FILTER_OPTIONS.brands);
+  const [filterOptions, setFilterOptions] = useState(FILTER_OPTIONS);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const [filters, setFilters] = useState({
     sheenLevel: undefined as string | undefined,
-    surfaceType: undefined as string | undefined,
+    category: undefined as string | undefined,
     usage: undefined as string | undefined,
     quantity: undefined as string | undefined,
   });
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState<SortOption>('name-asc');
   const [showFilterModal, setShowFilterModal] = useState(false);
   const productsPerPage = 12;
 
@@ -56,13 +88,13 @@ const Products: React.FC = () => {
 
         // Transform API data to frontend format
         const transformedProducts = productsData.map(transformProduct);
-        const transformedBrands = brandsData.map(transformBrand);
+        const transformedBrands = sortBrandsByDisplayOrder(brandsData.map(transformBrand));
 
-        // Update filter options with fetched brands
-        const updatedFilterOptions = {
+        // Update filter options with fetched brands (quantity uses fixed ranges)
+        setFilterOptions({
           ...FILTER_OPTIONS,
           brands: transformedBrands,
-        };
+        });
 
         setProducts(transformedProducts);
         setBrands(transformedBrands);
@@ -92,20 +124,43 @@ const Products: React.FC = () => {
     return filtered;
   }, [products, selectedBrand, filters]);
 
+  // Sort products
+  const sortedProducts = useMemo(() => {
+    const sorted = [...filteredProducts];
+    if (sortBy === 'name-asc') {
+      sorted.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'name-desc') {
+      sorted.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (sortBy === 'size-asc') {
+      sorted.sort((a, b) => {
+        const va = getMinSizeValue(a.prices);
+        const vb = getMinSizeValue(b.prices);
+        return va - vb;
+      });
+    } else if (sortBy === 'size-desc') {
+      sorted.sort((a, b) => {
+        const va = getMaxSizeValue(a.prices);
+        const vb = getMaxSizeValue(b.prices);
+        return vb - va;
+      });
+    }
+    return sorted;
+  }, [filteredProducts, sortBy]);
+
   // Paginate products
   const paginatedProducts = useMemo(() => {
     const startIndex = (currentPage - 1) * productsPerPage;
     const endIndex = startIndex + productsPerPage;
-    return filteredProducts.slice(startIndex, endIndex);
-  }, [filteredProducts, currentPage]);
+    return sortedProducts.slice(startIndex, endIndex);
+  }, [sortedProducts, currentPage]);
 
-  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
 
   // Handle filter changes
-  const handleFilterChange = (filterType: 'sheenLevel' | 'surfaceType' | 'usage' | 'quantity', value: string) => {
+  const handleFilterChange = (filterType: 'sheenLevel' | 'category' | 'usage' | 'quantity', value: string) => {
     setFilters(prev => ({
       ...prev,
-      [filterType]: prev[filterType] === value ? undefined : value
+      [filterType]: value === '' ? undefined : (prev[filterType] === value ? undefined : value)
     }));
     setCurrentPage(1); // Reset to first page when filters change
   };
@@ -116,11 +171,23 @@ const Products: React.FC = () => {
     setCurrentPage(1); // Reset to first page when brand changes
   };
 
+  // Handle sort change
+  const handleSortChange = (value: SortOption) => {
+    setSortBy(value);
+    setCurrentPage(1); // Reset to first page when sort changes
+  };
+
+  // Handle page change with scroll to top
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    document.getElementById('products-list')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   // Clear all filters
   const handleClearFilters = () => {
     setFilters({
       sheenLevel: undefined,
-      surfaceType: undefined,
+      category: undefined,
       usage: undefined,
       quantity: undefined,
     });
@@ -178,14 +245,14 @@ const Products: React.FC = () => {
             <div className="hidden lg:block lg:col-span-1">
               <ProductFilters
                 filters={filters}
-                filterOptions={{ ...FILTER_OPTIONS, brands }}
+                filterOptions={{ ...filterOptions, brands }}
                 onFilterChange={handleFilterChange}
                 onClearFilters={handleClearFilters}
               />
             </div>
 
             {/* Right Column - Brand Tabs and Products */}
-            <div className="col-span-1 lg:col-span-3">
+            <div id="products-list" className="col-span-1 lg:col-span-3">
               {/* Brand Tabs */}
               <BrandTabs
                 brands={brands}
@@ -193,11 +260,26 @@ const Products: React.FC = () => {
                 onBrandSelect={handleBrandSelect}
               />
 
-              {/* Results Count */}
-              <div className="mb-6">
+              {/* Results Count and Sort */}
+              <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <p className="text-gray-600">
-                  Showing {paginatedProducts.length} of {filteredProducts.length} products
+                  Showing {paginatedProducts.length} of {sortedProducts.length} products
                 </p>
+                <div className="flex items-center gap-2">
+                  <label htmlFor="sort" className="text-sm text-gray-600">Sort by:</label>
+                  <select
+                    id="sort"
+                    value={sortBy}
+                    onChange={(e) => handleSortChange(e.target.value as SortOption)}
+                    className="border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-700 bg-white focus:ring-2 focus:ring-[#299dd7] focus:border-[#299dd7]"
+                  >
+                    {SORT_OPTIONS.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
               {/* Products Grid */}
@@ -232,7 +314,7 @@ const Products: React.FC = () => {
                   <Pagination
                     currentPage={currentPage}
                     totalPages={totalPages}
-                    onPageChange={setCurrentPage}
+                    onPageChange={handlePageChange}
                   />
                 </>
               ) : (
@@ -312,7 +394,7 @@ const Products: React.FC = () => {
             <div className="flex-1 p-4 overflow-y-auto">
               <ProductFilters
                 filters={filters}
-                filterOptions={{ ...FILTER_OPTIONS, brands }}
+                filterOptions={{ ...filterOptions, brands }}
                 onFilterChange={handleFilterChange}
                 onClearFilters={handleClearFilters}
                 showHeader={false}

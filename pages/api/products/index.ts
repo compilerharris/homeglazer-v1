@@ -68,8 +68,8 @@ function validateCreateProduct(data: any): { isValid: boolean; errors: string[] 
   }
 
   if (data.sizeUnit !== undefined && data.sizeUnit !== null && data.sizeUnit !== '') {
-    if (data.sizeUnit !== 'L' && data.sizeUnit !== 'K') {
-      errors.push('Size unit must be L (Liter) or K (KG)');
+    if (data.sizeUnit !== 'L' && data.sizeUnit !== 'K' && data.sizeUnit !== 'P') {
+      errors.push('Size unit must be L (Liter), K (KG), or P (Pcs)');
     }
   }
 
@@ -327,7 +327,7 @@ async function createProduct(req: NextApiRequest, res: NextApiResponse) {
       specifications: productData.specifications || {},
       bannerImage: productData.bannerImage?.trim() || null,
       subCategory: productData.subCategory?.trim() || null,
-      sizeUnit: (productData.sizeUnit === 'K' || productData.sizeUnit === 'L') ? productData.sizeUnit : 'L',
+      sizeUnit: (productData.sizeUnit === 'K' || productData.sizeUnit === 'L' || productData.sizeUnit === 'P') ? productData.sizeUnit : 'L',
     };
     console.log('Creating product with data:', { name: data.name, brandId: data.brandId, slug: data.slug });
     const product = await prisma.product.create({

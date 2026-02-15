@@ -406,11 +406,13 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
               )}
 
               {/* Features */}
-              {product.features && (
+              {product.features && product.features.filter((f) => f && String(f).trim()).length > 0 && (
                 <div className="mb-8">
                   <h3 className="text-xl font-semibold mb-4">Key Features</h3>
                   <ul className="space-y-2">
-                    {product.features.map((feature, index) => (
+                    {product.features
+                      .filter((f) => f && String(f).trim())
+                      .map((feature, index) => (
                       <li key={index} className="flex items-center text-gray-700">
                         <span className="text-[#299dd7] mr-2">✓</span>
                         {feature}

@@ -40,8 +40,8 @@ function validateUpdateProduct(data: any): { isValid: boolean; errors: string[] 
   }
 
   if (data.sizeUnit !== undefined && data.sizeUnit !== null && data.sizeUnit !== '') {
-    if (data.sizeUnit !== 'L' && data.sizeUnit !== 'K') {
-      errors.push('sizeUnit must be L (Liter) or K (KG)');
+    if (data.sizeUnit !== 'L' && data.sizeUnit !== 'K' && data.sizeUnit !== 'P') {
+      errors.push('sizeUnit must be L (Liter), K (KG), or P (Pcs)');
     }
   }
 
@@ -395,10 +395,10 @@ async function updateProduct(req: NextApiRequest, res: NextApiResponse) {
       const val = (productData as any).subCategory;
       (productData as any).subCategory = (typeof val === 'string' && val.trim()) ? val.trim() : null;
     }
-    // Normalize sizeUnit: must be L or K
+    // Normalize sizeUnit: must be L, K, or P
     if ('sizeUnit' in productData) {
       const val = (productData as any).sizeUnit;
-      (productData as any).sizeUnit = (val === 'K' || val === 'L') ? val : 'L';
+      (productData as any).sizeUnit = (val === 'K' || val === 'L' || val === 'P') ? val : 'L';
     }
 
     // Build update data with only Prisma Product model fields (exclude relation names)

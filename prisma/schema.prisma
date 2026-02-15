@@ -45,7 +45,7 @@ model Product {
   image             String
   bannerImage       String?   // Optional hero banner image URL
   prices            Json // { "1L": 1, "4L": 1, ... } — 1 = available size
-  sizeUnit          String?  @default("L") // "L" = Liter, "K" = KG
+  sizeUnit          String?  @default("L") // "L" = Liter, "K" = KG, "P" = Pcs
   colors            Json? // string[]
   features          Json? // string[]
   specifications    Json? // Record<string, string>

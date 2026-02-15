@@ -69,12 +69,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const defaultSizes = ['1', '4', '10', '20'];
     const sortedSizes = Array.from(sizeCounts.entries())
       .sort((a, b) => b[1] - a[1])
-      .map(([k]) => k.replace(/^(\d+(?:\.\d+)?)[LK]$/i, '$1') || k);
+      .map(([k]) => k.replace(/^(\d+(?:\.\d+)?)[LKP]$/i, '$1') || k);
     const availableSizes = sortedSizes.length > 0 ? sortedSizes : defaultSizes;
 
     // Ensure category is valid
     const sizeUnitRaw = mostCommon(products.map((p: ProductRow) => p.sizeUnit).filter(Boolean) as string[]);
-    const validSizeUnit = (sizeUnitRaw === 'K' || sizeUnitRaw === 'L') ? sizeUnitRaw : 'L';
+    const validSizeUnit = (sizeUnitRaw === 'K' || sizeUnitRaw === 'L' || sizeUnitRaw === 'P') ? sizeUnitRaw : 'L';
 
     const validCategory = CATEGORY_OPTIONS.includes(category as any) ? category : 'Interior & Exterior Both';
     const validSubCategory = subCategoryRaw && SUB_CATEGORY_OPTIONS.includes(subCategoryRaw as any) ? subCategoryRaw : '';

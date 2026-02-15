@@ -1,15 +1,16 @@
 import React from 'react';
 import { FilterOptions, Brand } from '../../data/products';
+import { QUANTITY_RANGES } from '@/lib/quantity-ranges';
 
 interface ProductFiltersProps {
   filters: {
     sheenLevel?: string;
-    surfaceType?: string;
+    category?: string;
     usage?: string;
     quantity?: string;
   };
   filterOptions: FilterOptions;
-  onFilterChange: (filterType: 'sheenLevel' | 'surfaceType' | 'usage' | 'quantity', value: string) => void;
+  onFilterChange: (filterType: 'sheenLevel' | 'category' | 'usage' | 'quantity', value: string) => void;
   onClearFilters: () => void;
   showHeader?: boolean;
   sticky?: boolean;
@@ -114,24 +115,24 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
         </div>
       </FilterSection>
 
-      {/* Surface Type Filter - Single select with radio buttons */}
-      <FilterSection title="Surface Type">
+      {/* Category Filter - Single select with radio buttons (maps to product.category) */}
+      <FilterSection title="Category">
         <div className="space-y-2">
           <FilterRadio
-            label="All Surfaces"
+            label="All Categories"
             value=""
-            checked={!filters.surfaceType}
-            onChange={(value) => onFilterChange('surfaceType', value)}
-            name="surfaceType"
+            checked={!filters.category}
+            onChange={(value) => onFilterChange('category', value)}
+            name="category"
           />
-          {filterOptions.surfaceTypes.map((surface) => (
+          {filterOptions.categories.map((cat) => (
             <FilterRadio
-              key={surface}
-              label={surface}
-              value={surface}
-              checked={filters.surfaceType === surface}
-              onChange={(value) => onFilterChange('surfaceType', value)}
-              name="surfaceType"
+              key={cat}
+              label={cat}
+              value={cat}
+              checked={filters.category === cat}
+              onChange={(value) => onFilterChange('category', value)}
+              name="category"
             />
           ))}
         </div>
@@ -160,8 +161,8 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
         </div>
       </FilterSection>
 
-      {/* Quantity Options - Single select with radio buttons */}
-      <FilterSection title="Quantity Options">
+      {/* Quantity Options - Range-based (Less than 1, 1-10, 10-20, etc.) */}
+      <FilterSection title="Quantity Options (Ltr, KG, Pcs)">
         <div className="space-y-2">
           <FilterRadio
             label="All Quantities"
@@ -170,12 +171,12 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
             onChange={(value) => onFilterChange('quantity', value)}
             name="quantity"
           />
-          {filterOptions.quantityOptions.map((quantity) => (
+          {QUANTITY_RANGES.map((range) => (
             <FilterRadio
-              key={quantity}
-              label={quantity}
-              value={quantity}
-              checked={filters.quantity === quantity}
+              key={range.value}
+              label={range.label}
+              value={range.value}
+              checked={filters.quantity === range.value}
               onChange={(value) => onFilterChange('quantity', value)}
               name="quantity"
             />

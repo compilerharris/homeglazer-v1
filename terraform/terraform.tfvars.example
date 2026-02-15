@@ -1,0 +1,25 @@
+# Copy this file to terraform.tfvars and fill in your values
+# cp terraform.tfvars.example terraform.tfvars
+# NEVER commit terraform.tfvars to version control (contains secrets)
+
+aws_region   = "us-east-1"
+environment  = "prod"
+project_name = "homeglazer"
+
+# Required: Create an EC2 key pair in AWS Console first, then use its name here
+key_pair_name = "my-key-pair"
+
+# Required: Set a strong password for RDS (min 8 chars)
+# Generate with: openssl rand -base64 24
+db_password = "CHANGE_ME_STRONG_PASSWORD"
+
+# Optional: Override defaults
+# instance_type     = "t3.small"
+# db_instance_class = "db.t3.micro"
+# db_username      = "homeglazer"
+
+# Optional: Custom domain (leave empty to use ALB DNS)
+# domain_name = ""
+
+# Set to true to create S3 bucket for media uploads (for future S3 migration)
+enable_s3_uploads = true

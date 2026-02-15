@@ -50,7 +50,7 @@ export default function NewProduct() {
     usage: 'Home' as typeof USAGE_TYPES[number],
     image: '',
     bannerImage: '',
-    sizeUnit: 'L' as 'L' | 'K',
+    sizeUnit: 'L' as 'L' | 'K' | 'P',
     availableSizes: ['1', '4', '10', '20'],
     colors: [''],
     features: [''],
@@ -88,7 +88,7 @@ export default function NewProduct() {
           sheenLevel: (data.sheenLevel && SHEEN_LEVELS.includes(data.sheenLevel)) ? data.sheenLevel : prev.sheenLevel,
           surfaceType: (data.surfaceType && SURFACE_TYPES.includes(data.surfaceType)) ? data.surfaceType : prev.surfaceType,
           usage: (data.usage && USAGE_TYPES.includes(data.usage)) ? data.usage : prev.usage,
-          sizeUnit: (data.sizeUnit === 'K' || data.sizeUnit === 'L') ? data.sizeUnit : prev.sizeUnit,
+          sizeUnit: (data.sizeUnit === 'K' || data.sizeUnit === 'L' || data.sizeUnit === 'P') ? data.sizeUnit : prev.sizeUnit,
           availableSizes: Array.isArray(data.availableSizes) && data.availableSizes.length > 0 ? data.availableSizes : prev.availableSizes,
         }));
       }
@@ -376,7 +376,7 @@ export default function NewProduct() {
         .filter((s) => s.trim() !== '')
         .map((s) => {
           const t = s.trim();
-          const m = t.match(/^(\d+(?:\.\d+)?)[LK]$/i);
+          const m = t.match(/^(\d+(?:\.\d+)?)[LKP]$/i);
           return m ? m[1] : t;
         }); // strip trailing L/K when format is "1L" or "4K"
       const uniqueSizes = Array.from(new Set(rawSizes));
@@ -810,7 +810,7 @@ export default function NewProduct() {
                     <Input
                       value={size}
                       onChange={(e) => updateSize(index, e.target.value)}
-                      placeholder={formData.sizeUnit === 'K' ? 'Size (e.g. 1, 5, 25)' : 'Size (e.g. 1, 4, 10, 20)'}
+                      placeholder={formData.sizeUnit === 'K' ? 'Size (e.g. 1, 5, 25)' : formData.sizeUnit === 'P' ? 'Size (e.g. 1, 5, 10)' : 'Size (e.g. 1, 4, 10, 20)'}
                     />
                     {formData.availableSizes.length > 1 && (
                       <Button

@@ -1,3 +1,5 @@
+import { productHasSizeInRange, type QuantityRangeValue } from '@/lib/quantity-ranges';
+
 export interface Product {
   id: string;
   slug: string;
@@ -27,7 +29,7 @@ export interface Brand {
 
 export interface FilterOptions {
   sheenLevels: string[];
-  surfaceTypes: string[];
+  categories: string[];
   usageTypes: string[];
   quantityOptions: string[];
   brands: Brand[];
@@ -690,11 +692,23 @@ export const PRODUCTS: Product[] = [
 ];
 
 // Filter options derived from products data
+// Category options - must match product.category from API
+const CATEGORY_FILTER_OPTIONS = [
+  'Interior',
+  'Exterior',
+  'Interior & Exterior Both',
+  'Wood Finish',
+  'Metal Finish',
+  'Wood & Metal Finish',
+  'Tile & Grout',
+  'Waterproof',
+];
+
 export const FILTER_OPTIONS: FilterOptions = {
   sheenLevels: ['Ultra Matt', 'Mat', 'Low Sheen', 'High Sheen'],
-  surfaceTypes: ['Interior Wall', 'Exterior Wall', 'Wood', 'Metal'],
+  categories: CATEGORY_FILTER_OPTIONS,
   usageTypes: ['Home', 'Commercial'],
-  quantityOptions: ['1L', '4L', '10L', '20L'],
+  quantityOptions: ['1L', '4L', '10L', '20L', '1K', '5K', '25K'],
   brands: BRANDS
 };
 
@@ -720,20 +734,29 @@ export const getRelatedProducts = (currentProduct: Product, count: number = 4): 
     .slice(0, count);
 };
 
+const QUANTITY_RANGE_VALUES: readonly string[] = ['lt1', '1-5', '6-10', '11-20', '21-30', '31-40', '41-50', '50+'];
+
 export const filterProducts = (
   products: Product[],
   filters: {
     sheenLevel?: string;
-    surfaceType?: string;
+    category?: string;
     usage?: string;
     quantity?: string;
   }
 ): Product[] => {
   return products.filter(product => {
     if (filters.sheenLevel && product.sheenLevel !== filters.sheenLevel) return false;
-    if (filters.surfaceType && product.surfaceType !== filters.surfaceType) return false;
+    if (filters.category && product.category !== filters.category) return false;
     if (filters.usage && product.usage !== filters.usage) return false;
-    if (filters.quantity && !product.prices[filters.quantity]) return false;
+    if (filters.quantity) {
+      if (QUANTITY_RANGE_VALUES.includes(filters.quantity)) {
+        if (!productHasSizeInRange(product.prices, filters.quantity as QuantityRangeValue)) return false;
+      } else {
+        // Legacy: exact size match
+        if (!product.prices[filters.quantity]) return false;
+      }
+    }
     return true;
   });
 }; 

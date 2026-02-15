@@ -16,8 +16,7 @@ dist-ssr
 node-v*/
 *.tar.gz
 
-#.next
-.next/*
+.next
 
 # Editor directories and files
 .vscode/*
@@ -31,3 +30,11 @@ node-v*/
 *.sw?
 /src/generated/prisma
 .vercel
+
+# Terraform
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/*.tfvars
+!terraform/*.tfvars.example

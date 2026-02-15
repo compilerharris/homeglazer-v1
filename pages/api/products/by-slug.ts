@@ -114,7 +114,7 @@ export default async function handler(
       usage: product.usage,
       image: product.image,
       bannerImage: product.bannerImage || null,
-      sizeUnit: product.sizeUnit || 'L',
+      sizeUnit: (product.sizeUnit === 'K' || product.sizeUnit === 'L' || product.sizeUnit === 'P') ? product.sizeUnit : 'L',
       prices: product.prices as Record<string, number>,
       colors: (product.colors as string[]) || [],
       features: (product.features as string[]) || [],

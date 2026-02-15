@@ -36,8 +36,9 @@ export function isValidSubCategory(value: string): value is ProductSubCategory {
   return (SUB_CATEGORY_OPTIONS as readonly string[]).includes(value);
 }
 
-// Size unit: L = Liter, K = KG
+// Size unit: L = Liter, K = KG, P = Pcs (Pieces)
 export const SIZE_UNIT_OPTIONS = [
   { value: 'L', label: 'Liter (L)' },
   { value: 'K', label: 'KG (K)' },
+  { value: 'P', label: 'Pieces (Pcs)' },
 ] as const;
