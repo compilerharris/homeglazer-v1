@@ -7,6 +7,9 @@ const nextConfig = {
   experimental: {
     // Exclude large static assets from serverless function bundles (Vercel 250MB limit)
     outputFileTracingExcludes: {
+      '**': [
+        'public/media/products/**',
+      ],
       '/api/email-visualiser-summary': [
         'public/assets/Ai/**',
         'public/uploads/**',
