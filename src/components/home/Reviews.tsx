@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionCarousel from './SectionCarousel';
+import { SECTION_CTA_CLASSES } from './CTAButton';
 import { CarouselItem } from "@/components/ui/carousel";
 const Reviews: React.FC = () => {
   // Real Google reviews from verified customers
@@ -57,7 +58,7 @@ const Reviews: React.FC = () => {
         href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0TE8zSM7NTjE0YLRSNagwtjRITjU0SEs2tUw2T0k1tTKoMLKwNEkySUm1tDBOTTUwNffizsjPTVVIz0msSi0CAH89E50&q=home+glazer&rlz=1C9BKJA_enIN1146IN1146&oq=home+glazer&hl=en-GB&sourceid=chrome-mobile&ie=UTF-8&sei=H450ac_NOJGf4-EPhvOZ6A8&dlnr=1#ebo=0&lrd=0x390ce10fc59c7de5:0x2894b4de983ee057,1,,,,"
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-[#ED276E] hover:bg-[#c91f5d] text-white font-bold flex min-h-[48px] items-center gap-[13px] text-[16px] px-5 py-3 rounded-full transition-all hover:shadow-lg"
+        className={`${SECTION_CTA_CLASSES} flex items-center gap-[13px]`}
       >
         <span>View All Reviews</span>
         <img alt="Arrow Icon" className="aspect-[1] object-contain w-[20px] brightness-0 invert" src="/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />

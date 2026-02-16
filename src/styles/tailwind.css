@@ -133,6 +133,11 @@
     transition: all 0.25s ease;
   }
 
+  html,
+  body {
+    overflow-x: clip; /* stronger than hidden - prevents horizontal scrollbar */
+  }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { AlertCircle, Send, X } from 'lucide-react';
 import { VariantManifest, ColorSwatch } from '../../hooks/useVisualizer';
 import Breadcrumbs from './Breadcrumbs';
+import CanvasAdvancedRoomVisualiser, { type CanvasAdvancedRoomVisualiserRef } from './CanvasAdvancedRoomVisualiser';
 
 interface BreadcrumbItem {
   label: string;
@@ -103,8 +104,8 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const previewScrollRef = useRef<HTMLDivElement>(null);
   const previewImageRef = useRef<HTMLDivElement>(null);
-  const mobilePreviewRef = useRef<HTMLDivElement>(null);
-  const desktopPreviewRef = useRef<HTMLDivElement>(null);
+  const mobilePreviewCanvasRef = useRef<CanvasAdvancedRoomVisualiserRef>(null);
+  const desktopPreviewCanvasRef = useRef<CanvasAdvancedRoomVisualiserRef>(null);
 
   type EmailModalPhase = 'closed' | 'form' | 'loading' | 'success';
   const [emailModalPhase, setEmailModalPhase] = useState<EmailModalPhase>('closed');
@@ -124,20 +125,12 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   });
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   const [isButtonFixed, setIsButtonFixed] = useState(true);
-  const [imageLoading, setImageLoading] = useState(true);
-  const [imageError, setImageError] = useState(false);
   const [isRecoloring, setIsRecoloring] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   // Debug log for showSwipeHint state
   console.log('Current showSwipeHint state:', showSwipeHint);
   console.log('Current isZoomed state:', isZoomed);
-
-  // Reset image loading state when variant changes
-  useEffect(() => {
-    setImageLoading(true);
-    setImageError(false);
-  }, [variant.mainImage]);
 
   // Check screen size for responsive width and zoom state
   useEffect(() => {
@@ -202,10 +195,6 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
 
   const handleEmailThisLook = () => {
     setEmailModalPhase('form');
-    // Preload dom-to-image-more so first capture is faster
-    if (typeof window !== 'undefined') {
-      import('dom-to-image-more').catch(() => {});
-    }
   };
 
   const handleEmailSubmit = async () => {
@@ -228,26 +217,16 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     // Allow layout to settle and ensure preview is fully rendered
     await new Promise((r) => setTimeout(r, 200));
 
-    const previewNode =
+    const canvasRef =
       typeof window !== 'undefined' && window.innerWidth >= 1024
-        ? desktopPreviewRef.current
-        : mobilePreviewRef.current;
+        ? desktopPreviewCanvasRef
+        : mobilePreviewCanvasRef;
 
     let previewImageBase64 = '';
-    if (previewNode && typeof window !== 'undefined') {
+    if (canvasRef.current && typeof window !== 'undefined') {
       try {
-        const domtoimage = (await import('dom-to-image-more')).default;
-        const capturePromise = domtoimage.toPng(previewNode, {
-          quality: 0.95,
-          bgcolor: '#ffffff',
-          scale: 2,
-          width: previewNode.offsetWidth,
-          height: previewNode.offsetHeight,
-        });
-        const timeoutPromise = new Promise<string>((_, reject) =>
-          setTimeout(() => reject(new Error('Capture timeout')), 15000)
-        );
-        previewImageBase64 = await Promise.race([capturePromise, timeoutPromise]);
+        const dataUrl = canvasRef.current.toDataURL('image/png');
+        if (dataUrl) previewImageBase64 = dataUrl;
       } catch (captureErr) {
         console.error('Preview capture failed:', captureErr);
       }
@@ -485,84 +464,25 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         {/* Left Column - Room Preview */}
         <div className="flex-1 min-w-0">
           <div
-            ref={desktopPreviewRef}
             className="relative room-preview-container overflow-hidden rounded-lg"
             style={{ aspectRatio: '16/9', width: '100%', height: 'auto' }}
           >
-        <img
-          src={variant.mainImage}
-          alt={variant.label}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ display: 'block', width: '100%', height: '100%' }}
-          onError={(e) => {
-            console.error('Failed to load image:', variant.mainImage);
-            setImageError(true);
-            setImageLoading(false);
-            e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Room+Preview';
-          }}
-          onLoad={() => {
-            console.log('Image loaded successfully:', variant.mainImage);
-            setImageLoading(false);
-            setImageError(false);
-          }}
-        />
-            {/* SVG Overlay for wall masking */}
-            <svg
-              className="svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply"
-              viewBox="0 0 1280 720"
-              preserveAspectRatio="xMidYMid slice"
-              style={{ width: '100%', height: '100%' }}
-            >
-              {wallKeys.map((wallKey) => {
-                if (!assignments[wallKey] || !wallMasks[wallKey]) return null;
-                return (
-                  <g key={wallKey}>
-                    <defs>
-                      <mask id={`wall-mask-desktop-${wallKey}`}>
-                        <rect width="100%" height="100%" fill="black"/>
-                        <path d={wallMasks[wallKey]} fill="white"/>
-                      </mask>
-                    </defs>
-                    <rect 
-                      width="100%" 
-                      height="100%" 
-                      fill={assignments[wallKey]}
-                      opacity="0.7"
-                      mask={`url(#wall-mask-desktop-${wallKey})`}
-                      className="wall-path"
-                    />
-                  </g>
-                );
-              })}
-            </svg>
-        {loadingMasks && (
-          <div
-            className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"
-            data-capture-ignore="true"
-          >
-            <div className="text-gray-500">Loading masks...</div>
+            <CanvasAdvancedRoomVisualiser
+              ref={desktopPreviewCanvasRef}
+              imageSrc={variant.mainImage}
+              wallMasks={wallMasks}
+              assignments={assignments}
+              loadingMasks={loadingMasks}
+            />
+            {loadingMasks && (
+              <div
+                className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"
+                data-capture-ignore="true"
+              >
+                <div className="text-gray-500">Loading masks...</div>
+              </div>
+            )}
           </div>
-        )}
-        {imageLoading && !imageError && (
-          <div
-            className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"
-            data-capture-ignore="true"
-          >
-            <div className="text-gray-500">Loading image...</div>
-          </div>
-        )}
-        {imageError && (
-          <div
-            className="absolute inset-0 bg-gray-100 flex items-center justify-center"
-            data-capture-ignore="true"
-          >
-            <div className="text-gray-500 text-center">
-              <div className="text-sm">Image failed to load</div>
-              <div className="text-xs mt-1">Using placeholder</div>
-            </div>
-          </div>
-        )}
-      </div>
           
           {/* Spacebar Feature Text - Desktop Only */}
           <div className="hidden lg:block text-center mt-4">
@@ -726,81 +646,22 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           >
             <div className={`${isZoomed ? 'w-full' : 'h-full flex items-center justify-center min-w-max'} transition-all duration-500 ease-in-out`}>
               <div
-                ref={mobilePreviewRef}
                 className={`relative room-preview-container overflow-hidden rounded-lg ${isZoomed ? 'w-full' : 'h-full flex items-center justify-center'} transition-all duration-500 ease-in-out`}
                 style={{ minHeight: isZoomed ? 'auto' : '100%', aspectRatio: isZoomed ? '16/9' : 'auto' }}
               >
-                <img
-                  src={variant.mainImage}
-                  alt={variant.label}
-                  className={`w-full h-full object-cover transition-all duration-500 ease-in-out transform`}
-                  style={{ display: 'block', width: '100%', height: '100%' }}
-                  onError={(e) => {
-                    console.error('Failed to load image:', variant.mainImage);
-                    setImageError(true);
-                    setImageLoading(false);
-                    e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Room+Preview';
-                  }}
-                  onLoad={() => {
-                    console.log('Image loaded successfully:', variant.mainImage);
-                    setImageLoading(false);
-                    setImageError(false);
-                  }}
+                <CanvasAdvancedRoomVisualiser
+                  ref={mobilePreviewCanvasRef}
+                  imageSrc={variant.mainImage}
+                  wallMasks={wallMasks}
+                  assignments={assignments}
+                  loadingMasks={loadingMasks}
                 />
-                {/* SVG Overlay for wall masking */}
-                <svg 
-                  className="svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply transition-all duration-500 ease-in-out"
-                  viewBox="0 0 1280 720"
-                  preserveAspectRatio="xMidYMid slice"
-                  style={{ width: '100%', height: '100%' }}
-                >
-                  {wallKeys.map((wallKey) => {
-                    if (!assignments[wallKey] || !wallMasks[wallKey]) return null;
-                    return (
-                      <g key={wallKey}>
-                        <defs>
-                          <mask id={`wall-mask-mobile-${wallKey}`}>
-                            <rect width="100%" height="100%" fill="black"/>
-                            <path d={wallMasks[wallKey]} fill="white"/>
-                          </mask>
-                        </defs>
-                        <rect 
-                          width="100%" 
-                          height="100%" 
-                          fill={assignments[wallKey]}
-                          opacity="0.7"
-                          mask={`url(#wall-mask-mobile-${wallKey})`}
-                          className="wall-path"
-                        />
-                      </g>
-                    );
-                  })}
-                </svg>
                 {loadingMasks && (
                   <div
                     className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"
                     data-capture-ignore="true"
                   >
                     <div className="text-gray-500">Loading masks...</div>
-                  </div>
-                )}
-                {imageLoading && !imageError && (
-                  <div
-                    className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"
-                    data-capture-ignore="true"
-                  >
-                    <div className="text-gray-500">Loading image...</div>
-                  </div>
-                )}
-                {imageError && (
-                  <div
-                    className="absolute inset-0 bg-gray-100 flex items-center justify-center"
-                    data-capture-ignore="true"
-                  >
-                    <div className="text-gray-500 text-center">
-                      <div className="text-sm">Image failed to load</div>
-                      <div className="text-xs mt-1">Using placeholder</div>
-                    </div>
                   </div>
                 )}
               </div>

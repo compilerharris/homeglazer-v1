@@ -1,9 +1,9 @@
 import React from 'react';
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 import SectionCarousel from './SectionCarousel';
 import { CarouselItem } from "@/components/ui/carousel";
-import CTAButton from './CTAButton';
-import Link from 'next/link';
+import { SECTION_CTA_CLASSES } from './CTAButton';
 import { blogPosts } from '@/data/blogPosts';
 import Image from 'next/image';
 
@@ -87,9 +87,9 @@ const DesignInsights: React.FC = () => {
         </SectionCarousel>
       </div>
       <div className="flex justify-center">
-        <CTAButton to="/blog">
+        <Link href="/blog" className={SECTION_CTA_CLASSES}>
           View All Articles
-        </CTAButton>
+        </Link>
       </div>
     </section>
   );

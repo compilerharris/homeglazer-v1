@@ -1,12 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import CTAButton from './CTAButton';
+import CanvasRoomVisualiser from '../visualizer/CanvasRoomVisualiser';
+import { embeddedWallMasks } from '../../data/embeddedWallMasks';
+
+const roomImage = '/assets/images/bedroom/bedroom6/bedroom6.jpg';
+const wallKeys = ['left', 'right', 'window'];
+const combinedWallPath = wallKeys
+  .map((k) => embeddedWallMasks.bedroom6?.[k])
+  .filter(Boolean)
+  .join(' ');
 
 const ColourVisualizer: React.FC = () => {
   const [selectedColor, setSelectedColor] = useState<string>('#F9D07D');
-  const [wallMasks, setWallMasks] = useState<Record<string, string>>({});
-  const [loadingMasks, setLoadingMasks] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const svgRef = useRef<SVGSVGElement>(null);
 
   // Color options - just colors, no names or codes
   const colorOptions = [
@@ -18,16 +24,6 @@ const ColourVisualizer: React.FC = () => {
     { color: "#F48FB1" }  // Bubblegum Pink
   ];
 
-  // Use existing bedroom6 assets
-  const roomImage = '/assets/images/bedroom/bedroom6/bedroom6.jpg';
-  const wallSvgs = {
-    left: '/assets/images/bedroom/bedroom6/left-wall.svg',
-    right: '/assets/images/bedroom/bedroom6/right-wall.svg',
-    window: '/assets/images/bedroom/bedroom6/window.svg'
-  };
-
-  const wallKeys = ['left', 'right', 'window'];
-
   // Auto-advance slides every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,59 +34,6 @@ const ColourVisualizer: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [currentSlide, colorOptions.length]);
-
-  // Load wall masks from existing bedroom1 assets
-  useEffect(() => {
-    const loadMasks = async () => {
-      setLoadingMasks(true);
-      
-      const promises = Object.entries(wallSvgs).map(async ([key, url]) => {
-        try {
-          const res = await fetch(url);
-          const svgText = await res.text();
-          
-          // Try DOMParser if available
-          if (typeof window !== 'undefined' && 'DOMParser' in window) {
-            try {
-              const parser = new window.DOMParser();
-              const doc = parser.parseFromString(svgText, 'image/svg+xml');
-              const path = doc.querySelector('path');
-              if (path && path.getAttribute('d')) {
-                return { key, d: path.getAttribute('d') || '' };
-              }
-            } catch (e) {
-              console.error('Error parsing SVG with DOMParser:', e);
-            }
-          }
-          
-          // Fallback: regex for d attribute
-          const pathMatch = svgText.match(/<path[^>]*d=["']([^"']+)["'][^>]*>/i);
-          if (pathMatch && pathMatch[1]) {
-            return { key, d: pathMatch[1] };
-          }
-          
-          return null;
-        } catch (error) {
-          console.error(`Error loading mask for ${key}:`, error);
-          return null;
-        }
-      });
-
-      const results = await Promise.all(promises);
-      const newMasks: Record<string, string> = {};
-      
-      results.forEach(result => {
-        if (result) {
-          newMasks[result.key] = result.d;
-        }
-      });
-      
-      setWallMasks(newMasks);
-      setLoadingMasks(false);
-    };
-
-    loadMasks();
-  }, []);
 
   const handleColorClick = (color: string, index: number) => {
     setSelectedColor(color);
@@ -130,46 +73,14 @@ const ColourVisualizer: React.FC = () => {
           {/* Carousel-like Image Display */}
           <div className="relative">
             <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
-              <img
-                src={roomImage}
-                alt="Room Preview"
-                className="w-full h-full object-cover"
-              />
-              {/* SVG Overlay for wall masking */}
-              <svg
-                ref={svgRef}
-                className="svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply"
-                viewBox="0 0 1280 720"
-                preserveAspectRatio="xMidYMid slice"
-              >
-                {wallKeys.map((wallKey) => {
-                  if (!wallMasks[wallKey]) return null;
-                  return (
-                    <g key={wallKey}>
-                      <defs>
-                        <mask id={`wall-mask-${wallKey}`}>
-                          <rect width="100%" height="100%" fill="black"/>
-                          <path d={wallMasks[wallKey]} fill="white"/>
-                        </mask>
-                      </defs>
-                      <rect 
-                        width="100%" 
-                        height="100%" 
-                        fill={selectedColor || '#ffffff'} 
-                        opacity="0.7"
-                        mask={`url(#wall-mask-${wallKey})`}
-                        className="wall-path"
-                        data-wall={wallKey}
-                      />
-                    </g>
-                  );
-                })}
-              </svg>
-              {loadingMasks && (
-                <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
-                  <div className="text-gray-500">Loading...</div>
-                </div>
-              )}
+              <div className="relative w-full h-full">
+                <CanvasRoomVisualiser
+                  imageSrc={roomImage}
+                  wallPath={combinedWallPath}
+                  colorHex={selectedColor}
+                  roomLabel="bedroom"
+                />
+              </div>
             </div>
           </div>
           

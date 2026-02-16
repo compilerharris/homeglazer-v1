@@ -20,6 +20,7 @@ interface SectionCarouselProps {
   roomMakeoverSection?: boolean;
   colorVisualizerSection?: boolean;
   blogSection?: boolean;
+  testimonialsSection?: boolean;
   autoplay?: boolean;
   autoplayInterval?: number;
   loop?: boolean;
@@ -39,6 +40,7 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
   roomMakeoverSection = false,
   colorVisualizerSection = false,
   blogSection = false,
+  testimonialsSection = false,
   autoplay = false,
   autoplayInterval = 4000,
   loop = false,
@@ -46,7 +48,23 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
   hideArrows = false
 }) => {
   const isMobile = useIsMobile();
-  
+  const arrowsRef = React.useRef<HTMLDivElement>(null);
+
+  // #region agent log
+  React.useEffect(() => {
+    if (testimonialsSection) {
+      fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'SectionCarousel.tsx:mount',message:'Testimonials carousel props',data:{hideArrows,showArrows:!hideArrows,slidesToShow,windowWidth:typeof window!=='undefined'?window.innerWidth:0},timestamp:Date.now(),hypothesisId:'H1,H4'})}).catch(()=>{});
+    }
+  }, [testimonialsSection, hideArrows, slidesToShow]);
+  React.useEffect(() => {
+    if (!testimonialsSection || hideArrows || !arrowsRef.current) return;
+    const el = arrowsRef.current;
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+    fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'SectionCarousel.tsx:arrowsMeasure',message:'Arrows visibility',data:{arrowsTop:rect.top,arrowsBottom:rect.bottom,viewportHeight:window.innerHeight,inView},timestamp:Date.now(),hypothesisId:'H3,H5'})}).catch(()=>{});
+  }, [testimonialsSection, hideArrows]);
+  // #endregion
+
   // Create an API ref
   const [api, setApi] = React.useState<any>(null);
   // State to track if the delay has passed
@@ -193,7 +211,7 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
   };
 
   return (
-    <div className={`w-full max-w-[1400px] mx-auto ${roomMakeoverSection ? 'pb-8' : paintBrandsSection ? 'pb-16' : colorVisualizerSection ? 'pb-0' : 'pb-20'} px-4 overflow-x-hidden relative`}>
+    <div className={`w-full max-w-[1400px] mx-auto ${roomMakeoverSection ? 'pb-8' : paintBrandsSection ? 'pb-16' : colorVisualizerSection ? 'pb-0' : testimonialsSection ? 'pb-4' : 'pb-20'} px-4 ${testimonialsSection ? 'overflow-x-clip' : 'overflow-x-hidden'} relative`}>
       <Carousel
         opts={carouselOptions}
         setApi={setApi}
@@ -203,7 +221,22 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
           {children}
         </CarouselContent>
         {!colorVisualizerSection && !hideArrows && (
-          <div className={`w-full flex justify-center gap-4 ${roomMakeoverSection ? 'relative mt-4' : paintBrandsSection ? 'absolute left-0 right-0 -bottom-15' : teamSection ? 'absolute left-0 right-0 -bottom-20' : slidesToShow ? 'absolute left-0 right-0 -bottom-16' : reviewsSection ? 'absolute left-0 right-0 -bottom-16' : 'absolute left-0 right-0 bottom-6 md:bottom-10'} z-30 pointer-events-none`}>
+          <div
+            ref={arrowsRef}
+            className={
+              roomMakeoverSection
+                ? 'w-full flex justify-center gap-4 relative mt-4 z-30 pointer-events-none'
+                : paintBrandsSection
+                  ? 'w-full flex justify-center gap-4 absolute left-0 right-0 -bottom-15 z-30 pointer-events-none'
+                  : teamSection
+                    ? 'w-full flex justify-center gap-4 absolute left-0 right-0 -bottom-20 z-30 pointer-events-none'
+                    : slidesToShow
+                      ? 'w-full flex justify-center gap-4 absolute left-0 right-0 -bottom-16 z-30 pointer-events-none'
+                      : reviewsSection
+                        ? 'w-full flex justify-center gap-4 absolute left-0 right-0 -bottom-16 z-30 pointer-events-none'
+                        : 'w-full flex justify-center gap-4 absolute left-0 right-0 bottom-6 md:bottom-10 z-30 pointer-events-none'
+            }
+          >
             <div className="pointer-events-auto flex justify-center items-center">
               <CarouselPrevious className={`static bg-white/70 hover:bg-white w-10 h-10 md:w-12 md:h-12 transition-all duration-300 shadow-md rounded-full ${!canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''}`} />
             </div>

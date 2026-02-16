@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { embeddedWallMasks } from '../data/embeddedWallMasks';
 // Import all color JSON files
 import asianPaintsColors from '../data/colors/asian_paints_colors.json';
 import nerolacColors from '../data/colors/nerolac_colors.json';
@@ -303,53 +304,16 @@ export function useVisualizer() {
     }
   }, [step, selectedBrandId, brandData]);
 
-  // Fetch and parse wall masks when variant changes
+  // Use embedded wall masks when variant changes (no fetch - data in bundle)
   useEffect(() => {
     if (!selectedVariant) {
       setWallMasks({});
+      setLoadingMasks(false);
       return;
     }
-    setLoadingMasks(true);
-    const wallSvgs = selectedVariant.walls;
-    const promises = Object.entries(wallSvgs).map(async ([key, url]) => {
-      try {
-        const res = await fetch(url);
-        const svgText = await res.text();
-        // Try DOMParser if available
-        if (typeof window !== 'undefined' && 'DOMParser' in window) {
-          try {
-            const parser = new window.DOMParser();
-            const doc = parser.parseFromString(svgText, 'image/svg+xml');
-            const path = doc.querySelector('path');
-            if (path && path.getAttribute('d')) {
-              return { key, d: path.getAttribute('d') || '' };
-            }
-          } catch (e) {}
-        }
-        // Fallback: regex for d attribute in any <path ... d="..." ...>
-        const pathMatch = svgText.match(/<path[^>]*d=["']([^"']+)["'][^>]*>/i);
-        if (pathMatch) {
-          return { key, d: pathMatch[1] };
-        }
-        // Fallback: try to find all <path ... d="..." ...> and use the first
-        const allPaths = Array.from(svgText.matchAll(/<path[^>]*d=["']([^"']+)["'][^>]*>/gi));
-        if (allPaths.length > 0) {
-          return { key, d: allPaths[0][1] };
-        }
-        return { key, d: '' };
-      } catch (err) {
-        console.error(`Failed to fetch/parse SVG for ${key}:`, err);
-        return { key, d: '' };
-      }
-    });
-    Promise.all(promises).then(results => {
-      const newWallMasks = results.reduce((acc, { key, d }) => {
-        if (d) acc[key] = d;
-        return acc;
-      }, {} as Record<string, string>);
-      setWallMasks(newWallMasks);
-      setLoadingMasks(false);
-    });
+    const masks = embeddedWallMasks[selectedVariant.name] ?? {};
+    setWallMasks(masks);
+    setLoadingMasks(false);
   }, [selectedVariant]);
 
   // Helper function to update URL when step changes

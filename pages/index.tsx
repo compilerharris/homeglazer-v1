@@ -12,10 +12,12 @@ import ColourVisualizer from '@/components/home/ColourVisualizer';
 import PaintBrands from '@/components/home/PaintBrands';
 import TeamSection from '@/components/home/TeamSection';
 import Certificates from '@/components/home/Certificates';
+import TestimonialsSection from '@/components/home/TestimonialsSection';
 import Reviews from '@/components/home/Reviews';
 import DesignInsights from '@/components/home/DesignInsights';
 import FAQ from '@/components/home/FAQ';
 import Footer from '@/components/home/Footer';
+import { SECTION_CTA_CLASSES } from '@/components/home/CTAButton';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
@@ -45,14 +47,12 @@ export default function Home() {
       <PaintBrands />
       <TeamSection />
       <Certificates />
+      <TestimonialsSection />
       <Reviews />
       <DesignInsights />
       <FAQ limit={5} />
       <div className="w-full flex justify-center px-4 mt-6 mb-12">
-        <Link
-          href="/faq"
-          className="inline-flex items-center justify-center rounded-lg bg-[#ED276E] px-6 py-3 text-white font-semibold shadow-md hover:bg-[#b81d5a] transition"
-        >
+        <Link href="/faq" className={SECTION_CTA_CLASSES}>
           More FAQs
         </Link>
       </div>
@@ -62,6 +62,9 @@ export default function Home() {
         <div className="flex gap-3">
           <Link href="/enquiry" className="flex-1 bg-[#ED276E] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#b81d5a] transition flex items-center justify-center text-[15px]">
             Enquire Now
+          </Link>
+          <Link href="/colour-visualiser" className="flex-1 bg-[#299dd7] text-white py-3 px-2 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[13px]">
+            Visualiser
           </Link>
           <Link href="/paint-budget-calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px]">
             Budget Calculator

@@ -6,6 +6,9 @@ import Header from '../../../../../src/components/home/Header';
 import Footer from '../../../../../src/components/home/Footer';
 import Head from 'next/head';
 import DevToolsProtection from '../../../../../src/components/security/DevToolsProtection';
+import CanvasRoomVisualiser from '../../../../../src/components/visualizer/CanvasRoomVisualiser';
+import CanvasAdvancedRoomVisualiser from '../../../../../src/components/visualizer/CanvasAdvancedRoomVisualiser';
+import { embeddedWallMasks } from '../../../../../src/data/embeddedWallMasks';
 import { GetServerSideProps } from 'next';
 import fs from 'fs';
 import path from 'path';
@@ -984,7 +987,7 @@ const CATEGORY_FAQS: Record<string, Array<{ q: string; a: string }>> = {
 
 interface BasicVisualiserPageProps {
   initialData?: {
-    colorDatabase: any;
+    colorDatabase?: any;
     brand: string;
     category: string;
     color: any;
@@ -995,7 +998,7 @@ interface BasicVisualiserPageProps {
 const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }) => {
   const router = useRouter();
   const { brand: brandParam, category: categoryParam, color: colorParam } = router.query;
-  const [colorDatabase, setColorDatabase] = useState<any>(initialData?.colorDatabase || null);
+  const [colorDatabase, setColorDatabase] = useState<any>(initialData?.colorDatabase ?? null);
   const [selectedBrand, setSelectedBrand] = useState(initialData?.brand || '');
   const [selectedCategory, setSelectedCategory] = useState(initialData?.category || '');
   const [selectedColor, setSelectedColor] = useState<any>(initialData?.color || null);
@@ -1025,8 +1028,7 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
     return Date.now();
   });
   const [advPreviewColorIndex, setAdvPreviewColorIndex] = useState(0);
-  const [advPreviewMasks, setAdvPreviewMasks] = useState<Record<string, string>>({});
-  const [advPreviewLoadingMasks, setAdvPreviewLoadingMasks] = useState(true);
+  const advPreviewMasks = embeddedWallMasks.bedroom6 ?? {};
 
   // For category scroll arrows
   const categoryScrollRef = useRef<HTMLDivElement>(null);
@@ -1184,25 +1186,6 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
   const handleNextPage = () => { if (colorPage < totalPages - 1) setColorPage(colorPage + 1); };
   const handlePrevPage = () => { if (colorPage > 0) setColorPage(colorPage - 1); };
 
-  // Apply color to room images using SVG masks
-  useEffect(() => {
-    if (!selectedColor) return;
-    
-    // Update SVG overlays for each room
-    Object.entries(ROOM_IMAGES).forEach(([roomType, imageSrc]) => {
-      const roomContainer = document.querySelector(`[data-room="${roomType}"]`);
-      if (roomContainer) {
-        const svgOverlay = roomContainer.querySelector('.svg-overlay');
-        if (svgOverlay) {
-          const wallPath = svgOverlay.querySelector('.wall-path');
-          if (wallPath) {
-            wallPath.setAttribute('fill', selectedColor.colorHex);
-          }
-        }
-      }
-    });
-  }, [selectedColor]);
-
   // Generate title and h1
   const pageTitle = initialData?.pageTitle || (selectedColor && selectedBrand 
     ? `${toSentenceCase(selectedColor.colorName)} | Colour Code ${selectedColor.colorCode} | ${toSentenceCase(BRAND_CONFIG.find(b => b.id === selectedBrand)?.name || '')} | Home Glazer`
@@ -1312,60 +1295,6 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
     }, 1500);
     return () => clearInterval(interval);
   }, [advPreviewColors.length]);
-
-  // Load wall masks for advanced preview
-  useEffect(() => {
-    const loadWallMasks = async () => {
-      try {
-        const wallSvgs = {
-          left: '/assets/images/bedroom/bedroom6/left-wall.svg',
-          right: '/assets/images/bedroom/bedroom6/right-wall.svg',
-          window: '/assets/images/bedroom/bedroom6/window.svg'
-        };
-
-        const promises = Object.entries(wallSvgs).map(async ([key, url]) => {
-          try {
-            const res = await fetch(url);
-            if (!res.ok) throw new Error(`Failed to load ${url}`);
-            const svgText = await res.text();
-            
-            // Extract path data
-            let pathData = '';
-            if (typeof window !== 'undefined' && 'DOMParser' in window) {
-              try {
-                const parser = new window.DOMParser();
-                const doc = parser.parseFromString(svgText, 'image/svg+xml');
-                const pathElement = doc.querySelector('path');
-                if (pathElement) {
-                  pathData = pathElement.getAttribute('d') || '';
-                }
-              } catch (e) {
-                const pathMatch = svgText.match(/<path[^>]*d=["']([^"']+)["'][^>]*>/i);
-                if (pathMatch && pathMatch[1]) {
-                  pathData = pathMatch[1];
-                }
-              }
-            }
-            
-            return [key, pathData];
-          } catch (error) {
-            console.error(`Error loading wall mask ${key}:`, error);
-            return [key, ''];
-          }
-        });
-
-        const results = await Promise.all(promises);
-        const masks = Object.fromEntries(results);
-        setAdvPreviewMasks(masks);
-        setAdvPreviewLoadingMasks(false);
-      } catch (error) {
-        console.error('Error loading wall masks:', error);
-        setAdvPreviewLoadingMasks(false);
-      }
-    };
-
-    loadWallMasks();
-  }, []);
 
   // Memoize pairing colors to prevent reshuffling on FAQ clicks
   // Use initialData as fallback for server-side rendering
@@ -1576,38 +1505,16 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
             {Object.entries(ROOM_IMAGES).map(([label, src]: [string, string]) => (
               <div
                 key={label}
-                data-room={label}
                 ref={label === 'kitchen' ? kitchenRef : null}
                 className="w-full flex flex-col border-2 rounded-lg transition-all duration-200"
               >
                 <div className="w-full aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden mb-2 flex items-center justify-center relative">
-                  <img 
-                    src={src} 
-                    alt={label} 
-                    className="object-cover w-full h-full room-image" 
-                    onError={e => (e.currentTarget.src = 'https://via.placeholder.com/1280x720?text='+label)}
+                  <CanvasRoomVisualiser
+                    imageSrc={src}
+                    wallPath={WALL_MASKS[label]?.front || ""}
+                    colorHex={selectedColor?.colorHex || "#ffffff"}
+                    roomLabel={label}
                   />
-                  {/* SVG Overlay for wall masking */}
-                  <svg 
-                    className="svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply"
-                    viewBox="0 0 1280 720"
-                    preserveAspectRatio="xMidYMid slice"
-                  >
-                    <defs>
-                      <mask id={`mask-${label}`}>
-                        <rect width="100%" height="100%" fill="black"/>
-                        <path d={WALL_MASKS[label]?.front || ""} fill="white"/>
-                      </mask>
-                    </defs>
-                    <rect 
-                      width="100%" 
-                      height="100%" 
-                      fill={selectedColor?.colorHex || "#ffffff"} 
-                      opacity="0.7"
-                      mask={`url(#mask-${label})`}
-                      className="wall-path"
-                    />
-                  </svg>
                 </div>
                 <span className="text-base font-medium text-gray-700 mb-2 text-center w-full">
                   {label === 'living' ? 'Living Room' : label.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}
@@ -1764,80 +1671,13 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
             <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 lg:p-8 border-2 border-transparent hover:border-[#ED276E] transition-all duration-300 flex flex-col lg:flex-row gap-6 items-center">
               {/* Left: Animated Preview */}
               <div className="flex-shrink-0 w-full lg:w-80">
-                <div 
-                  className="relative w-full bg-gray-100 rounded-xl overflow-hidden shadow-inner"
-                  style={{
-                    aspectRatio: '16/9',
-                    backgroundImage: 'url(/uploads/bedroom6.jpg)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                >
-                  {advPreviewLoadingMasks ? (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                      <div className="text-gray-400 text-sm">Loading preview...</div>
-                    </div>
-                  ) : (
-                    <svg
-                      className="absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply"
-                      viewBox="0 0 1280 720"
-                      preserveAspectRatio="xMidYMid slice"
-                    >
-                      <defs>
-                        {advPreviewMasks.left && (
-                          <mask id={`adv-preview-left-${selectedBrand}-${selectedCategory}`}>
-                            <rect width="100%" height="100%" fill="black" />
-                            <path d={advPreviewMasks.left} fill="white" />
-                          </mask>
-                        )}
-                        {advPreviewMasks.right && (
-                          <mask id={`adv-preview-right-${selectedBrand}-${selectedCategory}`}>
-                            <rect width="100%" height="100%" fill="black" />
-                            <path d={advPreviewMasks.right} fill="white" />
-                          </mask>
-                        )}
-                        {advPreviewMasks.window && (
-                          <mask id={`adv-preview-window-${selectedBrand}-${selectedCategory}`}>
-                            <rect width="100%" height="100%" fill="black" />
-                            <path d={advPreviewMasks.window} fill="white" />
-                          </mask>
-                        )}
-                      </defs>
-                      {/* Left wall */}
-                      {advPreviewMasks.left && (
-                        <rect
-                          width="100%"
-                          height="100%"
-                          fill={advPreviewColors[advPreviewColorIndex].left}
-                          opacity="0.7"
-                          mask={`url(#adv-preview-left-${selectedBrand}-${selectedCategory})`}
-                          style={{ transition: 'fill 0.6s ease-in-out' }}
-                        />
-                      )}
-                      {/* Right wall */}
-                      {advPreviewMasks.right && (
-                        <rect
-                          width="100%"
-                          height="100%"
-                          fill={advPreviewColors[advPreviewColorIndex].right}
-                          opacity="0.7"
-                          mask={`url(#adv-preview-right-${selectedBrand}-${selectedCategory})`}
-                          style={{ transition: 'fill 0.6s ease-in-out' }}
-                        />
-                      )}
-                      {/* Window wall */}
-                      {advPreviewMasks.window && (
-                        <rect
-                          width="100%"
-                          height="100%"
-                          fill={advPreviewColors[advPreviewColorIndex].window}
-                          opacity="0.7"
-                          mask={`url(#adv-preview-window-${selectedBrand}-${selectedCategory})`}
-                          style={{ transition: 'fill 0.6s ease-in-out' }}
-                        />
-                      )}
-                    </svg>
-                  )}
+                <div className="relative w-full bg-gray-100 rounded-xl overflow-hidden shadow-inner" style={{ aspectRatio: '16/9' }}>
+                  <CanvasAdvancedRoomVisualiser
+                    imageSrc="/assets/images/bedroom/bedroom6/bedroom6.jpg"
+                    wallMasks={advPreviewMasks}
+                    assignments={advPreviewColors[advPreviewColorIndex] ?? {}}
+                    loadingMasks={false}
+                  />
                   <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
                     Live Preview
                   </div>

@@ -1,158 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../src/components/home/Header';
 import Footer from '../src/components/home/Footer';
 import DevToolsProtection from '../src/components/security/DevToolsProtection';
+import CanvasRoomVisualiser from '../src/components/visualizer/CanvasRoomVisualiser';
+import CanvasAdvancedRoomVisualiser from '../src/components/visualizer/CanvasAdvancedRoomVisualiser';
+import { embeddedWallMasks } from '../src/data/embeddedWallMasks';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
-// Mini Room Visualizer Component for Split Screen
-const MiniRoomVisualizer: React.FC<{ 
-  side: 'left' | 'right'; 
-  currentColorIndex: number; 
-  colors: string[] | Array<{ left: string; right: string; window: string }>;
-  roomImage: string;
-  wallSvgs: Record<string, string>;
-}> = React.memo(({ side, currentColorIndex, colors, roomImage, wallSvgs }) => {
-  const [wallMasks, setWallMasks] = useState<Record<string, string>>({});
-  const [loadingMasks, setLoadingMasks] = useState(true);
-  const svgRef = useRef<SVGSVGElement>(null);
-
-  const wallKeys = ['left', 'right', 'window'];
-
-  // Load wall masks
-  useEffect(() => {
-    const loadWallMasks = async () => {
-      try {
-        const promises = Object.entries(wallSvgs).map(async ([key, url]) => {
-          try {
-            const res = await fetch(url);
-            if (!res.ok) throw new Error(`Failed to load ${url}`);
-            const svgText = await res.text();
-            
-            // Extract path data
-            const parser = new DOMParser();
-            let pathData = '';
-            
-            try {
-              const doc = parser.parseFromString(svgText, 'image/svg+xml');
-              const pathElement = doc.querySelector('path');
-              if (pathElement) {
-                pathData = pathElement.getAttribute('d') || '';
-              }
-            } catch (e) {
-              console.error('Error parsing SVG with DOMParser:', e);
-              const pathMatch = svgText.match(/<path[^>]*d=["']([^"']+)["'][^>]*>/i);
-              if (pathMatch && pathMatch[1]) {
-                pathData = pathMatch[1];
-              }
-            }
-            
-            return [key, pathData];
-          } catch (error) {
-            console.error(`Error loading wall mask ${key}:`, error);
-            return [key, ''];
-          }
-        });
-
-        const results = await Promise.all(promises);
-        const masks = Object.fromEntries(results);
-        setWallMasks(masks);
-        setLoadingMasks(false);
-      } catch (error) {
-        console.error('Error loading wall masks:', error);
-        setLoadingMasks(false);
-      }
-    };
-
-    if (Object.keys(wallSvgs).length > 0) {
-      loadWallMasks();
-    }
-  }, [wallSvgs]);
-
-  if (loadingMasks) {
-    return (
-      <div className="relative w-full h-64 bg-gray-100 rounded-lg overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-gray-500">Loading...</div>
-        </div>
-      </div>
-    );
-  }
-
-  // Handle different color modes for Single Wall vs Advanced
-  const getWallColor = (wallKey: string) => {
-    if (Array.isArray(colors) && colors.length > 0) {
-      if (typeof colors[currentColorIndex] === 'string') {
-        // Single wall - same color for all walls
-        return colors[currentColorIndex];
-      } else {
-        // Advanced - different colors for different walls and window
-        const colorSet = colors[currentColorIndex];
-        if (wallKey === 'left') return colorSet?.left || '#FF6B6B';
-        if (wallKey === 'right') return colorSet?.right || '#81C784';
-        if (wallKey === 'window') return colorSet?.window || '#BA68C8'; // Window has its own color
-        return colorSet?.left || '#FF6B6B';
-      }
-    }
-    return '#FF6B6B';
-  };
-
-  return (
-    <div 
-      className="relative w-full bg-gray-100 rounded-lg overflow-hidden transition-all duration-600 ease-out"
-      style={{
-        aspectRatio: '16/9', // 1280x720 proportion
-        backgroundImage: `url(${roomImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      {/* SVG Overlay for wall masking */}
-      <svg
-        ref={svgRef}
-        className="svg-overlay absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply"
-        viewBox="0 0 1280 720"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          {wallKeys.map((wall) => (
-            <mask key={`mask-${wall}`} id={`mask-${wall}-${side}`}>
-              <rect width="100%" height="100%" fill="black" />
-              {wallMasks[wall] && (
-                <path 
-                  d={wallMasks[wall]} 
-                  fill="white"
-                />
-              )}
-            </mask>
-          ))}
-        </defs>
-        {wallKeys.map((wall, index) => (
-          wallMasks[wall] && (
-            <rect
-              key={`wall-${wall}-${index}`}
-              width="100%"
-              height="100%"
-              fill={getWallColor(wall)}
-              opacity="0.7"
-              mask={`url(#mask-${wall}-${side})`}
-              className="wall-path"
-              style={{
-                transition: 'fill 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
-              }}
-            />
-          )
-        ))}
-      </svg>
-    </div>
-  );
-});
-
 const ColourVisualiserPage: React.FC = () => {
   const [colorIndex, setColorIndex] = useState(0);
+  const wallMasks = embeddedWallMasks.bedroom6 ?? {};
 
   // Memoize color arrays to prevent re-creation
   const warmColors = React.useMemo(() => [
@@ -173,12 +33,9 @@ const ColourVisualiserPage: React.FC = () => {
     { left: '#F06292', right: '#81C784', window: '#4FC3F7' }  // Pink, Green, Blue
   ], []);
 
-  // Room assets - same for both sides as requested
-  const wallSvgs = React.useMemo(() => ({
-    left: '/assets/images/bedroom/bedroom6/left-wall.svg',
-    right: '/assets/images/bedroom/bedroom6/right-wall.svg',
-    window: '/assets/images/bedroom/bedroom6/window.svg'
-  }), []);
+  // Room assets - bedroom6 (masks embedded at build time)
+  const roomImage = '/assets/images/bedroom/bedroom6/bedroom6.jpg';
+  const wallKeys = ['left', 'right', 'window'];
 
   // Synchronized color cycling every second non-stop
   useEffect(() => {
@@ -186,7 +43,7 @@ const ColourVisualiserPage: React.FC = () => {
     const startInterval = () => {
       colorInterval = setInterval(() => {
         setColorIndex((prev) => (prev + 1) % Math.max(warmColors.length, coolColorSets.length));
-      }, 1000); // Every second, non-stop
+      }, 1000);
     };
 
     const timeoutId = setTimeout(startInterval, 300);
@@ -196,6 +53,11 @@ const ColourVisualiserPage: React.FC = () => {
       if (colorInterval) clearInterval(colorInterval);
     };
   }, [warmColors.length, coolColorSets.length]);
+
+  const combinedWallPath = wallKeys
+    .map((k) => wallMasks[k])
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <>
@@ -222,7 +84,7 @@ const ColourVisualiserPage: React.FC = () => {
         
         {/* Left Side - Single Wall Visualiser */}
         <div 
-          className="relative w-full lg:w-1/2 lg:h-full flex flex-col items-center justify-center p-8 lg:p-12 pt-20 lg:pt-20"
+          className="relative w-full lg:w-1/2 lg:h-full flex flex-col items-center justify-center p-8 lg:p-12 pt-28 lg:pt-28"
           style={{
             background: 'linear-gradient(135deg, #f8fafc 0%, #e8f4f8 50%, #f1f5f9 100%)'
           }}
@@ -240,22 +102,21 @@ const ColourVisualiserPage: React.FC = () => {
 
           {/* Content */}
           <div className="relative z-10 text-center max-w-lg mx-auto">
-            {/* BIG PINK HEADING */}
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight text-[var(--brand-pink)]">
-              Single Wall<br />Visualiser
+            {/* BIG PINK HEADING - smaller on 1366px and below */}
+            <h2 className="max-[1366px]:text-3xl max-[1366px]:whitespace-nowrap min-[1367px]:text-4xl min-[1367px]:lg:text-5xl font-bold mb-6 leading-tight text-[var(--brand-pink)]">
+              Single Wall Visualiser
             </h2>
             <p className="text-gray-700 mb-8 leading-relaxed text-lg">
               Quickly preview popular colour combinations on sample rooms. Simple and fast!
             </p>
             
-            {/* Mini Room Visualizer */}
-            <div className="mb-8">
-              <MiniRoomVisualizer
-                side="left"
-                currentColorIndex={colorIndex % warmColors.length}
-                colors={warmColors}
-                roomImage="/uploads/bedroom6.jpg"
-                wallSvgs={wallSvgs}
+            {/* Canvas Room Visualizer */}
+            <div className="mb-8 relative w-full bg-gray-100 rounded-lg overflow-hidden" style={{ aspectRatio: '16/9' }}>
+              <CanvasRoomVisualiser
+                imageSrc={roomImage}
+                wallPath={combinedWallPath}
+                colorHex={warmColors[colorIndex % warmColors.length]}
+                roomLabel="single wall"
               />
             </div>
             
@@ -274,7 +135,7 @@ const ColourVisualiserPage: React.FC = () => {
 
         {/* Right Side - Advanced Visualiser */}
         <div 
-          className="relative w-full lg:w-1/2 lg:h-full flex flex-col items-center justify-center p-8 lg:p-12 pt-20 lg:pt-20"
+          className="relative w-full lg:w-1/2 lg:h-full flex flex-col items-center justify-center p-8 lg:p-12 pt-28 lg:pt-28"
           style={{
             background: 'linear-gradient(135deg, #f1f5f9 0%, #e8f4f8 50%, #f8fafc 100%)'
           }}
@@ -292,22 +153,21 @@ const ColourVisualiserPage: React.FC = () => {
 
           {/* Content */}
           <div className="relative z-10 text-center max-w-lg mx-auto">
-            {/* BIG PINK HEADING */}
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Advanced<br />Visualiser
+            {/* BIG BLUE HEADING - smaller on 1366px and below */}
+            <h2 className="max-[1366px]:text-3xl max-[1366px]:whitespace-nowrap min-[1367px]:text-4xl min-[1367px]:lg:text-5xl font-bold mb-6 leading-tight text-[#299dd7]">
+              Advanced Visualiser
             </h2>
             <p className="text-gray-700 mb-8 leading-relaxed text-lg">
               Choose different colours for each wall and roof across multiple room types.
             </p>
             
-            {/* Mini Room Visualizer */}
-            <div className="mb-8">
-              <MiniRoomVisualizer
-                side="right"
-                currentColorIndex={colorIndex % coolColorSets.length}
-                colors={coolColorSets}
-                roomImage="/uploads/bedroom6.jpg"
-                wallSvgs={wallSvgs}
+            {/* Canvas Advanced Room Visualizer */}
+            <div className="mb-8 relative w-full bg-gray-100 rounded-lg overflow-hidden" style={{ aspectRatio: '16/9' }}>
+              <CanvasAdvancedRoomVisualiser
+                imageSrc={roomImage}
+                wallMasks={wallMasks}
+                assignments={coolColorSets[colorIndex % coolColorSets.length] ?? {}}
+                loadingMasks={false}
               />
             </div>
             

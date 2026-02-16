@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
@@ -56,6 +57,7 @@ function getMaxSizeValue(prices: Record<string, number>): number {
 }
 
 const Products: React.FC = () => {
+  const router = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
   const [brands, setBrands] = useState(FILTER_OPTIONS.brands);
   const [filterOptions, setFilterOptions] = useState(FILTER_OPTIONS);
@@ -108,6 +110,17 @@ const Products: React.FC = () => {
 
     loadData();
   }, []);
+
+  // Initialize selectedBrand from URL query param (?brand=slug) after brands are loaded
+  useEffect(() => {
+    const brandSlug = router.query.brand;
+    if (typeof brandSlug === 'string' && brandSlug && brands.length > 0) {
+      const brandExists = brands.some((b) => b.id === brandSlug);
+      if (brandExists) {
+        setSelectedBrand(brandSlug);
+      }
+    }
+  }, [router.query.brand, brands]);
 
   // Filter products based on selected brand and filters
   const filteredProducts = useMemo(() => {

@@ -50,6 +50,7 @@ const sitemapData: SitemapSection[] = [
     links: [
       { name: "Home", href: "/" },
       { name: "About Us", href: "/about" },
+      { name: "Testimonials", href: "/testimonials" },
       { name: "Contact", href: "/contact" },
       { name: "Enquiry", href: "/enquiry" },
       { name: "FAQ", href: "/faq" },

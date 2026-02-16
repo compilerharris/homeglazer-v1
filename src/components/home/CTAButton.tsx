@@ -1,6 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 
+/** Shared CTA style matching FAQ section - pink bg, white text, shadow, pill shape */
+export const SECTION_CTA_CLASSES =
+  'inline-flex items-center justify-center rounded-lg bg-[#ED276E] px-6 py-3 text-white font-semibold shadow-md hover:bg-[#b81d5a] transition';
+
 interface CTAButtonProps {
   children: React.ReactNode;
   to?: string;
