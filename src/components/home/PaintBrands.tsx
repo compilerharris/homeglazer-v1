@@ -11,6 +11,7 @@ const PaintBrands: React.FC = () => {
   const [brands, setBrands] = useState<Brand[]>([]);
   const [loading, setLoading] = useState(true);
   const [slidesToShow, setSlidesToShow] = useState(3);
+  const [isTabletOrMobile, setIsTabletOrMobile] = useState(false);
 
   // Fetch brands from API (same as products page)
   useEffect(() => {
@@ -28,16 +29,16 @@ const PaintBrands: React.FC = () => {
     loadBrands();
   }, []);
 
-  // Responsive slidesToShow logic
+  // Responsive slidesToShow and nav style - 2 on tablet/mobile with bullets, 3 on desktop with arrows
   useEffect(() => {
     const updateSlides = () => {
       const width = window.innerWidth;
-      if (width < 768) {
-        setSlidesToShow(1);
-      } else if (width < 1024) {
-        setSlidesToShow(2);
+      if (width < 1024) {
+        setSlidesToShow(2); // tablet and mobile: 2 logos
+        setIsTabletOrMobile(true); // bullets instead of arrows
       } else {
-        setSlidesToShow(3);
+        setSlidesToShow(3); // desktop: 3 logos
+        setIsTabletOrMobile(false); // arrows
       }
     };
 
@@ -54,9 +55,14 @@ const PaintBrands: React.FC = () => {
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#299dd7]"></div>
             </div>
           ) : (
-            <SectionCarousel paintBrandsSection={true} slidesToShow={slidesToShow}>
+            <SectionCarousel
+              paintBrandsSection={true}
+              slidesToShow={slidesToShow}
+              showDots={isTabletOrMobile}
+              hideArrows={isTabletOrMobile}
+            >
               {brands.map(brand => (
-                <CarouselItem key={brand.id} className="basis-full md:basis-1/2 lg:basis-1/3 pl-4">
+                <CarouselItem key={brand.id} className="basis-1/2 lg:basis-1/3 pl-4">
                   <Link href={`/products?brand=${encodeURIComponent(brand.id)}`} className="block">
                     <div className="relative w-[180px] h-[250px] mx-auto bg-white rounded-lg border border-gray-100 shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow">
                       <img

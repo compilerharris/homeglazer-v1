@@ -62,7 +62,7 @@ const TestimonialsSection: React.FC = () => {
   // #endregion
 
   return (
-    <section ref={sectionRef} className="w-full bg-white mt-[50px] max-md:mt-10 overflow-x-clip">
+    <section ref={sectionRef} className="w-full bg-white mt-[50px] max-md:mt-10 pb-16 overflow-x-clip">
       <div className="container mx-auto px-4 lg:px-8 2xl:w-[1400px] max-w-full overflow-x-clip">
         <div className="text-center mb-10">
           <h2 className="text-[40px] font-medium leading-[150%]">
