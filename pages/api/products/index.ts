@@ -225,7 +225,7 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
 
     // Pagination parameters
     const pageNumber = parseInt(page as string) || 1;
-    const pageSize = parseInt(limit as string) || 1000; // Default to 1000 (all products for backward compatibility)
+    const pageSize = parseInt(limit as string) || 100; // Default to 100 to prevent timeouts in production
     const skip = (pageNumber - 1) * pageSize;
 
     // Build where clause
