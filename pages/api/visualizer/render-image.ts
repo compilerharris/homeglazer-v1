@@ -33,10 +33,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: `No main image for variant: ${variant}` });
     }
 
-    // Resolve image path: /assets/... -> public/assets/...
-    const imagePath = path.join(process.cwd(), 'public', mainImagePath.startsWith('/') ? mainImagePath.slice(1) : mainImagePath);
+    // Load from S3 in prod (Amplify) or local file in dev. S3 reduces deployment size (220MB limit).
+    const baseUrl = process.env.S3_BUCKET && process.env.S3_REGION
+      ? `https://${process.env.S3_BUCKET}.s3.${process.env.S3_REGION}.amazonaws.com/visualiser`
+      : null;
+    const imageSrc = baseUrl
+      ? baseUrl + (mainImagePath.startsWith('/') ? mainImagePath : '/' + mainImagePath)
+      : path.join(process.cwd(), 'public', mainImagePath.startsWith('/') ? mainImagePath.slice(1) : mainImagePath);
 
-    const img = await loadImage(imagePath as string);
+    const img = await loadImage(imageSrc as string);
     const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     const ctx = canvas.getContext('2d');
 

@@ -12,7 +12,14 @@ Amplify limits deployment to ~220 MB. `amplify.yml` postBuild removes:
 - `public/media/products` – product images (served from S3)
 - `public/uploads` – user uploads (served from S3)
 - `public/assets/Ai` – AI images (excluded from API)
+- `public/assets/images/{bedroom,bathroom,kitchen,...}` – room images (served from S3)
 - `node_modules/@swc`, `@esbuild`, `esbuild` – build-only deps
+
+**Before first deploy:** Upload room images to S3 once:
+```bash
+# From project root, with S3_* env vars (or .env.local)
+npm run upload:visualiser
+```
 
 ---
 

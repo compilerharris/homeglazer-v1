@@ -9,6 +9,15 @@ const nextConfig = {
     outputFileTracingExcludes: {
       '**': [
         'public/media/products/**',
+        'public/assets/images/bedroom/**',
+        'public/assets/images/bathroom/**',
+        'public/assets/images/kitchen/**',
+        'public/assets/images/livingroom/**',
+        'public/assets/images/homeoffice/**',
+        'public/assets/images/kidsroom/**',
+        'public/assets/images/office/**',
+        'public/assets/images/outdoor/**',
+        'public/assets/images/maingate/**',
       ],
       '/api/email-visualiser-summary': [
         'public/assets/Ai/**',

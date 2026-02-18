@@ -22,7 +22,8 @@
     "db:migrate:deploy": "prisma migrate deploy",
     "db:generate": "prisma generate && node scripts/create-default-js.js && node scripts/compile-prisma-client.js",
     "db:studio": "prisma studio",
-    "generate:jwt-secret": "node scripts/generate-jwt-secret.js"
+    "generate:jwt-secret": "node scripts/generate-jwt-secret.js",
+    "upload:visualiser": "tsx scripts/upload-visualiser-to-s3.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.991.0",
