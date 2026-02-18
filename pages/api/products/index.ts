@@ -3,6 +3,11 @@ import { requireAuth } from '@/lib/middleware';
 import { prisma } from '@/lib/prisma';
 import { CATEGORY_OPTIONS, SUB_CATEGORY_OPTIONS } from '@/lib/product-constants';
 
+// Verify Prisma client is available
+if (!prisma) {
+  console.error('[Products API] Prisma client is not initialized');
+}
+
 // Manual validation function to avoid Zod webpack issues
 function validateCreateProduct(data: any): { isValid: boolean; errors: string[] } {
   const errors: string[] = [];
@@ -197,7 +202,22 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
       console.error('[Products API] DATABASE_URL environment variable is not set');
       return res.status(500).json({ 
         error: 'Database configuration error',
-        message: 'DATABASE_URL is not configured. Please check Amplify environment variables.',
+        details: {
+          message: 'DATABASE_URL is not configured',
+          databaseUrl: 'Not set',
+        },
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    // Verify Prisma client is available
+    if (!prisma) {
+      return res.status(500).json({
+        error: 'Prisma client not initialized',
+        details: {
+          message: 'Prisma client is null or undefined',
+        },
+        timestamp: new Date().toISOString(),
       });
     }
 
@@ -263,34 +283,24 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
 
     return res.status(200).json(products);
   } catch (error: any) {
-    // Enhanced error logging
+    // Enhanced error logging with full details
     const errorDetails = {
       message: error?.message || 'Unknown error',
       code: error?.code,
       name: error?.name,
-      stack: process.env.NODE_ENV === 'development' ? error?.stack : undefined,
+      stack: error?.stack,
+      cause: error?.cause,
       databaseUrl: process.env.DATABASE_URL ? 'Set' : 'Not set',
+      databaseUrlPreview: process.env.DATABASE_URL ? `${process.env.DATABASE_URL.substring(0, 30)}...` : 'Not set',
     };
     
     console.error('[Products API] Error fetching products:', errorDetails);
 
-    // Check for specific error types
-    let errorMessage = 'Failed to fetch products';
-    let statusCode = 500;
-
-    if (error?.code === 'P1001' || error?.message?.includes('Can\'t reach database server') || error?.message?.includes('ENOTFOUND')) {
-      errorMessage = 'Database connection failed. Please check MongoDB Atlas network access allows Amplify IPs.';
-    } else if (error?.code === 'P1002' || error?.message?.includes('Connection timeout') || error?.message?.includes('ETIMEDOUT')) {
-      errorMessage = 'Database connection timeout. Please check MongoDB Atlas network access.';
-    } else if (error?.code === 'P1000' || error?.message?.includes('Authentication failed')) {
-      errorMessage = 'Database authentication failed. Please check DATABASE_URL credentials.';
-    } else if (error?.message?.includes('MongoNetworkError') || error?.message?.includes('MongoServerSelectionError')) {
-      errorMessage = 'Cannot connect to MongoDB. Please check MongoDB Atlas network access allows Amplify IPs (0.0.0.0/0).';
-    }
-
-    return res.status(statusCode).json({ 
-      error: errorMessage,
-      message: process.env.NODE_ENV === 'development' ? error?.message : undefined,
+    // Return detailed error information for debugging
+    return res.status(500).json({ 
+      error: 'Failed to fetch products',
+      details: errorDetails,
+      timestamp: new Date().toISOString(),
     });
   }
 }
@@ -548,16 +558,26 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(405).json({ error: 'Method not allowed' });
     }
   } catch (error: any) {
-    console.error('[Products API] Unhandled error:', {
-      message: error?.message,
+    // Catch any unhandled errors at the route level
+    const errorDetails = {
+      message: error?.message || 'Unknown error',
       code: error?.code,
       name: error?.name,
-      stack: process.env.NODE_ENV === 'development' ? error?.stack : undefined,
-    });
-    return res.status(500).json({ 
-      error: 'Internal server error',
-      message: process.env.NODE_ENV === 'development' ? error?.message : undefined,
-    });
+      stack: error?.stack,
+      cause: error?.cause,
+      databaseUrl: process.env.DATABASE_URL ? 'Set' : 'Not set',
+    };
+    
+    console.error('[Products API] Unhandled route-level error:', errorDetails);
+    
+    // Ensure we return JSON, not HTML
+    if (!res.headersSent) {
+      return res.status(500).json({ 
+        error: 'Internal server error',
+        details: errorDetails,
+        timestamp: new Date().toISOString(),
+      });
+    }
   }
 };
 
