@@ -3,6 +3,11 @@ frontend:
   phases:
     preBuild:
       commands:
+        - |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "ERROR: DATABASE_URL is not set. Add it in Amplify Console → Environment variables"
+            exit 1
+          fi
         - npm ci
     build:
       commands:

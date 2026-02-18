@@ -3,9 +3,12 @@
  * Using .js for Vercel/build environments that cannot parse TypeScript.
  * See: https://www.prisma.io/docs/orm/reference/prisma-config-reference
  */
-require('dotenv/config');
+if (require('fs').existsSync(require('path').join(process.cwd(), '.env'))) {
+  require('dotenv/config');
+}
 const { defineConfig } = require('prisma/config');
 
+const dbUrl = process.env.DATABASE_URL || 'mongodb://localhost:27017/placeholder';
 module.exports = defineConfig({
   schema: 'prisma/schema.prisma',
   migrations: {
@@ -13,6 +16,6 @@ module.exports = defineConfig({
     seed: 'tsx prisma/seed.ts',
   },
   datasource: {
-    url: process.env.DATABASE_URL ?? 'mongodb://localhost:27017/placeholder',
+    url: dbUrl,
   },
 });
