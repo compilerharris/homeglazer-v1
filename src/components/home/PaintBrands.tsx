@@ -67,11 +67,26 @@ const PaintBrands: React.FC = () => {
                   <Link href={`/products?brand=${encodeURIComponent(brand.id)}`} className="block">
                     <div className="relative w-[180px] h-[250px] mx-auto bg-white rounded-lg border border-gray-100 shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow">
                       <img
-                        src={getMediaUrl(brand.logo)}
+                        src={getMediaUrl(brand.logo || '')}
                         alt={brand.name}
                         className="w-full h-full object-contain rounded-lg"
                         onError={(e) => {
-                          e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Logo';
+                          const img = e.currentTarget;
+                          // Prevent infinite loop - only log error once and hide image if placeholder also fails
+                          if (!img.dataset.errorHandled) {
+                            console.error('[PaintBrands] Failed to load brand logo:', {
+                              brandName: brand.name,
+                              brandId: brand.id,
+                              logoPath: brand.logo,
+                              resolvedUrl: getMediaUrl(brand.logo || ''),
+                            });
+                            img.dataset.errorHandled = 'true';
+                            // Try placeholder, but if it fails, just hide the image
+                            img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23e5e7eb" width="400" height="300"/%3E%3Ctext fill="%239ca3af" font-family="sans-serif" font-size="14" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ELogo%3C/text%3E%3C/svg%3E';
+                            img.onerror = () => {
+                              img.style.display = 'none';
+                            };
+                          }
                         }}
                       />
                     </div>

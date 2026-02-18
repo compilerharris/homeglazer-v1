@@ -39,20 +39,22 @@ export async function fetchProducts(params?: {
   // #region agent log
   fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:39',message:'fetchProducts called',data:{hasParams:!!params,brandId:params?.brandId,search:params?.search},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
   // #endregion
-  const url = new URL('/api/products', 'https://main.d15nk5b2guin5u.amplifyapp.com');
+  const searchParams = new URLSearchParams();
   if (params?.brandId) {
-    url.searchParams.append('brandId', params.brandId);
+    searchParams.append('brandId', params.brandId);
   }
   if (params?.search) {
-    url.searchParams.append('search', params.search);
+    searchParams.append('search', params.search);
   }
+  const queryString = searchParams.toString();
+  const url = `/api/products${queryString ? `?${queryString}` : ''}`;
 
   // #region agent log
-  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:47',message:'About to fetch products',data:{url:url.toString()},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:47',message:'About to fetch products',data:{url},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});
   // #endregion
   let response;
   try {
-    response = await fetch(url.toString());
+    response = await fetch(url);
   } catch (fetchError: any) {
     // #region agent log
     fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:50',message:'Fetch error caught',data:{errorMessage:fetchError?.message,errorName:fetchError?.name,errorStack:fetchError?.stack},timestamp:Date.now(),runId:'run1',hypothesisId:'D'})}).catch(()=>{});
@@ -94,7 +96,7 @@ export async function fetchBrands(): Promise<ApiBrand[]> {
   // #region agent log
   fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:75',message:'fetchBrands called',data:{},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
   // #endregion
-  const url = 'https://main.d15nk5b2guin5u.amplifyapp.com/api/brands';
+  const url = '/api/brands';
   
   // #region agent log
   fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:78',message:'About to fetch brands',data:{url},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});

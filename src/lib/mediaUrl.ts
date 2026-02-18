@@ -32,8 +32,9 @@ export function getMediaUrl(path: string): string {
   }
 
   const normalized = path.replace(/^\/+/, '');
+  const isDevelopment = process.env.NODE_ENV === 'development';
 
-  if (S3_BASE) {
+  if (S3_BASE && !isDevelopment) {
     // Room images: S3 key is visualiser/assets/images/<room>/...
     if (normalized.startsWith('assets/images/')) {
       const rest = normalized.slice('assets/images/'.length);
@@ -45,6 +46,11 @@ export function getMediaUrl(path: string): string {
         }
         return s3Url;
       }
+      // Brand logos: S3 key is assets/images/brand-logos/...
+      // Only use S3 in production - in development, serve from local public folder
+      if (rest.startsWith('brand-logos/')) {
+        return `${S3_BASE}/${normalized}`;
+      }
     }
 
     // uploads/* and media/*: S3 key matches path (uploaded by npm run upload:media)
@@ -52,8 +58,9 @@ export function getMediaUrl(path: string): string {
       return `${S3_BASE}/${normalized}`;
     }
   } else {
-    // Log warning if S3_BASE is not set but we're trying to load room images
-    if (normalized.startsWith('assets/images/') && typeof window !== 'undefined') {
+    // Log warning only in production if S3_BASE is not set but we're trying to load room images
+    // In development, we serve from local public folder, so no warning needed
+    if (!isDevelopment && normalized.startsWith('assets/images/') && typeof window !== 'undefined') {
       const rest = normalized.slice('assets/images/'.length);
       const firstSegment = rest.split('/')[0];
       if (VISUALISER_ROOM_FOLDERS.includes(firstSegment)) {

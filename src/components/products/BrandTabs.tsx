@@ -121,7 +121,16 @@ const BrandTabs: React.FC<BrandTabsProps> = ({
                   alt={brand.name}
                   className="object-contain w-full h-full"
                   onError={(e) => {
-                    e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Logo';
+                    const img = e.currentTarget;
+                    // Prevent infinite loop - only set fallback once
+                    if (!img.dataset.errorHandled) {
+                      img.dataset.errorHandled = 'true';
+                      // Use data URI SVG instead of external placeholder to avoid network requests
+                      img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23e5e7eb" width="400" height="300"/%3E%3Ctext fill="%239ca3af" font-family="sans-serif" font-size="14" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ELogo%3C/text%3E%3C/svg%3E';
+                      img.onerror = () => {
+                        img.style.display = 'none';
+                      };
+                    }
                   }}
                 />
               </div>

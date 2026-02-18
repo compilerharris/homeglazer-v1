@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Product } from '../../data/products';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 interface ProductCardProps {
   product: Product;
@@ -13,11 +14,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Product Image */}
         <div className="aspect-square bg-gray-50 flex items-center justify-center p-4 md:p-6">
           <img 
-            src={product.image} 
+            src={product.image?.startsWith('http') ? product.image : getMediaUrl(product.image || '')} 
             alt={product.name}
             className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
             onError={(e) => {
-              e.currentTarget.src = '/assets/images/bucket.png';
+              const img = e.currentTarget;
+              if (!img.dataset.errorHandled) {
+                img.dataset.errorHandled = 'true';
+                img.src = getMediaUrl('/assets/images/bucket.png');
+                img.onerror = () => {
+                  img.style.display = 'none';
+                };
+              }
             }}
           />
         </div>

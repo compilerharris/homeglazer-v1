@@ -50,7 +50,19 @@ const WallSelection: React.FC<WallSelectionProps> = ({
           type="button"
         >
             <div className="w-full h-48 lg:h-56 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
-              <img src={getMediaUrl(variant.mainImage)} alt={variant.label} className="object-cover w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Room')}/>
+              <img 
+                src={getMediaUrl(variant.mainImage)} 
+                alt={variant.label} 
+                className="object-cover w-full h-full rounded-lg" 
+                onError={(e) => {
+                  const img = e.currentTarget;
+                  if (!img.dataset.errorHandled) {
+                    img.dataset.errorHandled = 'true';
+                    img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23e5e7eb" width="400" height="300"/%3E%3Ctext fill="%239ca3af" font-family="sans-serif" font-size="14" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3ERoom%3C/text%3E%3C/svg%3E';
+                    img.onerror = () => { img.style.display = 'none'; };
+                  }
+                }}
+              />
           </div>
         </button>
           <span className="text-lg font-semibold text-gray-800 text-center mt-3">{variant.label}</span>

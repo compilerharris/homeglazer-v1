@@ -26,9 +26,6 @@ export function TestimonialsGrid() {
                 className="w-full h-full object-cover"
               />
             </button>
-            <p className="mt-3 text-sm font-medium text-[#299dd7] text-center">
-              {testimonial.name}
-            </p>
           </div>
         ))}
       </div>
