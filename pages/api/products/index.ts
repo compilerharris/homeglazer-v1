@@ -236,7 +236,7 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
       where: whereClause,
     });
 
-    // Simplified query - fetch products with brand only (nested relations can cause issues)
+    // Simplified query - fetch products with brand only (match test-products to debug production issue)
     let products = await prisma.product.findMany({
       where: whereClause,
       select: {
@@ -258,16 +258,6 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
         colors: true,
         features: true,
         specifications: true,
-        pisHeading: true,
-        pisDescription: true,
-        pisFileUrl: true,
-        showPisSection: true,
-        userGuideSteps: true,
-        userGuideMaterials: true,
-        userGuideTips: true,
-        showUserGuide: true,
-        faqs: true,
-        showFaqSection: true,
         createdAt: true,
         updatedAt: true,
         brand: {
