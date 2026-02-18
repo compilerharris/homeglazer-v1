@@ -180,6 +180,9 @@ export async function generateVisualiserSummaryPdf(
       };
 
       let previewEmbedded = false;
+      // #region agent log
+      fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'visualiserSummaryPdf.ts:183',message:'Checking preview image',data:{hasPreviewImage:!!previewImageBase64,previewImageLength:previewImageBase64.length,isValidLength:previewImageBase64.length > 50 && previewImageBase64.length <= maxPreviewBase64Length,previewImagePrefix:previewImageBase64.substring(0,50)},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'F'})}).catch(()=>{});
+      // #endregion
       if (
         previewImageBase64 &&
         previewImageBase64.length > 50 &&
@@ -187,11 +190,24 @@ export async function generateVisualiserSummaryPdf(
       ) {
         try {
           const rawBuffer = parsePreviewImageBase64(previewImageBase64);
+          // #region agent log
+          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'visualiserSummaryPdf.ts:190',message:'Parsed preview image buffer',data:{bufferLength:rawBuffer.length,bufferFirstBytes:rawBuffer.slice(0,10).toString('hex')},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'G'})}).catch(()=>{});
+          // #endregion
           await embedRoomPreview(rawBuffer);
           previewEmbedded = true;
+          // #region agent log
+          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'visualiserSummaryPdf.ts:192',message:'Preview image embedded successfully',data:{previewEmbedded:true},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'G'})}).catch(()=>{});
+          // #endregion
         } catch (imgErr) {
+          // #region agent log
+          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'visualiserSummaryPdf.ts:193',message:'Error embedding preview image',data:{error:imgErr?.toString(),errorMessage:imgErr instanceof Error ? imgErr.message : String(imgErr),errorStack:imgErr instanceof Error ? imgErr.stack : undefined},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'H'})}).catch(()=>{});
+          // #endregion
           console.error('Error embedding preview image in PDF:', imgErr);
         }
+      } else {
+        // #region agent log
+        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'visualiserSummaryPdf.ts:195',message:'Preview image validation failed',data:{hasPreviewImage:!!previewImageBase64,previewImageLength:previewImageBase64.length,isTooShort:previewImageBase64.length <= 50,isTooLong:previewImageBase64.length > maxPreviewBase64Length,maxLength:maxPreviewBase64Length},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'F'})}).catch(()=>{});
+        // #endregion
       }
 
       // Fallback: use base room image from public assets when capture is missing
