@@ -3,8 +3,9 @@
 import React, { useState } from "react"
 import { ImageLightbox } from "./ImageLightbox"
 import { testimonialsData } from "@/lib/testimonialsData"
+import { getMediaUrl } from "@/lib/mediaUrl"
 
-const TESTIMONIAL_IMAGES = testimonialsData.map((t) => t.src)
+const TESTIMONIAL_IMAGES = testimonialsData.map((t) => getMediaUrl(t.src))
 
 export function TestimonialsGrid() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -20,7 +21,7 @@ export function TestimonialsGrid() {
               className="relative aspect-[3/4] overflow-hidden rounded-lg border border-gray-200 bg-gray-50 hover:border-[#299dd7] hover:shadow-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#299dd7] focus:ring-offset-2"
             >
               <img
-                src={testimonial.src}
+                src={getMediaUrl(testimonial.src)}
                 alt={`Customer testimonial ${index + 1}`}
                 className="w-full h-full object-cover"
               />

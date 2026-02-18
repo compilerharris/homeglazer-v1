@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import BeforeAfterSlider from '@/components/ui/before-after-slider';
 import { SECTION_CTA_CLASSES } from './CTAButton';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 const RoomMakeover: React.FC = () => {
   // Toggle visibility; keep markup (including CTA) intact for future enablement
@@ -12,8 +13,8 @@ const RoomMakeover: React.FC = () => {
 
   // Sample data for before/after images using homeoffice images as placeholders
   const makeoverData = {
-    beforeImage: "/assets/images/homeoffice/homeoffice1/homeoffice1.jpg",
-    afterImage: "/assets/images/homeoffice/homeoffice2/homeoffice2.jpg",
+    beforeImage: getMediaUrl("/assets/images/homeoffice/homeoffice1/homeoffice1.jpg"),
+    afterImage: getMediaUrl("/assets/images/homeoffice/homeoffice2/homeoffice2.jpg"),
     beforeAlt: "Room before painting service",
     afterAlt: "Room after painting service"
   };
@@ -39,7 +40,7 @@ const RoomMakeover: React.FC = () => {
             </p>
             <Link href="/gallery" className={`${SECTION_CTA_CLASSES} flex min-h-[60px] w-60 max-w-full items-center gap-[13px] text-[21px] font-normal text-center justify-center mt-7 pl-[19px] pr-[11px] py-[13px]`}>
               <span className="self-stretch my-auto">View All Gallery</span>
-              <img alt="Arrow Icon" className="aspect-[1] object-contain w-[34px] self-stretch shrink-0 my-auto brightness-0 invert" src="/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />
+              <img alt="Arrow Icon" className="aspect-[1] object-contain w-[34px] self-stretch shrink-0 my-auto brightness-0 invert" src={getMediaUrl("/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png")} />
             </Link>
           </div>
         </div>

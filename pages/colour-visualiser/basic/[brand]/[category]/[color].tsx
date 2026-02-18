@@ -12,6 +12,7 @@ import { embeddedWallMasks } from '../../../../../src/data/embeddedWallMasks';
 import { GetServerSideProps } from 'next';
 import fs from 'fs';
 import path from 'path';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 const BRAND_CONFIG = [
   { id: 'asian-paints', name: 'Asian Paints', fileName: 'asian_paints_colors.json' },
@@ -1510,7 +1511,7 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
               >
                 <div className="w-full aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden mb-2 flex items-center justify-center relative">
                   <CanvasRoomVisualiser
-                    imageSrc={src}
+                    imageSrc={getMediaUrl(src)}
                     wallPath={WALL_MASKS[label]?.front || ""}
                     colorHex={selectedColor?.colorHex || "#ffffff"}
                     roomLabel={label}
@@ -1673,7 +1674,7 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
               <div className="flex-shrink-0 w-full lg:w-80">
                 <div className="relative w-full bg-gray-100 rounded-xl overflow-hidden shadow-inner" style={{ aspectRatio: '16/9' }}>
                   <CanvasAdvancedRoomVisualiser
-                    imageSrc="/assets/images/bedroom/bedroom6/bedroom6.jpg"
+                    imageSrc={getMediaUrl("/assets/images/bedroom/bedroom6/bedroom6.jpg")}
                     wallMasks={advPreviewMasks}
                     assignments={advPreviewColors[advPreviewColorIndex] ?? {}}
                     loadingMasks={false}

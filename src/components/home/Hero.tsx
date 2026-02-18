@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CTAButton from './CTAButton';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -70,7 +71,7 @@ const Hero: React.FC = () => {
         >
           <img 
             alt={`Hero Background ${index + 1}`} 
-            src={slide.backgroundImage} 
+            src={getMediaUrl(slide.backgroundImage)} 
             className="absolute h-full w-full inset-0 object-cover sm:object-scale-down md:object-fill" 
           />
           <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto px-4 mt-0 2xl:mt-10 h-full justify-center">

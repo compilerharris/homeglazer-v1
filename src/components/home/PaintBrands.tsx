@@ -3,6 +3,7 @@ import Link from 'next/link';
 import SectionCarousel from './SectionCarousel';
 import { CarouselItem } from "@/components/ui/carousel";
 import { SECTION_CTA_CLASSES } from './CTAButton';
+import { getMediaUrl } from '@/lib/mediaUrl';
 import { fetchBrands, transformBrand } from '@/lib/api';
 import { sortBrandsByDisplayOrder } from '@/lib/brand-order';
 import type { Brand } from '@/lib/api';
@@ -66,7 +67,7 @@ const PaintBrands: React.FC = () => {
                   <Link href={`/products?brand=${encodeURIComponent(brand.id)}`} className="block">
                     <div className="relative w-[180px] h-[250px] mx-auto bg-white rounded-lg border border-gray-100 shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow">
                       <img
-                        src={brand.logo}
+                        src={getMediaUrl(brand.logo)}
                         alt={brand.name}
                         className="w-full h-full object-contain rounded-lg"
                         onError={(e) => {
@@ -91,7 +92,7 @@ const PaintBrands: React.FC = () => {
             </p>
             <Link href="/products" className={`${SECTION_CTA_CLASSES} flex min-h-[60px] w-[297px] max-w-full items-center gap-[13px] text-[21px] font-normal text-center justify-center mt-7 pl-[19px] pr-[11px] py-[13px]`}>
               <span className="self-stretch my-auto">View All Paint Brands</span>
-              <img alt="Arrow Icon" className="aspect-[0.97] object-contain w-[34px] self-stretch shrink-0 my-auto brightness-0 invert" src="/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />
+              <img alt="Arrow Icon" className="aspect-[0.97] object-contain w-[34px] self-stretch shrink-0 my-auto brightness-0 invert" src={getMediaUrl("/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png")} />
             </Link>
           </div>
         </div>

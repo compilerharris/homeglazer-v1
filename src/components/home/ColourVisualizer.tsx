@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CTAButton from './CTAButton';
 import CanvasRoomVisualiser from '../visualizer/CanvasRoomVisualiser';
 import { embeddedWallMasks } from '../../data/embeddedWallMasks';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 const roomImage = '/assets/images/bedroom/bedroom6/bedroom6.jpg';
 const wallKeys = ['left', 'right', 'window'];
@@ -75,7 +76,7 @@ const ColourVisualizer: React.FC = () => {
             <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
               <div className="relative w-full h-full">
                 <CanvasRoomVisualiser
-                  imageSrc={roomImage}
+                  imageSrc={getMediaUrl(roomImage)}
                   wallPath={combinedWallPath}
                   colorHex={selectedColor}
                   roomLabel="bedroom"

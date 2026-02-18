@@ -5,6 +5,7 @@ import SectionCarousel from './SectionCarousel';
 import { CarouselItem } from "@/components/ui/carousel";
 import { SECTION_CTA_CLASSES } from './CTAButton';
 import { blogPosts } from '@/data/blogPosts';
+import { getMediaUrl } from '@/lib/mediaUrl';
 import Image from 'next/image';
 
 const DesignInsights: React.FC = () => {
@@ -52,7 +53,7 @@ const DesignInsights: React.FC = () => {
                 <div className="relative flex flex-col h-[400px] rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                   <div className="h-[200px] overflow-hidden">
                     <img
-                      src={post.coverImage}
+                      src={getMediaUrl(post.coverImage)}
                       alt={`Blog Post - ${post.title}`}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />

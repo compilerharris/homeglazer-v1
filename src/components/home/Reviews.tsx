@@ -2,6 +2,7 @@ import React from 'react';
 import SectionCarousel from './SectionCarousel';
 import { SECTION_CTA_CLASSES } from './CTAButton';
 import { CarouselItem } from "@/components/ui/carousel";
+import { getMediaUrl } from '@/lib/mediaUrl';
 const Reviews: React.FC = () => {
   // Real Google reviews from verified customers
   const reviews = [{
@@ -46,7 +47,7 @@ const Reviews: React.FC = () => {
       <div className="flex flex-row items-center gap-3">
         <p className="text-[rgba(89,89,89,1)] text-sm font-medium">Scan to Review</p>
         <img 
-          src="/uploads/Google-Review-QR.jpeg" 
+          src={getMediaUrl("/uploads/Google-Review-QR.jpeg")} 
           alt="Scan to leave a Google Review" 
           className="w-20 h-20 sm:w-24 sm:h-24 object-contain rounded-[16px]"
         />
@@ -61,7 +62,7 @@ const Reviews: React.FC = () => {
         className={`${SECTION_CTA_CLASSES} flex items-center gap-[13px]`}
       >
         <span>View All Reviews</span>
-        <img alt="Arrow Icon" className="aspect-[1] object-contain w-[20px] brightness-0 invert" src="/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png" />
+        <img alt="Arrow Icon" className="aspect-[1] object-contain w-[20px] brightness-0 invert" src={getMediaUrl("/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png")} />
       </a>
     </div>
   );

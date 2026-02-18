@@ -3,6 +3,7 @@ import Link from "next/link"
 import { SECTION_CTA_CLASSES } from "./CTAButton"
 import SectionCarousel from "./SectionCarousel"
 import { CarouselItem } from "@/components/ui/carousel"
+import { getMediaUrl } from "@/lib/mediaUrl"
 
 const testimonials = [
   { id: "1", src: "/media/testimonials/1.webp", alt: "Customer testimonial 1" },
@@ -91,7 +92,7 @@ const TestimonialsSection: React.FC = () => {
                 className="block w-full max-w-[240px] mx-auto rounded-2xl border border-[rgba(0,0,0,0.05)] bg-gray-50 hover:border-[#299dd7] hover:shadow-md transition-all duration-300 flex items-center justify-center p-4"
               >
                 <img
-                  src={testimonial.src}
+                  src={getMediaUrl(testimonial.src)}
                   alt={testimonial.alt}
                   className="w-full h-auto object-contain"
                 />

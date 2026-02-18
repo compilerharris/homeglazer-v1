@@ -1,4 +1,6 @@
 import React from 'react';
+import { getMediaUrl } from '@/lib/mediaUrl';
+
 const WhyChooseUs: React.FC = () => {
   return <section className="w-[95%] lg:w-[90%] 2xl:w-[1400px] mx-auto flex max-w-full flex-col items-center mt-[50px] max-md:mt-10">
       <h2 className="text-[40px] font-medium text-center leading-[150%]">
@@ -9,7 +11,7 @@ const WhyChooseUs: React.FC = () => {
       </p>
       <div className="w-full flex gap-[27px] text-[rgba(89,89,89,1)] justify-center flex-wrap mt-[52px] max-md:mt-10">
         <div className="bg-gradient-to-br from-[#ED276E] to-[#299dd7] shadow-[0px_6px_6px_rgba(0,0,0,0.06)] grow shrink pl-8 pr-8 py-[22px] rounded-[23px] w-full md:w-1/3 lg:w-1/5">
-          <img src="/uploads/trusted-expertiese.svg" alt="Trusted Expertise Icon" className="aspect-[1] object-contain w-[66px] text-[rgba(59,130,246,1)]" />
+          <img src={getMediaUrl("/uploads/trusted-expertiese.svg")} alt="Trusted Expertise Icon" className="aspect-[1] object-contain w-[66px] text-[rgba(59,130,246,1)]" />
           <h3 className="text-[27px] font-medium mt-3 text-white text-white">
             Trusted Expertise
           </h3>
@@ -18,7 +20,7 @@ const WhyChooseUs: React.FC = () => {
           </p>
         </div>
         <div className="bg-gradient-to-br from-[#ED276E] to-[#299dd7] shadow-[0px_6px_6px_rgba(0,0,0,0.06)] grow shrink px-8 py-8 rounded-[23px] w-full md:w-1/3 lg:w-1/5">
-          <img src="/uploads/skilled-experts.svg" alt="Skilled Experts Icon" className="aspect-[1] object-contain w-[66px] text-[rgba(59,130,246,1)]" />
+          <img src={getMediaUrl("/uploads/skilled-experts.svg")} alt="Skilled Experts Icon" className="aspect-[1] object-contain w-[66px] text-[rgba(59,130,246,1)]" />
           <h3 className="text-[27px] font-medium mt-3 text-white">
             Skilled Experts
           </h3>
@@ -27,7 +29,7 @@ const WhyChooseUs: React.FC = () => {
           </p>
         </div>
         <div className="bg-gradient-to-br from-[#ED276E] to-[#299dd7] shadow-[0px_6px_6px_rgba(0,0,0,0.06)] grow shrink px-8 py-8 rounded-[23px] w-full md:w-1/3 lg:w-1/5">
-          <img src="/uploads/site-supervision.svg" alt="Free Site Visit Icon" className="aspect-[1] object-contain w-[66px] rounded-[0px_0px_0px_0px] text-[rgba(59,130,246,1)]" />
+          <img src={getMediaUrl("/uploads/site-supervision.svg")} alt="Free Site Visit Icon" className="aspect-[1] object-contain w-[66px] rounded-[0px_0px_0px_0px] text-[rgba(59,130,246,1)]" />
           <h3 className="text-[27px] font-medium mt-3 text-white">
             Free Site Visit
           </h3>
@@ -36,7 +38,7 @@ const WhyChooseUs: React.FC = () => {
           </p>
         </div>
         <div className="bg-gradient-to-br from-[#ED276E] to-[#299dd7] shadow-[0px_6px_6px_rgba(0,0,0,0.06)] grow shrink px-8 py-8 rounded-[23px] w-full md:w-1/3 lg:w-1/5">
-          <img src="/uploads/free-site-visit.svg" alt="Site Supervision Icon" className="aspect-[1] object-contain w-[66px] text-[rgba(59,130,246,1)]" />
+          <img src={getMediaUrl("/uploads/free-site-visit.svg")} alt="Site Supervision Icon" className="aspect-[1] object-contain w-[66px] text-[rgba(59,130,246,1)]" />
           <h3 className="text-[27px] font-medium mt-3 text-white">
             Site Supervision
           </h3>

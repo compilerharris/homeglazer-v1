@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '../src/components/home/Header';
 import Footer from '../src/components/home/Footer';
 import DevToolsProtection from '../src/components/security/DevToolsProtection';
@@ -34,7 +35,7 @@ const ColourVisualiserPage: React.FC = () => {
   ], []);
 
   // Room assets - bedroom6 (masks embedded at build time)
-  const roomImage = '/assets/images/bedroom/bedroom6/bedroom6.jpg';
+  const roomImage = getMediaUrl('/assets/images/bedroom/bedroom6/bedroom6.jpg');
   const wallKeys = ['left', 'right', 'window'];
 
   // Synchronized color cycling every second non-stop
@@ -66,10 +67,10 @@ const ColourVisualiserPage: React.FC = () => {
         <meta name="description" content="Visualize paint colours on your walls before painting. Try HomeGlazer's free colour visualiser tool to find the perfect shade for your home." />
         <meta property="og:title" content="Colour Visualiser | HomeGlazer - See Colours on Your Walls" />
         <meta property="og:description" content="Visualize paint colours on your walls before painting. Find the perfect shade for your home." />
-        <meta property="og:image" content={`${SITE_URL}/uploads/living-room.jpg`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl("/uploads/living-room.jpg", SITE_URL)} />
         <meta name="twitter:title" content="Colour Visualiser | HomeGlazer" />
         <meta name="twitter:description" content="Visualize paint colours on your walls before painting." />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/living-room.jpg`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl("/uploads/living-room.jpg", SITE_URL)} />
       </Head>
       <DevToolsProtection />
       <Header />

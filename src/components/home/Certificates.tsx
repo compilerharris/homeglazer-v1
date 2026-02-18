@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SectionCarousel from './SectionCarousel';
 import { CarouselItem } from "@/components/ui/carousel";
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 const certificates = [
   { id: "iso-9001", src: "/uploads/certificates/ISO_9001-2015.svg", alt: "ISO 9001:2015 Certification" },
@@ -55,7 +56,7 @@ const Certificates: React.FC = () => {
             >
               <div className="w-full max-w-[240px] h-[180px] flex items-center justify-center bg-white rounded-2xl border border-[rgba(0,0,0,0.05)] mx-auto px-6 py-4">
                 <img
-                  src={certificate.src}
+                  src={getMediaUrl(certificate.src)}
                   alt={certificate.alt}
                   className="max-h-full max-w-full object-contain"
                 />
