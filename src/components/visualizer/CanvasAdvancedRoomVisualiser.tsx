@@ -144,10 +144,14 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
       // then convert to blob URL to avoid canvas tainting issues
       if (isCrossOrigin && typeof window !== 'undefined') {
         // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:140',message:'Attempting fetch-based load for cross-origin image',data:{imageSrc,isS3Url},timestamp:Date.now(),runId:'production',hypothesisId:'N'})}).catch(()=>{});
+        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:140',message:'Attempting fetch-based load for cross-origin image',data:{imageSrc,isS3Url,origin:typeof window !== 'undefined' ? window.location.origin : 'unknown'},timestamp:Date.now(),runId:'production',hypothesisId:'O'})}).catch(()=>{});
         // #endregion
         
-        fetch(imageSrc, { mode: 'cors', credentials: 'omit' })
+        // Add cache-busting parameter to force fresh request
+        const cacheBuster = `?cb=${Date.now()}`;
+        const fetchUrl = imageSrc.includes('?') ? `${imageSrc}&cb=${Date.now()}` : `${imageSrc}${cacheBuster}`;
+        
+        fetch(fetchUrl, { mode: 'cors', credentials: 'omit', cache: 'no-cache' })
           .then(response => {
             if (!response.ok) {
               throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -187,7 +191,17 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
           })
           .catch(fetchErr => {
             // #region agent log
-            fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:169',message:'Fetch failed, falling back to direct Image load',data:{imageSrc,fetchError:fetchErr?.toString(),fetchErrorMessage:fetchErr instanceof Error ? fetchErr.message : String(fetchErr)},timestamp:Date.now(),runId:'production',hypothesisId:'N'})}).catch(()=>{});
+            const errorDetails = {
+              imageSrc,
+              fetchUrl,
+              fetchError: fetchErr?.toString(),
+              fetchErrorMessage: fetchErr instanceof Error ? fetchErr.message : String(fetchErr),
+              errorName: fetchErr?.name,
+              errorStack: fetchErr instanceof Error ? fetchErr.stack : undefined,
+              origin: typeof window !== 'undefined' ? window.location.origin : 'unknown',
+              userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'unknown'
+            };
+            fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:169',message:'Fetch failed, falling back to direct Image load',data:errorDetails,timestamp:Date.now(),runId:'production',hypothesisId:'O'})}).catch(()=>{});
             // #endregion
             console.warn('[CanvasAdvancedRoomVisualiser] Fetch failed, trying direct Image load:', fetchErr);
             // Fallback to direct Image load
