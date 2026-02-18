@@ -19,6 +19,15 @@ const createBrandSchema = z.object({
 // GET /api/brands - List all brands
 async function getBrands(req: NextApiRequest, res: NextApiResponse) {
   try {
+    // Check if DATABASE_URL is configured
+    if (!process.env.DATABASE_URL) {
+      console.error('[Brands API] DATABASE_URL environment variable is not set');
+      return res.status(500).json({ 
+        error: 'Database configuration error',
+        message: 'DATABASE_URL is not configured. Please check Amplify environment variables.',
+      });
+    }
+
     const brands = await prisma.brand.findMany({
       orderBy: { createdAt: 'desc' },
       include: {
@@ -29,9 +38,36 @@ async function getBrands(req: NextApiRequest, res: NextApiResponse) {
     });
 
     return res.status(200).json(brands);
-  } catch (error) {
-    console.error('Get brands error:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+  } catch (error: any) {
+    // Enhanced error logging
+    const errorDetails = {
+      message: error?.message || 'Unknown error',
+      code: error?.code,
+      name: error?.name,
+      stack: process.env.NODE_ENV === 'development' ? error?.stack : undefined,
+      databaseUrl: process.env.DATABASE_URL ? 'Set' : 'Not set',
+    };
+    
+    console.error('[Brands API] Error fetching brands:', errorDetails);
+
+    // Check for specific error types
+    let errorMessage = 'Failed to fetch brands';
+    let statusCode = 500;
+
+    if (error?.code === 'P1001' || error?.message?.includes('Can\'t reach database server') || error?.message?.includes('ENOTFOUND')) {
+      errorMessage = 'Database connection failed. Please check MongoDB Atlas network access allows Amplify IPs.';
+    } else if (error?.code === 'P1002' || error?.message?.includes('Connection timeout') || error?.message?.includes('ETIMEDOUT')) {
+      errorMessage = 'Database connection timeout. Please check MongoDB Atlas network access.';
+    } else if (error?.code === 'P1000' || error?.message?.includes('Authentication failed')) {
+      errorMessage = 'Database authentication failed. Please check DATABASE_URL credentials.';
+    } else if (error?.message?.includes('MongoNetworkError') || error?.message?.includes('MongoServerSelectionError')) {
+      errorMessage = 'Cannot connect to MongoDB. Please check MongoDB Atlas network access allows Amplify IPs (0.0.0.0/0).';
+    }
+
+    return res.status(statusCode).json({ 
+      error: errorMessage,
+      message: process.env.NODE_ENV === 'development' ? error?.message : undefined,
+    });
   }
 }
 

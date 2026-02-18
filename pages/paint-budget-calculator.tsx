@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
-import CalculatorHero from '@/components/calculator/CalculatorHero';
 import CalculatorForm from '@/components/calculator/CalculatorForm';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
 import { 
@@ -46,7 +45,6 @@ const Calculator: React.FC = () => {
         </Breadcrumb>
       </div>
       
-      <CalculatorHero />
       <CalculatorForm />
       
       {/* CTA Section */}

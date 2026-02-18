@@ -81,9 +81,14 @@ const Blog: React.FC<BlogProps> = ({ featuredPost, regularPosts, error }) => {
         <div className="w-full py-8">
           <div className="container mx-auto px-4 lg:px-8 2xl:w-[1400px]">
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <p className="text-yellow-800">
-                Unable to load blog posts. Please try again later.
+              <p className="text-yellow-800 font-medium mb-2">
+                {error}
               </p>
+              {process.env.NODE_ENV === 'development' && (
+                <p className="text-yellow-700 text-sm mt-2">
+                  Check console logs for detailed error information. Visit /api/test-db-connection for diagnostics.
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -207,22 +212,30 @@ export const getServerSideProps: GetServerSideProps<BlogProps> = async () => {
     };
   } catch (error: any) {
     // Enhanced error logging
-    console.error('[Blog] Error fetching blog posts:', {
+    const errorDetails = {
       message: error?.message || 'Unknown error',
       code: error?.code,
       name: error?.name,
       stack: process.env.NODE_ENV === 'development' ? error?.stack : undefined,
       databaseUrl: process.env.DATABASE_URL ? 'Set' : 'Not set',
-    });
+    };
+    
+    console.error('[Blog] Error fetching blog posts:', errorDetails);
 
     // Check for specific error types
     let errorMessage = 'Unable to load blog posts. Please try again later.';
-    if (error?.code === 'P1001' || error?.message?.includes('Can\'t reach database server')) {
-      errorMessage = 'Database connection failed. Please check your database configuration.';
-    } else if (error?.code === 'P1002' || error?.message?.includes('Connection timeout')) {
-      errorMessage = 'Database connection timeout. Please try again later.';
+    
+    // MongoDB/Prisma connection errors
+    if (error?.code === 'P1001' || error?.message?.includes('Can\'t reach database server') || error?.message?.includes('ENOTFOUND')) {
+      errorMessage = 'Database connection failed. Please check MongoDB Atlas network access allows Amplify IPs.';
+    } else if (error?.code === 'P1002' || error?.message?.includes('Connection timeout') || error?.message?.includes('ETIMEDOUT')) {
+      errorMessage = 'Database connection timeout. Please check MongoDB Atlas network access.';
+    } else if (error?.code === 'P1000' || error?.message?.includes('Authentication failed')) {
+      errorMessage = 'Database authentication failed. Please check DATABASE_URL credentials.';
     } else if (error?.message?.includes('DATABASE_URL')) {
       errorMessage = 'Database configuration error. Please contact support.';
+    } else if (error?.message?.includes('MongoNetworkError') || error?.message?.includes('MongoServerSelectionError')) {
+      errorMessage = 'Cannot connect to MongoDB. Please check MongoDB Atlas network access allows Amplify IPs (0.0.0.0/0).';
     }
 
     return {
