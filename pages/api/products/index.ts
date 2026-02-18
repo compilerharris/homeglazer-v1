@@ -567,60 +567,14 @@ async function createProduct(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-// Note: GET endpoint is public (no auth required)
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  // Set JSON content type immediately to prevent Next.js from rendering HTML error pages
-  res.setHeader('Content-Type', 'application/json');
-  
-  try {
-    if (req.method === 'GET') {
-      return await getProducts(req, res);
-    } else if (req.method === 'POST') {
-      return await requireAuth(createProduct)(req, res);
-    } else {
-      return res.status(405).json({ error: 'Method not allowed' });
-    }
-  } catch (error: any) {
-    // Catch any unhandled errors at the route level
-    const errorDetails = {
-      message: error?.message || 'Unknown error',
-      code: error?.code,
-      name: error?.name,
-      stack: error?.stack,
-      cause: error?.cause,
-      databaseUrl: process.env.DATABASE_URL ? 'Set' : 'Not set',
-    };
-    
-    console.error('[Products API] Unhandled route-level error:', errorDetails);
-    
-    // Ensure we return JSON, not HTML
-    if (!res.headersSent) {
-      return res.status(500).json({ 
-        error: 'Internal server error',
-        details: errorDetails,
-        timestamp: new Date().toISOString(),
-      });
-    }
+// Simplified handler - no double wrapping that was causing production issues
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'GET') {
+    return await getProducts(req, res);
+  } else if (req.method === 'POST') {
+    return await requireAuth(createProduct)(req, res);
+  } else {
+    return res.status(405).json({ error: 'Method not allowed' });
   }
-};
-
-// Wrap export to catch module initialization errors
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  try {
-    return await handler(req, res);
-  } catch (error: any) {
-    // Catch errors during handler initialization
-    res.setHeader('Content-Type', 'application/json');
-    return res.status(500).json({
-      error: 'Handler initialization error',
-      details: {
-        message: error?.message || 'Unknown error',
-        code: error?.code,
-        name: error?.name,
-        stack: error?.stack,
-      },
-      timestamp: new Date().toISOString(),
-    });
-  }
-};
+}
 
