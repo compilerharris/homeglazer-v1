@@ -35,16 +35,21 @@ export default function ProductsPage() {
 
   const fetchProducts = async () => {
     try {
+      setLoading(true);
+      setError('');
       const url = search ? `/api/products?search=${encodeURIComponent(search)}` : '/api/products';
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
         setProducts(data);
       } else {
-        setError('Failed to load products');
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        console.error('Failed to load products:', errorData);
+        setError(`Failed to load products: ${errorData.error || errorData.message || 'Unknown error'}`);
       }
-    } catch (err) {
-      setError('Network error');
+    } catch (err: any) {
+      console.error('Network error:', err);
+      setError(`Network error: ${err?.message || 'Failed to fetch products'}`);
     } finally {
       setLoading(false);
     }
@@ -135,7 +140,7 @@ export default function ProductsPage() {
                   )}
                   <div className="space-y-2 flex-1">
                     <p className="text-sm text-gray-600">
-                      <span className="font-medium">Brand:</span> {product.brand.name}
+                      <span className="font-medium">Brand:</span> {product.brand?.name || 'Unknown'}
                     </p>
                     <p className="text-sm text-gray-600">
                       <span className="font-medium">Category:</span> {product.category}

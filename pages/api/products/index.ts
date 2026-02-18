@@ -268,15 +268,18 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
       orderBy: { createdAt: 'desc' },
     });
 
+    // Filter out products without brands (shouldn't happen, but handle gracefully)
+    products = products.filter((product: any) => product.brand !== null);
+
     // Apply case-insensitive search filter if search query is provided
     if (search) {
       const searchLower = (search as string).toLowerCase();
       products = products.filter((product: any) => {
-        const nameMatch = product.name.toLowerCase().includes(searchLower);
-        const descriptionMatch = product.description.toLowerCase().includes(searchLower);
-        const brandMatch = product.brand.name.toLowerCase().includes(searchLower);
-        const categoryMatch = product.category.toLowerCase().includes(searchLower);
-        const subCategoryMatch = product.subCategory?.toLowerCase().includes(searchLower);
+        const nameMatch = product.name?.toLowerCase().includes(searchLower) || false;
+        const descriptionMatch = product.description?.toLowerCase().includes(searchLower) || false;
+        const brandMatch = product.brand?.name?.toLowerCase().includes(searchLower) || false;
+        const categoryMatch = product.category?.toLowerCase().includes(searchLower) || false;
+        const subCategoryMatch = product.subCategory?.toLowerCase().includes(searchLower) || false;
         return nameMatch || descriptionMatch || brandMatch || categoryMatch || subCategoryMatch;
       });
     }

@@ -22,12 +22,24 @@ export default function Dashboard() {
         fetch('/api/products'),
       ]);
 
-      const brands = await brandsRes.json();
-      const products = await productsRes.json();
+      let brands = [];
+      let products = [];
+
+      if (brandsRes.ok) {
+        brands = await brandsRes.json();
+      } else {
+        console.error('Failed to fetch brands:', await brandsRes.json().catch(() => ({})));
+      }
+
+      if (productsRes.ok) {
+        products = await productsRes.json();
+      } else {
+        console.error('Failed to fetch products:', await productsRes.json().catch(() => ({})));
+      }
 
       setStats({
-        brands: brands.length || 0,
-        products: products.length || 0,
+        brands: Array.isArray(brands) ? brands.length : 0,
+        products: Array.isArray(products) ? products.length : 0,
       });
     } catch (error) {
       console.error('Error fetching stats:', error);

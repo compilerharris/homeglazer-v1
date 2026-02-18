@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { AlertCircle, Send, X } from 'lucide-react';
 import { getMediaUrl } from '@/lib/mediaUrl';
 import { VariantManifest, ColorSwatch } from '../../hooks/useVisualizer';
@@ -107,6 +107,26 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const previewImageRef = useRef<HTMLDivElement>(null);
   const mobilePreviewCanvasRef = useRef<CanvasAdvancedRoomVisualiserRef>(null);
   const desktopPreviewCanvasRef = useRef<CanvasAdvancedRoomVisualiserRef>(null);
+
+  // Memoize image URL to prevent unnecessary recalculations and ensure stable reference
+  const imageUrl = useMemo(() => {
+    const originalPath = variant.mainImage || '';
+    const mediaUrl = getMediaUrl(originalPath);
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'FinishSelection.tsx:112',message:'Memoized image URL calculation',data:{originalPath,mediaUrl,variantName:variant.name,variantLabel:variant.label,hasVariant:!!variant,hasMainImage:!!variant.mainImage,isAbsoluteUrl:mediaUrl.startsWith('http'),isS3Url:mediaUrl.includes('s3'),hostname:typeof window !== 'undefined' ? window.location.hostname : 'ssr'},timestamp:Date.now(),runId:'production',hypothesisId:'F'})}).catch(()=>{});
+    // #endregion
+    // Log for production debugging (visible in browser console)
+    if (typeof window !== 'undefined') {
+      console.log('[FinishSelection] Image URL:', {
+        originalPath,
+        mediaUrl,
+        isAbsolute: mediaUrl.startsWith('http'),
+        isS3: mediaUrl.includes('s3'),
+        hostname: window.location.hostname,
+      });
+    }
+    return mediaUrl;
+  }, [variant.mainImage, variant.name]);
 
   type EmailModalPhase = 'closed' | 'form' | 'loading' | 'success';
   const [emailModalPhase, setEmailModalPhase] = useState<EmailModalPhase>('closed');
@@ -459,17 +479,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           >
             <CanvasAdvancedRoomVisualiser
               ref={desktopPreviewCanvasRef}
-              imageSrc={(() => {
-                const originalPath = variant.mainImage || '';
-                const mediaUrl = getMediaUrl(originalPath);
-                console.log('[FinishSelection] Desktop image URL:', {
-                  originalPath,
-                  mediaUrl,
-                  variantName: variant.name,
-                  variantLabel: variant.label,
-                });
-                return mediaUrl;
-              })()}
+              imageSrc={imageUrl}
               wallMasks={wallMasks}
               assignments={assignments}
               loadingMasks={loadingMasks}
@@ -651,17 +661,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               >
                 <CanvasAdvancedRoomVisualiser
                   ref={mobilePreviewCanvasRef}
-                  imageSrc={(() => {
-                    const originalPath = variant.mainImage || '';
-                    const mediaUrl = getMediaUrl(originalPath);
-                    console.log('[FinishSelection] Mobile image URL:', {
-                      originalPath,
-                      mediaUrl,
-                      variantName: variant.name,
-                      variantLabel: variant.label,
-                    });
-                    return mediaUrl;
-                  })()}
+                  imageSrc={imageUrl}
                   wallMasks={wallMasks}
                   assignments={assignments}
                   loadingMasks={loadingMasks}

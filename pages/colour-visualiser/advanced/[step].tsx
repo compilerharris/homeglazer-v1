@@ -198,7 +198,12 @@ const AdvancedVisualiserStep: React.FC = () => {
       )}
       {visualizer.step === 5 && (
         <>
-          {visualizer.selectedVariant ? (
+          {(() => {
+            // #region agent log
+            fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'[step].tsx:201',message:'Step 5 render check',data:{hasSelectedVariant:!!visualizer.selectedVariant,selectedVariantName:visualizer.selectedVariantName,selectedVariantMainImage:visualizer.selectedVariant?.mainImage,selectedRoomType:visualizer.selectedRoomType},timestamp:Date.now(),runId:'initial',hypothesisId:'E'})}).catch(()=>{});
+            // #endregion
+            return visualizer.selectedVariant;
+          })() ? (
             <FinishSelection
               variant={visualizer.selectedVariant}
               selectedColors={visualizer.selectedColours}
