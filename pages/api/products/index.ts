@@ -203,31 +203,45 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
 
     const { brandId, search } = req.query;
 
+    // Simplified query - fetch products with brand only (nested relations can cause issues)
     let products = await prisma.product.findMany({
       where: brandId ? { brandId: brandId as string } : undefined,
-      include: {
+      select: {
+        id: true,
+        brandId: true,
+        name: true,
+        slug: true,
+        description: true,
+        shortDescription: true,
+        category: true,
+        subCategory: true,
+        sheenLevel: true,
+        surfaceType: true,
+        usage: true,
+        image: true,
+        bannerImage: true,
+        prices: true,
+        sizeUnit: true,
+        colors: true,
+        features: true,
+        specifications: true,
+        pisHeading: true,
+        pisDescription: true,
+        pisFileUrl: true,
+        showPisSection: true,
+        userGuideSteps: true,
+        userGuideMaterials: true,
+        userGuideTips: true,
+        showUserGuide: true,
+        faqs: true,
+        showFaqSection: true,
+        createdAt: true,
+        updatedAt: true,
         brand: {
           select: {
             id: true,
             name: true,
             slug: true,
-          },
-        },
-        relatedProducts: {
-          include: {
-            relatedProduct: {
-              select: {
-                id: true,
-                name: true,
-                slug: true,
-                brand: {
-                  select: {
-                    id: true,
-                    name: true,
-                  },
-                },
-              },
-            },
           },
         },
       },
@@ -525,12 +539,25 @@ async function createProduct(req: NextApiRequest, res: NextApiResponse) {
 
 // Note: GET endpoint is public (no auth required)
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'GET') {
-    return getProducts(req, res);
-  } else if (req.method === 'POST') {
-    return requireAuth(createProduct)(req, res);
-  } else {
-    return res.status(405).json({ error: 'Method not allowed' });
+  try {
+    if (req.method === 'GET') {
+      return await getProducts(req, res);
+    } else if (req.method === 'POST') {
+      return await requireAuth(createProduct)(req, res);
+    } else {
+      return res.status(405).json({ error: 'Method not allowed' });
+    }
+  } catch (error: any) {
+    console.error('[Products API] Unhandled error:', {
+      message: error?.message,
+      code: error?.code,
+      name: error?.name,
+      stack: process.env.NODE_ENV === 'development' ? error?.stack : undefined,
+    });
+    return res.status(500).json({ 
+      error: 'Internal server error',
+      message: process.env.NODE_ENV === 'development' ? error?.message : undefined,
+    });
   }
 };
 

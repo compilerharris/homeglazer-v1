@@ -111,12 +111,25 @@ async function createBrand(req: NextApiRequest, res: NextApiResponse) {
 
 // Note: GET endpoint is public (no auth required)
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'GET') {
-    return getBrands(req, res);
-  } else if (req.method === 'POST') {
-    return requireAuth(createBrand)(req, res);
-  } else {
-    return res.status(405).json({ error: 'Method not allowed' });
+  try {
+    if (req.method === 'GET') {
+      return await getBrands(req, res);
+    } else if (req.method === 'POST') {
+      return await requireAuth(createBrand)(req, res);
+    } else {
+      return res.status(405).json({ error: 'Method not allowed' });
+    }
+  } catch (error: any) {
+    console.error('[Brands API] Unhandled error:', {
+      message: error?.message,
+      code: error?.code,
+      name: error?.name,
+      stack: process.env.NODE_ENV === 'development' ? error?.stack : undefined,
+    });
+    return res.status(500).json({ 
+      error: 'Internal server error',
+      message: process.env.NODE_ENV === 'development' ? error?.message : undefined,
+    });
   }
 };
 
