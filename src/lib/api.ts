@@ -82,8 +82,8 @@ export async function fetchProducts(params?: {
   const page = params?.page || 1;
   url.searchParams.append('page', page.toString());
   
-  // Use limit 100 as default to match API default
-  const limit = params?.limit || 100;
+  // Use limit 50 as default to match API default
+  const limit = params?.limit || 50;
   url.searchParams.append('limit', limit.toString());
 
   // #region agent log
@@ -144,7 +144,7 @@ export async function fetchAllProducts(params?: {
   const allProducts: ApiProduct[] = [];
   let currentPage = 1;
   let hasMorePages = true;
-  const pageSize = 100; // Fetch 100 products per request
+  const pageSize = 50; // Fetch 50 products per request to match API default
 
   console.log('[fetchAllProducts] Starting to fetch all products...');
 
