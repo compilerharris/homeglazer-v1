@@ -19,6 +19,8 @@ frontend:
         # Remove build-only deps not needed at runtime
         - rm -rf node_modules/@swc node_modules/@esbuild node_modules/esbuild 2>/dev/null || true
         - rm -rf .next/cache 2>/dev/null || true
+        # Remove devDependencies (typescript, tailwind, etc.) - saves ~100MB+
+        - npm prune --production
   artifacts:
     baseDirectory: .next
     files:
