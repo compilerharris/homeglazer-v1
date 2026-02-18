@@ -6,9 +6,9 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "prebuild": "tsx scripts/generate-wall-masks.ts",
-    "build": "npm run prebuild && next build",
+    "build": "prisma generate && prisma db push && npm run prebuild && next build",
     "postbuild": "next-sitemap",
-    "vercel-build": "prisma generate && prisma migrate deploy && npm run db:migrate-prices && npm run db:migrate-categories && npm run prebuild && next build",
+    "vercel-build": "prisma generate && prisma db push && npm run prebuild && next build",
     "start": "next start",
     "obfuscate:backup": "node scripts/obfuscate.js backup",
     "obfuscate:process": "node scripts/obfuscate.js obfuscate",
@@ -25,6 +25,7 @@
     "generate:jwt-secret": "node scripts/generate-jwt-secret.js"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.991.0",
     "@prisma/client": "^6.18.0",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-alert-dialog": "^1.1.13",

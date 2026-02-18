@@ -13,6 +13,6 @@ module.exports = defineConfig({
     seed: 'tsx prisma/seed.ts',
   },
   datasource: {
-    url: process.env.DATABASE_URL ?? 'postgresql://localhost:5432/placeholder',
+    url: process.env.DATABASE_URL ?? 'mongodb://localhost:27017/placeholder',
   },
 });

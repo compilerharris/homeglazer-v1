@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { requireAuth } from '@/lib/middleware';
 import formidable from 'formidable';
-import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import fs from 'fs';
 
 export const config = {
   api: {
@@ -11,22 +12,57 @@ export const config = {
   },
 };
 
-// Ensure upload directories exist
-const ensureUploadDir = (dir: string) => {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-};
+// Use S3_ prefix - Amplify blocks env vars starting with AWS_
+function getS3Client() {
+  const region = process.env.S3_REGION || process.env.AWS_REGION || 'us-east-1';
+  const accessKeyId = process.env.S3_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID;
+  const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY;
 
-// NOTE:
-// We intentionally use a separate "media" base directory so that
-// large legacy assets under "public/uploads" (e.g. services, blogs)
-// are not pulled into the api/upload serverless function bundle.
-const uploadDir = path.join(process.cwd(), 'public', 'media');
-ensureUploadDir(path.join(uploadDir, 'brands'));
-ensureUploadDir(path.join(uploadDir, 'products'));
-ensureUploadDir(path.join(uploadDir, 'documents'));
-ensureUploadDir(path.join(uploadDir, 'blogs'));
+  if (!accessKeyId || !secretAccessKey) {
+    throw new Error('S3_ACCESS_KEY_ID and S3_SECRET_ACCESS_KEY must be set');
+  }
+
+  return new S3Client({
+    region,
+    credentials: {
+      accessKeyId,
+      secretAccessKey,
+    },
+  });
+}
+
+function getMediaBaseUrl(): string {
+  const bucket = process.env.S3_BUCKET;
+  const region = process.env.S3_REGION || process.env.AWS_REGION || 'us-east-1';
+  if (!bucket) {
+    throw new Error('S3_BUCKET must be set');
+  }
+  return `https://${bucket}.s3.${region}.amazonaws.com`;
+}
+
+async function uploadToS3(
+  key: string,
+  body: Buffer,
+  contentType: string
+): Promise<string> {
+  const bucket = process.env.S3_BUCKET;
+  if (!bucket) {
+    throw new Error('S3_BUCKET must be set');
+  }
+
+  const client = getS3Client();
+  await client.send(
+    new PutObjectCommand({
+      Bucket: bucket,
+      Key: key,
+      Body: body,
+      ContentType: contentType,
+    })
+  );
+
+  const baseUrl = getMediaBaseUrl();
+  return `${baseUrl}/${key}`;
+}
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -37,10 +73,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const form = formidable({
       maxFileSize: 5 * 1024 * 1024, // 5MB
       keepExtensions: true,
-      uploadDir: uploadDir,
     });
 
-    // Parse form
     const [fields, files] = await form.parse(req);
 
     const type = Array.isArray(fields.type) ? fields.type[0] : fields.type;
@@ -59,10 +93,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       return res.status(400).json({ error: 'No file provided' });
     }
 
-    // Check if it's a PDF
     const isPdf = uploadedFile.mimetype === 'application/pdf';
-    
-    // Validate file type
+
     const allowedMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'application/pdf'];
     if (!uploadedFile.mimetype || !allowedMimeTypes.includes(uploadedFile.mimetype)) {
       return res.status(400).json({
@@ -70,61 +102,47 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       });
     }
 
-    // Generate unique filename
     const timestamp = Date.now();
     const randomString = Math.random().toString(36).substring(2, 15);
     const extension = path.extname(uploadedFile.originalFilename || (isPdf ? '.pdf' : 'image.jpg'));
     const filename = `${timestamp}-${randomString}${extension}`;
-    
-    let targetDir: string;
-    if (type === 'brand') {
-      targetDir = path.join(uploadDir, 'brands');
-    } else if (type === 'document') {
-      targetDir = path.join(uploadDir, 'documents');
-    } else if (type === 'blog') {
-      targetDir = path.join(uploadDir, 'blogs');
-    } else {
-      targetDir = path.join(uploadDir, 'products');
-    }
-    
-    const targetPath = path.join(targetDir, filename);
 
-    // Handle PDF files differently - just move them
+    const folder =
+      type === 'brand' ? 'brands' : type === 'document' ? 'documents' : type === 'blog' ? 'blogs' : 'products';
+    const s3Key = `media/${folder}/${filename}`;
+
+    let url: string;
+
     if (isPdf) {
-      fs.renameSync(uploadedFile.filepath, targetPath);
-      
-      const urlPath = `/media/${
-        type === 'brand' ? 'brands' : type === 'document' ? 'documents' : type === 'blog' ? 'blogs' : 'products'
-      }/${filename}`;
-      
+      const buffer = fs.readFileSync(uploadedFile.filepath);
+      url = await uploadToS3(s3Key, buffer, 'application/pdf');
+      fs.unlinkSync(uploadedFile.filepath);
+
       return res.status(200).json({
         success: true,
-        url: urlPath,
-        filename: filename,
+        url,
+        filename,
       });
     }
 
-    // Move and optimize image
-    await sharp(uploadedFile.filepath)
+    const buffer = await sharp(uploadedFile.filepath)
       .resize(1200, 1200, {
         fit: 'inside',
         withoutEnlargement: true,
       })
       .webp({ quality: 85 })
-      .toFile(targetPath.replace(extension, '.webp'));
+      .toBuffer();
 
-    // Remove temp file
     fs.unlinkSync(uploadedFile.filepath);
 
-    // Return the URL path
-    const imageFolder =
-      type === 'brand' ? 'brands' : type === 'blog' ? 'blogs' : 'products';
-    const urlPath = `/media/${imageFolder}/${filename.replace(extension, '.webp')}`;
+    const webpFilename = filename.replace(extension, '.webp');
+    const webpKey = `media/${folder}/${webpFilename}`;
+    url = await uploadToS3(webpKey, buffer, 'image/webp');
 
     return res.status(200).json({
       success: true,
-      url: urlPath,
-      filename: filename.replace(extension, '.webp'),
+      url,
+      filename: webpFilename,
     });
   } catch (error: any) {
     console.error('Upload error:', error);
@@ -142,4 +160,3 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 }
 
 export default requireAuth(handler);
-
