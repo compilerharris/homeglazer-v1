@@ -221,11 +221,24 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
       });
     }
 
-    const { brandId, search } = req.query;
+    const { brandId, search, page, limit } = req.query;
+
+    // Pagination parameters
+    const pageNumber = parseInt(page as string) || 1;
+    const pageSize = parseInt(limit as string) || 1000; // Default to 1000 (all products for backward compatibility)
+    const skip = (pageNumber - 1) * pageSize;
+
+    // Build where clause
+    const whereClause = brandId ? { brandId: brandId as string } : undefined;
+
+    // Get total count for pagination metadata
+    const totalCount = await prisma.product.count({
+      where: whereClause,
+    });
 
     // Simplified query - fetch products with brand only (nested relations can cause issues)
     let products = await prisma.product.findMany({
-      where: brandId ? { brandId: brandId as string } : undefined,
+      where: whereClause,
       select: {
         id: true,
         brandId: true,
@@ -266,6 +279,8 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
         },
       },
       orderBy: { createdAt: 'desc' },
+      take: pageSize,
+      skip: skip,
     });
 
     // Apply case-insensitive search filter if search query is provided
@@ -281,7 +296,22 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
       });
     }
 
-    return res.status(200).json(products);
+    // Return with pagination metadata
+    const totalPages = Math.ceil(totalCount / pageSize);
+    const hasNextPage = pageNumber < totalPages;
+    const hasPreviousPage = pageNumber > 1;
+
+    return res.status(200).json({
+      data: products,
+      pagination: {
+        page: pageNumber,
+        limit: pageSize,
+        total: totalCount,
+        totalPages: totalPages,
+        hasNextPage: hasNextPage,
+        hasPreviousPage: hasPreviousPage,
+      },
+    });
   } catch (error: any) {
     // Enhanced error logging with full details
     const errorDetails = {

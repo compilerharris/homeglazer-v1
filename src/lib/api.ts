@@ -23,6 +23,18 @@ export interface ApiProduct {
   specifications?: Record<string, string>;
 }
 
+export interface ApiProductsResponse {
+  data: ApiProduct[];
+  pagination?: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+    hasNextPage: boolean;
+    hasPreviousPage: boolean;
+  };
+}
+
 export interface ApiBrand {
   id: string;
   name: string;
@@ -31,20 +43,46 @@ export interface ApiBrand {
   description: string;
 }
 
+// Get the base URL for API calls
+// Priority: NEXT_PUBLIC_API_URL (for integration testing) > current origin (browser) > localhost (SSR fallback)
+function getApiBaseUrl(): string {
+  // Allow override via environment variable for integration testing
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+  
+  // In browser, use current origin (works in both dev and production)
+  if (typeof window !== 'undefined') {
+    return window.location.origin;
+  }
+  
+  // SSR fallback - use NEXT_PUBLIC_SITE_URL if available, otherwise localhost
+  return process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+}
+
 // Fetch all products
 export async function fetchProducts(params?: {
   brandId?: string;
   search?: string;
+  page?: number;
+  limit?: number;
 }): Promise<ApiProduct[]> {
   // #region agent log
   fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:39',message:'fetchProducts called',data:{hasParams:!!params,brandId:params?.brandId,search:params?.search},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
   // #endregion
-  const url = new URL('/api/products', 'https://main.d15nk5b2guin5u.amplifyapp.com');
+  const baseUrl = getApiBaseUrl();
+  const url = new URL('/api/products', baseUrl);
   if (params?.brandId) {
     url.searchParams.append('brandId', params.brandId);
   }
   if (params?.search) {
     url.searchParams.append('search', params.search);
+  }
+  if (params?.page) {
+    url.searchParams.append('page', params.page.toString());
+  }
+  if (params?.limit) {
+    url.searchParams.append('limit', params.limit.toString());
   }
 
   // #region agent log
@@ -86,7 +124,15 @@ export async function fetchProducts(params?: {
   // #region agent log
   fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:68',message:'Parsing JSON response',data:{responseLength:responseText.length},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
   // #endregion
-  return JSON.parse(responseText);
+  
+  const parsedResponse: ApiProductsResponse | ApiProduct[] = JSON.parse(responseText);
+  
+  // Handle both old format (array) and new format (object with data and pagination)
+  if (Array.isArray(parsedResponse)) {
+    return parsedResponse;
+  } else {
+    return parsedResponse.data;
+  }
 }
 
 // Fetch all brands
@@ -94,7 +140,8 @@ export async function fetchBrands(): Promise<ApiBrand[]> {
   // #region agent log
   fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:75',message:'fetchBrands called',data:{},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
   // #endregion
-  const url = 'https://main.d15nk5b2guin5u.amplifyapp.com/api/brands';
+  const baseUrl = getApiBaseUrl();
+  const url = `${baseUrl}/api/brands`;
   
   // #region agent log
   fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:78',message:'About to fetch brands',data:{url},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});
