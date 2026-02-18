@@ -12,6 +12,9 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.production
+.env.*.local
 
 # Node.js binary distributions (should be installed system-wide)
 node-v*/

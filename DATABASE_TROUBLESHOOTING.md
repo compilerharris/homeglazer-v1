@@ -69,3 +69,13 @@ The migration script automatically appends this when it detects `sslmode=` in th
 1. Add `DATABASE_URL` (MongoDB connection string) in Amplify Console → Environment variables.
 2. Ensure the build uses `prisma db push` (see `scripts/build.sh`).
 3. Redeploy after changing `DATABASE_URL`.
+
+### Products page shows "0 products" after MongoDB migration
+
+**Cause:** Amplify is still using the old PostgreSQL `DATABASE_URL` (Vercel DB) or it's not set.
+
+**Fix:**
+1. Amplify Console → Your app → **Environment variables**
+2. Set `DATABASE_URL` = your MongoDB Atlas connection string (same as in `.env.local`)
+3. Remove any `POSTGRES_URL` or `PRISMA_DATABASE_URL` (Vercel/Postgres vars)
+4. Trigger a **new build** (env vars are inlined at build time)

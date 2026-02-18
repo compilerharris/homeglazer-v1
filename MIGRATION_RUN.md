@@ -39,8 +39,12 @@ For a clean target (truncate MongoDB first):
 npm run db:migrate-to-mongo -- --clear
 ```
 
-### 4. After migration
+### 4. After migration – Amplify (required for products to appear)
 
-1. Update production `DATABASE_URL` to your MongoDB connection string
-2. Redeploy (Amplify/Vercel)
-3. CMS and frontend require no code changes
+1. **Amplify Console** → Your app → **Environment variables**
+2. Set `DATABASE_URL` = your MongoDB Atlas connection string (same as in .env.local)
+3. Remove any old `POSTGRES_URL` or `PRISMA_DATABASE_URL` if present
+4. **Redeploy** (trigger new build) – env vars are loaded at build time
+5. CMS and frontend require no code changes
+
+**Note:** Committed `.env.production` no longer contains DATABASE_URL. Amplify must have it set in Console.

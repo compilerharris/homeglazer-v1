@@ -45,7 +45,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const gmailUser = process.env.GMAIL_USER || 'homeglazer@gmail.com';
-    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
+    const gmailAppPassword = (process.env.GMAIL_APP_PASSWORD || '').trim().replace(/\s+/g, '');
 
     if (!gmailAppPassword) {
       console.error('GMAIL_APP_PASSWORD is not set');
@@ -54,23 +54,65 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     }
 
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
-      auth: { user: gmailUser, pass: gmailAppPassword },
-      connectionTimeout: 10000,
-      greetingTimeout: 10000,
-      socketTimeout: 10000,
-    });
-
-    try {
-      await transporter.verify();
-    } catch (verifyError) {
-      console.error('Transporter verification error:', verifyError);
+    // Validate App Password length (should be 16 characters)
+    if (gmailAppPassword.length !== 16) {
+      console.error('GMAIL_APP_PASSWORD invalid:', {
+        length: gmailAppPassword.length,
+        hasValue: !!gmailAppPassword,
+      });
       return res.status(500).json({
         error: 'Email service is temporarily unavailable. Please try again later or contact us.',
       });
+    }
+
+    // Helper function to create transporter
+    const createTransporter = (port: number, secure: boolean) => {
+      return nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port,
+        secure,
+        auth: { user: gmailUser, pass: gmailAppPassword },
+        connectionTimeout: 15000,
+        greetingTimeout: 15000,
+        socketTimeout: 15000,
+      });
+    };
+
+    // Try port 587 first, then 465 as fallback
+    let transporter = createTransporter(587, false);
+    let verifyError: unknown = null;
+
+    try {
+      await transporter.verify();
+    } catch (err) {
+      verifyError = err;
+      console.error('Port 587 verification failed:', {
+        message: err instanceof Error ? err.message : String(err),
+        code: (err as any)?.code,
+        command: (err as any)?.command,
+      });
+
+      // Try port 465 as fallback
+      try {
+        transporter = createTransporter(465, true);
+        await transporter.verify();
+        console.log('Port 465 verification succeeded');
+      } catch (err2) {
+        console.error('Port 465 verification also failed:', {
+          message: err2 instanceof Error ? err2.message : String(err2),
+          code: (err2 as any)?.code,
+        });
+        return res.status(500).json({
+          error: 'Email service is temporarily unavailable. Please try again later or contact us.',
+          // Include error details in development
+          ...(process.env.NODE_ENV !== 'production' && {
+            debug: {
+              port587: err instanceof Error ? err.message : String(err),
+              port465: err2 instanceof Error ? err2.message : String(err2),
+            },
+          }),
+        });
+      }
     }
 
     const logoPath = path.join(process.cwd(), 'public', 'assets', 'images', 'home-glazer-logo-1.png');

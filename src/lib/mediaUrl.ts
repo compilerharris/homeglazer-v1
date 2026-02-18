@@ -1,11 +1,16 @@
 /**
  * Resolves media paths to S3 URLs in production when NEXT_PUBLIC_S3_MEDIA_URL is set.
  * In dev or when S3 URL is not set, returns the path as-is (served from public/).
+ *
+ * S3 setup (required for Amplify production):
+ * 1. Set NEXT_PUBLIC_S3_MEDIA_URL in Amplify = https://<bucket>.s3.<region>.amazonaws.com
+ * 2. Run: npm run upload:visualiser  (room images for advanced/basic visualiser)
+ * 3. Run: npm run upload:media       (uploads/, media/)
  */
 
-const S3_BASE = process.env.NEXT_PUBLIC_S3_MEDIA_URL || '';
+const S3_BASE = (process.env.NEXT_PUBLIC_S3_MEDIA_URL || '').trim().replace(/\/+$/, '');
 
-// Room folders that are uploaded under visualiser/ prefix (optional - kept in deploy when S3 not used)
+// Room folders uploaded by npm run upload:visualiser to S3 key visualiser/assets/images/<folder>/...
 const VISUALISER_ROOM_FOLDERS = [
   'bedroom',
   'bathroom',
@@ -26,21 +31,21 @@ export function getMediaUrl(path: string): string {
     return path;
   }
 
-  const normalized = path.startsWith('/') ? path.slice(1) : path;
+  const normalized = path.replace(/^\/+/, '');
 
   if (S3_BASE) {
-    // Room images: S3 key is visualiser/assets/images/...
+    // Room images: S3 key is visualiser/assets/images/<room>/...
     if (normalized.startsWith('assets/images/')) {
       const rest = normalized.slice('assets/images/'.length);
       const firstSegment = rest.split('/')[0];
       if (VISUALISER_ROOM_FOLDERS.includes(firstSegment)) {
-        return `${S3_BASE.replace(/\/$/, '')}/visualiser/${normalized}`;
+        return `${S3_BASE}/visualiser/${normalized}`;
       }
     }
 
-    // uploads/* and media/*: S3 key matches path
+    // uploads/* and media/*: S3 key matches path (uploaded by npm run upload:media)
     if (normalized.startsWith('uploads/') || normalized.startsWith('media/')) {
-      return `${S3_BASE.replace(/\/$/, '')}/${normalized}`;
+      return `${S3_BASE}/${normalized}`;
     }
   }
 
