@@ -101,15 +101,25 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
 
     useEffect(() => {
       setLoadState('loading');
+      console.log('[CanvasAdvancedRoomVisualiser] Loading image:', imageSrc);
       const img = new Image();
       img.crossOrigin = 'anonymous';
       img.onload = () => {
+        console.log('[CanvasAdvancedRoomVisualiser] Image loaded successfully:', imageSrc);
         imageRef.current = img;
         setLoadState('loaded');
         prevAssignmentsRef.current = { ...assignments };
         drawRef.current();
       };
-      img.onerror = () => {
+      img.onerror = (error) => {
+        console.error('[CanvasAdvancedRoomVisualiser] Failed to load image:', imageSrc, error);
+        console.error('[CanvasAdvancedRoomVisualiser] Error details:', {
+          imageSrc,
+          error,
+          crossOrigin: img.crossOrigin,
+          naturalWidth: img.naturalWidth,
+          naturalHeight: img.naturalHeight,
+        });
         imageRef.current = null;
         setLoadState('error');
         drawRef.current();

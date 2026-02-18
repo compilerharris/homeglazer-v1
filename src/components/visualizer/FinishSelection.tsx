@@ -459,7 +459,17 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           >
             <CanvasAdvancedRoomVisualiser
               ref={desktopPreviewCanvasRef}
-              imageSrc={getMediaUrl(variant.mainImage)}
+              imageSrc={(() => {
+                const originalPath = variant.mainImage || '';
+                const mediaUrl = getMediaUrl(originalPath);
+                console.log('[FinishSelection] Desktop image URL:', {
+                  originalPath,
+                  mediaUrl,
+                  variantName: variant.name,
+                  variantLabel: variant.label,
+                });
+                return mediaUrl;
+              })()}
               wallMasks={wallMasks}
               assignments={assignments}
               loadingMasks={loadingMasks}
@@ -641,7 +651,17 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               >
                 <CanvasAdvancedRoomVisualiser
                   ref={mobilePreviewCanvasRef}
-                  imageSrc={getMediaUrl(variant.mainImage)}
+                  imageSrc={(() => {
+                    const originalPath = variant.mainImage || '';
+                    const mediaUrl = getMediaUrl(originalPath);
+                    console.log('[FinishSelection] Mobile image URL:', {
+                      originalPath,
+                      mediaUrl,
+                      variantName: variant.name,
+                      variantLabel: variant.label,
+                    });
+                    return mediaUrl;
+                  })()}
                   wallMasks={wallMasks}
                   assignments={assignments}
                   loadingMasks={loadingMasks}

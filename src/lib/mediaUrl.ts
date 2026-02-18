@@ -39,13 +39,26 @@ export function getMediaUrl(path: string): string {
       const rest = normalized.slice('assets/images/'.length);
       const firstSegment = rest.split('/')[0];
       if (VISUALISER_ROOM_FOLDERS.includes(firstSegment)) {
-        return `${S3_BASE}/visualiser/${normalized}`;
+        const s3Url = `${S3_BASE}/visualiser/${normalized}`;
+        if (typeof window !== 'undefined') {
+          console.log('[getMediaUrl] Converting to S3:', path, '->', s3Url, 'S3_BASE:', S3_BASE);
+        }
+        return s3Url;
       }
     }
 
     // uploads/* and media/*: S3 key matches path (uploaded by npm run upload:media)
     if (normalized.startsWith('uploads/') || normalized.startsWith('media/')) {
       return `${S3_BASE}/${normalized}`;
+    }
+  } else {
+    // Log warning if S3_BASE is not set but we're trying to load room images
+    if (normalized.startsWith('assets/images/') && typeof window !== 'undefined') {
+      const rest = normalized.slice('assets/images/'.length);
+      const firstSegment = rest.split('/')[0];
+      if (VISUALISER_ROOM_FOLDERS.includes(firstSegment)) {
+        console.warn('[getMediaUrl] NEXT_PUBLIC_S3_MEDIA_URL not set. Room images may not load in production:', path);
+      }
     }
   }
 

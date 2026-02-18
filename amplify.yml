@@ -11,6 +11,25 @@ frontend:
         - npm ci
     build:
       commands:
+        # Write environment variables to .env.production for Next.js runtime access
+        # Amplify env vars are only available during build, not at runtime for SSR/API routes
+        - |
+          echo "Writing environment variables to .env.production..."
+          touch .env.production
+          # Server-side variables (for API routes and SSR)
+          [ -n "$DATABASE_URL" ] && echo "DATABASE_URL=$DATABASE_URL" >> .env.production
+          [ -n "$JWT_SECRET" ] && echo "JWT_SECRET=$JWT_SECRET" >> .env.production
+          [ -n "$CRYPTO_SECRET" ] && echo "CRYPTO_SECRET=$CRYPTO_SECRET" >> .env.production
+          [ -n "$GMAIL_USER" ] && echo "GMAIL_USER=$GMAIL_USER" >> .env.production
+          [ -n "$GMAIL_APP_PASSWORD" ] && echo "GMAIL_APP_PASSWORD=$GMAIL_APP_PASSWORD" >> .env.production
+          [ -n "$S3_BUCKET" ] && echo "S3_BUCKET=$S3_BUCKET" >> .env.production
+          [ -n "$S3_REGION" ] && echo "S3_REGION=$S3_REGION" >> .env.production
+          [ -n "$S3_ACCESS_KEY_ID" ] && echo "S3_ACCESS_KEY_ID=$S3_ACCESS_KEY_ID" >> .env.production
+          [ -n "$S3_SECRET_ACCESS_KEY" ] && echo "S3_SECRET_ACCESS_KEY=$S3_SECRET_ACCESS_KEY" >> .env.production
+          # Public variables (already available via NEXT_PUBLIC_ prefix)
+          [ -n "$NEXT_PUBLIC_SITE_URL" ] && echo "NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL" >> .env.production
+          [ -n "$NEXT_PUBLIC_S3_MEDIA_URL" ] && echo "NEXT_PUBLIC_S3_MEDIA_URL=$NEXT_PUBLIC_S3_MEDIA_URL" >> .env.production
+          echo "Environment variables written to .env.production"
         - npm run build
     postBuild:
       commands:
