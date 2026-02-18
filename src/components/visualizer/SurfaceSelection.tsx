@@ -1,5 +1,6 @@
 import React from 'react';
 import { RoomManifest } from '../../hooks/useVisualizer';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 interface SurfaceSelectionProps {
   rooms: RoomManifest[];
@@ -31,7 +32,7 @@ const SurfaceSelection: React.FC<SurfaceSelectionProps> = ({
             >
                           <div className="w-full h-48 lg:h-56 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
               {/* Use first variant's main image as thumbnail */}
-              <img src={room.variants[0]?.mainImage} alt={room.label} className="object-cover w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text='+room.label)} />
+              <img src={getMediaUrl(room.variants[0]?.mainImage || '')} alt={room.label} className="object-cover w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text='+room.label)} />
             </div>
             </button>
             <span className="text-lg font-semibold text-gray-800 text-center mt-3">{room.label}</span>

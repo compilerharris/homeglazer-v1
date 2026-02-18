@@ -1,6 +1,6 @@
-
 import React from 'react';
 import Head from 'next/head';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -21,13 +21,13 @@ const GraffitiPainting: React.FC = () => {
         <meta property="og:title" content="Graffiti Painting Services | Home Glazer" />
         <meta property="og:description" content="Professional graffiti painting services in Delhi & NCR. Transform your walls with stunning street art and murals." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`${SITE_URL}${GRAFFITI_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(GRAFFITI_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Graffiti Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Professional graffiti painting services in Delhi & NCR." />
-        <meta name="twitter:image" content={`${SITE_URL}${GRAFFITI_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(GRAFFITI_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <Header />
@@ -61,7 +61,7 @@ const GraffitiPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src={GRAFFITI_HERO_IMAGE} 
+              src={getMediaUrl(GRAFFITI_HERO_IMAGE)} 
               alt="Graffiti Painting Services"
               className="w-full h-full object-cover"
             />
@@ -130,7 +130,7 @@ const GraffitiPainting: React.FC = () => {
               
               <div className="relative">
                 <img 
-                  src="/uploads/services/graffiti-artwork.jpg" 
+                  src={getMediaUrl("/uploads/services/graffiti-artwork.jpg")} 
                   alt="Graffiti Artwork"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -152,7 +152,7 @@ const GraffitiPainting: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <img 
-                  src="/uploads/services/Home%20Glazer%20At%20Graffiti%20Paintings.png" 
+                  src={getMediaUrl("/uploads/services/Home%20Glazer%20At%20Graffiti%20Paintings.png")} 
                   alt="Graffiti Painting Process"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -237,7 +237,7 @@ const GraffitiPainting: React.FC = () => {
               
               <div className="relative">
                 <img 
-                  src="/uploads/services/graffiti-street-art.jpg" 
+                  src={getMediaUrl("/uploads/services/graffiti-street-art.jpg")} 
                   alt="Street Graffiti Art"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
@@ -253,7 +253,7 @@ const GraffitiPainting: React.FC = () => {
             <div className="text-center mb-16">
               <div className="flex justify-center mb-6">
                 <img 
-                  src="/uploads/services/graffiti-features.jpg" 
+                  src={getMediaUrl("/uploads/services/graffiti-features.jpg")} 
                   alt="Graffiti Features"
                   className="w-24 h-24 object-cover rounded-full shadow-lg"
                 />
@@ -315,7 +315,7 @@ const GraffitiPainting: React.FC = () => {
             <div className="text-center mb-16">
               <div className="flex justify-center mb-6">
                 <img 
-                  src="/uploads/services/graffiti-paints.jpg" 
+                  src={getMediaUrl("/uploads/services/graffiti-paints.jpg")} 
                   alt="Graffiti Paints and Tools"
                   className="w-24 h-24 object-cover rounded-full shadow-lg"
                 />

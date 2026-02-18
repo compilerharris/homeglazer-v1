@@ -1,5 +1,5 @@
-
 import React from "react";
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Head from "next/head";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
@@ -25,10 +25,10 @@ const WoodServices: React.FC = () => {
         <meta name="description" content="Professional wood services including polishing, coating, and carpentry. Restore and protect your wooden furniture and fixtures with HomeGlazer." />
         <meta property="og:title" content="Wood Services | HomeGlazer - Polish, Coating & Carpentry" />
         <meta property="og:description" content="Professional wood polishing, coating, and carpentry services for your home." />
-        <meta property="og:image" content={`${SITE_URL}${WOOD_SERVICES_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(WOOD_SERVICES_HERO_IMAGE, SITE_URL)} />
         <meta name="twitter:title" content="Wood Services | HomeGlazer" />
         <meta name="twitter:description" content="Professional wood polishing, coating, and carpentry services." />
-        <meta name="twitter:image" content={`${SITE_URL}${WOOD_SERVICES_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(WOOD_SERVICES_HERO_IMAGE, SITE_URL)} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />
@@ -56,7 +56,7 @@ const WoodServices: React.FC = () => {
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/wood-coating.jpg" 
+                src={getMediaUrl("/uploads/wood-coating.jpg")} 
                 alt="Wood Coating" 
                 className="w-full h-64 object-cover"
               />
@@ -75,7 +75,7 @@ const WoodServices: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/services/wood-polish-thumb.jpg" 
+                src={getMediaUrl("/uploads/services/wood-polish-thumb.jpg")} 
                 alt="Wood Polishing" 
                 className="w-full h-64 object-cover"
               />
@@ -94,7 +94,7 @@ const WoodServices: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/services/carpentary-thumb.jpg" 
+                src={getMediaUrl("/uploads/services/carpentary-thumb.jpg")} 
                 alt="Carpentry" 
                 className="w-full h-64 object-cover"
               />

@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -26,14 +27,14 @@ const WoodCoating: React.FC = () => {
         <meta property="og:description" content="Professional wood coating services for furniture, doors, windows, and outdoor wood surfaces. Expert wood finishing with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wood/wood-coating" />
-        <meta property="og:image" content={`${SITE_URL}${WOOD_COATING_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(WOOD_COATING_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wood/wood-coating" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Wood Coating Services | Home Glazer" />
         <meta name="twitter:description" content="Professional wood coating services for furniture, doors, windows, and outdoor wood surfaces." />
-        <meta name="twitter:image" content={`${SITE_URL}${WOOD_COATING_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(WOOD_COATING_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -67,7 +68,7 @@ const WoodCoating: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src={WOOD_COATING_HERO_IMAGE}
+              src={getMediaUrl(WOOD_COATING_HERO_IMAGE)}
               alt="Wood Coating Services - Professional Wood Finishing and Protection"
               className="w-full h-full object-cover"
             />
@@ -135,7 +136,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/wood-coating-home.jpg" 
+                    src={getMediaUrl("/uploads/services/wood-coating-home.jpg")} 
                     alt="Professional Wood Coating Services by Home Glazer"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -158,7 +159,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/wood-coating-what.jpg" 
+                    src={getMediaUrl("/uploads/services/wood-coating-what.jpg")} 
                     alt="What is Wood Coating Services - Professional Wood Finishing"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -369,7 +370,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/How%20to%20Maintain%20Coated%20Wood%20Surfaces.png" 
+                    src={getMediaUrl("/uploads/services/How%20to%20Maintain%20Coated%20Wood%20Surfaces.png")} 
                     alt="Maintaining Coated Wood Surfaces - Professional Care Tips"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -386,7 +387,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/What%20is%20the%20best%20way%20to%20protect%20my%20outdoor%20wood%20windows,%20balconies,%20and%20doors.png" 
+                    src={getMediaUrl("/uploads/services/What%20is%20the%20best%20way%20to%20protect%20my%20outdoor%20wood%20windows,%20balconies,%20and%20doors.png")} 
                     alt="Protecting Outdoor Wood Windows, Balconies, and Doors"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -451,7 +452,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/How Can I Select Wood Paint Finishes for My Home Furniture.png" 
+                    src={getMediaUrl("/uploads/services/How Can I Select Wood Paint Finishes for My Home Furniture.png")} 
                     alt="Selecting Wood Paint Finishes for Home Furniture"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -644,7 +645,7 @@ const WoodCoating: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/Wood Coating Applications & Uses.png" 
+                    src={getMediaUrl("/uploads/services/Wood Coating Applications & Uses.png")} 
                     alt="Wood Coating Applications and Uses"
                     className="w-full h-full object-cover rounded-xl"
                   />

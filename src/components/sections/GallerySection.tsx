@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import BetterBeforeAfterSlider from './BetterBeforeAfterSlider'
 import type { RoomCategory } from '@/lib/galleryData'
+import { getMediaUrl } from '@/lib/mediaUrl'
 
 interface GallerySectionProps {
   category: RoomCategory
@@ -28,8 +29,8 @@ const GallerySection = memo(function GallerySection({ category }: GallerySection
             <div key={item.id} className="space-y-6">
               {/* Before/After Slider */}
               <BetterBeforeAfterSlider
-                beforeImage={item.beforeImage}
-                afterImage={item.afterImage}
+                beforeImage={getMediaUrl(item.beforeImage)}
+                afterImage={getMediaUrl(item.afterImage)}
                 className="h-80 md:h-96"
               />
               

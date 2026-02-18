@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionCarousel from './SectionCarousel';
+import { getMediaUrl } from '@/lib/mediaUrl';
 import { CarouselItem } from "@/components/ui/carousel";
 
 const TeamSection: React.FC = () => {
@@ -56,7 +57,7 @@ const TeamSection: React.FC = () => {
             {teamMembers.map(member => <CarouselItem key={member.id} className="basis-full md:basis-1/3 lg:basis-1/4 flex justify-center">
                 <div className="flex flex-col items-center p-4 text-center max-w-[300px]">
                   <div className="w-[200px] h-[200px] rounded-full overflow-hidden mb-4 bg-gray-100">
-                    <img src={member.image} alt={`${member.name} photo`} className="w-full h-full object-cover" />
+                    <img src={getMediaUrl(member.image)} alt={`${member.name} photo`} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-semibold">{member.name}</h3>
                   <p className="text-[rgba(89,89,89,1)]">{member.position}</p>

@@ -1,7 +1,7 @@
-
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -27,14 +27,14 @@ const TexturePainting: React.FC = () => {
         <meta property="og:description" content="Professional texture painting services for walls and ceilings. Expert texture painters with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wall-decor/texture-painting" />
-        <meta property="og:image" content={`${SITE_URL}${TEXTURE_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(TEXTURE_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wall-decor/texture-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Texture Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Professional texture painting services for walls and ceilings." />
-        <meta name="twitter:image" content={`${SITE_URL}${TEXTURE_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(TEXTURE_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -68,7 +68,7 @@ const TexturePainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src={TEXTURE_HERO_IMAGE}
+              src={getMediaUrl(TEXTURE_HERO_IMAGE)}
               alt="Texture Painting Services - Professional Wall Textures and Finishes"
               className="w-full h-full object-cover"
             />
@@ -134,7 +134,7 @@ const TexturePainting: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/texture-process.jpg" 
+                    src={getMediaUrl("/uploads/services/texture-process.jpg")} 
                     alt="Professional Texture Painting Services"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -222,7 +222,7 @@ const TexturePainting: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/texture-benefits.jpg" 
+                    src={getMediaUrl("/uploads/services/texture-benefits.jpg")} 
                     alt="Texture Painting Benefits and Results"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -415,7 +415,7 @@ const TexturePainting: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/texture-team-work.jpg" 
+                    src={getMediaUrl("/uploads/services/texture-team-work.jpg")} 
                     alt="Professional Texture Painting Team"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -548,7 +548,7 @@ const TexturePainting: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/texture-applications.jpg" 
+                    src={getMediaUrl("/uploads/services/texture-applications.jpg")} 
                     alt="Texture Painting Applications and Uses"
                     className="w-full h-full object-cover rounded-xl"
                   />

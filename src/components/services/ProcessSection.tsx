@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 const ProcessSection = () => {
   return (
@@ -14,7 +14,7 @@ const ProcessSection = () => {
           <div className="bg-white shadow-sm rounded-lg overflow-hidden">
             <div className="h-56">
               <img 
-                src="/uploads/consultation.png" 
+                src={getMediaUrl("/uploads/consultation.png")} 
                 alt="Consultation" 
                 className="w-full h-full object-cover"
               />
@@ -31,7 +31,7 @@ const ProcessSection = () => {
           <div className="bg-white shadow-sm rounded-lg overflow-hidden">
             <div className="h-56">
               <img 
-                src="/uploads/scope-of-work.png" 
+                src={getMediaUrl("/uploads/scope-of-work.png")} 
                 alt="Scope of Work" 
                 className="w-full h-full object-cover"
               />
@@ -48,7 +48,7 @@ const ProcessSection = () => {
           <div className="bg-white shadow-sm rounded-lg overflow-hidden">
             <div className="h-56">
               <img 
-                src="/uploads/actual-residential-painting.png" 
+                src={getMediaUrl("/uploads/actual-residential-painting.png")} 
                 alt="Painting Work" 
                 className="w-full h-full object-cover"
               />

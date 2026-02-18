@@ -1,7 +1,7 @@
-
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -27,14 +27,14 @@ export default function CarpentryServices() {
         <meta property="og:description" content="Professional carpentry services in Delhi NCR. Expert interior & exterior carpentry, custom woodworking, home renovation, and repair services." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wood/carpentry" />
-        <meta property="og:image" content={`${SITE_URL}${CARPENTRY_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(CARPENTRY_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wood/carpentry" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Carpentry Services | Home Glazer" />
         <meta name="twitter:description" content="Professional carpentry services in Delhi NCR. Expert interior & exterior carpentry." />
-        <meta name="twitter:image" content={`${SITE_URL}${CARPENTRY_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(CARPENTRY_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -68,7 +68,7 @@ export default function CarpentryServices() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src={CARPENTRY_HERO_IMAGE} 
+              src={getMediaUrl(CARPENTRY_HERO_IMAGE)} 
               alt="Professional Carpentry Services - Expert Woodworking and Custom Furniture"
               className="w-full h-full object-cover"
             />
@@ -149,7 +149,7 @@ export default function CarpentryServices() {
             
             <div className="relative">
               <img
-                src="/uploads/services/Home%20Glazer%20at%20Carpentry%20Services.png"
+                src={getMediaUrl("/uploads/services/Home%20Glazer%20at%20Carpentry%20Services.png")}
                 alt="Home Glazer Carpentry Team - Skilled Craftsmen at Work"
                 className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
               />
@@ -226,7 +226,7 @@ export default function CarpentryServices() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <img
-                src="/uploads/services/Interior%20Carpentry%20Services.png"
+                src={getMediaUrl("/uploads/services/Interior%20Carpentry%20Services.png")}
                 alt="Interior Carpentry Services - Custom Furniture and Woodwork"
                 className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
               />
@@ -275,7 +275,7 @@ export default function CarpentryServices() {
             
             <div className="relative">
               <img
-                src="/uploads/services/Exterior%20Carpentry%20Services.png"
+                src={getMediaUrl("/uploads/services/Exterior%20Carpentry%20Services.png")}
                 alt="Exterior Carpentry Services - Outdoor Wooden Structures and Decks"
                 className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
               />
@@ -592,7 +592,7 @@ export default function CarpentryServices() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
               <img
-                src="/uploads/services/Custom%20Kitchen%20Cabinets.png"
+                src={getMediaUrl("/uploads/services/Custom%20Kitchen%20Cabinets.png")}
                 alt="Custom Kitchen Cabinets - Professional Carpentry Services"
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />
@@ -604,7 +604,7 @@ export default function CarpentryServices() {
             
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
               <img
-                src="/uploads/services/Built-in%20Wardrobes.png"
+                src={getMediaUrl("/uploads/services/Built-in%20Wardrobes.png")}
                 alt="Built-in Wardrobes - Custom Storage Solutions"
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />
@@ -616,7 +616,7 @@ export default function CarpentryServices() {
             
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
               <img
-                src="/uploads/services/Outdoor%20Decks.png"
+                src={getMediaUrl("/uploads/services/Outdoor%20Decks.png")}
                 alt="Outdoor Deck Construction - Exterior Carpentry"
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />

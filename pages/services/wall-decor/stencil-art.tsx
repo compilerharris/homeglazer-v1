@@ -1,7 +1,7 @@
-
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -28,7 +28,7 @@ const StencilArt: React.FC = () => {
         <meta property="og:description" content="Professional stencil painting services for walls and ceilings. Expert stencil artists with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wall-decor/stencil-art" />
-        <meta property="og:image" content={`${SITE_URL}${STENCIL_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(STENCIL_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wall-decor/stencil-art" />
@@ -69,7 +69,7 @@ const StencilArt: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src={STENCIL_HERO_IMAGE}
+              src={getMediaUrl(STENCIL_HERO_IMAGE)}
               alt="Stencil Painting Services - Professional Wall Art and Design"
               className="w-full h-full object-cover"
             />
@@ -135,7 +135,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/Home%20Glazer%20at%20Stencil%20Painting.png" 
+                    src={getMediaUrl("/uploads/services/Home%20Glazer%20at%20Stencil%20Painting.png")} 
                     alt="Professional Stencil Painting Services"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -223,7 +223,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/What%20is%20Stencil%20Painting%20Process.png" 
+                    src={getMediaUrl("/uploads/services/What%20is%20Stencil%20Painting%20Process.png")} 
                     alt="Stencil Painting Process and Results"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -348,7 +348,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/Why%20Choose%20HomeGlazer%20for%20the%20Stencil%20Painting%20Service.png" 
+                    src={getMediaUrl("/uploads/services/Why%20Choose%20HomeGlazer%20for%20the%20Stencil%20Painting%20Service.png")} 
                     alt="Professional Stencil Painting Team"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -481,7 +481,7 @@ const StencilArt: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/Stencil%20Painting%20Applications%20&%20Uses.png" 
+                    src={getMediaUrl("/uploads/services/Stencil%20Painting%20Applications%20&%20Uses.png")} 
                     alt="Stencil Painting Applications and Uses"
                     className="w-full h-full object-cover rounded-xl"
                   />

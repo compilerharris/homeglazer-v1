@@ -1,5 +1,5 @@
-
 import React from "react";
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Head from "next/head";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
@@ -25,10 +25,10 @@ const WallDecor: React.FC = () => {
         <meta name="description" content="Transform your walls with HomeGlazer's wall decor services. Texture painting, stencil designs, and wallpapers to add personality to your space." />
         <meta property="og:title" content="Wall Decor Services | HomeGlazer - Texture & Stencil" />
         <meta property="og:description" content="Transform your walls with texture painting, stencil designs, and wallpapers." />
-        <meta property="og:image" content={`${SITE_URL}${WALL_DECOR_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(WALL_DECOR_HERO_IMAGE, SITE_URL)} />
         <meta name="twitter:title" content="Wall Decor Services | HomeGlazer" />
         <meta name="twitter:description" content="Transform your walls with texture painting and stencil designs." />
-        <meta name="twitter:image" content={`${SITE_URL}${WALL_DECOR_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(WALL_DECOR_HERO_IMAGE, SITE_URL)} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />
@@ -56,7 +56,7 @@ const WallDecor: React.FC = () => {
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/services/Graffiti%20Paintingthumb.png" 
+                src={getMediaUrl("/uploads/services/Graffiti%20Paintingthumb.png")} 
                 alt="Graffiti Painting" 
                 className="w-full h-64 object-cover"
               />
@@ -75,7 +75,7 @@ const WallDecor: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/texture-painting.jpg" 
+                src={getMediaUrl("/uploads/texture-painting.jpg")} 
                 alt="Texture Painting" 
                 className="w-full h-64 object-cover"
               />
@@ -94,7 +94,7 @@ const WallDecor: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/services/stencil-thumb.png" 
+                src={getMediaUrl("/uploads/services/stencil-thumb.png")} 
                 alt="Stencil Art" 
                 className="w-full h-64 object-cover"
               />
@@ -113,7 +113,7 @@ const WallDecor: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
             <img 
-                src="/uploads/wallpaper.jpg" 
+                src={getMediaUrl("/uploads/wallpaper.jpg")} 
                 alt="Wallpaper" 
                 className="w-full h-64 object-cover"
               />

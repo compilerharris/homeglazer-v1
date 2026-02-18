@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -57,11 +58,11 @@ const AnimatedRoomThumbnail: React.FC<AnimatedRoomThumbnailProps> = ({ colors, t
     return (
       <div className="relative w-full aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden">
         <img 
-          src={BEDROOM_IMAGE}
+          src={getMediaUrl(BEDROOM_IMAGE)}
           alt="Bedroom preview with multiple wall colors"
           className="object-cover w-full h-full"
           onError={(e) => {
-            e.currentTarget.src = '/assets/images/bedroom/bedroom1/bedroom1.jpg';
+            e.currentTarget.src = getMediaUrl('/assets/images/bedroom/bedroom1/bedroom1.jpg');
           }}
         />
         {/* SVG Overlay with multiple color regions */}
@@ -120,11 +121,11 @@ const AnimatedRoomThumbnail: React.FC<AnimatedRoomThumbnailProps> = ({ colors, t
   return (
     <div className="relative w-full aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden">
       <img 
-        src={BEDROOM_IMAGE}
+        src={getMediaUrl(BEDROOM_IMAGE)}
         alt="Bedroom preview with single wall color"
         className="object-cover w-full h-full"
         onError={(e) => {
-          e.currentTarget.src = '/assets/images/bedroom/bedroom1/bedroom1.jpg';
+          e.currentTarget.src = getMediaUrl('/assets/images/bedroom/bedroom1/bedroom1.jpg');
         }}
       />
       {/* SVG Overlay for all walls with same color */}
@@ -237,13 +238,13 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
         <meta property="og:title" content={`${product.name} | ${product.brand} - HomeGlazer`} />
         <meta property="og:description" content={product.description || `${product.name} by ${product.brand}. Premium quality paint.`} />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content={product.image && product.image.startsWith('http') ? product.image : `${SITE_URL}${product.image || '/uploads/color-bucket1.png'}`} />
+        <meta property="og:image" content={product.image && product.image.startsWith('http') ? product.image : getAbsoluteMediaUrl(product.image || '/uploads/color-bucket1.png', SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${product.name} | ${product.brand}`} />
         <meta name="twitter:description" content={product.description || `Premium quality paint by ${product.brand}.`} />
-        <meta name="twitter:image" content={product.image && product.image.startsWith('http') ? product.image : `${SITE_URL}${product.image || '/uploads/color-bucket1.png'}`} />
+        <meta name="twitter:image" content={product.image && product.image.startsWith('http') ? product.image : getAbsoluteMediaUrl(product.image || '/uploads/color-bucket1.png', SITE_URL)} />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
         <Header />
@@ -277,8 +278,8 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: product.bannerImage
-              ? `url(${product.bannerImage.startsWith('/') ? product.bannerImage : product.bannerImage})`
-              : 'url(/assets/images/bedroom/bedroom1/bedroom1.jpg)',
+              ? `url(${product.bannerImage.startsWith('http') ? product.bannerImage : getMediaUrl(product.bannerImage.startsWith('/') ? product.bannerImage : `/${product.bannerImage}`)})`
+              : `url(${getMediaUrl('/assets/images/bedroom/bedroom1/bedroom1.jpg')})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}

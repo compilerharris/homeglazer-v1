@@ -1,7 +1,7 @@
-
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -28,14 +28,14 @@ const Residential: React.FC = () => {
         <meta property="og:description" content="Transform your home with our professional residential painting services. Expert house painters delivering quality interior & exterior painting with 35+ years of experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/painting/residential" />
-        <meta property="og:image" content={`${SITE_URL}${RESIDENTIAL_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(RESIDENTIAL_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/painting/residential" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Residential Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Transform your home with professional residential painting services." />
-        <meta name="twitter:image" content={`${SITE_URL}${RESIDENTIAL_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(RESIDENTIAL_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -69,7 +69,7 @@ const Residential: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src={RESIDENTIAL_HERO_IMAGE} 
+              src={getMediaUrl(RESIDENTIAL_HERO_IMAGE)} 
               alt="Residential Painting Services"
               className="w-full h-full object-cover"
             />
@@ -140,7 +140,7 @@ const Residential: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-xl">
                   <img 
-                    src="/uploads/actual-residential-painting.png" 
+                    src={getMediaUrl("/uploads/actual-residential-painting.png")} 
                     alt="Professional Residential Painting"
                     className="w-full h-auto rounded-xl"
                   />
@@ -181,7 +181,7 @@ const Residential: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/services/interior-painting-service.jpg" 
+                    src={getMediaUrl("/uploads/services/interior-painting-service.jpg")} 
                     alt="Interior Painting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -217,7 +217,7 @@ const Residential: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/exterior-painting.png" 
+                    src={getMediaUrl("/uploads/exterior-painting.png")} 
                     alt="Exterior Painting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -253,7 +253,7 @@ const Residential: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/services/texture-painting-service.jpg" 
+                    src={getMediaUrl("/uploads/services/texture-painting-service.jpg")} 
                     alt="Specialized Finishes"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -403,7 +403,7 @@ const Residential: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/residential.png" 
+                    src={getMediaUrl("/uploads/residential.png")} 
                     alt="Residential Project Size"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -425,7 +425,7 @@ const Residential: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/team-pic.png" 
+                    src={getMediaUrl("/uploads/team-pic.png")} 
                     alt="Team of Painters"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -447,7 +447,7 @@ const Residential: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/scope-of-work.png" 
+                    src={getMediaUrl("/uploads/scope-of-work.png")} 
                     alt="Painting Materials"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -469,7 +469,7 @@ const Residential: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/Commercial.png" 
+                    src={getMediaUrl("/uploads/Commercial.png")} 
                     alt="Commercial Services"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -488,7 +488,7 @@ const Residential: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/consultation.png" 
+                    src={getMediaUrl("/uploads/consultation.png")} 
                     alt="Project Scheduling"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -510,7 +510,7 @@ const Residential: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-indigo-100 to-indigo-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/studies-shows.png" 
+                    src={getMediaUrl("/uploads/studies-shows.png")} 
                     alt="Home Value Increase"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -550,7 +550,7 @@ const Residential: React.FC = () => {
               <div className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/consultation.png" 
+                    src={getMediaUrl("/uploads/consultation.png")} 
                     alt="Consultation Process"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -570,7 +570,7 @@ const Residential: React.FC = () => {
               <div className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/scope-of-work.png" 
+                    src={getMediaUrl("/uploads/scope-of-work.png")} 
                     alt="Scope of Work"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -590,7 +590,7 @@ const Residential: React.FC = () => {
               <div className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/services/The Actual Residential Painting Work.png" 
+                    src={getMediaUrl("/uploads/services/The Actual Residential Painting Work.png")} 
                     alt="Actual Painting Work"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />

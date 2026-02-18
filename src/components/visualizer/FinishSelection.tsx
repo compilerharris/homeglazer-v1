@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AlertCircle, Send, X } from 'lucide-react';
+import { getMediaUrl } from '@/lib/mediaUrl';
 import { VariantManifest, ColorSwatch } from '../../hooks/useVisualizer';
 import Breadcrumbs from './Breadcrumbs';
 import CanvasAdvancedRoomVisualiser, { type CanvasAdvancedRoomVisualiserRef } from './CanvasAdvancedRoomVisualiser';
@@ -469,7 +470,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           >
             <CanvasAdvancedRoomVisualiser
               ref={desktopPreviewCanvasRef}
-              imageSrc={variant.mainImage}
+              imageSrc={getMediaUrl(variant.mainImage)}
               wallMasks={wallMasks}
               assignments={assignments}
               loadingMasks={loadingMasks}
@@ -651,7 +652,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               >
                 <CanvasAdvancedRoomVisualiser
                   ref={mobilePreviewCanvasRef}
-                  imageSrc={variant.mainImage}
+                  imageSrc={getMediaUrl(variant.mainImage)}
                   wallMasks={wallMasks}
                   assignments={assignments}
                   loadingMasks={loadingMasks}
@@ -694,7 +695,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               <div className="bg-white rounded-lg p-6 shadow-lg text-center max-w-xs mx-4">
                 <div className="mb-3 flex justify-center">
                   <img 
-                    src="/assets/images/swipe-left-icon.svg" 
+                    src={getMediaUrl("/assets/images/swipe-left-icon.svg")} 
                     alt="Swipe gesture" 
                     className="w-12 h-12"
                   />

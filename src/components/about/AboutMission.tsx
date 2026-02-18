@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 const AboutMission: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const AboutMission: React.FC = () => {
           
           <div className="w-full md:w-1/2">
             <img 
-              src="/uploads/before-after.png" 
+              src={getMediaUrl("/uploads/before-after.png")} 
               alt="Our Mission" 
               className="rounded-lg shadow-lg w-full h-auto"
             />

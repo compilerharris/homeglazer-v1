@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { getMediaUrl } from '@/lib/mediaUrl';
 import CanvasRoomVisualiser from './CanvasRoomVisualiser';
 import { embeddedWallMasks } from '../../data/embeddedWallMasks';
 
@@ -75,7 +76,7 @@ const MiniKidsVisualizer: React.FC<MiniKidsVisualizerProps> = ({ className = '' 
           <div className="relative w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden">
             <div className="relative w-full h-full">
               <CanvasRoomVisualiser
-                imageSrc={roomImage}
+                imageSrc={getMediaUrl(roomImage)}
                 wallPath={combinedWallPath}
                 colorHex={selectedColor}
                 roomLabel="kids room"

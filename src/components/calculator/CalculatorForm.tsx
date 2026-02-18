@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 const CalculatorForm: React.FC = () => {
   return (
@@ -26,7 +27,7 @@ const CalculatorForm: React.FC = () => {
               </p>
             <div className="relative w-full bg-gray-100 rounded-lg overflow-hidden mb-8" style={{ aspectRatio: '16/9' }}>
               <Image
-                src="/assets/images/Paint-Calculator.webp"
+                src={getMediaUrl("/assets/images/Paint-Calculator.webp")}
                 alt="Painting Estimate"
                 fill
                 className="object-cover"
@@ -53,7 +54,7 @@ const CalculatorForm: React.FC = () => {
               </p>
             <div className="relative w-full bg-gray-100 rounded-lg overflow-hidden mb-8" style={{ aspectRatio: '16/9' }}>
               <Image
-                src="/assets/images/Wood-Polish-Calculator.webp"
+                src={getMediaUrl("/assets/images/Wood-Polish-Calculator.webp")}
                 alt="Wood Polishing Estimate"
                 fill
                 className="object-cover"

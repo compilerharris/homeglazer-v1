@@ -175,10 +175,6 @@ const Header: React.FC = () => {
       path: '/about'
     },
     {
-      label: 'Testimonials',
-      path: '/testimonials'
-    },
-    {
       label: 'Blog',
       path: '/blog'
     }

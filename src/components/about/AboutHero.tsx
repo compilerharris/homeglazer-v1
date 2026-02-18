@@ -1,11 +1,12 @@
 import React from 'react';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 const AboutHero: React.FC = () => {
   return (
     <section className="relative bg-cover bg-center h-[500px] w-full flex items-center justify-center overflow-hidden">
       {/* Background image */}
       <img 
-        src="/assets/images/bedroom/bedroom12/bedroom12.jpg" 
+        src={getMediaUrl("/assets/images/bedroom/bedroom12/bedroom12.jpg")} 
         alt="About Us Hero Background"
         className="absolute inset-0 w-full h-full object-cover"
       />

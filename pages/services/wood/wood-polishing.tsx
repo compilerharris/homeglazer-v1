@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -26,14 +27,14 @@ const WoodPolishing: React.FC = () => {
         <meta property="og:description" content="Professional wood polishing services for furniture, floors, and wooden surfaces. Expert wood restoration with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wood/wood-polishing" />
-        <meta property="og:image" content={`${SITE_URL}${WOOD_POLISH_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(WOOD_POLISH_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wood/wood-polishing" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Wood Polishing Services | Home Glazer" />
         <meta name="twitter:description" content="Professional wood polishing services for furniture, floors, and wooden surfaces." />
-        <meta name="twitter:image" content={`${SITE_URL}${WOOD_POLISH_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(WOOD_POLISH_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -67,7 +68,7 @@ const WoodPolishing: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src={WOOD_POLISH_HERO_IMAGE}
+              src={getMediaUrl(WOOD_POLISH_HERO_IMAGE)}
               alt="Wood Polishing Services - Professional Wood Restoration and Finishing"
               className="w-full h-full object-cover"
             />
@@ -135,7 +136,7 @@ const WoodPolishing: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/Home Glazer at Wood Polishing.png" 
+                    src={getMediaUrl("/uploads/services/Home Glazer at Wood Polishing.png")} 
                     alt="Professional Wood Polishing Services by Home Glazer"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -158,7 +159,7 @@ const WoodPolishing: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/Unveiling the Artistry of Wood Polishing.png" 
+                    src={getMediaUrl("/uploads/services/Unveiling the Artistry of Wood Polishing.png")} 
                     alt="Unveiling the Artistry of Wood Polishing - Professional Craftsmanship"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -261,7 +262,7 @@ const WoodPolishing: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/A%20Legacy%20of%20Excellence.png" 
+                    src={getMediaUrl("/uploads/services/A%20Legacy%20of%20Excellence.png")} 
                     alt="A Legacy of Excellence in Wood Polishing Services"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -284,7 +285,7 @@ const WoodPolishing: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/Embracing Sustainability.png" 
+                    src={getMediaUrl("/uploads/services/Embracing Sustainability.png")} 
                     alt="Embracing Sustainability in Wood Polishing"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -407,7 +408,7 @@ const WoodPolishing: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/How does Home Glazer Offers The Best Wood polishing services.png" 
+                    src={getMediaUrl("/uploads/services/How does Home Glazer Offers The Best Wood polishing services.png")} 
                     alt="How Home Glazer Offers The Best Wood Polishing Services"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -644,7 +645,7 @@ const WoodPolishing: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/Why You Should Hire Home Glazer.png" 
+                    src={getMediaUrl("/uploads/services/Why You Should Hire Home Glazer.png")} 
                     alt="Why You Should Hire Home Glazer for Wood Polishing"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -861,7 +862,7 @@ const WoodPolishing: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/Wood Polishing Applications & Uses.png" 
+                    src={getMediaUrl("/uploads/services/Wood Polishing Applications & Uses.png")} 
                     alt="Wood Polishing Applications and Uses"
                     className="w-full h-full object-cover rounded-xl"
                   />

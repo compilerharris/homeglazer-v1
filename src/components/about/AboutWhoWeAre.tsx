@@ -1,5 +1,6 @@
 import React from 'react';
 import { Info } from 'lucide-react';
+import { getMediaUrl } from '@/lib/mediaUrl';
 const AboutWhoWeAre: React.FC = () => {
   return <section className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-8">
@@ -20,7 +21,7 @@ const AboutWhoWeAre: React.FC = () => {
         
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
           <img 
-            src="/uploads/team-pic.png" 
+            src={getMediaUrl("/uploads/team-pic.png")} 
             alt="Before and After Transformation" 
             className="rounded-lg shadow-lg w-full h-auto"
           />
