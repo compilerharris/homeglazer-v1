@@ -49,7 +49,13 @@ export function getMediaUrl(path: string): string {
       // Brand logos: S3 key is assets/images/brand-logos/...
       // Only use S3 in production - in development, serve from local public folder
       if (rest.startsWith('brand-logos/')) {
-        return `${S3_BASE}/${normalized}`;
+        const s3Url = `${S3_BASE}/${normalized}`;
+        // #region agent log
+        if (typeof window !== 'undefined') {
+          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ddbf9a'},body:JSON.stringify({sessionId:'ddbf9a',location:'mediaUrl.ts:51',message:'Converting brand logo to S3 URL',data:{originalPath:path,normalized,resolvedS3Url:s3Url,S3_BASE},timestamp:Date.now(),runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+        }
+        // #endregion
+        return s3Url;
       }
     }
 

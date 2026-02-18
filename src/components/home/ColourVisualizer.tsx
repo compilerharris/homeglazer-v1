@@ -73,7 +73,7 @@ const ColourVisualizer: React.FC = () => {
         <div className="w-full lg:w-2/3 order-1 lg:order-2">
           {/* Carousel-like Image Display */}
           <div className="relative">
-            <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden">
               <div className="relative w-full h-full">
                 <CanvasRoomVisualiser
                   imageSrc={getMediaUrl(roomImage)}

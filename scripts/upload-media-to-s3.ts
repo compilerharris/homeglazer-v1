@@ -1,5 +1,5 @@
 /**
- * Upload uploads and media assets to S3.
+ * Upload uploads, media assets, and brand logos to S3.
  * Run before deploying to Amplify: npm run upload:media
  * Requires: S3_BUCKET, S3_REGION, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY (or .env.local)
  */
@@ -10,6 +10,7 @@ import path from 'path';
 
 const UPLOADS_DIR = path.join(process.cwd(), 'public', 'uploads');
 const MEDIA_DIR = path.join(process.cwd(), 'public', 'media');
+const BRAND_LOGOS_DIR = path.join(process.cwd(), 'public', 'assets', 'images', 'brand-logos');
 
 function getS3Client() {
   const region = process.env.S3_REGION || 'us-east-1';
@@ -100,6 +101,14 @@ async function main() {
     console.log(`Uploaded ${n} files to s3://${bucket}/media/`);
   } else {
     console.log('Skip media (not found)');
+  }
+
+  if (fs.existsSync(BRAND_LOGOS_DIR)) {
+    const n = await uploadDir(client, bucket, BRAND_LOGOS_DIR, 'assets/images/brand-logos');
+    total += n;
+    console.log(`Uploaded ${n} files to s3://${bucket}/assets/images/brand-logos/`);
+  } else {
+    console.log('Skip brand-logos (not found)');
   }
 
   console.log(`Done. Uploaded ${total} files total.`);

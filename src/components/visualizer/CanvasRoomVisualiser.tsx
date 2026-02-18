@@ -149,7 +149,7 @@ export default function CanvasRoomVisualiser({
         ref={canvasRef}
         width={CANVAS_WIDTH}
         height={CANVAS_HEIGHT}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contain"
         role="img"
         aria-label={`${roomLabel} room with wall color preview`}
         onContextMenu={(e) => e.preventDefault()}
