@@ -2,6 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -28,14 +29,14 @@ const ExteriorPainting: React.FC = () => {
         <meta property="og:description" content="Transform your home's exterior with our professional exterior painting services. Expert house painters delivering quality exterior painting with 35+ years of experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/exterior-painting" />
-        <meta property="og:image" content={`${SITE_URL}${EXTERIOR_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(EXTERIOR_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/exterior-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Exterior Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Professional exterior painting services for homes and buildings." />
-        <meta name="twitter:image" content={`${SITE_URL}${EXTERIOR_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(EXTERIOR_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -69,7 +70,7 @@ const ExteriorPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src={EXTERIOR_HERO_IMAGE} 
+              src={getMediaUrl(EXTERIOR_HERO_IMAGE)} 
               alt="Exterior Painting Services"
               className="w-full h-full object-cover"
             />
@@ -143,7 +144,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-xl">
                   <img 
-                    src="/assets/images/outdoor/outdoor3/outdoor3.jpg" 
+                    src={getMediaUrl("/assets/images/outdoor/outdoor3/outdoor3.jpg")} 
                     alt="Professional Exterior Painting"
                     className="w-full h-96 object-cover rounded-xl"
                   />
@@ -198,7 +199,7 @@ const ExteriorPainting: React.FC = () => {
                 <div className="relative">
                   <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-6">
                     <img 
-                      src="/assets/images/outdoor/outdoor2/outdoor2.jpg" 
+                      src={getMediaUrl("/assets/images/outdoor/outdoor2/outdoor2.jpg")} 
                       alt="Exterior Painting Process"
                       className="w-full h-96 object-cover rounded-xl"
                     />
@@ -532,7 +533,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/services/Exterior%20Repainting.png" 
+                    src={getMediaUrl("/uploads/services/Exterior%20Repainting.png")} 
                     alt="Exterior Repainting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -574,7 +575,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/services/Exterior%20First%20Time%20Painting.png" 
+                    src={getMediaUrl("/uploads/services/Exterior%20First%20Time%20Painting.png")} 
                     alt="First Time Painting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -616,7 +617,7 @@ const ExteriorPainting: React.FC = () => {
               <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                 <div className="h-56 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center relative overflow-hidden">
                   <img 
-                    src="/uploads/services/Exterior%20Texture%20Painting.png" 
+                    src={getMediaUrl("/uploads/services/Exterior%20Texture%20Painting.png")} 
                     alt="Texture Painting"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />

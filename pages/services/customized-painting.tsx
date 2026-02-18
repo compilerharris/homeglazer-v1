@@ -1,6 +1,7 @@
 
 import React from "react";
 import Head from "next/head";
+import { getMediaUrl, getAbsoluteMediaUrl } from "@/lib/mediaUrl";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
@@ -25,10 +26,10 @@ const CustomizedPainting: React.FC = () => {
         <meta name="description" content="Customized painting solutions including interior, exterior, one-day, and per-day painting services. Tailored to your schedule and budget." />
         <meta property="og:title" content="Customized Painting | HomeGlazer - Interior & Exterior" />
         <meta property="og:description" content="Customized painting solutions including interior, exterior, and flexible scheduling options." />
-        <meta property="og:image" content={`${SITE_URL}${CUSTOMIZED_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(CUSTOMIZED_HERO_IMAGE, SITE_URL)} />
         <meta name="twitter:title" content="Customized Painting | HomeGlazer" />
         <meta name="twitter:description" content="Customized painting solutions tailored to your schedule and budget." />
-        <meta name="twitter:image" content={`${SITE_URL}${CUSTOMIZED_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(CUSTOMIZED_HERO_IMAGE, SITE_URL)} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />
@@ -56,7 +57,7 @@ const CustomizedPainting: React.FC = () => {
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src={CUSTOMIZED_HERO_IMAGE} 
+                src={getMediaUrl(CUSTOMIZED_HERO_IMAGE)} 
                 alt="Exterior Painting" 
                 className="w-full h-64 object-cover"
               />
@@ -75,7 +76,7 @@ const CustomizedPainting: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/assets/images/bedroom/bedroom1/bedroom1.jpg" 
+                src={getMediaUrl("/assets/images/bedroom/bedroom1/bedroom1.jpg")} 
                 alt="Interior Painting" 
                 className="w-full h-64 object-cover"
               />
@@ -94,7 +95,7 @@ const CustomizedPainting: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/services/WOW%20One%20Day%20Painting%20Services%20thumb.png" 
+                src={getMediaUrl("/uploads/services/WOW%20One%20Day%20Painting%20Services%20thumb.png")} 
                 alt="One-Day Painting" 
                 className="w-full h-64 object-cover"
               />
@@ -113,7 +114,7 @@ const CustomizedPainting: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/services/WOW%20Per%20Day%20Painting%20Services%20thumb.png" 
+                src={getMediaUrl("/uploads/services/WOW%20Per%20Day%20Painting%20Services%20thumb.png")} 
                 alt="Per Day Painting" 
                 className="w-full h-64 object-cover"
               />

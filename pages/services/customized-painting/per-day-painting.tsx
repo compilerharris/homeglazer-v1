@@ -2,6 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -28,14 +29,14 @@ const PerDayPainting: React.FC = () => {
         <meta property="og:description" content="Hire professional painters on a per-day basis. Flexible, affordable painting services for small jobs and touch-ups." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/per-day-painting" />
-        <meta property="og:image" content={`${SITE_URL}${PER_DAY_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(PER_DAY_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/per-day-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Per Day Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Flexible per-day painting services that fit your schedule." />
-        <meta name="twitter:image" content={`${SITE_URL}${PER_DAY_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(PER_DAY_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -69,7 +70,7 @@ const PerDayPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src={PER_DAY_HERO_IMAGE} 
+              src={getMediaUrl(PER_DAY_HERO_IMAGE)} 
               alt="Professional on-demand painting services - expert painters at work"
               className="w-full h-full object-cover"
             />
@@ -103,7 +104,7 @@ const PerDayPainting: React.FC = () => {
                 <div className="hidden lg:flex justify-center">
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-0 border border-white/20 w-72 h-72 overflow-hidden">
                     <img
-                      src="/uploads/services/WOW%20Per%20Day%20Painting%20Services%20thumb.png"
+                      src={getMediaUrl("/uploads/services/WOW%20Per%20Day%20Painting%20Services%20thumb.png")}
                       alt="WOW Per Day Painting Services"
                       className="w-full h-full object-cover object-left"
                     />
@@ -136,7 +137,7 @@ const PerDayPainting: React.FC = () => {
               {/* Professional Painter Working Image */}
               <div className="relative group">
                 <img 
-                  src="/uploads/services/per-day-intro.jpg" 
+                  src={getMediaUrl("/uploads/services/per-day-intro.jpg")} 
                   alt="Professional painter working efficiently in modern home interior"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />
@@ -159,7 +160,7 @@ const PerDayPainting: React.FC = () => {
               {/* Painting Tools and Equipment Image */}
               <div className="relative group">
                 <img 
-                  src="/uploads/services/per-day-opportunity.jpg" 
+                  src={getMediaUrl("/uploads/services/per-day-opportunity.jpg")} 
                   alt="Professional painting tools and equipment for quality interior work"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />
@@ -677,7 +678,7 @@ const PerDayPainting: React.FC = () => {
               {/* Before Image */}
               <div className="relative group">
                 <img 
-                  src="/uploads/services/Home%20Glazer%20at%20WOW%20Per%20Day%20Painting.png" 
+                  src={getMediaUrl("/uploads/services/Home%20Glazer%20at%20WOW%20Per%20Day%20Painting.png")} 
                   alt="Home Glazer at WOW Per Day Painting"
                   className="w-full h-[480px] object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />
@@ -687,7 +688,7 @@ const PerDayPainting: React.FC = () => {
               {/* After Image */}
               <div className="relative group">
                 <img 
-                  src="/uploads/services/Why%20is%20WOW%20Per%20Day%20Painting%20Service%20an%20opportunity%20for%20you.png" 
+                  src={getMediaUrl("/uploads/services/Why%20is%20WOW%20Per%20Day%20Painting%20Service%20an%20opportunity%20for%20you.png")} 
                   alt="Why is WOW Per Day Painting Service an opportunity for you"
                   className="w-full h-[480px] object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />
@@ -743,7 +744,7 @@ const PerDayPainting: React.FC = () => {
               {/* Professional Team Image */}
               <div className="relative group">
                 <img 
-                  src="/uploads/services/Our%20Expert%20Painting%20Team.png" 
+                  src={getMediaUrl("/uploads/services/Our%20Expert%20Painting%20Team.png")} 
                   alt="Professional painting team working efficiently and professionally"
                   className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 />

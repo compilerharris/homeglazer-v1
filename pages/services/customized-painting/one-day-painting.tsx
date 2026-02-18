@@ -2,6 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -28,14 +29,14 @@ const OneDayPainting: React.FC = () => {
         <meta property="og:description" content="Transform your home or office in just ONE DAY with our WOW One Day Painting Services. Professional painters delivering quality painting in 24 hours." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/one-day-painting" />
-        <meta property="og:image" content={`${SITE_URL}${ONE_DAY_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(ONE_DAY_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/one-day-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="One Day Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Quick one-day painting services for fast room makeovers." />
-        <meta name="twitter:image" content={`${SITE_URL}${ONE_DAY_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(ONE_DAY_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -69,7 +70,7 @@ const OneDayPainting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img 
-              src={ONE_DAY_HERO_IMAGE} 
+              src={getMediaUrl(ONE_DAY_HERO_IMAGE)} 
               alt="WOW One Day Painting Services"
               className="w-full h-full object-cover"
             />
@@ -103,7 +104,7 @@ const OneDayPainting: React.FC = () => {
                 <div className="hidden lg:flex justify-center">
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-0 border border-white/20 w-72 h-72 overflow-hidden">
                     <img
-                      src="/uploads/services/WOW%20One%20Day%20Painting%20Services%20thumb.png"
+                      src={getMediaUrl("/uploads/services/WOW%20One%20Day%20Painting%20Services%20thumb.png")}
                       alt="WOW One Day Painting Services"
                       className="w-full h-full object-cover"
                     />
