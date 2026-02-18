@@ -35,11 +35,12 @@ interface BlogPostData {
 }
 
 interface BlogProps {
-  featuredPost: BlogPostData;
+  featuredPost: BlogPostData | null;
   regularPosts: BlogPostData[];
+  error?: string;
 }
 
-const Blog: React.FC<BlogProps> = ({ featuredPost, regularPosts }) => {
+const Blog: React.FC<BlogProps> = ({ featuredPost, regularPosts, error }) => {
 
   return (
     <>
@@ -76,7 +77,18 @@ const Blog: React.FC<BlogProps> = ({ featuredPost, regularPosts }) => {
       </div>
       
       <BlogHero />
-      <FeaturedPost post={featuredPost} />
+      {error && (
+        <div className="w-full py-8">
+          <div className="container mx-auto px-4 lg:px-8 2xl:w-[1400px]">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <p className="text-yellow-800">
+                Unable to load blog posts. Please try again later.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {featuredPost && <FeaturedPost post={featuredPost} />}
       <BlogList posts={regularPosts} />
       
       {/* CTA Section with pink background and white text/buttons */}
@@ -118,6 +130,18 @@ const Blog: React.FC<BlogProps> = ({ featuredPost, regularPosts }) => {
 
 export const getServerSideProps: GetServerSideProps<BlogProps> = async () => {
   try {
+    // Check if DATABASE_URL is configured
+    if (!process.env.DATABASE_URL) {
+      console.error('[Blog] DATABASE_URL environment variable is not set');
+      return {
+        props: {
+          featuredPost: null,
+          regularPosts: [],
+          error: 'Database configuration error. Please contact support.',
+        },
+      };
+    }
+
     // Fetch all published blog posts from database, ordered by publishedAt desc
     const blogs = await prisma.blogPost.findMany({
       where: { published: true },
@@ -173,18 +197,39 @@ export const getServerSideProps: GetServerSideProps<BlogProps> = async () => {
     const featuredPost = transformedPosts.find((p, idx) => idx === 0) || transformedPosts[0];
     const regularPosts = transformedPosts.filter((post) => post.id !== featuredPost?.id);
 
+    console.log(`[Blog] Successfully fetched ${blogs.length} blog posts (${regularPosts.length} regular, ${featuredPost ? 1 : 0} featured)`);
+
     return {
       props: {
         featuredPost: featuredPost || null,
         regularPosts,
       },
     };
-  } catch (error) {
-    console.error('Error fetching blog posts:', error);
+  } catch (error: any) {
+    // Enhanced error logging
+    console.error('[Blog] Error fetching blog posts:', {
+      message: error?.message || 'Unknown error',
+      code: error?.code,
+      name: error?.name,
+      stack: process.env.NODE_ENV === 'development' ? error?.stack : undefined,
+      databaseUrl: process.env.DATABASE_URL ? 'Set' : 'Not set',
+    });
+
+    // Check for specific error types
+    let errorMessage = 'Unable to load blog posts. Please try again later.';
+    if (error?.code === 'P1001' || error?.message?.includes('Can\'t reach database server')) {
+      errorMessage = 'Database connection failed. Please check your database configuration.';
+    } else if (error?.code === 'P1002' || error?.message?.includes('Connection timeout')) {
+      errorMessage = 'Database connection timeout. Please try again later.';
+    } else if (error?.message?.includes('DATABASE_URL')) {
+      errorMessage = 'Database configuration error. Please contact support.';
+    }
+
     return {
       props: {
-        featuredPost: null as any,
+        featuredPost: null,
         regularPosts: [],
+        error: errorMessage,
       },
     };
   }

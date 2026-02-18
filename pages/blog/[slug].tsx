@@ -158,6 +158,12 @@ export const getServerSideProps: GetServerSideProps<BlogPostPageProps> = async (
   const slug = params?.slug as string;
 
   try {
+    // Check if DATABASE_URL is configured
+    if (!process.env.DATABASE_URL) {
+      console.error(`[Blog Post] DATABASE_URL environment variable is not set for slug: ${slug}`);
+      return { notFound: true };
+    }
+
     // Fetch the blog post by slug from database
     const blog = await prisma.blogPost.findUnique({
       where: { slug, published: true },
@@ -178,6 +184,7 @@ export const getServerSideProps: GetServerSideProps<BlogPostPageProps> = async (
     });
 
     if (!blog) {
+      console.log(`[Blog Post] Blog post not found for slug: ${slug}`);
       return { notFound: true };
     }
 
@@ -252,14 +259,33 @@ export const getServerSideProps: GetServerSideProps<BlogPostPageProps> = async (
         : '',
     }));
 
+    console.log(`[Blog Post] Successfully fetched blog post: ${slug} with ${recentPosts.length} recent posts`);
+
     return {
       props: {
         post,
         recentPosts,
       },
     };
-  } catch (error) {
-    console.error('Error fetching blog post:', error);
+  } catch (error: any) {
+    // Enhanced error logging
+    console.error(`[Blog Post] Error fetching blog post for slug: ${slug}`, {
+      message: error?.message || 'Unknown error',
+      code: error?.code,
+      name: error?.name,
+      stack: process.env.NODE_ENV === 'development' ? error?.stack : undefined,
+      databaseUrl: process.env.DATABASE_URL ? 'Set' : 'Not set',
+    });
+
+    // Check for specific error types
+    if (error?.code === 'P1001' || error?.message?.includes('Can\'t reach database server')) {
+      console.error(`[Blog Post] Database connection failed for slug: ${slug}`);
+    } else if (error?.code === 'P1002' || error?.message?.includes('Connection timeout')) {
+      console.error(`[Blog Post] Database connection timeout for slug: ${slug}`);
+    } else if (error?.message?.includes('DATABASE_URL')) {
+      console.error(`[Blog Post] Database configuration error for slug: ${slug}`);
+    }
+
     return { notFound: true };
   }
 };
