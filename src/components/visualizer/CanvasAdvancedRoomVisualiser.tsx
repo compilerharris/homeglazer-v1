@@ -135,51 +135,45 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
       console.log('[CanvasAdvancedRoomVisualiser] Loading image:', imageSrc);
       
       const isCrossOrigin = imageSrc.startsWith('http://') || imageSrc.startsWith('https://');
+      const isS3Url = imageSrc.includes('s3');
       
-      // Try loading with crossOrigin first for cross-origin images (S3)
-      // If that fails, we'll retry without crossOrigin as fallback
-      const attemptLoad = (useCrossOrigin: boolean) => {
-        const img = new Image();
-        
-        if (useCrossOrigin && isCrossOrigin) {
-          img.crossOrigin = 'anonymous';
-        }
-        
-        img.onload = () => {
-          console.log('[CanvasAdvancedRoomVisualiser] Image loaded successfully:', imageSrc, 'crossOrigin:', img.crossOrigin);
-          imageRef.current = img;
-          setLoadState('loaded');
-          prevAssignmentsRef.current = { ...assignments };
-          drawRef.current();
-        };
-        
-        img.onerror = (error) => {
-          console.error('[CanvasAdvancedRoomVisualiser] Failed to load image:', imageSrc, 'crossOrigin:', img.crossOrigin, 'useCrossOrigin:', useCrossOrigin);
-          
-          // If we tried with crossOrigin and it failed, retry without it (fallback for misconfigured CORS)
-          if (useCrossOrigin && isCrossOrigin) {
-            console.log('[CanvasAdvancedRoomVisualiser] Retrying without crossOrigin as fallback...');
-            attemptLoad(false);
-          } else {
-            // Final failure
-            console.error('[CanvasAdvancedRoomVisualiser] Final error details:', {
-              imageSrc,
-              error,
-              crossOrigin: img.crossOrigin,
-              naturalWidth: img.naturalWidth,
-              naturalHeight: img.naturalHeight,
-            });
-            imageRef.current = null;
-            setLoadState('error');
-            drawRef.current();
-          }
-        };
-        
-        img.src = imageSrc;
+      const img = new Image();
+      
+      // CRITICAL: Always use crossOrigin for S3/cross-origin images to prevent canvas tainting
+      // If CORS fails, we should NOT fallback to loading without crossOrigin, as that will taint the canvas
+      // and prevent toDataURL() from working (needed for PDF generation)
+      if (isCrossOrigin) {
+        img.crossOrigin = 'anonymous';
+      }
+      
+      img.onload = () => {
+        console.log('[CanvasAdvancedRoomVisualiser] Image loaded successfully:', imageSrc, 'crossOrigin:', img.crossOrigin);
+        imageRef.current = img;
+        setLoadState('loaded');
+        prevAssignmentsRef.current = { ...assignments };
+        drawRef.current();
       };
       
-      // Start with crossOrigin for cross-origin images, without for same-origin
-      attemptLoad(isCrossOrigin);
+      img.onerror = (error) => {
+        console.error('[CanvasAdvancedRoomVisualiser] Failed to load image:', imageSrc, 'crossOrigin:', img.crossOrigin);
+        console.error('[CanvasAdvancedRoomVisualiser] Error details:', {
+          imageSrc,
+          error,
+          crossOrigin: img.crossOrigin,
+          isS3Url,
+          naturalWidth: img.naturalWidth,
+          naturalHeight: img.naturalHeight,
+        });
+        
+        // DO NOT fallback to loading without crossOrigin for S3 images
+        // This would taint the canvas and prevent toDataURL() from working
+        // Instead, fail gracefully - the PDF generator will use mainImagePath as fallback
+        imageRef.current = null;
+        setLoadState('error');
+        drawRef.current();
+      };
+      
+      img.src = imageSrc;
 
       return () => {
         imageRef.current = null;
