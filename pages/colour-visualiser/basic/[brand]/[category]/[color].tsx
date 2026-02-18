@@ -1527,7 +1527,7 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
           {/* Desktop Swatch palette on right */}
           <div className="hidden lg:flex flex-1 lg:flex-[1] flex flex-col items-center">
             {selectedCategory && selectedColor && (
-              <div className="sticky top-24 w-full flex flex-col items-center min-h-[500px]">
+              <div className="sticky top-24 self-start w-full flex flex-col items-center min-h-[500px]">
                 <h2 className="text-xl font-semibold mb-2">{colorDatabase?.brand}</h2>
                 <div className="grid w-full max-w-[400px] grid-cols-2 gap-3 md:gap-3 overflow-x-hidden flex-wrap max-h-[450px]">
                   {paginatedColors.map((color: any, idx: number) => (

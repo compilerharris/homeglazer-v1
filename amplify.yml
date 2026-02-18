@@ -16,8 +16,8 @@ frontend:
       commands:
         # Reduce deployment size (Amplify 220MB limit). Products/uploads served from S3.
         - rm -rf public/media/products public/uploads public/assets/Ai
-        # Room images for colour visualiser - served from S3 (run scripts/upload-visualiser-to-s3.ts once)
-        - rm -rf public/assets/images/bedroom public/assets/images/bathroom public/assets/images/kitchen public/assets/images/livingroom public/assets/images/homeoffice public/assets/images/kidsroom public/assets/images/office public/assets/images/outdoor public/assets/images/maingate
+        # Room images: keep in deploy for visualiser final preview (S3 optional - set NEXT_PUBLIC_S3_MEDIA_URL to use S3)
+        # - rm -rf public/assets/images/bedroom public/assets/images/bathroom public/assets/images/kitchen public/assets/images/livingroom public/assets/images/homeoffice public/assets/images/kidsroom public/assets/images/office public/assets/images/outdoor public/assets/images/maingate
         # Remove build-only deps not needed at runtime
         - rm -rf node_modules/@swc node_modules/@esbuild node_modules/esbuild 2>/dev/null || true
         - rm -rf .next/cache 2>/dev/null || true

@@ -129,10 +129,6 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const [isRecoloring, setIsRecoloring] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
-  // Debug log for showSwipeHint state
-  console.log('Current showSwipeHint state:', showSwipeHint);
-  console.log('Current isZoomed state:', isZoomed);
-
   // Check screen size for responsive width and zoom state
   useEffect(() => {
     const checkScreenSize = () => {
@@ -367,19 +363,12 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
 
   // Auto-scroll wiggle animation and swipe hint on first render (mobile only)
   useEffect(() => {
-    console.log('Step 5 useEffect - previewScrollRef.current:', !!previewScrollRef.current);
-    
     if (previewScrollRef.current) {
-      console.log('Step 5 - Showing swipe hint');
       // Show swipe hint for 3 seconds
-      setTimeout(() => {
-        console.log('Step 5 - Hiding swipe hint after 3 seconds');
-        setShowSwipeHint(false);
-      }, 3000);
+      setTimeout(() => setShowSwipeHint(false), 3000);
       
       // Perform wiggle animation after 1.5 seconds
       setTimeout(() => {
-        console.log('Step 5 - Performing wiggle animation');
         if (previewScrollRef.current) {
           const container = previewScrollRef.current;
           container.scrollLeft += 50;

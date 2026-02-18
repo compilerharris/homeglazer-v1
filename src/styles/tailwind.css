@@ -133,10 +133,8 @@
     transition: all 0.25s ease;
   }
 
-  html,
-  body {
-    overflow-x: clip; /* stronger than hidden - prevents horizontal scrollbar */
-  }
+  /* Do NOT use overflow-x: clip/hidden on html/body - it breaks position: sticky.
+   * Use max-width/min-width on wide elements instead to prevent horizontal scroll. */
 
   body {
     @apply bg-background text-foreground;

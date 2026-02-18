@@ -5,7 +5,7 @@
 
 const S3_BASE = process.env.NEXT_PUBLIC_S3_MEDIA_URL || '';
 
-// Room folders that are uploaded under visualiser/ prefix (removed by Amplify postBuild)
+// Room folders that are uploaded under visualiser/ prefix (optional - kept in deploy when S3 not used)
 const VISUALISER_ROOM_FOLDERS = [
   'bedroom',
   'bathroom',
@@ -28,22 +28,20 @@ export function getMediaUrl(path: string): string {
 
   const normalized = path.startsWith('/') ? path.slice(1) : path;
 
-  if (!S3_BASE) {
-    return path.startsWith('/') ? path : `/${path}`;
-  }
-
-  // Room images: S3 key is visualiser/assets/images/...
-  if (normalized.startsWith('assets/images/')) {
-    const rest = normalized.slice('assets/images/'.length);
-    const firstSegment = rest.split('/')[0];
-    if (VISUALISER_ROOM_FOLDERS.includes(firstSegment)) {
-      return `${S3_BASE}/visualiser/${normalized}`;
+  if (S3_BASE) {
+    // Room images: S3 key is visualiser/assets/images/...
+    if (normalized.startsWith('assets/images/')) {
+      const rest = normalized.slice('assets/images/'.length);
+      const firstSegment = rest.split('/')[0];
+      if (VISUALISER_ROOM_FOLDERS.includes(firstSegment)) {
+        return `${S3_BASE.replace(/\/$/, '')}/visualiser/${normalized}`;
+      }
     }
-  }
 
-  // uploads/* and media/*: S3 key matches path
-  if (normalized.startsWith('uploads/') || normalized.startsWith('media/')) {
-    return `${S3_BASE}/${normalized}`;
+    // uploads/* and media/*: S3 key matches path
+    if (normalized.startsWith('uploads/') || normalized.startsWith('media/')) {
+      return `${S3_BASE.replace(/\/$/, '')}/${normalized}`;
+    }
   }
 
   return path.startsWith('/') ? path : `/${path}`;
