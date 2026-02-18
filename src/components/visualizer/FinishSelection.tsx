@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { AlertCircle, Send, X } from 'lucide-react';
 import { getMediaUrl } from '@/lib/mediaUrl';
+import { useIsDesktop } from '@/hooks/useIsDesktop';
 import { VariantManifest, ColorSwatch } from '../../hooks/useVisualizer';
 import Breadcrumbs from './Breadcrumbs';
 import CanvasAdvancedRoomVisualiser, { type CanvasAdvancedRoomVisualiserRef } from './CanvasAdvancedRoomVisualiser';
+import SvgAdvancedRoomVisualiser from './SvgAdvancedRoomVisualiser';
 
 interface BreadcrumbItem {
   label: string;
@@ -102,10 +104,12 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   roomTypeLabel = '',
 }) => {
   const wallKeys = Object.keys(variant.walls);
+  const isDesktop = useIsDesktop();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const previewScrollRef = useRef<HTMLDivElement>(null);
   const previewImageRef = useRef<HTMLDivElement>(null);
   const mobilePreviewCanvasRef = useRef<CanvasAdvancedRoomVisualiserRef>(null);
+  const mobilePreviewContainerRef = useRef<HTMLDivElement>(null);
   const desktopPreviewCanvasRef = useRef<CanvasAdvancedRoomVisualiserRef>(null);
 
   // Memoize image URL to prevent unnecessary recalculations and ensure stable reference
@@ -221,34 +225,34 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     // Allow layout to settle and ensure preview is fully rendered
     await new Promise((r) => setTimeout(r, 200));
 
-    const canvasRef =
-      typeof window !== 'undefined' && window.innerWidth >= 1024
-        ? desktopPreviewCanvasRef
-        : mobilePreviewCanvasRef;
-
     let previewImageBase64 = '';
-    if (canvasRef.current && typeof window !== 'undefined') {
-      // Wait for canvas to be ready (critical for production S3 images)
-      let attempts = 0;
-      const maxAttempts = 10;
-      const checkInterval = 100; // 100ms between checks
-      
-      while (attempts < maxAttempts) {
-        if (canvasRef.current.isReady && canvasRef.current.isReady()) {
-          break;
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth >= 1024 && desktopPreviewCanvasRef.current) {
+        // Desktop: capture from canvas
+        const canvasRef = desktopPreviewCanvasRef;
+        let attempts = 0;
+        const maxAttempts = 10;
+        const checkInterval = 100;
+        while (attempts < maxAttempts) {
+          if (canvasRef.current?.isReady?.()) break;
+          attempts++;
+          if (attempts < maxAttempts) await new Promise((r) => setTimeout(r, checkInterval));
         }
-        
-        attempts++;
-        if (attempts < maxAttempts) {
-          await new Promise((r) => setTimeout(r, checkInterval));
+        try {
+          const dataUrl = canvasRef.current?.toDataURL?.('image/png');
+          if (dataUrl) previewImageBase64 = dataUrl;
+        } catch (captureErr) {
+          console.error('Preview capture failed:', captureErr);
         }
-      }
-      
-      try {
-        const dataUrl = canvasRef.current.toDataURL('image/png');
-        if (dataUrl) previewImageBase64 = dataUrl;
-      } catch (captureErr) {
-        console.error('Preview capture failed:', captureErr);
+      } else if (window.innerWidth < 1024 && mobilePreviewContainerRef.current) {
+        // Mobile: capture from SVG container with dom-to-image (dynamic import for SSR)
+        try {
+          const domtoimage = (await import('dom-to-image-more')).default;
+          const dataUrl = await domtoimage.toPng(mobilePreviewContainerRef.current);
+          if (dataUrl) previewImageBase64 = dataUrl;
+        } catch (captureErr) {
+          console.error('Preview capture failed:', captureErr);
+        }
       }
     }
 
@@ -662,13 +666,24 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                 className={`relative room-preview-container overflow-hidden rounded-lg ${isZoomed ? 'w-full' : 'h-full flex items-center justify-center'} transition-all duration-500 ease-in-out`}
                 style={{ minHeight: isZoomed ? 'auto' : '100%', aspectRatio: isZoomed ? '16/9' : 'auto' }}
               >
-                <CanvasAdvancedRoomVisualiser
-                  ref={mobilePreviewCanvasRef}
-                  imageSrc={imageUrl}
-                  wallMasks={wallMasks}
-                  assignments={assignments}
-                  loadingMasks={loadingMasks}
-                />
+                {isDesktop ? (
+                  <CanvasAdvancedRoomVisualiser
+                    ref={mobilePreviewCanvasRef}
+                    imageSrc={imageUrl}
+                    wallMasks={wallMasks}
+                    assignments={assignments}
+                    loadingMasks={loadingMasks}
+                  />
+                ) : (
+                  <div ref={mobilePreviewContainerRef} className="w-full h-full">
+                    <SvgAdvancedRoomVisualiser
+                      imageSrc={imageUrl}
+                      wallMasks={wallMasks}
+                      assignments={assignments}
+                      loadingMasks={loadingMasks}
+                    />
+                  </div>
+                )}
                 {loadingMasks && (
                   <div
                     className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"

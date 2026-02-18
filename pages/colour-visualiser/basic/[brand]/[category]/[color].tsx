@@ -8,6 +8,9 @@ import Head from 'next/head';
 import DevToolsProtection from '../../../../../src/components/security/DevToolsProtection';
 import CanvasRoomVisualiser from '../../../../../src/components/visualizer/CanvasRoomVisualiser';
 import CanvasAdvancedRoomVisualiser from '../../../../../src/components/visualizer/CanvasAdvancedRoomVisualiser';
+import SvgRoomVisualiser from '../../../../../src/components/visualizer/SvgRoomVisualiser';
+import SvgAdvancedRoomVisualiser from '../../../../../src/components/visualizer/SvgAdvancedRoomVisualiser';
+import { useIsDesktop } from '@/hooks/useIsDesktop';
 import { embeddedWallMasks } from '../../../../../src/data/embeddedWallMasks';
 import { GetServerSideProps } from 'next';
 import fs from 'fs';
@@ -998,6 +1001,7 @@ interface BasicVisualiserPageProps {
 
 const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }) => {
   const router = useRouter();
+  const isDesktop = useIsDesktop();
   const { brand: brandParam, category: categoryParam, color: colorParam } = router.query;
   const [colorDatabase, setColorDatabase] = useState<any>(initialData?.colorDatabase ?? null);
   const [selectedBrand, setSelectedBrand] = useState(initialData?.brand || '');
@@ -1510,12 +1514,21 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
                 className="w-full flex flex-col border-2 rounded-lg transition-all duration-200"
               >
                 <div className="w-full aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden mb-2 flex items-center justify-center relative">
-                  <CanvasRoomVisualiser
-                    imageSrc={getMediaUrl(src)}
-                    wallPath={WALL_MASKS[label]?.front || ""}
-                    colorHex={selectedColor?.colorHex || "#ffffff"}
-                    roomLabel={label}
-                  />
+                  {isDesktop ? (
+                    <CanvasRoomVisualiser
+                      imageSrc={getMediaUrl(src)}
+                      wallPath={WALL_MASKS[label]?.front || ""}
+                      colorHex={selectedColor?.colorHex || "#ffffff"}
+                      roomLabel={label}
+                    />
+                  ) : (
+                    <SvgRoomVisualiser
+                      imageSrc={getMediaUrl(src)}
+                      wallPath={WALL_MASKS[label]?.front || ""}
+                      colorHex={selectedColor?.colorHex || "#ffffff"}
+                      roomLabel={label}
+                    />
+                  )}
                 </div>
                 <span className="text-base font-medium text-gray-700 mb-2 text-center w-full">
                   {label === 'living' ? 'Living Room' : label.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}
@@ -1673,12 +1686,21 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
               {/* Left: Animated Preview */}
               <div className="flex-shrink-0 w-full lg:w-80">
                 <div className="relative w-full bg-gray-100 rounded-xl overflow-hidden shadow-inner" style={{ aspectRatio: '16/9' }}>
-                  <CanvasAdvancedRoomVisualiser
-                    imageSrc={getMediaUrl("/assets/images/bedroom/bedroom6/bedroom6.jpg")}
-                    wallMasks={advPreviewMasks}
-                    assignments={advPreviewColors[advPreviewColorIndex] ?? {}}
-                    loadingMasks={false}
-                  />
+                  {isDesktop ? (
+                    <CanvasAdvancedRoomVisualiser
+                      imageSrc={getMediaUrl("/assets/images/bedroom/bedroom6/bedroom6.jpg")}
+                      wallMasks={advPreviewMasks}
+                      assignments={advPreviewColors[advPreviewColorIndex] ?? {}}
+                      loadingMasks={false}
+                    />
+                  ) : (
+                    <SvgAdvancedRoomVisualiser
+                      imageSrc={getMediaUrl("/assets/images/bedroom/bedroom6/bedroom6.jpg")}
+                      wallMasks={advPreviewMasks}
+                      assignments={advPreviewColors[advPreviewColorIndex] ?? {}}
+                      loadingMasks={false}
+                    />
+                  )}
                   <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
                     Live Preview
                   </div>

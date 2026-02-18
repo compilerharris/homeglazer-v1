@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import CTAButton from './CTAButton';
 import CanvasRoomVisualiser from '../visualizer/CanvasRoomVisualiser';
+import SvgRoomVisualiser from '../visualizer/SvgRoomVisualiser';
+import { useIsDesktop } from '@/hooks/useIsDesktop';
 import { embeddedWallMasks } from '../../data/embeddedWallMasks';
 import { getMediaUrl } from '@/lib/mediaUrl';
 
@@ -12,6 +14,7 @@ const combinedWallPath = wallKeys
   .join(' ');
 
 const ColourVisualizer: React.FC = () => {
+  const isDesktop = useIsDesktop();
   const [selectedColor, setSelectedColor] = useState<string>('#F9D07D');
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -75,12 +78,21 @@ const ColourVisualizer: React.FC = () => {
           <div className="relative">
             <div className="relative w-full aspect-video rounded-xl overflow-hidden">
               <div className="relative w-full h-full">
-                <CanvasRoomVisualiser
-                  imageSrc={getMediaUrl(roomImage)}
-                  wallPath={combinedWallPath}
-                  colorHex={selectedColor}
-                  roomLabel="bedroom"
-                />
+                {isDesktop ? (
+                  <CanvasRoomVisualiser
+                    imageSrc={getMediaUrl(roomImage)}
+                    wallPath={combinedWallPath}
+                    colorHex={selectedColor}
+                    roomLabel="bedroom"
+                  />
+                ) : (
+                  <SvgRoomVisualiser
+                    imageSrc={getMediaUrl(roomImage)}
+                    wallPath={combinedWallPath}
+                    colorHex={selectedColor}
+                    roomLabel="bedroom"
+                  />
+                )}
               </div>
             </div>
           </div>

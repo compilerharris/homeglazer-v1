@@ -41,6 +41,18 @@ export default function CanvasRoomVisualiser({
     const ctx = canvas?.getContext('2d');
     if (!canvas || !ctx) return;
 
+    const rect = canvas.getBoundingClientRect();
+    const dpr = typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 3) : 1;
+
+    // Use display size for buffer to avoid non-integer scaling (causes banding on mobile).
+    // Logs showed buffer 2560x1440 scaled to display 661x372 → scale 0.258 caused artifacts.
+    const displayW = Math.max(rect.width, 1);
+    const displayH = Math.max(rect.height, 1);
+    canvas.width = Math.round(displayW * dpr);
+    canvas.height = Math.round(displayH * dpr);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale((displayW * dpr) / CANVAS_WIDTH, (displayH * dpr) / CANVAS_HEIGHT);
+
     const img = imageRef.current;
     if (!img || !img.complete || img.naturalWidth === 0) {
       ctx.fillStyle = '#e5e7eb';
@@ -84,6 +96,14 @@ export default function CanvasRoomVisualiser({
   useEffect(() => {
     drawRef.current = draw;
   }, [draw]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ro = new ResizeObserver(() => drawRef.current());
+    ro.observe(canvas);
+    return () => ro.disconnect();
+  }, []);
 
   useEffect(() => {
     setLoadState('loading');

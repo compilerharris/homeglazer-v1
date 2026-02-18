@@ -44,7 +44,9 @@ export default function Home() {
       <ContactForm />
       <RoomMakeover />
       <ColourVisualizer />
-      <PaintBrands />
+      <div className="hidden">
+        <PaintBrands />
+      </div>
       <TeamSection />
       <Certificates />
       <TestimonialsSection />

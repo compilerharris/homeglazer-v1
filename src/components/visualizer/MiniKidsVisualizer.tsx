@@ -1,7 +1,11 @@
+'use client';
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { getMediaUrl } from '@/lib/mediaUrl';
 import CanvasRoomVisualiser from './CanvasRoomVisualiser';
+import SvgRoomVisualiser from './SvgRoomVisualiser';
+import { useIsDesktop } from '@/hooks/useIsDesktop';
 import { embeddedWallMasks } from '../../data/embeddedWallMasks';
 
 const roomImage = '/assets/images/kidsroom/kidsroom10/kidsroom10.jpg';
@@ -16,6 +20,7 @@ interface MiniKidsVisualizerProps {
 }
 
 const MiniKidsVisualizer: React.FC<MiniKidsVisualizerProps> = ({ className = '' }) => {
+  const isDesktop = useIsDesktop();
   const [selectedColor, setSelectedColor] = useState<string>('#F9D07D');
 
   // Color options from different brands
@@ -75,12 +80,21 @@ const MiniKidsVisualizer: React.FC<MiniKidsVisualizerProps> = ({ className = '' 
         <div className="relative">
           <div className="relative w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden">
             <div className="relative w-full h-full">
-              <CanvasRoomVisualiser
-                imageSrc={getMediaUrl(roomImage)}
-                wallPath={combinedWallPath}
-                colorHex={selectedColor}
-                roomLabel="kids room"
-              />
+              {isDesktop ? (
+                <CanvasRoomVisualiser
+                  imageSrc={getMediaUrl(roomImage)}
+                  wallPath={combinedWallPath}
+                  colorHex={selectedColor}
+                  roomLabel="kids room"
+                />
+              ) : (
+                <SvgRoomVisualiser
+                  imageSrc={getMediaUrl(roomImage)}
+                  wallPath={combinedWallPath}
+                  colorHex={selectedColor}
+                  roomLabel="kids room"
+                />
+              )}
             </div>
           </div>
           <div className="mt-4 text-center">
