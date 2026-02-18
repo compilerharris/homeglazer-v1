@@ -205,7 +205,7 @@ const AdvancedVisualiserStep: React.FC = () => {
             return visualizer.selectedVariant;
           })() ? (
             <FinishSelection
-              variant={visualizer.selectedVariant}
+              variant={visualizer.selectedVariant!}
               selectedColors={visualizer.selectedColours}
               assignments={visualizer.assignments}
               wallMasks={visualizer.wallMasks}
