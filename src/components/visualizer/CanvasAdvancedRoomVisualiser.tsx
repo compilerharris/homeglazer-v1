@@ -132,6 +132,9 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
 
     useEffect(() => {
       setLoadState('loading');
+      // #region agent log
+      fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:133',message:'Starting image load',data:{imageSrc,isCrossOrigin:imageSrc.startsWith('http'),isS3Url:imageSrc.includes('s3'),hostname:typeof window !== 'undefined' ? window.location.hostname : 'ssr'},timestamp:Date.now(),runId:'production',hypothesisId:'K'})}).catch(()=>{});
+      // #endregion
       console.log('[CanvasAdvancedRoomVisualiser] Loading image:', imageSrc);
       
       const isCrossOrigin = imageSrc.startsWith('http://') || imageSrc.startsWith('https://');
@@ -144,9 +147,15 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
       // and prevent toDataURL() from working (needed for PDF generation)
       if (isCrossOrigin) {
         img.crossOrigin = 'anonymous';
+        // #region agent log
+        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:145',message:'Setting crossOrigin for cross-origin image',data:{imageSrc,crossOrigin:img.crossOrigin,isS3Url},timestamp:Date.now(),runId:'production',hypothesisId:'K'})}).catch(()=>{});
+        // #endregion
       }
       
       img.onload = () => {
+        // #region agent log
+        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:149',message:'Image loaded successfully',data:{imageSrc,crossOrigin:img.crossOrigin,naturalWidth:img.naturalWidth,naturalHeight:img.naturalHeight,isS3Url},timestamp:Date.now(),runId:'production',hypothesisId:'K'})}).catch(()=>{});
+        // #endregion
         console.log('[CanvasAdvancedRoomVisualiser] Image loaded successfully:', imageSrc, 'crossOrigin:', img.crossOrigin);
         imageRef.current = img;
         setLoadState('loaded');
@@ -155,15 +164,42 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
       };
       
       img.onerror = (error) => {
-        console.error('[CanvasAdvancedRoomVisualiser] Failed to load image:', imageSrc, 'crossOrigin:', img.crossOrigin);
-        console.error('[CanvasAdvancedRoomVisualiser] Error details:', {
+        // Try to get more detailed error information
+        let errorDetails: any = {
           imageSrc,
-          error,
+          error: error?.toString(),
           crossOrigin: img.crossOrigin,
           isS3Url,
+          isCrossOrigin,
           naturalWidth: img.naturalWidth,
           naturalHeight: img.naturalHeight,
-        });
+        };
+        
+        // Check if it's a CORS error specifically
+        if (typeof window !== 'undefined') {
+          try {
+            // Try to fetch the image to see what error we get
+            fetch(imageSrc, { method: 'HEAD', mode: 'cors' })
+              .then(response => {
+                // #region agent log
+                fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:160',message:'CORS test fetch result',data:{imageSrc,status:response.status,statusText:response.statusText,hasAccessControlAllowOrigin:!!response.headers.get('Access-Control-Allow-Origin'),accessControlAllowOrigin:response.headers.get('Access-Control-Allow-Origin')},timestamp:Date.now(),runId:'production',hypothesisId:'M'})}).catch(()=>{});
+                // #endregion
+              })
+              .catch(fetchErr => {
+                // #region agent log
+                fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:165',message:'CORS test fetch error',data:{imageSrc,fetchError:fetchErr?.toString(),fetchErrorMessage:fetchErr instanceof Error ? fetchErr.message : String(fetchErr)},timestamp:Date.now(),runId:'production',hypothesisId:'M'})}).catch(()=>{});
+                // #endregion
+              });
+          } catch (e) {
+            // Ignore fetch errors in error handler
+          }
+        }
+        
+        // #region agent log
+        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:157',message:'Image load error',data:errorDetails,timestamp:Date.now(),runId:'production',hypothesisId:'L'})}).catch(()=>{});
+        // #endregion
+        console.error('[CanvasAdvancedRoomVisualiser] Failed to load image:', imageSrc, 'crossOrigin:', img.crossOrigin);
+        console.error('[CanvasAdvancedRoomVisualiser] Error details:', errorDetails);
         
         // DO NOT fallback to loading without crossOrigin for S3 images
         // This would taint the canvas and prevent toDataURL() from working
