@@ -1,11 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
-import { createCanvas, loadImage, CanvasRenderingContext2D } from 'canvas';
-import { applyPath2DToCanvasRenderingContext, Path2D } from 'path2d';
+import { createCanvas, loadImage } from '@napi-rs/canvas';
+import { Path2D } from 'path2d';
 import { getWallMasksForVariant, getVariantMainImage } from '../../../src/lib/visualizer/serverWallMasks';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-applyPath2DToCanvasRenderingContext(CanvasRenderingContext2D as any);
 
 const CANVAS_WIDTH = 1280;
 const CANVAS_HEIGHT = 720;
@@ -39,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Resolve image path: /assets/... -> public/assets/...
     const imagePath = path.join(process.cwd(), 'public', mainImagePath.startsWith('/') ? mainImagePath.slice(1) : mainImagePath);
 
-    const img = await loadImage(imagePath);
+    const img = await loadImage(imagePath as string);
     const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     const ctx = canvas.getContext('2d');
 
@@ -85,7 +82,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     }
 
-    const buffer = canvas.toBuffer('image/png');
+    const buffer = await canvas.encode('png');
     res.setHeader('Content-Type', 'image/png');
     res.setHeader('Cache-Control', 'public, max-age=3600');
     res.send(buffer);

@@ -8,8 +8,6 @@ frontend:
             echo "ERROR: DATABASE_URL is not set. Add it in Amplify Console → Environment variables"
             exit 1
           fi
-        # canvas npm package needs cairo/pango (used by api/visualizer/render-image.ts)
-        - yum install -y cairo-devel cairo-gobject-devel pango-devel libjpeg-turbo-devel giflib-devel zlib-devel || dnf install -y cairo-devel cairo-gobject-devel pango-devel libjpeg-turbo-devel giflib-devel zlib-devel
         - npm ci
     build:
       commands:

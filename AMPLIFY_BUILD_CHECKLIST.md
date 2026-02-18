@@ -1,13 +1,8 @@
 # Amplify Build Setup Checklist
 
-## Likely cause of build failure
+## Canvas fix (applied)
 
-The build fails because **`canvas`** (used by `pages/api/visualizer/render-image.ts`) requires native system libraries (Cairo, Pango) that are not installed by default on Amplify's build environment.
-
-**Fix applied:** `amplify.yml` now installs these in preBuild:
-- `cairo-devel`, `cairo-gobject-devel`
-- `pango-devel`
-- `libjpeg-turbo-devel`, `giflib-devel`, `zlib-devel`
+The original **`canvas`** package required native libs (Cairo, Pango) that fail on Amplify. Replaced with **`@napi-rs/canvas`** (prebuilt binaries, zero system deps).
 
 ---
 
