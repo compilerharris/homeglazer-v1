@@ -41,31 +41,19 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
       toDataURL: (type = 'image/png') => {
         const canvas = canvasRef.current;
         if (!canvas) {
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:41',message:'toDataURL called but canvas is null',data:{hasCanvas:!!canvas,loadState},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'I'})}).catch(()=>{});
-          // #endregion
           return null;
         }
         
         // Ensure image is loaded before capturing (critical for production S3 images)
         if (loadState !== 'loaded' || !imageRef.current || !imageRef.current.complete) {
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:45',message:'Canvas not ready for capture',data:{loadState,hasImageRef:!!imageRef.current,imageComplete:imageRef.current?.complete,imageNaturalWidth:imageRef.current?.naturalWidth},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'I'})}).catch(()=>{});
-          // #endregion
           console.warn('[CanvasAdvancedRoomVisualiser] Canvas not ready for capture:', { loadState, hasImage: !!imageRef.current, imageComplete: imageRef.current?.complete });
           return null;
         }
         
         try {
           const dataUrl = canvas.toDataURL(type);
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:52',message:'toDataURL succeeded',data:{hasDataUrl:!!dataUrl,dataUrlLength:dataUrl?.length || 0,loadState,hasImageRef:!!imageRef.current,imageComplete:imageRef.current?.complete},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'I'})}).catch(()=>{});
-          // #endregion
           return dataUrl;
         } catch (err) {
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:55',message:'toDataURL failed',data:{error:err?.toString(),errorMessage:err instanceof Error ? err.message : String(err),loadState,hasImageRef:!!imageRef.current,imageSrc},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'J'})}).catch(()=>{});
-          // #endregion
           console.error('[CanvasAdvancedRoomVisualiser] toDataURL error:', err);
           return null;
         }
@@ -132,9 +120,6 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
 
     useEffect(() => {
       setLoadState('loading');
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:133',message:'Starting image load',data:{imageSrc,isCrossOrigin:imageSrc.startsWith('http'),isS3Url:imageSrc.includes('s3'),hostname:typeof window !== 'undefined' ? window.location.hostname : 'ssr'},timestamp:Date.now(),runId:'production',hypothesisId:'K'})}).catch(()=>{});
-      // #endregion
       console.log('[CanvasAdvancedRoomVisualiser] Loading image:', imageSrc);
       
       const isCrossOrigin = imageSrc.startsWith('http://') || imageSrc.startsWith('https://');
@@ -143,10 +128,6 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
       // For S3/cross-origin images, try loading via fetch first (better CORS handling)
       // then convert to blob URL to avoid canvas tainting issues
       if (isCrossOrigin && typeof window !== 'undefined') {
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:140',message:'Attempting fetch-based load for cross-origin image',data:{imageSrc,isS3Url,origin:typeof window !== 'undefined' ? window.location.origin : 'unknown'},timestamp:Date.now(),runId:'production',hypothesisId:'O'})}).catch(()=>{});
-        // #endregion
-        
         // Add cache-busting parameter to force fresh request
         const cacheBuster = `?cb=${Date.now()}`;
         const fetchUrl = imageSrc.includes('?') ? `${imageSrc}&cb=${Date.now()}` : `${imageSrc}${cacheBuster}`;
@@ -160,16 +141,10 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
           })
           .then(blob => {
             const blobUrl = URL.createObjectURL(blob);
-            // #region agent log
-            fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:148',message:'Fetch succeeded, creating blob URL',data:{imageSrc,blobUrl,blobSize:blob.size,blobType:blob.type},timestamp:Date.now(),runId:'production',hypothesisId:'N'})}).catch(()=>{});
-            // #endregion
             
             const img = new Image();
             // Blob URLs are same-origin, so no crossOrigin needed
             img.onload = () => {
-              // #region agent log
-              fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:153',message:'Image loaded via blob URL',data:{imageSrc,naturalWidth:img.naturalWidth,naturalHeight:img.naturalHeight,isS3Url},timestamp:Date.now(),runId:'production',hypothesisId:'N'})}).catch(()=>{});
-              // #endregion
               console.log('[CanvasAdvancedRoomVisualiser] Image loaded successfully via blob URL:', imageSrc);
               imageRef.current = img;
               setLoadState('loaded');
@@ -179,9 +154,6 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
               setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
             };
             img.onerror = (error) => {
-              // #region agent log
-              fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:161',message:'Blob URL image load error',data:{imageSrc,error:error?.toString()},timestamp:Date.now(),runId:'production',hypothesisId:'N'})}).catch(()=>{});
-              // #endregion
               URL.revokeObjectURL(blobUrl);
               imageRef.current = null;
               setLoadState('error');
@@ -190,19 +162,6 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
             img.src = blobUrl;
           })
           .catch(fetchErr => {
-            // #region agent log
-            const errorDetails = {
-              imageSrc,
-              fetchUrl,
-              fetchError: fetchErr?.toString(),
-              fetchErrorMessage: fetchErr instanceof Error ? fetchErr.message : String(fetchErr),
-              errorName: fetchErr?.name,
-              errorStack: fetchErr instanceof Error ? fetchErr.stack : undefined,
-              origin: typeof window !== 'undefined' ? window.location.origin : 'unknown',
-              userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'unknown'
-            };
-            fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:169',message:'Fetch failed, falling back to direct Image load',data:errorDetails,timestamp:Date.now(),runId:'production',hypothesisId:'O'})}).catch(()=>{});
-            // #endregion
             console.warn('[CanvasAdvancedRoomVisualiser] Fetch failed, trying direct Image load:', fetchErr);
             // Fallback to direct Image load
             loadImageDirectly();
@@ -217,15 +176,9 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
         
         if (isCrossOrigin) {
           img.crossOrigin = 'anonymous';
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:178',message:'Setting crossOrigin for direct Image load',data:{imageSrc,crossOrigin:img.crossOrigin,isS3Url},timestamp:Date.now(),runId:'production',hypothesisId:'K'})}).catch(()=>{});
-          // #endregion
         }
         
         img.onload = () => {
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:183',message:'Direct Image load succeeded',data:{imageSrc,crossOrigin:img.crossOrigin,naturalWidth:img.naturalWidth,naturalHeight:img.naturalHeight,isS3Url},timestamp:Date.now(),runId:'production',hypothesisId:'K'})}).catch(()=>{});
-          // #endregion
           console.log('[CanvasAdvancedRoomVisualiser] Image loaded successfully:', imageSrc, 'crossOrigin:', img.crossOrigin);
           imageRef.current = img;
           setLoadState('loaded');
@@ -235,7 +188,8 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
         
         img.onerror = (error) => {
           const errorEvent = error as ErrorEvent | Event;
-          let errorDetails: any = {
+          console.error('[CanvasAdvancedRoomVisualiser] Failed to load image:', imageSrc, 'crossOrigin:', img.crossOrigin);
+          console.error('[CanvasAdvancedRoomVisualiser] Error details:', {
             imageSrc,
             error: error?.toString(),
             errorType: errorEvent?.type,
@@ -245,13 +199,7 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
             isCrossOrigin,
             naturalWidth: img.naturalWidth,
             naturalHeight: img.naturalHeight,
-          };
-          
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'CanvasAdvancedRoomVisualiser.tsx:197',message:'Direct Image load error',data:errorDetails,timestamp:Date.now(),runId:'production',hypothesisId:'L'})}).catch(()=>{});
-          // #endregion
-          console.error('[CanvasAdvancedRoomVisualiser] Failed to load image:', imageSrc, 'crossOrigin:', img.crossOrigin);
-          console.error('[CanvasAdvancedRoomVisualiser] Error details:', errorDetails);
+          });
           
           imageRef.current = null;
           setLoadState('error');

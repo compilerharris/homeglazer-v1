@@ -29,9 +29,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const colorSelections = Array.isArray(body.colorSelections) ? body.colorSelections : [];
     const previewImageBase64 = body.previewImageBase64 || '';
     const mainImagePath = body.mainImagePath || '';
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'email-visualiser-summary.ts:30',message:'Received email request',data:{hasPreviewImage:!!previewImageBase64,previewImageLength:previewImageBase64.length,previewImagePrefix:previewImageBase64.substring(0,50),hasMainImagePath:!!mainImagePath,mainImagePath},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'E'})}).catch(()=>{});
-    // #endregion
 
     if (!fullName || !email || !phone) {
       return res.status(400).json({

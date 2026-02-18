@@ -234,10 +234,6 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       const checkInterval = 100; // 100ms between checks
       
       while (attempts < maxAttempts) {
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'FinishSelection.tsx:232',message:'Checking canvas readiness',data:{attempt:attempts + 1,maxAttempts,hasCanvasRef:!!canvasRef.current,isReady:canvasRef.current?.isReady?.() || false,isDesktop:typeof window !== 'undefined' && window.innerWidth >= 1024},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'A'})}).catch(()=>{});
-        // #endregion
-        
         if (canvasRef.current.isReady && canvasRef.current.isReady()) {
           break;
         }
@@ -249,24 +245,11 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       }
       
       try {
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'FinishSelection.tsx:245',message:'Attempting canvas capture',data:{hasCanvasRef:!!canvasRef.current,attempts,isReady:canvasRef.current?.isReady?.() || false},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'A'})}).catch(()=>{});
-        // #endregion
         const dataUrl = canvasRef.current.toDataURL('image/png');
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'FinishSelection.tsx:247',message:'Canvas capture result',data:{hasDataUrl:!!dataUrl,dataUrlLength:dataUrl?.length || 0,dataUrlPrefix:dataUrl?.substring(0,50) || '',isValidBase64:dataUrl?.startsWith('data:image/') || false},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'B'})}).catch(()=>{});
-        // #endregion
         if (dataUrl) previewImageBase64 = dataUrl;
       } catch (captureErr) {
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'FinishSelection.tsx:250',message:'Canvas capture error',data:{error:captureErr?.toString(),errorMessage:captureErr instanceof Error ? captureErr.message : String(captureErr)},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'C'})}).catch(()=>{});
-        // #endregion
         console.error('Preview capture failed:', captureErr);
       }
-    } else {
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'FinishSelection.tsx:253',message:'Canvas ref not available',data:{hasCanvasRef:!!canvasRef.current,isWindow:typeof window !== 'undefined'},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'A'})}).catch(()=>{});
-      // #endregion
     }
 
     const colorSelections = Object.entries(assignments).map(([wallKey, colorHex]) => {
@@ -295,9 +278,6 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       previewImageBase64,
       mainImagePath: variant.mainImage || '',
     };
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ea0ce9'},body:JSON.stringify({sessionId:'ea0ce9',location:'FinishSelection.tsx:262',message:'Sending email request',data:{hasPreviewImage:!!previewImageBase64,previewImageLength:previewImageBase64.length,previewImagePrefix:previewImageBase64.substring(0,50),hasMainImagePath:!!variant.mainImage,mainImagePath:variant.mainImage},timestamp:Date.now(),runId:'pdf-debug',hypothesisId:'D'})}).catch(()=>{});
-    // #endregion
 
     const doFetch = async (): Promise<Response> => {
       const controller = new AbortController();
