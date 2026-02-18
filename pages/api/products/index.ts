@@ -3,11 +3,6 @@ import { requireAuth } from '@/lib/middleware';
 import { prisma } from '@/lib/prisma';
 import { CATEGORY_OPTIONS, SUB_CATEGORY_OPTIONS } from '@/lib/product-constants';
 
-// Verify Prisma client is available
-if (!prisma) {
-  console.error('[Products API] Prisma client is not initialized');
-}
-
 // Manual validation function to avoid Zod webpack issues
 function validateCreateProduct(data: any): { isValid: boolean; errors: string[] } {
   const errors: string[] = [];
