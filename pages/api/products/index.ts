@@ -190,50 +190,29 @@ function validateCreateProduct(data: any): { isValid: boolean; errors: string[] 
 }
 
 // GET /api/products - List all products
+// Simplified version matching products-simple.ts which works in production
 async function getProducts(req: NextApiRequest, res: NextApiResponse) {
   try {
-    // Check if DATABASE_URL is configured
-    if (!process.env.DATABASE_URL) {
-      console.error('[Products API] DATABASE_URL environment variable is not set');
-      return res.status(500).json({ 
-        error: 'Database configuration error',
-        details: {
-          message: 'DATABASE_URL is not configured',
-          databaseUrl: 'Not set',
-        },
-        timestamp: new Date().toISOString(),
-      });
-    }
-
-    // Verify Prisma client is available
-    if (!prisma) {
-      return res.status(500).json({
-        error: 'Prisma client not initialized',
-        details: {
-          message: 'Prisma client is null or undefined',
-        },
-        timestamp: new Date().toISOString(),
-      });
-    }
-
-    const { brandId, search, page, limit } = req.query;
-
-    // Pagination parameters
+    const { page, limit, brandId } = req.query;
     const pageNumber = parseInt(page as string) || 1;
-    const pageSize = parseInt(limit as string) || 50; // Reduced to 50 to handle large product data in production
+    const pageSize = parseInt(limit as string) || 100;
     const skip = (pageNumber - 1) * pageSize;
-
+    
+    console.log(`[Products API] Fetching products (page: ${pageNumber}, limit: ${pageSize})`);
+    
     // Build where clause
     const whereClause = brandId ? { brandId: brandId as string } : undefined;
 
-    // Get total count for pagination metadata
+    // Get total count
     const totalCount = await prisma.product.count({
       where: whereClause,
     });
 
-    // Simplified query - fetch products with brand only (match test-products to debug production issue)
-    let products = await prisma.product.findMany({
+    // Fetch products with exact same select as test-products
+    const products = await prisma.product.findMany({
       where: whereClause,
+      take: pageSize,
+      skip: skip,
       select: {
         id: true,
         brandId: true,
@@ -264,24 +243,11 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
         },
       },
       orderBy: { createdAt: 'desc' },
-      take: pageSize,
-      skip: skip,
     });
 
-    // Apply case-insensitive search filter if search query is provided
-    if (search) {
-      const searchLower = (search as string).toLowerCase();
-      products = products.filter((product: any) => {
-        const nameMatch = product.name.toLowerCase().includes(searchLower);
-        const descriptionMatch = product.description.toLowerCase().includes(searchLower);
-        const brandMatch = product.brand.name.toLowerCase().includes(searchLower);
-        const categoryMatch = product.category.toLowerCase().includes(searchLower);
-        const subCategoryMatch = product.subCategory?.toLowerCase().includes(searchLower);
-        return nameMatch || descriptionMatch || brandMatch || categoryMatch || subCategoryMatch;
-      });
-    }
-
-    // Return with pagination metadata
+    console.log(`[Products API] Successfully fetched ${products.length} products`);
+    
+    // Calculate pagination
     const totalPages = Math.ceil(totalCount / pageSize);
     const hasNextPage = pageNumber < totalPages;
     const hasPreviousPage = pageNumber > 1;
@@ -298,24 +264,11 @@ async function getProducts(req: NextApiRequest, res: NextApiResponse) {
       },
     });
   } catch (error: any) {
-    // Enhanced error logging with full details
-    const errorDetails = {
-      message: error?.message || 'Unknown error',
-      code: error?.code,
-      name: error?.name,
-      stack: error?.stack,
-      cause: error?.cause,
-      databaseUrl: process.env.DATABASE_URL ? 'Set' : 'Not set',
-      databaseUrlPreview: process.env.DATABASE_URL ? `${process.env.DATABASE_URL.substring(0, 30)}...` : 'Not set',
-    };
-    
-    console.error('[Products API] Error fetching products:', errorDetails);
-
-    // Return detailed error information for debugging
-    return res.status(500).json({ 
-      error: 'Failed to fetch products',
-      details: errorDetails,
-      timestamp: new Date().toISOString(),
+    console.error('[Products API] Error:', error);
+    return res.status(500).json({
+      error: error.message,
+      stack: error.stack,
+      name: error.name,
     });
   }
 }
@@ -562,14 +515,19 @@ async function createProduct(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-// Simplified handler - no double wrapping that was causing production issues
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+// Export pattern that matches working blogs API
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
-    return await getProducts(req, res);
-  } else if (req.method === 'POST') {
-    return await requireAuth(createProduct)(req, res);
-  } else {
-    return res.status(405).json({ error: 'Method not allowed' });
+    return getProducts(req, res);
   }
-}
+  
+  // Protected endpoints
+  return requireAuth(async (req, res) => {
+    if (req.method === 'POST') {
+      return createProduct(req, res);
+    } else {
+      return res.status(405).json({ error: 'Method not allowed' });
+    }
+  })(req, res);
+};
 
