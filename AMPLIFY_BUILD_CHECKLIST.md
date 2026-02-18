@@ -6,6 +6,16 @@ The original **`canvas`** package required native libs (Cairo, Pango) that fail 
 
 ---
 
+## Build output size (220 MB limit)
+
+Amplify limits deployment to ~220 MB. `amplify.yml` postBuild removes:
+- `public/media/products` – product images (served from S3)
+- `public/uploads` – user uploads (served from S3)
+- `public/assets/Ai` – AI images (excluded from API)
+- `node_modules/@swc`, `@esbuild`, `esbuild` – build-only deps
+
+---
+
 ## Cross-check
 
 | Item | Status |
