@@ -120,7 +120,10 @@ async function createBrand(req: NextApiRequest, res: NextApiResponse) {
 }
 
 // Note: GET endpoint is public (no auth required)
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  // Set JSON content type immediately to prevent Next.js from rendering HTML error pages
+  res.setHeader('Content-Type', 'application/json');
+  
   try {
     if (req.method === 'GET') {
       return await getBrands(req, res);
@@ -150,6 +153,26 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         timestamp: new Date().toISOString(),
       });
     }
+  }
+};
+
+// Wrap export to catch module initialization errors
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    return await handler(req, res);
+  } catch (error: any) {
+    // Catch errors during handler initialization
+    res.setHeader('Content-Type', 'application/json');
+    return res.status(500).json({
+      error: 'Handler initialization error',
+      details: {
+        message: error?.message || 'Unknown error',
+        code: error?.code,
+        name: error?.name,
+        stack: error?.stack,
+      },
+      timestamp: new Date().toISOString(),
+    });
   }
 };
 

@@ -36,7 +36,10 @@ export async function fetchProducts(params?: {
   brandId?: string;
   search?: string;
 }): Promise<ApiProduct[]> {
-  const url = new URL('/api/products', window.location.origin);
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:39',message:'fetchProducts called',data:{hasParams:!!params,brandId:params?.brandId,search:params?.search},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+  // #endregion
+  const url = new URL('/api/products', 'https://main.d15nk5b2guin5u.amplifyapp.com');
   if (params?.brandId) {
     url.searchParams.append('brandId', params.brandId);
   }
@@ -44,20 +47,95 @@ export async function fetchProducts(params?: {
     url.searchParams.append('search', params.search);
   }
 
-  const response = await fetch(url.toString());
-  if (!response.ok) {
-    throw new Error('Failed to fetch products');
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:47',message:'About to fetch products',data:{url:url.toString()},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+  // #endregion
+  let response;
+  try {
+    response = await fetch(url.toString());
+  } catch (fetchError: any) {
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:50',message:'Fetch error caught',data:{errorMessage:fetchError?.message,errorName:fetchError?.name,errorStack:fetchError?.stack},timestamp:Date.now(),runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+    // #endregion
+    throw new Error(`Network error fetching products: ${fetchError?.message}`);
   }
-  return response.json();
+  
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:50',message:'Response received',data:{status:response.status,statusText:response.statusText,ok:response.ok,contentType:response.headers.get('content-type'),url:response.url},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+  // #endregion
+  
+  const responseText = await response.text();
+  
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:54',message:'Response body received',data:{isJson:responseText.trim().startsWith('{'),bodyPreview:responseText.substring(0,500),bodyLength:responseText.length},timestamp:Date.now(),runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+  // #endregion
+  
+  if (!response.ok) {
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:58',message:'Response not OK - parsing error',data:{status:response.status,bodyText:responseText.substring(0,1000)},timestamp:Date.now(),runId:'run1',hypothesisId:'E'})}).catch(()=>{});
+    // #endregion
+    let errorData;
+    try {
+      errorData = JSON.parse(responseText);
+    } catch (e) {
+      errorData = { rawResponse: responseText.substring(0, 1000) };
+    }
+    throw new Error(`Failed to fetch products: ${JSON.stringify(errorData)}`);
+  }
+  
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:68',message:'Parsing JSON response',data:{responseLength:responseText.length},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+  // #endregion
+  return JSON.parse(responseText);
 }
 
 // Fetch all brands
 export async function fetchBrands(): Promise<ApiBrand[]> {
-  const response = await fetch('/api/brands');
-  if (!response.ok) {
-    throw new Error('Failed to fetch brands');
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:75',message:'fetchBrands called',data:{},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+  // #endregion
+  const url = 'https://main.d15nk5b2guin5u.amplifyapp.com/api/brands';
+  
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:78',message:'About to fetch brands',data:{url},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+  // #endregion
+  let response;
+  try {
+    response = await fetch(url);
+  } catch (fetchError: any) {
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:82',message:'Fetch error caught',data:{errorMessage:fetchError?.message,errorName:fetchError?.name,errorStack:fetchError?.stack},timestamp:Date.now(),runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+    // #endregion
+    throw new Error(`Network error fetching brands: ${fetchError?.message}`);
   }
-  return response.json();
+  
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:81',message:'Response received',data:{status:response.status,statusText:response.statusText,ok:response.ok,contentType:response.headers.get('content-type'),url:response.url},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+  // #endregion
+  
+  const responseText = await response.text();
+  
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:85',message:'Response body received',data:{isJson:responseText.trim().startsWith('{'),bodyPreview:responseText.substring(0,500),bodyLength:responseText.length},timestamp:Date.now(),runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+  // #endregion
+  
+  if (!response.ok) {
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:90',message:'Response not OK - parsing error',data:{status:response.status,bodyText:responseText.substring(0,1000)},timestamp:Date.now(),runId:'run1',hypothesisId:'E'})}).catch(()=>{});
+    // #endregion
+    let errorData;
+    try {
+      errorData = JSON.parse(responseText);
+    } catch (e) {
+      errorData = { rawResponse: responseText.substring(0, 1000) };
+    }
+    throw new Error(`Failed to fetch brands: ${JSON.stringify(errorData)}`);
+  }
+  
+  // #region agent log
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:100',message:'Parsing JSON response',data:{responseLength:responseText.length},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+  // #endregion
+  return JSON.parse(responseText);
 }
 
 // Fetch a single product by ID
