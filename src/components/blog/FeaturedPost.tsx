@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { BlogPost } from './BlogCard';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 interface FeaturedPostProps {
   post: BlogPost;
@@ -18,7 +19,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="relative h-[350px] w-full overflow-hidden rounded-lg shadow-sm">
             <img 
-              src={post.coverImage} 
+              src={post.coverImage?.startsWith('http') ? post.coverImage : getMediaUrl(post.coverImage || '')} 
               alt={post.title} 
               className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" 
             />

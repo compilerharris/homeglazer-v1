@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { BlogPost } from './BlogCard';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 interface BlogContentProps {
   post: BlogPost;
@@ -117,7 +118,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       
       <div className="mb-8">
         <img 
-          src={post.coverImage} 
+          src={post.coverImage?.startsWith('http') ? post.coverImage : getMediaUrl(post.coverImage || '')} 
           alt={post.title} 
           className="w-full h-auto max-h-[400px] object-cover rounded-lg shadow-sm" 
         />

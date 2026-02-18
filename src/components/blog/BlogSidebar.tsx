@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { House, Building2, Brush, Palmtree, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 // Define the BlogPost type for sidebar
 interface BlogPostData {
@@ -294,7 +295,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ currentPostId, recentPosts = 
                 key={post.id}
                 title={post.title}
                 date={post.date}
-                imageUrl={post.coverImage}
+                imageUrl={post.coverImage?.startsWith('http') ? post.coverImage : getMediaUrl(post.coverImage || '')}
                 slug={post.slug}
               />
             ))}
@@ -312,7 +313,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({ currentPostId, recentPosts = 
                 key={post.id}
                 title={post.title}
                 date={post.date}
-                imageUrl={post.coverImage}
+                imageUrl={post.coverImage?.startsWith('http') ? post.coverImage : getMediaUrl(post.coverImage || '')}
                 slug={post.slug}
               />
             ))}

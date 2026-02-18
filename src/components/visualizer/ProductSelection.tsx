@@ -1,5 +1,6 @@
 import React from 'react';
 import { BRAND_CONFIG } from '../../hooks/useVisualizer';
+import { getMediaUrl } from '@/lib/mediaUrl';
 import Breadcrumbs from './Breadcrumbs';
 
 interface BreadcrumbItem {
@@ -47,7 +48,7 @@ const ProductSelection: React.FC<ProductSelectionProps> = ({
           type="button"
         >
             <div className="w-full aspect-square bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center p-3 sm:p-4 overflow-hidden">
-              <img src={brand.logo} alt={brand.name} className="object-contain w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Logo')} />
+              <img src={getMediaUrl(brand.logo)} alt={brand.name} className="object-contain w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Logo')} />
           </div>
         </button>
           <span className="text-xs sm:text-sm font-semibold text-gray-800 text-center mt-2">{brand.name}</span>

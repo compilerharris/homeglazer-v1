@@ -321,11 +321,11 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
               <div className="flex justify-center lg:justify-end">
                 <div className="bg-white rounded-xl p-6 shadow-2xl max-w-sm">
                   <img 
-                    src={product.image} 
+                    src={product.image?.startsWith('http') ? product.image : getMediaUrl(product.image || '')} 
                     alt={product.name}
                     className="w-full h-auto object-contain"
                     onError={(e) => {
-                      e.currentTarget.src = '/assets/images/bucket.png';
+                      e.currentTarget.src = getMediaUrl('/assets/images/bucket.png');
                     }}
                   />
                 </div>
@@ -369,11 +369,11 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
             <div className="flex justify-center">
               <div className="bg-white rounded-xl p-4 shadow-lg max-w-xs border border-gray-200">
                 <img
-                  src={product.image}
+                  src={product.image?.startsWith('http') ? product.image : getMediaUrl(product.image || '')}
                   alt={product.name}
                   className="w-full h-auto object-contain"
                   onError={(e) => {
-                    e.currentTarget.src = '/assets/images/bucket.png';
+                    e.currentTarget.src = getMediaUrl('/assets/images/bucket.png');
                   }}
                 />
               </div>
@@ -668,7 +668,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img 
-                      src={blog.coverImage} 
+                      src={blog.coverImage?.startsWith('http') ? blog.coverImage : getMediaUrl(blog.coverImage || '')} 
                       alt={blog.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />

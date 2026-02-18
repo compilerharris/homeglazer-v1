@@ -1,5 +1,6 @@
 import React from 'react';
 import { VariantManifest } from '../../hooks/useVisualizer';
+import { getMediaUrl } from '@/lib/mediaUrl';
 import Breadcrumbs from './Breadcrumbs';
 
 interface BreadcrumbItem {
@@ -49,7 +50,7 @@ const WallSelection: React.FC<WallSelectionProps> = ({
           type="button"
         >
             <div className="w-full h-48 lg:h-56 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
-              <img src={variant.mainImage} alt={variant.label} className="object-cover w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Room')}/>
+              <img src={getMediaUrl(variant.mainImage)} alt={variant.label} className="object-cover w-full h-full rounded-lg" onError={e => (e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Room')}/>
           </div>
         </button>
           <span className="text-lg font-semibold text-gray-800 text-center mt-3">{variant.label}</span>

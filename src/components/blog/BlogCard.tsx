@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent } from "@/components/ui/card";
+import { getMediaUrl } from '@/lib/mediaUrl';
 
 export interface BlogPost {
   id: string;
@@ -25,7 +26,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
       <div className="relative h-60 w-full overflow-hidden">
         <Link href={`/blog/${post.slug}`} className="block h-full">
           <img 
-            src={post.coverImage} 
+            src={post.coverImage?.startsWith('http') ? post.coverImage : getMediaUrl(post.coverImage || '')} 
             alt={post.title} 
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
           />

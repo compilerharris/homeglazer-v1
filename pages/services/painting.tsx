@@ -4,6 +4,7 @@ import Head from "next/head";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
+import { getMediaUrl, getAbsoluteMediaUrl } from "@/lib/mediaUrl";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { 
@@ -25,10 +26,10 @@ const PaintingServices: React.FC = () => {
         <meta name="description" content="Professional painting services for residential, commercial, and kids' rooms. Expert painters delivering quality finishes with premium paints." />
         <meta property="og:title" content="Painting Services | HomeGlazer - Residential & Commercial" />
         <meta property="og:description" content="Professional painting services for residential, commercial, and kids' rooms. Expert painters delivering quality finishes." />
-        <meta property="og:image" content={`${SITE_URL}${PAINTING_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(PAINTING_HERO_IMAGE, SITE_URL)} />
         <meta name="twitter:title" content="Painting Services | HomeGlazer" />
         <meta name="twitter:description" content="Professional painting services for residential and commercial spaces." />
-        <meta name="twitter:image" content={`${SITE_URL}${PAINTING_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(PAINTING_HERO_IMAGE, SITE_URL)} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />
@@ -56,7 +57,7 @@ const PaintingServices: React.FC = () => {
             {/* First Row */}
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/services/residential-painting.jpg" 
+                src={getMediaUrl("/uploads/services/residential-painting.jpg")} 
                 alt="Residential" 
                 className="w-full h-64 object-cover"
               />
@@ -75,7 +76,7 @@ const PaintingServices: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/uploads/services/commercial-painting.jpg" 
+                src={getMediaUrl("/uploads/services/commercial-painting.jpg")} 
                 alt="Commercial" 
                 className="w-full h-64 object-cover"
               />
@@ -94,7 +95,7 @@ const PaintingServices: React.FC = () => {
             
             <div className="bg-white rounded-lg overflow-hidden shadow">
               <img 
-                src="/assets/images/kidsroom/kidsroom1/kidsroom1.jpg" 
+                src={getMediaUrl("/assets/images/kidsroom/kidsroom1/kidsroom1.jpg")} 
                 alt="Kids Room" 
                 className="w-full h-64 object-cover"
               />

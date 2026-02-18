@@ -2,6 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -28,14 +29,14 @@ const Commercial: React.FC = () => {
         <meta property="og:description" content="Home Glazer offers professional commercial painting services for offices & shops. Expert office painting contractors with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/painting/commercial" />
-        <meta property="og:image" content={`${SITE_URL}${COMMERCIAL_HERO_IMAGE}`} />
+        <meta property="og:image" content={getAbsoluteMediaUrl(COMMERCIAL_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/painting/commercial" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Commercial Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Professional commercial painting services for offices, retail, and industrial spaces." />
-        <meta name="twitter:image" content={`${SITE_URL}${COMMERCIAL_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getAbsoluteMediaUrl(COMMERCIAL_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">
@@ -69,7 +70,7 @@ const Commercial: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#ED276E] to-[#299dd7] opacity-90"></div>
           <div className="absolute inset-0">
             <img
-              src={COMMERCIAL_HERO_IMAGE}
+              src={getMediaUrl(COMMERCIAL_HERO_IMAGE)}
               alt="Commercial Painting Services"
               className="w-full h-full object-cover"
             />
@@ -135,7 +136,7 @@ const Commercial: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/commercial-intro.jpg" 
+                    src={getMediaUrl("/uploads/services/commercial-intro.jpg")} 
                     alt="Commercial Painting Services"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -158,7 +159,7 @@ const Commercial: React.FC = () => {
               <div className="order-2 lg:order-1">
                 <div className="bg-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/commercial-painter.jpg" 
+                    src={getMediaUrl("/uploads/services/commercial-painter.jpg")} 
                     alt="Commercial Painter"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -200,7 +201,7 @@ const Commercial: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/uploads/services/commercial-painting.jpg" 
+                    src={getMediaUrl("/uploads/services/commercial-painting.jpg")} 
                     alt="Commercial Painting"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -325,7 +326,7 @@ const Commercial: React.FC = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg">
                   <img 
-                    src="/assets/images/office/office6/office6.jpg" 
+                    src={getMediaUrl("/assets/images/office/office6/office6.jpg")} 
                     alt="Commercial Painter Team"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -367,7 +368,7 @@ const Commercial: React.FC = () => {
               </div>
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <img 
-                  src="/uploads/services/commercial-meeting.jpg" 
+                  src={getMediaUrl("/uploads/services/commercial-meeting.jpg")} 
                   alt="Commercial vs Residential Painting"
                   className="w-full h-full object-cover rounded-xl"
                 />
@@ -417,7 +418,7 @@ const Commercial: React.FC = () => {
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="h-56 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-4">
 <img 
-                  src="/uploads/services/commercial-intro.jpg" 
+                  src={getMediaUrl("/uploads/services/commercial-intro.jpg")} 
                     alt="Office Painting"
                     className="w-full h-full object-cover rounded-lg"
                   />
@@ -452,7 +453,7 @@ const Commercial: React.FC = () => {
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="h-56 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center p-4">
                   <img 
-                    src="/uploads/services/Retail%20&%20Shop%20Painting.png" 
+                    src={getMediaUrl("/uploads/services/Retail%20&%20Shop%20Painting.png")} 
                     alt="Retail & Shop Painting"
                     className="w-full h-full object-cover rounded-lg"
                   />
@@ -487,7 +488,7 @@ const Commercial: React.FC = () => {
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="h-56 bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center p-4">
                   <img 
-src="/uploads/services/commercial-painter.jpg"
+                    src={getMediaUrl("/uploads/services/commercial-painter.jpg")}
                     alt="Industrial Painting"
                     className="w-full h-full object-cover rounded-lg"
                   />
