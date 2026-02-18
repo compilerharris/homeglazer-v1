@@ -12,6 +12,13 @@ frontend:
     build:
       commands:
         - npm run build
+    postBuild:
+      commands:
+        # Reduce deployment size (Amplify 220MB limit). Products/uploads served from S3.
+        - rm -rf public/media/products public/uploads public/assets/Ai
+        # Remove build-only deps not needed at runtime
+        - rm -rf node_modules/@swc node_modules/@esbuild node_modules/esbuild 2>/dev/null || true
+        - rm -rf .next/cache 2>/dev/null || true
   artifacts:
     baseDirectory: .next
     files:
