@@ -386,6 +386,14 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const handleZoomToggle = () => {
     const newZoomState = !isZoomed;
     setIsZoomed(newZoomState);
+    if (newZoomState) {
+      // Defer scroll reset until after layout update (helps mobile browsers)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          previewScrollRef.current?.scrollTo({ left: 0, behavior: 'auto' });
+        });
+      });
+    }
   };
 
   // Auto-scroll wiggle animation and swipe hint on first render (mobile only)
@@ -653,7 +661,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         <div className={`${isZoomed ? 'h-auto' : 'h-[60vh]'} mb-3 relative overflow-hidden transition-all duration-500 ease-in-out`}>
           <div 
             ref={previewScrollRef}
-            className={`${isZoomed ? 'h-auto' : 'h-full'} overflow-x-auto scrollbar-hide relative transition-all duration-500 ease-in-out`}
+            className={`${isZoomed ? 'h-auto min-h-0' : 'h-full'} overflow-x-auto scrollbar-hide relative transition-all duration-500 ease-in-out`}
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
@@ -663,19 +671,28 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           >
             <div className={`${isZoomed ? 'w-full' : 'h-full flex items-center justify-center min-w-max'} transition-all duration-500 ease-in-out`}>
               <div
-                className={`relative room-preview-container overflow-hidden rounded-lg ${isZoomed ? 'w-full' : 'h-full flex items-center justify-center'} transition-all duration-500 ease-in-out`}
-                style={{ minHeight: isZoomed ? 'auto' : '100%', aspectRatio: isZoomed ? '16/9' : 'auto' }}
+                className={`relative room-preview-container overflow-hidden rounded-lg transition-all duration-500 ease-in-out ${
+                  isZoomed
+                    ? 'w-full min-h-[56.25vw]'
+                    : 'h-full flex items-center justify-center min-w-max'
+                }`}
+                style={isZoomed ? { aspectRatio: '16/9' } : undefined}
               >
                 {isDesktop ? (
-                  <CanvasAdvancedRoomVisualiser
-                    ref={mobilePreviewCanvasRef}
-                    imageSrc={imageUrl}
-                    wallMasks={wallMasks}
-                    assignments={assignments}
-                    loadingMasks={loadingMasks}
-                  />
+                  <div className={isZoomed ? 'absolute inset-0' : 'w-full h-full'}>
+                    <CanvasAdvancedRoomVisualiser
+                      ref={mobilePreviewCanvasRef}
+                      imageSrc={imageUrl}
+                      wallMasks={wallMasks}
+                      assignments={assignments}
+                      loadingMasks={loadingMasks}
+                    />
+                  </div>
                 ) : (
-                  <div ref={mobilePreviewContainerRef} className="w-full h-full">
+                  <div
+                    ref={mobilePreviewContainerRef}
+                    className={isZoomed ? 'absolute inset-0' : 'w-full h-full'}
+                  >
                     <SvgAdvancedRoomVisualiser
                       imageSrc={imageUrl}
                       wallMasks={wallMasks}
