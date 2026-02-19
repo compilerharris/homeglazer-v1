@@ -125,16 +125,11 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const [emailEmail, setEmailEmail] = useState('');
   const [emailMobile, setEmailMobile] = useState('');
   const [emailError, setEmailError] = useState('');
-  const [showSwipeHint, setShowSwipeHint] = useState(true);
+  const [showSwipeHint, setShowSwipeHint] = useState(false); // No overlay when zoomed out
+  const [showZoomedHint, setShowZoomedHint] = useState(true);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
-  const [isZoomed, setIsZoomed] = useState(() => {
-    // Set zoom out (true) as default for tablet and mobile devices
-    if (typeof window !== 'undefined') {
-      return window.innerWidth < 1024; // lg breakpoint
-    }
-    return false; // Default for SSR
-  });
+  const [isZoomed, setIsZoomed] = useState(false); // Default zoom out (unzoomed) on all devices
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   const [isButtonFixed, setIsButtonFixed] = useState(true);
   const [isRecoloring, setIsRecoloring] = useState(false);
@@ -145,11 +140,8 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     const checkScreenSize = () => {
       const isLargeScreen = window.innerWidth >= 1400;
       const isDesktop = window.innerWidth >= 1024;
-      
       setIsLargeScreen(isLargeScreen);
-      
-      // Set zoom out (true) for tablet and mobile, zoom in (false) for desktop
-      setIsZoomed(!isDesktop);
+      // Zoom state is user-controlled; default zoom out comes from initial useState(false)
     };
     
     checkScreenSize();
@@ -387,6 +379,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     const newZoomState = !isZoomed;
     setIsZoomed(newZoomState);
     if (newZoomState) {
+      setShowZoomedHint(true); // Show "move left & right" hint when zooming in
       // Defer scroll reset until after layout update (helps mobile browsers)
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -394,6 +387,11 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         });
       });
     }
+  };
+
+  // Dismiss zoomed hint when user scrolls the preview
+  const handlePreviewScroll = () => {
+    if (isZoomed) setShowZoomedHint(false);
   };
 
   // Auto-scroll wiggle animation and swipe hint on first render (mobile only)
@@ -414,6 +412,14 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       }, 1500);
     }
   }, []);
+
+  // Auto-dismiss zoomed hint (when zoomed)
+  useEffect(() => {
+    if (isZoomed && showZoomedHint) {
+      const t = setTimeout(() => setShowZoomedHint(false), 1000);
+      return () => clearTimeout(t);
+    }
+  }, [isZoomed, showZoomedHint]);
 
   // Add scroll event listener for arrow visibility
   useEffect(() => {
@@ -658,10 +664,11 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       {/* Mobile Layout - Stacked */}
       <div className="lg:hidden w-full">
         {/* Room image - with zoom functionality */}
-        <div className={`${isZoomed ? 'h-auto' : 'h-[60vh]'} mb-3 relative overflow-hidden transition-all duration-500 ease-in-out`}>
+        <div className={`${isZoomed ? 'h-[56vh] min-h-[300px]' : 'h-[35vh]'} mb-3 relative overflow-hidden transition-all duration-500 ease-in-out`}>
           <div 
             ref={previewScrollRef}
-            className={`${isZoomed ? 'h-auto min-h-0' : 'h-full'} overflow-x-auto scrollbar-hide relative transition-all duration-500 ease-in-out`}
+            onScroll={handlePreviewScroll}
+            className={`h-full scrollbar-hide relative transition-all duration-500 ease-in-out ${isZoomed ? 'overflow-auto' : 'overflow-x-auto'}`}
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
@@ -669,14 +676,13 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
               scrollBehavior: 'smooth'
             }}
           >
-            <div className={`${isZoomed ? 'w-full' : 'h-full flex items-center justify-center min-w-max'} transition-all duration-500 ease-in-out`}>
+            <div className={`${isZoomed ? 'min-w-max min-h-full flex items-center justify-start' : 'h-full flex items-center justify-center min-w-full min-w-max'} transition-all duration-500 ease-in-out`}>
               <div
-                className={`relative room-preview-container overflow-hidden rounded-lg transition-all duration-500 ease-in-out ${
+                className={`relative room-preview-container rounded-lg transition-all duration-500 ease-in-out ${
                   isZoomed
-                    ? 'w-full min-h-[56.25vw]'
-                    : 'h-full flex items-center justify-center min-w-max'
+                    ? `w-[calc(56vh*16/9)] h-[56vh] overflow-hidden flex-shrink-0 ${showZoomedHint ? 'animate-swipe-hint-wiggle' : ''}`
+                    : 'w-full aspect-[16/9] overflow-hidden'
                 }`}
-                style={isZoomed ? { aspectRatio: '16/9' } : undefined}
               >
                 {isDesktop ? (
                   <div className={isZoomed ? 'absolute inset-0' : 'w-full h-full'}>
@@ -713,7 +719,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
             </div>
           </div>
           
-          {/* Zoom Toggle Button */}
+          {/* Zoom Toggle Button - icon = action: zoom-out (-) when zoomed, zoom-in (+) when unzoomed */}
           <button
             onClick={handleZoomToggle}
             className="absolute bottom-4 right-4 z-20 rounded-full bg-white p-2 shadow-md hover:bg-gray-100 transition-colors duration-200"
@@ -721,16 +727,16 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           >
             {isZoomed ? (
               <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7" />
               </svg>
             ) : (
               <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
               </svg>
             )}
           </button>
           
-          {/* Swipe hint overlay (original) - only show when not zoomed */}
+          {/* Swipe hint overlay when unzoomed - "Swipe for full preview" */}
           {showSwipeHint && !isZoomed && (
             <div
               className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20 transition-opacity duration-300"
@@ -746,6 +752,26 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                 </div>
                 <p className="text-gray-800 font-semibold text-lg mb-2">Swipe left & right</p>
                 <p className="text-gray-600 text-sm">for full preview</p>
+              </div>
+            </div>
+          )}
+          
+          {/* Zoomed overlay - "Move left & right" with wiggle animation */}
+          {showZoomedHint && isZoomed && (
+            <div
+              className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center z-20 transition-opacity duration-300 pointer-events-none"
+              data-capture-ignore="true"
+            >
+              <div className="bg-white rounded-lg p-6 shadow-lg text-center max-w-xs mx-4">
+                <div className="mb-3 flex justify-center">
+                  <img 
+                    src={getMediaUrl("/assets/images/swipe-left-icon.svg")} 
+                    alt="Swipe gesture" 
+                    className="w-12 h-12"
+                  />
+                </div>
+                <p className="text-gray-800 font-semibold text-lg mb-2">Move left & right</p>
+                <p className="text-gray-600 text-sm">to explore the full image</p>
               </div>
             </div>
           )}

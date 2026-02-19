@@ -76,10 +76,15 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "swipe-hint-wiggle": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(12px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "swipe-hint-wiggle": "swipe-hint-wiggle 2s ease-in-out infinite",
       },
       screens: {
         'custom_xl': '1100px',
