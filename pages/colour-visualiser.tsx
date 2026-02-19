@@ -9,13 +9,13 @@ import CanvasRoomVisualiser from '../src/components/visualizer/CanvasRoomVisuali
 import CanvasAdvancedRoomVisualiser from '../src/components/visualizer/CanvasAdvancedRoomVisualiser';
 import SvgRoomVisualiser from '../src/components/visualizer/SvgRoomVisualiser';
 import SvgAdvancedRoomVisualiser from '../src/components/visualizer/SvgAdvancedRoomVisualiser';
-import { useIsDesktop } from '@/hooks/useIsDesktop';
+import { useIsMobileDevice } from '@/hooks/useIsMobileDevice';
 import { embeddedWallMasks } from '../src/data/embeddedWallMasks';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
 const ColourVisualiserPage: React.FC = () => {
-  const isDesktop = useIsDesktop();
+  const isMobileDevice = useIsMobileDevice();
   const [colorIndex, setColorIndex] = useState(0);
   const wallMasks = embeddedWallMasks.bedroom6 ?? {};
 
@@ -117,15 +117,15 @@ const ColourVisualiserPage: React.FC = () => {
             
             {/* Canvas/SVG Room Visualizer */}
             <div className="mb-8 relative w-full bg-gray-100 rounded-lg overflow-hidden" style={{ aspectRatio: '16/9' }}>
-              {isDesktop ? (
-                <CanvasRoomVisualiser
+              {isMobileDevice ? (
+                <SvgRoomVisualiser
                   imageSrc={roomImage}
                   wallPath={combinedWallPath}
                   colorHex={warmColors[colorIndex % warmColors.length]}
                   roomLabel="single wall"
                 />
               ) : (
-                <SvgRoomVisualiser
+                <CanvasRoomVisualiser
                   imageSrc={roomImage}
                   wallPath={combinedWallPath}
                   colorHex={warmColors[colorIndex % warmColors.length]}
@@ -177,15 +177,15 @@ const ColourVisualiserPage: React.FC = () => {
             
             {/* Canvas/SVG Advanced Room Visualizer */}
             <div className="mb-8 relative w-full bg-gray-100 rounded-lg overflow-hidden" style={{ aspectRatio: '16/9' }}>
-              {isDesktop ? (
-                <CanvasAdvancedRoomVisualiser
+              {isMobileDevice ? (
+                <SvgAdvancedRoomVisualiser
                   imageSrc={roomImage}
                   wallMasks={wallMasks}
                   assignments={coolColorSets[colorIndex % coolColorSets.length] ?? {}}
                   loadingMasks={false}
                 />
               ) : (
-                <SvgAdvancedRoomVisualiser
+                <CanvasAdvancedRoomVisualiser
                   imageSrc={roomImage}
                   wallMasks={wallMasks}
                   assignments={coolColorSets[colorIndex % coolColorSets.length] ?? {}}

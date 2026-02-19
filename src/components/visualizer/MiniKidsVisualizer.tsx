@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { getMediaUrl } from '@/lib/mediaUrl';
 import CanvasRoomVisualiser from './CanvasRoomVisualiser';
 import SvgRoomVisualiser from './SvgRoomVisualiser';
-import { useIsDesktop } from '@/hooks/useIsDesktop';
+import { useIsMobileDevice } from '@/hooks/useIsMobileDevice';
 import { embeddedWallMasks } from '../../data/embeddedWallMasks';
 
 const roomImage = '/assets/images/kidsroom/kidsroom10/kidsroom10.jpg';
@@ -20,7 +20,7 @@ interface MiniKidsVisualizerProps {
 }
 
 const MiniKidsVisualizer: React.FC<MiniKidsVisualizerProps> = ({ className = '' }) => {
-  const isDesktop = useIsDesktop();
+  const isMobileDevice = useIsMobileDevice();
   const [selectedColor, setSelectedColor] = useState<string>('#F9D07D');
 
   // Color options from different brands
@@ -80,15 +80,15 @@ const MiniKidsVisualizer: React.FC<MiniKidsVisualizerProps> = ({ className = '' 
         <div className="relative">
           <div className="relative w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden">
             <div className="relative w-full h-full">
-              {isDesktop ? (
-                <CanvasRoomVisualiser
+              {isMobileDevice ? (
+                <SvgRoomVisualiser
                   imageSrc={getMediaUrl(roomImage)}
                   wallPath={combinedWallPath}
                   colorHex={selectedColor}
                   roomLabel="kids room"
                 />
               ) : (
-                <SvgRoomVisualiser
+                <CanvasRoomVisualiser
                   imageSrc={getMediaUrl(roomImage)}
                   wallPath={combinedWallPath}
                   colorHex={selectedColor}

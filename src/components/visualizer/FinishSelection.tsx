@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { AlertCircle, Send, X } from 'lucide-react';
 import { getMediaUrl } from '@/lib/mediaUrl';
-import { useIsDesktop } from '@/hooks/useIsDesktop';
+import { useIsMobileDevice } from '@/hooks/useIsMobileDevice';
 import { VariantManifest, ColorSwatch } from '../../hooks/useVisualizer';
 import Breadcrumbs from './Breadcrumbs';
 import CanvasAdvancedRoomVisualiser, { type CanvasAdvancedRoomVisualiserRef } from './CanvasAdvancedRoomVisualiser';
@@ -104,7 +104,7 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   roomTypeLabel = '',
 }) => {
   const wallKeys = Object.keys(variant.walls);
-  const isDesktop = useIsDesktop();
+  const isMobileDevice = useIsMobileDevice();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const previewScrollRef = useRef<HTMLDivElement>(null);
   const previewImageRef = useRef<HTMLDivElement>(null);
@@ -684,10 +684,12 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                     : 'w-full aspect-[16/9] overflow-hidden'
                 }`}
               >
-                {isDesktop ? (
-                  <div className={isZoomed ? 'absolute inset-0' : 'w-full h-full'}>
-                    <CanvasAdvancedRoomVisualiser
-                      ref={mobilePreviewCanvasRef}
+                {isMobileDevice ? (
+                  <div
+                    ref={mobilePreviewContainerRef}
+                    className={isZoomed ? 'absolute inset-0' : 'w-full h-full'}
+                  >
+                    <SvgAdvancedRoomVisualiser
                       imageSrc={imageUrl}
                       wallMasks={wallMasks}
                       assignments={assignments}
@@ -695,11 +697,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
                     />
                   </div>
                 ) : (
-                  <div
-                    ref={mobilePreviewContainerRef}
-                    className={isZoomed ? 'absolute inset-0' : 'w-full h-full'}
-                  >
-                    <SvgAdvancedRoomVisualiser
+                  <div className={isZoomed ? 'absolute inset-0' : 'w-full h-full'}>
+                    <CanvasAdvancedRoomVisualiser
+                      ref={mobilePreviewCanvasRef}
                       imageSrc={imageUrl}
                       wallMasks={wallMasks}
                       assignments={assignments}

@@ -10,7 +10,7 @@ import CanvasRoomVisualiser from '../../../../../src/components/visualizer/Canva
 import CanvasAdvancedRoomVisualiser from '../../../../../src/components/visualizer/CanvasAdvancedRoomVisualiser';
 import SvgRoomVisualiser from '../../../../../src/components/visualizer/SvgRoomVisualiser';
 import SvgAdvancedRoomVisualiser from '../../../../../src/components/visualizer/SvgAdvancedRoomVisualiser';
-import { useIsDesktop } from '@/hooks/useIsDesktop';
+import { useIsMobileDevice } from '@/hooks/useIsMobileDevice';
 import { embeddedWallMasks } from '../../../../../src/data/embeddedWallMasks';
 import { GetServerSideProps } from 'next';
 import fs from 'fs';
@@ -1001,7 +1001,7 @@ interface BasicVisualiserPageProps {
 
 const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }) => {
   const router = useRouter();
-  const isDesktop = useIsDesktop();
+  const isMobileDevice = useIsMobileDevice();
   const { brand: brandParam, category: categoryParam, color: colorParam } = router.query;
   const [colorDatabase, setColorDatabase] = useState<any>(initialData?.colorDatabase ?? null);
   const [selectedBrand, setSelectedBrand] = useState(initialData?.brand || '');
@@ -1514,15 +1514,15 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
                 className="w-full flex flex-col border-2 rounded-lg transition-all duration-200"
               >
                 <div className="w-full aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden mb-2 flex items-center justify-center relative">
-                  {isDesktop ? (
-                    <CanvasRoomVisualiser
+                  {isMobileDevice ? (
+                    <SvgRoomVisualiser
                       imageSrc={getMediaUrl(src)}
                       wallPath={WALL_MASKS[label]?.front || ""}
                       colorHex={selectedColor?.colorHex || "#ffffff"}
                       roomLabel={label}
                     />
                   ) : (
-                    <SvgRoomVisualiser
+                    <CanvasRoomVisualiser
                       imageSrc={getMediaUrl(src)}
                       wallPath={WALL_MASKS[label]?.front || ""}
                       colorHex={selectedColor?.colorHex || "#ffffff"}
@@ -1686,15 +1686,15 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
               {/* Left: Animated Preview */}
               <div className="flex-shrink-0 w-full lg:w-80">
                 <div className="relative w-full bg-gray-100 rounded-xl overflow-hidden shadow-inner" style={{ aspectRatio: '16/9' }}>
-                  {isDesktop ? (
-                    <CanvasAdvancedRoomVisualiser
+                  {isMobileDevice ? (
+                    <SvgAdvancedRoomVisualiser
                       imageSrc={getMediaUrl("/assets/images/bedroom/bedroom6/bedroom6.jpg")}
                       wallMasks={advPreviewMasks}
                       assignments={advPreviewColors[advPreviewColorIndex] ?? {}}
                       loadingMasks={false}
                     />
                   ) : (
-                    <SvgAdvancedRoomVisualiser
+                    <CanvasAdvancedRoomVisualiser
                       imageSrc={getMediaUrl("/assets/images/bedroom/bedroom6/bedroom6.jpg")}
                       wallMasks={advPreviewMasks}
                       assignments={advPreviewColors[advPreviewColorIndex] ?? {}}
