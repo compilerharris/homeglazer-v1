@@ -50,20 +50,11 @@ function htmlToPlainText(html: string): string {
 // Helper function to read local image file
 function readLocalImage(filePath: string): Promise<Buffer> {
   return new Promise((resolve, reject) => {
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:49',message:'readLocalImage called',data:{filePath},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'B'})}).catch(()=>{});
-    // #endregion
     fs.readFile(filePath, (err, data) => {
       if (err) {
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:54',message:'Image read failed',data:{error:err.message},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'B'})}).catch(()=>{});
-        // #endregion
         reject(err);
         return;
       }
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:59',message:'Image buffer created',data:{bufferSize:data.length,firstBytes:data.slice(0,10).toString('hex')},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'B'})}).catch(()=>{});
-      // #endregion
       resolve(data);
     });
   });
@@ -103,13 +94,7 @@ export async function generatePaintingEstimatePdf(
         summaryHtml,
       } = data;
 
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:98',message:'summaryHtml received',data:{summaryHtmlLength:summaryHtml.length,hasRupeeSymbol:summaryHtml.includes('₹'),hasApostrophe:summaryHtml.includes("'"),hasBacktick:summaryHtml.includes('`'),sample:summaryHtml.substring(0,200)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-      // #endregion
       const plainSummary = htmlToPlainText(summaryHtml);
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:99',message:'plainSummary after conversion',data:{plainSummaryLength:plainSummary.length,hasRupeeSymbol:plainSummary.includes('\u20B9'),hasApostrophe:plainSummary.includes("'"),hasBacktick:plainSummary.includes('`'),sample:plainSummary.substring(0,200)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-      // #endregion
 
       // Add logo at the top center on white background (above blue ribbon)
       const logoPath = path.join(process.cwd(), 'public', 'assets', 'images', 'home-glazer-logo-1.png');
@@ -118,17 +103,11 @@ export async function generatePaintingEstimatePdf(
       const logoX = (pageWidth - logoWidth) / 2;
       const logoY = 10;
       const logoSectionHeight = 95; // White area for logo (increased)
-      
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:111',message:'Attempting logo read',data:{logoPath,logoX,logoY,logoWidth,logoHeight,pageWidth},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'B'})}).catch(()=>{});
-      // #endregion
+
       try {
         // Read local logo file (already PNG, no conversion needed)
         const logoBuffer = await readLocalImage(logoPath);
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:115',message:'Logo buffer received, resizing PNG',data:{bufferSize:logoBuffer.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'B'})}).catch(()=>{});
-        // #endregion
-        
+
         // Resize PNG with sharp at higher quality
         // Keep transparent background for PDF
         const pngBuffer = await sharp(logoBuffer)
@@ -139,23 +118,13 @@ export async function generatePaintingEstimatePdf(
           })
           .png({ quality: 100, compressionLevel: 0 }) // Maximum quality
           .toBuffer();
-        
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:122',message:'Logo resized, adding to PDF',data:{pngBufferSize:pngBuffer.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'B'})}).catch(()=>{});
-        // #endregion
-        
+
         // Add logo image on white background (above pink section)
         doc.image(pngBuffer, logoX, logoY, {
           width: logoWidth,
           height: logoHeight,
         });
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:128',message:'Logo image() call completed',data:{success:true},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'B'})}).catch(()=>{});
-        // #endregion
       } catch (logoError: any) {
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:131',message:'Logo error caught',data:{error:logoError?.message,stack:logoError?.stack},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'B'})}).catch(()=>{});
-        // #endregion
         console.error('Error loading logo in PDF:', logoError);
         // Continue without logo if it fails to load
       }
@@ -240,11 +209,7 @@ export async function generatePaintingEstimatePdf(
           .replace(/`(\d)/g, 'Rs. $1') // backtick before number -> "Rs. <num>"
           .replace(/Rs\.\s*Rs\.\s*/gi, 'Rs. ') // collapse double "Rs."
           .replace(/INR\s*/gi, 'Rs. '); // "INR" -> "Rs."
-        
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'paintingEstimatePdf.ts:203',message:'Summary text after replacements',data:{hasRupeeSymbol:summaryText.includes('\u20B9'),hasApostrophe:summaryText.includes("'"),hasBacktick:summaryText.includes('`'),sample:summaryText.substring(0,200)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-        // #endregion
-        
+
         // Split text into lines and render each to ensure proper rupee symbol handling
         const lines = summaryText.split('\n');
         lines.forEach((line) => {

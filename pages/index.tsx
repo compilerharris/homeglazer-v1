@@ -12,7 +12,6 @@ import ColourVisualizer from '@/components/home/ColourVisualizer';
 import PaintBrands from '@/components/home/PaintBrands';
 import TeamSection from '@/components/home/TeamSection';
 import Certificates from '@/components/home/Certificates';
-import TestimonialsSection from '@/components/home/TestimonialsSection';
 import Reviews from '@/components/home/Reviews';
 import DesignInsights from '@/components/home/DesignInsights';
 import FAQ from '@/components/home/FAQ';
@@ -44,12 +43,9 @@ export default function Home() {
       <ContactForm />
       <RoomMakeover />
       <ColourVisualizer />
-      <div className="hidden">
-        <PaintBrands />
-      </div>
+      <PaintBrands />
       <TeamSection />
       <Certificates />
-      <TestimonialsSection />
       <Reviews />
       <DesignInsights />
       <FAQ limit={5} />
@@ -66,7 +62,7 @@ export default function Home() {
             Enquire Now
           </Link>
           <Link href="/colour-visualiser" className="flex-1 bg-[#299dd7] text-white py-3 px-2 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[13px]">
-            Visualiser
+            Colour Visualiser
           </Link>
           <Link href="/paint-budget-calculator" className="flex-1 bg-[#299dd7] text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-[#237bb0] transition flex items-center justify-center text-[15px]">
             Budget Calculator

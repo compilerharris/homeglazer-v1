@@ -42,11 +42,6 @@ const ProductSelection: React.FC<ProductSelectionProps> = ({
     <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-4 w-full max-w-7xl mx-auto justify-items-center">
       {BRAND_CONFIG.map((brand) => {
         const resolvedLogoUrl = getMediaUrl(brand.logo);
-        // #region agent log
-        if (typeof window !== 'undefined') {
-          fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ddbf9a'},body:JSON.stringify({sessionId:'ddbf9a',location:'ProductSelection.tsx:43',message:'Rendering brand logo in ProductSelection',data:{brandId:brand.id,brandName:brand.name,originalLogoPath:brand.logo,resolvedLogoUrl,isProduction:process.env.NODE_ENV === 'production'},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-        }
-        // #endregion
         return (
           <div key={brand.id} className="flex flex-col items-center">
           <button
@@ -62,11 +57,6 @@ const ProductSelection: React.FC<ProductSelectionProps> = ({
                   onError={(e) => {
                     const img = e.currentTarget;
                     if (!img.dataset.errorHandled) {
-                      // #region agent log
-                      if (typeof window !== 'undefined') {
-                        fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'ddbf9a'},body:JSON.stringify({sessionId:'ddbf9a',location:'ProductSelection.tsx:55',message:'Brand logo failed to load in ProductSelection',data:{brandId:brand.id,brandName:brand.name,originalLogoPath:brand.logo,resolvedLogoUrl,attemptedSrc:img.src},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-                      }
-                      // #endregion
                       console.error('[ProductSelection] Failed to load brand logo:', {
                         brandId: brand.id,
                         brandName: brand.name,

@@ -64,6 +64,16 @@ const Reviews: React.FC = () => {
         <span>View All Reviews</span>
         <img alt="Arrow Icon" className="aspect-[1] object-contain w-[20px] brightness-0 invert" src={getMediaUrl("/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png")} />
       </a>
+      <div className="flex items-center gap-2">
+        <span className="text-[rgba(89,89,89,1)] font-medium">or</span>
+      </div>
+      <a 
+        href="/testimonials"
+        className={`${SECTION_CTA_CLASSES} flex items-center gap-[13px]`}
+      >
+        <span>View Awarded Testimonials</span>
+        <img alt="Arrow Icon" className="aspect-[1] object-contain w-[20px] brightness-0 invert" src={getMediaUrl("/uploads/12a32754-91eb-4743-b4c9-43258abcf89f.png")} />
+      </a>
     </div>
   );
 

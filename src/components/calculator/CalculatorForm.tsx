@@ -8,20 +8,17 @@ const CalculatorForm: React.FC = () => {
     <section className="w-[90%] lg:w-[80%] mx-auto my-12">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-[40px] font-medium mb-4">
-            Calculate Your Estimate Cost For Painting & Wood Polishing For Free
-          </h2>
-          <p className="text-[rgba(64,80,94,1)] text-xl">
-            We will understand your requirements and provide a close cost estimate
-          </p>
+          <h1 className="text-[30px] min-[767px]:text-[40px] font-medium mb-4">
+            Get Your Free Painting & Wood Polishing Cost Estimate
+          </h1>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 mt-12">
           {/* Painting Estimate Card */}
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-3xl font-bold mb-3">
+            <h2 className="text-3xl font-bold mb-3">
                 Painting Estimate
-              </h3>
+              </h2>
             <p className="text-gray-600 mb-6">
                 Here Is What Makes Express Painting A Great Choice
               </p>
@@ -46,9 +43,9 @@ const CalculatorForm: React.FC = () => {
           
           {/* Wood Polishing Estimate Card */}
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-3xl font-bold mb-3">
+            <h2 className="text-3xl font-bold mb-3">
                 Wood Polishing Estimate
-              </h3>
+              </h2>
             <p className="text-gray-600 mb-6">
                 Add charm and beauty to woods, It makes the wood strong.
               </p>

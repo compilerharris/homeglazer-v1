@@ -21,9 +21,6 @@ const TestimonialsSection: React.FC = () => {
       const width = window.innerWidth
       const desktop = width >= 1024
       setIsDesktop(desktop)
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'TestimonialsSection.tsx:updateSlides',message:'Screen size and hideArrows',data:{width,desktop,hideArrows:desktop},timestamp:Date.now(),hypothesisId:'H1'})}).catch(()=>{});
-      // #endregion
       if (width < 768) {
         setSlidesToShow(1)
       } else if (width < 1024) {
@@ -38,29 +35,7 @@ const TestimonialsSection: React.FC = () => {
     return () => window.removeEventListener("resize", updateSlides)
   }, [])
 
-  // #region agent log
   const sectionRef = React.useRef<HTMLElement>(null);
-  React.useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const overflowYElements: { tag: string; overflowY: string; scrollH: number; clientH: number }[] = [];
-    const overflowXElements: { tag: string; overflowX: string; scrollW: number; clientW: number }[] = [];
-    const walk = (node: Element) => {
-      if (node.nodeType !== 1) return;
-      const style = window.getComputedStyle(node);
-      const elem = node as HTMLElement;
-      if (elem.scrollHeight > elem.clientHeight && ['auto','scroll','overlay'].includes(style.overflowY)) {
-        overflowYElements.push({ tag: node.tagName, overflowY: style.overflowY, scrollH: elem.scrollHeight, clientH: elem.clientHeight });
-      }
-      if (elem.scrollWidth > elem.clientWidth && ['auto','scroll','overlay'].includes(style.overflowX)) {
-        overflowXElements.push({ tag: node.tagName, overflowX: style.overflowX, scrollW: elem.scrollWidth, clientW: elem.clientWidth });
-      }
-      for (let i = 0; i < node.children.length; i++) walk(node.children[i]);
-    };
-    walk(el);
-    fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'TestimonialsSection.tsx:scrollbarSource',message:'Scrollbar source',data:{overflowYElements,overflowXElements,htmlOverflow:window.getComputedStyle(document.documentElement).overflow},timestamp:Date.now(),hypothesisId:'H6'})}).catch(()=>{});
-  }, []);
-  // #endregion
 
   return (
     <section ref={sectionRef} className="w-full bg-white mt-[50px] max-md:mt-10 pb-16 overflow-x-clip">

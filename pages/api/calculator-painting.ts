@@ -15,9 +15,6 @@ import {
 import { generatePaintingEstimatePdf } from '../../src/lib/paintingEstimatePdf';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // #region agent log
-  fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculator-painting.ts:18',message:'Handler called',data:{method:req.method},timestamp:Date.now(),sessionId:'debug-session',runId:'run3',hypothesisId:'C'})}).catch(()=>{});
-  // #endregion
   try {
     if (req.method !== 'POST') {
       return res.status(405).json({ message: 'Method not allowed' });
@@ -322,9 +319,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     `;
 
     // Optionally generate PDF attachment for customer email
-    // #region agent log
-    setImmediate(() => { fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculator-painting.ts:313',message:'About to generate PDF',data:{summaryHtmlLength:summaryHtml.length,hasRupeeInHtml:summaryHtml.includes('₹'),grandTotalFormatted},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{}); });
-    // #endregion
     let pdfBuffer: Buffer | null = null;
     try {
       pdfBuffer = await generatePaintingEstimatePdf({
@@ -337,13 +331,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         grandTotalFormatted,
         summaryHtml,
       });
-      // #region agent log
-      setImmediate(() => { fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculator-painting.ts:326',message:'PDF generated successfully',data:{pdfBufferSize:pdfBuffer?.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{}); });
-      // #endregion
     } catch (pdfError: any) {
-      // #region agent log
-      setImmediate(() => { fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculator-painting.ts:328',message:'PDF generation error',data:{error:pdfError?.message},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{}); });
-      // #endregion
       console.error('Error generating painting estimate PDF:', pdfError);
       // Continue without PDF attachment
     }
@@ -422,9 +410,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     return res.status(200).json({ success: true });
   } catch (error: any) {
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/874e2949-a1fd-446f-87e0-e88cc166ea30',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculator-painting.ts:423',message:'API Error caught',data:{error:error?.message,stack:error?.stack,errorType:error?.constructor?.name},timestamp:Date.now(),sessionId:'debug-session',runId:'run3',hypothesisId:'C'})}).catch(()=>{});
-    // #endregion
     console.error('Final API Error:', error);
     return res.status(500).json({
       error: 'Failed to send email. Please try again later.',

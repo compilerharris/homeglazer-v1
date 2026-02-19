@@ -154,11 +154,10 @@ const Header: React.FC = () => {
         </ListItem>
       ))
     },
-    // Hidden Products link
-    // {
-    //   label: 'Products',
-    //   path: '/products'
-    // },
+    {
+      label: 'Products',
+      path: '/products'
+    },
     {
       label: 'Budget Calculator',
       path: '/paint-budget-calculator'
@@ -248,11 +247,9 @@ const Header: React.FC = () => {
                     </div>
                   </details>
                 </div>
-                <div className="hidden">
-                  <Link href="/products" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
-                    Products
-                  </Link>
-                </div>
+                <Link href="/products" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
+                  Products
+                </Link>
                 <Link href="/paint-budget-calculator" onClick={closeMenu} className="py-3 px-6 bg-white/80 rounded-2xl border border-white/30 hover:bg-white/90 transition-all duration-300 w-full text-center">
                   Budget Calculator
                 </Link>

@@ -50,21 +50,6 @@ const SectionCarousel: React.FC<SectionCarouselProps> = ({
   const isMobile = useIsMobile();
   const arrowsRef = React.useRef<HTMLDivElement>(null);
 
-  // #region agent log
-  React.useEffect(() => {
-    if (testimonialsSection) {
-      fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'SectionCarousel.tsx:mount',message:'Testimonials carousel props',data:{hideArrows,showArrows:!hideArrows,slidesToShow,windowWidth:typeof window!=='undefined'?window.innerWidth:0},timestamp:Date.now(),hypothesisId:'H1,H4'})}).catch(()=>{});
-    }
-  }, [testimonialsSection, hideArrows, slidesToShow]);
-  React.useEffect(() => {
-    if (!testimonialsSection || hideArrows || !arrowsRef.current) return;
-    const el = arrowsRef.current;
-    const rect = el.getBoundingClientRect();
-    const inView = rect.top >= 0 && rect.bottom <= window.innerHeight;
-    fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'SectionCarousel.tsx:arrowsMeasure',message:'Arrows visibility',data:{arrowsTop:rect.top,arrowsBottom:rect.bottom,viewportHeight:window.innerHeight,inView},timestamp:Date.now(),hypothesisId:'H3,H5'})}).catch(()=>{});
-  }, [testimonialsSection, hideArrows]);
-  // #endregion
-
   // Create an API ref
   const [api, setApi] = React.useState<any>(null);
   // State to track if the delay has passed
