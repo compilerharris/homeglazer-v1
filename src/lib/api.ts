@@ -23,6 +23,18 @@ export interface ApiProduct {
   specifications?: Record<string, string>;
 }
 
+export interface ApiProductsResponse {
+  data: ApiProduct[];
+  pagination?: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+    hasNextPage: boolean;
+    hasPreviousPage: boolean;
+  };
+}
+
 export interface ApiBrand {
   id: string;
   name: string;
@@ -31,30 +43,55 @@ export interface ApiBrand {
   description: string;
 }
 
-// Fetch all products
+// Get the base URL for API calls
+// Priority: NEXT_PUBLIC_API_URL (for integration testing) > current origin (browser) > localhost (SSR fallback)
+function getApiBaseUrl(): string {
+  // Allow override via environment variable for integration testing
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+  
+  // In browser, use current origin (works in both dev and production)
+  if (typeof window !== 'undefined') {
+    return window.location.origin;
+  }
+  
+  // SSR fallback - use NEXT_PUBLIC_SITE_URL if available, otherwise localhost
+  return process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+}
+
+// Fetch products with pagination (single page)
 export async function fetchProducts(params?: {
   brandId?: string;
   search?: string;
+  page?: number;
+  limit?: number;
 }): Promise<ApiProduct[]> {
   // #region agent log
-  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:39',message:'fetchProducts called',data:{hasParams:!!params,brandId:params?.brandId,search:params?.search},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:39',message:'fetchProducts called',data:{hasParams:!!params,brandId:params?.brandId,search:params?.search,page:params?.page,limit:params?.limit},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
   // #endregion
-  const searchParams = new URLSearchParams();
+  const baseUrl = getApiBaseUrl();
+  const url = new URL('/api/products', baseUrl);
   if (params?.brandId) {
-    searchParams.append('brandId', params.brandId);
+    url.searchParams.append('brandId', params.brandId);
   }
   if (params?.search) {
-    searchParams.append('search', params.search);
+    url.searchParams.append('search', params.search);
   }
-  const queryString = searchParams.toString();
-  const url = `/api/products${queryString ? `?${queryString}` : ''}`;
+  // Use page 1 as default
+  const page = params?.page || 1;
+  url.searchParams.append('page', page.toString());
+  
+  // Use limit 50 as default to match API default
+  const limit = params?.limit || 50;
+  url.searchParams.append('limit', limit.toString());
 
   // #region agent log
-  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:47',message:'About to fetch products',data:{url},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+  fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:47',message:'About to fetch products',data:{url:url.toString()},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});
   // #endregion
   let response;
   try {
-    response = await fetch(url);
+    response = await fetch(url.toString());
   } catch (fetchError: any) {
     // #region agent log
     fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:50',message:'Fetch error caught',data:{errorMessage:fetchError?.message,errorName:fetchError?.name,errorStack:fetchError?.stack},timestamp:Date.now(),runId:'run1',hypothesisId:'D'})}).catch(()=>{});
@@ -88,7 +125,90 @@ export async function fetchProducts(params?: {
   // #region agent log
   fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:68',message:'Parsing JSON response',data:{responseLength:responseText.length},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
   // #endregion
-  return JSON.parse(responseText);
+  
+  const parsedResponse: ApiProductsResponse | ApiProduct[] = JSON.parse(responseText);
+  
+  // Handle both old format (array) and new format (object with data and pagination)
+  if (Array.isArray(parsedResponse)) {
+    return parsedResponse;
+  } else {
+    return parsedResponse.data;
+  }
+}
+
+// Fetch ALL products by fetching all pages
+export async function fetchAllProducts(params?: {
+  brandId?: string;
+  search?: string;
+}): Promise<ApiProduct[]> {
+  const allProducts: ApiProduct[] = [];
+  let currentPage = 1;
+  let hasMorePages = true;
+  const pageSize = 50; // Fetch 50 products per request to match API default
+
+  console.log('[fetchAllProducts] Starting to fetch all products...');
+
+  while (hasMorePages) {
+    const baseUrl = getApiBaseUrl();
+    const url = new URL('/api/products', baseUrl);
+    
+    if (params?.brandId) {
+      url.searchParams.append('brandId', params.brandId);
+    }
+    if (params?.search) {
+      url.searchParams.append('search', params.search);
+    }
+    url.searchParams.append('page', currentPage.toString());
+    url.searchParams.append('limit', pageSize.toString());
+
+    console.log(`[fetchAllProducts] Fetching page ${currentPage}...`);
+
+    let response;
+    try {
+      response = await fetch(url.toString());
+    } catch (fetchError: any) {
+      throw new Error(`Network error fetching products (page ${currentPage}): ${fetchError?.message}`);
+    }
+
+    const responseText = await response.text();
+
+    if (!response.ok) {
+      let errorData;
+      try {
+        errorData = JSON.parse(responseText);
+      } catch (e) {
+        errorData = { rawResponse: responseText.substring(0, 1000) };
+      }
+      throw new Error(`Failed to fetch products (page ${currentPage}): ${JSON.stringify(errorData)}`);
+    }
+
+    const parsedResponse: ApiProductsResponse | ApiProduct[] = JSON.parse(responseText);
+
+    // Handle both old format (array) and new format (object with data and pagination)
+    let products: ApiProduct[];
+    let hasNextPage = false;
+
+    if (Array.isArray(parsedResponse)) {
+      products = parsedResponse;
+      // Old format doesn't have pagination info, so stop after first page
+      hasNextPage = false;
+    } else {
+      products = parsedResponse.data;
+      hasNextPage = parsedResponse.pagination?.hasNextPage || false;
+    }
+
+    allProducts.push(...products);
+    console.log(`[fetchAllProducts] Fetched ${products.length} products (total: ${allProducts.length})`);
+
+    if (hasNextPage) {
+      currentPage++;
+    } else {
+      hasMorePages = false;
+    }
+  }
+
+  console.log(`[fetchAllProducts] Finished fetching all products. Total: ${allProducts.length}`);
+  return allProducts;
 }
 
 // Fetch all brands
@@ -96,7 +216,8 @@ export async function fetchBrands(): Promise<ApiBrand[]> {
   // #region agent log
   fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:75',message:'fetchBrands called',data:{},timestamp:Date.now(),runId:'run1',hypothesisId:'A'})}).catch(()=>{});
   // #endregion
-  const url = '/api/brands';
+  const baseUrl = getApiBaseUrl();
+  const url = `${baseUrl}/api/brands`;
   
   // #region agent log
   fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f9ea0e'},body:JSON.stringify({sessionId:'f9ea0e',location:'api.ts:78',message:'About to fetch brands',data:{url},timestamp:Date.now(),runId:'run1',hypothesisId:'B'})}).catch(()=>{});

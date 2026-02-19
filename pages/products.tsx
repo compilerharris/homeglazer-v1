@@ -23,7 +23,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
-import { fetchProducts, fetchBrands, transformProduct, transformBrand } from '@/lib/api';
+import { fetchAllProducts, fetchBrands, transformProduct, transformBrand } from '@/lib/api';
 import { sortBrandsByDisplayOrder } from '@/lib/brand-order';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
@@ -85,7 +85,7 @@ const Products: React.FC = () => {
         
         // Fetch products and brands in parallel
         const [productsData, brandsData] = await Promise.all([
-          fetchProducts(),
+          fetchAllProducts(),
           fetchBrands(),
         ]);
 
