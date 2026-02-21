@@ -18,12 +18,13 @@ Amplify limits deployment to ~220 MB. `amplify.yml` postBuild removes:
 **Before first deploy:** Upload media assets to S3 and set env var (see [S3_IMAGE_SETUP.md](./S3_IMAGE_SETUP.md)):
 
 1. Add `NEXT_PUBLIC_S3_MEDIA_URL` in Amplify Console = `terraform output media_base_url`
-2. Run both upload scripts (from project root, with S3_* in .env.local):
+2. Add S3 credentials in Amplify Console: `S3_BUCKET`, `S3_REGION`, `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY`
+3. `upload:media` runs automatically during Amplify build (uploads hero, budget calculator, etc. to S3)
+4. Run `npm run upload:visualiser` once locally (room images for colour visualiser):
 ```bash
 npm run upload:visualiser   # Room images for advanced/basic colour visualiser
-npm run upload:media        # uploads/, media/ (hero, certificates, testimonials, etc.)
 ```
-3. Trigger a new Amplify build (env vars are inlined at build time)
+5. Trigger a new Amplify build (env vars are inlined at build time)
 
 **Without S3:** Advanced visualiser final preview and basic visualiser room images will show "Image unavailable" because room images are excluded from the deploy bundle.
 

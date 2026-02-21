@@ -174,7 +174,7 @@ const Hero: React.FC = () => {
       >
         <img
           alt="Budget Calculator"
-          src={getMediaUrl('/uploads/budegt-calculator.png')}
+          src="/assets/images/budget-calculator-banner.png"
           className="absolute h-full w-full inset-0 object-cover"
         />
         <div className="absolute inset-0 bg-black/30" />

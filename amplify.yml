@@ -30,6 +30,8 @@ frontend:
           [ -n "$NEXT_PUBLIC_SITE_URL" ] && echo "NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL" >> .env.production
           [ -n "$NEXT_PUBLIC_S3_MEDIA_URL" ] && echo "NEXT_PUBLIC_S3_MEDIA_URL=$NEXT_PUBLIC_S3_MEDIA_URL" >> .env.production
           echo "Environment variables written to .env.production"
+        # Upload uploads/, media/ to S3 before build (hero, budget calculator, etc.)
+        - npm run upload:media || echo "Skipping upload:media (S3_* not set or upload failed)"
         - npm run build
     postBuild:
       commands:
