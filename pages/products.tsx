@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 import Head from 'next/head';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
@@ -216,10 +216,10 @@ const Products: React.FC = () => {
         <meta name="description" content="Browse premium paint products from top brands like Asian Paints, Berger, Nerolac, JSW Paints, and Birla Opus. Find the perfect paint for your project." />
         <meta property="og:title" content="Paint Products | HomeGlazer - Premium Paint Brands" />
         <meta property="og:description" content="Browse premium paint products from top brands. Find the perfect paint for your project." />
-        <meta property="og:image" content={getAbsoluteMediaUrl("/uploads/color-bucket1.png", SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl('/uploads/color-bucket1.png', SITE_URL)} />
         <meta name="twitter:title" content="Paint Products | HomeGlazer - Premium Paint Brands" />
         <meta name="twitter:description" content="Browse premium paint products from top brands." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl("/uploads/color-bucket1.png", SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl('/uploads/color-bucket1.png', SITE_URL)} />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
         <Header />

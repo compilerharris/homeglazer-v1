@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useCallback, useState } from 'react';
 
 const CANVAS_WIDTH = 1280;
 const CANVAS_HEIGHT = 720;
-const COLOR_TRANSITION_MS = 200;
+const COLOR_TRANSITION_MS = 100;
 
 function hexToRgb(hex: string): { r: number; g: number; b: number } {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -17,11 +17,18 @@ function rgbToHex(r: number, g: number, b: number): string {
   return '#' + [r, g, b].map((x) => Math.round(x).toString(16).padStart(2, '0')).join('');
 }
 
+interface WallLayer {
+  path: string;
+  color: string;
+}
+
 interface CanvasRoomVisualiserProps {
   imageSrc: string;
   wallPath: string;
   colorHex: string;
   roomLabel: string;
+  /** Optional: different color per wall layer. When provided, overrides wallPath + colorHex. */
+  wallLayers?: WallLayer[];
 }
 
 export default function CanvasRoomVisualiser({
@@ -29,6 +36,7 @@ export default function CanvasRoomVisualiser({
   wallPath,
   colorHex,
   roomLabel,
+  wallLayers,
 }: CanvasRoomVisualiserProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
@@ -45,13 +53,21 @@ export default function CanvasRoomVisualiser({
     const dpr = typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 3) : 1;
 
     // Use display size for buffer to avoid non-integer scaling (causes banding on mobile).
-    // Logs showed buffer 2560x1440 scaled to display 661x372 → scale 0.258 caused artifacts.
     const displayW = Math.max(rect.width, 1);
     const displayH = Math.max(rect.height, 1);
     canvas.width = Math.round(displayW * dpr);
     canvas.height = Math.round(displayH * dpr);
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.scale((displayW * dpr) / CANVAS_WIDTH, (displayH * dpr) / CANVAS_HEIGHT);
+
+    // object-cover: uniform scale to fill, center crop (avoids squashing on tall/narrow viewports)
+    const scale = Math.max(
+      (displayW * dpr) / CANVAS_WIDTH,
+      (displayH * dpr) / CANVAS_HEIGHT
+    );
+    const offsetX = (displayW * dpr - CANVAS_WIDTH * scale) / 2;
+    const offsetY = (displayH * dpr - CANVAS_HEIGHT * scale) / 2;
+    ctx.translate(offsetX / scale, offsetY / scale);
+    ctx.scale(scale, scale);
 
     const img = imageRef.current;
     if (!img || !img.complete || img.naturalWidth === 0) {
@@ -67,20 +83,28 @@ export default function CanvasRoomVisualiser({
     const imgWidth = img.naturalWidth;
     const imgHeight = img.naturalHeight;
 
-    const scale = Math.max(CANVAS_WIDTH / imgWidth, CANVAS_HEIGHT / imgHeight);
-    const drawWidth = imgWidth * scale;
-    const drawHeight = imgHeight * scale;
+    const imgScale = Math.max(CANVAS_WIDTH / imgWidth, CANVAS_HEIGHT / imgHeight);
+    const drawWidth = imgWidth * imgScale;
+    const drawHeight = imgHeight * imgScale;
     const x = (CANVAS_WIDTH - drawWidth) / 2;
     const y = (CANVAS_HEIGHT - drawHeight) / 2;
 
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.drawImage(img, x, y, drawWidth, drawHeight);
 
-    const color = colorOverride ?? colorHex;
-    if (wallPath && color) {
+    const layers =
+      wallLayers?.length && !colorOverride
+        ? wallLayers
+        : wallPath && (colorOverride ?? colorHex)
+          ? [{ path: wallPath, color: colorOverride ?? colorHex }]
+          : [];
+
+    for (const layer of layers) {
+      const color = colorOverride ?? layer.color;
+      if (!layer.path || !color) continue;
       ctx.save();
       try {
-        const path = new Path2D(wallPath);
+        const path = new Path2D(layer.path);
         ctx.clip(path);
         ctx.globalCompositeOperation = 'multiply';
         ctx.globalAlpha = 0.7;
@@ -90,7 +114,7 @@ export default function CanvasRoomVisualiser({
         ctx.restore();
       }
     }
-  }, [imageSrc, wallPath, colorHex, loadState]);
+  }, [imageSrc, wallPath, colorHex, wallLayers, loadState]);
 
   const drawRef = useRef(draw);
   useEffect(() => {
@@ -128,6 +152,13 @@ export default function CanvasRoomVisualiser({
   }, [imageSrc]);
 
   useEffect(() => {
+    // When using wallLayers, skip single-color animation and redraw immediately
+    if (wallLayers?.length) {
+      prevColorRef.current = colorHex;
+      draw();
+      return;
+    }
+
     const prevColor = prevColorRef.current;
     if (prevColor === null || prevColor === colorHex) {
       prevColorRef.current = colorHex;
@@ -162,14 +193,14 @@ export default function CanvasRoomVisualiser({
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [draw, colorHex]);
+  }, [draw, colorHex, wallLayers]);
 
   return (
     <canvas
         ref={canvasRef}
         width={CANVAS_WIDTH}
         height={CANVAS_HEIGHT}
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover"
         role="img"
         aria-label={`${roomLabel} room with wall color preview`}
         onContextMenu={(e) => e.preventDefault()}

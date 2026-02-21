@@ -1,5 +1,5 @@
 import React from "react";
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Head from "next/head";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
@@ -25,10 +25,10 @@ const WoodServices: React.FC = () => {
         <meta name="description" content="Professional wood services including polishing, coating, and carpentry. Restore and protect your wooden furniture and fixtures with HomeGlazer." />
         <meta property="og:title" content="Wood Services | HomeGlazer - Polish, Coating & Carpentry" />
         <meta property="og:description" content="Professional wood polishing, coating, and carpentry services for your home." />
-        <meta property="og:image" content={getAbsoluteMediaUrl(WOOD_SERVICES_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(WOOD_SERVICES_HERO_IMAGE, SITE_URL)} />
         <meta name="twitter:title" content="Wood Services | HomeGlazer" />
         <meta name="twitter:description" content="Professional wood polishing, coating, and carpentry services." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(WOOD_SERVICES_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(WOOD_SERVICES_HERO_IMAGE, SITE_URL)} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />

@@ -79,3 +79,25 @@ export function getAbsoluteMediaUrl(path: string, siteUrl: string): string {
   if (url.startsWith('http://') || url.startsWith('https://')) return url;
   return `${siteUrl.replace(/\/$/, '')}${url.startsWith('/') ? url : `/${url}`}`;
 }
+
+const DEFAULT_OG_FALLBACK = '/uploads/hero-banner.png';
+
+/**
+ * Returns URL for og:image meta tags. Uses same-domain API proxy when S3 is set
+ * so Facebook/WhatsApp crawlers can fetch reliably (they often fail with amazonaws.com URLs).
+ * When path is empty/null, uses fallbackPath or homepage hero-banner.png.
+ */
+export function getOgImageUrl(
+  path: string,
+  siteUrl: string,
+  fallbackPath?: string
+): string {
+  const effectivePath = path || fallbackPath || DEFAULT_OG_FALLBACK;
+  const normalized = effectivePath.replace(/^\/+/, '');
+
+  if (S3_BASE && process.env.NODE_ENV !== 'development') {
+    return `${siteUrl.replace(/\/$/, '')}/api/og-image?path=/${encodeURIComponent(normalized)}`;
+  }
+
+  return getAbsoluteMediaUrl(effectivePath, siteUrl);
+}

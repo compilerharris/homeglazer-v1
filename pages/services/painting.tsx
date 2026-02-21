@@ -4,7 +4,7 @@ import Head from "next/head";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
-import { getMediaUrl, getAbsoluteMediaUrl } from "@/lib/mediaUrl";
+import { getMediaUrl, getOgImageUrl } from "@/lib/mediaUrl";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { 
@@ -26,10 +26,10 @@ const PaintingServices: React.FC = () => {
         <meta name="description" content="Professional painting services for residential, commercial, and kids' rooms. Expert painters delivering quality finishes with premium paints." />
         <meta property="og:title" content="Painting Services | HomeGlazer - Residential & Commercial" />
         <meta property="og:description" content="Professional painting services for residential, commercial, and kids' rooms. Expert painters delivering quality finishes." />
-        <meta property="og:image" content={getAbsoluteMediaUrl(PAINTING_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(PAINTING_HERO_IMAGE, SITE_URL)} />
         <meta name="twitter:title" content="Painting Services | HomeGlazer" />
         <meta name="twitter:description" content="Professional painting services for residential and commercial spaces." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(PAINTING_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(PAINTING_HERO_IMAGE, SITE_URL)} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />

@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -21,13 +21,13 @@ const GraffitiPainting: React.FC = () => {
         <meta property="og:title" content="Graffiti Painting Services | Home Glazer" />
         <meta property="og:description" content="Professional graffiti painting services in Delhi & NCR. Transform your walls with stunning street art and murals." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={getAbsoluteMediaUrl(GRAFFITI_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(GRAFFITI_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Graffiti Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Professional graffiti painting services in Delhi & NCR." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(GRAFFITI_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(GRAFFITI_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <Header />

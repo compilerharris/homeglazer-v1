@@ -1,6 +1,6 @@
 import React from "react"
 import Head from "next/head"
-import { getAbsoluteMediaUrl } from "@/lib/mediaUrl"
+import { getOgImageUrl } from "@/lib/mediaUrl"
 import Link from "next/link"
 import Header from "@/components/home/Header"
 import Footer from "@/components/home/Footer"
@@ -38,7 +38,7 @@ export default function TestimonialsPage() {
           content="Read heartfelt testimonials and letters from our satisfied customers about HomeGlazer's painting services."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={getAbsoluteMediaUrl("/uploads/hero-banner.png", SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
         <meta
           name="twitter:title"
           content="Customer Testimonials | HomeGlazer"
@@ -47,7 +47,7 @@ export default function TestimonialsPage() {
           name="twitter:description"
           content="Read heartfelt testimonials from our satisfied customers."
         />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl("/uploads/hero-banner.png", SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden items-center">

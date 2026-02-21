@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -21,13 +22,13 @@ const PrivacyPolicyPage: React.FC = () => {
           property="og:description"
           content="Understand HomeGlazer's privacy practices, data use, cookies, and contact information."
         />
-        <meta property="og:image" content={`${SITE_URL}/uploads/hero-banner.png`} />
+        <meta property="og:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
         <meta name="twitter:title" content="Privacy Policy | HomeGlazer" />
         <meta
           name="twitter:description"
           content="Understand HomeGlazer's privacy practices, data use, cookies, and contact information."
         />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/hero-banner.png`} />
+        <meta name="twitter:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
       </Head>
 
       <Header />

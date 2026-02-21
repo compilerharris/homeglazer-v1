@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -27,14 +27,14 @@ const Wallpaper: React.FC = () => {
         <meta property="og:description" content="Professional customized wallpaper services for walls and ceilings. Expert wallpaper installation with 35+ years experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/wall-decor/wallpaper" />
-        <meta property="og:image" content={getAbsoluteMediaUrl(WALLPAPER_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(WALLPAPER_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/wall-decor/wallpaper" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Wallpaper Installation Services | Home Glazer" />
         <meta name="twitter:description" content="Professional wallpaper installation and removal services." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(WALLPAPER_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(WALLPAPER_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">

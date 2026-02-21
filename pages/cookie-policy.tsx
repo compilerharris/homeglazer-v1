@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -21,13 +22,13 @@ const CookiePolicyPage: React.FC = () => {
           property="og:description"
           content="Understand the types of cookies we use, why we use them, and how to control them."
         />
-        <meta property="og:image" content={`${SITE_URL}/uploads/hero-banner.png`} />
+        <meta property="og:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
         <meta name="twitter:title" content="Cookie Policy | HomeGlazer" />
         <meta
           name="twitter:description"
           content="Understand the types of cookies we use, why we use them, and how to control them."
         />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/hero-banner.png`} />
+        <meta name="twitter:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
       </Head>
 
       <Header />

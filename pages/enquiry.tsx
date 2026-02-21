@@ -12,6 +12,7 @@ import {
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 import Link from 'next/link';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 const ENQUIRY_HERO_IMAGE = "/assets/images/bedroom/bedroom6/bedroom6.jpg";
@@ -158,13 +159,13 @@ const EnquirePage: React.FC = () => {
         <meta name="keywords" content="painting quote, free estimate, painting services quote, home painting estimate, Delhi NCR" />
         <meta property="og:title" content="Get a Quote | HomeGlazer - Free Painting Estimate" />
         <meta property="og:description" content="Request a free painting quote from HomeGlazer. Get a personalized estimate within 24 hours." />
-        <meta property="og:image" content={`${SITE_URL}${ENQUIRY_HERO_IMAGE}`} />
+        <meta property="og:image" content={getOgImageUrl(ENQUIRY_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Get a Quote | HomeGlazer - Free Painting Estimate" />
         <meta name="twitter:description" content="Request a free painting quote. Get a personalized estimate within 24 hours." />
-        <meta name="twitter:image" content={`${SITE_URL}${ENQUIRY_HERO_IMAGE}`} />
+        <meta name="twitter:image" content={getOgImageUrl(ENQUIRY_HERO_IMAGE, SITE_URL)} />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
         <Header />

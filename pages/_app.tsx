@@ -2,10 +2,11 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import CookieConsent from '@/components/common/CookieConsent';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 import '../src/styles/tailwind.css';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/images/og-image.jpg`;
+const DEFAULT_OG_IMAGE = getOgImageUrl('/uploads/hero-banner.png', SITE_URL);
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -35,6 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:title" content="HomeGlazer - Professional Painting Services" />
         <meta property="og:description" content="Professional painting services including interior, exterior, texture painting, wall decor, and wood services. Transform your space with HomeGlazer." />
         <meta property="og:image" content={DEFAULT_OG_IMAGE} />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="HomeGlazer - Professional Painting Services" />

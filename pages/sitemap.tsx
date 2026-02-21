@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 import Link from 'next/link';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
@@ -233,10 +233,10 @@ const Sitemap: React.FC = () => {
         <meta name="description" content="Navigate through all HomeGlazer pages. Find our services, products, tools, calculators, and resources for professional painting services." />
         <meta property="og:title" content="Sitemap | HomeGlazer - All Pages" />
         <meta property="og:description" content="Navigate through all HomeGlazer pages and discover our complete range of painting services." />
-        <meta property="og:image" content={getAbsoluteMediaUrl("/uploads/hero-banner.png", SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
         <meta name="twitter:title" content="Sitemap | HomeGlazer - All Pages" />
         <meta name="twitter:description" content="Navigate through all HomeGlazer pages and discover our services." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl("/uploads/hero-banner.png", SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
       </Head>
       <div className="bg-gray-50 flex flex-col overflow-hidden items-center min-h-screen">
         <Header />

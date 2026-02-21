@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../../../src/components/home/Header';
@@ -140,13 +140,13 @@ const AdvancedVisualiserStep: React.FC = () => {
         <meta property="og:title" content={`${pageTitle} | HomeGlazer`} />
         <meta property="og:description" content="Visualize paint colours on your walls with our advanced colour visualiser." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={getAbsoluteMediaUrl(ADVANCED_VISUALISER_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(ADVANCED_VISUALISER_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${pageTitle} | HomeGlazer`} />
         <meta name="twitter:description" content="Visualize paint colours on your walls before painting." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(ADVANCED_VISUALISER_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(ADVANCED_VISUALISER_HERO_IMAGE, SITE_URL)} />
       </Head>
       <Header />
       {visualizer.step === 1 && (

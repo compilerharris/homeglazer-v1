@@ -2,7 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -29,14 +29,14 @@ const OneDayPainting: React.FC = () => {
         <meta property="og:description" content="Transform your home or office in just ONE DAY with our WOW One Day Painting Services. Professional painters delivering quality painting in 24 hours." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/one-day-painting" />
-        <meta property="og:image" content={getAbsoluteMediaUrl(ONE_DAY_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(ONE_DAY_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/one-day-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="One Day Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Quick one-day painting services for fast room makeovers." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(ONE_DAY_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(ONE_DAY_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">

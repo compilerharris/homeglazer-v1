@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -22,13 +22,13 @@ const TermsAndConditionPage: React.FC = () => {
           property="og:description"
           content="Understand our Terms & Conditions for painting and wood services, including payments, obligations, and liability."
         />
-        <meta property="og:image" content={getAbsoluteMediaUrl("/uploads/hero-banner.png", SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
         <meta name="twitter:title" content="Terms & Conditions | HomeGlazer" />
         <meta
           name="twitter:description"
           content="Understand our Terms & Conditions for painting and wood services."
         />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl("/uploads/hero-banner.png", SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
       </Head>
 
       <Header />

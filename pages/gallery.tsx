@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import { getOgImageUrl } from '@/lib/mediaUrl'
 import Header from '@/components/home/Header'
 import Footer from '@/components/home/Footer'
 import WhatsAppButton from '@/components/home/WhatsAppButton'
@@ -27,10 +28,10 @@ export default function GalleryPage() {
         <meta property="og:title" content="Gallery - Before & After Room Transformations | HomeGlazer" />
         <meta property="og:description" content="Explore our stunning before and after room transformations. See how professional painting can transform bedrooms, living rooms, kitchens, and outdoor spaces." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`${SITE_URL}/uploads/before-after.png`} />
+        <meta property="og:image" content={getOgImageUrl("/uploads/before-after.png", SITE_URL)} />
         <meta name="twitter:title" content="Gallery - Before & After Room Transformations | HomeGlazer" />
         <meta name="twitter:description" content="Explore our stunning before and after room transformations." />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/before-after.png`} />
+        <meta name="twitter:image" content={getOgImageUrl("/uploads/before-after.png", SITE_URL)} />
       </Head>
       
       <div className="bg-white flex flex-col overflow-hidden items-center">

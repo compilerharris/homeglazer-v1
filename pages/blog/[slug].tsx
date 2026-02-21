@@ -9,6 +9,7 @@ import BlogContent from '@/components/blog/BlogContent';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 import CTAButton from '@/components/home/CTAButton';
 import { prisma } from '@/lib/prisma';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -63,24 +64,20 @@ const BlogPost: React.FC<BlogPostPageProps> = ({ post, recentPosts }) => {
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="HomeGlazer" />
         <meta property="og:locale" content="en_US" />
-        {post.coverImage && (
-          <meta
-            property="og:image"
-            content={post.coverImage.startsWith('http') ? post.coverImage : `${SITE_URL}${post.coverImage}`}
-          />
-        )}
+        <meta
+          property="og:image"
+          content={post.coverImage?.startsWith('http') ? post.coverImage : getOgImageUrl(post.coverImage || '/uploads/hero-banner.png', SITE_URL)}
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | HomeGlazer`} />
         <meta
           name="twitter:description"
           content={post.metaDescription || post.excerpt || ''}
         />
-        {post.coverImage && (
-          <meta
-            name="twitter:image"
-            content={post.coverImage.startsWith('http') ? post.coverImage : `${SITE_URL}${post.coverImage}`}
-          />
-        )}
+        <meta
+          name="twitter:image"
+          content={post.coverImage?.startsWith('http') ? post.coverImage : getOgImageUrl(post.coverImage || '/uploads/hero-banner.png', SITE_URL)}
+        />
       </Head>
       <Header />
       

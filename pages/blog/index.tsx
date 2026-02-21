@@ -10,6 +10,7 @@ import FeaturedPost from '@/components/blog/FeaturedPost';
 import BlogList from '@/components/blog/BlogList';
 import CTAButton from '@/components/home/CTAButton';
 import { prisma } from '@/lib/prisma';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -51,13 +52,13 @@ const Blog: React.FC<BlogProps> = ({ featuredPost, regularPosts, error }) => {
         <meta property="og:title" content="Blog | HomeGlazer - Painting Tips & Inspiration" />
         <meta property="og:description" content="Read our latest articles on painting tips, color trends, and expert advice." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`${SITE_URL}/uploads/design-insight-thumb.png`} />
+        <meta property="og:image" content={getOgImageUrl("/uploads/design-insight-thumb.png", SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Blog | HomeGlazer - Painting Tips & Inspiration" />
         <meta name="twitter:description" content="Painting tips, color trends, and expert advice." />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/design-insight-thumb.png`} />
+        <meta name="twitter:image" content={getOgImageUrl("/uploads/design-insight-thumb.png", SITE_URL)} />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
         <Header />

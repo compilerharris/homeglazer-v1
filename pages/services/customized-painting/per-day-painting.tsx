@@ -2,7 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -29,14 +29,14 @@ const PerDayPainting: React.FC = () => {
         <meta property="og:description" content="Hire professional painters on a per-day basis. Flexible, affordable painting services for small jobs and touch-ups." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/per-day-painting" />
-        <meta property="og:image" content={getAbsoluteMediaUrl(PER_DAY_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(PER_DAY_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/per-day-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Per Day Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Flexible per-day painting services that fit your schedule." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(PER_DAY_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(PER_DAY_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">

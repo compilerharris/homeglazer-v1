@@ -2,7 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -30,14 +30,14 @@ const KidsRoom: React.FC = () => {
         <meta property="og:description" content="Home Glazer offers professional kids room painting services with safe, non-toxic paints and creative designs." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/painting/kids-room" />
-        <meta property="og:image" content={getAbsoluteMediaUrl(KIDS_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(KIDS_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/painting/kids-room" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Kids Room Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Safe and colorful kids room painting services with child-friendly paints." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(KIDS_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(KIDS_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">

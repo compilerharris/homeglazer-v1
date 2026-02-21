@@ -1,7 +1,7 @@
 
 import React from "react";
 import Head from "next/head";
-import { getMediaUrl, getAbsoluteMediaUrl } from "@/lib/mediaUrl";
+import { getMediaUrl, getOgImageUrl } from "@/lib/mediaUrl";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
@@ -26,10 +26,10 @@ const CustomizedPainting: React.FC = () => {
         <meta name="description" content="Customized painting solutions including interior, exterior, one-day, and per-day painting services. Tailored to your schedule and budget." />
         <meta property="og:title" content="Customized Painting | HomeGlazer - Interior & Exterior" />
         <meta property="og:description" content="Customized painting solutions including interior, exterior, and flexible scheduling options." />
-        <meta property="og:image" content={getAbsoluteMediaUrl(CUSTOMIZED_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(CUSTOMIZED_HERO_IMAGE, SITE_URL)} />
         <meta name="twitter:title" content="Customized Painting | HomeGlazer" />
         <meta name="twitter:description" content="Customized painting solutions tailored to your schedule and budget." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(CUSTOMIZED_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(CUSTOMIZED_HERO_IMAGE, SITE_URL)} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />

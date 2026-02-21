@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -28,14 +28,14 @@ const Residential: React.FC = () => {
         <meta property="og:description" content="Transform your home with our professional residential painting services. Expert house painters delivering quality interior & exterior painting with 35+ years of experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/painting/residential" />
-        <meta property="og:image" content={getAbsoluteMediaUrl(RESIDENTIAL_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(RESIDENTIAL_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/painting/residential" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Residential Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Transform your home with professional residential painting services." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(RESIDENTIAL_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(RESIDENTIAL_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">

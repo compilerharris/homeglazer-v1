@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
@@ -238,13 +238,13 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
         <meta property="og:title" content={`${product.name} | ${product.brand} - HomeGlazer`} />
         <meta property="og:description" content={product.description || `${product.name} by ${product.brand}. Premium quality paint.`} />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content={product.image && product.image.startsWith('http') ? product.image : getAbsoluteMediaUrl(product.image || '/uploads/color-bucket1.png', SITE_URL)} />
+        <meta property="og:image" content={product.image && product.image.startsWith('http') ? product.image : getOgImageUrl(product.image || '/uploads/color-bucket1.png', SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${product.name} | ${product.brand}`} />
         <meta name="twitter:description" content={product.description || `Premium quality paint by ${product.brand}.`} />
-        <meta name="twitter:image" content={product.image && product.image.startsWith('http') ? product.image : getAbsoluteMediaUrl(product.image || '/uploads/color-bucket1.png', SITE_URL)} />
+        <meta name="twitter:image" content={product.image && product.image.startsWith('http') ? product.image : getOgImageUrl(product.image || '/uploads/color-bucket1.png', SITE_URL)} />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
         <Header />

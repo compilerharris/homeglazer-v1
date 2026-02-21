@@ -1,5 +1,5 @@
 import React from "react";
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Head from "next/head";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
@@ -25,10 +25,10 @@ const WallDecor: React.FC = () => {
         <meta name="description" content="Transform your walls with HomeGlazer's wall decor services. Texture painting, stencil designs, and wallpapers to add personality to your space." />
         <meta property="og:title" content="Wall Decor Services | HomeGlazer - Texture & Stencil" />
         <meta property="og:description" content="Transform your walls with texture painting, stencil designs, and wallpapers." />
-        <meta property="og:image" content={getAbsoluteMediaUrl(WALL_DECOR_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(WALL_DECOR_HERO_IMAGE, SITE_URL)} />
         <meta name="twitter:title" content="Wall Decor Services | HomeGlazer" />
         <meta name="twitter:description" content="Transform your walls with texture painting and stencil designs." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(WALL_DECOR_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(WALL_DECOR_HERO_IMAGE, SITE_URL)} />
       </Head>
       <div className="relative min-h-screen flex flex-col">
         <Header />

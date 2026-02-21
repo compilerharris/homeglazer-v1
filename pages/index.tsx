@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Hero from '@/components/home/Hero';
 import Services from '@/components/home/Services';
@@ -30,10 +30,11 @@ export default function Home() {
         <meta name="description" content="Transform your space with HomeGlazer's professional painting services. Interior, exterior, texture painting, wall decor, and wood services. Get a free quote today!" />
         <meta property="og:title" content="HomeGlazer - Professional Painting Services in India" />
         <meta property="og:description" content="Transform your space with HomeGlazer's professional painting services. Interior, exterior, texture painting, wall decor, and wood services." />
-        <meta property="og:image" content={getAbsoluteMediaUrl("/uploads/hero-banner.png", SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
+        <meta property="og:image:type" content="image/png" />
         <meta name="twitter:title" content="HomeGlazer - Professional Painting Services in India" />
         <meta name="twitter:description" content="Transform your space with HomeGlazer's professional painting services. Interior, exterior, texture painting, wall decor, and wood services." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl("/uploads/hero-banner.png", SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
       <Header />

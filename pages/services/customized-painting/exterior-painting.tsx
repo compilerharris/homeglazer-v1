@@ -2,7 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getMediaUrl, getAbsoluteMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -29,14 +29,14 @@ const ExteriorPainting: React.FC = () => {
         <meta property="og:description" content="Transform your home's exterior with our professional exterior painting services. Expert house painters delivering quality exterior painting with 35+ years of experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homeglazer.com/services/customized-painting/exterior-painting" />
-        <meta property="og:image" content={getAbsoluteMediaUrl(EXTERIOR_HERO_IMAGE, SITE_URL)} />
+        <meta property="og:image" content={getOgImageUrl(EXTERIOR_HERO_IMAGE, SITE_URL)} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://homeglazer.com/services/customized-painting/exterior-painting" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Exterior Painting Services | Home Glazer" />
         <meta name="twitter:description" content="Professional exterior painting services for homes and buildings." />
-        <meta name="twitter:image" content={getAbsoluteMediaUrl(EXTERIOR_HERO_IMAGE, SITE_URL)} />
+        <meta name="twitter:image" content={getOgImageUrl(EXTERIOR_HERO_IMAGE, SITE_URL)} />
       </Head>
 
       <div className="bg-white flex flex-col overflow-hidden">

@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Head from "next/head";
+import { getOgImageUrl } from '@/lib/mediaUrl';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
@@ -23,7 +24,7 @@ const NotFound = () => {
         <meta name="robots" content="noindex, follow" />
         <meta property="og:title" content="Page Not Found | HomeGlazer" />
         <meta property="og:description" content="The page you are looking for does not exist." />
-        <meta property="og:image" content={`${SITE_URL}/uploads/hero-banner.png`} />
+        <meta property="og:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Page Not Found | HomeGlazer" />
         <meta name="twitter:description" content="The page you are looking for does not exist." />

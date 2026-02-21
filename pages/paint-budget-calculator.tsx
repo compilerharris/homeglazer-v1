@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import CalculatorForm from '@/components/calculator/CalculatorForm';
@@ -23,10 +24,10 @@ const Calculator: React.FC = () => {
         <meta name="description" content="Calculate your painting budget instantly with HomeGlazer's free paint budget calculator. Get accurate estimates for interior, exterior, and wood services." />
         <meta property="og:title" content="Paint Budget Calculator | HomeGlazer - Free Estimate" />
         <meta property="og:description" content="Calculate your painting budget instantly with our free calculator. Get accurate estimates for your painting project." />
-        <meta property="og:image" content={`${SITE_URL}/uploads/consultation.png`} />
+        <meta property="og:image" content={getOgImageUrl("/uploads/consultation.png", SITE_URL)} />
         <meta name="twitter:title" content="Paint Budget Calculator | HomeGlazer" />
         <meta name="twitter:description" content="Calculate your painting budget instantly with our free calculator." />
-        <meta name="twitter:image" content={`${SITE_URL}/uploads/consultation.png`} />
+        <meta name="twitter:image" content={getOgImageUrl("/uploads/consultation.png", SITE_URL)} />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
         <Header />
