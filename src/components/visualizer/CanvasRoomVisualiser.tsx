@@ -29,6 +29,8 @@ interface CanvasRoomVisualiserProps {
   roomLabel: string;
   /** Optional: different color per wall layer. When provided, overrides wallPath + colorHex. */
   wallLayers?: WallLayer[];
+  /** Optional: transition duration in ms when wallLayers colors change. Default: instant. */
+  transitionMs?: number;
 }
 
 export default function CanvasRoomVisualiser({
@@ -37,14 +39,16 @@ export default function CanvasRoomVisualiser({
   colorHex,
   roomLabel,
   wallLayers,
+  transitionMs,
 }: CanvasRoomVisualiserProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const prevColorRef = useRef<string | null>(null);
+  const prevWallLayersRef = useRef<WallLayer[] | null>(null);
   const animationRef = useRef<number | null>(null);
   const [loadState, setLoadState] = useState<'loading' | 'loaded' | 'error'>('loading');
 
-  const draw = useCallback((colorOverride?: string) => {
+  const draw = useCallback((colorOverride?: string, layersOverride?: WallLayer[]) => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
     if (!canvas || !ctx) return;
@@ -93,11 +97,13 @@ export default function CanvasRoomVisualiser({
     ctx.drawImage(img, x, y, drawWidth, drawHeight);
 
     const layers =
-      wallLayers?.length && !colorOverride
-        ? wallLayers
-        : wallPath && (colorOverride ?? colorHex)
-          ? [{ path: wallPath, color: colorOverride ?? colorHex }]
-          : [];
+      layersOverride
+        ? layersOverride
+        : wallLayers?.length && !colorOverride
+          ? wallLayers
+          : wallPath && (colorOverride ?? colorHex)
+            ? [{ path: wallPath, color: colorOverride ?? colorHex }]
+            : [];
 
     for (const layer of layers) {
       const color = colorOverride ?? layer.color;
@@ -152,13 +158,54 @@ export default function CanvasRoomVisualiser({
   }, [imageSrc]);
 
   useEffect(() => {
-    // When using wallLayers, skip single-color animation and redraw immediately
+    // When using wallLayers
     if (wallLayers?.length) {
-      prevColorRef.current = colorHex;
-      draw();
-      return;
+      const prev = prevWallLayersRef.current;
+      const duration = transitionMs ?? 0;
+
+      if (!prev || duration <= 0) {
+        prevWallLayersRef.current = wallLayers;
+        draw();
+        return;
+      }
+
+      // Animate from prev to current over transitionMs
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      const start = performance.now();
+
+      const tick = () => {
+        const elapsed = performance.now() - start;
+        const t = Math.min(elapsed / duration, 1);
+        const eased = t * (2 - t);
+
+        const interpolatedLayers: WallLayer[] = wallLayers.map((layer, i) => {
+          const prevLayer = prev[i];
+          if (!prevLayer || prevLayer.path !== layer.path) return layer;
+          const from = hexToRgb(prevLayer.color);
+          const to = hexToRgb(layer.color);
+          const r = from.r + (to.r - from.r) * eased;
+          const g = from.g + (to.g - from.g) * eased;
+          const b = from.b + (to.b - from.b) * eased;
+          return { path: layer.path, color: rgbToHex(r, g, b) };
+        });
+
+        drawRef.current(undefined, interpolatedLayers);
+
+        if (t < 1) {
+          animationRef.current = requestAnimationFrame(tick);
+        } else {
+          prevWallLayersRef.current = wallLayers;
+          animationRef.current = null;
+        }
+      };
+
+      animationRef.current = requestAnimationFrame(tick);
+      return () => {
+        if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      };
     }
 
+    prevWallLayersRef.current = null;
     const prevColor = prevColorRef.current;
     if (prevColor === null || prevColor === colorHex) {
       prevColorRef.current = colorHex;

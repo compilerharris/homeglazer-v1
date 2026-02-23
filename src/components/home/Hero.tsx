@@ -112,7 +112,7 @@ const Hero: React.FC = () => {
   }).filter((l): l is { path: string; color: string } => l !== null);
 
   return (
-    <div ref={heroRef} className="w-full relative h-[60vh] lg:h-[80vh] text-center mt-0 py-[120px] max-md:py-[80px] overflow-hidden">
+    <div ref={heroRef} className="w-full relative h-[80vh] text-center mt-0 py-[120px] max-md:py-[80px] overflow-hidden">
       {/* Slide 1: Colour visualiser banner */}
       <div
         ref={slide1Ref}
@@ -174,13 +174,13 @@ const Hero: React.FC = () => {
       >
         <img
           alt="Budget Calculator"
-          src="/assets/images/budget-calculator-banner.png"
+          src="/assets/images/budget-calculator-banner.jpeg"
           className="absolute h-full w-full inset-0 object-cover"
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto px-4 mt-0 2xl:mt-10 h-full justify-center">
           <h2 className="text-white text-[30px] lg:text-[56px] font-semibold max-md:text-[30px] leading-[150%] drop-shadow-lg">
-            Plan Your Painting Budget
+            Calculate Your Painting Budget
           </h2>
           <p className="text-white/95 text-lg lg:text-xl font-light mt-4 max-md:mt-3 max-w-2xl drop-shadow-md">
             Get an instant estimate for your next painting project

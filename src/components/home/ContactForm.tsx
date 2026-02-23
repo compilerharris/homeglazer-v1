@@ -1,117 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
-
-interface FormData {
-  name: string;
-  email: string;
-  mobile: string;
-  message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  mobile?: string;
-  message?: string;
-}
+import { useContactForm } from '@/hooks/useContactForm';
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    mobile: '',
-    message: ''
-  });
+  const {
+    formData,
+    errors,
+    isSubmitting,
+    submitted,
+    submitError,
+    handleChange,
+    handleSubmit,
+    resetForm,
+  } = useContactForm();
 
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState('');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    
-    // Clear error when user types
-    if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
-    }
-    
-    // Clear submit error when user makes changes
-    if (submitError) {
-      setSubmitError('');
-    }
-  };
-
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
-
-    // Name validation
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-
-    // Email validation
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-      newErrors.email = 'Please enter a valid email';
-    }
-
-    // Mobile validation
-    if (!formData.mobile.trim()) {
-      newErrors.mobile = 'Mobile number is required';
-    } else if (!/^[0-9+\- ]{10,15}$/.test(formData.mobile.trim())) {
-      newErrors.mobile = 'Please enter a valid mobile number';
-    }
-
-    // Message validation
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message should be at least 10 characters';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitError('');
-
-    try {
-      const response = await fetch('/api/homepage-contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to send message');
-      }
-
-      // Success
-      setSubmitted(true);
-      setFormData({ name: '', email: '', mobile: '', message: '' });
-    } catch (error: any) {
-      setSubmitError(error.message || 'Something went wrong. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  // Success state
   if (submitted) {
     return (
       <>
@@ -138,14 +40,14 @@ const ContactForm: React.FC = () => {
                   Thank you for reaching out. We'll get back to you within 24 hours.
                 </p>
                 <button
-                  onClick={() => setSubmitted(false)}
+                  onClick={resetForm}
                   className="bg-[rgba(237,39,110,1)] hover:bg-[rgba(59,130,246,1)] text-white px-6 py-2 rounded-[26px] transition-all duration-250"
                 >
                   Send Another Message
                 </button>
               </div>
+            </div>
           </div>
-        </div>
         </section>
       </>
     );
@@ -168,7 +70,6 @@ const ContactForm: React.FC = () => {
           </div>
           <div className="bg-white shadow-[0px_5px_16px_rgba(8,15,52,0.06)] min-w-0 lg:w-[358px] pt-9 pb-5 px-[21px] rounded-xl">
             <form onSubmit={handleSubmit}>
-              {/* Submit Error Alert */}
               {submitError && (
                 <div className="flex items-start gap-2 p-3 mb-4 bg-red-50 border border-red-200 rounded-lg">
                   <AlertCircle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
@@ -177,7 +78,6 @@ const ContactForm: React.FC = () => {
               )}
 
               <div className="w-full">
-                {/* Name Field */}
                 <div className="flex min-h-10 w-full gap-[25px] mb-8">
                   <div className="min-w-60 w-full flex-1 shrink basis-[0%] relative">
                     <label className="absolute -top-2 left-4 bg-white px-2 text-xs font-semibold z-10">
@@ -199,7 +99,6 @@ const ContactForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Email Field */}
                 <div className="flex min-h-10 w-full gap-[25px] mb-8">
                   <div className="min-w-60 w-full flex-1 shrink basis-[0%] relative">
                     <label className="absolute -top-2 left-4 bg-white px-2 text-xs font-semibold z-10">
@@ -221,7 +120,6 @@ const ContactForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Mobile Field */}
                 <div className="flex min-h-10 w-full gap-[25px] mb-8">
                   <div className="min-w-60 w-full flex-1 shrink basis-[0%] relative">
                     <label className="absolute -top-2 left-4 bg-white px-2 text-xs font-semibold z-10">
@@ -243,7 +141,6 @@ const ContactForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Message Field */}
                 <div className="min-h-[111px] w-full mb-6 relative">
                   <label className="absolute -top-2 left-4 bg-white px-2 text-xs font-semibold z-10">
                     Message <span className="text-[#F00]">*</span>

@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import CookieConsent from '@/components/common/CookieConsent';
+import LocationPopupOrchestrator from '@/components/common/LocationPopupOrchestrator';
 import { getOgImageUrl } from '@/lib/mediaUrl';
 import '../src/styles/tailwind.css';
 
@@ -87,6 +88,7 @@ gtag("config", "G-N45TYM4KN3", {"googlesitekit_post_type":"page"});
       </Head>
       <Component {...pageProps} />
       <CookieConsent />
+      <LocationPopupOrchestrator />
     </>
   );
 }

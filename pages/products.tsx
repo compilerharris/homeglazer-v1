@@ -353,6 +353,15 @@ const Products: React.FC = () => {
         </div>
       </section>
 
+      {/* Products Disclaimer */}
+      <section className="py-6 px-4 mb-8 bg-amber-50 border border-amber-200 mx-4 md:mx-auto md:max-w-4xl">
+        <div>
+          <p className="text-amber-900 text-sm md:text-base text-center font-medium">
+            <span className="font-semibold">Disclaimer:</span> The products shown on this page are for informational purposes only. We do not sell or endorse any products listed on this website. All content is intended for general information only.
+          </p>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-[#ED276E] to-[#299dd7] w-full">
         <div className="container mx-auto px-4 text-center">
