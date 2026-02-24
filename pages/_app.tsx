@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import CookieConsent from '@/components/common/CookieConsent';
 import LocationPopupOrchestrator from '@/components/common/LocationPopupOrchestrator';
 import { getOgImageUrl } from '@/lib/mediaUrl';
+import { JsonLd, ORGANIZATION_JSON_LD } from '@/components/seo/JsonLd';
 import '../src/styles/tailwind.css';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
@@ -63,15 +64,13 @@ window._googlesitekitConsents = {"ad_personalization":"denied","ad_storage":"den
         />
         {/* End Google tag (gtag.js) Consent Mode dataLayer added by Site Kit */}
 
-        {/* Google tag (gtag.js) snippet added by Site Kit */}
+        {/* Google tag (gtag.js) */}
         <script
-          type="rocketlazyloadscript"
-          data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-N45TYM4KN3"
+          src="https://www.googletagmanager.com/gtag/js?id=G-N45TYM4KN3"
           id="google_gtagjs-js"
           async
         />
         <script
-          type="rocketlazyloadscript"
           id="google_gtagjs-js-after"
           dangerouslySetInnerHTML={{
             __html: `
@@ -85,6 +84,7 @@ gtag("config", "G-N45TYM4KN3", {"googlesitekit_post_type":"page"});
           }}
         />
         {/* End Google tag (gtag.js) snippet added by Site Kit */}
+        <JsonLd data={ORGANIZATION_JSON_LD(SITE_URL)} />
       </Head>
       <Component {...pageProps} />
       <CookieConsent />

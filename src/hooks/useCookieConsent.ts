@@ -69,6 +69,23 @@ const persistConsent = (preferences: ConsentPreferences, status: ConsentStatus) 
   } catch (error) {
     console.error('Failed to write cookie consent', error);
   }
+  syncGtagConsent(preferences);
+};
+
+/** Sync cookie consent to Google Analytics gtag consent mode */
+const syncGtagConsent = (preferences: ConsentPreferences) => {
+  if (typeof window === 'undefined') return;
+  const gtag = (window as { gtag?: (...args: unknown[]) => void }).gtag;
+  if (!gtag) return;
+  gtag('consent', 'update', {
+    analytics_storage: preferences.analytics ? 'granted' : 'denied',
+    ad_storage: preferences.marketing ? 'granted' : 'denied',
+    ad_user_data: preferences.marketing ? 'granted' : 'denied',
+    ad_personalization: preferences.marketing ? 'granted' : 'denied',
+    functionality_storage: preferences.functional ? 'granted' : 'denied',
+    security_storage: 'granted', // Required for consent to work
+    personalization_storage: preferences.functional ? 'granted' : 'denied',
+  });
 };
 
 export const useCookieConsent = () => {
@@ -82,6 +99,7 @@ export const useCookieConsent = () => {
     if (stored) {
       setPreferences(stored.preferences);
       setStatus(stored.status);
+      syncGtagConsent(stored.preferences);
     }
     setIsReady(true);
   }, []);

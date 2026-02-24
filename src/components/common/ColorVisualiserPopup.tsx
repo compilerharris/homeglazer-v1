@@ -11,7 +11,7 @@ import { embeddedWallMasks } from '@/data/embeddedWallMasks';
 import CanvasRoomVisualiser from '@/components/visualizer/CanvasRoomVisualiser';
 import SvgRoomVisualiser from '@/components/visualizer/SvgRoomVisualiser';
 
-const STORAGE_KEY = 'homeglazer:color-visualiser-popup-dismissed';
+const STORAGE_KEY = 'homeglazer:colour-visualiser-popup-dismissed';
 const POPUP_IMAGE_PATH = '/assets/images/outdoor/outdoor1/outdoor1.jpg';
 const OUTDOOR1_WALL_KEYS = ['front', 'window', 'column', 'edge', 'roof'] as const;
 
@@ -25,7 +25,7 @@ const SHERWIN_WILLIAMS_COLORS = [
 ];
 
 const COLOR_CYCLE_MS = 1000;
-const POPUP_DELAY_MS = 5000;
+const POPUP_DELAY_MS = 45000;
 
 const ColorVisualiserPopup: React.FC = () => {
   const router = useRouter();

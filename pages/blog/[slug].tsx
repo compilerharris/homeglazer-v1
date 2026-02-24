@@ -10,6 +10,7 @@ import BlogSidebar from '@/components/blog/BlogSidebar';
 import CTAButton from '@/components/home/CTAButton';
 import { prisma } from '@/lib/prisma';
 import { getOgImageUrl } from '@/lib/mediaUrl';
+import { JsonLd } from '@/components/seo/JsonLd';
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -27,6 +28,7 @@ interface BlogPostData {
   title: string;
   excerpt: string;
   date: string;
+  publishedAtIso?: string | null;
   author: string;
   readTime: string;
   coverImage: string;
@@ -77,6 +79,20 @@ const BlogPost: React.FC<BlogPostPageProps> = ({ post, recentPosts }) => {
         <meta
           name="twitter:image"
           content={post.coverImage?.startsWith('http') ? post.coverImage : getOgImageUrl(post.coverImage || '/uploads/hero-banner.png', SITE_URL)}
+        />
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: post.title,
+            description: post.metaDescription || post.excerpt,
+            image: post.coverImage?.startsWith('http') ? post.coverImage : getOgImageUrl(post.coverImage || '/uploads/hero-banner.png', SITE_URL),
+            author: { '@type': 'Person', name: post.author },
+            publisher: { '@type': 'Organization', name: 'HomeGlazer', url: SITE_URL },
+            datePublished: post.publishedAtIso || undefined,
+            dateModified: post.publishedAtIso || undefined,
+            mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${post.slug}` },
+          }}
         />
       </Head>
       <Header />
@@ -226,6 +242,7 @@ export const getServerSideProps: GetServerSideProps<BlogPostPageProps> = async (
             day: 'numeric' 
           })
         : '',
+      publishedAtIso: blog.publishedAt ? new Date(blog.publishedAt).toISOString() : null,
     };
 
     const recentPosts: BlogPostData[] = recentBlogs.map((b: {

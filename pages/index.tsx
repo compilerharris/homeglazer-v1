@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { getOgImageUrl } from '@/lib/mediaUrl';
+import { JsonLd, LOCAL_BUSINESS_JSON_LD } from '@/components/seo/JsonLd';
 import Header from '@/components/home/Header';
 import Hero from '@/components/home/Hero';
 import Services from '@/components/home/Services';
@@ -35,6 +36,7 @@ export default function Home() {
         <meta name="twitter:title" content="HomeGlazer - Professional Painting Services in India" />
         <meta name="twitter:description" content="Transform your space with HomeGlazer's professional painting services. Interior, exterior, texture painting, wall decor, and wood services." />
         <meta name="twitter:image" content={getOgImageUrl("/uploads/hero-banner.png", SITE_URL)} />
+        <JsonLd data={LOCAL_BUSINESS_JSON_LD(SITE_URL)} />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
       <Header />

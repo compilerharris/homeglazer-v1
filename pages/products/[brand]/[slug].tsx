@@ -15,6 +15,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
+import { JsonLd } from '@/components/seo/JsonLd';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
@@ -245,6 +246,19 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
         <meta name="twitter:title" content={`${product.name} | ${product.brand}`} />
         <meta name="twitter:description" content={product.description || `Premium quality paint by ${product.brand}.`} />
         <meta name="twitter:image" content={product.image && product.image.startsWith('http') ? product.image : getOgImageUrl(product.image || '/uploads/color-bucket1.png', SITE_URL)} />
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'Product',
+            name: product.name,
+            description: product.shortDescription || product.description,
+            brand: { '@type': 'Brand', name: product.brand },
+            image: product.image?.startsWith('http') ? product.image : getOgImageUrl(product.image || '/uploads/color-bucket1.png', SITE_URL),
+            url: `${SITE_URL}/products/${brandSlug}/${product.slug}`,
+            category: product.category,
+            sku: product.slug,
+          }}
+        />
       </Head>
       <div className="bg-white flex flex-col overflow-hidden items-center">
         <Header />
