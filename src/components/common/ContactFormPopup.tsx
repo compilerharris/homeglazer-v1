@@ -10,7 +10,7 @@ import { useContactForm } from '@/hooks/useContactForm';
 
 const STORAGE_KEY = 'homeglazer:contact-form-popup-dismissed';
 const POPUP_IMAGE_PATH = '/uploads/contact-popup.jpg';
-const POPUP_DELAY_MS = 5000;
+const POPUP_DELAY_MS = 45000;
 
 const ContactFormPopup: React.FC = () => {
   const router = useRouter();
