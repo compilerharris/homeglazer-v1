@@ -65,6 +65,8 @@ const nextConfig = {
   },
 };
 
+const wpRedirects = require('./wp-redirects.json');
+
 module.exports = {
   ...nextConfig,
   async redirects() {
@@ -79,8 +81,7 @@ module.exports = {
         destination: '/colour-visualiser/:path*',
         permanent: true,
       },
-      // Add 301 redirects for old WordPress URLs here when you have the list.
-      // Example: { source: '/old-blog-post', destination: '/blog/new-slug', permanent: true },
+      ...wpRedirects,
     ];
   },
 };
