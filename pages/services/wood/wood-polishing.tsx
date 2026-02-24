@@ -5,6 +5,7 @@ import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
+import CallButton from '@/components/home/CallButton';
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -899,6 +900,7 @@ const WoodPolishing: React.FC = () => {
         </section>
 
         <Footer />
+        <CallButton />
         <WhatsAppButton />
       </div>
     </>

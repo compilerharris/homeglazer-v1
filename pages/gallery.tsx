@@ -5,6 +5,7 @@ import { getOgImageUrl } from '@/lib/mediaUrl'
 import Header from '@/components/home/Header'
 import Footer from '@/components/home/Footer'
 import WhatsAppButton from '@/components/home/WhatsAppButton'
+import CallButton from '@/components/home/CallButton'
 import CTAButton from '@/components/home/CTAButton'
 import GallerySection from '@/components/sections/GallerySection'
 import { galleryData } from '@/lib/galleryData'
@@ -104,6 +105,7 @@ export default function GalleryPage() {
         </div>
         
         <Footer />
+        <CallButton />
         <WhatsAppButton />
       </div>
     </>

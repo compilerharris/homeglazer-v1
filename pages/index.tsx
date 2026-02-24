@@ -19,6 +19,7 @@ import FAQ from '@/components/home/FAQ';
 import Footer from '@/components/home/Footer';
 import { SECTION_CTA_CLASSES } from '@/components/home/CTAButton';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
+import CallButton from '@/components/home/CallButton';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
@@ -74,6 +75,7 @@ export default function Home() {
       </div>
       
       <Footer />
+        <CallButton />
         <WhatsAppButton />
       </div>
     </>

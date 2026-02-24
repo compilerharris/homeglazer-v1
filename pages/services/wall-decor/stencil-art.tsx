@@ -6,6 +6,7 @@ import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
+import CallButton from '@/components/home/CallButton';
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -518,6 +519,7 @@ const StencilArt: React.FC = () => {
         </section>
 
         <Footer />
+        <CallButton />
         <WhatsAppButton />
       </div>
     </>

@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
+import CallButton from '@/components/home/CallButton';
 import CTAButton from '@/components/home/CTAButton';
 import ProductCard from '@/components/products/ProductCard';
 import ProductFilters from '@/components/products/ProductFilters';
@@ -437,6 +438,7 @@ const Products: React.FC = () => {
       )}
 
       <Footer />
+        <CallButton />
         <div className="[&_.whatsapp-button]:bottom-24 md:[&_.whatsapp-button]:bottom-8">
           <WhatsAppButton />
         </div>

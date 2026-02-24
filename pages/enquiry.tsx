@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
+import CallButton from '@/components/home/CallButton';
 import { AlertCircle, Clock, CheckCircle2, BadgeCheck, ThumbsUp, HeartHandshake, Phone } from 'lucide-react';
 import { 
   Breadcrumb,
@@ -651,6 +652,7 @@ const EnquirePage: React.FC = () => {
       </div>
       
       <Footer />
+        <CallButton />
         <WhatsAppButton />
       </div>
     </>

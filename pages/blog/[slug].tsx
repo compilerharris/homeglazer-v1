@@ -5,6 +5,7 @@ import { GetServerSideProps } from 'next';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
+import CallButton from '@/components/home/CallButton';
 import BlogContent from '@/components/blog/BlogContent';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 import CTAButton from '@/components/home/CTAButton';
@@ -162,6 +163,7 @@ const BlogPost: React.FC<BlogPostPageProps> = ({ post, recentPosts }) => {
       </div>
       
       <Footer />
+      <CallButton />
       <WhatsAppButton />
     </div>
   );

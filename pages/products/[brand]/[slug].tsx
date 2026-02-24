@@ -6,6 +6,7 @@ import { getMediaUrl, getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
+import CallButton from '@/components/home/CallButton';
 import CTAButton from '@/components/home/CTAButton';
 import ProductCard from '@/components/products/ProductCard';
 import {
@@ -812,6 +813,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
       </div>
 
       <Footer />
+        <CallButton />
         <WhatsAppButton />
       </div>
     </>

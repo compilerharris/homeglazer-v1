@@ -8,6 +8,7 @@ import Header from '../src/components/home/Header';
 import Footer from '../src/components/home/Footer';
 import FAQ from '../src/components/home/FAQ';
 import WhatsAppButton from '../src/components/home/WhatsAppButton';
+import CallButton from '../src/components/home/CallButton';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
@@ -56,6 +57,7 @@ const FAQPage: React.FC = () => {
       </div>
       
       <Footer />
+      <CallButton />
       <WhatsAppButton />
     </>
   );

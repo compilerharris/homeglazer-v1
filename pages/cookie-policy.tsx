@@ -4,6 +4,7 @@ import { getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
+import CallButton from '@/components/home/CallButton';
 import Link from 'next/link';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
@@ -175,6 +176,7 @@ const CookiePolicyPage: React.FC = () => {
       </main>
 
       <Footer />
+      <CallButton />
       <WhatsAppButton />
     </>
   );

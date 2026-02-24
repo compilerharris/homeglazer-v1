@@ -4,6 +4,7 @@ import Head from "next/head";
 import Header from "@/components/home/Header";
 import Footer from "@/components/home/Footer";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
+import CallButton from "@/components/home/CallButton";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { 
@@ -145,6 +146,7 @@ const WallDecor: React.FC = () => {
         </div>
       </div>
       
+      <CallButton />
       <WhatsAppButton />
         <Footer />
       </div>

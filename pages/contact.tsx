@@ -5,6 +5,7 @@ import { getOgImageUrl } from '@/lib/mediaUrl';
 import Header from '@/components/home/Header';
 import Footer from '@/components/home/Footer';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
+import CallButton from '@/components/home/CallButton';
 import { MapPin, Phone, Mail, Clock, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { 
   Breadcrumb,
@@ -447,6 +448,7 @@ const ContactPage: React.FC = () => {
       </div>
       
       <Footer />
+        <CallButton />
         <WhatsAppButton />
       </div>
     </>
