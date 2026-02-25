@@ -371,7 +371,7 @@ export default function PaintingServicesLanding() {
 
               {/* Products grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
-                {filteredProducts.map((product) => (
+                {filteredProducts.length > 0 ? filteredProducts.map((product) => (
                   <div key={product.id} className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow group">
                     <div className="aspect-square bg-gray-50 p-4 flex items-center justify-center">
                       <img src={getMediaUrl(product.image)} alt={product.name} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
@@ -382,7 +382,12 @@ export default function PaintingServicesLanding() {
                       <p className="text-xs text-gray-500 mt-1 line-clamp-2">{product.shortDescription}</p>
                     </div>
                   </div>
-                ))}
+                )) : (
+                  <div className="col-span-full text-center py-12 text-gray-400">
+                    <p className="text-lg font-medium">Products coming soon for this brand</p>
+                    <p className="text-sm mt-1">Contact us for availability and pricing</p>
+                  </div>
+                )}
               </div>
             </div>
           </section>
