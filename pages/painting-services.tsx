@@ -61,75 +61,68 @@ const services = [
   { title: 'Customised Painting', description: 'Bring your vision to life with personalized painting solutions tailored to your unique requirements.', imageUrl: 'https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/3d065c1c5f706ca914effd1e3edf4b8121b322ce?placeholderIfAbsent=true' },
 ];
 
-// --- Sticky Form Component ---
+// --- Sticky Bottom Form Component ---
 function StickyForm({ isMobileFormOpen, setIsMobileFormOpen }: { isMobileFormOpen: boolean; setIsMobileFormOpen: (v: boolean) => void }) {
   const { formData, errors, isSubmitting, submitted, submitError, handleChange, handleSubmit, resetForm } = useContactForm();
 
-  const formContent = submitted ? (
-    <div className="text-center py-6">
-      <CheckCircle2 className="h-14 w-14 text-green-500 mx-auto mb-3" />
-      <h3 className="text-lg font-semibold mb-2">Thank You!</h3>
-      <p className="text-gray-600 text-sm mb-4">We&apos;ll contact you within 24 hours.</p>
-      <button onClick={resetForm} className="bg-[#ED276E] hover:bg-[#b81d5a] text-white px-6 py-2 rounded-full text-sm transition-all">Send Another</button>
-    </div>
-  ) : (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <h3 className="text-lg font-bold text-gray-800 text-center">Get Free Quote</h3>
-      <p className="text-xs text-gray-500 text-center">Fill in your details &amp; we&apos;ll call you back</p>
-      {submitError && (
-        <div className="flex items-start gap-2 p-2 bg-red-50 border border-red-200 rounded-lg">
-          <AlertCircle className="h-4 w-4 text-red-500 flex-shrink-0 mt-0.5" />
-          <p className="text-xs text-red-700">{submitError}</p>
+  if (submitted) {
+    return (
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#ED276E] shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-4">
+          <CheckCircle2 className="h-6 w-6 text-white flex-shrink-0" />
+          <span className="text-white font-semibold text-sm">Thank you! We&apos;ll contact you within 24 hours.</span>
+          <button onClick={resetForm} className="bg-white text-[#ED276E] px-4 py-1.5 rounded-full text-xs font-semibold hover:bg-gray-100 transition-all flex-shrink-0">Send Another</button>
         </div>
-      )}
-      <div className="relative">
-        <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name *" disabled={isSubmitting} required className={`border ${errors.name ? 'border-red-500' : 'border-gray-300'} w-full text-sm px-4 py-2.5 rounded-lg outline-none focus:border-[#ED276E] transition-colors`} />
-        {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
       </div>
-      <div className="relative">
-        <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address *" disabled={isSubmitting} required className={`border ${errors.email ? 'border-red-500' : 'border-gray-300'} w-full text-sm px-4 py-2.5 rounded-lg outline-none focus:border-[#ED276E] transition-colors`} />
-        {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
-      </div>
-      <div className="relative">
-        <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} placeholder="Mobile Number *" disabled={isSubmitting} required className={`border ${errors.mobile ? 'border-red-500' : 'border-gray-300'} w-full text-sm px-4 py-2.5 rounded-lg outline-none focus:border-[#ED276E] transition-colors`} />
-        {errors.mobile && <p className="text-xs text-red-500 mt-1">{errors.mobile}</p>}
-      </div>
-      <div className="relative">
-        <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your project *" disabled={isSubmitting} required rows={3} className={`border ${errors.message ? 'border-red-500' : 'border-gray-300'} w-full text-sm px-4 py-2.5 rounded-lg outline-none focus:border-[#ED276E] transition-colors resize-none`} />
-        {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}
-      </div>
-      <button type="submit" disabled={isSubmitting} className="bg-[#ED276E] hover:bg-[#b81d5a] text-white w-full py-3 rounded-full font-semibold text-sm transition-all disabled:opacity-50 flex items-center justify-center gap-2">
-        {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</> : 'Get Free Consultation'}
-      </button>
-      <p className="text-[10px] text-gray-400 text-center">By submitting, you agree to our terms.</p>
-    </form>
-  );
+    );
+  }
 
   return (
     <>
-      {/* Desktop: fixed right sidebar */}
-      <div className="hidden lg:block fixed right-0 top-1/2 -translate-y-1/2 z-40 w-[320px]">
-        <div className="bg-white shadow-2xl rounded-l-2xl border border-gray-100 p-5 mr-0">
-          {formContent}
-        </div>
+      {/* Desktop: horizontal fixed bottom bar */}
+      <div className="hidden lg:block fixed bottom-0 left-0 right-0 z-50 bg-[#ED276E] shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
+        <form onSubmit={handleSubmit} className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+          <span className="text-white font-bold text-sm whitespace-nowrap flex-shrink-0">Get Free Quote</span>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name *" disabled={isSubmitting} required className={`flex-1 min-w-0 text-sm px-3 py-2 rounded-lg outline-none border ${errors.name ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
+          <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email *" disabled={isSubmitting} required className={`flex-1 min-w-0 text-sm px-3 py-2 rounded-lg outline-none border ${errors.email ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
+          <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} placeholder="Mobile *" disabled={isSubmitting} required className={`flex-1 min-w-0 text-sm px-3 py-2 rounded-lg outline-none border ${errors.mobile ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
+          <input type="text" name="message" value={formData.message} onChange={(e) => handleChange(e as any)} placeholder="Your Project *" disabled={isSubmitting} className={`flex-1 min-w-0 text-sm px-3 py-2 rounded-lg outline-none border ${errors.message ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
+          <button type="submit" disabled={isSubmitting} className="bg-white text-[#ED276E] px-5 py-2 rounded-lg font-bold text-sm hover:bg-gray-100 transition-all disabled:opacity-50 flex items-center gap-2 flex-shrink-0 whitespace-nowrap">
+            {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</> : 'Submit'}
+          </button>
+        </form>
+        {submitError && <p className="text-center text-white/80 text-xs pb-2">{submitError}</p>}
       </div>
 
       {/* Tablet/Mobile: fixed bottom button + slide-up form */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50">
-        {!isMobileFormOpen && (
+        {!isMobileFormOpen ? (
           <button onClick={() => setIsMobileFormOpen(true)} className="w-full bg-[#ED276E] text-white py-4 px-6 font-semibold text-base flex items-center justify-center gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.15)]">
             <Phone size={20} /> Get Free Quote
           </button>
-        )}
-        {isMobileFormOpen && (
-          <div className="bg-white rounded-t-3xl shadow-[0_-8px_30px_rgba(0,0,0,0.2)] max-h-[85vh] overflow-y-auto">
-            <div className="flex justify-between items-center p-4 border-b border-gray-100">
-              <span className="font-bold text-gray-800">Get Free Quote</span>
-              <button onClick={() => setIsMobileFormOpen(false)} className="p-1 rounded-full hover:bg-gray-100">
-                <X size={20} className="text-gray-600" />
+        ) : (
+          <div className="bg-[#ED276E] rounded-t-3xl shadow-[0_-8px_30px_rgba(0,0,0,0.2)] max-h-[85vh] overflow-y-auto">
+            <div className="flex justify-between items-center px-5 pt-4 pb-2">
+              <span className="font-bold text-white text-lg">Get Free Quote</span>
+              <button onClick={() => setIsMobileFormOpen(false)} className="p-1 rounded-full hover:bg-white/20">
+                <X size={20} className="text-white" />
               </button>
             </div>
-            <div className="p-5">{formContent}</div>
+            <form onSubmit={handleSubmit} className="px-5 pb-5 space-y-3">
+              {submitError && (
+                <div className="flex items-start gap-2 p-2 bg-white/20 rounded-lg">
+                  <AlertCircle className="h-4 w-4 text-white flex-shrink-0 mt-0.5" />
+                  <p className="text-xs text-white">{submitError}</p>
+                </div>
+              )}
+              <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name *" disabled={isSubmitting} required className="w-full text-sm px-4 py-3 rounded-lg outline-none" />
+              <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address *" disabled={isSubmitting} required className="w-full text-sm px-4 py-3 rounded-lg outline-none" />
+              <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} placeholder="Mobile Number *" disabled={isSubmitting} required className="w-full text-sm px-4 py-3 rounded-lg outline-none" />
+              <input type="text" name="message" value={formData.message} onChange={(e) => handleChange(e as any)} placeholder="Tell us about your project *" disabled={isSubmitting} className="w-full text-sm px-4 py-3 rounded-lg outline-none" />
+              <button type="submit" disabled={isSubmitting} className="bg-white text-[#ED276E] w-full py-3 rounded-lg font-bold text-sm hover:bg-gray-100 transition-all disabled:opacity-50 flex items-center justify-center gap-2">
+                {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</> : 'Get Free Consultation'}
+              </button>
+            </form>
           </div>
         )}
       </div>
