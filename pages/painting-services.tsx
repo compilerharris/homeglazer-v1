@@ -287,18 +287,41 @@ export default function PaintingServicesLanding() {
               <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#299dd7]">Visualise Your Colour</h2>
               <p className="text-gray-500 text-center mt-3 text-lg">See how different colours transform your space</p>
 
-              {/* Desktop: brands left | room center | colors right */}
-              {/* Mobile/Tablet: room on top, brands below, colors below */}
-              <div className="mt-10 flex flex-col lg:flex-row gap-6 items-stretch">
-                {/* Brands column - on mobile this goes below room */}
-                <div className="order-2 lg:order-1 lg:w-[140px] flex-shrink-0">
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 text-center lg:text-left">Brands</p>
-                  <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 justify-center lg:justify-start">
+              {/* Desktop: left panel (brands + hues + colors) | right room photo */}
+              {/* Mobile/Tablet: room on top, then brands, hues, colors below */}
+              <div className="mt-10 flex flex-col lg:flex-row gap-6 items-start">
+                {/* Left panel: brands + colour families with inline swatches */}
+                <div className="order-2 lg:order-1 lg:w-[320px] flex-shrink-0">
+                  {/* Brands */}
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Brands</p>
+                  <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-3 lg:pb-0">
                     {BRAND_LOGOS.map((brand, idx) => (
-                      <button key={brand.id} onClick={() => setActiveBrandIndex(idx)} className={`flex-shrink-0 w-16 h-16 lg:w-full lg:h-14 rounded-xl border-2 flex items-center justify-center p-2 transition-all ${activeBrandIndex === idx ? 'border-[#ED276E] bg-pink-50 shadow-md' : 'border-gray-200 bg-white hover:border-gray-300'}`}>
+                      <button key={brand.id} onClick={() => setActiveBrandIndex(idx)} className={`flex-shrink-0 w-16 h-16 lg:w-20 lg:h-14 rounded-xl border-2 flex items-center justify-center p-2 transition-all ${activeBrandIndex === idx ? 'border-[#ED276E] bg-pink-50 shadow-md' : 'border-gray-200 bg-white hover:border-gray-300'}`}>
                         <img src={getMediaUrl(brand.logo)} alt={brand.name} className="w-full h-full object-contain" />
                       </button>
                     ))}
+                  </div>
+
+                  {/* Colour families with inline swatches */}
+                  <div className="mt-5">
+                    <div className="flex items-baseline gap-6 mb-3">
+                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Colour Families</p>
+                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Colours</p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      {COLOR_HUES.map((hue, idx) => (
+                        <div key={hue.name} className="flex items-center gap-3">
+                          <button onClick={() => setActiveHueIndex(idx)} className={`flex-shrink-0 w-20 px-2 py-1.5 rounded-full text-xs font-medium text-center transition-all ${activeHueIndex === idx ? 'bg-[#ED276E] text-white shadow-md' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+                            {hue.name}
+                          </button>
+                          <div className="flex gap-1.5 flex-wrap">
+                            {hue.colors.slice(0, 4).map((color) => (
+                              <button key={color} onClick={() => { setActiveHueIndex(idx); setSelectedColor(color); }} className={`w-7 h-7 rounded-full border-2 transition-all hover:scale-110 ${selectedColor === color ? 'border-gray-800 scale-110 shadow-md' : 'border-white shadow'}`} style={{ backgroundColor: color }} aria-label={`Select colour ${color}`} />
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
@@ -320,26 +343,6 @@ export default function PaintingServicesLanding() {
                         roomLabel="livingroom"
                       />
                     )}
-                  </div>
-                </div>
-
-                {/* Color hues + colors column */}
-                <div className="order-3 lg:w-[200px] flex-shrink-0">
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 text-center lg:text-left">Colour Families</p>
-                  <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 justify-center lg:justify-start">
-                    {COLOR_HUES.map((hue, idx) => (
-                      <button key={hue.name} onClick={() => setActiveHueIndex(idx)} className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${activeHueIndex === idx ? 'bg-[#ED276E] text-white shadow-md' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-                        {hue.name}
-                      </button>
-                    ))}
-                  </div>
-                  <div className="mt-4">
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 text-center lg:text-left">Colours</p>
-                    <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                      {COLOR_HUES[activeHueIndex].colors.map((color) => (
-                        <button key={color} onClick={() => setSelectedColor(color)} className={`w-8 h-8 rounded-full border-2 transition-all hover:scale-110 ${selectedColor === color ? 'border-gray-800 scale-110 shadow-md' : 'border-white shadow'}`} style={{ backgroundColor: color }} aria-label={`Select colour ${color}`} />
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
