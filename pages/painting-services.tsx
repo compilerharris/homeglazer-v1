@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
-import { ChevronDown, CheckCircle2, AlertCircle, Loader2, Phone, X, Star, Shield, Users, Eye, Clock, Award } from 'lucide-react';
+import { ChevronDown, CheckCircle2, AlertCircle, Loader2, Phone, X, Star } from 'lucide-react';
 import { useContactForm } from '@/hooks/useContactForm';
 import SvgRoomVisualiser from '@/components/visualizer/SvgRoomVisualiser';
 import CanvasRoomVisualiser from '@/components/visualizer/CanvasRoomVisualiser';
@@ -53,12 +53,12 @@ const landingFaqs = [
 ];
 
 const services = [
-  { title: 'Interior Painting', description: 'Transform your living spaces with premium interior paints and expert application techniques.', icon: <Award size={28} /> },
-  { title: 'Exterior Painting', description: 'Protect and beautify your building exterior with weather-resistant coating solutions.', icon: <Shield size={28} /> },
-  { title: 'Texture Painting', description: 'Add depth and character to your walls with custom texture painting finishes.', icon: <Eye size={28} /> },
-  { title: 'Wood Polishing', description: 'Restore and enhance wooden surfaces with professional polishing and coating.', icon: <Star size={28} /> },
-  { title: 'Wall Decor', description: 'Elevate your interiors with stencils, wallpaper, graffiti, and artistic wall treatments.', icon: <Users size={28} /> },
-  { title: 'Commercial Painting', description: 'Professional painting solutions for offices, retail spaces, and commercial buildings.', icon: <Clock size={28} /> },
+  { title: 'Residential', description: 'Transform your home with our premium residential painting services tailored to your style and preferences.', imageUrl: 'https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/feb90153e0e003c64ec5c51f88adb9c53c5665d0?placeholderIfAbsent=true' },
+  { title: 'Commercial', description: 'Professional painting solutions for offices, retail spaces, and commercial buildings to enhance your business image.', imageUrl: 'https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/3abc0d3433dc7ccb1a71887419241b5ee4eca153?placeholderIfAbsent=true' },
+  { title: 'Wood Coating', description: 'Preserve and beautify your wooden surfaces with our specialized wood coating and finishing techniques.', imageUrl: 'https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/d7c8dd1a8cd5163299aa1b5d6926da8cc6670bdc?placeholderIfAbsent=true' },
+  { title: 'Kids Room', description: 'Create magical spaces for children with our themed designs, safe paints, and creative wall treatments.', imageUrl: 'https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/cf15213242b2344e311ec56bf353a7bf7802b92f?placeholderIfAbsent=true' },
+  { title: 'Wall Decor', description: 'Elevate your interiors with custom wall treatments, textures, and artistic finishes that make a statement.', imageUrl: 'https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/9e91d008b3071a2670d49ebc416751206f4467a5?placeholderIfAbsent=true' },
+  { title: 'Customised Painting', description: 'Bring your vision to life with personalized painting solutions tailored to your unique requirements.', imageUrl: 'https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/3d065c1c5f706ca914effd1e3edf4b8121b322ce?placeholderIfAbsent=true' },
 ];
 
 // --- Sticky Form Component ---
@@ -247,16 +247,18 @@ export default function PaintingServicesLanding() {
           {/* ===== OUR SERVICES ===== */}
           <section className="w-full py-16 px-4 sm:px-8 bg-white">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900">Our Services</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#299dd7]">Our Services</h2>
               <p className="text-gray-500 text-center mt-3 text-lg">Painting Your Dreams with Every Brushstroke</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
                 {services.map((service, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ED276E] to-[#299dd7] flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
-                      {service.icon}
+                  <div key={idx} className="bg-white border border-gray-100 rounded-[20px] overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                    <div className="relative aspect-[1.683] overflow-hidden">
+                      <img src={service.imageUrl} alt={service.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{service.title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{service.description}</p>
+                    <div className="p-5">
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">{service.title}</h3>
+                      <p className="text-gray-500 text-sm leading-relaxed">{service.description}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -266,7 +268,7 @@ export default function PaintingServicesLanding() {
           {/* ===== WHY CHOOSE US ===== */}
           <section className="w-full py-16 px-4 sm:px-8 bg-gray-50">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900">Why Choose Us?</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#299dd7]">Why Choose Us?</h2>
               <p className="text-gray-500 text-center mt-3 text-lg">Superior Quality &amp; Exceptional Service</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
                 {[
@@ -288,7 +290,7 @@ export default function PaintingServicesLanding() {
           {/* ===== SINGLE WALL VISUALISER ===== */}
           <section className="w-full py-16 px-4 sm:px-8 bg-white">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900">Visualise Your Colour</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#299dd7]">Visualise Your Colour</h2>
               <p className="text-gray-500 text-center mt-3 text-lg">See how different colours transform your space</p>
 
               {/* Desktop: brands left | room center | colors right */}
@@ -353,7 +355,7 @@ export default function PaintingServicesLanding() {
           {/* ===== QUALITY PAINTS ===== */}
           <section className="w-full py-16 px-4 sm:px-8 bg-gray-50">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900">Quality Paints</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#299dd7]">Quality Paints</h2>
               <p className="text-gray-500 text-center mt-3 text-lg">Discover the perfect paint for your next project</p>
 
               {/* Brand tabs */}
@@ -395,7 +397,7 @@ export default function PaintingServicesLanding() {
           {/* ===== CERTIFICATES & ACCREDITATIONS ===== */}
           <section className="w-full py-16 px-4 sm:px-8 bg-white">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900">Certificates &amp; Accreditations</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#299dd7]">Certificates &amp; Accreditations</h2>
               <p className="text-gray-500 text-center mt-3 text-lg">Trust backed by quality standards and official registrations</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mt-10">
                 {certificates.map((cert, idx) => (
@@ -442,7 +444,7 @@ export default function PaintingServicesLanding() {
           {/* ===== FAQ ===== */}
           <section className="w-full py-16 px-4 sm:px-8 bg-white">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900">Frequently Asked Questions</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#299dd7]">Frequently Asked Questions</h2>
               <p className="text-gray-500 text-center mt-3 text-lg mb-10">Everything you need to know, answered!</p>
               <div className="space-y-3">
                 {landingFaqs.map((faq, idx) => (

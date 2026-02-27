@@ -87,8 +87,12 @@ gtag("config", "G-N45TYM4KN3", {"googlesitekit_post_type":"page"});
         <JsonLd data={ORGANIZATION_JSON_LD(SITE_URL)} />
       </Head>
       <Component {...pageProps} />
-      <CookieConsent />
-      <LocationPopupOrchestrator />
+      {!path.startsWith('/painting-services') && (
+        <>
+          <CookieConsent />
+          <LocationPopupOrchestrator />
+        </>
+      )}
     </>
   );
 }
