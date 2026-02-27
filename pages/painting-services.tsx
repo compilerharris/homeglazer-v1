@@ -209,8 +209,8 @@ export default function PaintingServicesLanding() {
           </div>
         </header>
 
-        {/* Main content area - with padding-right on desktop for the sticky form */}
-        <main className="lg:pr-[330px]">
+        {/* Main content area - full width, form overlaps on top */}
+        <main>
           {/* ===== HERO BANNER ===== */}
           <section className="relative w-full h-[70vh] min-h-[400px] max-h-[600px] overflow-hidden">
             <img
