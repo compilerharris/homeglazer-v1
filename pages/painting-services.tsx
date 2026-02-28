@@ -116,7 +116,7 @@ function StickyForm({ isMobileFormOpen, setIsMobileFormOpen }: { isMobileFormOpe
           <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name *" disabled={isSubmitting} required className={`flex-1 min-w-0 text-sm px-3 py-2 rounded-lg outline-none border ${errors.name ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
           <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email *" disabled={isSubmitting} required className={`flex-1 min-w-0 text-sm px-3 py-2 rounded-lg outline-none border ${errors.email ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
           <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} placeholder="Mobile *" disabled={isSubmitting} required className={`flex-1 min-w-0 text-sm px-3 py-2 rounded-lg outline-none border ${errors.mobile ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
-          <input type="text" name="message" value={formData.message} onChange={(e) => handleChange(e as any)} placeholder="Your Project *" disabled={isSubmitting} className={`flex-1 min-w-0 text-sm px-3 py-2 rounded-lg outline-none border ${errors.message ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
+          <textarea name="message" value={formData.message} onChange={(e) => handleChange(e as any)} placeholder="Your Project *" disabled={isSubmitting} rows={2} className={`flex-1 min-w-0 text-sm px-3 py-2 rounded-lg outline-none border resize-none ${errors.message ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
           <button type="submit" disabled={isSubmitting} className="bg-[#299dd7] text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-[#237bb0] transition-all disabled:opacity-50 flex items-center gap-2 flex-shrink-0 whitespace-nowrap">
             {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</> : 'Get Free Consultation'}
           </button>
@@ -197,14 +197,14 @@ function StickyForm({ isMobileFormOpen, setIsMobileFormOpen }: { isMobileFormOpe
                 )}
               </div>
               <div>
-                <input
-                  type="text"
+                <textarea
                   name="message"
                   value={formData.message}
                   onChange={(e) => handleChange(e as any)}
                   placeholder="Tell us about your project *"
                   disabled={isSubmitting}
-                  className={`${mobileInputBase} ${
+                  rows={4}
+                  className={`${mobileInputBase} resize-none ${
                     errors.message ? 'border-red-300 bg-red-50' : 'border-transparent'
                   }`}
                 />
@@ -446,11 +446,17 @@ export default function PaintingServicesLanding() {
         <main>
           {/* ===== HERO BANNER ===== */}
           <section className="relative w-full h-[70vh] min-h-[400px] max-h-[600px] overflow-hidden">
-            <img
-              src={getMediaUrl('/uploads/hero-banner.png')}
-              alt="Professional Painting Services"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcSet={getMediaUrl('/uploads/hero-banner.png')}
+              />
+              <img
+                src={getMediaUrl('/uploads/hero-banner-mobile.webp')}
+                alt="Professional Painting Services"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </picture>
             <div className="relative z-10 flex flex-col justify-start lg:justify-center h-full max-w-6xl mx-auto px-4 sm:px-8 pt-6 sm:pt-20 lg:pt-0">
               <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight drop-shadow-lg">
                 Professional Painting<br />Services in Delhi NCR

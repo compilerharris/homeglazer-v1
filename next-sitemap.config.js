@@ -54,6 +54,8 @@ module.exports = {
       { userAgent: 'Bytespider', allow: '/' },
       { userAgent: 'Applebot-Extended', allow: '/' },
     ],
-    additionalSitemaps: [],
+    additionalSitemaps: [
+      `${(process.env.SITE_URL || 'https://homeglazer.com').replace(/\/$/, '')}/sitemap-colour-visualiser.xml`,
+    ],
   },
 }
