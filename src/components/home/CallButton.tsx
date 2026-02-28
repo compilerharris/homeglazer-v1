@@ -6,9 +6,14 @@ const CallButton: React.FC = () => {
     <a
       href="tel:+919717256514"
       aria-label="Call us"
-      className="fixed bottom-[160px] md:bottom-[90px] right-[30px] bg-[#299dd7] text-white rounded-full p-3 shadow-lg z-50 hover:bg-[#237bb0] transition-all duration-300 lg:hidden"
+      className="fixed bottom-[160px] md:bottom-[90px] right-[30px] z-40 lg:hidden"
     >
-      <PhoneCall size={28} />
+      <div className="relative flex items-center justify-center">
+        <span className="absolute inset-0 rounded-full bg-[#299dd7]/40 animate-ping" />
+        <div className="relative bg-[#299dd7] text-white rounded-full p-3 shadow-lg hover:bg-[#237bb0] transition-all duration-300">
+          <PhoneCall size={28} />
+        </div>
+      </div>
     </a>
   );
 };
