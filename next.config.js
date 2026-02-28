@@ -69,6 +69,12 @@ const wpRedirects = require('./wp-redirects.json');
 
 module.exports = {
   ...nextConfig,
+  async rewrites() {
+    return [
+      // Serve colour visualiser sitemap via API so URL always works (static file may 404 on some hosts)
+      { source: '/sitemap-colour-visualiser.xml', destination: '/api/sitemap-colour-visualiser' },
+    ];
+  },
   async redirects() {
     return [
       {

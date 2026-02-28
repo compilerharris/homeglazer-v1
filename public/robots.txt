@@ -40,3 +40,4 @@ Host: https://homeglazer.com
 
 # Sitemaps
 Sitemap: https://homeglazer.com/sitemap.xml
+Sitemap: https://homeglazer.com/sitemap-colour-visualiser.xml
