@@ -459,7 +459,7 @@ export default function PaintingServicesLanding() {
             <picture>
               <source
                 media="(min-width: 1024px)"
-                srcSet={getMediaUrl('/uploads/hero-banner.png')}
+                srcSet={getMediaUrl('/uploads/hero-banner.webp')}
               />
               <source
                 media="(min-width: 768px)"

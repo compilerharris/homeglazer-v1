@@ -6,7 +6,7 @@ const CallButton: React.FC = () => {
     <a
       href="tel:+919717256514"
       aria-label="Call us"
-      className="fixed bottom-[160px] md:bottom-[90px] right-[30px] z-40 lg:hidden"
+      className="fixed bottom-[160px] md:bottom-[140px] right-[30px] z-40 lg:hidden"
     >
       <div className="relative flex items-center justify-center">
         <span className="absolute inset-0 rounded-full bg-[#299dd7]/40 animate-ping" />

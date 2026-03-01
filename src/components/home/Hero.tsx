@@ -208,7 +208,7 @@ const Hero: React.FC = () => {
       >
         <img
           alt="Hero Background"
-          src={getMediaUrl('/uploads/hero-banner.png')}
+          src={getMediaUrl('/uploads/hero-banner.webp')}
           className="absolute h-full w-full inset-0 object-cover sm:object-scale-down md:object-fill"
         />
         <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto px-4 mt-0 2xl:mt-10 h-full justify-center">

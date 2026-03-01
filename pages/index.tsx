@@ -9,6 +9,7 @@ import Services from '@/components/home/Services';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
 import ContactForm from '@/components/home/ContactForm';
 import RoomMakeover from '@/components/home/RoomMakeover';
+import AboutHowWeDoIt from '@/components/about/AboutHowWeDoIt';
 import ColourVisualizer from '@/components/home/ColourVisualizer';
 import PaintBrands from '@/components/home/PaintBrands';
 import TeamSection from '@/components/home/TeamSection';
@@ -46,6 +47,7 @@ export default function Home() {
       <WhyChooseUs />
       <ContactForm />
       <RoomMakeover />
+      <AboutHowWeDoIt />
       <ColourVisualizer />
       <PaintBrands />
       <TeamSection />

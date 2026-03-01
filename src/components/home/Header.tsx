@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { 
   NavigationMenu,
@@ -220,6 +220,15 @@ const Header: React.FC = () => {
             />
           ))}
         </nav>
+        
+        {/* Phone number - desktop only (hidden on tablet and mobile) */}
+        <a
+          href="tel:+919717256514"
+          className="hidden lg:flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-[#ED276E] transition-colors flex-shrink-0"
+          aria-label="Call us"
+        >
+          <Phone size={16} /> +91 97172 56514
+        </a>
       </div>
       
       {/* Mobile menu overlay */}
