@@ -71,8 +71,8 @@ module.exports = {
   ...nextConfig,
   async rewrites() {
     return [
-      // Serve colour visualiser sitemap via API so URL always works (static file may 404 on some hosts)
       { source: '/sitemap-colour-visualiser.xml', destination: '/api/sitemap-colour-visualiser' },
+      { source: '/sitemap-products-asian-paints.xml', destination: '/api/sitemap-products-asian-paints' },
     ];
   },
   async redirects() {

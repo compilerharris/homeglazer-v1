@@ -11,10 +11,11 @@ import { getMediaUrl } from '@/lib/mediaUrl';
 import { BRANDS } from '@/data/products';
 import { BRAND_CONFIG } from '@/data/colorBrands';
 import { fetchProducts, transformProduct, type Product as ApiProduct } from '@/lib/api';
-import { testimonialsData } from '@/lib/testimonialsData';
-import { ImageLightbox } from '@/components/testimonials/ImageLightbox';
 import WhatsAppButton from '@/components/home/WhatsAppButton';
 import CallButton from '@/components/home/CallButton';
+import SectionCarousel from '@/components/home/SectionCarousel';
+import { CarouselItem } from '@/components/ui/carousel';
+import { faqItems } from '@/data/faq';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
@@ -52,10 +53,13 @@ const certificates = [
   { src: '/uploads/certificates/footer-logo.png', alt: 'HomeGlazer Certification Mark' },
 ];
 
+const QUOTE_ICON = 'https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/ef8e250bd483959c2ece9169925a09e6ff84e36a?placeholderIfAbsent=true';
 const googleReviews = [
-  { name: 'Ashwani Kumar', initials: 'AK', position: 'Google Review', rating: 5, text: 'We are very pleased with the wonderful paint job your team completed. The color selection was perfect, and the application was smooth and even. The painters were very professional, punctual, and cleaned up thoroughly after the job.' },
+  { name: 'Ashwani Kumar', initials: 'AK', position: 'Google Review', rating: 5, text: 'We are very pleased with the wonderful paint job your team completed. The color selection was perfect, and the application was smooth and even. The painters were very professional, punctual, and cleaned up thoroughly after the job. We highly recommend your company to anyone looking for high quality painting services.' },
   { name: 'Kunal Kapoor', initials: 'KK', position: 'Local Guide', rating: 5, text: 'Very Professional service. Mr. Vipin Gupta is well versed in knowledge of his field and painter also did a wonderful job. Happy with the services.' },
-  { name: 'Rajni Pal', initials: 'RP', position: 'Google Review', rating: 5, text: 'Home Glazer was a great choice for my home painting needs and I would gladly recommend them to anyone. The customer service was excellent, the quality of their work was impeccable, and the price was reasonable.' },
+  { name: 'Rajni Pal', initials: 'RP', position: 'Google Review', rating: 5, text: 'Home Glazer was a great choice for my home painting needs and I would gladly recommend them to anyone. The customer service was excellent, the quality of their work was impeccable, and the price was reasonable. They made the entire process seamless.' },
+  { name: 'Edward Masih', initials: 'EM', position: 'Google Review', rating: 5, text: 'Not only was I impressed with the quality of their work, but I was also very pleased with the end result. My home looks better than ever and I am so happy with the transformation. I would highly recommend Home Glazer for any painting needs that you might have. They provided me with the best customer service and a top-notch job.' },
+  { name: 'Hitesh Kumar Verma', initials: 'HV', position: 'Local Guide', rating: 5, text: 'One of the most professional and clean painting services provider in Delhi NCR. Took their service for my office painting and they did a perfect job.' },
 ];
 
 const testimonialCards = [
@@ -64,13 +68,14 @@ const testimonialCards = [
   { name: 'CRUX TECHNORULD', initials: 'CT', position: 'Industrial Client', text: 'From surface preparation to final coats, the Home Glazer team worked meticulously and coordinated seamlessly with our operations. A truly reliable painting partner.' },
 ];
 
-const landingFaqs = [
+const landingFaqsBase = [
   { question: 'What painting services does HomeGlazer offer?', answer: 'HomeGlazer provides a comprehensive range of painting services including interior painting, exterior painting, commercial painting, texture painting, wall decor, wood polishing, wood coating, and carpentry services. We cater to both residential and commercial projects across Delhi NCR.' },
   { question: 'How do I get a quote for my painting project?', answer: 'Simply fill out the enquiry form on this page with your details and requirements. Our team will contact you within 24 hours to schedule a free site visit and provide a detailed, no-obligation quotation.' },
   { question: 'Which paint brands do you use?', answer: 'We use only premium branded products including Asian Paints, Berger Paints, Kansai Nerolac, JSW Paints, and Birla Opus. Clients can choose their preferred brand based on their budget and requirements.' },
   { question: 'Do you offer a warranty on painting work?', answer: 'Yes, we offer a warranty on all our painting services. The warranty period varies depending on the type of service and paint used. Our team will discuss the specific warranty terms during the consultation.' },
   { question: 'How long does a typical painting project take?', answer: 'The duration depends on the scope and size of the project. A standard 2BHK apartment typically takes 5-7 days. We provide an estimated timeline during the site visit and strive to complete projects on schedule.' },
 ];
+const landingFaqs = [...landingFaqsBase, ...faqItems];
 
 const services = [
   { title: 'Residential', description: 'Transform your home with our premium residential painting services tailored to your style and preferences.', imageUrl: 'https://cdn.builder.io/api/v1/image/assets/ebe74153cda349e3ba80a6039bb1465f/feb90153e0e003c64ec5c51f88adb9c53c5665d0?placeholderIfAbsent=true' },
@@ -250,10 +255,6 @@ export default function PaintingServicesLanding() {
   const [productsLoading, setProductsLoading] = useState<boolean>(false);
   const [productsError, setProductsError] = useState<string | null>(null);
 
-  // Testimonials lightbox state (reuse same pattern as testimonials page)
-  const testimonialImages = testimonialsData.map((t) => getMediaUrl(t.src));
-  const [openTestimonialIndex, setOpenTestimonialIndex] = useState<number | null>(null);
-
   const sampleColorsForSwatches = (colors: ColorEntry[], max: number = 4): ColorEntry[] => {
     if (colors.length <= max) return colors.slice(0, max);
     const result: ColorEntry[] = [];
@@ -384,8 +385,12 @@ export default function PaintingServicesLanding() {
 
   const displayedProducts = products.slice(0, 8);
 
-  // FAQ state
-  const [openFaq, setOpenFaq] = useState(0);
+  // FAQ state (show first 5, then "Load more" for the rest)
+  const [openFaq, setOpenFaq] = useState<number>(-1);
+  const [showAllFaqs, setShowAllFaqs] = useState(false);
+  const FAQ_INITIAL_COUNT = 5;
+  const displayedFaqs = showAllFaqs ? landingFaqs : landingFaqs.slice(0, FAQ_INITIAL_COUNT);
+  const hasMoreFaqs = landingFaqs.length > FAQ_INITIAL_COUNT;
 
   const selectedColorHex = selectedColor?.colorHex || '#F9D07D';
 
@@ -922,54 +927,29 @@ export default function PaintingServicesLanding() {
                 See why our clients love our services!
               </p>
 
-              {/* 3 Google reviews */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                {googleReviews.slice(0, 3).map((review, idx) => (
-                  <div key={`google-${idx}`} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <div className="flex gap-0.5 mb-3">
-                      {Array.from({ length: review.rating }).map((_, i) => (
-                        <Star key={i} size={14} className="text-[#FBBC05] fill-[#FBBC05]" />
-                      ))}
-                    </div>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">&quot;{review.text}&quot;</p>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#ED276E] flex items-center justify-center text-white font-semibold text-sm">
-                        {review.initials}
+              <div className="w-full">
+                <SectionCarousel reviewsSection={true}>
+                  {googleReviews.map((review, idx) => (
+                    <CarouselItem key={`google-${idx}`} className="basis-full md:basis-1/3">
+                      <div className="bg-white shadow-[0px_4px_9px_rgba(82,82,82,0.1)] w-full max-w-[500px] mx-auto p-7 rounded-[35px] min-h-[320px] flex flex-col justify-between mb-[30px]">
+                        <img src={QUOTE_ICON} alt="Quote Icon" className="aspect-[1.56] object-contain w-[53px]" />
+                        <p className="text-[rgba(44,44,44,1)] text-sm font-normal leading-[19px] mt-3.5">
+                          &quot;{review.text}&quot;
+                        </p>
+                        <div className="flex items-center gap-3.5 mt-3.5">
+                          <div className="w-[53px] h-[53px] rounded-full bg-[#ED276E] flex items-center justify-center text-white font-semibold text-lg">
+                            {review.initials}
+                          </div>
+                          <div className="flex flex-col">
+                            <div className="text-[rgba(237,39,110,1)] text-lg font-semibold">{review.name}</div>
+                            <div className="text-[rgba(119,119,119,1)] text-sm font-normal mt-1">{review.position}</div>
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-sm font-semibold text-gray-800">{review.name}</p>
-                        <p className="text-xs text-gray-500">{review.position}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                    </CarouselItem>
+                  ))}
+                </SectionCarousel>
               </div>
-
-              {/* 3 testimonial images with lightbox (same behaviour as testimonials page) */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {testimonialsData.slice(0, 3).map((testimonial, index) => (
-                  <div key={testimonial.id} className="flex flex-col">
-                    <button
-                      type="button"
-                      onClick={() => setOpenTestimonialIndex(index)}
-                      className="relative aspect-[3/4] overflow-hidden rounded-lg border border-gray-200 bg-gray-50 hover:border-[#299dd7] hover:shadow-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#299dd7] focus:ring-offset-2"
-                    >
-                      <img
-                        src={getMediaUrl(testimonial.src)}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  </div>
-                ))}
-              </div>
-
-              <ImageLightbox
-                images={testimonialImages}
-                openIndex={openTestimonialIndex}
-                onClose={() => setOpenTestimonialIndex(null)}
-                onNavigate={(index) => setOpenTestimonialIndex(index)}
-              />
             </div>
           </section>
 
@@ -979,7 +959,7 @@ export default function PaintingServicesLanding() {
               <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#299dd7]">Frequently Asked Questions</h2>
               <p className="text-gray-500 text-center mt-3 text-lg mb-10">Everything you need to know, answered!</p>
               <div className="space-y-3">
-                {landingFaqs.map((faq, idx) => (
+                {displayedFaqs.map((faq, idx) => (
                   <div key={idx} className={`border rounded-xl overflow-hidden transition-all ${openFaq === idx ? 'border-[#ED276E]/30 bg-pink-50/30 shadow-sm' : 'border-gray-200 bg-white'}`}>
                     <button onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)} className="w-full flex items-center justify-between px-5 py-4 text-left">
                       <span className="text-sm sm:text-base font-semibold text-gray-800 pr-4">{faq.question}</span>
@@ -990,6 +970,18 @@ export default function PaintingServicesLanding() {
                     </div>
                   </div>
                 ))}
+                {hasMoreFaqs && (
+                  <div className="flex justify-center pt-4">
+                    <button
+                      type="button"
+                      onClick={() => setShowAllFaqs((prev) => !prev)}
+                      className="px-6 py-3 rounded-full font-semibold text-sm bg-[#299dd7] text-white hover:bg-[#237bb0] transition-colors flex items-center justify-center gap-2"
+                    >
+                      {showAllFaqs ? 'Show less' : 'Load more FAQs'}
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showAllFaqs ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </section>
