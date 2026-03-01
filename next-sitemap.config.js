@@ -55,8 +55,7 @@ module.exports = {
       { userAgent: 'Applebot-Extended', allow: '/' },
     ],
     additionalSitemaps: [
-      `${(process.env.SITE_URL || 'https://homeglazer.com').replace(/\/$/, '')}/sitemap-colour-visualiser.xml`,
-      `${(process.env.SITE_URL || 'https://homeglazer.com').replace(/\/$/, '')}/sitemap-products-asian-paints.xml`,
+      `${(process.env.SITE_URL || 'https://homeglazer.com').replace(/\/$/, '')}/sitemap-index.xml`,
     ],
   },
 }

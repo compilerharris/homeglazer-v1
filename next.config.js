@@ -71,6 +71,7 @@ module.exports = {
   ...nextConfig,
   async rewrites() {
     return [
+      { source: '/sitemap-index.xml', destination: '/api/sitemap-index' },
       { source: '/sitemap-colour-visualiser.xml', destination: '/api/sitemap-colour-visualiser' },
       { source: '/sitemap-products-asian-paints.xml', destination: '/api/sitemap-products-asian-paints' },
     ];

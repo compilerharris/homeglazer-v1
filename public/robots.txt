@@ -38,7 +38,5 @@ Allow: /
 # Host
 Host: https://homeglazer.com
 
-# Sitemaps
-Sitemap: https://homeglazer.com/sitemap.xml
-Sitemap: https://homeglazer.com/sitemap-colour-visualiser.xml
-Sitemap: https://homeglazer.com/sitemap-products-asian-paints.xml
+# Sitemaps (central index links to all sub-sitemaps; submit this single URL to GSC)
+Sitemap: https://homeglazer.com/sitemap-index.xml
