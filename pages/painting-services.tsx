@@ -16,6 +16,7 @@ import CallButton from '@/components/home/CallButton';
 import SectionCarousel from '@/components/home/SectionCarousel';
 import { CarouselItem } from '@/components/ui/carousel';
 import { faqItems } from '@/data/faq';
+import AboutHowWeDoIt from '@/components/about/AboutHowWeDoIt';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://homeglazer.com';
 
@@ -122,9 +123,12 @@ function StickyForm({ isMobileFormOpen, setIsMobileFormOpen }: { isMobileFormOpe
           <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email *" disabled={isSubmitting} required className={`flex-1 min-w-0 h-12 text-sm px-3 py-2.5 rounded-lg outline-none border ${errors.email ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
           <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} placeholder="Mobile *" disabled={isSubmitting} required className={`flex-1 min-w-0 h-12 text-sm px-3 py-2.5 rounded-lg outline-none border ${errors.mobile ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
           <textarea name="message" value={formData.message} onChange={(e) => handleChange(e as any)} placeholder="Your Project *" disabled={isSubmitting} rows={1} className={`flex-1 min-w-0 h-12 text-sm px-3 py-2.5 rounded-lg outline-none border resize-none ${errors.message ? 'border-red-300 bg-red-50' : 'border-transparent'} focus:ring-2 focus:ring-white/50`} />
-          <button type="submit" disabled={isSubmitting} className="bg-[#299dd7] text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-[#237bb0] transition-all disabled:opacity-50 flex items-center gap-2 flex-shrink-0 whitespace-nowrap">
-            {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</> : 'Get Free Consultation'}
-          </button>
+          <div className="relative flex items-center justify-center flex-shrink-0">
+            <span className="absolute inset-0 rounded-lg bg-[#299dd7]/40 animate-ping" aria-hidden />
+            <button type="submit" disabled={isSubmitting} className="relative bg-[#299dd7] text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-[#237bb0] transition-all disabled:opacity-50 flex items-center gap-2 whitespace-nowrap">
+              {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</> : 'Get Free Consultation'}
+            </button>
+          </div>
         </form>
         {submitError && <p className="text-center text-white/80 text-xs pb-2">{submitError}</p>}
       </div>
@@ -450,16 +454,21 @@ export default function PaintingServicesLanding() {
         {/* Main content area - full width, form overlaps on top */}
         <main>
           {/* ===== HERO BANNER ===== */}
-          <section className="relative w-full h-[70vh] min-h-[400px] max-h-[600px] overflow-hidden">
+          {/* Mobile/tablet: taller height so vertical hero image isn't cropped; desktop: lg overrides only */}
+          <section className="relative w-full min-h-[500px] h-[85vh] max-h-[800px] lg:max-h-[900px] overflow-hidden">
             <picture>
               <source
                 media="(min-width: 1024px)"
                 srcSet={getMediaUrl('/uploads/hero-banner.png')}
               />
+              <source
+                media="(min-width: 768px)"
+                srcSet={getMediaUrl('/uploads/hero-banner-tablet.webp')}
+              />
               <img
                 src={getMediaUrl('/uploads/hero-banner-mobile.webp')}
                 alt="Professional Painting Services"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover object-center"
               />
             </picture>
             <div className="relative z-10 flex flex-col justify-start lg:justify-center h-full max-w-6xl mx-auto px-4 sm:px-8 pt-6 sm:pt-20 lg:pt-0">
@@ -483,7 +492,7 @@ export default function PaintingServicesLanding() {
                   {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />)}
                   <span className="text-white text-sm ml-1">4.9/5</span>
                 </div>
-                <span className="text-white/70 text-sm">500+ Projects Completed</span>
+                <span className="text-white/70 text-sm">1500+ Projects Completed</span>
               </div>
             </div>
           </section>
@@ -837,6 +846,9 @@ export default function PaintingServicesLanding() {
               </div>
             </div>
           </section>
+
+          {/* ===== HOW DO WE DO IT? (from about page) ===== */}
+          <AboutHowWeDoIt />
 
           {/* ===== QUALITY PAINTS ===== */}
           <section className="w-full py-16 px-4 sm:px-8 bg-gray-50">

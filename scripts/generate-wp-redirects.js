@@ -33,8 +33,22 @@ const KNOWN_MAPPINGS = {
   'painters-in-delhi': '/contact',
 };
 
+// Short or alternate URLs seen in GSC / traffic that aren't in CSV (old WP short links, typos, etc.)
+const ADDITIONAL_REDIRECTS = {
+  'difference-between-apcolite-premium': '/blog/difference-between-apcolite-premium-emulsion-and-royale-luxury-emulsion',
+};
+
 const seen = new Set();
 const redirects = [];
+
+// Add additional redirects first (so they're not overwritten by CSV)
+for (const [sourcePathNoLeading, destination] of Object.entries(ADDITIONAL_REDIRECTS)) {
+  const pathname = '/' + sourcePathNoLeading;
+  if (!seen.has(pathname)) {
+    seen.add(pathname);
+    redirects.push({ source: pathname, destination, permanent: true });
+  }
+}
 
 for (const line of lines) {
   const match = line.match(/^([^,]+),/);

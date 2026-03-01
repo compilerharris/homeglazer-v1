@@ -88,6 +88,10 @@ module.exports = {
         destination: '/colour-visualiser/:path*',
         permanent: true,
       },
+      // WordPress tag/category/page archives (catch-all so GSC URLs like /tag/distempering-services get 301)
+      { source: '/tag/:path*', destination: '/blog', permanent: true },
+      { source: '/category/:path*', destination: '/blog', permanent: true },
+      { source: '/page/:path*', destination: '/blog', permanent: true },
       ...wpRedirects,
     ];
   },
