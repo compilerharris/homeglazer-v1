@@ -35,6 +35,9 @@ node-v*/
 /src/generated/prisma
 .vercel
 
+# Import script dry-run output (optional one-off JSON)
+scripts/import-output/
+
 # Terraform
 terraform/.terraform/
 terraform/.terraform.lock.hcl

@@ -1,0 +1,17 @@
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+    <head><title>404 Resource at '/content/dam/asian_paints/products/packshots/woodtech-emporio-pu-asian-paints-old.png' not found: No resource found</title><script defer="defer" type="text/javascript" src="https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js" data-routing="env=prod,tier=publish,ams=Asian Paints Limited" data-status="404"></script>
+</head>
+    <body>
+        <h1>Resource at '/content/dam/asian_paints/products/packshots/woodtech-emporio-pu-asian-paints-old.png' not found: No resource found</h1>
+        <p>Cannot serve request to /content/dam/asian_paints/products/packshots/woodtech-emporio-pu-asian-paints-old.png on this server</p>
+        
+        
+        
+        <hr>
+        <address>Apache Sling</address>
+    </body>
+</html>
+
+

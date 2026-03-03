@@ -41,7 +41,7 @@ export default function ProductsPage() {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        setProducts(data);
+        setProducts(Array.isArray(data?.data) ? data.data : []);
       } else {
         const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
         console.error('Failed to load products:', errorData);

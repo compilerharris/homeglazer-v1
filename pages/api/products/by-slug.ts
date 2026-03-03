@@ -11,6 +11,8 @@ export default async function handler(
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  // Prevent caching so product page always gets latest data (e.g. after import script)
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -63,6 +65,7 @@ export default async function handler(
                   select: {
                     id: true,
                     name: true,
+                    slug: true,
                   },
                 },
               },
@@ -136,7 +139,7 @@ export default async function handler(
       id: rp.relatedProduct.id,
       name: rp.relatedProduct.name,
       slug: rp.relatedProduct.slug,
-      brandId: rp.relatedProduct.brandId,
+      brandId: rp.relatedProduct.brand.slug,
       brand: rp.relatedProduct.brand.name,
       image: rp.relatedProduct.image,
       prices: rp.relatedProduct.prices as Record<string, number>,

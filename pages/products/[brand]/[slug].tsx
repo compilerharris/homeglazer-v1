@@ -774,7 +774,7 @@ const ProductDetails: React.FC<ProductDetailsProps & { brandSlug: string }> = ({
       )}
 
       {/* Products Disclaimer */}
-      <section className="py-6 px-4 mb-8 bg-amber-50 border border-amber-200 mx-4 md:mx-auto md:max-w-4xl">
+      <section className="py-6 px-4 mb-8 mt-10 bg-amber-50 border border-amber-200 mx-4 md:mx-auto md:max-w-4xl">
         <div>
           <p className="text-amber-900 text-sm md:text-base text-center font-medium">
             <span className="font-semibold">Disclaimer:</span> The products shown on this page are for informational purposes only. We do not sell or endorse any products listed on this website. All content is intended for general information only.
@@ -842,8 +842,8 @@ export const getServerSideProps: GetServerSideProps<ProductDetailsProps> = async
     try {
       const apiUrl = `${baseUrl}/api/products/by-slug?brand=${encodeURIComponent(brandSlug)}&slug=${encodeURIComponent(slug)}`;
       console.log('Fetching product from API:', apiUrl);
-      
-      apiResponse = await fetch(apiUrl);
+      // Prevent cached response so product data is always fresh after import script runs
+      apiResponse = await fetch(apiUrl, { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } });
       
       if (!apiResponse.ok) {
         console.error(`API returned error: ${apiResponse.status} ${apiResponse.statusText}`);
