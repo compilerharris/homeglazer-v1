@@ -134,7 +134,61 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const [isButtonFixed, setIsButtonFixed] = useState(true);
   const [isRecoloring, setIsRecoloring] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  
+
+  // Generate a full-room preview image on the server using the same wall assignments.
+  // This is used as the primary image for the PDF so behaviour is identical across
+  // desktop (Canvas) and mobile/tablet (SVG) visualisers.
+  const fetchServerPreviewImage = async (): Promise<string> => {
+    try {
+      if (typeof window === 'undefined') return '';
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const res = await fetch('/api/visualizer/render-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          variant: variant.name,
+          mode: 'advanced',
+          assignments,
+          forPdf: true,
+        }),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+      if (!res.ok) {
+        console.error('Server preview render failed with status', res.status);
+        return '';
+      }
+
+      const blob = await res.blob();
+      if (!blob || blob.size === 0) return '';
+
+      const toBase64 = (): Promise<string> =>
+        new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            const result = reader.result;
+            if (typeof result === 'string') resolve(result);
+            else reject(new Error('Failed to read preview image as base64'));
+          };
+          reader.onerror = () => reject(reader.error || new Error('FileReader error'));
+          reader.readAsDataURL(blob);
+        });
+
+      return await toBase64();
+    } catch (err) {
+      if (err instanceof Error && err.name === 'AbortError') {
+        console.error('Server preview render request aborted (timeout)');
+      } else {
+        console.error('Server preview render error:', err);
+      }
+      return '';
+    }
+  };
+
   // Check screen size for responsive width and zoom state
   useEffect(() => {
     const checkScreenSize = () => {
@@ -214,13 +268,16 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
     setEmailModalPhase('loading');
     setEmailError('');
 
-    // Allow layout to settle and ensure preview is fully rendered
-    await new Promise((r) => setTimeout(r, 200));
-
     let previewImageBase64 = '';
-    if (typeof window !== 'undefined') {
+    // Primary: ask server to render a clean full-room advanced image for the PDF.
+    previewImageBase64 = await fetchServerPreviewImage();
+
+    // Fallback: if server rendering fails, fall back to existing client-side capture.
+    if (!previewImageBase64 && typeof window !== 'undefined') {
+      // Allow layout to settle and ensure preview is fully rendered before capture
+      await new Promise((r) => setTimeout(r, 200));
+
       if (window.innerWidth >= 1024 && desktopPreviewCanvasRef.current) {
-        // Desktop: capture from canvas
         const canvasRef = desktopPreviewCanvasRef;
         let attempts = 0;
         const maxAttempts = 10;
@@ -237,7 +294,6 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
           console.error('Preview capture failed:', captureErr);
         }
       } else if (window.innerWidth < 1024 && mobilePreviewContainerRef.current) {
-        // Mobile: capture from SVG container with dom-to-image (dynamic import for SSR)
         try {
           const domtoimage = (await import('dom-to-image-more')).default;
           const dataUrl = await domtoimage.toPng(mobilePreviewContainerRef.current);

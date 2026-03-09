@@ -38,5 +38,6 @@ Allow: /
 # Host
 Host: https://homeglazer.com
 
-# Sitemaps (central index links to all sub-sitemaps; submit this single URL to GSC)
+# Sitemaps
+Sitemap: https://homeglazer.com/sitemap.xml
 Sitemap: https://homeglazer.com/sitemap-index.xml
