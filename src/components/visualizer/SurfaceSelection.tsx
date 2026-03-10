@@ -23,34 +23,41 @@ const SurfaceSelection: React.FC<SurfaceSelectionProps> = ({
       <div className="text-gray-400">Loading...</div>
     ) : (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl">
-        {rooms.map(room => (
-          <div key={room.roomType} className="flex flex-col items-center">
-            <button
-              className="w-full focus:outline-none focus:ring-2 focus:ring-[#299dd7] rounded-xl overflow-hidden"
-              onClick={() => onSelectRoomType(room.roomType)}
-              type="button"
-            >
-                          <div className="w-full h-48 lg:h-56 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
-              {/* Use first variant's main image as thumbnail */}
-              <img 
-                src={getMediaUrl(room.variants[0]?.mainImage || '')} 
-                alt={room.label} 
-                className="object-cover w-full h-full rounded-lg" 
-                onError={(e) => {
-                  const img = e.currentTarget;
-                  if (!img.dataset.errorHandled) {
-                    img.dataset.errorHandled = 'true';
-                    const label = encodeURIComponent(room.label);
-                    img.src = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23e5e7eb" width="400" height="300"/%3E%3Ctext fill="%239ca3af" font-family="sans-serif" font-size="14" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3E${label}%3C/text%3E%3C/svg%3E`;
-                    img.onerror = () => { img.style.display = 'none'; };
-                  }
-                }} 
-              />
+        {rooms.map((room) => {
+          const firstVariant = room.variants[0];
+          const imagePath = firstVariant?.thumbnailImage || firstVariant?.mainImage || '';
+
+          return (
+            <div key={room.roomType} className="flex flex-col items-center">
+              <button
+                className="w-full focus:outline-none focus:ring-2 focus:ring-[#299dd7] rounded-xl overflow-hidden"
+                onClick={() => onSelectRoomType(room.roomType)}
+                type="button"
+              >
+                <div className="w-full h-48 lg:h-56 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
+                  <img
+                    src={getMediaUrl(imagePath)}
+                    alt={room.label}
+                    className="object-cover w-full h-full rounded-lg"
+                    onError={(e) => {
+                      const img = e.currentTarget;
+                      if (!img.dataset.errorHandled) {
+                        img.dataset.errorHandled = 'true';
+                        const label = encodeURIComponent(room.label);
+                        img.src =
+                          `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill=\"%23e5e7eb\" width=\"400\" height=\"300\"/%3E%3Ctext fill=\"%239ca3af\" font-family=\"sans-serif\" font-size=\"14\" x=\"50%25\" y=\"50%25\" text-anchor=\"middle\" dy=\".3em\"%3E${label}%3C/text%3E%3C/svg%3E`;
+                        img.onerror = () => {
+                          img.style.display = 'none';
+                        };
+                      }
+                    }}
+                  />
+                </div>
+              </button>
+              <span className="text-lg font-semibold text-gray-800 text-center mt-3">{room.label}</span>
             </div>
-            </button>
-            <span className="text-lg font-semibold text-gray-800 text-center mt-3">{room.label}</span>
-          </div>
-        ))}
+          );
+        })}
       </div>
     )}
   </main>

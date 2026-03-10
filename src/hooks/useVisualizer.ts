@@ -23,6 +23,7 @@ export interface VariantManifest {
   name: string;
   label: string;
   mainImage: string;
+  thumbnailImage?: string;
   walls: WallManifest;
 }
 export interface RoomManifest {

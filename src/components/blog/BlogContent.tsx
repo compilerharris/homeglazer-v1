@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { BlogPost } from './BlogCard';
-import { getMediaUrl } from '@/lib/mediaUrl';
+import { getMediaUrl, transformHtmlImageUrls } from '@/lib/mediaUrl';
 
 interface BlogContentProps {
   post: BlogPost;
@@ -194,7 +194,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
       {post.content ? (
         <div 
           className="blog-content max-w-none"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: transformHtmlImageUrls(post.content) }}
         />
       ) : (
         <div className="blog-content">

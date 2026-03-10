@@ -22,6 +22,7 @@ export interface CanvasAdvancedRoomVisualiserProps {
   wallMasks: Record<string, string>;
   assignments: Record<string, string>;
   loadingMasks?: boolean;
+  onHardFailure?: () => void;
 }
 
 export interface CanvasAdvancedRoomVisualiserRef {
@@ -30,12 +31,14 @@ export interface CanvasAdvancedRoomVisualiserRef {
 }
 
 const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef, CanvasAdvancedRoomVisualiserProps>(
-  function CanvasAdvancedRoomVisualiser({ imageSrc, wallMasks, assignments, loadingMasks = false }, ref) {
+  function CanvasAdvancedRoomVisualiser({ imageSrc, wallMasks, assignments, loadingMasks = false, onHardFailure }, ref) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const imageRef = useRef<HTMLImageElement | null>(null);
     const prevAssignmentsRef = useRef<Record<string, string> | null>(null);
     const animationRef = useRef<number | null>(null);
     const [loadState, setLoadState] = useState<'loading' | 'loaded' | 'error'>('loading');
+    const loadAttemptsRef = useRef<Record<string, number>>({});
+    const loadTimeoutRef = useRef<number | null>(null);
 
     useImperativeHandle(ref, () => ({
       toDataURL: (type = 'image/png') => {
@@ -120,96 +123,183 @@ const CanvasAdvancedRoomVisualiser = forwardRef<CanvasAdvancedRoomVisualiserRef,
 
     useEffect(() => {
       setLoadState('loading');
-      console.log('[CanvasAdvancedRoomVisualiser] Loading image:', imageSrc);
-      
-      const isCrossOrigin = imageSrc.startsWith('http://') || imageSrc.startsWith('https://');
-      const isS3Url = imageSrc.includes('s3');
-      
-      // For S3/cross-origin images, try loading via fetch first (better CORS handling)
-      // then convert to blob URL to avoid canvas tainting issues
-      if (isCrossOrigin && typeof window !== 'undefined') {
-        // Add cache-busting parameter to force fresh request
-        const cacheBuster = `?cb=${Date.now()}`;
-        const fetchUrl = imageSrc.includes('?') ? `${imageSrc}&cb=${Date.now()}` : `${imageSrc}${cacheBuster}`;
-        
-        fetch(fetchUrl, { mode: 'cors', credentials: 'omit', cache: 'no-cache' })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            }
-            return response.blob();
-          })
-          .then(blob => {
-            const blobUrl = URL.createObjectURL(blob);
-            
-            const img = new Image();
-            // Blob URLs are same-origin, so no crossOrigin needed
-            img.onload = () => {
-              console.log('[CanvasAdvancedRoomVisualiser] Image loaded successfully via blob URL:', imageSrc);
-              imageRef.current = img;
-              setLoadState('loaded');
-              prevAssignmentsRef.current = { ...assignments };
-              drawRef.current();
-              // Clean up blob URL after a delay to free memory
-              setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
-            };
-            img.onerror = (error) => {
-              URL.revokeObjectURL(blobUrl);
-              imageRef.current = null;
-              setLoadState('error');
-              drawRef.current();
-            };
-            img.src = blobUrl;
-          })
-          .catch(fetchErr => {
-            console.warn('[CanvasAdvancedRoomVisualiser] Fetch failed, trying direct Image load:', fetchErr);
-            // Fallback to direct Image load
-            loadImageDirectly();
-          });
-      } else {
-        // Same-origin images - load directly
-        loadImageDirectly();
-      }
-      
-      function loadImageDirectly() {
-        const img = new Image();
-        
-        if (isCrossOrigin) {
-          img.crossOrigin = 'anonymous';
-        }
-        
-        img.onload = () => {
-          console.log('[CanvasAdvancedRoomVisualiser] Image loaded successfully:', imageSrc, 'crossOrigin:', img.crossOrigin);
-          imageRef.current = img;
-          setLoadState('loaded');
-          prevAssignmentsRef.current = { ...assignments };
-          drawRef.current();
-        };
-        
-        img.onerror = (error) => {
-          const errorEvent = error as ErrorEvent | Event;
-          console.error('[CanvasAdvancedRoomVisualiser] Failed to load image:', imageSrc, 'crossOrigin:', img.crossOrigin);
-          console.error('[CanvasAdvancedRoomVisualiser] Error details:', {
-            imageSrc,
-            error: error?.toString(),
-            errorType: errorEvent?.type,
-            errorMessage: errorEvent instanceof ErrorEvent ? errorEvent.message : undefined,
-            crossOrigin: img.crossOrigin,
-            isS3Url,
-            isCrossOrigin,
-            naturalWidth: img.naturalWidth,
-            naturalHeight: img.naturalHeight,
-          });
-          
-          imageRef.current = null;
-          setLoadState('error');
-          drawRef.current();
-        };
-        
-        img.src = imageSrc;
+      if (process.env.NODE_ENV !== 'production') {
+        console.log('[CanvasAdvancedRoomVisualiser] Loading image:', imageSrc);
       }
 
+      const isCrossOrigin = imageSrc.startsWith('http://') || imageSrc.startsWith('https://');
+      const isS3Url = imageSrc.includes('s3');
+      const maxAttempts = 2;
+
+      if (!loadAttemptsRef.current[imageSrc]) {
+        loadAttemptsRef.current[imageSrc] = 0;
+      }
+
+      const clearExistingTimeout = () => {
+        if (loadTimeoutRef.current != null) {
+          window.clearTimeout(loadTimeoutRef.current);
+          loadTimeoutRef.current = null;
+        }
+      };
+
+      const handleHardError = (context: unknown) => {
+        clearExistingTimeout();
+        imageRef.current = null;
+        setLoadState('error');
+        if (process.env.NODE_ENV !== 'production') {
+          console.error('[CanvasAdvancedRoomVisualiser] Final image load error:', {
+            imageSrc,
+            isCrossOrigin,
+            isS3Url,
+            attempts: loadAttemptsRef.current[imageSrc],
+            context,
+          });
+        }
+        drawRef.current();
+        if (onHardFailure) {
+          onHardFailure();
+        }
+      };
+
+      const attemptLoad = () => {
+        const attempt = ++loadAttemptsRef.current[imageSrc];
+
+        const startTimeout = () => {
+          clearExistingTimeout();
+          loadTimeoutRef.current = window.setTimeout(() => {
+            if (loadState === 'loaded') return;
+            if (process.env.NODE_ENV !== 'production') {
+              console.warn('[CanvasAdvancedRoomVisualiser] Image load timeout:', { imageSrc, attempt });
+            }
+            if (attempt < maxAttempts) {
+              attemptLoad();
+            } else {
+              handleHardError({ reason: 'timeout' });
+            }
+          }, 15000);
+        };
+
+        const loadViaBlob = () => {
+          if (!isCrossOrigin || typeof window === 'undefined') {
+            loadDirect();
+            return;
+          }
+          const cacheBuster = `cb=${Date.now()}`;
+          const fetchUrl = imageSrc.includes('?') ? `${imageSrc}&${cacheBuster}` : `${imageSrc}?${cacheBuster}`;
+
+          fetch(fetchUrl, { mode: 'cors', credentials: 'omit', cache: 'no-cache' })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+              }
+              return response.blob();
+            })
+            .then((blob) => {
+              const blobUrl = URL.createObjectURL(blob);
+              const img = new Image();
+              img.onload = () => {
+                clearExistingTimeout();
+                if (process.env.NODE_ENV !== 'production') {
+                  console.log('[CanvasAdvancedRoomVisualiser] Image loaded via blob URL:', imageSrc);
+                }
+                imageRef.current = img;
+                setLoadState('loaded');
+                prevAssignmentsRef.current = { ...assignments };
+                const maybeDecode = (img as HTMLImageElement & { decode?: () => Promise<void> }).decode;
+                if (maybeDecode) {
+                  maybeDecode.call(img).catch(() => undefined).finally(() => {
+                    drawRef.current();
+                  });
+                } else {
+                  drawRef.current();
+                }
+                setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
+              };
+              img.onerror = (error) => {
+                URL.revokeObjectURL(blobUrl);
+                if (process.env.NODE_ENV !== 'production') {
+                  console.warn('[CanvasAdvancedRoomVisualiser] Blob image load error, falling back to direct:', {
+                    imageSrc,
+                    error,
+                  });
+                }
+                loadDirect();
+              };
+              startTimeout();
+              img.src = blobUrl;
+            })
+            .catch((fetchErr) => {
+              if (process.env.NODE_ENV !== 'production') {
+                console.warn('[CanvasAdvancedRoomVisualiser] Fetch failed, trying direct Image load:', fetchErr);
+              }
+              loadDirect();
+            });
+        };
+
+        const loadDirect = () => {
+          const img = new Image();
+          if (isCrossOrigin) {
+            img.crossOrigin = 'anonymous';
+          }
+
+          img.onload = () => {
+            clearExistingTimeout();
+            if (process.env.NODE_ENV !== 'production') {
+              console.log('[CanvasAdvancedRoomVisualiser] Image loaded successfully:', imageSrc, 'crossOrigin:', img.crossOrigin);
+            }
+            imageRef.current = img;
+            setLoadState('loaded');
+            prevAssignmentsRef.current = { ...assignments };
+            const maybeDecode = (img as HTMLImageElement & { decode?: () => Promise<void> }).decode;
+            if (maybeDecode) {
+              maybeDecode.call(img).catch(() => undefined).finally(() => {
+                drawRef.current();
+              });
+            } else {
+              drawRef.current();
+            }
+          };
+
+          img.onerror = (error) => {
+            clearExistingTimeout();
+            const errorEvent = error as ErrorEvent | Event;
+            if (process.env.NODE_ENV !== 'production') {
+              console.error('[CanvasAdvancedRoomVisualiser] Failed to load image:', imageSrc, 'crossOrigin:', img.crossOrigin);
+              console.error('[CanvasAdvancedRoomVisualiser] Error details:', {
+                imageSrc,
+                error: error?.toString(),
+                errorType: errorEvent?.type,
+                errorMessage: errorEvent instanceof ErrorEvent ? errorEvent.message : undefined,
+                crossOrigin: img.crossOrigin,
+                isS3Url,
+                isCrossOrigin,
+                naturalWidth: img.naturalWidth,
+                naturalHeight: img.naturalHeight,
+                attempt,
+              });
+            }
+
+            imageRef.current = null;
+            if (attempt < maxAttempts) {
+              setTimeout(() => {
+                attemptLoad();
+              }, 400);
+            } else {
+              handleHardError({ reason: 'error', error });
+            }
+          };
+
+          startTimeout();
+          img.src = imageSrc;
+        };
+
+        loadViaBlob();
+      };
+
+      attemptLoad();
+
       return () => {
+        clearExistingTimeout();
         imageRef.current = null;
       };
     }, [imageSrc]);

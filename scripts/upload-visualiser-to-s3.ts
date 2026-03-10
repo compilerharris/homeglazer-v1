@@ -12,7 +12,18 @@ const S3_PREFIX = 'visualiser';
 const SOURCE_DIR = path.join(process.cwd(), 'public', 'assets', 'images');
 
 // Room folders to upload (exclude brand-logos - small, keep in repo)
-const ROOM_FOLDERS = ['bedroom', 'bathroom', 'kitchen', 'livingroom', 'homeoffice', 'kidsroom', 'office', 'outdoor', 'maingate'];
+const ROOM_FOLDERS = [
+  'bedroom',
+  'bathroom',
+  'kitchen',
+  'livingroom',
+  'homeoffice',
+  'kidsroom',
+  'office',
+  'outdoor',
+  'maingate',
+  'visualizer-thumbnails',
+];
 
 function getS3Client() {
   const region = process.env.S3_REGION || 'us-east-1';

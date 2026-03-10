@@ -21,6 +21,7 @@ const VISUALISER_ROOM_FOLDERS = [
   'office',
   'outdoor',
   'maingate',
+  'visualizer-thumbnails',
 ];
 
 export function getMediaUrl(path: string): string {
@@ -71,6 +72,23 @@ export function getMediaUrl(path: string): string {
   }
 
   return path.startsWith('/') ? path : `/${path}`;
+}
+
+/**
+ * Transforms <img src="..."> URLs inside an HTML string so that relative
+ * paths (e.g. /uploads/*, media/*) go through getMediaUrl(). This is
+ * primarily used for blog content that is stored as raw HTML.
+ */
+export function transformHtmlImageUrls(html: string): string {
+  if (!html || typeof html !== 'string') return html;
+
+  return html.replace(
+    /<img([^>]*)\ssrc=["']([^"']+)["']/gi,
+    (match, attrs, src) => {
+      const resolved = getMediaUrl(src);
+      return `<img${attrs} src="${resolved}"`;
+    }
+  );
 }
 
 /** Returns absolute URL for media (for og:image, etc). Uses S3 when set, else siteUrl + path. */

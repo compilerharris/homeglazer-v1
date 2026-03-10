@@ -134,6 +134,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
   const [isButtonFixed, setIsButtonFixed] = useState(true);
   const [isRecoloring, setIsRecoloring] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [desktopPreviewHardError, setDesktopPreviewHardError] = useState(false);
+  const [desktopPreviewFallbackSrc, setDesktopPreviewFallbackSrc] = useState<string | null>(null);
+  const [desktopPreviewReloadKey, setDesktopPreviewReloadKey] = useState(0);
 
   // Generate a full-room preview image on the server using the same wall assignments.
   // This is used as the primary image for the PDF so behaviour is identical across
@@ -550,18 +553,56 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       <div className="hidden lg:flex w-full max-w-6xl gap-8" style={{ maxWidth: isLargeScreen ? '1408px' : '1152px' }}>
         {/* Left Column - Room Preview */}
         <div className="flex-1 min-w-0">
-          <div
-            className="relative room-preview-container overflow-hidden rounded-lg"
-            style={{ aspectRatio: '16/9', width: '100%', height: 'auto' }}
-          >
-            <CanvasAdvancedRoomVisualiser
-              ref={desktopPreviewCanvasRef}
-              imageSrc={imageUrl}
-              wallMasks={wallMasks}
-              assignments={assignments}
-              loadingMasks={loadingMasks}
-            />
-            {loadingMasks && (
+          <div className="relative room-preview-container overflow-hidden rounded-lg" style={{ aspectRatio: '16/9', width: '100%', height: 'auto' }}>
+            {!desktopPreviewHardError && !desktopPreviewFallbackSrc && (
+              <CanvasAdvancedRoomVisualiser
+                key={desktopPreviewReloadKey}
+                ref={desktopPreviewCanvasRef}
+                imageSrc={imageUrl}
+                wallMasks={wallMasks}
+                assignments={assignments}
+                loadingMasks={loadingMasks}
+                onHardFailure={async () => {
+                  setDesktopPreviewHardError(true);
+                  try {
+                    const base64 = await fetchServerPreviewImage();
+                    if (base64) {
+                      setDesktopPreviewFallbackSrc(base64);
+                    }
+                  } catch {
+                    // ignore, UI will show retry
+                  }
+                }}
+              />
+            )}
+            {desktopPreviewFallbackSrc && (
+              <img
+                src={desktopPreviewFallbackSrc}
+                alt="Room preview"
+                className="absolute inset-0 w-full h-full object-cover"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+            )}
+            {desktopPreviewHardError && !desktopPreviewFallbackSrc && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 px-4 text-center">
+                <p className="text-gray-700 mb-3 text-sm md:text-base">
+                  Preview is unavailable right now. Please try again.
+                </p>
+                <button
+                  type="button"
+                  className="px-4 py-2 rounded-lg text-white text-sm font-medium"
+                  style={{ backgroundColor: '#299dd7' }}
+                  onClick={() => {
+                    setDesktopPreviewHardError(false);
+                    setDesktopPreviewFallbackSrc(null);
+                    setDesktopPreviewReloadKey((k) => k + 1);
+                  }}
+                >
+                  Retry preview
+                </button>
+              </div>
+            )}
+            {loadingMasks && !desktopPreviewHardError && (
               <div
                 className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center"
                 data-capture-ignore="true"
