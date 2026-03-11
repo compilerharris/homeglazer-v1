@@ -1084,10 +1084,10 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
     if (categoryChanged) {
       setColorPage(0);
       // Use deterministic seed based on brand/category/color
-      const colors = colorDatabase.colorTypes[cat] || [];
-      const colorObj = colors[0];
-      if (colorObj) {
-        const seedString = `${selectedBrand}-${cat}-${colorObj.colorName}-${colorObj.colorCode}`;
+      const firstCategoryColors = colorDatabase.colorTypes[cat] || [];
+      const firstCategoryColorObj = firstCategoryColors[0];
+      if (firstCategoryColorObj) {
+        const seedString = `${selectedBrand}-${cat}-${firstCategoryColorObj.colorName}-${firstCategoryColorObj.colorCode}`;
         let hash = 0;
         for (let i = 0; i < seedString.length; i++) {
           const char = seedString.charCodeAt(i);
@@ -1116,6 +1116,19 @@ const BasicVisualiserPage: React.FC<BasicVisualiserPageProps> = ({ initialData }
     }
     if (!colorObj) colorObj = colors[0];
     setSelectedColor(colorObj);
+
+    // Make sure the selected color's page is visible in the palette
+    if (colorObj) {
+      const colorIndex = colors.findIndex(
+        (c: any) =>
+          c.colorName === colorObj.colorName &&
+          c.colorCode === colorObj.colorCode
+      );
+      if (colorIndex !== -1) {
+        const targetPage = Math.floor(colorIndex / PAGE_SIZE);
+        setColorPage(targetPage);
+      }
+    }
     
     // Update pairing colors seed when color changes (deterministic)
     if (colorObj) {
