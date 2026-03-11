@@ -292,7 +292,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         }
         try {
           const dataUrl = canvasRef.current?.toDataURL?.('image/png');
-          if (dataUrl) previewImageBase64 = dataUrl;
+          if (dataUrl) {
+            previewImageBase64 = dataUrl;
+          }
         } catch (captureErr) {
           console.error('Preview capture failed:', captureErr);
         }
@@ -300,7 +302,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         try {
           const domtoimage = (await import('dom-to-image-more')).default;
           const dataUrl = await domtoimage.toPng(mobilePreviewContainerRef.current);
-          if (dataUrl) previewImageBase64 = dataUrl;
+          if (dataUrl) {
+            previewImageBase64 = dataUrl;
+          }
         } catch (captureErr) {
           console.error('Preview capture failed:', captureErr);
         }
