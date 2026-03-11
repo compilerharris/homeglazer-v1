@@ -25,6 +25,7 @@
     "db:migrate-to-mongo": "tsx scripts/migrate-postgres-to-mongodb.ts",
     "generate:jwt-secret": "node scripts/generate-jwt-secret.js",
     "upload:visualiser": "tsx scripts/upload-visualiser-to-s3.ts",
+    "upload:visualiser-thumbnails": "tsx scripts/upload-visualiser-thumbnails-to-s3.ts",
     "upload:media": "tsx scripts/upload-media-to-s3.ts",
     "generate:wp-redirects": "node scripts/generate-wp-redirects.js --write",
     "generate:colour-visualiser-urls": "node scripts/generate-colour-visualiser-urls.js",

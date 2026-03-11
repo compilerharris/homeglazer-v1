@@ -1,4 +1,4 @@
-# AGENTS.md
+image.png# AGENTS.md
 
 ## Cursor Cloud specific instructions
 

@@ -40,6 +40,48 @@ function parsePreviewImageBase64(input: string): Buffer {
   return Buffer.from(base64, 'base64');
 }
 
+async function readImageFromPublicOrS3(mainImagePath: string): Promise<Buffer | null> {
+  try {
+    const sanitized = mainImagePath.replace(/^\//, '');
+    if (!sanitized || sanitized.includes('..')) {
+      return null;
+    }
+
+    const s3Bucket = process.env.S3_BUCKET;
+    const s3Region = process.env.S3_REGION;
+
+    // Prefer S3 when configured (production / Amplify)
+    if (s3Bucket && s3Region) {
+      const baseUrl = `https://${s3Bucket}.s3.${s3Region}.amazonaws.com/visualiser`;
+      const remoteUrl = `${baseUrl}/${sanitized}`;
+      try {
+        const res = await fetch(remoteUrl);
+        if (!res.ok) {
+          console.error('Failed to fetch fallback room image from S3:', remoteUrl, res.status);
+          return null;
+        }
+        const arrayBuffer = await res.arrayBuffer();
+        return Buffer.from(arrayBuffer);
+      } catch (e) {
+        console.error('Error fetching fallback room image from S3:', e);
+        // Fall through to local filesystem attempt below
+      }
+    }
+
+    // Local filesystem fallback (useful in development)
+    const publicPath = path.join(process.cwd(), 'public', sanitized);
+    const resolvedPath = path.resolve(publicPath);
+    const publicDir = path.resolve(process.cwd(), 'public');
+    if (!resolvedPath.startsWith(publicDir)) {
+      return null;
+    }
+    return await readLocalImage(publicPath);
+  } catch (e) {
+    console.error('Error resolving fallback room image path:', e);
+    return null;
+  }
+}
+
 const VALID_HEX = /^#?[0-9A-Fa-f]{6}$/;
 function toValidHex(value: string | undefined): string {
   if (!value) return '#cccccc';
@@ -151,7 +193,7 @@ export async function generateVisualiserSummaryPdf(
       doc.moveDown(1);
 
       // Room Preview (immediately below Customer Details)
-      const maxPreviewBase64Length = 4 * 1024 * 1024; // 4MB
+      const maxPreviewBase64Length = 10 * 1024 * 1024; // 10MB safety guard for base64 string length
       const maxEmbedWidth = contentWidth;
       const maxEmbedHeight = Math.min(320, pageHeight * 0.4);
 
@@ -192,20 +234,22 @@ export async function generateVisualiserSummaryPdf(
         } catch (imgErr) {
           console.error('Error embedding preview image in PDF:', imgErr);
         }
+      } else if (previewImageBase64 && previewImageBase64.length > maxPreviewBase64Length) {
+        console.warn(
+          'Preview image base64 skipped due to size; length=',
+          previewImageBase64.length
+        );
       }
 
       // Fallback: use base room image from public assets when capture is missing
       if (!previewEmbedded && mainImagePath) {
         try {
-          const sanitized = mainImagePath.replace(/^\//, '');
-          if (!sanitized.includes('..') && sanitized.startsWith('assets/')) {
-            const publicPath = path.join(process.cwd(), 'public', sanitized);
-            const resolvedPath = path.resolve(publicPath);
-            const publicDir = path.resolve(process.cwd(), 'public');
-            if (resolvedPath.startsWith(publicDir)) {
-              const rawBuffer = await readLocalImage(publicPath);
-              await embedRoomPreview(rawBuffer);
-            }
+          const rawBuffer = await readImageFromPublicOrS3(mainImagePath);
+          if (rawBuffer) {
+            await embedRoomPreview(rawBuffer);
+            previewEmbedded = true;
+          } else {
+            console.warn('No fallback room image available for PDF preview:', mainImagePath);
           }
         } catch (e) {
           console.error('Fallback room image failed:', e);
