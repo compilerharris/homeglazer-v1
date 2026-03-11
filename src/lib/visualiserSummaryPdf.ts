@@ -49,19 +49,29 @@ async function readImageFromPublicOrS3(mainImagePath: string): Promise<Buffer | 
 
     const s3Bucket = process.env.S3_BUCKET;
     const s3Region = process.env.S3_REGION;
+    const publicS3Base =
+      process.env.NEXT_PUBLIC_S3_MEDIA_URL ||
+      (s3Bucket && s3Region
+        ? `https://${s3Bucket}.s3.${s3Region}.amazonaws.com`
+        : null);
 
-    // Prefer S3 when configured (production / Amplify)
-    if (s3Bucket && s3Region) {
-      const baseUrl = `https://${s3Bucket}.s3.${s3Region}.amazonaws.com/visualiser`;
-      const remoteUrl = `${baseUrl}/${sanitized}`;
+    // Prefer public S3 URL (matches frontend getMediaUrl behaviour)
+    if (publicS3Base) {
+      // Images are uploaded under the visualiser prefix:
+      //   visualiser/assets/images/...
+      const hasVisualiserPrefix = sanitized.startsWith('visualiser/');
+      const s3Path = hasVisualiserPrefix
+        ? sanitized
+        : `visualiser/${sanitized}`;
+      const remoteUrl = `${publicS3Base.replace(/\/+$/, '')}/${s3Path}`;
       try {
         const res = await fetch(remoteUrl);
         if (!res.ok) {
           console.error('Failed to fetch fallback room image from S3:', remoteUrl, res.status);
-          return null;
+        } else {
+          const arrayBuffer = await res.arrayBuffer();
+          return Buffer.from(arrayBuffer);
         }
-        const arrayBuffer = await res.arrayBuffer();
-        return Buffer.from(arrayBuffer);
       } catch (e) {
         console.error('Error fetching fallback room image from S3:', e);
         // Fall through to local filesystem attempt below
@@ -78,6 +88,25 @@ async function readImageFromPublicOrS3(mainImagePath: string): Promise<Buffer | 
     return await readLocalImage(publicPath);
   } catch (e) {
     console.error('Error resolving fallback room image path:', e);
+  }
+
+  // Final fallback: fetch via site URL (works if images are served from the main domain)
+  try {
+    const rawPath = mainImagePath.startsWith('/') ? mainImagePath : `/${mainImagePath}`;
+    const base =
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      process.env.SITE_URL ||
+      'https://homeglazer.com';
+    const url = new URL(rawPath, base).toString();
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.error('Failed to fetch fallback room image via HTTP:', url, res.status);
+      return null;
+    }
+    const arrayBuffer = await res.arrayBuffer();
+    return Buffer.from(arrayBuffer);
+  } catch (e) {
+    console.error('HTTP fallback room image failed:', e);
     return null;
   }
 }
