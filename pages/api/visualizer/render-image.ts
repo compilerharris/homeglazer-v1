@@ -33,15 +33,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: `No main image for variant: ${variant}` });
     }
 
-    // Load from S3 in prod (Amplify) or local file in dev. S3 reduces deployment size (220MB limit).
-    const baseUrl = process.env.S3_BUCKET && process.env.S3_REGION
-      ? `https://${process.env.S3_BUCKET}.s3.${process.env.S3_REGION}.amazonaws.com/visualiser`
-      : null;
-    const imageSrc = baseUrl
-      ? baseUrl + (mainImagePath.startsWith('/') ? mainImagePath : '/' + mainImagePath)
-      : path.join(process.cwd(), 'public', mainImagePath.startsWith('/') ? mainImagePath.slice(1) : mainImagePath);
+    // Use same URL as frontend (getMediaUrl): NEXT_PUBLIC_S3_MEDIA_URL/visualiser/... in prod.
+    // Load via fetch then buffer so serverless has no native HTTPS/SSL issues with loadImage(url).
+    const normalizedPath = mainImagePath.replace(/^\//, '');
+    const s3Base = (process.env.NEXT_PUBLIC_S3_MEDIA_URL || '').trim().replace(/\/+$/, '');
+    const isProductionS3 = s3Base && process.env.NODE_ENV !== 'development';
 
-    const img = await loadImage(imageSrc as string);
+    let img: Awaited<ReturnType<typeof loadImage>>;
+    if (isProductionS3 && normalizedPath.startsWith('assets/images/')) {
+      const s3Url = `${s3Base}/visualiser/${normalizedPath}`;
+      const res = await fetch(s3Url);
+      if (!res.ok) {
+        console.error('[render-image] S3 fetch failed:', s3Url, res.status);
+        return res.status(502).json({ error: 'Failed to load room image' });
+      }
+      const arrayBuffer = await res.arrayBuffer();
+      img = await loadImage(Buffer.from(arrayBuffer));
+    } else {
+      const localPath = path.join(process.cwd(), 'public', normalizedPath);
+      img = await loadImage(localPath);
+    }
     const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     const ctx = canvas.getContext('2d');
 
