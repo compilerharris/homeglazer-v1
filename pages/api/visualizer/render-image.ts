@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
-import { createCanvas, loadImage } from '@napi-rs/canvas';
-import { Path2D } from 'path2d';
+import { createCanvas, loadImage, Path2D } from '@napi-rs/canvas';
 import { getWallMasksForVariant, getVariantMainImage } from '../../../src/lib/visualizer/serverWallMasks';
 
 const CANVAS_WIDTH = 1280;
@@ -33,38 +32,45 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: `No main image for variant: ${variant}` });
     }
 
-    // Use same URL as frontend (getMediaUrl): NEXT_PUBLIC_S3_MEDIA_URL/visualiser/... in prod.
-    // Load via fetch then buffer so serverless has no native HTTPS/SSL issues with loadImage(url).
-    const normalizedPath = mainImagePath.replace(/^\//, '');
-    const s3Base = (process.env.NEXT_PUBLIC_S3_MEDIA_URL || '').trim().replace(/\/+$/, '');
-    const isProductionS3 = s3Base && process.env.NODE_ENV !== 'development';
+    // Use NEXT_PUBLIC_S3_MEDIA_URL in production (matches frontend getMediaUrl behaviour).
+    // Falls back to S3_BUCKET/S3_REGION, then local filesystem.
+    const s3MediaUrl = (process.env.NEXT_PUBLIC_S3_MEDIA_URL || '').trim().replace(/\/+$/, '');
+    const s3BucketUrl = process.env.S3_BUCKET && process.env.S3_REGION
+      ? `https://${process.env.S3_BUCKET}.s3.${process.env.S3_REGION}.amazonaws.com`
+      : null;
+    const s3Base = s3MediaUrl || s3BucketUrl;
+    const normalizedPath = mainImagePath.startsWith('/') ? mainImagePath.slice(1) : mainImagePath;
+
+    let imageSrc: string;
+    const isProduction = s3Base && process.env.NODE_ENV !== 'development';
+    if (isProduction && normalizedPath.startsWith('assets/images/')) {
+      imageSrc = `${s3Base}/visualiser/${normalizedPath}`;
+    } else if (isProduction) {
+      imageSrc = `${s3Base}/visualiser${mainImagePath.startsWith('/') ? mainImagePath : '/' + mainImagePath}`;
+    } else {
+      imageSrc = path.join(process.cwd(), 'public', normalizedPath);
+    }
+
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:loadImage',message:'loading image',data:{imageSrc,isProduction:!!isProduction,nodeEnv:process.env.NODE_ENV},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion agent log
 
     let img: Awaited<ReturnType<typeof loadImage>>;
-    if (isProductionS3 && normalizedPath.startsWith('assets/images/')) {
-      const s3Url = `${s3Base}/visualiser/${normalizedPath}`;
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:s3-fetch',message:'attempting S3 fetch',data:{s3Url,s3Base,normalizedPath,nodeEnv:process.env.NODE_ENV},timestamp:Date.now()})}).catch(()=>{});
-      // #endregion agent log
-      const fetchRes = await fetch(s3Url);
+    if (isProduction) {
+      const fetchRes = await fetch(imageSrc);
       if (!fetchRes.ok) {
-        console.error('[render-image] S3 fetch failed:', s3Url, fetchRes.status);
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:s3-fetch-failed',message:'S3 fetch failed',data:{s3Url,status:fetchRes.status},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion agent log
+        console.error('[render-image] S3 fetch failed:', imageSrc, fetchRes.status);
         return res.status(502).json({ error: 'Failed to load room image' });
       }
-      const arrayBuffer = await fetchRes.arrayBuffer();
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:s3-fetch-ok',message:'S3 fetch succeeded',data:{s3Url,bufferSize:arrayBuffer.byteLength},timestamp:Date.now()})}).catch(()=>{});
-      // #endregion agent log
-      img = await loadImage(Buffer.from(arrayBuffer));
+      img = await loadImage(Buffer.from(await fetchRes.arrayBuffer()));
     } else {
-      const localPath = path.join(process.cwd(), 'public', normalizedPath);
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:local-load',message:'loading local image',data:{localPath,s3Base:s3Base||'(empty)',nodeEnv:process.env.NODE_ENV},timestamp:Date.now()})}).catch(()=>{});
-      // #endregion agent log
-      img = await loadImage(localPath);
+      img = await loadImage(imageSrc);
     }
+
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:imageLoaded',message:'image loaded successfully',data:{width:img.width,height:img.height},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion agent log
+
     const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     const ctx = canvas.getContext('2d');
 
@@ -111,6 +117,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const buffer = await canvas.encode('png');
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:done',message:'render complete',data:{mode,bufferSize:buffer.byteLength,variant},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion agent log
     res.setHeader('Content-Type', 'image/png');
     res.setHeader('Cache-Control', 'public, max-age=3600');
     res.send(buffer);
