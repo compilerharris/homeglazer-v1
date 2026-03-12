@@ -29,6 +29,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const colorSelections = Array.isArray(body.colorSelections) ? body.colorSelections : [];
     const previewImageBase64 = body.previewImageBase64 || '';
     const mainImagePath = body.mainImagePath || '';
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H1',location:'email-visualiser-summary.ts:request',message:'email summary request received',data:{previewLength:typeof previewImageBase64==='string'?previewImageBase64.length:0,mainImagePath,variant:roomVariantLabel,colorSelectionCount:colorSelections.length},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion agent log
 
     if (!fullName || !email || !phone) {
       return res.status(400).json({
@@ -256,8 +259,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         previewImageBase64,
         mainImagePath,
       });
+      // #region agent log
+      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H2',location:'email-visualiser-summary.ts:pdfGenerated',message:'pdf generation completed',data:{pdfSize:pdfBuffer?.length||0,hasPdf:!!pdfBuffer},timestamp:Date.now()})}).catch(()=>{});
+      // #endregion agent log
     } catch (pdfError: unknown) {
       console.error('Error generating visualiser summary PDF:', pdfError);
+      // #region agent log
+      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H2',location:'email-visualiser-summary.ts:pdfError',message:'pdf generation threw error',data:{error:pdfError instanceof Error?pdfError.message:String(pdfError)},timestamp:Date.now()})}).catch(()=>{});
+      // #endregion agent log
     }
 
     const hasValidPdf = pdfBuffer && pdfBuffer.length > 500;

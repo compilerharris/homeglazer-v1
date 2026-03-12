@@ -31,6 +31,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!mainImagePath) {
       return res.status(400).json({ error: `No main image for variant: ${variant}` });
     }
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H4',location:'render-image.ts:requestShape',message:'render request parsed',data:{variant,mode,maskCount:Object.keys(wallMasks).length,assignmentCount:assignments&&typeof assignments==='object'?Object.keys(assignments).length:0,mainImagePath},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion agent log
 
     // Use NEXT_PUBLIC_S3_MEDIA_URL in production (matches frontend getMediaUrl behaviour).
     // Falls back to S3_BUCKET/S3_REGION, then local filesystem.
