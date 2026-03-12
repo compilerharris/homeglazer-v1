@@ -79,29 +79,6 @@ const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, [currentSlide, colorIndex]);
 
-  // #region agent log
-  useEffect(() => {
-    const measure = () => {
-      const hero = heroRef.current;
-      const slide1 = slide1Ref.current;
-      const wrapper = slide1?.querySelector('[data-hero-visualiser]');
-      const canvas = slide1?.querySelector('canvas');
-      const img = slide1?.querySelector('img');
-      const vizEl = canvas ?? img ?? wrapper;
-      if (!hero || !slide1) return;
-      const heroRect = hero.getBoundingClientRect();
-      const slide1Rect = slide1.getBoundingClientRect();
-      const vizRect = vizEl?.getBoundingClientRect();
-      fetch('http://127.0.0.1:7242/ingest/21adcf91-15ca-4563-a889-6dc1018faf8e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'d2c525'},body:JSON.stringify({sessionId:'d2c525',location:'Hero.tsx:measure',message:'Hero banner dimensions',data:{isMobileDevice,vizType:canvas?'canvas':'svg',heroW:heroRect.width,heroH:heroRect.height,slide1W:slide1Rect.width,slide1H:slide1Rect.height,vizW:vizRect?.width,vizH:vizRect?.height,innerWidth:typeof window!=='undefined'?window.innerWidth:0},timestamp:Date.now(),hypothesisId:'B,C'})}).catch(()=>{});
-    };
-    const t = setTimeout(measure, 100);
-    const ro = new ResizeObserver(measure);
-    const el = heroRef.current;
-    if (el) ro.observe(el);
-    return () => { clearTimeout(t); ro.disconnect(); };
-  }, [isMobileDevice]);
-  // #endregion
-
   // Different color per wall layer (front, right, window) - offsets for variation
   const wallLayers = HOMEOFFICE11_WALL_KEYS.map((key) => {
     const path = embeddedWallMasks.homeoffice11?.[key];

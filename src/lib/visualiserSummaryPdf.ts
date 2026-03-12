@@ -54,9 +54,6 @@ async function readImageFromPublicOrS3(mainImagePath: string): Promise<Buffer | 
       (s3Bucket && s3Region
         ? `https://${s3Bucket}.s3.${s3Region}.amazonaws.com`
         : null);
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H3',location:'visualiserSummaryPdf.ts:readImageFromPublicOrS3:start',message:'fallback image lookup started',data:{mainImagePath,sanitized,hasPublicS3Base:!!publicS3Base},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion agent log
 
     // Prefer public S3 URL (matches frontend getMediaUrl behaviour)
     if (publicS3Base) {
@@ -71,14 +68,8 @@ async function readImageFromPublicOrS3(mainImagePath: string): Promise<Buffer | 
         const res = await fetch(remoteUrl);
         if (!res.ok) {
           console.error('Failed to fetch fallback room image from S3:', remoteUrl, res.status);
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H3',location:'visualiserSummaryPdf.ts:readImageFromPublicOrS3:s3Fail',message:'fallback S3 image fetch failed',data:{remoteUrl,status:res.status},timestamp:Date.now()})}).catch(()=>{});
-          // #endregion agent log
         } else {
           const arrayBuffer = await res.arrayBuffer();
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H3',location:'visualiserSummaryPdf.ts:readImageFromPublicOrS3:s3Ok',message:'fallback S3 image fetch succeeded',data:{remoteUrl,bytes:arrayBuffer.byteLength},timestamp:Date.now()})}).catch(()=>{});
-          // #endregion agent log
           return Buffer.from(arrayBuffer);
         }
       } catch (e) {
@@ -95,9 +86,6 @@ async function readImageFromPublicOrS3(mainImagePath: string): Promise<Buffer | 
       return null;
     }
     const localBuffer = await readLocalImage(publicPath);
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H3',location:'visualiserSummaryPdf.ts:readImageFromPublicOrS3:localOk',message:'fallback local image read succeeded',data:{publicPath,bytes:localBuffer.length},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion agent log
     return localBuffer;
   } catch (e) {
     console.error('Error resolving fallback room image path:', e);
@@ -117,9 +105,6 @@ async function readImageFromPublicOrS3(mainImagePath: string): Promise<Buffer | 
       return null;
     }
     const arrayBuffer = await res.arrayBuffer();
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H3',location:'visualiserSummaryPdf.ts:readImageFromPublicOrS3:httpOk',message:'fallback site HTTP image fetch succeeded',data:{url,bytes:arrayBuffer.byteLength},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion agent log
     return Buffer.from(arrayBuffer);
   } catch (e) {
     console.error('HTTP fallback room image failed:', e);
@@ -170,9 +155,6 @@ export async function generateVisualiserSummaryPdf(
         previewImageBase64,
         mainImagePath,
       } = data;
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H1',location:'visualiserSummaryPdf.ts:start',message:'starting PDF generation',data:{previewLength:typeof previewImageBase64==='string'?previewImageBase64.length:0,mainImagePath,colorSelectionCount:Array.isArray(colorSelections)?colorSelections.length:0},timestamp:Date.now()})}).catch(()=>{});
-      // #endregion agent log
 
       const logoPath = path.join(process.cwd(), 'public', 'assets', 'images', 'home-glazer-logo-1.png');
       const logoWidth = 180;
@@ -279,14 +261,8 @@ export async function generateVisualiserSummaryPdf(
           const rawBuffer = parsePreviewImageBase64(previewImageBase64);
           await embedRoomPreview(rawBuffer);
           previewEmbedded = true;
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H2',location:'visualiserSummaryPdf.ts:previewEmbedOk',message:'embedded previewImageBase64 into PDF',data:{rawBytes:rawBuffer.length},timestamp:Date.now()})}).catch(()=>{});
-          // #endregion agent log
         } catch (imgErr) {
           console.error('Error embedding preview image in PDF:', imgErr);
-          // #region agent log
-          fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H2',location:'visualiserSummaryPdf.ts:previewEmbedFail',message:'failed embedding previewImageBase64',data:{error:imgErr instanceof Error?imgErr.message:String(imgErr)},timestamp:Date.now()})}).catch(()=>{});
-          // #endregion agent log
         }
       } else if (previewImageBase64 && previewImageBase64.length > maxPreviewBase64Length) {
         console.warn(
@@ -302,14 +278,8 @@ export async function generateVisualiserSummaryPdf(
           if (rawBuffer) {
             await embedRoomPreview(rawBuffer);
             previewEmbedded = true;
-            // #region agent log
-            fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H3',location:'visualiserSummaryPdf.ts:fallbackEmbedOk',message:'embedded fallback room image into PDF',data:{mainImagePath,rawBytes:rawBuffer.length},timestamp:Date.now()})}).catch(()=>{});
-            // #endregion agent log
           } else {
             console.warn('No fallback room image available for PDF preview:', mainImagePath);
-            // #region agent log
-            fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-2',hypothesisId:'H3',location:'visualiserSummaryPdf.ts:fallbackEmbedMissing',message:'no fallback room image available for PDF',data:{mainImagePath},timestamp:Date.now()})}).catch(()=>{});
-            // #endregion agent log
           }
         } catch (e) {
           console.error('Fallback room image failed:', e);

@@ -69,25 +69,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const mainImagePath = await getVariantMainImage(variant, requestOrigin);
 
     if (!wallMasks || Object.keys(wallMasks).length === 0) {
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-3',hypothesisId:'H5',location:'render-image.ts:maskLookupFailed',message:'variant masks missing',data:{variant,requestOrigin,nodeEnv:process.env.NODE_ENV},timestamp:Date.now()})}).catch(()=>{});
-      // #endregion agent log
       return res.status(400).json({ error: `Unknown variant: ${variant}` });
     }
     if (!mainImagePath) {
       return res.status(400).json({ error: `No main image for variant: ${variant}` });
     }
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-3',hypothesisId:'H5',location:'render-image.ts:requestShape',message:'render request parsed',data:{variant,mode,maskCount:Object.keys(wallMasks).length,assignmentCount:assignments&&typeof assignments==='object'?Object.keys(assignments).length:0,mainImagePath,requestOrigin,nodeEnv:process.env.NODE_ENV},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion agent log
 
     const sourceCandidates = buildImageSourceCandidates(mainImagePath, requestOrigin);
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-3',hypothesisId:'H6',location:'render-image.ts:imageSourceCandidates',message:'built image source candidates',data:{candidateCount:sourceCandidates.length,firstCandidate:sourceCandidates[0]||''},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion agent log
 
     let img: Awaited<ReturnType<typeof loadImage>> | null = null;
-    let loadedFrom = '';
     for (const source of sourceCandidates) {
       try {
         if (/^https?:\/\//i.test(source)) {
@@ -97,7 +87,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         } else {
           img = await loadImage(source);
         }
-        loadedFrom = source;
         break;
       } catch {
         // Try next candidate source
@@ -109,9 +98,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(502).json({ error: 'Failed to load room image' });
     }
 
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-3',hypothesisId:'H6',location:'render-image.ts:imageLoaded',message:'image loaded successfully',data:{width:img.width,height:img.height,loadedFrom},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion agent log
 
     const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     const ctx = canvas.getContext('2d');
@@ -159,9 +145,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const buffer = await canvas.encode('png');
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',runId:'run-3',hypothesisId:'H7',location:'render-image.ts:done',message:'render complete',data:{mode,bufferSize:buffer.byteLength,variant},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion agent log
     res.setHeader('Content-Type', 'image/png');
     res.setHeader('Cache-Control', 'public, max-age=3600');
     res.send(buffer);
