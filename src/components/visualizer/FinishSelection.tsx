@@ -161,6 +161,9 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
       });
 
       clearTimeout(timeoutId);
+      // #region agent log
+      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'FinishSelection.tsx:fetchServerPreviewImage',message:'server preview response',data:{status:res.status,ok:res.ok,contentType:res.headers.get('content-type')},timestamp:Date.now()})}).catch(()=>{});
+      // #endregion agent log
       if (!res.ok) {
         console.error('Server preview render failed with status', res.status);
         return '';
@@ -310,6 +313,10 @@ const FinishSelection: React.FC<FinishSelectionProps> = ({
         }
       }
     }
+
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'FinishSelection.tsx:handleEmailSubmit:afterPreview',message:'preview source result',data:{hasPreview:!!previewImageBase64,previewLength:previewImageBase64?previewImageBase64.length:0,windowWidth:typeof window!=='undefined'?window.innerWidth:null,isMobileDevice},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion agent log
 
     const colorSelections = Object.entries(assignments).map(([wallKey, colorHex]) => {
       const wallLabel = wallLabels[wallKey] || capitalizeWords(wallKey.replace(/-/g, ' '));

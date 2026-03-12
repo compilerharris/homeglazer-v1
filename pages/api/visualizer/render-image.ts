@@ -42,15 +42,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     let img: Awaited<ReturnType<typeof loadImage>>;
     if (isProductionS3 && normalizedPath.startsWith('assets/images/')) {
       const s3Url = `${s3Base}/visualiser/${normalizedPath}`;
-      const res = await fetch(s3Url);
-      if (!res.ok) {
-        console.error('[render-image] S3 fetch failed:', s3Url, res.status);
+      // #region agent log
+      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:s3-fetch',message:'attempting S3 fetch',data:{s3Url,s3Base,normalizedPath,nodeEnv:process.env.NODE_ENV},timestamp:Date.now()})}).catch(()=>{});
+      // #endregion agent log
+      const fetchRes = await fetch(s3Url);
+      if (!fetchRes.ok) {
+        console.error('[render-image] S3 fetch failed:', s3Url, fetchRes.status);
+        // #region agent log
+        fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:s3-fetch-failed',message:'S3 fetch failed',data:{s3Url,status:fetchRes.status},timestamp:Date.now()})}).catch(()=>{});
+        // #endregion agent log
         return res.status(502).json({ error: 'Failed to load room image' });
       }
-      const arrayBuffer = await res.arrayBuffer();
+      const arrayBuffer = await fetchRes.arrayBuffer();
+      // #region agent log
+      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:s3-fetch-ok',message:'S3 fetch succeeded',data:{s3Url,bufferSize:arrayBuffer.byteLength},timestamp:Date.now()})}).catch(()=>{});
+      // #endregion agent log
       img = await loadImage(Buffer.from(arrayBuffer));
     } else {
       const localPath = path.join(process.cwd(), 'public', normalizedPath);
+      // #region agent log
+      fetch('http://127.0.0.1:7242/ingest/743b1d01-8481-4e0a-a23c-c93d930c801e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'3eba01'},body:JSON.stringify({sessionId:'3eba01',location:'render-image.ts:local-load',message:'loading local image',data:{localPath,s3Base:s3Base||'(empty)',nodeEnv:process.env.NODE_ENV},timestamp:Date.now()})}).catch(()=>{});
+      // #endregion agent log
       img = await loadImage(localPath);
     }
     const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
